@@ -1,0 +1,31 @@
+//! Resource modules
+
+pub mod app_input_source;
+pub use app_input_source::App_input_source;
+pub mod app_version;
+pub use app_version::App_version;
+pub mod app_version_template;
+pub use app_version_template::App_version_template;
+pub mod app_version_resource;
+pub use app_version_resource::App_version_resource;
+pub mod app;
+pub use app::App;
+pub mod resiliency_policy;
+pub use resiliency_policy::Resiliency_policy;
+pub mod app_version_app_component;
+pub use app_version_app_component::App_version_app_component;
+pub mod app_version_resources_resolution_status;
+pub use app_version_resources_resolution_status::App_version_resources_resolution_status;
+pub mod resource_grouping_recommendation_task;
+pub use resource_grouping_recommendation_task::Resource_grouping_recommendation_task;
+pub mod app_assessment;
+pub use app_assessment::App_assessment;
+pub mod draft_app_version_resources_import_status;
+pub use draft_app_version_resources_import_status::Draft_app_version_resources_import_status;
+pub mod recommendation_template;
+pub use recommendation_template::Recommendation_template;
+pub mod draft_app_version_template;
+pub use draft_app_version_template::Draft_app_version_template;
+pub mod metrics_export;
+pub use metrics_export::Metrics_export;
+

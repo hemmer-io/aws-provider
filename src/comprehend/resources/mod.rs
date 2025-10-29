@@ -1,0 +1,35 @@
+//! Resource modules
+
+pub mod flywheel;
+pub use flywheel::Flywheel;
+pub mod flywheel_iteration;
+pub use flywheel_iteration::Flywheel_iteration;
+pub mod pii_entities_detection_job;
+pub use pii_entities_detection_job::Pii_entities_detection_job;
+pub mod endpoint;
+pub use endpoint::Endpoint;
+pub mod sentiment_detection_job;
+pub use sentiment_detection_job::Sentiment_detection_job;
+pub mod key_phrases_detection_job;
+pub use key_phrases_detection_job::Key_phrases_detection_job;
+pub mod targeted_sentiment_detection_job;
+pub use targeted_sentiment_detection_job::Targeted_sentiment_detection_job;
+pub mod entity_recognizer;
+pub use entity_recognizer::Entity_recognizer;
+pub mod topics_detection_job;
+pub use topics_detection_job::Topics_detection_job;
+pub mod resource_policy;
+pub use resource_policy::Resource_policy;
+pub mod document_classifier;
+pub use document_classifier::Document_classifier;
+pub mod dominant_language_detection_job;
+pub use dominant_language_detection_job::Dominant_language_detection_job;
+pub mod entities_detection_job;
+pub use entities_detection_job::Entities_detection_job;
+pub mod events_detection_job;
+pub use events_detection_job::Events_detection_job;
+pub mod document_classification_job;
+pub use document_classification_job::Document_classification_job;
+pub mod dataset;
+pub use dataset::Dataset;
+

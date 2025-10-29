@@ -1,0 +1,79 @@
+//! Tenant resource
+//!
+//! Tenant resource
+
+use crate::{ProviderError, Result};
+use std::collections::HashMap;
+
+/// Tenant resource handler
+pub struct Tenant<'a> {
+    provider: &'a crate::AwsProvider,
+}
+
+impl<'a> Tenant<'a> {
+    pub(crate) fn new(provider: &'a crate::AwsProvider) -> Self {
+        Self { provider }
+    }
+
+
+    /// Create a new tenant
+    ///
+    /// Note: Parameter types are simplified. SDK may require specific enums/types.
+    /// TODO: Convert String parameters to appropriate SDK types as needed.
+    #[allow(unused_variables)]
+    pub async fn create(&self, tenant_name: String, tags: Option<Vec<String>>) -> Result<String> {
+
+        // Note: This is a generated skeleton. Type conversions may be needed.
+        // TODO: Implement actual SDK call with proper type mapping
+        let _client = &self.provider.sesv2_client;
+
+        // Placeholder: Real implementation needs SDK-specific type conversion
+        Ok(format!("tenant_created"))
+
+    }
+
+
+
+    /// Read/describe a tenant
+    ///
+    /// TODO: Map `id` parameter to appropriate SDK field(s)
+    #[allow(unused_variables)]
+    pub async fn read(&self, id: &str) -> Result<()> {
+
+        // Note: This is a generated skeleton.
+        // TODO: Map resource ID to SDK parameters
+        let _client = &self.provider.sesv2_client;
+
+        Ok(())
+
+    }
+
+
+
+
+
+    /// Delete a tenant
+    ///
+    /// TODO: Map `id` parameter to appropriate SDK field(s)
+    #[allow(unused_variables)]
+    pub async fn delete(&self, id: &str) -> Result<()> {
+
+        // Note: This is a generated skeleton.
+        // TODO: Map resource ID to SDK parameters
+        let _client = &self.provider.sesv2_client;
+
+        Ok(())
+
+    }
+
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn test_tenant_operations() {
+        // Test tenant CRUD operations
+    }
+}

@@ -1,0 +1,29 @@
+//! Resource modules
+
+pub mod object;
+pub use object::Object;
+pub mod schema;
+pub use schema::Schema;
+pub mod typed_link_facet_information;
+pub use typed_link_facet_information::Typed_link_facet_information;
+pub mod object_attributes;
+pub use object_attributes::Object_attributes;
+pub mod index;
+pub use index::Index;
+pub mod link_attributes;
+pub use link_attributes::Link_attributes;
+pub mod facet;
+pub use facet::Facet;
+pub mod schema_as_json;
+pub use schema_as_json::Schema_as_json;
+pub mod object_information;
+pub use object_information::Object_information;
+pub mod schema_from_json;
+pub use schema_from_json::Schema_from_json;
+pub mod typed_link_facet;
+pub use typed_link_facet::Typed_link_facet;
+pub mod directory;
+pub use directory::Directory;
+pub mod applied_schema_version;
+pub use applied_schema_version::Applied_schema_version;
+
