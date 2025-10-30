@@ -1,0 +1,37 @@
+//! Resource modules
+
+pub mod ebs_volume_recommendations;
+pub use ebs_volume_recommendations::Ebs_volume_recommendations;
+pub mod lambda_function_recommendations;
+pub use lambda_function_recommendations::Lambda_function_recommendations;
+pub mod rds_database_recommendations;
+pub use rds_database_recommendations::Rds_database_recommendations;
+pub mod recommendation_export_jobs;
+pub use recommendation_export_jobs::Recommendation_export_jobs;
+pub mod ec2_instance_recommendations;
+pub use ec2_instance_recommendations::Ec2_instance_recommendations;
+pub mod license_recommendations;
+pub use license_recommendations::License_recommendations;
+pub mod recommendation_preferences;
+pub use recommendation_preferences::Recommendation_preferences;
+pub mod ecs_service_recommendation_projected_metrics;
+pub use ecs_service_recommendation_projected_metrics::Ecs_service_recommendation_projected_metrics;
+pub mod enrollment_status;
+pub use enrollment_status::Enrollment_status;
+pub mod ecs_service_recommendations;
+pub use ecs_service_recommendations::Ecs_service_recommendations;
+pub mod auto_scaling_group_recommendations;
+pub use auto_scaling_group_recommendations::Auto_scaling_group_recommendations;
+pub mod idle_recommendations;
+pub use idle_recommendations::Idle_recommendations;
+pub mod effective_recommendation_preferences;
+pub use effective_recommendation_preferences::Effective_recommendation_preferences;
+pub mod rds_database_recommendation_projected_metrics;
+pub use rds_database_recommendation_projected_metrics::Rds_database_recommendation_projected_metrics;
+pub mod enrollment_statuses_for_organization;
+pub use enrollment_statuses_for_organization::Enrollment_statuses_for_organization;
+pub mod recommendation_summaries;
+pub use recommendation_summaries::Recommendation_summaries;
+pub mod ec2_recommendation_projected_metrics;
+pub use ec2_recommendation_projected_metrics::Ec2_recommendation_projected_metrics;
+

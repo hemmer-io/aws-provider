@@ -1,0 +1,31 @@
+//! Resource modules
+
+pub mod phone_number_settings;
+pub use phone_number_settings::Phone_number_settings;
+pub mod user;
+pub use user::User;
+pub mod bot;
+pub use bot::Bot;
+pub mod meeting_dial_out;
+pub use meeting_dial_out::Meeting_dial_out;
+pub mod account;
+pub use account::Account;
+pub mod phone_number;
+pub use phone_number::Phone_number;
+pub mod account_settings;
+pub use account_settings::Account_settings;
+pub mod room_membership;
+pub use room_membership::Room_membership;
+pub mod retention_settings;
+pub use retention_settings::Retention_settings;
+pub mod room;
+pub use room::Room;
+pub mod phone_number_order;
+pub use phone_number_order::Phone_number_order;
+pub mod events_configuration;
+pub use events_configuration::Events_configuration;
+pub mod global_settings;
+pub use global_settings::Global_settings;
+pub mod user_settings;
+pub use user_settings::User_settings;
+

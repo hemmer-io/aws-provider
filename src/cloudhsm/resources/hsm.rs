@@ -21,7 +21,7 @@ impl<'a> Hsm<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, eni_ip: Option<String>, iam_role_arn: String, client_token: Option<String>, ssh_key: String, subnet_id: String, external_id: Option<String>, subscription_type: String, syslog_ip: Option<String>) -> Result<String> {
+    pub async fn create(&self, cluster_id: String, availability_zone: String, ip_address: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -33,20 +33,6 @@ impl<'a> Hsm<'a> {
     }
 
 
-
-    /// Read/describe a hsm
-    ///
-    /// TODO: Map `id` parameter to appropriate SDK field(s)
-    #[allow(unused_variables)]
-    pub async fn read(&self, id: &str) -> Result<()> {
-
-        // Note: This is a generated skeleton.
-        // TODO: Map resource ID to SDK parameters
-        let _client = &self.provider.cloudhsm_client;
-
-        Ok(())
-
-    }
 
 
 

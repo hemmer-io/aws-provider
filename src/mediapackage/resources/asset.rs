@@ -21,7 +21,7 @@ impl<'a> Asset<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<HashMap<String, String>>, resource_id: Option<String>, packaging_group_id: String, source_role_arn: String, id: String, source_arn: String) -> Result<String> {
+    pub async fn create(&self, source_arn: String, source_role_arn: String, resource_id: Option<String>, id: String, tags: Option<HashMap<String, String>>, packaging_group_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

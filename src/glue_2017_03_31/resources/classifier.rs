@@ -1,0 +1,93 @@
+//! Classifier resource
+//!
+//! Classifier resource
+
+use crate::{ProviderError, Result};
+use std::collections::HashMap;
+
+/// Classifier resource handler
+pub struct Classifier<'a> {
+    provider: &'a crate::AwsProvider,
+}
+
+impl<'a> Classifier<'a> {
+    pub(crate) fn new(provider: &'a crate::AwsProvider) -> Self {
+        Self { provider }
+    }
+
+
+    /// Create a new classifier
+    ///
+    /// Note: Parameter types are simplified. SDK may require specific enums/types.
+    /// TODO: Convert String parameters to appropriate SDK types as needed.
+    #[allow(unused_variables)]
+    pub async fn create(&self, xml_classifier: Option<String>, grok_classifier: Option<String>, csv_classifier: Option<String>, json_classifier: Option<String>) -> Result<String> {
+
+        // Note: This is a generated skeleton. Type conversions may be needed.
+        // TODO: Implement actual SDK call with proper type mapping
+        let _client = &self.provider.glue_2017_03_31_client;
+
+        // Placeholder: Real implementation needs SDK-specific type conversion
+        Ok(format!("classifier_created"))
+
+    }
+
+
+
+    /// Read/describe a classifier
+    ///
+    /// TODO: Map `id` parameter to appropriate SDK field(s)
+    #[allow(unused_variables)]
+    pub async fn read(&self, id: &str) -> Result<()> {
+
+        // Note: This is a generated skeleton.
+        // TODO: Map resource ID to SDK parameters
+        let _client = &self.provider.glue_2017_03_31_client;
+
+        Ok(())
+
+    }
+
+
+
+    /// Update a classifier
+    ///
+    /// TODO: Map `id` and update fields to appropriate SDK parameters
+    #[allow(unused_variables)]
+    pub async fn update(&self, id: &str, xml_classifier: Option<String>, grok_classifier: Option<String>, csv_classifier: Option<String>, json_classifier: Option<String>) -> Result<()> {
+
+        // Note: This is a generated skeleton.
+        // TODO: Map resource ID and update fields to SDK parameters
+        let _client = &self.provider.glue_2017_03_31_client;
+
+        Ok(())
+
+    }
+
+
+
+    /// Delete a classifier
+    ///
+    /// TODO: Map `id` parameter to appropriate SDK field(s)
+    #[allow(unused_variables)]
+    pub async fn delete(&self, id: &str) -> Result<()> {
+
+        // Note: This is a generated skeleton.
+        // TODO: Map resource ID to SDK parameters
+        let _client = &self.provider.glue_2017_03_31_client;
+
+        Ok(())
+
+    }
+
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn test_classifier_operations() {
+        // Test classifier CRUD operations
+    }
+}

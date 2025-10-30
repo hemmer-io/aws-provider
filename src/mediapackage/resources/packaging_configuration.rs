@@ -21,7 +21,7 @@ impl<'a> Packaging_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, cmaf_package: Option<String>, hls_package: Option<String>, tags: Option<HashMap<String, String>>, packaging_group_id: String, id: String, mss_package: Option<String>, dash_package: Option<String>) -> Result<String> {
+    pub async fn create(&self, id: String, packaging_group_id: String, dash_package: Option<String>, tags: Option<HashMap<String, String>>, cmaf_package: Option<String>, hls_package: Option<String>, mss_package: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

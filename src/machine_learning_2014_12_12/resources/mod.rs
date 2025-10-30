@@ -1,0 +1,29 @@
+//! Resource modules
+
+pub mod batch_predictions;
+pub use batch_predictions::Batch_predictions;
+pub mod ml_model;
+pub use ml_model::Ml_model;
+pub mod data_source;
+pub use data_source::Data_source;
+pub mod tags;
+pub use tags::Tags;
+pub mod ml_models;
+pub use ml_models::Ml_models;
+pub mod data_source_from_rds;
+pub use data_source_from_rds::Data_source_from_rds;
+pub mod batch_prediction;
+pub use batch_prediction::Batch_prediction;
+pub mod data_source_from_s3;
+pub use data_source_from_s3::Data_source_from_s3;
+pub mod realtime_endpoint;
+pub use realtime_endpoint::Realtime_endpoint;
+pub mod data_sources;
+pub use data_sources::Data_sources;
+pub mod evaluations;
+pub use evaluations::Evaluations;
+pub mod evaluation;
+pub use evaluation::Evaluation;
+pub mod data_source_from_redshift;
+pub use data_source_from_redshift::Data_source_from_redshift;
+

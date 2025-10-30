@@ -1,0 +1,31 @@
+//! Resource modules
+
+pub mod file_upload_url;
+pub use file_upload_url::File_upload_url;
+pub mod hit_type;
+pub use hit_type::Hit_type;
+pub mod hit_review_status;
+pub use hit_review_status::Hit_review_status;
+pub mod notification_settings;
+pub use notification_settings::Notification_settings;
+pub mod qualification_type;
+pub use qualification_type::Qualification_type;
+pub mod assignment;
+pub use assignment::Assignment;
+pub mod qualification_score;
+pub use qualification_score::Qualification_score;
+pub mod hit_type_of_hit;
+pub use hit_type_of_hit::Hit_type_of_hit;
+pub mod hit_with_hit_type;
+pub use hit_with_hit_type::Hit_with_hit_type;
+pub mod additional_assignments_for_hit;
+pub use additional_assignments_for_hit::Additional_assignments_for_hit;
+pub mod expiration_for_hit;
+pub use expiration_for_hit::Expiration_for_hit;
+pub mod account_balance;
+pub use account_balance::Account_balance;
+pub mod worker_block;
+pub use worker_block::Worker_block;
+pub mod hit;
+pub use hit::Hit;
+

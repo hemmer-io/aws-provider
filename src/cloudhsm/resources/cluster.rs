@@ -21,7 +21,7 @@ impl<'a> Cluster<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, source_backup_id: Option<String>, hsm_type: String, tag_list: Option<Vec<String>>, network_type: Option<String>, subnet_ids: Vec<String>, backup_retention_policy: Option<String>, mode: Option<String>) -> Result<String> {
+    pub async fn create(&self, backup_retention_policy: Option<String>, hsm_type: String, subnet_ids: Vec<String>, network_type: Option<String>, source_backup_id: Option<String>, tag_list: Option<Vec<String>>, mode: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

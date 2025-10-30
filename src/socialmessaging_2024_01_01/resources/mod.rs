@@ -1,0 +1,9 @@
+//! Resource modules
+
+pub mod whats_app_message_template;
+pub use whats_app_message_template::Whats_app_message_template;
+pub mod whats_app_message_template_media;
+pub use whats_app_message_template_media::Whats_app_message_template_media;
+pub mod whats_app_message_template_from_library;
+pub use whats_app_message_template_from_library::Whats_app_message_template_from_library;
+

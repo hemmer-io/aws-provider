@@ -1,0 +1,29 @@
+//! Resource modules
+
+pub mod organization_resource_collection_health;
+pub use organization_resource_collection_health::Organization_resource_collection_health;
+pub mod anomaly;
+pub use anomaly::Anomaly;
+pub mod account_health;
+pub use account_health::Account_health;
+pub mod organization_overview;
+pub use organization_overview::Organization_overview;
+pub mod resource_collection_health;
+pub use resource_collection_health::Resource_collection_health;
+pub mod resource_collection;
+pub use resource_collection::Resource_collection;
+pub mod feedback;
+pub use feedback::Feedback;
+pub mod service_integration;
+pub use service_integration::Service_integration;
+pub mod cost_estimation;
+pub use cost_estimation::Cost_estimation;
+pub mod account_overview;
+pub use account_overview::Account_overview;
+pub mod insight;
+pub use insight::Insight;
+pub mod organization_health;
+pub use organization_health::Organization_health;
+pub mod event_sources_config;
+pub use event_sources_config::Event_sources_config;
+

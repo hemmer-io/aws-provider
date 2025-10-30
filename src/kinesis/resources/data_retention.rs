@@ -24,7 +24,7 @@ impl<'a> Data_retention<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, stream_arn: Option<String>, current_version: Option<String>, operation: Option<String>, data_retention_change_in_hours: Option<i64>, stream_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, current_version: Option<String>, data_retention_change_in_hours: Option<i64>, stream_arn: Option<String>, stream_name: Option<String>, operation: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

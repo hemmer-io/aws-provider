@@ -1,0 +1,49 @@
+//! Availability_monitor_test resource
+//!
+//! AvailabilityMonitorTest resource
+
+use crate::{ProviderError, Result};
+use std::collections::HashMap;
+
+/// Availability_monitor_test resource handler
+pub struct Availability_monitor_test<'a> {
+    provider: &'a crate::AwsProvider,
+}
+
+impl<'a> Availability_monitor_test<'a> {
+    pub(crate) fn new(provider: &'a crate::AwsProvider) -> Self {
+        Self { provider }
+    }
+
+
+
+
+    /// Read/describe a availability_monitor_test
+    ///
+    /// TODO: Map `id` parameter to appropriate SDK field(s)
+    #[allow(unused_variables)]
+    pub async fn read(&self, id: &str) -> Result<()> {
+
+        // Note: This is a generated skeleton.
+        // TODO: Map resource ID to SDK parameters
+        let _client = &self.provider.storage_gateway_2013_06_30_client;
+
+        Ok(())
+
+    }
+
+
+
+
+
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn test_availability_monitor_test_operations() {
+        // Test availability_monitor_test CRUD operations
+    }
+}

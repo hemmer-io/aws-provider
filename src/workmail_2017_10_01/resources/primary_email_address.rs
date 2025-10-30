@@ -1,0 +1,49 @@
+//! Primary_email_address resource
+//!
+//! PrimaryEmailAddress resource
+
+use crate::{ProviderError, Result};
+use std::collections::HashMap;
+
+/// Primary_email_address resource handler
+pub struct Primary_email_address<'a> {
+    provider: &'a crate::AwsProvider,
+}
+
+impl<'a> Primary_email_address<'a> {
+    pub(crate) fn new(provider: &'a crate::AwsProvider) -> Self {
+        Self { provider }
+    }
+
+
+
+
+
+
+    /// Update a primary_email_address
+    ///
+    /// TODO: Map `id` and update fields to appropriate SDK parameters
+    #[allow(unused_variables)]
+    pub async fn update(&self, id: &str, entity_id: Option<String>, email: Option<String>, organization_id: Option<String>) -> Result<()> {
+
+        // Note: This is a generated skeleton.
+        // TODO: Map resource ID and update fields to SDK parameters
+        let _client = &self.provider.workmail_2017_10_01_client;
+
+        Ok(())
+
+    }
+
+
+
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn test_primary_email_address_operations() {
+        // Test primary_email_address CRUD operations
+    }
+}

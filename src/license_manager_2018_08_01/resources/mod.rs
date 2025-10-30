@@ -1,0 +1,29 @@
+//! Resource modules
+
+pub mod license_conversion_task_for_resource;
+pub use license_conversion_task_for_resource::License_conversion_task_for_resource;
+pub mod license_version;
+pub use license_version::License_version;
+pub mod token;
+pub use token::Token;
+pub mod license_manager_report_generator;
+pub use license_manager_report_generator::License_manager_report_generator;
+pub mod license;
+pub use license::License;
+pub mod grant;
+pub use grant::Grant;
+pub mod service_settings;
+pub use service_settings::Service_settings;
+pub mod license_usage;
+pub use license_usage::License_usage;
+pub mod license_specifications_for_resource;
+pub use license_specifications_for_resource::License_specifications_for_resource;
+pub mod license_conversion_task;
+pub use license_conversion_task::License_conversion_task;
+pub mod grant_version;
+pub use grant_version::Grant_version;
+pub mod access_token;
+pub use access_token::Access_token;
+pub mod license_configuration;
+pub use license_configuration::License_configuration;
+

@@ -16,21 +16,29 @@ impl<'a> CloudhsmService<'a> {
         Self { provider }
     }
 
-    /// Get hapg resource handler
-    pub fn hapg(&self) -> resources::Hapg<'_> {
-        resources::Hapg::new(self.provider)
+    /// Get resource_policy resource handler
+    pub fn resource_policy(&self) -> resources::Resource_policy<'_> {
+        resources::Resource_policy::new(self.provider)
+    }
+    /// Get cluster resource handler
+    pub fn cluster(&self) -> resources::Cluster<'_> {
+        resources::Cluster::new(self.provider)
+    }
+    /// Get backup resource handler
+    pub fn backup(&self) -> resources::Backup<'_> {
+        resources::Backup::new(self.provider)
+    }
+    /// Get clusters resource handler
+    pub fn clusters(&self) -> resources::Clusters<'_> {
+        resources::Clusters::new(self.provider)
     }
     /// Get hsm resource handler
     pub fn hsm(&self) -> resources::Hsm<'_> {
         resources::Hsm::new(self.provider)
     }
-    /// Get luna_client resource handler
-    pub fn luna_client(&self) -> resources::Luna_client<'_> {
-        resources::Luna_client::new(self.provider)
-    }
-    /// Get config resource handler
-    pub fn config(&self) -> resources::Config<'_> {
-        resources::Config::new(self.provider)
+    /// Get backups resource handler
+    pub fn backups(&self) -> resources::Backups<'_> {
+        resources::Backups::new(self.provider)
     }
 
 }

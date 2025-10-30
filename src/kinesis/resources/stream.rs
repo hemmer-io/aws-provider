@@ -21,7 +21,7 @@ impl<'a> Stream<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, kms_key_id: Option<String>, data_retention_in_hours: Option<i64>, tags: Option<HashMap<String, String>>, stream_name: String, device_name: Option<String>, media_type: Option<String>) -> Result<String> {
+    pub async fn create(&self, media_type: Option<String>, kms_key_id: Option<String>, tags: Option<HashMap<String, String>>, data_retention_in_hours: Option<i64>, device_name: Option<String>, stream_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Stream<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, kms_key_id: Option<String>, data_retention_in_hours: Option<i64>, tags: Option<HashMap<String, String>>, stream_name: Option<String>, device_name: Option<String>, media_type: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, media_type: Option<String>, kms_key_id: Option<String>, tags: Option<HashMap<String, String>>, data_retention_in_hours: Option<i64>, device_name: Option<String>, stream_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -1,0 +1,37 @@
+//! Resource modules
+
+pub mod profile_outbound_request_batch;
+pub use profile_outbound_request_batch::Profile_outbound_request_batch;
+pub mod campaign_channel_subtype_config;
+pub use campaign_channel_subtype_config::Campaign_channel_subtype_config;
+pub mod campaign;
+pub use campaign::Campaign;
+pub mod campaign_name;
+pub use campaign_name::Campaign_name;
+pub mod instance_onboarding_job_status;
+pub use instance_onboarding_job_status::Instance_onboarding_job_status;
+pub mod campaign_communication_time;
+pub use campaign_communication_time::Campaign_communication_time;
+pub mod campaign_communication_limits;
+pub use campaign_communication_limits::Campaign_communication_limits;
+pub mod connect_instance_integration;
+pub use connect_instance_integration::Connect_instance_integration;
+pub mod campaign_state;
+pub use campaign_state::Campaign_state;
+pub mod campaign_state_batch;
+pub use campaign_state_batch::Campaign_state_batch;
+pub mod instance_communication_limits;
+pub use instance_communication_limits::Instance_communication_limits;
+pub mod outbound_request_batch;
+pub use outbound_request_batch::Outbound_request_batch;
+pub mod campaign_schedule;
+pub use campaign_schedule::Campaign_schedule;
+pub mod campaign_source;
+pub use campaign_source::Campaign_source;
+pub mod connect_instance_config;
+pub use connect_instance_config::Connect_instance_config;
+pub mod instance_onboarding_job;
+pub use instance_onboarding_job::Instance_onboarding_job;
+pub mod campaign_flow_association;
+pub use campaign_flow_association::Campaign_flow_association;
+

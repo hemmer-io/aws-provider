@@ -1,0 +1,49 @@
+//! Exclusions resource
+//!
+//! Exclusions resource
+
+use crate::{ProviderError, Result};
+use std::collections::HashMap;
+
+/// Exclusions resource handler
+pub struct Exclusions<'a> {
+    provider: &'a crate::AwsProvider,
+}
+
+impl<'a> Exclusions<'a> {
+    pub(crate) fn new(provider: &'a crate::AwsProvider) -> Self {
+        Self { provider }
+    }
+
+
+
+
+    /// Read/describe a exclusions
+    ///
+    /// TODO: Map `id` parameter to appropriate SDK field(s)
+    #[allow(unused_variables)]
+    pub async fn read(&self, id: &str) -> Result<()> {
+
+        // Note: This is a generated skeleton.
+        // TODO: Map resource ID to SDK parameters
+        let _client = &self.provider.inspector_2016_02_16_client;
+
+        Ok(())
+
+    }
+
+
+
+
+
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn test_exclusions_operations() {
+        // Test exclusions CRUD operations
+    }
+}

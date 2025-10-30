@@ -1,0 +1,33 @@
+//! Resource modules
+
+pub mod replication_configurations;
+pub use replication_configurations::Replication_configurations;
+pub mod access_points;
+pub use access_points::Access_points;
+pub mod mount_targets;
+pub use mount_targets::Mount_targets;
+pub mod lifecycle_configuration;
+pub use lifecycle_configuration::Lifecycle_configuration;
+pub mod access_point;
+pub use access_point::Access_point;
+pub mod account_preferences;
+pub use account_preferences::Account_preferences;
+pub mod replication_configuration;
+pub use replication_configuration::Replication_configuration;
+pub mod file_system_protection;
+pub use file_system_protection::File_system_protection;
+pub mod backup_policy;
+pub use backup_policy::Backup_policy;
+pub mod mount_target_security_groups;
+pub use mount_target_security_groups::Mount_target_security_groups;
+pub mod file_systems;
+pub use file_systems::File_systems;
+pub mod mount_target;
+pub use mount_target::Mount_target;
+pub mod file_system_policy;
+pub use file_system_policy::File_system_policy;
+pub mod tags;
+pub use tags::Tags;
+pub mod file_system;
+pub use file_system::File_system;
+

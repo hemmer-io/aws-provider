@@ -16,13 +16,13 @@ impl<'a> MediapackageService<'a> {
         Self { provider }
     }
 
-    /// Get packaging_configuration resource handler
-    pub fn packaging_configuration(&self) -> resources::Packaging_configuration<'_> {
-        resources::Packaging_configuration::new(self.provider)
-    }
     /// Get asset resource handler
     pub fn asset(&self) -> resources::Asset<'_> {
         resources::Asset::new(self.provider)
+    }
+    /// Get packaging_configuration resource handler
+    pub fn packaging_configuration(&self) -> resources::Packaging_configuration<'_> {
+        resources::Packaging_configuration::new(self.provider)
     }
     /// Get packaging_group resource handler
     pub fn packaging_group(&self) -> resources::Packaging_group<'_> {

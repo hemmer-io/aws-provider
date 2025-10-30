@@ -38,7 +38,7 @@ impl<'a> Image_generation_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, stream_name: Option<String>, stream_arn: Option<String>, image_generation_configuration: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, stream_arn: Option<String>, stream_name: Option<String>, image_generation_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -1,0 +1,33 @@
+//! Resource modules
+
+pub mod resource_groups;
+pub use resource_groups::Resource_groups;
+pub mod cross_account_access_role;
+pub use cross_account_access_role::Cross_account_access_role;
+pub mod resource_group;
+pub use resource_group::Resource_group;
+pub mod assessment_targets;
+pub use assessment_targets::Assessment_targets;
+pub mod exclusions_preview;
+pub use exclusions_preview::Exclusions_preview;
+pub mod findings;
+pub use findings::Findings;
+pub mod telemetry_metadata;
+pub use telemetry_metadata::Telemetry_metadata;
+pub mod assessment_templates;
+pub use assessment_templates::Assessment_templates;
+pub mod rules_packages;
+pub use rules_packages::Rules_packages;
+pub mod assessment_target;
+pub use assessment_target::Assessment_target;
+pub mod assessment_runs;
+pub use assessment_runs::Assessment_runs;
+pub mod assessment_run;
+pub use assessment_run::Assessment_run;
+pub mod assessment_template;
+pub use assessment_template::Assessment_template;
+pub mod assessment_report;
+pub use assessment_report::Assessment_report;
+pub mod exclusions;
+pub use exclusions::Exclusions;
+

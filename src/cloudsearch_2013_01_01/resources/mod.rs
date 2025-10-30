@@ -1,0 +1,31 @@
+//! Resource modules
+
+pub mod index_field;
+pub use index_field::Index_field;
+pub mod expression;
+pub use expression::Expression;
+pub mod analysis_scheme;
+pub use analysis_scheme::Analysis_scheme;
+pub mod expressions;
+pub use expressions::Expressions;
+pub mod domain;
+pub use domain::Domain;
+pub mod index_fields;
+pub use index_fields::Index_fields;
+pub mod analysis_schemes;
+pub use analysis_schemes::Analysis_schemes;
+pub mod availability_options;
+pub use availability_options::Availability_options;
+pub mod domains;
+pub use domains::Domains;
+pub mod suggesters;
+pub use suggesters::Suggesters;
+pub mod domain_endpoint_options;
+pub use domain_endpoint_options::Domain_endpoint_options;
+pub mod suggester;
+pub use suggester::Suggester;
+pub mod service_access_policies;
+pub use service_access_policies::Service_access_policies;
+pub mod scaling_parameters;
+pub use scaling_parameters::Scaling_parameters;
+

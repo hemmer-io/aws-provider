@@ -1,0 +1,37 @@
+//! Resource modules
+
+pub mod firewall_domain_list;
+pub use firewall_domain_list::Firewall_domain_list;
+pub mod resolver_endpoint;
+pub use resolver_endpoint::Resolver_endpoint;
+pub mod resolver_rule_policy;
+pub use resolver_rule_policy::Resolver_rule_policy;
+pub mod firewall_rule_group;
+pub use firewall_rule_group::Firewall_rule_group;
+pub mod resolver_query_log_config;
+pub use resolver_query_log_config::Resolver_query_log_config;
+pub mod firewall_rule_group_association;
+pub use firewall_rule_group_association::Firewall_rule_group_association;
+pub mod resolver_dnssec_config;
+pub use resolver_dnssec_config::Resolver_dnssec_config;
+pub mod firewall_rule;
+pub use firewall_rule::Firewall_rule;
+pub mod outpost_resolver;
+pub use outpost_resolver::Outpost_resolver;
+pub mod firewall_rule_group_policy;
+pub use firewall_rule_group_policy::Firewall_rule_group_policy;
+pub mod resolver_query_log_config_policy;
+pub use resolver_query_log_config_policy::Resolver_query_log_config_policy;
+pub mod firewall_domains;
+pub use firewall_domains::Firewall_domains;
+pub mod resolver_query_log_config_association;
+pub use resolver_query_log_config_association::Resolver_query_log_config_association;
+pub mod firewall_config;
+pub use firewall_config::Firewall_config;
+pub mod resolver_config;
+pub use resolver_config::Resolver_config;
+pub mod resolver_rule_association;
+pub use resolver_rule_association::Resolver_rule_association;
+pub mod resolver_rule;
+pub use resolver_rule::Resolver_rule;
+

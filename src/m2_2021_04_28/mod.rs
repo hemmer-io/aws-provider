@@ -1,0 +1,34 @@
+//! M2_2021_04_28 Service
+//!
+//! Auto-generated service module for m2_2021_04_28
+
+pub mod resources;
+
+use crate::{ProviderError, Result};
+
+/// Service handler for m2_2021_04_28
+pub struct M2_2021_04_28Service<'a> {
+    provider: &'a crate::AwsProvider,
+}
+
+impl<'a> M2_2021_04_28Service<'a> {
+    pub(crate) fn new(provider: &'a crate::AwsProvider) -> Self {
+        Self { provider }
+    }
+
+    /// Get signed_bluinsights_url resource handler
+    pub fn signed_bluinsights_url(&self) -> resources::Signed_bluinsights_url<'_> {
+        resources::Signed_bluinsights_url::new(self.provider)
+    }
+
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_service_creation() {
+        // Service creation test
+    }
+}

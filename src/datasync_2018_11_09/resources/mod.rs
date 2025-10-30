@@ -1,0 +1,33 @@
+//! Resource modules
+
+pub mod location_object_storage;
+pub use location_object_storage::Location_object_storage;
+pub mod task_execution;
+pub use task_execution::Task_execution;
+pub mod location_fsx_open_zfs;
+pub use location_fsx_open_zfs::Location_fsx_open_zfs;
+pub mod location_s3;
+pub use location_s3::Location_s3;
+pub mod location;
+pub use location::Location;
+pub mod agent;
+pub use agent::Agent;
+pub mod location_fsx_windows;
+pub use location_fsx_windows::Location_fsx_windows;
+pub mod location_azure_blob;
+pub use location_azure_blob::Location_azure_blob;
+pub mod location_nfs;
+pub use location_nfs::Location_nfs;
+pub mod location_fsx_ontap;
+pub use location_fsx_ontap::Location_fsx_ontap;
+pub mod location_efs;
+pub use location_efs::Location_efs;
+pub mod location_hdfs;
+pub use location_hdfs::Location_hdfs;
+pub mod location_fsx_lustre;
+pub use location_fsx_lustre::Location_fsx_lustre;
+pub mod location_smb;
+pub use location_smb::Location_smb;
+pub mod task;
+pub use task::Task;
+

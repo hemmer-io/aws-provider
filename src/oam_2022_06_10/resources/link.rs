@@ -1,0 +1,93 @@
+//! Link resource
+//!
+//! Link resource
+
+use crate::{ProviderError, Result};
+use std::collections::HashMap;
+
+/// Link resource handler
+pub struct Link<'a> {
+    provider: &'a crate::AwsProvider,
+}
+
+impl<'a> Link<'a> {
+    pub(crate) fn new(provider: &'a crate::AwsProvider) -> Self {
+        Self { provider }
+    }
+
+
+    /// Create a new link
+    ///
+    /// Note: Parameter types are simplified. SDK may require specific enums/types.
+    /// TODO: Convert String parameters to appropriate SDK types as needed.
+    #[allow(unused_variables)]
+    pub async fn create(&self, sink_identifier: String, resource_types: Vec<String>, link_configuration: Option<String>, tags: Option<HashMap<String, String>>, label_template: String) -> Result<String> {
+
+        // Note: This is a generated skeleton. Type conversions may be needed.
+        // TODO: Implement actual SDK call with proper type mapping
+        let _client = &self.provider.oam_2022_06_10_client;
+
+        // Placeholder: Real implementation needs SDK-specific type conversion
+        Ok(format!("link_created"))
+
+    }
+
+
+
+    /// Read/describe a link
+    ///
+    /// TODO: Map `id` parameter to appropriate SDK field(s)
+    #[allow(unused_variables)]
+    pub async fn read(&self, id: &str) -> Result<()> {
+
+        // Note: This is a generated skeleton.
+        // TODO: Map resource ID to SDK parameters
+        let _client = &self.provider.oam_2022_06_10_client;
+
+        Ok(())
+
+    }
+
+
+
+    /// Update a link
+    ///
+    /// TODO: Map `id` and update fields to appropriate SDK parameters
+    #[allow(unused_variables)]
+    pub async fn update(&self, id: &str, sink_identifier: Option<String>, resource_types: Option<Vec<String>>, link_configuration: Option<String>, tags: Option<HashMap<String, String>>, label_template: Option<String>) -> Result<()> {
+
+        // Note: This is a generated skeleton.
+        // TODO: Map resource ID and update fields to SDK parameters
+        let _client = &self.provider.oam_2022_06_10_client;
+
+        Ok(())
+
+    }
+
+
+
+    /// Delete a link
+    ///
+    /// TODO: Map `id` parameter to appropriate SDK field(s)
+    #[allow(unused_variables)]
+    pub async fn delete(&self, id: &str) -> Result<()> {
+
+        // Note: This is a generated skeleton.
+        // TODO: Map resource ID to SDK parameters
+        let _client = &self.provider.oam_2022_06_10_client;
+
+        Ok(())
+
+    }
+
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn test_link_operations() {
+        // Test link CRUD operations
+    }
+}

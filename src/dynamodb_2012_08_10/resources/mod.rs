@@ -1,0 +1,33 @@
+//! Resource modules
+
+pub mod global_table_settings;
+pub use global_table_settings::Global_table_settings;
+pub mod endpoints;
+pub use endpoints::Endpoints;
+pub mod import;
+pub use import::Import;
+pub mod export;
+pub use export::Export;
+pub mod table;
+pub use table::Table;
+pub mod contributor_insights;
+pub use contributor_insights::Contributor_insights;
+pub mod time_to_live;
+pub use time_to_live::Time_to_live;
+pub mod table_replica_auto_scaling;
+pub use table_replica_auto_scaling::Table_replica_auto_scaling;
+pub mod limits;
+pub use limits::Limits;
+pub mod continuous_backups;
+pub use continuous_backups::Continuous_backups;
+pub mod global_table;
+pub use global_table::Global_table;
+pub mod kinesis_streaming_destination;
+pub use kinesis_streaming_destination::Kinesis_streaming_destination;
+pub mod backup;
+pub use backup::Backup;
+pub mod item;
+pub use item::Item;
+pub mod resource_policy;
+pub use resource_policy::Resource_policy;
+
