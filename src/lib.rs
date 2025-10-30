@@ -168,6 +168,16 @@ impl AwsProvider {
 
         let bucket_name = input.get_string("name")?;
 
+        // Check if bucket already exists
+        let head_result = client.head_bucket().bucket(&bucket_name).send().await;
+
+        if head_result.is_ok() {
+            return Err(HemmerError::Provider(format!(
+                "Bucket '{}' already exists",
+                bucket_name
+            )));
+        }
+
         // Create bucket
         client
             .create_bucket()
