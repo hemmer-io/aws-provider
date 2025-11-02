@@ -21,7 +21,7 @@ impl<'a> Session<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, session_state: String, session_id: String, response_content_type: Option<String>, bot_alias_id: String, locale_id: String, messages: Option<Vec<String>>, bot_id: String, request_attributes: Option<String>) -> Result<String> {
+    pub async fn create(&self, response_content_type: Option<String>, bot_alias_id: String, messages: Option<Vec<String>>, request_attributes: Option<String>, bot_id: String, session_id: String, session_state: String, locale_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

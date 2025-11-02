@@ -21,7 +21,7 @@ impl<'a> Slot_type<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, locale_id: String, external_source_setting: Option<String>, slot_type_name: String, bot_version: String, composite_slot_type_setting: Option<String>, slot_type_values: Option<Vec<String>>, value_selection_setting: Option<String>, description: Option<String>, parent_slot_type_signature: Option<String>, bot_id: String) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, slot_type_name: String, value_selection_setting: Option<String>, parent_slot_type_signature: Option<String>, bot_id: String, bot_version: String, locale_id: String, slot_type_values: Option<Vec<String>>, composite_slot_type_setting: Option<String>, external_source_setting: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Slot_type<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, locale_id: Option<String>, external_source_setting: Option<String>, slot_type_name: Option<String>, bot_version: Option<String>, composite_slot_type_setting: Option<String>, slot_type_values: Option<Vec<String>>, value_selection_setting: Option<String>, description: Option<String>, parent_slot_type_signature: Option<String>, bot_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, slot_type_name: Option<String>, value_selection_setting: Option<String>, parent_slot_type_signature: Option<String>, bot_id: Option<String>, bot_version: Option<String>, locale_id: Option<String>, slot_type_values: Option<Vec<String>>, composite_slot_type_setting: Option<String>, external_source_setting: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

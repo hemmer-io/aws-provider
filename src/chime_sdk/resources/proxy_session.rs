@@ -21,7 +21,7 @@ impl<'a> Proxy_session<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, number_selection_behavior: Option<String>, geo_match_level: Option<String>, voice_connector_id: String, name: Option<String>, participant_phone_numbers: Vec<String>, geo_match_params: Option<String>, expiry_minutes: Option<i64>, capabilities: Vec<String>) -> Result<String> {
+    pub async fn create(&self, participant_phone_numbers: Vec<String>, capabilities: Vec<String>, number_selection_behavior: Option<String>, geo_match_params: Option<String>, expiry_minutes: Option<i64>, geo_match_level: Option<String>, voice_connector_id: String, name: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Proxy_session<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, number_selection_behavior: Option<String>, geo_match_level: Option<String>, voice_connector_id: Option<String>, name: Option<String>, participant_phone_numbers: Option<Vec<String>>, geo_match_params: Option<String>, expiry_minutes: Option<i64>, capabilities: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, participant_phone_numbers: Option<Vec<String>>, capabilities: Option<Vec<String>>, number_selection_behavior: Option<String>, geo_match_params: Option<String>, expiry_minutes: Option<i64>, geo_match_level: Option<String>, voice_connector_id: Option<String>, name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Voice_connector_proxy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, disabled: Option<bool>, default_session_expiry_minutes: i64, phone_number_pool_countries: Vec<String>, voice_connector_id: String, fall_back_phone_number: Option<String>) -> Result<String> {
+    pub async fn create(&self, phone_number_pool_countries: Vec<String>, default_session_expiry_minutes: i64, voice_connector_id: String, fall_back_phone_number: Option<String>, disabled: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

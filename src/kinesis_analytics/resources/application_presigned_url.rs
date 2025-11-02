@@ -21,7 +21,7 @@ impl<'a> Application_presigned_url<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, session_expiration_duration_in_seconds: Option<i64>, url_type: String, application_name: String) -> Result<String> {
+    pub async fn create(&self, url_type: String, session_expiration_duration_in_seconds: Option<i64>, application_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

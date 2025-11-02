@@ -21,7 +21,7 @@ impl<'a> Stream<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, media_type: Option<String>, kms_key_id: Option<String>, tags: Option<HashMap<String, String>>, data_retention_in_hours: Option<i64>, device_name: Option<String>, stream_name: String) -> Result<String> {
+    pub async fn create(&self, max_record_size_in_ki_b: Option<i64>, stream_name: String, stream_mode_details: Option<String>, shard_count: Option<i64>, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -49,20 +49,6 @@ impl<'a> Stream<'a> {
     }
 
 
-
-    /// Update a stream
-    ///
-    /// TODO: Map `id` and update fields to appropriate SDK parameters
-    #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, media_type: Option<String>, kms_key_id: Option<String>, tags: Option<HashMap<String, String>>, data_retention_in_hours: Option<i64>, device_name: Option<String>, stream_name: Option<String>) -> Result<()> {
-
-        // Note: This is a generated skeleton.
-        // TODO: Map resource ID and update fields to SDK parameters
-        let _client = &self.provider.kinesis_client;
-
-        Ok(())
-
-    }
 
 
 
