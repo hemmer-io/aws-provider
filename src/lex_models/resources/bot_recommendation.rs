@@ -38,7 +38,7 @@ impl<'a> Bot_recommendation<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, locale_id: Option<String>, bot_recommendation_id: Option<String>, bot_version: Option<String>, encryption_setting: Option<String>, bot_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, locale_id: Option<String>, bot_recommendation_id: Option<String>, encryption_setting: Option<String>, bot_id: Option<String>, bot_version: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

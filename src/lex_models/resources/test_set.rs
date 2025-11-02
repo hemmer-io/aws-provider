@@ -38,7 +38,7 @@ impl<'a> Test_set<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, test_set_id: Option<String>, test_set_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, test_set_id: Option<String>, description: Option<String>, test_set_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -1,0 +1,63 @@
+//! Job_execution resource
+//!
+//! JobExecution resource
+
+use crate::{ProviderError, Result};
+use std::collections::HashMap;
+
+/// Job_execution resource handler
+pub struct Job_execution<'a> {
+    provider: &'a crate::AwsProvider,
+}
+
+impl<'a> Job_execution<'a> {
+    pub(crate) fn new(provider: &'a crate::AwsProvider) -> Self {
+        Self { provider }
+    }
+
+
+
+
+    /// Read/describe a job_execution
+    ///
+    /// TODO: Map `id` parameter to appropriate SDK field(s)
+    #[allow(unused_variables)]
+    pub async fn read(&self, id: &str) -> Result<()> {
+
+        // Note: This is a generated skeleton.
+        // TODO: Map resource ID to SDK parameters
+        let _client = &self.provider.iot_client;
+
+        Ok(())
+
+    }
+
+
+
+
+
+    /// Delete a job_execution
+    ///
+    /// TODO: Map `id` parameter to appropriate SDK field(s)
+    #[allow(unused_variables)]
+    pub async fn delete(&self, id: &str) -> Result<()> {
+
+        // Note: This is a generated skeleton.
+        // TODO: Map resource ID to SDK parameters
+        let _client = &self.provider.iot_client;
+
+        Ok(())
+
+    }
+
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn test_job_execution_operations() {
+        // Test job_execution CRUD operations
+    }
+}

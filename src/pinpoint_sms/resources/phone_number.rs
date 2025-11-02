@@ -24,7 +24,7 @@ impl<'a> Phone_number<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, international_sending_enabled: Option<bool>, phone_number_id: Option<String>, two_way_channel_arn: Option<String>, self_managed_opt_outs_enabled: Option<bool>, opt_out_list_name: Option<String>, deletion_protection_enabled: Option<bool>, two_way_enabled: Option<bool>, two_way_channel_role: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, phone_number_id: Option<String>, two_way_channel_arn: Option<String>, two_way_channel_role: Option<String>, self_managed_opt_outs_enabled: Option<bool>, international_sending_enabled: Option<bool>, two_way_enabled: Option<bool>, opt_out_list_name: Option<String>, deletion_protection_enabled: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

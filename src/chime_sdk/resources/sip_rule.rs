@@ -21,7 +21,7 @@ impl<'a> Sip_rule<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, name: String, trigger_type: String, disabled: Option<bool>, target_applications: Option<Vec<String>>, trigger_value: String) -> Result<String> {
+    pub async fn create(&self, trigger_value: String, name: String, disabled: Option<bool>, target_applications: Option<Vec<String>>, trigger_type: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Sip_rule<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, name: Option<String>, trigger_type: Option<String>, disabled: Option<bool>, target_applications: Option<Vec<String>>, trigger_value: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, trigger_value: Option<String>, name: Option<String>, disabled: Option<bool>, target_applications: Option<Vec<String>>, trigger_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters
