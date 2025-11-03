@@ -21,7 +21,7 @@ impl<'a> External_model<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, output_configuration: String, input_configuration: String, model_endpoint_status: String, model_source: String, tags: Option<Vec<String>>, invoke_model_endpoint_role_arn: String, model_endpoint: String) -> Result<String> {
+    pub async fn create(&self, invoke_model_endpoint_role_arn: String, output_configuration: String, model_endpoint_status: String, model_endpoint: String, model_source: String, tags: Option<Vec<String>>, input_configuration: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

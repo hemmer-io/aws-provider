@@ -21,7 +21,7 @@ impl<'a> Data_repository_task<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, paths: Option<Vec<String>>, report: String, type: String, client_request_token: Option<String>, release_configuration: Option<String>, tags: Option<Vec<String>>, file_system_id: String, capacity_to_release: Option<i64>) -> Result<String> {
+    pub async fn create(&self, type: String, paths: Option<Vec<String>>, capacity_to_release: Option<i64>, report: String, file_system_id: String, release_configuration: Option<String>, client_request_token: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Account_pool<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, account_source: String, resolution_strategy: String, domain_identifier: String, name: String, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, name: String, domain_identifier: String, resolution_strategy: String, account_source: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Account_pool<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, account_source: Option<String>, resolution_strategy: Option<String>, domain_identifier: Option<String>, name: Option<String>, description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, name: Option<String>, domain_identifier: Option<String>, resolution_strategy: Option<String>, account_source: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

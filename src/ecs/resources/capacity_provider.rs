@@ -21,7 +21,7 @@ impl<'a> Capacity_provider<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, name: String, managed_instances_provider: Option<String>, tags: Option<Vec<String>>, auto_scaling_group_provider: Option<String>, cluster: Option<String>) -> Result<String> {
+    pub async fn create(&self, auto_scaling_group_provider: Option<String>, name: String, tags: Option<Vec<String>>, managed_instances_provider: Option<String>, cluster: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Capacity_provider<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, name: Option<String>, managed_instances_provider: Option<String>, tags: Option<Vec<String>>, auto_scaling_group_provider: Option<String>, cluster: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, auto_scaling_group_provider: Option<String>, name: Option<String>, tags: Option<Vec<String>>, managed_instances_provider: Option<String>, cluster: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

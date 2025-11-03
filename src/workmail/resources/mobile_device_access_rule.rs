@@ -21,7 +21,7 @@ impl<'a> Mobile_device_access_rule<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, device_user_agents: Option<Vec<String>>, not_device_user_agents: Option<Vec<String>>, not_device_models: Option<Vec<String>>, device_models: Option<Vec<String>>, organization_id: String, name: String, description: Option<String>, effect: String, not_device_types: Option<Vec<String>>, device_operating_systems: Option<Vec<String>>, client_token: Option<String>, device_types: Option<Vec<String>>, not_device_operating_systems: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, organization_id: String, effect: String, not_device_types: Option<Vec<String>>, not_device_user_agents: Option<Vec<String>>, device_types: Option<Vec<String>>, device_models: Option<Vec<String>>, not_device_models: Option<Vec<String>>, name: String, device_operating_systems: Option<Vec<String>>, device_user_agents: Option<Vec<String>>, description: Option<String>, client_token: Option<String>, not_device_operating_systems: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Mobile_device_access_rule<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, device_user_agents: Option<Vec<String>>, not_device_user_agents: Option<Vec<String>>, not_device_models: Option<Vec<String>>, device_models: Option<Vec<String>>, organization_id: Option<String>, name: Option<String>, description: Option<String>, effect: Option<String>, not_device_types: Option<Vec<String>>, device_operating_systems: Option<Vec<String>>, client_token: Option<String>, device_types: Option<Vec<String>>, not_device_operating_systems: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, organization_id: Option<String>, effect: Option<String>, not_device_types: Option<Vec<String>>, not_device_user_agents: Option<Vec<String>>, device_types: Option<Vec<String>>, device_models: Option<Vec<String>>, not_device_models: Option<Vec<String>>, name: Option<String>, device_operating_systems: Option<Vec<String>>, device_user_agents: Option<Vec<String>>, description: Option<String>, client_token: Option<String>, not_device_operating_systems: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

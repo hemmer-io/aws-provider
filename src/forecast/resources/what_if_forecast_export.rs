@@ -21,7 +21,7 @@ impl<'a> What_if_forecast_export<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, what_if_forecast_export_name: String, what_if_forecast_arns: Vec<i64>, tags: Option<Vec<String>>, destination: String, format: Option<String>) -> Result<String> {
+    pub async fn create(&self, destination: String, what_if_forecast_export_name: String, tags: Option<Vec<String>>, what_if_forecast_arns: Vec<i64>, format: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

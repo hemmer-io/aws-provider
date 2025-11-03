@@ -21,7 +21,7 @@ impl<'a> Location_fsx_windows<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, domain: Option<String>, password: String, tags: Option<Vec<String>>, security_group_arns: Vec<String>, subdirectory: Option<String>, fsx_filesystem_arn: String, user: String) -> Result<String> {
+    pub async fn create(&self, subdirectory: Option<String>, fsx_filesystem_arn: String, tags: Option<Vec<String>>, domain: Option<String>, security_group_arns: Vec<String>, user: String, password: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Location_fsx_windows<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, domain: Option<String>, password: Option<String>, tags: Option<Vec<String>>, security_group_arns: Option<Vec<String>>, subdirectory: Option<String>, fsx_filesystem_arn: Option<String>, user: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, subdirectory: Option<String>, fsx_filesystem_arn: Option<String>, tags: Option<Vec<String>>, domain: Option<String>, security_group_arns: Option<Vec<String>>, user: Option<String>, password: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

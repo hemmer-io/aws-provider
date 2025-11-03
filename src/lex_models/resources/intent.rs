@@ -21,7 +21,7 @@ impl<'a> Intent<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, dialog_code_hook: Option<String>, qn_a_intent_configuration: Option<String>, fulfillment_code_hook: Option<String>, input_contexts: Option<Vec<String>>, bot_id: String, locale_id: String, parent_intent_signature: Option<String>, output_contexts: Option<Vec<String>>, bot_version: String, sample_utterances: Option<Vec<String>>, initial_response_setting: Option<String>, intent_name: String, q_in_connect_intent_configuration: Option<String>, intent_confirmation_setting: Option<String>, description: Option<String>, intent_closing_setting: Option<String>, kendra_configuration: Option<String>) -> Result<String> {
+    pub async fn create(&self, q_in_connect_intent_configuration: Option<String>, input_contexts: Option<Vec<String>>, kendra_configuration: Option<String>, bot_version: String, parent_intent_signature: Option<String>, dialog_code_hook: Option<String>, intent_name: String, intent_confirmation_setting: Option<String>, initial_response_setting: Option<String>, description: Option<String>, output_contexts: Option<Vec<String>>, sample_utterances: Option<Vec<String>>, fulfillment_code_hook: Option<String>, intent_closing_setting: Option<String>, qn_a_intent_configuration: Option<String>, bot_id: String, locale_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Intent<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, dialog_code_hook: Option<String>, qn_a_intent_configuration: Option<String>, fulfillment_code_hook: Option<String>, input_contexts: Option<Vec<String>>, bot_id: Option<String>, locale_id: Option<String>, parent_intent_signature: Option<String>, output_contexts: Option<Vec<String>>, bot_version: Option<String>, sample_utterances: Option<Vec<String>>, initial_response_setting: Option<String>, intent_name: Option<String>, q_in_connect_intent_configuration: Option<String>, intent_confirmation_setting: Option<String>, description: Option<String>, intent_closing_setting: Option<String>, kendra_configuration: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, q_in_connect_intent_configuration: Option<String>, input_contexts: Option<Vec<String>>, kendra_configuration: Option<String>, bot_version: Option<String>, parent_intent_signature: Option<String>, dialog_code_hook: Option<String>, intent_name: Option<String>, intent_confirmation_setting: Option<String>, initial_response_setting: Option<String>, description: Option<String>, output_contexts: Option<Vec<String>>, sample_utterances: Option<Vec<String>>, fulfillment_code_hook: Option<String>, intent_closing_setting: Option<String>, qn_a_intent_configuration: Option<String>, bot_id: Option<String>, locale_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

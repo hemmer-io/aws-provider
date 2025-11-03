@@ -21,7 +21,7 @@ impl<'a> Artifact<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, source: String, properties: Option<HashMap<String, String>>, metadata_properties: Option<String>, artifact_name: Option<String>, artifact_type: String) -> Result<String> {
+    pub async fn create(&self, artifact_name: Option<String>, metadata_properties: Option<String>, artifact_type: String, source: String, properties: Option<HashMap<String, String>>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Artifact<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, source: Option<String>, properties: Option<HashMap<String, String>>, metadata_properties: Option<String>, artifact_name: Option<String>, artifact_type: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, artifact_name: Option<String>, metadata_properties: Option<String>, artifact_type: Option<String>, source: Option<String>, properties: Option<HashMap<String, String>>, tags: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

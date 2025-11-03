@@ -24,7 +24,7 @@ impl<'a> Domain_contact<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, admin_contact: Option<String>, tech_contact: Option<String>, registrant_contact: Option<String>, domain_name: Option<String>, billing_contact: Option<String>, consent: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, admin_contact: Option<String>, tech_contact: Option<String>, billing_contact: Option<String>, registrant_contact: Option<String>, consent: Option<String>, domain_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

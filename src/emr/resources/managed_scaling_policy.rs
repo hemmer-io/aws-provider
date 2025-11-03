@@ -21,7 +21,7 @@ impl<'a> Managed_scaling_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, cluster_id: String, managed_scaling_policy: String) -> Result<String> {
+    pub async fn create(&self, managed_scaling_policy: String, cluster_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Load_balancer<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tls_policy_name: Option<String>, certificate_alternative_names: Option<Vec<String>>, health_check_path: Option<String>, certificate_name: Option<String>, certificate_domain_name: Option<String>, instance_port: i64, ip_address_type: Option<String>, load_balancer_name: String, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, health_check_path: Option<String>, certificate_name: Option<String>, certificate_domain_name: Option<String>, certificate_alternative_names: Option<Vec<String>>, tags: Option<Vec<String>>, load_balancer_name: String, instance_port: i64, tls_policy_name: Option<String>, ip_address_type: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -24,7 +24,7 @@ impl<'a> Automatic_tape_creation_policy<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, automatic_tape_creation_rules: Option<Vec<String>>, gateway_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, gateway_arn: Option<String>, automatic_tape_creation_rules: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

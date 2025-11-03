@@ -21,7 +21,7 @@ impl<'a> Recommendation_template<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, bucket_name: Option<String>, recommendation_ids: Option<Vec<String>>, tags: Option<HashMap<String, String>>, recommendation_types: Option<Vec<String>>, assessment_arn: String, name: String, format: Option<String>, client_token: Option<String>) -> Result<String> {
+    pub async fn create(&self, name: String, tags: Option<HashMap<String, String>>, assessment_arn: String, client_token: Option<String>, recommendation_ids: Option<Vec<String>>, bucket_name: Option<String>, format: Option<String>, recommendation_types: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

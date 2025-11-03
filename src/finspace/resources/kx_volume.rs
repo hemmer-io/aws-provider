@@ -21,7 +21,7 @@ impl<'a> Kx_volume<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, volume_name: String, availability_zone_ids: Vec<String>, az_mode: String, volume_type: String, client_token: Option<String>, description: Option<String>, nas1_configuration: Option<String>, environment_id: String, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, nas1_configuration: Option<String>, az_mode: String, environment_id: String, volume_type: String, volume_name: String, availability_zone_ids: Vec<String>, tags: Option<HashMap<String, String>>, client_token: Option<String>, description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Kx_volume<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, volume_name: Option<String>, availability_zone_ids: Option<Vec<String>>, az_mode: Option<String>, volume_type: Option<String>, client_token: Option<String>, description: Option<String>, nas1_configuration: Option<String>, environment_id: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, nas1_configuration: Option<String>, az_mode: Option<String>, environment_id: Option<String>, volume_type: Option<String>, volume_name: Option<String>, availability_zone_ids: Option<Vec<String>>, tags: Option<HashMap<String, String>>, client_token: Option<String>, description: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

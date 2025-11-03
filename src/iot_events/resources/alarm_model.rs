@@ -21,7 +21,7 @@ impl<'a> Alarm_model<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, severity: Option<i64>, alarm_notification: Option<String>, alarm_capabilities: Option<String>, alarm_event_actions: Option<String>, alarm_rule: String, alarm_model_description: Option<String>, alarm_model_name: String, role_arn: String, key: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, key: Option<String>, severity: Option<i64>, alarm_notification: Option<String>, alarm_event_actions: Option<String>, alarm_model_name: String, alarm_model_description: Option<String>, role_arn: String, tags: Option<Vec<String>>, alarm_capabilities: Option<String>, alarm_rule: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Alarm_model<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, severity: Option<i64>, alarm_notification: Option<String>, alarm_capabilities: Option<String>, alarm_event_actions: Option<String>, alarm_rule: Option<String>, alarm_model_description: Option<String>, alarm_model_name: Option<String>, role_arn: Option<String>, key: Option<String>, tags: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, key: Option<String>, severity: Option<i64>, alarm_notification: Option<String>, alarm_event_actions: Option<String>, alarm_model_name: Option<String>, alarm_model_description: Option<String>, role_arn: Option<String>, tags: Option<Vec<String>>, alarm_capabilities: Option<String>, alarm_rule: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

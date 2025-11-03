@@ -38,7 +38,7 @@ impl<'a> Fleet_port_settings<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, inbound_permission_revocations: Option<Vec<String>>, fleet_id: Option<String>, inbound_permission_authorizations: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, inbound_permission_revocations: Option<Vec<String>>, inbound_permission_authorizations: Option<Vec<String>>, fleet_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

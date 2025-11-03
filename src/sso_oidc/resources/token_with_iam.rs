@@ -21,7 +21,7 @@ impl<'a> Token_with_iam<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_id: String, refresh_token: Option<String>, assertion: Option<String>, scope: Option<Vec<String>>, code_verifier: Option<String>, redirect_uri: Option<String>, grant_type: String, code: Option<String>, subject_token: Option<String>, subject_token_type: Option<String>, requested_token_type: Option<String>) -> Result<String> {
+    pub async fn create(&self, redirect_uri: Option<String>, grant_type: String, subject_token: Option<String>, assertion: Option<String>, subject_token_type: Option<String>, code: Option<String>, client_id: String, refresh_token: Option<String>, code_verifier: Option<String>, scope: Option<Vec<String>>, requested_token_type: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

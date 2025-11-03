@@ -21,7 +21,7 @@ impl<'a> Trail<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, cloud_watch_logs_log_group_arn: Option<String>, is_organization_trail: Option<bool>, sns_topic_name: Option<String>, s3_key_prefix: Option<String>, enable_log_file_validation: Option<bool>, cloud_watch_logs_role_arn: Option<String>, tags_list: Option<Vec<String>>, is_multi_region_trail: Option<bool>, kms_key_id: Option<String>, name: String, s3_bucket_name: String, include_global_service_events: Option<bool>) -> Result<String> {
+    pub async fn create(&self, include_global_service_events: Option<bool>, cloud_watch_logs_log_group_arn: Option<String>, tags_list: Option<Vec<String>>, s3_key_prefix: Option<String>, sns_topic_name: Option<String>, is_multi_region_trail: Option<bool>, enable_log_file_validation: Option<bool>, kms_key_id: Option<String>, name: String, cloud_watch_logs_role_arn: Option<String>, is_organization_trail: Option<bool>, s3_bucket_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Trail<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, cloud_watch_logs_log_group_arn: Option<String>, is_organization_trail: Option<bool>, sns_topic_name: Option<String>, s3_key_prefix: Option<String>, enable_log_file_validation: Option<bool>, cloud_watch_logs_role_arn: Option<String>, tags_list: Option<Vec<String>>, is_multi_region_trail: Option<bool>, kms_key_id: Option<String>, name: Option<String>, s3_bucket_name: Option<String>, include_global_service_events: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, include_global_service_events: Option<bool>, cloud_watch_logs_log_group_arn: Option<String>, tags_list: Option<Vec<String>>, s3_key_prefix: Option<String>, sns_topic_name: Option<String>, is_multi_region_trail: Option<bool>, enable_log_file_validation: Option<bool>, kms_key_id: Option<String>, name: Option<String>, cloud_watch_logs_role_arn: Option<String>, is_organization_trail: Option<bool>, s3_bucket_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

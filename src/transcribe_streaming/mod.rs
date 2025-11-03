@@ -25,12 +25,12 @@ impl<'a> Transcribe_streamingService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "medical_scribe_stream" => {
-                self.plan_medical_scribe_stream(current_state, desired_input)
-                    .await
+                self.plan_medical_scribe_stream(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "transcribe_streaming", resource_name
+                "transcribe_streaming",
+                resource_name
             ))),
         }
     }
@@ -42,21 +42,31 @@ impl<'a> Transcribe_streamingService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "medical_scribe_stream" => self.create_medical_scribe_stream(input).await,
+            "medical_scribe_stream" => {
+                self.create_medical_scribe_stream(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "transcribe_streaming", resource_name
+                "transcribe_streaming",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "medical_scribe_stream" => self.read_medical_scribe_stream(id).await,
+            "medical_scribe_stream" => {
+                self.read_medical_scribe_stream(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "transcribe_streaming", resource_name
+                "transcribe_streaming",
+                resource_name
             ))),
         }
     }
@@ -69,21 +79,31 @@ impl<'a> Transcribe_streamingService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "medical_scribe_stream" => self.update_medical_scribe_stream(id, input).await,
+            "medical_scribe_stream" => {
+                self.update_medical_scribe_stream(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "transcribe_streaming", resource_name
+                "transcribe_streaming",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "medical_scribe_stream" => self.delete_medical_scribe_stream(id).await,
+            "medical_scribe_stream" => {
+                self.delete_medical_scribe_stream(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "transcribe_streaming", resource_name
+                "transcribe_streaming",
+                resource_name
             ))),
         }
     }
@@ -91,6 +111,7 @@ impl<'a> Transcribe_streamingService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Medical_scribe_stream resource operations
@@ -113,10 +134,14 @@ impl<'a> Transcribe_streamingService<'a> {
     }
 
     /// Create a new medical_scribe_stream resource
-    async fn create_medical_scribe_stream(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_medical_scribe_stream(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -128,12 +153,17 @@ impl<'a> Transcribe_streamingService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a medical_scribe_stream resource
-    async fn read_medical_scribe_stream(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_medical_scribe_stream(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -145,7 +175,8 @@ impl<'a> Transcribe_streamingService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -158,6 +189,7 @@ impl<'a> Transcribe_streamingService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.transcribe_streaming_client
@@ -169,12 +201,17 @@ impl<'a> Transcribe_streamingService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a medical_scribe_stream resource
-    async fn delete_medical_scribe_stream(&self, id: &str) -> Result<()> {
+    async fn delete_medical_scribe_stream(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -188,4 +225,6 @@ impl<'a> Transcribe_streamingService<'a> {
             Ok(())
         })
     }
+
+
 }

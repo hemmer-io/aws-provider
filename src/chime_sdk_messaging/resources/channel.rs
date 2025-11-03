@@ -21,7 +21,7 @@ impl<'a> Channel<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, name: String, client_request_token: String, metadata: Option<String>, channel_id: Option<String>, app_instance_arn: String, chime_bearer: String, tags: Option<Vec<String>>, member_arns: Option<Vec<String>>, mode: Option<String>, privacy: Option<String>, moderator_arns: Option<Vec<String>>, elastic_channel_configuration: Option<String>, expiration_settings: Option<String>) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, channel_id: Option<String>, elastic_channel_configuration: Option<String>, name: String, privacy: Option<String>, mode: Option<String>, chime_bearer: String, member_arns: Option<Vec<String>>, moderator_arns: Option<Vec<String>>, expiration_settings: Option<String>, app_instance_arn: String, client_request_token: String, metadata: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Channel<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, name: Option<String>, client_request_token: Option<String>, metadata: Option<String>, channel_id: Option<String>, app_instance_arn: Option<String>, chime_bearer: Option<String>, tags: Option<Vec<String>>, member_arns: Option<Vec<String>>, mode: Option<String>, privacy: Option<String>, moderator_arns: Option<Vec<String>>, elastic_channel_configuration: Option<String>, expiration_settings: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, channel_id: Option<String>, elastic_channel_configuration: Option<String>, name: Option<String>, privacy: Option<String>, mode: Option<String>, chime_bearer: Option<String>, member_arns: Option<Vec<String>>, moderator_arns: Option<Vec<String>>, expiration_settings: Option<String>, app_instance_arn: Option<String>, client_request_token: Option<String>, metadata: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

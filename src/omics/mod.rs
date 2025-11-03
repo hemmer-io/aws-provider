@@ -25,12 +25,12 @@ impl<'a> OmicsService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "s3_access_policy" => {
-                self.plan_s3_access_policy(current_state, desired_input)
-                    .await
+                self.plan_s3_access_policy(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "omics", resource_name
+                "omics",
+                resource_name
             ))),
         }
     }
@@ -42,21 +42,31 @@ impl<'a> OmicsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "s3_access_policy" => self.create_s3_access_policy(input).await,
+            "s3_access_policy" => {
+                self.create_s3_access_policy(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "omics", resource_name
+                "omics",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "s3_access_policy" => self.read_s3_access_policy(id).await,
+            "s3_access_policy" => {
+                self.read_s3_access_policy(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "omics", resource_name
+                "omics",
+                resource_name
             ))),
         }
     }
@@ -69,21 +79,31 @@ impl<'a> OmicsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "s3_access_policy" => self.update_s3_access_policy(id, input).await,
+            "s3_access_policy" => {
+                self.update_s3_access_policy(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "omics", resource_name
+                "omics",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "s3_access_policy" => self.delete_s3_access_policy(id).await,
+            "s3_access_policy" => {
+                self.delete_s3_access_policy(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "omics", resource_name
+                "omics",
+                resource_name
             ))),
         }
     }
@@ -91,6 +111,7 @@ impl<'a> OmicsService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // S3_access_policy resource operations
@@ -113,12 +134,16 @@ impl<'a> OmicsService<'a> {
     }
 
     /// Create a new s3_access_policy resource
-    async fn create_s3_access_policy(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_s3_access_policy(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
             let s3_access_policy = input.get_string("s3_access_policy")?;
             let s3_access_point_arn = input.get_string("s3_access_point_arn")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -133,15 +158,16 @@ impl<'a> OmicsService<'a> {
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
                 .with_field("s3_access_policy", s3_access_policy.unwrap_or_default())
-                .with_field(
-                    "s3_access_point_arn",
-                    s3_access_point_arn.unwrap_or_default(),
-                ))
+                .with_field("s3_access_point_arn", s3_access_point_arn.unwrap_or_default())
+            )
         })
     }
 
     /// Read a s3_access_policy resource
-    async fn read_s3_access_policy(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_s3_access_policy(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -153,7 +179,8 @@ impl<'a> OmicsService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -167,6 +194,7 @@ impl<'a> OmicsService<'a> {
             // Extract input fields
             let s3_access_policy = input.get_string("s3_access_policy")?;
             let s3_access_point_arn = input.get_string("s3_access_point_arn")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -182,15 +210,16 @@ impl<'a> OmicsService<'a> {
             Ok(ResourceOutput::new()
                 .with_id(id)
                 .with_field("s3_access_policy", s3_access_policy.unwrap_or_default())
-                .with_field(
-                    "s3_access_point_arn",
-                    s3_access_point_arn.unwrap_or_default(),
-                ))
+                .with_field("s3_access_point_arn", s3_access_point_arn.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a s3_access_policy resource
-    async fn delete_s3_access_policy(&self, id: &str) -> Result<()> {
+    async fn delete_s3_access_policy(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -204,4 +233,6 @@ impl<'a> OmicsService<'a> {
             Ok(())
         })
     }
+
+
 }

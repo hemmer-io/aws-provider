@@ -24,7 +24,7 @@ impl<'a> Security<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, current_version: Option<String>, encryption_info: Option<String>, cluster_arn: Option<String>, client_authentication: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, client_authentication: Option<String>, cluster_arn: Option<String>, encryption_info: Option<String>, current_version: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

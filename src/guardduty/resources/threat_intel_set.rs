@@ -21,7 +21,7 @@ impl<'a> Threat_intel_set<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: Option<String>, name: String, format: String, detector_id: String, location: String, activate: bool, expected_bucket_owner: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, activate: bool, detector_id: String, tags: Option<HashMap<String, String>>, client_token: Option<String>, format: String, location: String, expected_bucket_owner: Option<String>, name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Threat_intel_set<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, client_token: Option<String>, name: Option<String>, format: Option<String>, detector_id: Option<String>, location: Option<String>, activate: Option<bool>, expected_bucket_owner: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, activate: Option<bool>, detector_id: Option<String>, tags: Option<HashMap<String, String>>, client_token: Option<String>, format: Option<String>, location: Option<String>, expected_bucket_owner: Option<String>, name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Order<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, line_items: Option<Vec<String>>, payment_option: String, outpost_identifier: String, payment_term: Option<String>) -> Result<String> {
+    pub async fn create(&self, payment_term: Option<String>, outpost_identifier: String, line_items: Option<Vec<String>>, payment_option: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

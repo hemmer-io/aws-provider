@@ -38,7 +38,7 @@ impl<'a> Pipeline_execution<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, parallelism_configuration: Option<String>, pipeline_execution_arn: Option<String>, pipeline_execution_description: Option<String>, pipeline_execution_display_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, parallelism_configuration: Option<String>, pipeline_execution_description: Option<String>, pipeline_execution_arn: Option<String>, pipeline_execution_display_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

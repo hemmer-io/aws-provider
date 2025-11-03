@@ -21,7 +21,7 @@ impl<'a> Verified_access_trust_provider<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, oidc_options: Option<String>, user_trust_provider_type: Option<String>, sse_specification: Option<String>, client_token: Option<String>, trust_provider_type: String, tag_specifications: Option<Vec<String>>, device_trust_provider_type: Option<String>, device_options: Option<String>, description: Option<String>, dry_run: Option<bool>, policy_reference_name: String, native_application_oidc_options: Option<String>) -> Result<String> {
+    pub async fn create(&self, oidc_options: Option<String>, dry_run: Option<bool>, device_options: Option<String>, description: Option<String>, tag_specifications: Option<Vec<String>>, client_token: Option<String>, sse_specification: Option<String>, native_application_oidc_options: Option<String>, trust_provider_type: String, user_trust_provider_type: Option<String>, device_trust_provider_type: Option<String>, policy_reference_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

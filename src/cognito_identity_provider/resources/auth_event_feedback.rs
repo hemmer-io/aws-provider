@@ -24,7 +24,7 @@ impl<'a> Auth_event_feedback<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, event_id: Option<String>, feedback_token: Option<String>, user_pool_id: Option<String>, feedback_value: Option<String>, username: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, user_pool_id: Option<String>, event_id: Option<String>, username: Option<String>, feedback_token: Option<String>, feedback_value: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

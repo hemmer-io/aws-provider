@@ -24,7 +24,7 @@ impl<'a> Source_control_from_job<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, repository_owner: Option<String>, commit_id: Option<String>, auth_token: Option<String>, auth_strategy: Option<String>, repository_name: Option<String>, provider: Option<String>, job_name: Option<String>, folder: Option<String>, branch_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, commit_id: Option<String>, branch_name: Option<String>, auth_token: Option<String>, folder: Option<String>, job_name: Option<String>, auth_strategy: Option<String>, repository_name: Option<String>, provider: Option<String>, repository_owner: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Role_alias<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, role_arn: String, role_alias: String, tags: Option<Vec<String>>, credential_duration_seconds: Option<i64>) -> Result<String> {
+    pub async fn create(&self, role_alias: String, tags: Option<Vec<String>>, credential_duration_seconds: Option<i64>, role_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Role_alias<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, role_arn: Option<String>, role_alias: Option<String>, tags: Option<Vec<String>>, credential_duration_seconds: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, role_alias: Option<String>, tags: Option<Vec<String>>, credential_duration_seconds: Option<i64>, role_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

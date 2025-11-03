@@ -24,14 +24,16 @@ impl<'a> GameliftstreamsService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "stream_session" => self.plan_stream_session(current_state, desired_input).await,
+            "stream_session" => {
+                self.plan_stream_session(current_state, desired_input).await
+            }
             "stream_session_connection" => {
-                self.plan_stream_session_connection(current_state, desired_input)
-                    .await
+                self.plan_stream_session_connection(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "gameliftstreams", resource_name
+                "gameliftstreams",
+                resource_name
             ))),
         }
     }
@@ -43,23 +45,37 @@ impl<'a> GameliftstreamsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "stream_session" => self.create_stream_session(input).await,
-            "stream_session_connection" => self.create_stream_session_connection(input).await,
+            "stream_session" => {
+                self.create_stream_session(input).await
+            }
+            "stream_session_connection" => {
+                self.create_stream_session_connection(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "gameliftstreams", resource_name
+                "gameliftstreams",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "stream_session" => self.read_stream_session(id).await,
-            "stream_session_connection" => self.read_stream_session_connection(id).await,
+            "stream_session" => {
+                self.read_stream_session(id).await
+            }
+            "stream_session_connection" => {
+                self.read_stream_session_connection(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "gameliftstreams", resource_name
+                "gameliftstreams",
+                resource_name
             ))),
         }
     }
@@ -72,23 +88,37 @@ impl<'a> GameliftstreamsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "stream_session" => self.update_stream_session(id, input).await,
-            "stream_session_connection" => self.update_stream_session_connection(id, input).await,
+            "stream_session" => {
+                self.update_stream_session(id, input).await
+            }
+            "stream_session_connection" => {
+                self.update_stream_session_connection(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "gameliftstreams", resource_name
+                "gameliftstreams",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "stream_session" => self.delete_stream_session(id).await,
-            "stream_session_connection" => self.delete_stream_session_connection(id).await,
+            "stream_session" => {
+                self.delete_stream_session(id).await
+            }
+            "stream_session_connection" => {
+                self.delete_stream_session_connection(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "gameliftstreams", resource_name
+                "gameliftstreams",
+                resource_name
             ))),
         }
     }
@@ -96,6 +126,7 @@ impl<'a> GameliftstreamsService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Stream_session resource operations
@@ -118,10 +149,14 @@ impl<'a> GameliftstreamsService<'a> {
     }
 
     /// Create a new stream_session resource
-    async fn create_stream_session(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_stream_session(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -133,12 +168,17 @@ impl<'a> GameliftstreamsService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a stream_session resource
-    async fn read_stream_session(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_stream_session(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -150,7 +190,8 @@ impl<'a> GameliftstreamsService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -163,6 +204,7 @@ impl<'a> GameliftstreamsService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.gameliftstreams_client
@@ -174,12 +216,17 @@ impl<'a> GameliftstreamsService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a stream_session resource
-    async fn delete_stream_session(&self, id: &str) -> Result<()> {
+    async fn delete_stream_session(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -193,6 +240,7 @@ impl<'a> GameliftstreamsService<'a> {
             Ok(())
         })
     }
+
 
     // ------------------------------------------------------------------------
     // Stream_session_connection resource operations
@@ -222,10 +270,11 @@ impl<'a> GameliftstreamsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let stream_session_identifier = input.get_string("stream_session_identifier")?;
             let signal_request = input.get_string("signal_request")?;
+            let stream_session_identifier = input.get_string("stream_session_identifier")?;
             let client_token = input.get_optional_string("client_token")?;
             let identifier = input.get_string("identifier")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -239,18 +288,19 @@ impl<'a> GameliftstreamsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field(
-                    "stream_session_identifier",
-                    stream_session_identifier.unwrap_or_default(),
-                )
                 .with_field("signal_request", signal_request.unwrap_or_default())
+                .with_field("stream_session_identifier", stream_session_identifier.unwrap_or_default())
                 .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("identifier", identifier.unwrap_or_default()))
+                .with_field("identifier", identifier.unwrap_or_default())
+            )
         })
     }
 
     /// Read a stream_session_connection resource
-    async fn read_stream_session_connection(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_stream_session_connection(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -262,7 +312,8 @@ impl<'a> GameliftstreamsService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -274,10 +325,11 @@ impl<'a> GameliftstreamsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let stream_session_identifier = input.get_string("stream_session_identifier")?;
             let signal_request = input.get_string("signal_request")?;
+            let stream_session_identifier = input.get_string("stream_session_identifier")?;
             let client_token = input.get_optional_string("client_token")?;
             let identifier = input.get_string("identifier")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -292,18 +344,19 @@ impl<'a> GameliftstreamsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field(
-                    "stream_session_identifier",
-                    stream_session_identifier.unwrap_or_default(),
-                )
                 .with_field("signal_request", signal_request.unwrap_or_default())
+                .with_field("stream_session_identifier", stream_session_identifier.unwrap_or_default())
                 .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("identifier", identifier.unwrap_or_default()))
+                .with_field("identifier", identifier.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a stream_session_connection resource
-    async fn delete_stream_session_connection(&self, id: &str) -> Result<()> {
+    async fn delete_stream_session_connection(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -317,4 +370,6 @@ impl<'a> GameliftstreamsService<'a> {
             Ok(())
         })
     }
+
+
 }

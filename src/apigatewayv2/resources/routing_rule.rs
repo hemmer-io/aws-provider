@@ -21,7 +21,7 @@ impl<'a> Routing_rule<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, routing_rule_id: String, domain_name_id: Option<String>, actions: Vec<String>, domain_name: String, conditions: Vec<String>, priority: i64) -> Result<String> {
+    pub async fn create(&self, conditions: Vec<String>, domain_name: String, actions: Vec<String>, domain_name_id: Option<String>, priority: i64, routing_rule_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

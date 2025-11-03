@@ -38,7 +38,7 @@ impl<'a> Answer<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, question_id: Option<String>, reason: Option<String>, choice_updates: Option<HashMap<String, String>>, lens_alias: Option<String>, selected_choices: Option<Vec<String>>, notes: Option<String>, is_applicable: Option<bool>, workload_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, reason: Option<String>, lens_alias: Option<String>, question_id: Option<String>, notes: Option<String>, is_applicable: Option<bool>, workload_id: Option<String>, selected_choices: Option<Vec<String>>, choice_updates: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

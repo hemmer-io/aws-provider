@@ -21,7 +21,7 @@ impl<'a> Cluster_capacity_providers<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, capacity_providers: String, default_capacity_provider_strategy: Vec<String>, cluster: String) -> Result<String> {
+    pub async fn create(&self, cluster: String, capacity_providers: String, default_capacity_provider_strategy: Vec<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

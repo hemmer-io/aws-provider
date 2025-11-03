@@ -21,7 +21,7 @@ impl<'a> Predictor<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, featurization_config: String, perform_hpo: Option<bool>, perform_auto_ml: Option<bool>, forecast_horizon: i64, optimization_metric: Option<String>, encryption_config: Option<String>, forecast_types: Option<Vec<String>>, tags: Option<Vec<String>>, input_data_config: String, algorithm_arn: Option<String>, hpo_config: Option<String>, auto_ml_override_strategy: Option<String>, predictor_name: String, training_parameters: Option<HashMap<String, String>>, evaluation_parameters: Option<String>) -> Result<String> {
+    pub async fn create(&self, forecast_types: Option<Vec<String>>, training_parameters: Option<HashMap<String, String>>, auto_ml_override_strategy: Option<String>, encryption_config: Option<String>, algorithm_arn: Option<String>, forecast_horizon: i64, evaluation_parameters: Option<String>, tags: Option<Vec<String>>, input_data_config: String, featurization_config: String, perform_auto_ml: Option<bool>, hpo_config: Option<String>, optimization_metric: Option<String>, predictor_name: String, perform_hpo: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

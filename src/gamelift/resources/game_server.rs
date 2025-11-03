@@ -38,7 +38,7 @@ impl<'a> Game_server<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, utilization_status: Option<String>, game_server_group_name: Option<String>, game_server_data: Option<String>, health_check: Option<String>, game_server_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, health_check: Option<String>, utilization_status: Option<String>, game_server_group_name: Option<String>, game_server_data: Option<String>, game_server_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

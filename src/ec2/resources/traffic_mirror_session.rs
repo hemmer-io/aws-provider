@@ -21,7 +21,7 @@ impl<'a> Traffic_mirror_session<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, session_number: i64, description: Option<String>, dry_run: Option<bool>, client_token: Option<String>, tag_specifications: Option<Vec<String>>, traffic_mirror_target_id: String, virtual_network_id: Option<i64>, network_interface_id: String, traffic_mirror_filter_id: String, packet_length: Option<i64>) -> Result<String> {
+    pub async fn create(&self, virtual_network_id: Option<i64>, client_token: Option<String>, description: Option<String>, traffic_mirror_filter_id: String, network_interface_id: String, traffic_mirror_target_id: String, session_number: i64, dry_run: Option<bool>, packet_length: Option<i64>, tag_specifications: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

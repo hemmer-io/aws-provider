@@ -21,7 +21,7 @@ impl<'a> User_status<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, agent_status_id: String, instance_id: String, user_id: String) -> Result<String> {
+    pub async fn create(&self, user_id: String, agent_status_id: String, instance_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

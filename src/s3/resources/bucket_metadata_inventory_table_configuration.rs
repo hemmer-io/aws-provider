@@ -24,7 +24,7 @@ impl<'a> Bucket_metadata_inventory_table_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, checksum_algorithm: Option<String>, bucket: Option<String>, inventory_table_configuration: Option<String>, content_md5: Option<String>, expected_bucket_owner: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, bucket: Option<String>, checksum_algorithm: Option<String>, expected_bucket_owner: Option<String>, content_md5: Option<String>, inventory_table_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

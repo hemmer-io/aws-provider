@@ -21,7 +21,7 @@ impl<'a> Table<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, database_name: String, partition_indexes: Option<Vec<String>>, name: Option<String>, transaction_id: Option<String>, table_input: Option<String>, open_table_format_input: Option<String>, catalog_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, database_name: String, catalog_id: Option<String>, partition_indexes: Option<Vec<String>>, open_table_format_input: Option<String>, name: Option<String>, transaction_id: Option<String>, table_input: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Table<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, database_name: Option<String>, partition_indexes: Option<Vec<String>>, name: Option<String>, transaction_id: Option<String>, table_input: Option<String>, open_table_format_input: Option<String>, catalog_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, database_name: Option<String>, catalog_id: Option<String>, partition_indexes: Option<Vec<String>>, open_table_format_input: Option<String>, name: Option<String>, transaction_id: Option<String>, table_input: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

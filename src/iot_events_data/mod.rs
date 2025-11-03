@@ -24,11 +24,16 @@ impl<'a> Iot_events_dataService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "alarm" => self.plan_alarm(current_state, desired_input).await,
-            "detector" => self.plan_detector(current_state, desired_input).await,
+            "alarm" => {
+                self.plan_alarm(current_state, desired_input).await
+            }
+            "detector" => {
+                self.plan_detector(current_state, desired_input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "iot_events_data", resource_name
+                "iot_events_data",
+                resource_name
             ))),
         }
     }
@@ -40,23 +45,37 @@ impl<'a> Iot_events_dataService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "alarm" => self.create_alarm(input).await,
-            "detector" => self.create_detector(input).await,
+            "alarm" => {
+                self.create_alarm(input).await
+            }
+            "detector" => {
+                self.create_detector(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "iot_events_data", resource_name
+                "iot_events_data",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "alarm" => self.read_alarm(id).await,
-            "detector" => self.read_detector(id).await,
+            "alarm" => {
+                self.read_alarm(id).await
+            }
+            "detector" => {
+                self.read_detector(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "iot_events_data", resource_name
+                "iot_events_data",
+                resource_name
             ))),
         }
     }
@@ -69,23 +88,37 @@ impl<'a> Iot_events_dataService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "alarm" => self.update_alarm(id, input).await,
-            "detector" => self.update_detector(id, input).await,
+            "alarm" => {
+                self.update_alarm(id, input).await
+            }
+            "detector" => {
+                self.update_detector(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "iot_events_data", resource_name
+                "iot_events_data",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "alarm" => self.delete_alarm(id).await,
-            "detector" => self.delete_detector(id).await,
+            "alarm" => {
+                self.delete_alarm(id).await
+            }
+            "detector" => {
+                self.delete_detector(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "iot_events_data", resource_name
+                "iot_events_data",
+                resource_name
             ))),
         }
     }
@@ -93,6 +126,7 @@ impl<'a> Iot_events_dataService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Alarm resource operations
@@ -115,10 +149,14 @@ impl<'a> Iot_events_dataService<'a> {
     }
 
     /// Create a new alarm resource
-    async fn create_alarm(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_alarm(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -130,12 +168,17 @@ impl<'a> Iot_events_dataService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a alarm resource
-    async fn read_alarm(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_alarm(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -147,14 +190,20 @@ impl<'a> Iot_events_dataService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a alarm resource
-    async fn update_alarm(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_alarm(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -167,12 +216,17 @@ impl<'a> Iot_events_dataService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a alarm resource
-    async fn delete_alarm(&self, id: &str) -> Result<()> {
+    async fn delete_alarm(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -186,6 +240,7 @@ impl<'a> Iot_events_dataService<'a> {
             Ok(())
         })
     }
+
 
     // ------------------------------------------------------------------------
     // Detector resource operations
@@ -208,10 +263,14 @@ impl<'a> Iot_events_dataService<'a> {
     }
 
     /// Create a new detector resource
-    async fn create_detector(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_detector(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -223,12 +282,17 @@ impl<'a> Iot_events_dataService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a detector resource
-    async fn read_detector(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_detector(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -240,14 +304,20 @@ impl<'a> Iot_events_dataService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a detector resource
-    async fn update_detector(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_detector(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -260,12 +330,17 @@ impl<'a> Iot_events_dataService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a detector resource
-    async fn delete_detector(&self, id: &str) -> Result<()> {
+    async fn delete_detector(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -279,4 +354,6 @@ impl<'a> Iot_events_dataService<'a> {
             Ok(())
         })
     }
+
+
 }

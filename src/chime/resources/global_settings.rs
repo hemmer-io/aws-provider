@@ -38,7 +38,7 @@ impl<'a> Global_settings<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, business_calling: Option<String>, voice_connector: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, voice_connector: Option<String>, business_calling: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Tax_exemption<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, exemption_type: String, authority: String, exemption_certificate: String, account_ids: Vec<String>) -> Result<String> {
+    pub async fn create(&self, account_ids: Vec<String>, exemption_type: String, authority: String, exemption_certificate: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

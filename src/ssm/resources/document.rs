@@ -21,7 +21,7 @@ impl<'a> Document<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, content: String, name: String, display_name: Option<String>, document_format: Option<String>, target_type: Option<String>, version_name: Option<String>, document_type: Option<String>, attachments: Option<Vec<String>>, tags: Option<Vec<String>>, requires: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, target_type: Option<String>, name: String, attachments: Option<Vec<String>>, version_name: Option<String>, document_format: Option<String>, content: String, display_name: Option<String>, tags: Option<Vec<String>>, requires: Option<Vec<String>>, document_type: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Document<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, content: Option<String>, name: Option<String>, display_name: Option<String>, document_format: Option<String>, target_type: Option<String>, version_name: Option<String>, document_type: Option<String>, attachments: Option<Vec<String>>, tags: Option<Vec<String>>, requires: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, target_type: Option<String>, name: Option<String>, attachments: Option<Vec<String>>, version_name: Option<String>, document_format: Option<String>, content: Option<String>, display_name: Option<String>, tags: Option<Vec<String>>, requires: Option<Vec<String>>, document_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

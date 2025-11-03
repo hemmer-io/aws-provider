@@ -24,7 +24,7 @@ impl<'a> Findings_feedback<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, finding_ids: Option<Vec<String>>, comments: Option<String>, detector_id: Option<String>, feedback: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, comments: Option<String>, finding_ids: Option<Vec<String>>, feedback: Option<String>, detector_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

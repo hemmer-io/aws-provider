@@ -24,10 +24,13 @@ impl<'a> RumService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "rum_events" => self.plan_rum_events(current_state, desired_input).await,
+            "rum_events" => {
+                self.plan_rum_events(current_state, desired_input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "rum", resource_name
+                "rum",
+                resource_name
             ))),
         }
     }
@@ -39,21 +42,31 @@ impl<'a> RumService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "rum_events" => self.create_rum_events(input).await,
+            "rum_events" => {
+                self.create_rum_events(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "rum", resource_name
+                "rum",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "rum_events" => self.read_rum_events(id).await,
+            "rum_events" => {
+                self.read_rum_events(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "rum", resource_name
+                "rum",
+                resource_name
             ))),
         }
     }
@@ -66,21 +79,31 @@ impl<'a> RumService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "rum_events" => self.update_rum_events(id, input).await,
+            "rum_events" => {
+                self.update_rum_events(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "rum", resource_name
+                "rum",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "rum_events" => self.delete_rum_events(id).await,
+            "rum_events" => {
+                self.delete_rum_events(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "rum", resource_name
+                "rum",
+                resource_name
             ))),
         }
     }
@@ -88,6 +111,7 @@ impl<'a> RumService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Rum_events resource operations
@@ -110,16 +134,20 @@ impl<'a> RumService<'a> {
     }
 
     /// Create a new rum_events resource
-    async fn create_rum_events(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_rum_events(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let rum_events = input.get_string("rum_events")?;
             let user_details = input.get_string("user_details")?;
-            let app_monitor_details = input.get_string("app_monitor_details")?;
+            let rum_events = input.get_string("rum_events")?;
             let id = input.get_string("id")?;
             let batch_id = input.get_string("batch_id")?;
+            let app_monitor_details = input.get_string("app_monitor_details")?;
             let alias = input.get_optional_string("alias")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -133,20 +161,21 @@ impl<'a> RumService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("rum_events", rum_events.unwrap_or_default())
                 .with_field("user_details", user_details.unwrap_or_default())
-                .with_field(
-                    "app_monitor_details",
-                    app_monitor_details.unwrap_or_default(),
-                )
+                .with_field("rum_events", rum_events.unwrap_or_default())
                 .with_field("id", id.unwrap_or_default())
                 .with_field("batch_id", batch_id.unwrap_or_default())
-                .with_field("alias", alias.unwrap_or_default()))
+                .with_field("app_monitor_details", app_monitor_details.unwrap_or_default())
+                .with_field("alias", alias.unwrap_or_default())
+            )
         })
     }
 
     /// Read a rum_events resource
-    async fn read_rum_events(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_rum_events(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -158,20 +187,26 @@ impl<'a> RumService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a rum_events resource
-    async fn update_rum_events(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_rum_events(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let rum_events = input.get_string("rum_events")?;
             let user_details = input.get_string("user_details")?;
-            let app_monitor_details = input.get_string("app_monitor_details")?;
+            let rum_events = input.get_string("rum_events")?;
             let id = input.get_string("id")?;
             let batch_id = input.get_string("batch_id")?;
+            let app_monitor_details = input.get_string("app_monitor_details")?;
             let alias = input.get_optional_string("alias")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -186,20 +221,21 @@ impl<'a> RumService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("rum_events", rum_events.unwrap_or_default())
                 .with_field("user_details", user_details.unwrap_or_default())
-                .with_field(
-                    "app_monitor_details",
-                    app_monitor_details.unwrap_or_default(),
-                )
+                .with_field("rum_events", rum_events.unwrap_or_default())
                 .with_field("id", id.unwrap_or_default())
                 .with_field("batch_id", batch_id.unwrap_or_default())
-                .with_field("alias", alias.unwrap_or_default()))
+                .with_field("app_monitor_details", app_monitor_details.unwrap_or_default())
+                .with_field("alias", alias.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a rum_events resource
-    async fn delete_rum_events(&self, id: &str) -> Result<()> {
+    async fn delete_rum_events(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -213,4 +249,6 @@ impl<'a> RumService<'a> {
             Ok(())
         })
     }
+
+
 }

@@ -21,7 +21,7 @@ impl<'a> Microsoft_ad<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, password: String, vpc_settings: String, network_type: Option<String>, name: String, tags: Option<Vec<String>>, edition: Option<String>, description: Option<String>, short_name: Option<String>) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, password: String, name: String, network_type: Option<String>, description: Option<String>, edition: Option<String>, vpc_settings: String, short_name: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

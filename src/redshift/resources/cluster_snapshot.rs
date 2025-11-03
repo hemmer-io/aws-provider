@@ -21,7 +21,7 @@ impl<'a> Cluster_snapshot<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, manual_snapshot_retention_period: Option<i64>, snapshot_identifier: String, cluster_identifier: String, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, cluster_identifier: String, manual_snapshot_retention_period: Option<i64>, tags: Option<Vec<String>>, snapshot_identifier: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

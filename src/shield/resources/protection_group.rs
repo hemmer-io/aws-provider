@@ -21,7 +21,7 @@ impl<'a> Protection_group<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, resource_type: Option<String>, protection_group_id: String, aggregation: String, pattern: String, tags: Option<Vec<String>>, members: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, pattern: String, resource_type: Option<String>, tags: Option<Vec<String>>, protection_group_id: String, members: Option<Vec<String>>, aggregation: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Protection_group<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, resource_type: Option<String>, protection_group_id: Option<String>, aggregation: Option<String>, pattern: Option<String>, tags: Option<Vec<String>>, members: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, pattern: Option<String>, resource_type: Option<String>, tags: Option<Vec<String>>, protection_group_id: Option<String>, members: Option<Vec<String>>, aggregation: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

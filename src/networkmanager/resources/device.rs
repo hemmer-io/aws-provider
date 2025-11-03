@@ -21,7 +21,7 @@ impl<'a> Device<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, model: Option<String>, location: Option<String>, global_network_id: String, type: Option<String>, site_id: Option<String>, aws_location: Option<String>, description: Option<String>, serial_number: Option<String>, vendor: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, vendor: Option<String>, type: Option<String>, site_id: Option<String>, description: Option<String>, aws_location: Option<String>, location: Option<String>, global_network_id: String, serial_number: Option<String>, tags: Option<Vec<String>>, model: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Device<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, model: Option<String>, location: Option<String>, global_network_id: Option<String>, type: Option<String>, site_id: Option<String>, aws_location: Option<String>, description: Option<String>, serial_number: Option<String>, vendor: Option<String>, tags: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, vendor: Option<String>, type: Option<String>, site_id: Option<String>, description: Option<String>, aws_location: Option<String>, location: Option<String>, global_network_id: Option<String>, serial_number: Option<String>, tags: Option<Vec<String>>, model: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

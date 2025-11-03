@@ -21,7 +21,7 @@ impl<'a> Authorizer<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, provider_ar_ns: Option<Vec<String>>, authorizer_uri: Option<String>, identity_validation_expression: Option<String>, authorizer_credentials: Option<String>, identity_source: Option<String>, authorizer_result_ttl_in_seconds: Option<i64>, auth_type: Option<String>, rest_api_id: String, name: String, type: String) -> Result<String> {
+    pub async fn create(&self, identity_source: Option<String>, authorizer_result_ttl_in_seconds: Option<i64>, type: String, auth_type: Option<String>, authorizer_uri: Option<String>, authorizer_credentials: Option<String>, name: String, identity_validation_expression: Option<String>, rest_api_id: String, provider_ar_ns: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Authorizer<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, provider_ar_ns: Option<Vec<String>>, authorizer_uri: Option<String>, identity_validation_expression: Option<String>, authorizer_credentials: Option<String>, identity_source: Option<String>, authorizer_result_ttl_in_seconds: Option<i64>, auth_type: Option<String>, rest_api_id: Option<String>, name: Option<String>, type: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, identity_source: Option<String>, authorizer_result_ttl_in_seconds: Option<i64>, type: Option<String>, auth_type: Option<String>, authorizer_uri: Option<String>, authorizer_credentials: Option<String>, name: Option<String>, identity_validation_expression: Option<String>, rest_api_id: Option<String>, provider_ar_ns: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

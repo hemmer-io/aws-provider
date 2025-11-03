@@ -21,7 +21,7 @@ impl<'a> Resiliency_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<HashMap<String, String>>, client_token: Option<String>, policy_name: String, policy_description: Option<String>, tier: String, policy: HashMap<String, String>, data_location_constraint: Option<String>) -> Result<String> {
+    pub async fn create(&self, tags: Option<HashMap<String, String>>, tier: String, policy_name: String, policy: HashMap<String, String>, policy_description: Option<String>, data_location_constraint: Option<String>, client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Resiliency_policy<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, client_token: Option<String>, policy_name: Option<String>, policy_description: Option<String>, tier: Option<String>, policy: Option<HashMap<String, String>>, data_location_constraint: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, tier: Option<String>, policy_name: Option<String>, policy: Option<HashMap<String, String>>, policy_description: Option<String>, data_location_constraint: Option<String>, client_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

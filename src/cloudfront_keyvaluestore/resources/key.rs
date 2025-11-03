@@ -21,7 +21,7 @@ impl<'a> Key<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, key: String, kvs_arn: String, if_match: String, value: String) -> Result<String> {
+    pub async fn create(&self, value: String, if_match: String, key: String, kvs_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

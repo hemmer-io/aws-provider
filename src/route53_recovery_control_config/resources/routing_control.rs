@@ -21,7 +21,7 @@ impl<'a> Routing_control<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, control_panel_arn: Option<String>, cluster_arn: String, routing_control_name: String, client_token: Option<String>) -> Result<String> {
+    pub async fn create(&self, routing_control_name: String, client_token: Option<String>, control_panel_arn: Option<String>, cluster_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Routing_control<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, control_panel_arn: Option<String>, cluster_arn: Option<String>, routing_control_name: Option<String>, client_token: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, routing_control_name: Option<String>, client_token: Option<String>, control_panel_arn: Option<String>, cluster_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

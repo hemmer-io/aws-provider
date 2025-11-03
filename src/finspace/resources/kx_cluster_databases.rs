@@ -24,7 +24,7 @@ impl<'a> Kx_cluster_databases<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, databases: Option<Vec<String>>, environment_id: Option<String>, client_token: Option<String>, deployment_configuration: Option<String>, cluster_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, cluster_name: Option<String>, client_token: Option<String>, databases: Option<Vec<String>>, deployment_configuration: Option<String>, environment_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Solution<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, event_type: Option<String>, dataset_group_arn: String, perform_auto_training: Option<bool>, solution_config: Option<String>, recipe_arn: Option<String>, perform_hpo: Option<bool>, name: String, perform_auto_ml: Option<bool>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, dataset_group_arn: String, perform_auto_ml: Option<bool>, name: String, perform_hpo: Option<bool>, event_type: Option<String>, perform_auto_training: Option<bool>, recipe_arn: Option<String>, solution_config: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Solution<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, event_type: Option<String>, dataset_group_arn: Option<String>, perform_auto_training: Option<bool>, solution_config: Option<String>, recipe_arn: Option<String>, perform_hpo: Option<bool>, name: Option<String>, perform_auto_ml: Option<bool>, tags: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, dataset_group_arn: Option<String>, perform_auto_ml: Option<bool>, name: Option<String>, perform_hpo: Option<bool>, event_type: Option<String>, perform_auto_training: Option<bool>, recipe_arn: Option<String>, solution_config: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

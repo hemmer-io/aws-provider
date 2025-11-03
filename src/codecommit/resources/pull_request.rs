@@ -21,7 +21,7 @@ impl<'a> Pull_request<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, title: String, description: Option<String>, client_request_token: Option<String>, targets: Vec<String>) -> Result<String> {
+    pub async fn create(&self, title: String, description: Option<String>, targets: Vec<String>, client_request_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

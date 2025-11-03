@@ -26,7 +26,8 @@ impl<'a> Pca_connector_scepService<'a> {
         match resource_name {
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "pca_connector_scep", resource_name
+                "pca_connector_scep",
+                resource_name
             ))),
         }
     }
@@ -40,17 +41,23 @@ impl<'a> Pca_connector_scepService<'a> {
         match resource_name {
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "pca_connector_scep", resource_name
+                "pca_connector_scep",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "pca_connector_scep", resource_name
+                "pca_connector_scep",
+                resource_name
             ))),
         }
     }
@@ -65,17 +72,23 @@ impl<'a> Pca_connector_scepService<'a> {
         match resource_name {
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "pca_connector_scep", resource_name
+                "pca_connector_scep",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "pca_connector_scep", resource_name
+                "pca_connector_scep",
+                resource_name
             ))),
         }
     }
@@ -83,4 +96,6 @@ impl<'a> Pca_connector_scepService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
+
 }

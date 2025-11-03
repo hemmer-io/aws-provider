@@ -38,7 +38,7 @@ impl<'a> Preferences<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, preferred_commitment: Option<String>, savings_estimation_mode: Option<String>, member_account_discount_visibility: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, preferred_commitment: Option<String>, member_account_discount_visibility: Option<String>, savings_estimation_mode: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

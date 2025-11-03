@@ -21,7 +21,7 @@ impl<'a> Traffic_mirror_filter_rule<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, protocol: Option<i64>, client_token: Option<String>, source_port_range: Option<String>, source_cidr_block: String, tag_specifications: Option<Vec<String>>, destination_cidr_block: String, dry_run: Option<bool>, destination_port_range: Option<String>, description: Option<String>, traffic_mirror_filter_id: String, rule_action: String, traffic_direction: String, rule_number: i64) -> Result<String> {
+    pub async fn create(&self, source_cidr_block: String, traffic_direction: String, description: Option<String>, client_token: Option<String>, tag_specifications: Option<Vec<String>>, traffic_mirror_filter_id: String, source_port_range: Option<String>, rule_number: i64, destination_port_range: Option<String>, protocol: Option<i64>, destination_cidr_block: String, rule_action: String, dry_run: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

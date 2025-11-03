@@ -24,7 +24,7 @@ impl<'a> Distribution_with_staging_config<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, id: Option<String>, if_match: Option<String>, staging_distribution_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, staging_distribution_id: Option<String>, if_match: Option<String>, id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

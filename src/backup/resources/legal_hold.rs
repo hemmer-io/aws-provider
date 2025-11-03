@@ -21,7 +21,7 @@ impl<'a> Legal_hold<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, idempotency_token: Option<String>, recovery_point_selection: Option<String>, tags: Option<HashMap<String, String>>, title: String, description: String) -> Result<String> {
+    pub async fn create(&self, description: String, title: String, tags: Option<HashMap<String, String>>, idempotency_token: Option<String>, recovery_point_selection: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

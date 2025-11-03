@@ -21,7 +21,7 @@ impl<'a> Notebook_instance<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, security_group_ids: Option<Vec<String>>, platform_identifier: Option<String>, instance_type: String, ip_address_type: Option<String>, role_arn: String, notebook_instance_name: String, accelerator_types: Option<Vec<String>>, root_access: Option<String>, instance_metadata_service_configuration: Option<String>, additional_code_repositories: Option<Vec<String>>, direct_internet_access: Option<String>, volume_size_in_gb: Option<i64>, tags: Option<Vec<String>>, lifecycle_config_name: Option<String>, subnet_id: Option<String>, kms_key_id: Option<String>, default_code_repository: Option<String>) -> Result<String> {
+    pub async fn create(&self, accelerator_types: Option<Vec<String>>, platform_identifier: Option<String>, instance_type: String, kms_key_id: Option<String>, tags: Option<Vec<String>>, root_access: Option<String>, default_code_repository: Option<String>, security_group_ids: Option<Vec<String>>, instance_metadata_service_configuration: Option<String>, additional_code_repositories: Option<Vec<String>>, direct_internet_access: Option<String>, subnet_id: Option<String>, ip_address_type: Option<String>, role_arn: String, volume_size_in_gb: Option<i64>, lifecycle_config_name: Option<String>, notebook_instance_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Notebook_instance<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, security_group_ids: Option<Vec<String>>, platform_identifier: Option<String>, instance_type: Option<String>, ip_address_type: Option<String>, role_arn: Option<String>, notebook_instance_name: Option<String>, accelerator_types: Option<Vec<String>>, root_access: Option<String>, instance_metadata_service_configuration: Option<String>, additional_code_repositories: Option<Vec<String>>, direct_internet_access: Option<String>, volume_size_in_gb: Option<i64>, tags: Option<Vec<String>>, lifecycle_config_name: Option<String>, subnet_id: Option<String>, kms_key_id: Option<String>, default_code_repository: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, accelerator_types: Option<Vec<String>>, platform_identifier: Option<String>, instance_type: Option<String>, kms_key_id: Option<String>, tags: Option<Vec<String>>, root_access: Option<String>, default_code_repository: Option<String>, security_group_ids: Option<Vec<String>>, instance_metadata_service_configuration: Option<String>, additional_code_repositories: Option<Vec<String>>, direct_internet_access: Option<String>, subnet_id: Option<String>, ip_address_type: Option<String>, role_arn: Option<String>, volume_size_in_gb: Option<i64>, lifecycle_config_name: Option<String>, notebook_instance_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

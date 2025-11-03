@@ -21,7 +21,7 @@ impl<'a> Profile_object_type<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, encryption_key: Option<String>, source_last_updated_timestamp_format: Option<String>, expiration_days: Option<i64>, tags: Option<HashMap<String, String>>, domain_name: String, allow_profile_creation: Option<bool>, max_profile_object_count: Option<i64>, description: String, fields: Option<HashMap<String, String>>, keys: Option<HashMap<String, Vec<String>>>, template_id: Option<String>, object_type_name: String) -> Result<String> {
+    pub async fn create(&self, template_id: Option<String>, expiration_days: Option<i64>, encryption_key: Option<String>, allow_profile_creation: Option<bool>, fields: Option<HashMap<String, String>>, keys: Option<HashMap<String, Vec<String>>>, max_profile_object_count: Option<i64>, object_type_name: String, description: String, source_last_updated_timestamp_format: Option<String>, tags: Option<HashMap<String, String>>, domain_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

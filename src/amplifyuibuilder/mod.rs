@@ -24,11 +24,16 @@ impl<'a> AmplifyuibuilderService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "metadata_flag" => self.plan_metadata_flag(current_state, desired_input).await,
-            "metadata" => self.plan_metadata(current_state, desired_input).await,
+            "metadata_flag" => {
+                self.plan_metadata_flag(current_state, desired_input).await
+            }
+            "metadata" => {
+                self.plan_metadata(current_state, desired_input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "amplifyuibuilder", resource_name
+                "amplifyuibuilder",
+                resource_name
             ))),
         }
     }
@@ -40,23 +45,37 @@ impl<'a> AmplifyuibuilderService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "metadata_flag" => self.create_metadata_flag(input).await,
-            "metadata" => self.create_metadata(input).await,
+            "metadata_flag" => {
+                self.create_metadata_flag(input).await
+            }
+            "metadata" => {
+                self.create_metadata(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "amplifyuibuilder", resource_name
+                "amplifyuibuilder",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "metadata_flag" => self.read_metadata_flag(id).await,
-            "metadata" => self.read_metadata(id).await,
+            "metadata_flag" => {
+                self.read_metadata_flag(id).await
+            }
+            "metadata" => {
+                self.read_metadata(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "amplifyuibuilder", resource_name
+                "amplifyuibuilder",
+                resource_name
             ))),
         }
     }
@@ -69,23 +88,37 @@ impl<'a> AmplifyuibuilderService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "metadata_flag" => self.update_metadata_flag(id, input).await,
-            "metadata" => self.update_metadata(id, input).await,
+            "metadata_flag" => {
+                self.update_metadata_flag(id, input).await
+            }
+            "metadata" => {
+                self.update_metadata(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "amplifyuibuilder", resource_name
+                "amplifyuibuilder",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "metadata_flag" => self.delete_metadata_flag(id).await,
-            "metadata" => self.delete_metadata(id).await,
+            "metadata_flag" => {
+                self.delete_metadata_flag(id).await
+            }
+            "metadata" => {
+                self.delete_metadata(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "amplifyuibuilder", resource_name
+                "amplifyuibuilder",
+                resource_name
             ))),
         }
     }
@@ -93,6 +126,7 @@ impl<'a> AmplifyuibuilderService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Metadata_flag resource operations
@@ -115,14 +149,18 @@ impl<'a> AmplifyuibuilderService<'a> {
     }
 
     /// Create a new metadata_flag resource
-    async fn create_metadata_flag(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_metadata_flag(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let body = input.get_string("body")?;
-            let app_id = input.get_string("app_id")?;
             let feature_name = input.get_string("feature_name")?;
+            let app_id = input.get_string("app_id")?;
+            let body = input.get_string("body")?;
             let environment_name = input.get_string("environment_name")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -136,15 +174,19 @@ impl<'a> AmplifyuibuilderService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("body", body.unwrap_or_default())
-                .with_field("app_id", app_id.unwrap_or_default())
                 .with_field("feature_name", feature_name.unwrap_or_default())
-                .with_field("environment_name", environment_name.unwrap_or_default()))
+                .with_field("app_id", app_id.unwrap_or_default())
+                .with_field("body", body.unwrap_or_default())
+                .with_field("environment_name", environment_name.unwrap_or_default())
+            )
         })
     }
 
     /// Read a metadata_flag resource
-    async fn read_metadata_flag(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_metadata_flag(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -156,18 +198,24 @@ impl<'a> AmplifyuibuilderService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a metadata_flag resource
-    async fn update_metadata_flag(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_metadata_flag(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let body = input.get_string("body")?;
-            let app_id = input.get_string("app_id")?;
             let feature_name = input.get_string("feature_name")?;
+            let app_id = input.get_string("app_id")?;
+            let body = input.get_string("body")?;
             let environment_name = input.get_string("environment_name")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -182,15 +230,19 @@ impl<'a> AmplifyuibuilderService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("body", body.unwrap_or_default())
-                .with_field("app_id", app_id.unwrap_or_default())
                 .with_field("feature_name", feature_name.unwrap_or_default())
-                .with_field("environment_name", environment_name.unwrap_or_default()))
+                .with_field("app_id", app_id.unwrap_or_default())
+                .with_field("body", body.unwrap_or_default())
+                .with_field("environment_name", environment_name.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a metadata_flag resource
-    async fn delete_metadata_flag(&self, id: &str) -> Result<()> {
+    async fn delete_metadata_flag(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -204,6 +256,7 @@ impl<'a> AmplifyuibuilderService<'a> {
             Ok(())
         })
     }
+
 
     // ------------------------------------------------------------------------
     // Metadata resource operations
@@ -226,10 +279,14 @@ impl<'a> AmplifyuibuilderService<'a> {
     }
 
     /// Create a new metadata resource
-    async fn create_metadata(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_metadata(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -241,12 +298,17 @@ impl<'a> AmplifyuibuilderService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a metadata resource
-    async fn read_metadata(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_metadata(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -258,14 +320,20 @@ impl<'a> AmplifyuibuilderService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a metadata resource
-    async fn update_metadata(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_metadata(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -278,12 +346,17 @@ impl<'a> AmplifyuibuilderService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a metadata resource
-    async fn delete_metadata(&self, id: &str) -> Result<()> {
+    async fn delete_metadata(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -297,4 +370,6 @@ impl<'a> AmplifyuibuilderService<'a> {
             Ok(())
         })
     }
+
+
 }

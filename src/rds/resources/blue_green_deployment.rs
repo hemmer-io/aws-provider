@@ -21,7 +21,7 @@ impl<'a> Blue_green_deployment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, blue_green_deployment_name: String, target_db_instance_class: Option<String>, upgrade_target_storage_config: Option<bool>, target_iops: Option<i64>, target_storage_type: Option<String>, target_storage_throughput: Option<i64>, source: String, target_engine_version: Option<String>, target_db_cluster_parameter_group_name: Option<String>, target_db_parameter_group_name: Option<String>, tags: Option<Vec<String>>, target_allocated_storage: Option<i64>) -> Result<String> {
+    pub async fn create(&self, upgrade_target_storage_config: Option<bool>, target_storage_type: Option<String>, blue_green_deployment_name: String, tags: Option<Vec<String>>, target_iops: Option<i64>, target_storage_throughput: Option<i64>, target_db_parameter_group_name: Option<String>, target_engine_version: Option<String>, target_db_cluster_parameter_group_name: Option<String>, source: String, target_allocated_storage: Option<i64>, target_db_instance_class: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

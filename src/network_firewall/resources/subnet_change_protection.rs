@@ -24,7 +24,7 @@ impl<'a> Subnet_change_protection<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, firewall_arn: Option<String>, subnet_change_protection: Option<bool>, firewall_name: Option<String>, update_token: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, update_token: Option<String>, firewall_name: Option<String>, subnet_change_protection: Option<bool>, firewall_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

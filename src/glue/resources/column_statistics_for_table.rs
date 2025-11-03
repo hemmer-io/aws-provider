@@ -38,7 +38,7 @@ impl<'a> Column_statistics_for_table<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, catalog_id: Option<String>, database_name: Option<String>, table_name: Option<String>, column_statistics_list: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, column_statistics_list: Option<Vec<String>>, database_name: Option<String>, table_name: Option<String>, catalog_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

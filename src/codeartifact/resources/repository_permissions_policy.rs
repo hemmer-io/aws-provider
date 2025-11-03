@@ -21,7 +21,7 @@ impl<'a> Repository_permissions_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, policy_document: String, domain: String, policy_revision: Option<String>, domain_owner: Option<String>, repository: String) -> Result<String> {
+    pub async fn create(&self, domain: String, domain_owner: Option<String>, repository: String, policy_document: String, policy_revision: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

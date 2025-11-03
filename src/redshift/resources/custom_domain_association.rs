@@ -21,7 +21,7 @@ impl<'a> Custom_domain_association<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, custom_domain_certificate_arn: String, cluster_identifier: String, custom_domain_name: String) -> Result<String> {
+    pub async fn create(&self, cluster_identifier: String, custom_domain_name: String, custom_domain_certificate_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

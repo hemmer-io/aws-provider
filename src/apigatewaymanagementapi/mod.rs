@@ -24,10 +24,13 @@ impl<'a> ApigatewaymanagementapiService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "connection" => self.plan_connection(current_state, desired_input).await,
+            "connection" => {
+                self.plan_connection(current_state, desired_input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "apigatewaymanagementapi", resource_name
+                "apigatewaymanagementapi",
+                resource_name
             ))),
         }
     }
@@ -39,21 +42,31 @@ impl<'a> ApigatewaymanagementapiService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "connection" => self.create_connection(input).await,
+            "connection" => {
+                self.create_connection(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "apigatewaymanagementapi", resource_name
+                "apigatewaymanagementapi",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "connection" => self.read_connection(id).await,
+            "connection" => {
+                self.read_connection(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "apigatewaymanagementapi", resource_name
+                "apigatewaymanagementapi",
+                resource_name
             ))),
         }
     }
@@ -66,21 +79,31 @@ impl<'a> ApigatewaymanagementapiService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "connection" => self.update_connection(id, input).await,
+            "connection" => {
+                self.update_connection(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "apigatewaymanagementapi", resource_name
+                "apigatewaymanagementapi",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "connection" => self.delete_connection(id).await,
+            "connection" => {
+                self.delete_connection(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "apigatewaymanagementapi", resource_name
+                "apigatewaymanagementapi",
+                resource_name
             ))),
         }
     }
@@ -88,6 +111,7 @@ impl<'a> ApigatewaymanagementapiService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Connection resource operations
@@ -110,10 +134,14 @@ impl<'a> ApigatewaymanagementapiService<'a> {
     }
 
     /// Create a new connection resource
-    async fn create_connection(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_connection(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -125,12 +153,17 @@ impl<'a> ApigatewaymanagementapiService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a connection resource
-    async fn read_connection(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_connection(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -142,14 +175,20 @@ impl<'a> ApigatewaymanagementapiService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a connection resource
-    async fn update_connection(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_connection(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -162,12 +201,17 @@ impl<'a> ApigatewaymanagementapiService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a connection resource
-    async fn delete_connection(&self, id: &str) -> Result<()> {
+    async fn delete_connection(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -181,4 +225,6 @@ impl<'a> ApigatewaymanagementapiService<'a> {
             Ok(())
         })
     }
+
+
 }

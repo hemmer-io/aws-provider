@@ -21,7 +21,7 @@ impl<'a> Network_acl_entry<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, icmp_type_code: Option<String>, egress: bool, ipv6_cidr_block: Option<String>, port_range: Option<String>, dry_run: Option<bool>, network_acl_id: String, rule_number: i64, protocol: String, rule_action: String, cidr_block: Option<String>) -> Result<String> {
+    pub async fn create(&self, protocol: String, rule_action: String, ipv6_cidr_block: Option<String>, icmp_type_code: Option<String>, port_range: Option<String>, rule_number: i64, cidr_block: Option<String>, network_acl_id: String, dry_run: Option<bool>, egress: bool) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

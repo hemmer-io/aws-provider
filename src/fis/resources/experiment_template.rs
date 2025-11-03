@@ -21,7 +21,7 @@ impl<'a> Experiment_template<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: String, description: String, targets: Option<HashMap<String, String>>, actions: HashMap<String, String>, role_arn: String, log_configuration: Option<String>, experiment_options: Option<String>, stop_conditions: Vec<String>, experiment_report_configuration: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, actions: HashMap<String, String>, role_arn: String, experiment_report_configuration: Option<String>, tags: Option<HashMap<String, String>>, description: String, log_configuration: Option<String>, targets: Option<HashMap<String, String>>, experiment_options: Option<String>, client_token: String, stop_conditions: Vec<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Experiment_template<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, client_token: Option<String>, description: Option<String>, targets: Option<HashMap<String, String>>, actions: Option<HashMap<String, String>>, role_arn: Option<String>, log_configuration: Option<String>, experiment_options: Option<String>, stop_conditions: Option<Vec<String>>, experiment_report_configuration: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, actions: Option<HashMap<String, String>>, role_arn: Option<String>, experiment_report_configuration: Option<String>, tags: Option<HashMap<String, String>>, description: Option<String>, log_configuration: Option<String>, targets: Option<HashMap<String, String>>, experiment_options: Option<String>, client_token: Option<String>, stop_conditions: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

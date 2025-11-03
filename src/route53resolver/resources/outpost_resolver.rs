@@ -21,7 +21,7 @@ impl<'a> Outpost_resolver<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, outpost_arn: String, tags: Option<Vec<String>>, creator_request_id: String, preferred_instance_type: String, name: String, instance_count: Option<i64>) -> Result<String> {
+    pub async fn create(&self, outpost_arn: String, name: String, instance_count: Option<i64>, tags: Option<Vec<String>>, preferred_instance_type: String, creator_request_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Outpost_resolver<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, outpost_arn: Option<String>, tags: Option<Vec<String>>, creator_request_id: Option<String>, preferred_instance_type: Option<String>, name: Option<String>, instance_count: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, outpost_arn: Option<String>, name: Option<String>, instance_count: Option<i64>, tags: Option<Vec<String>>, preferred_instance_type: Option<String>, creator_request_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

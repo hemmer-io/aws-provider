@@ -24,10 +24,13 @@ impl<'a> Mediastore_dataService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "object" => self.plan_object(current_state, desired_input).await,
+            "object" => {
+                self.plan_object(current_state, desired_input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "mediastore_data", resource_name
+                "mediastore_data",
+                resource_name
             ))),
         }
     }
@@ -39,21 +42,31 @@ impl<'a> Mediastore_dataService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "object" => self.create_object(input).await,
+            "object" => {
+                self.create_object(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "mediastore_data", resource_name
+                "mediastore_data",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "object" => self.read_object(id).await,
+            "object" => {
+                self.read_object(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "mediastore_data", resource_name
+                "mediastore_data",
+                resource_name
             ))),
         }
     }
@@ -66,21 +79,31 @@ impl<'a> Mediastore_dataService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "object" => self.update_object(id, input).await,
+            "object" => {
+                self.update_object(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "mediastore_data", resource_name
+                "mediastore_data",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "object" => self.delete_object(id).await,
+            "object" => {
+                self.delete_object(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "mediastore_data", resource_name
+                "mediastore_data",
+                resource_name
             ))),
         }
     }
@@ -88,6 +111,7 @@ impl<'a> Mediastore_dataService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Object resource operations
@@ -110,16 +134,20 @@ impl<'a> Mediastore_dataService<'a> {
     }
 
     /// Create a new object resource
-    async fn create_object(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_object(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let path = input.get_string("path")?;
             let upload_availability = input.get_optional_string("upload_availability")?;
             let cache_control = input.get_optional_string("cache_control")?;
-            let path = input.get_string("path")?;
-            let body = input.get_string("body")?;
             let storage_class = input.get_optional_string("storage_class")?;
             let content_type = input.get_optional_string("content_type")?;
+            let body = input.get_string("body")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -133,20 +161,21 @@ impl<'a> Mediastore_dataService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field(
-                    "upload_availability",
-                    upload_availability.unwrap_or_default(),
-                )
-                .with_field("cache_control", cache_control.unwrap_or_default())
                 .with_field("path", path.unwrap_or_default())
-                .with_field("body", body.unwrap_or_default())
+                .with_field("upload_availability", upload_availability.unwrap_or_default())
+                .with_field("cache_control", cache_control.unwrap_or_default())
                 .with_field("storage_class", storage_class.unwrap_or_default())
-                .with_field("content_type", content_type.unwrap_or_default()))
+                .with_field("content_type", content_type.unwrap_or_default())
+                .with_field("body", body.unwrap_or_default())
+            )
         })
     }
 
     /// Read a object resource
-    async fn read_object(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_object(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -158,20 +187,26 @@ impl<'a> Mediastore_dataService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a object resource
-    async fn update_object(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_object(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let path = input.get_string("path")?;
             let upload_availability = input.get_optional_string("upload_availability")?;
             let cache_control = input.get_optional_string("cache_control")?;
-            let path = input.get_string("path")?;
-            let body = input.get_string("body")?;
             let storage_class = input.get_optional_string("storage_class")?;
             let content_type = input.get_optional_string("content_type")?;
+            let body = input.get_string("body")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -186,20 +221,21 @@ impl<'a> Mediastore_dataService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field(
-                    "upload_availability",
-                    upload_availability.unwrap_or_default(),
-                )
-                .with_field("cache_control", cache_control.unwrap_or_default())
                 .with_field("path", path.unwrap_or_default())
-                .with_field("body", body.unwrap_or_default())
+                .with_field("upload_availability", upload_availability.unwrap_or_default())
+                .with_field("cache_control", cache_control.unwrap_or_default())
                 .with_field("storage_class", storage_class.unwrap_or_default())
-                .with_field("content_type", content_type.unwrap_or_default()))
+                .with_field("content_type", content_type.unwrap_or_default())
+                .with_field("body", body.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a object resource
-    async fn delete_object(&self, id: &str) -> Result<()> {
+    async fn delete_object(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -213,4 +249,6 @@ impl<'a> Mediastore_dataService<'a> {
             Ok(())
         })
     }
+
+
 }

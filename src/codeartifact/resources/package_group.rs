@@ -21,7 +21,7 @@ impl<'a> Package_group<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, domain_owner: Option<String>, domain: String, package_group: String, tags: Option<Vec<String>>, contact_info: Option<String>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, contact_info: Option<String>, domain: String, tags: Option<Vec<String>>, domain_owner: Option<String>, package_group: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Package_group<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, domain_owner: Option<String>, domain: Option<String>, package_group: Option<String>, tags: Option<Vec<String>>, contact_info: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, contact_info: Option<String>, domain: Option<String>, tags: Option<Vec<String>>, domain_owner: Option<String>, package_group: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Session<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, bucket_key_enabled: Option<bool>, server_side_encryption: Option<String>, session_mode: Option<String>, bucket: String, ssekms_key_id: Option<String>, ssekms_encryption_context: Option<String>) -> Result<String> {
+    pub async fn create(&self, ssekms_key_id: Option<String>, session_mode: Option<String>, bucket: String, server_side_encryption: Option<String>, ssekms_encryption_context: Option<String>, bucket_key_enabled: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

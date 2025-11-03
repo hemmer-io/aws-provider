@@ -21,7 +21,7 @@ impl<'a> Schema<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, registry_id: Option<String>, compatibility: Option<String>, description: Option<String>, tags: Option<HashMap<String, String>>, schema_definition: Option<String>, data_format: String, schema_name: String) -> Result<String> {
+    pub async fn create(&self, schema_definition: Option<String>, tags: Option<HashMap<String, String>>, data_format: String, description: Option<String>, compatibility: Option<String>, schema_name: String, registry_id: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Schema<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, registry_id: Option<String>, compatibility: Option<String>, description: Option<String>, tags: Option<HashMap<String, String>>, schema_definition: Option<String>, data_format: Option<String>, schema_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, schema_definition: Option<String>, tags: Option<HashMap<String, String>>, data_format: Option<String>, description: Option<String>, compatibility: Option<String>, schema_name: Option<String>, registry_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Location_smb<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, kerberos_principal: Option<String>, kerberos_keytab: Option<String>, tags: Option<Vec<String>>, password: Option<String>, subdirectory: String, authentication_type: Option<String>, dns_ip_addresses: Option<Vec<String>>, user: Option<String>, agent_arns: Vec<String>, server_hostname: String, kerberos_krb5_conf: Option<String>, mount_options: Option<String>, domain: Option<String>) -> Result<String> {
+    pub async fn create(&self, authentication_type: Option<String>, kerberos_keytab: Option<String>, tags: Option<Vec<String>>, user: Option<String>, server_hostname: String, agent_arns: Vec<String>, mount_options: Option<String>, kerberos_krb5_conf: Option<String>, password: Option<String>, dns_ip_addresses: Option<Vec<String>>, subdirectory: String, domain: Option<String>, kerberos_principal: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Location_smb<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, kerberos_principal: Option<String>, kerberos_keytab: Option<String>, tags: Option<Vec<String>>, password: Option<String>, subdirectory: Option<String>, authentication_type: Option<String>, dns_ip_addresses: Option<Vec<String>>, user: Option<String>, agent_arns: Option<Vec<String>>, server_hostname: Option<String>, kerberos_krb5_conf: Option<String>, mount_options: Option<String>, domain: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, authentication_type: Option<String>, kerberos_keytab: Option<String>, tags: Option<Vec<String>>, user: Option<String>, server_hostname: Option<String>, agent_arns: Option<Vec<String>>, mount_options: Option<String>, kerberos_krb5_conf: Option<String>, password: Option<String>, dns_ip_addresses: Option<Vec<String>>, subdirectory: Option<String>, domain: Option<String>, kerberos_principal: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

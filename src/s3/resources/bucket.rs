@@ -21,7 +21,7 @@ impl<'a> Bucket<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, bucket: String, grant_write: Option<String>, object_lock_enabled_for_bucket: Option<bool>, grant_read: Option<String>, grant_read_acp: Option<String>, acl: Option<String>, grant_full_control: Option<String>, grant_write_acp: Option<String>, create_bucket_configuration: Option<String>, object_ownership: Option<String>) -> Result<String> {
+    pub async fn create(&self, grant_read: Option<String>, grant_write_acp: Option<String>, grant_write: Option<String>, object_lock_enabled_for_bucket: Option<bool>, acl: Option<String>, bucket: String, object_ownership: Option<String>, grant_full_control: Option<String>, create_bucket_configuration: Option<String>, grant_read_acp: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

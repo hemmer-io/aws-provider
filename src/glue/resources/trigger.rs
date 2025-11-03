@@ -21,7 +21,7 @@ impl<'a> Trigger<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, name: String, workflow_name: Option<String>, actions: Vec<String>, event_batching_condition: Option<String>, type: String, schedule: Option<String>, predicate: Option<String>, description: Option<String>, start_on_creation: Option<bool>, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, name: String, type: String, predicate: Option<String>, actions: Vec<String>, tags: Option<HashMap<String, String>>, event_batching_condition: Option<String>, workflow_name: Option<String>, description: Option<String>, start_on_creation: Option<bool>, schedule: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Trigger<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, name: Option<String>, workflow_name: Option<String>, actions: Option<Vec<String>>, event_batching_condition: Option<String>, type: Option<String>, schedule: Option<String>, predicate: Option<String>, description: Option<String>, start_on_creation: Option<bool>, tags: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, name: Option<String>, type: Option<String>, predicate: Option<String>, actions: Option<Vec<String>>, tags: Option<HashMap<String, String>>, event_batching_condition: Option<String>, workflow_name: Option<String>, description: Option<String>, start_on_creation: Option<bool>, schedule: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

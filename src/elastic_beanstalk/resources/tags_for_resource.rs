@@ -24,7 +24,7 @@ impl<'a> Tags_for_resource<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, resource_arn: Option<String>, tags_to_add: Option<Vec<String>>, tags_to_remove: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags_to_remove: Option<Vec<String>>, resource_arn: Option<String>, tags_to_add: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

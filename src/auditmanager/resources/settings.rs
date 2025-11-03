@@ -38,7 +38,7 @@ impl<'a> Settings<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, sns_topic: Option<String>, default_assessment_reports_destination: Option<String>, kms_key: Option<String>, default_process_owners: Option<Vec<String>>, evidence_finder_enabled: Option<bool>, deregistration_policy: Option<String>, default_export_destination: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, sns_topic: Option<String>, evidence_finder_enabled: Option<bool>, deregistration_policy: Option<String>, default_assessment_reports_destination: Option<String>, default_export_destination: Option<String>, default_process_owners: Option<Vec<String>>, kms_key: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

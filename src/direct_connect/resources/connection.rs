@@ -21,7 +21,7 @@ impl<'a> Connection<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, provider_name: Option<String>, request_mac_sec: Option<bool>, location: String, connection_name: String, lag_id: Option<String>, bandwidth: String) -> Result<String> {
+    pub async fn create(&self, location: String, bandwidth: String, lag_id: Option<String>, provider_name: Option<String>, request_mac_sec: Option<bool>, tags: Option<Vec<String>>, connection_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Connection<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, provider_name: Option<String>, request_mac_sec: Option<bool>, location: Option<String>, connection_name: Option<String>, lag_id: Option<String>, bandwidth: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, location: Option<String>, bandwidth: Option<String>, lag_id: Option<String>, provider_name: Option<String>, request_mac_sec: Option<bool>, tags: Option<Vec<String>>, connection_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Ipam_prefix_list_resolver_target<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, prefix_list_region: String, prefix_list_id: String, dry_run: Option<bool>, ipam_prefix_list_resolver_id: String, tag_specifications: Option<Vec<String>>, track_latest_version: bool, client_token: Option<String>, desired_version: Option<i64>) -> Result<String> {
+    pub async fn create(&self, client_token: Option<String>, prefix_list_region: String, ipam_prefix_list_resolver_id: String, desired_version: Option<i64>, tag_specifications: Option<Vec<String>>, prefix_list_id: String, track_latest_version: bool, dry_run: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

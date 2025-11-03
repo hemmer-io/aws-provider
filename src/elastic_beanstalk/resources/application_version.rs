@@ -21,7 +21,7 @@ impl<'a> Application_version<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, auto_create_application: Option<bool>, source_build_information: Option<String>, version_label: String, build_configuration: Option<String>, application_name: String, source_bundle: Option<String>, description: Option<String>, tags: Option<Vec<String>>, process: Option<bool>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, tags: Option<Vec<String>>, process: Option<bool>, auto_create_application: Option<bool>, version_label: String, build_configuration: Option<String>, source_bundle: Option<String>, application_name: String, source_build_information: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Application_version<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, auto_create_application: Option<bool>, source_build_information: Option<String>, version_label: Option<String>, build_configuration: Option<String>, application_name: Option<String>, source_bundle: Option<String>, description: Option<String>, tags: Option<Vec<String>>, process: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, tags: Option<Vec<String>>, process: Option<bool>, auto_create_application: Option<bool>, version_label: Option<String>, build_configuration: Option<String>, source_bundle: Option<String>, application_name: Option<String>, source_build_information: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

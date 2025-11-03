@@ -21,7 +21,7 @@ impl<'a> Harvest_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, origin_endpoint_id: String, s3_destination: String, start_time: String, id: String, end_time: String) -> Result<String> {
+    pub async fn create(&self, start_time: String, end_time: String, id: String, origin_endpoint_id: String, s3_destination: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

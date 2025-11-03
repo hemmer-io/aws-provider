@@ -21,7 +21,7 @@ impl<'a> Rule<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, priority: i64, listener_arn: String, actions: Vec<String>, conditions: Vec<String>, transforms: Option<Vec<String>>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, priority: i64, tags: Option<Vec<String>>, transforms: Option<Vec<String>>, actions: Vec<String>, listener_arn: String, conditions: Vec<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

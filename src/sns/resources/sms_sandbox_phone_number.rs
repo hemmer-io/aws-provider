@@ -21,7 +21,7 @@ impl<'a> Sms_sandbox_phone_number<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, language_code: Option<String>, phone_number: String) -> Result<String> {
+    pub async fn create(&self, phone_number: String, language_code: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

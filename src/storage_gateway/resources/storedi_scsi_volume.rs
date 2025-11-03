@@ -21,7 +21,7 @@ impl<'a> Storedi_scsi_volume<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, network_interface_id: String, gateway_arn: String, disk_id: String, target_name: String, kms_encrypted: Option<bool>, kms_key: Option<String>, tags: Option<Vec<String>>, snapshot_id: Option<String>, preserve_existing_data: bool) -> Result<String> {
+    pub async fn create(&self, network_interface_id: String, snapshot_id: Option<String>, target_name: String, kms_encrypted: Option<bool>, gateway_arn: String, kms_key: Option<String>, tags: Option<Vec<String>>, disk_id: String, preserve_existing_data: bool) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

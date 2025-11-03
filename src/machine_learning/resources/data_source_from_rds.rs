@@ -21,7 +21,7 @@ impl<'a> Data_source_from_rds<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, role_arn: String, data_source_id: String, data_source_name: Option<String>, rds_data: String, compute_statistics: Option<bool>) -> Result<String> {
+    pub async fn create(&self, rds_data: String, role_arn: String, compute_statistics: Option<bool>, data_source_id: String, data_source_name: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

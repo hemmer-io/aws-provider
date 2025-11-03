@@ -21,7 +21,7 @@ impl<'a> Ingestion_destination<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, destination_configuration: String, tags: Option<Vec<String>>, client_token: Option<String>, ingestion_identifier: String, processing_configuration: String, app_bundle_identifier: String) -> Result<String> {
+    pub async fn create(&self, ingestion_identifier: String, client_token: Option<String>, tags: Option<Vec<String>>, app_bundle_identifier: String, processing_configuration: String, destination_configuration: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Ingestion_destination<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, destination_configuration: Option<String>, tags: Option<Vec<String>>, client_token: Option<String>, ingestion_identifier: Option<String>, processing_configuration: Option<String>, app_bundle_identifier: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, ingestion_identifier: Option<String>, client_token: Option<String>, tags: Option<Vec<String>>, app_bundle_identifier: Option<String>, processing_configuration: Option<String>, destination_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

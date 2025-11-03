@@ -26,7 +26,8 @@ impl<'a> BackupsearchService<'a> {
         match resource_name {
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "backupsearch", resource_name
+                "backupsearch",
+                resource_name
             ))),
         }
     }
@@ -40,17 +41,23 @@ impl<'a> BackupsearchService<'a> {
         match resource_name {
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "backupsearch", resource_name
+                "backupsearch",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "backupsearch", resource_name
+                "backupsearch",
+                resource_name
             ))),
         }
     }
@@ -65,17 +72,23 @@ impl<'a> BackupsearchService<'a> {
         match resource_name {
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "backupsearch", resource_name
+                "backupsearch",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "backupsearch", resource_name
+                "backupsearch",
+                resource_name
             ))),
         }
     }
@@ -83,4 +96,6 @@ impl<'a> BackupsearchService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
+
 }

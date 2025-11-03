@@ -24,7 +24,7 @@ impl<'a> Application_settings<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, application_id: Option<String>, credentials_to_remove: Option<Vec<String>>, backint: Option<String>, database_arn: Option<String>, credentials_to_add_or_update: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, application_id: Option<String>, database_arn: Option<String>, credentials_to_remove: Option<Vec<String>>, credentials_to_add_or_update: Option<Vec<String>>, backint: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

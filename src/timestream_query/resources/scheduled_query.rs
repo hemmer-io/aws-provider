@@ -21,7 +21,7 @@ impl<'a> Scheduled_query<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, error_report_configuration: String, target_configuration: Option<String>, client_token: Option<String>, query_string: String, scheduled_query_execution_role_arn: String, kms_key_id: Option<String>, schedule_configuration: String, name: String, notification_configuration: String, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, client_token: Option<String>, kms_key_id: Option<String>, query_string: String, name: String, schedule_configuration: String, scheduled_query_execution_role_arn: String, tags: Option<Vec<String>>, notification_configuration: String, error_report_configuration: String, target_configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Scheduled_query<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, error_report_configuration: Option<String>, target_configuration: Option<String>, client_token: Option<String>, query_string: Option<String>, scheduled_query_execution_role_arn: Option<String>, kms_key_id: Option<String>, schedule_configuration: Option<String>, name: Option<String>, notification_configuration: Option<String>, tags: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, client_token: Option<String>, kms_key_id: Option<String>, query_string: Option<String>, name: Option<String>, schedule_configuration: Option<String>, scheduled_query_execution_role_arn: Option<String>, tags: Option<Vec<String>>, notification_configuration: Option<String>, error_report_configuration: Option<String>, target_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

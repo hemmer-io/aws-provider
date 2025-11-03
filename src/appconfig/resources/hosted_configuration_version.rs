@@ -21,7 +21,7 @@ impl<'a> Hosted_configuration_version<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, latest_version_number: Option<i64>, configuration_profile_id: String, version_label: Option<String>, application_id: String, description: Option<String>, content: String, content_type: String) -> Result<String> {
+    pub async fn create(&self, content_type: String, configuration_profile_id: String, version_label: Option<String>, application_id: String, description: Option<String>, latest_version_number: Option<i64>, content: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

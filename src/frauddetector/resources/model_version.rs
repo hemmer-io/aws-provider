@@ -21,7 +21,7 @@ impl<'a> Model_version<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, model_type: String, external_events_detail: Option<String>, tags: Option<Vec<String>>, training_data_schema: String, ingested_events_detail: Option<String>, training_data_source: String, model_id: String) -> Result<String> {
+    pub async fn create(&self, external_events_detail: Option<String>, tags: Option<Vec<String>>, training_data_source: String, ingested_events_detail: Option<String>, training_data_schema: String, model_type: String, model_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Model_version<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, model_type: Option<String>, external_events_detail: Option<String>, tags: Option<Vec<String>>, training_data_schema: Option<String>, ingested_events_detail: Option<String>, training_data_source: Option<String>, model_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, external_events_detail: Option<String>, tags: Option<Vec<String>>, training_data_source: Option<String>, ingested_events_detail: Option<String>, training_data_schema: Option<String>, model_type: Option<String>, model_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Edge_packaging_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, model_version: String, model_name: String, compilation_job_name: String, edge_packaging_job_name: String, output_config: String, tags: Option<Vec<String>>, role_arn: String, resource_key: Option<String>) -> Result<String> {
+    pub async fn create(&self, model_version: String, compilation_job_name: String, edge_packaging_job_name: String, model_name: String, output_config: String, role_arn: String, resource_key: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

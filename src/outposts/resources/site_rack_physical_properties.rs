@@ -24,7 +24,7 @@ impl<'a> Site_rack_physical_properties<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, maximum_supported_weight_lbs: Option<String>, power_connector: Option<String>, power_feed_drop: Option<String>, power_phase: Option<String>, optical_standard: Option<String>, site_id: Option<String>, fiber_optic_cable_type: Option<String>, uplink_gbps: Option<String>, uplink_count: Option<String>, power_draw_kva: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, power_draw_kva: Option<String>, power_phase: Option<String>, site_id: Option<String>, fiber_optic_cable_type: Option<String>, uplink_gbps: Option<String>, optical_standard: Option<String>, power_connector: Option<String>, power_feed_drop: Option<String>, maximum_supported_weight_lbs: Option<String>, uplink_count: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

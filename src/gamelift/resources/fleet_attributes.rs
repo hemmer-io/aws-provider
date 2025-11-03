@@ -38,7 +38,7 @@ impl<'a> Fleet_attributes<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, metric_groups: Option<Vec<String>>, resource_creation_limit_policy: Option<String>, anywhere_configuration: Option<String>, fleet_id: Option<String>, description: Option<String>, new_game_session_protection_policy: Option<String>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, metric_groups: Option<Vec<String>>, fleet_id: Option<String>, anywhere_configuration: Option<String>, name: Option<String>, new_game_session_protection_policy: Option<String>, description: Option<String>, resource_creation_limit_policy: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

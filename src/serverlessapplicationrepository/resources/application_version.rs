@@ -21,7 +21,7 @@ impl<'a> Application_version<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, template_body: Option<String>, application_id: String, source_code_archive_url: Option<String>, source_code_url: Option<String>, semantic_version: String, template_url: Option<String>) -> Result<String> {
+    pub async fn create(&self, source_code_url: Option<String>, template_url: Option<String>, application_id: String, semantic_version: String, source_code_archive_url: Option<String>, template_body: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

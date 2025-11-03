@@ -21,7 +21,7 @@ impl<'a> Endpoint<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, data_access_role_arn: Option<String>, desired_inference_units: i64, client_request_token: Option<String>, endpoint_name: String, flywheel_arn: Option<String>, model_arn: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, desired_inference_units: i64, client_request_token: Option<String>, data_access_role_arn: Option<String>, model_arn: Option<String>, tags: Option<Vec<String>>, flywheel_arn: Option<String>, endpoint_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Endpoint<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, data_access_role_arn: Option<String>, desired_inference_units: Option<i64>, client_request_token: Option<String>, endpoint_name: Option<String>, flywheel_arn: Option<String>, model_arn: Option<String>, tags: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, desired_inference_units: Option<i64>, client_request_token: Option<String>, data_access_role_arn: Option<String>, model_arn: Option<String>, tags: Option<Vec<String>>, flywheel_arn: Option<String>, endpoint_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

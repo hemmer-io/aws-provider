@@ -24,7 +24,7 @@ impl<'a> File_system_protection<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, file_system_id: Option<String>, replication_overwrite_protection: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, replication_overwrite_protection: Option<String>, file_system_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Account<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, iam_user_access_to_billing: Option<String>, email: String, tags: Option<Vec<String>>, account_name: String, role_name: Option<String>) -> Result<String> {
+    pub async fn create(&self, role_name: Option<String>, tags: Option<Vec<String>>, email: String, iam_user_access_to_billing: Option<String>, account_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

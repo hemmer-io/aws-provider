@@ -21,7 +21,7 @@ impl<'a> Rest_api<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, fail_on_warnings: Option<bool>, parameters: Option<String>, body: String, rest_api_id: String, mode: Option<String>) -> Result<String> {
+    pub async fn create(&self, parameters: Option<String>, fail_on_warnings: Option<bool>, rest_api_id: String, mode: Option<String>, body: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Rest_api<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, fail_on_warnings: Option<bool>, parameters: Option<String>, body: Option<String>, rest_api_id: Option<String>, mode: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, parameters: Option<String>, fail_on_warnings: Option<bool>, rest_api_id: Option<String>, mode: Option<String>, body: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

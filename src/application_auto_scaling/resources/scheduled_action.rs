@@ -21,7 +21,7 @@ impl<'a> Scheduled_action<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, resource_id: String, scalable_target_action: Option<String>, schedule: Option<String>, service_namespace: String, timezone: Option<String>, scheduled_action_name: String, scalable_dimension: String, start_time: Option<String>, end_time: Option<String>) -> Result<String> {
+    pub async fn create(&self, start_time: Option<String>, end_time: Option<String>, resource_id: String, scalable_target_action: Option<String>, timezone: Option<String>, scalable_dimension: String, scheduled_action_name: String, service_namespace: String, schedule: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

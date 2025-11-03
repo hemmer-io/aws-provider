@@ -21,7 +21,7 @@ impl<'a> Kx_user<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<HashMap<String, String>>, environment_id: String, iam_role: String, client_token: Option<String>, user_name: String) -> Result<String> {
+    pub async fn create(&self, user_name: String, client_token: Option<String>, iam_role: String, environment_id: String, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Kx_user<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, environment_id: Option<String>, iam_role: Option<String>, client_token: Option<String>, user_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, user_name: Option<String>, client_token: Option<String>, iam_role: Option<String>, environment_id: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

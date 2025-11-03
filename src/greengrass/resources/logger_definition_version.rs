@@ -21,7 +21,7 @@ impl<'a> Logger_definition_version<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, loggers: Option<Vec<String>>, amzn_client_token: Option<String>, logger_definition_id: String) -> Result<String> {
+    pub async fn create(&self, amzn_client_token: Option<String>, loggers: Option<Vec<String>>, logger_definition_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

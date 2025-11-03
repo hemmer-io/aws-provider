@@ -21,7 +21,7 @@ impl<'a> And_attach_s3_access_point<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_request_token: Option<String>, open_zfs_configuration: Option<String>, s3_access_point: Option<String>, type: String, name: String) -> Result<String> {
+    pub async fn create(&self, name: String, client_request_token: Option<String>, type: String, s3_access_point: Option<String>, open_zfs_configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

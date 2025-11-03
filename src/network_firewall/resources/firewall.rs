@@ -21,7 +21,7 @@ impl<'a> Firewall<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, enabled_analysis_types: Option<Vec<String>>, vpc_id: Option<String>, transit_gateway_id: Option<String>, tags: Option<Vec<String>>, availability_zone_change_protection: Option<bool>, subnet_change_protection: Option<bool>, firewall_policy_change_protection: Option<bool>, availability_zone_mappings: Option<Vec<String>>, delete_protection: Option<bool>, description: Option<String>, subnet_mappings: Option<Vec<String>>, firewall_policy_arn: String, firewall_name: String, encryption_configuration: Option<String>) -> Result<String> {
+    pub async fn create(&self, enabled_analysis_types: Option<Vec<String>>, tags: Option<Vec<String>>, firewall_policy_arn: String, vpc_id: Option<String>, subnet_mappings: Option<Vec<String>>, firewall_policy_change_protection: Option<bool>, subnet_change_protection: Option<bool>, transit_gateway_id: Option<String>, availability_zone_mappings: Option<Vec<String>>, availability_zone_change_protection: Option<bool>, description: Option<String>, encryption_configuration: Option<String>, firewall_name: String, delete_protection: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

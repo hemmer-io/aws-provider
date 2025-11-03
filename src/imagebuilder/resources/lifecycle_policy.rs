@@ -21,7 +21,7 @@ impl<'a> Lifecycle_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, policy_details: Vec<String>, tags: Option<HashMap<String, String>>, status: Option<String>, execution_role: String, name: String, resource_type: String, client_token: String, description: Option<String>, resource_selection: String) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, policy_details: Vec<String>, status: Option<String>, resource_type: String, client_token: String, execution_role: String, name: String, tags: Option<HashMap<String, String>>, resource_selection: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Lifecycle_policy<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, policy_details: Option<Vec<String>>, tags: Option<HashMap<String, String>>, status: Option<String>, execution_role: Option<String>, name: Option<String>, resource_type: Option<String>, client_token: Option<String>, description: Option<String>, resource_selection: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, policy_details: Option<Vec<String>>, status: Option<String>, resource_type: Option<String>, client_token: Option<String>, execution_role: Option<String>, name: Option<String>, tags: Option<HashMap<String, String>>, resource_selection: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

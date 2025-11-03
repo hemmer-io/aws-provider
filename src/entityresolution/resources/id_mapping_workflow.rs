@@ -21,7 +21,7 @@ impl<'a> Id_mapping_workflow<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, tags: Option<HashMap<String, String>>, workflow_name: String, role_arn: Option<String>, input_source_config: Vec<String>, incremental_run_config: Option<String>, id_mapping_techniques: String, output_source_config: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, incremental_run_config: Option<String>, description: Option<String>, input_source_config: Vec<String>, workflow_name: String, output_source_config: Option<Vec<String>>, id_mapping_techniques: String, tags: Option<HashMap<String, String>>, role_arn: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Id_mapping_workflow<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, tags: Option<HashMap<String, String>>, workflow_name: Option<String>, role_arn: Option<String>, input_source_config: Option<Vec<String>>, incremental_run_config: Option<String>, id_mapping_techniques: Option<String>, output_source_config: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, incremental_run_config: Option<String>, description: Option<String>, input_source_config: Option<Vec<String>>, workflow_name: Option<String>, output_source_config: Option<Vec<String>>, id_mapping_techniques: Option<String>, tags: Option<HashMap<String, String>>, role_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

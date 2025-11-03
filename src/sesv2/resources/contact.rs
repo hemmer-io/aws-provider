@@ -21,7 +21,7 @@ impl<'a> Contact<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, topic_preferences: Option<Vec<String>>, email_address: String, contact_list_name: String, unsubscribe_all: Option<bool>, attributes_data: Option<String>) -> Result<String> {
+    pub async fn create(&self, contact_list_name: String, unsubscribe_all: Option<bool>, attributes_data: Option<String>, topic_preferences: Option<Vec<String>>, email_address: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Contact<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, topic_preferences: Option<Vec<String>>, email_address: Option<String>, contact_list_name: Option<String>, unsubscribe_all: Option<bool>, attributes_data: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, contact_list_name: Option<String>, unsubscribe_all: Option<bool>, attributes_data: Option<String>, topic_preferences: Option<Vec<String>>, email_address: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

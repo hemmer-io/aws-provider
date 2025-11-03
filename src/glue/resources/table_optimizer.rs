@@ -21,7 +21,7 @@ impl<'a> Table_optimizer<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, type: String, catalog_id: String, database_name: String, table_optimizer_configuration: String, table_name: String) -> Result<String> {
+    pub async fn create(&self, table_name: String, type: String, database_name: String, table_optimizer_configuration: String, catalog_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Table_optimizer<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, type: Option<String>, catalog_id: Option<String>, database_name: Option<String>, table_optimizer_configuration: Option<String>, table_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, table_name: Option<String>, type: Option<String>, database_name: Option<String>, table_optimizer_configuration: Option<String>, catalog_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

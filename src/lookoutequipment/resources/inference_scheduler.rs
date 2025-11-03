@@ -21,7 +21,7 @@ impl<'a> Inference_scheduler<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, inference_scheduler_name: String, data_input_configuration: String, data_output_configuration: String, server_side_kms_key_id: Option<String>, data_delay_offset_in_minutes: Option<i64>, data_upload_frequency: String, client_token: String, model_name: String, tags: Option<Vec<String>>, role_arn: String) -> Result<String> {
+    pub async fn create(&self, data_output_configuration: String, role_arn: String, data_input_configuration: String, server_side_kms_key_id: Option<String>, client_token: String, tags: Option<Vec<String>>, model_name: String, data_delay_offset_in_minutes: Option<i64>, data_upload_frequency: String, inference_scheduler_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Inference_scheduler<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, inference_scheduler_name: Option<String>, data_input_configuration: Option<String>, data_output_configuration: Option<String>, server_side_kms_key_id: Option<String>, data_delay_offset_in_minutes: Option<i64>, data_upload_frequency: Option<String>, client_token: Option<String>, model_name: Option<String>, tags: Option<Vec<String>>, role_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, data_output_configuration: Option<String>, role_arn: Option<String>, data_input_configuration: Option<String>, server_side_kms_key_id: Option<String>, client_token: Option<String>, tags: Option<Vec<String>>, model_name: Option<String>, data_delay_offset_in_minutes: Option<i64>, data_upload_frequency: Option<String>, inference_scheduler_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

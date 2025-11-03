@@ -25,20 +25,18 @@ impl<'a> SocialmessagingService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "whats_app_message_template_from_library" => {
-                self.plan_whats_app_message_template_from_library(current_state, desired_input)
-                    .await
+                self.plan_whats_app_message_template_from_library(current_state, desired_input).await
             }
             "whats_app_message_template_media" => {
-                self.plan_whats_app_message_template_media(current_state, desired_input)
-                    .await
+                self.plan_whats_app_message_template_media(current_state, desired_input).await
             }
             "whats_app_message_template" => {
-                self.plan_whats_app_message_template(current_state, desired_input)
-                    .await
+                self.plan_whats_app_message_template(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "socialmessaging", resource_name
+                "socialmessaging",
+                resource_name
             ))),
         }
     }
@@ -51,22 +49,28 @@ impl<'a> SocialmessagingService<'a> {
     ) -> Result<ResourceOutput> {
         match resource_name {
             "whats_app_message_template_from_library" => {
-                self.create_whats_app_message_template_from_library(input)
-                    .await
+                self.create_whats_app_message_template_from_library(input).await
             }
             "whats_app_message_template_media" => {
                 self.create_whats_app_message_template_media(input).await
             }
-            "whats_app_message_template" => self.create_whats_app_message_template(input).await,
+            "whats_app_message_template" => {
+                self.create_whats_app_message_template(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "socialmessaging", resource_name
+                "socialmessaging",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
             "whats_app_message_template_from_library" => {
                 self.read_whats_app_message_template_from_library(id).await
@@ -74,10 +78,13 @@ impl<'a> SocialmessagingService<'a> {
             "whats_app_message_template_media" => {
                 self.read_whats_app_message_template_media(id).await
             }
-            "whats_app_message_template" => self.read_whats_app_message_template(id).await,
+            "whats_app_message_template" => {
+                self.read_whats_app_message_template(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "socialmessaging", resource_name
+                "socialmessaging",
+                resource_name
             ))),
         }
     }
@@ -91,35 +98,42 @@ impl<'a> SocialmessagingService<'a> {
     ) -> Result<ResourceOutput> {
         match resource_name {
             "whats_app_message_template_from_library" => {
-                self.update_whats_app_message_template_from_library(id, input)
-                    .await
+                self.update_whats_app_message_template_from_library(id, input).await
             }
             "whats_app_message_template_media" => {
-                self.update_whats_app_message_template_media(id, input)
-                    .await
+                self.update_whats_app_message_template_media(id, input).await
             }
-            "whats_app_message_template" => self.update_whats_app_message_template(id, input).await,
+            "whats_app_message_template" => {
+                self.update_whats_app_message_template(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "socialmessaging", resource_name
+                "socialmessaging",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
             "whats_app_message_template_from_library" => {
-                self.delete_whats_app_message_template_from_library(id)
-                    .await
+                self.delete_whats_app_message_template_from_library(id).await
             }
             "whats_app_message_template_media" => {
                 self.delete_whats_app_message_template_media(id).await
             }
-            "whats_app_message_template" => self.delete_whats_app_message_template(id).await,
+            "whats_app_message_template" => {
+                self.delete_whats_app_message_template(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "socialmessaging", resource_name
+                "socialmessaging",
+                resource_name
             ))),
         }
     }
@@ -127,6 +141,7 @@ impl<'a> SocialmessagingService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Whats_app_message_template_from_library resource operations
@@ -156,8 +171,9 @@ impl<'a> SocialmessagingService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let id = input.get_string("id")?;
             let meta_library_template = input.get_string("meta_library_template")?;
+            let id = input.get_string("id")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -171,11 +187,9 @@ impl<'a> SocialmessagingService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("meta_library_template", meta_library_template.unwrap_or_default())
                 .with_field("id", id.unwrap_or_default())
-                .with_field(
-                    "meta_library_template",
-                    meta_library_template.unwrap_or_default(),
-                ))
+            )
         })
     }
 
@@ -195,7 +209,8 @@ impl<'a> SocialmessagingService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -207,8 +222,9 @@ impl<'a> SocialmessagingService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let id = input.get_string("id")?;
             let meta_library_template = input.get_string("meta_library_template")?;
+            let id = input.get_string("id")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -223,16 +239,17 @@ impl<'a> SocialmessagingService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("meta_library_template", meta_library_template.unwrap_or_default())
                 .with_field("id", id.unwrap_or_default())
-                .with_field(
-                    "meta_library_template",
-                    meta_library_template.unwrap_or_default(),
-                ))
+            )
         })
     }
 
     /// Delete a whats_app_message_template_from_library resource
-    async fn delete_whats_app_message_template_from_library(&self, id: &str) -> Result<()> {
+    async fn delete_whats_app_message_template_from_library(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -246,6 +263,7 @@ impl<'a> SocialmessagingService<'a> {
             Ok(())
         })
     }
+
 
     // ------------------------------------------------------------------------
     // Whats_app_message_template_media resource operations
@@ -275,8 +293,9 @@ impl<'a> SocialmessagingService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let source_s3_file = input.get_optional_string("source_s3_file")?;
             let id = input.get_string("id")?;
+            let source_s3_file = input.get_optional_string("source_s3_file")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -290,13 +309,17 @@ impl<'a> SocialmessagingService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("id", id.unwrap_or_default())
                 .with_field("source_s3_file", source_s3_file.unwrap_or_default())
-                .with_field("id", id.unwrap_or_default()))
+            )
         })
     }
 
     /// Read a whats_app_message_template_media resource
-    async fn read_whats_app_message_template_media(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_whats_app_message_template_media(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -308,7 +331,8 @@ impl<'a> SocialmessagingService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -320,8 +344,9 @@ impl<'a> SocialmessagingService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let source_s3_file = input.get_optional_string("source_s3_file")?;
             let id = input.get_string("id")?;
+            let source_s3_file = input.get_optional_string("source_s3_file")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -336,13 +361,17 @@ impl<'a> SocialmessagingService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("id", id.unwrap_or_default())
                 .with_field("source_s3_file", source_s3_file.unwrap_or_default())
-                .with_field("id", id.unwrap_or_default()))
+            )
         })
     }
 
     /// Delete a whats_app_message_template_media resource
-    async fn delete_whats_app_message_template_media(&self, id: &str) -> Result<()> {
+    async fn delete_whats_app_message_template_media(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -356,6 +385,7 @@ impl<'a> SocialmessagingService<'a> {
             Ok(())
         })
     }
+
 
     // ------------------------------------------------------------------------
     // Whats_app_message_template resource operations
@@ -385,8 +415,9 @@ impl<'a> SocialmessagingService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let id = input.get_string("id")?;
             let template_definition = input.get_string("template_definition")?;
+            let id = input.get_string("id")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -400,16 +431,17 @@ impl<'a> SocialmessagingService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("template_definition", template_definition.unwrap_or_default())
                 .with_field("id", id.unwrap_or_default())
-                .with_field(
-                    "template_definition",
-                    template_definition.unwrap_or_default(),
-                ))
+            )
         })
     }
 
     /// Read a whats_app_message_template resource
-    async fn read_whats_app_message_template(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_whats_app_message_template(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -421,7 +453,8 @@ impl<'a> SocialmessagingService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -433,8 +466,9 @@ impl<'a> SocialmessagingService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let id = input.get_string("id")?;
             let template_definition = input.get_string("template_definition")?;
+            let id = input.get_string("id")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -449,16 +483,17 @@ impl<'a> SocialmessagingService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("template_definition", template_definition.unwrap_or_default())
                 .with_field("id", id.unwrap_or_default())
-                .with_field(
-                    "template_definition",
-                    template_definition.unwrap_or_default(),
-                ))
+            )
         })
     }
 
     /// Delete a whats_app_message_template resource
-    async fn delete_whats_app_message_template(&self, id: &str) -> Result<()> {
+    async fn delete_whats_app_message_template(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -472,4 +507,6 @@ impl<'a> SocialmessagingService<'a> {
             Ok(())
         })
     }
+
+
 }

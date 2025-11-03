@@ -21,7 +21,7 @@ impl<'a> Managed_rule_set_versions<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, recommended_version: Option<String>, versions_to_publish: Option<HashMap<String, String>>, name: String, id: String, lock_token: String, scope: String) -> Result<String> {
+    pub async fn create(&self, id: String, lock_token: String, recommended_version: Option<String>, name: String, scope: String, versions_to_publish: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

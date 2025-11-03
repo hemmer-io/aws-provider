@@ -21,7 +21,7 @@ impl<'a> Extension<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, name: String, description: Option<String>, actions: HashMap<String, Vec<String>>, latest_version_number: Option<i64>, tags: Option<HashMap<String, String>>, parameters: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, parameters: Option<HashMap<String, String>>, name: String, actions: HashMap<String, Vec<String>>, tags: Option<HashMap<String, String>>, latest_version_number: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Extension<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, name: Option<String>, description: Option<String>, actions: Option<HashMap<String, Vec<String>>>, latest_version_number: Option<i64>, tags: Option<HashMap<String, String>>, parameters: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, parameters: Option<HashMap<String, String>>, name: Option<String>, actions: Option<HashMap<String, Vec<String>>>, tags: Option<HashMap<String, String>>, latest_version_number: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

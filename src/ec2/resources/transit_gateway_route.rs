@@ -21,7 +21,7 @@ impl<'a> Transit_gateway_route<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, blackhole: Option<bool>, transit_gateway_route_table_id: String, dry_run: Option<bool>, destination_cidr_block: String, transit_gateway_attachment_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, blackhole: Option<bool>, destination_cidr_block: String, dry_run: Option<bool>, transit_gateway_attachment_id: Option<String>, transit_gateway_route_table_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

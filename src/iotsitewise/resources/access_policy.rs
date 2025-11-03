@@ -21,7 +21,7 @@ impl<'a> Access_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, access_policy_permission: String, tags: Option<HashMap<String, String>>, client_token: Option<String>, access_policy_identity: String, access_policy_resource: String) -> Result<String> {
+    pub async fn create(&self, access_policy_resource: String, access_policy_permission: String, client_token: Option<String>, tags: Option<HashMap<String, String>>, access_policy_identity: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Access_policy<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, access_policy_permission: Option<String>, tags: Option<HashMap<String, String>>, client_token: Option<String>, access_policy_identity: Option<String>, access_policy_resource: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, access_policy_resource: Option<String>, access_policy_permission: Option<String>, client_token: Option<String>, tags: Option<HashMap<String, String>>, access_policy_identity: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Anomaly_detector<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, single_metric_anomaly_detector: Option<String>, dimensions: Option<Vec<String>>, metric_characteristics: Option<String>, metric_math_anomaly_detector: Option<String>, metric_name: Option<String>, namespace: Option<String>, stat: Option<String>, configuration: Option<String>) -> Result<String> {
+    pub async fn create(&self, metric_characteristics: Option<String>, dimensions: Option<Vec<String>>, namespace: Option<String>, stat: Option<String>, metric_name: Option<String>, single_metric_anomaly_detector: Option<String>, metric_math_anomaly_detector: Option<String>, configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

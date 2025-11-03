@@ -38,7 +38,7 @@ impl<'a> Account_preferences<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, training_data_collection_enabled: Option<bool>, user_authorization_required: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, user_authorization_required: Option<bool>, training_data_collection_enabled: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

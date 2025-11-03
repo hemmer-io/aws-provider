@@ -21,7 +21,7 @@ impl<'a> Transit_gateway_vpc_attachment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, options: Option<String>, dry_run: Option<bool>, vpc_id: String, tag_specifications: Option<Vec<String>>, transit_gateway_id: String, subnet_ids: Vec<String>) -> Result<String> {
+    pub async fn create(&self, transit_gateway_id: String, subnet_ids: Vec<String>, tag_specifications: Option<Vec<String>>, vpc_id: String, dry_run: Option<bool>, options: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

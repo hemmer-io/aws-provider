@@ -21,7 +21,7 @@ impl<'a> Export<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, file_format: String, file_password: Option<String>, resource_specification: String) -> Result<String> {
+    pub async fn create(&self, file_format: String, resource_specification: String, file_password: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Export<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, file_format: Option<String>, file_password: Option<String>, resource_specification: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, file_format: Option<String>, resource_specification: Option<String>, file_password: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

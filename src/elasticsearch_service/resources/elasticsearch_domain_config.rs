@@ -38,7 +38,7 @@ impl<'a> Elasticsearch_domain_config<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, cognito_options: Option<String>, log_publishing_options: Option<HashMap<String, String>>, ebs_options: Option<String>, domain_name: Option<String>, advanced_security_options: Option<String>, encryption_at_rest_options: Option<String>, domain_endpoint_options: Option<String>, dry_run: Option<bool>, vpc_options: Option<String>, snapshot_options: Option<String>, access_policies: Option<String>, node_to_node_encryption_options: Option<String>, elasticsearch_cluster_config: Option<String>, auto_tune_options: Option<String>, advanced_options: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, ebs_options: Option<String>, access_policies: Option<String>, snapshot_options: Option<String>, encryption_at_rest_options: Option<String>, dry_run: Option<bool>, advanced_options: Option<HashMap<String, String>>, domain_endpoint_options: Option<String>, log_publishing_options: Option<HashMap<String, String>>, domain_name: Option<String>, cognito_options: Option<String>, node_to_node_encryption_options: Option<String>, auto_tune_options: Option<String>, advanced_security_options: Option<String>, elasticsearch_cluster_config: Option<String>, vpc_options: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

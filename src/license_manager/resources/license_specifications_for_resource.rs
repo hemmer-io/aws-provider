@@ -24,7 +24,7 @@ impl<'a> License_specifications_for_resource<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, resource_arn: Option<String>, remove_license_specifications: Option<Vec<String>>, add_license_specifications: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, remove_license_specifications: Option<Vec<String>>, resource_arn: Option<String>, add_license_specifications: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

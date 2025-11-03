@@ -38,7 +38,7 @@ impl<'a> Site_address<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, address: Option<String>, site_id: Option<String>, address_type: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, site_id: Option<String>, address_type: Option<String>, address: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

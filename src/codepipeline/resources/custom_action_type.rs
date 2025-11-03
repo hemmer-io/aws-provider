@@ -21,7 +21,7 @@ impl<'a> Custom_action_type<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, configuration_properties: Option<Vec<String>>, category: String, version: String, settings: Option<String>, input_artifact_details: String, output_artifact_details: String, provider: String, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, version: String, tags: Option<Vec<String>>, input_artifact_details: String, category: String, configuration_properties: Option<Vec<String>>, provider: String, settings: Option<String>, output_artifact_details: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

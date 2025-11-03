@@ -21,7 +21,7 @@ impl<'a> Token<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, token_properties: Option<Vec<String>>, role_arns: Option<Vec<String>>, client_token: String, license_arn: String, expiration_in_days: Option<i64>) -> Result<String> {
+    pub async fn create(&self, expiration_in_days: Option<i64>, role_arns: Option<Vec<String>>, license_arn: String, client_token: String, token_properties: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

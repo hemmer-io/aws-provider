@@ -21,7 +21,7 @@ impl<'a> Graphql_api<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, merged_api_execution_role_arn: Option<String>, query_depth_limit: Option<i64>, log_config: Option<String>, api_type: Option<String>, enhanced_metrics_config: Option<String>, owner_contact: Option<String>, lambda_authorizer_config: Option<String>, additional_authentication_providers: Option<Vec<String>>, authentication_type: String, open_id_connect_config: Option<String>, tags: Option<HashMap<String, String>>, introspection_config: Option<String>, user_pool_config: Option<String>, xray_enabled: Option<bool>, resolver_count_limit: Option<i64>, visibility: Option<String>, name: String) -> Result<String> {
+    pub async fn create(&self, name: String, xray_enabled: Option<bool>, user_pool_config: Option<String>, query_depth_limit: Option<i64>, visibility: Option<String>, lambda_authorizer_config: Option<String>, enhanced_metrics_config: Option<String>, introspection_config: Option<String>, additional_authentication_providers: Option<Vec<String>>, api_type: Option<String>, merged_api_execution_role_arn: Option<String>, owner_contact: Option<String>, log_config: Option<String>, open_id_connect_config: Option<String>, resolver_count_limit: Option<i64>, tags: Option<HashMap<String, String>>, authentication_type: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Graphql_api<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, merged_api_execution_role_arn: Option<String>, query_depth_limit: Option<i64>, log_config: Option<String>, api_type: Option<String>, enhanced_metrics_config: Option<String>, owner_contact: Option<String>, lambda_authorizer_config: Option<String>, additional_authentication_providers: Option<Vec<String>>, authentication_type: Option<String>, open_id_connect_config: Option<String>, tags: Option<HashMap<String, String>>, introspection_config: Option<String>, user_pool_config: Option<String>, xray_enabled: Option<bool>, resolver_count_limit: Option<i64>, visibility: Option<String>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, name: Option<String>, xray_enabled: Option<bool>, user_pool_config: Option<String>, query_depth_limit: Option<i64>, visibility: Option<String>, lambda_authorizer_config: Option<String>, enhanced_metrics_config: Option<String>, introspection_config: Option<String>, additional_authentication_providers: Option<Vec<String>>, api_type: Option<String>, merged_api_execution_role_arn: Option<String>, owner_contact: Option<String>, log_config: Option<String>, open_id_connect_config: Option<String>, resolver_count_limit: Option<i64>, tags: Option<HashMap<String, String>>, authentication_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

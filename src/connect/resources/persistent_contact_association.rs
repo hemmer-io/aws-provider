@@ -21,7 +21,7 @@ impl<'a> Persistent_contact_association<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, source_contact_id: String, client_token: Option<String>, instance_id: String, initial_contact_id: String, rehydration_type: String) -> Result<String> {
+    pub async fn create(&self, initial_contact_id: String, rehydration_type: String, client_token: Option<String>, source_contact_id: String, instance_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

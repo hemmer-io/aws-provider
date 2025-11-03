@@ -38,7 +38,7 @@ impl<'a> Group_query<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, group_name: Option<String>, group: Option<String>, resource_query: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, group: Option<String>, resource_query: Option<String>, group_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

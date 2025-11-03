@@ -21,7 +21,7 @@ impl<'a> Canary<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, code: String, tags: Option<HashMap<String, String>>, run_config: Option<String>, runtime_version: String, execution_role_arn: String, browser_configs: Option<Vec<String>>, provisioned_resource_cleanup: Option<String>, resources_to_replicate_tags: Option<Vec<String>>, artifact_s3_location: String, schedule: String, artifact_config: Option<String>, vpc_config: Option<String>, success_retention_period_in_days: Option<i64>, name: String, failure_retention_period_in_days: Option<i64>) -> Result<String> {
+    pub async fn create(&self, run_config: Option<String>, browser_configs: Option<Vec<String>>, resources_to_replicate_tags: Option<Vec<String>>, tags: Option<HashMap<String, String>>, provisioned_resource_cleanup: Option<String>, execution_role_arn: String, schedule: String, failure_retention_period_in_days: Option<i64>, artifact_config: Option<String>, code: String, success_retention_period_in_days: Option<i64>, artifact_s3_location: String, runtime_version: String, vpc_config: Option<String>, name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Canary<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, code: Option<String>, tags: Option<HashMap<String, String>>, run_config: Option<String>, runtime_version: Option<String>, execution_role_arn: Option<String>, browser_configs: Option<Vec<String>>, provisioned_resource_cleanup: Option<String>, resources_to_replicate_tags: Option<Vec<String>>, artifact_s3_location: Option<String>, schedule: Option<String>, artifact_config: Option<String>, vpc_config: Option<String>, success_retention_period_in_days: Option<i64>, name: Option<String>, failure_retention_period_in_days: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, run_config: Option<String>, browser_configs: Option<Vec<String>>, resources_to_replicate_tags: Option<Vec<String>>, tags: Option<HashMap<String, String>>, provisioned_resource_cleanup: Option<String>, execution_role_arn: Option<String>, schedule: Option<String>, failure_retention_period_in_days: Option<i64>, artifact_config: Option<String>, code: Option<String>, success_retention_period_in_days: Option<i64>, artifact_s3_location: Option<String>, runtime_version: Option<String>, vpc_config: Option<String>, name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

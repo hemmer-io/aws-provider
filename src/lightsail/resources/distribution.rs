@@ -21,7 +21,7 @@ impl<'a> Distribution<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, default_cache_behavior: String, tags: Option<Vec<String>>, certificate_name: Option<String>, ip_address_type: Option<String>, cache_behaviors: Option<Vec<String>>, cache_behavior_settings: Option<String>, viewer_minimum_tls_protocol_version: Option<String>, origin: String, distribution_name: String, bundle_id: String) -> Result<String> {
+    pub async fn create(&self, distribution_name: String, viewer_minimum_tls_protocol_version: Option<String>, origin: String, ip_address_type: Option<String>, cache_behavior_settings: Option<String>, tags: Option<Vec<String>>, cache_behaviors: Option<Vec<String>>, certificate_name: Option<String>, default_cache_behavior: String, bundle_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Distribution<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, default_cache_behavior: Option<String>, tags: Option<Vec<String>>, certificate_name: Option<String>, ip_address_type: Option<String>, cache_behaviors: Option<Vec<String>>, cache_behavior_settings: Option<String>, viewer_minimum_tls_protocol_version: Option<String>, origin: Option<String>, distribution_name: Option<String>, bundle_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, distribution_name: Option<String>, viewer_minimum_tls_protocol_version: Option<String>, origin: Option<String>, ip_address_type: Option<String>, cache_behavior_settings: Option<String>, tags: Option<Vec<String>>, cache_behaviors: Option<Vec<String>>, certificate_name: Option<String>, default_cache_behavior: Option<String>, bundle_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

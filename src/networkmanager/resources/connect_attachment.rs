@@ -21,7 +21,7 @@ impl<'a> Connect_attachment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, edge_location: String, transport_attachment_id: String, core_network_id: String, options: String, tags: Option<Vec<String>>, client_token: Option<String>) -> Result<String> {
+    pub async fn create(&self, client_token: Option<String>, transport_attachment_id: String, tags: Option<Vec<String>>, core_network_id: String, edge_location: String, options: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

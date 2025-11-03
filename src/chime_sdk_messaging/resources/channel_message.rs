@@ -38,7 +38,7 @@ impl<'a> Channel_message<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, content_type: Option<String>, message_id: Option<String>, sub_channel_id: Option<String>, metadata: Option<String>, channel_arn: Option<String>, content: Option<String>, chime_bearer: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, message_id: Option<String>, content_type: Option<String>, channel_arn: Option<String>, content: Option<String>, metadata: Option<String>, chime_bearer: Option<String>, sub_channel_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

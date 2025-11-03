@@ -38,7 +38,7 @@ impl<'a> Thing_shadow<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, payload: Option<String>, thing_name: Option<String>, shadow_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, payload: Option<String>, shadow_name: Option<String>, thing_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

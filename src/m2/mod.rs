@@ -25,12 +25,12 @@ impl<'a> M2Service<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "signed_bluinsights_url" => {
-                self.plan_signed_bluinsights_url(current_state, desired_input)
-                    .await
+                self.plan_signed_bluinsights_url(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "m2", resource_name
+                "m2",
+                resource_name
             ))),
         }
     }
@@ -42,21 +42,31 @@ impl<'a> M2Service<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "signed_bluinsights_url" => self.create_signed_bluinsights_url(input).await,
+            "signed_bluinsights_url" => {
+                self.create_signed_bluinsights_url(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "m2", resource_name
+                "m2",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "signed_bluinsights_url" => self.read_signed_bluinsights_url(id).await,
+            "signed_bluinsights_url" => {
+                self.read_signed_bluinsights_url(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "m2", resource_name
+                "m2",
+                resource_name
             ))),
         }
     }
@@ -69,21 +79,31 @@ impl<'a> M2Service<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "signed_bluinsights_url" => self.update_signed_bluinsights_url(id, input).await,
+            "signed_bluinsights_url" => {
+                self.update_signed_bluinsights_url(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "m2", resource_name
+                "m2",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "signed_bluinsights_url" => self.delete_signed_bluinsights_url(id).await,
+            "signed_bluinsights_url" => {
+                self.delete_signed_bluinsights_url(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "m2", resource_name
+                "m2",
+                resource_name
             ))),
         }
     }
@@ -91,6 +111,7 @@ impl<'a> M2Service<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Signed_bluinsights_url resource operations
@@ -113,10 +134,14 @@ impl<'a> M2Service<'a> {
     }
 
     /// Create a new signed_bluinsights_url resource
-    async fn create_signed_bluinsights_url(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_signed_bluinsights_url(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -128,12 +153,17 @@ impl<'a> M2Service<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a signed_bluinsights_url resource
-    async fn read_signed_bluinsights_url(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_signed_bluinsights_url(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -145,7 +175,8 @@ impl<'a> M2Service<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -158,6 +189,7 @@ impl<'a> M2Service<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.m2_client
@@ -169,12 +201,17 @@ impl<'a> M2Service<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a signed_bluinsights_url resource
-    async fn delete_signed_bluinsights_url(&self, id: &str) -> Result<()> {
+    async fn delete_signed_bluinsights_url(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -188,4 +225,6 @@ impl<'a> M2Service<'a> {
             Ok(())
         })
     }
+
+
 }

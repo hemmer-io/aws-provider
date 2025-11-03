@@ -21,7 +21,7 @@ impl<'a> Pipeline_definition<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, pipeline_id: String, parameter_values: Option<Vec<String>>, parameter_objects: Option<Vec<String>>, pipeline_objects: Vec<String>) -> Result<String> {
+    pub async fn create(&self, parameter_objects: Option<Vec<String>>, pipeline_id: String, pipeline_objects: Vec<String>, parameter_values: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

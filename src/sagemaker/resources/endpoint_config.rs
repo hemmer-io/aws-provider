@@ -21,7 +21,7 @@ impl<'a> Endpoint_config<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, vpc_config: Option<String>, enable_network_isolation: Option<bool>, async_inference_config: Option<String>, data_capture_config: Option<String>, kms_key_id: Option<String>, shadow_production_variants: Option<Vec<String>>, production_variants: Vec<String>, explainer_config: Option<String>, execution_role_arn: Option<String>, endpoint_config_name: String) -> Result<String> {
+    pub async fn create(&self, async_inference_config: Option<String>, production_variants: Vec<String>, kms_key_id: Option<String>, tags: Option<Vec<String>>, shadow_production_variants: Option<Vec<String>>, endpoint_config_name: String, data_capture_config: Option<String>, explainer_config: Option<String>, execution_role_arn: Option<String>, vpc_config: Option<String>, enable_network_isolation: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

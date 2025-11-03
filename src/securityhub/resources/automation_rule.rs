@@ -21,7 +21,7 @@ impl<'a> Automation_rule<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, rule_order: i64, is_terminal: Option<bool>, rule_status: Option<String>, description: String, criteria: String, rule_name: String, tags: Option<HashMap<String, String>>, actions: Vec<String>) -> Result<String> {
+    pub async fn create(&self, rule_status: Option<String>, actions: Vec<String>, description: String, rule_name: String, tags: Option<HashMap<String, String>>, is_terminal: Option<bool>, criteria: String, rule_order: i64) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

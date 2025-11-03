@@ -21,7 +21,7 @@ impl<'a> Container_recipe<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, instance_configuration: Option<String>, dockerfile_template_uri: Option<String>, client_token: String, semantic_version: String, target_repository: String, image_os_version_override: Option<String>, tags: Option<HashMap<String, String>>, kms_key_id: Option<String>, parent_image: String, working_directory: Option<String>, container_type: String, description: Option<String>, components: Vec<String>, platform_override: Option<String>, name: String, dockerfile_template_data: Option<String>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, image_os_version_override: Option<String>, working_directory: Option<String>, parent_image: String, kms_key_id: Option<String>, dockerfile_template_uri: Option<String>, components: Vec<String>, container_type: String, semantic_version: String, target_repository: String, name: String, dockerfile_template_data: Option<String>, tags: Option<HashMap<String, String>>, client_token: String, instance_configuration: Option<String>, platform_override: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

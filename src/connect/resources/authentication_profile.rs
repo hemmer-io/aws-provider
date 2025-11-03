@@ -38,7 +38,7 @@ impl<'a> Authentication_profile<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, authentication_profile_id: Option<String>, name: Option<String>, allowed_ips: Option<Vec<String>>, blocked_ips: Option<Vec<String>>, periodic_session_duration: Option<i64>, instance_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, periodic_session_duration: Option<i64>, name: Option<String>, authentication_profile_id: Option<String>, description: Option<String>, allowed_ips: Option<Vec<String>>, instance_id: Option<String>, blocked_ips: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

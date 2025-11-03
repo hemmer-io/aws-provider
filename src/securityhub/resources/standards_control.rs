@@ -24,7 +24,7 @@ impl<'a> Standards_control<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, disabled_reason: Option<String>, control_status: Option<String>, standards_control_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, standards_control_arn: Option<String>, control_status: Option<String>, disabled_reason: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

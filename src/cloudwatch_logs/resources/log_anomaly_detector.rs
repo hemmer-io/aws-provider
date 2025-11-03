@@ -21,7 +21,7 @@ impl<'a> Log_anomaly_detector<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, filter_pattern: Option<String>, kms_key_id: Option<String>, detector_name: Option<String>, tags: Option<HashMap<String, String>>, log_group_arn_list: Vec<String>, evaluation_frequency: Option<String>, anomaly_visibility_time: Option<i64>) -> Result<String> {
+    pub async fn create(&self, anomaly_visibility_time: Option<i64>, tags: Option<HashMap<String, String>>, filter_pattern: Option<String>, log_group_arn_list: Vec<String>, evaluation_frequency: Option<String>, kms_key_id: Option<String>, detector_name: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Log_anomaly_detector<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, filter_pattern: Option<String>, kms_key_id: Option<String>, detector_name: Option<String>, tags: Option<HashMap<String, String>>, log_group_arn_list: Option<Vec<String>>, evaluation_frequency: Option<String>, anomaly_visibility_time: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, anomaly_visibility_time: Option<i64>, tags: Option<HashMap<String, String>>, filter_pattern: Option<String>, log_group_arn_list: Option<Vec<String>>, evaluation_frequency: Option<String>, kms_key_id: Option<String>, detector_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

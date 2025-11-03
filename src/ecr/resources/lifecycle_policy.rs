@@ -21,7 +21,7 @@ impl<'a> Lifecycle_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, lifecycle_policy_text: String, repository_name: String, registry_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, registry_id: Option<String>, repository_name: String, lifecycle_policy_text: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

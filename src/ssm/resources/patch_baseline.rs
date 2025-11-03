@@ -21,7 +21,7 @@ impl<'a> Patch_baseline<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, sources: Option<Vec<String>>, tags: Option<Vec<String>>, name: String, available_security_updates_compliance_status: Option<String>, approval_rules: Option<String>, approved_patches_compliance_level: Option<String>, operating_system: Option<String>, approved_patches: Option<Vec<String>>, approved_patches_enable_non_security: Option<bool>, global_filters: Option<String>, rejected_patches: Option<Vec<String>>, rejected_patches_action: Option<String>, client_token: Option<String>) -> Result<String> {
+    pub async fn create(&self, rejected_patches_action: Option<String>, approved_patches: Option<Vec<String>>, name: String, approved_patches_compliance_level: Option<String>, approved_patches_enable_non_security: Option<bool>, available_security_updates_compliance_status: Option<String>, operating_system: Option<String>, client_token: Option<String>, sources: Option<Vec<String>>, tags: Option<Vec<String>>, description: Option<String>, rejected_patches: Option<Vec<String>>, global_filters: Option<String>, approval_rules: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Patch_baseline<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, sources: Option<Vec<String>>, tags: Option<Vec<String>>, name: Option<String>, available_security_updates_compliance_status: Option<String>, approval_rules: Option<String>, approved_patches_compliance_level: Option<String>, operating_system: Option<String>, approved_patches: Option<Vec<String>>, approved_patches_enable_non_security: Option<bool>, global_filters: Option<String>, rejected_patches: Option<Vec<String>>, rejected_patches_action: Option<String>, client_token: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, rejected_patches_action: Option<String>, approved_patches: Option<Vec<String>>, name: Option<String>, approved_patches_compliance_level: Option<String>, approved_patches_enable_non_security: Option<bool>, available_security_updates_compliance_status: Option<String>, operating_system: Option<String>, client_token: Option<String>, sources: Option<Vec<String>>, tags: Option<Vec<String>>, description: Option<String>, rejected_patches: Option<Vec<String>>, global_filters: Option<String>, approval_rules: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

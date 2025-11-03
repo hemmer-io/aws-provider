@@ -24,10 +24,13 @@ impl<'a> IotsecuretunnelingService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "tunnel" => self.plan_tunnel(current_state, desired_input).await,
+            "tunnel" => {
+                self.plan_tunnel(current_state, desired_input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "iotsecuretunneling", resource_name
+                "iotsecuretunneling",
+                resource_name
             ))),
         }
     }
@@ -39,21 +42,31 @@ impl<'a> IotsecuretunnelingService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "tunnel" => self.create_tunnel(input).await,
+            "tunnel" => {
+                self.create_tunnel(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "iotsecuretunneling", resource_name
+                "iotsecuretunneling",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "tunnel" => self.read_tunnel(id).await,
+            "tunnel" => {
+                self.read_tunnel(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "iotsecuretunneling", resource_name
+                "iotsecuretunneling",
+                resource_name
             ))),
         }
     }
@@ -66,21 +79,31 @@ impl<'a> IotsecuretunnelingService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "tunnel" => self.update_tunnel(id, input).await,
+            "tunnel" => {
+                self.update_tunnel(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "iotsecuretunneling", resource_name
+                "iotsecuretunneling",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "tunnel" => self.delete_tunnel(id).await,
+            "tunnel" => {
+                self.delete_tunnel(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "iotsecuretunneling", resource_name
+                "iotsecuretunneling",
+                resource_name
             ))),
         }
     }
@@ -88,6 +111,7 @@ impl<'a> IotsecuretunnelingService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Tunnel resource operations
@@ -110,10 +134,14 @@ impl<'a> IotsecuretunnelingService<'a> {
     }
 
     /// Create a new tunnel resource
-    async fn create_tunnel(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_tunnel(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -125,12 +153,17 @@ impl<'a> IotsecuretunnelingService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a tunnel resource
-    async fn read_tunnel(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_tunnel(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -142,14 +175,20 @@ impl<'a> IotsecuretunnelingService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a tunnel resource
-    async fn update_tunnel(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_tunnel(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -162,12 +201,17 @@ impl<'a> IotsecuretunnelingService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a tunnel resource
-    async fn delete_tunnel(&self, id: &str) -> Result<()> {
+    async fn delete_tunnel(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -181,4 +225,6 @@ impl<'a> IotsecuretunnelingService<'a> {
             Ok(())
         })
     }
+
+
 }

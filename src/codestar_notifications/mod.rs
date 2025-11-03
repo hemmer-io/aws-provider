@@ -25,13 +25,15 @@ impl<'a> Codestar_notificationsService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "notification_rule" => {
-                self.plan_notification_rule(current_state, desired_input)
-                    .await
+                self.plan_notification_rule(current_state, desired_input).await
             }
-            "target" => self.plan_target(current_state, desired_input).await,
+            "target" => {
+                self.plan_target(current_state, desired_input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "codestar_notifications", resource_name
+                "codestar_notifications",
+                resource_name
             ))),
         }
     }
@@ -43,23 +45,37 @@ impl<'a> Codestar_notificationsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "notification_rule" => self.create_notification_rule(input).await,
-            "target" => self.create_target(input).await,
+            "notification_rule" => {
+                self.create_notification_rule(input).await
+            }
+            "target" => {
+                self.create_target(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "codestar_notifications", resource_name
+                "codestar_notifications",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "notification_rule" => self.read_notification_rule(id).await,
-            "target" => self.read_target(id).await,
+            "notification_rule" => {
+                self.read_notification_rule(id).await
+            }
+            "target" => {
+                self.read_target(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "codestar_notifications", resource_name
+                "codestar_notifications",
+                resource_name
             ))),
         }
     }
@@ -72,23 +88,37 @@ impl<'a> Codestar_notificationsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "notification_rule" => self.update_notification_rule(id, input).await,
-            "target" => self.update_target(id, input).await,
+            "notification_rule" => {
+                self.update_notification_rule(id, input).await
+            }
+            "target" => {
+                self.update_target(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "codestar_notifications", resource_name
+                "codestar_notifications",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "notification_rule" => self.delete_notification_rule(id).await,
-            "target" => self.delete_target(id).await,
+            "notification_rule" => {
+                self.delete_notification_rule(id).await
+            }
+            "target" => {
+                self.delete_target(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "codestar_notifications", resource_name
+                "codestar_notifications",
+                resource_name
             ))),
         }
     }
@@ -96,6 +126,7 @@ impl<'a> Codestar_notificationsService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Notification_rule resource operations
@@ -118,18 +149,22 @@ impl<'a> Codestar_notificationsService<'a> {
     }
 
     /// Create a new notification_rule resource
-    async fn create_notification_rule(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_notification_rule(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let tags = input.get_optional_string("tags")?;
             let targets = input.get_string("targets")?;
-            let status = input.get_optional_string("status")?;
             let event_type_ids = input.get_string("event_type_ids")?;
-            let name = input.get_string("name")?;
             let resource = input.get_string("resource")?;
             let detail_type = input.get_string("detail_type")?;
+            let status = input.get_optional_string("status")?;
+            let name = input.get_string("name")?;
+            let tags = input.get_optional_string("tags")?;
+            let client_request_token = input.get_optional_string("client_request_token")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -143,22 +178,23 @@ impl<'a> Codestar_notificationsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field(
-                    "client_request_token",
-                    client_request_token.unwrap_or_default(),
-                )
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("targets", targets.unwrap_or_default())
-                .with_field("status", status.unwrap_or_default())
                 .with_field("event_type_ids", event_type_ids.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
                 .with_field("resource", resource.unwrap_or_default())
-                .with_field("detail_type", detail_type.unwrap_or_default()))
+                .with_field("detail_type", detail_type.unwrap_or_default())
+                .with_field("status", status.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+            )
         })
     }
 
     /// Read a notification_rule resource
-    async fn read_notification_rule(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_notification_rule(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -170,7 +206,8 @@ impl<'a> Codestar_notificationsService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -182,14 +219,15 @@ impl<'a> Codestar_notificationsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let tags = input.get_optional_string("tags")?;
             let targets = input.get_string("targets")?;
-            let status = input.get_optional_string("status")?;
             let event_type_ids = input.get_string("event_type_ids")?;
-            let name = input.get_string("name")?;
             let resource = input.get_string("resource")?;
             let detail_type = input.get_string("detail_type")?;
+            let status = input.get_optional_string("status")?;
+            let name = input.get_string("name")?;
+            let tags = input.get_optional_string("tags")?;
+            let client_request_token = input.get_optional_string("client_request_token")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -204,22 +242,23 @@ impl<'a> Codestar_notificationsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field(
-                    "client_request_token",
-                    client_request_token.unwrap_or_default(),
-                )
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("targets", targets.unwrap_or_default())
-                .with_field("status", status.unwrap_or_default())
                 .with_field("event_type_ids", event_type_ids.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
                 .with_field("resource", resource.unwrap_or_default())
-                .with_field("detail_type", detail_type.unwrap_or_default()))
+                .with_field("detail_type", detail_type.unwrap_or_default())
+                .with_field("status", status.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a notification_rule resource
-    async fn delete_notification_rule(&self, id: &str) -> Result<()> {
+    async fn delete_notification_rule(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -233,6 +272,7 @@ impl<'a> Codestar_notificationsService<'a> {
             Ok(())
         })
     }
+
 
     // ------------------------------------------------------------------------
     // Target resource operations
@@ -255,10 +295,14 @@ impl<'a> Codestar_notificationsService<'a> {
     }
 
     /// Create a new target resource
-    async fn create_target(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_target(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -270,12 +314,17 @@ impl<'a> Codestar_notificationsService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a target resource
-    async fn read_target(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_target(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -287,14 +336,20 @@ impl<'a> Codestar_notificationsService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a target resource
-    async fn update_target(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_target(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -307,12 +362,17 @@ impl<'a> Codestar_notificationsService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a target resource
-    async fn delete_target(&self, id: &str) -> Result<()> {
+    async fn delete_target(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -326,4 +386,6 @@ impl<'a> Codestar_notificationsService<'a> {
             Ok(())
         })
     }
+
+
 }

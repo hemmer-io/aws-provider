@@ -21,7 +21,7 @@ impl<'a> Data_migration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, selection_rules: Option<String>, service_access_role_arn: String, target_data_settings: Option<Vec<String>>, data_migration_type: String, data_migration_name: Option<String>, enable_cloudwatch_logs: Option<bool>, source_data_settings: Option<Vec<String>>, number_of_jobs: Option<i64>, migration_project_identifier: String) -> Result<String> {
+    pub async fn create(&self, migration_project_identifier: String, data_migration_type: String, service_access_role_arn: String, target_data_settings: Option<Vec<String>>, tags: Option<Vec<String>>, data_migration_name: Option<String>, selection_rules: Option<String>, enable_cloudwatch_logs: Option<bool>, number_of_jobs: Option<i64>, source_data_settings: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

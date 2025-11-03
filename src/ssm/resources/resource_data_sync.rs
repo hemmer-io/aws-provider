@@ -21,7 +21,7 @@ impl<'a> Resource_data_sync<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, sync_name: String, s3_destination: Option<String>, sync_type: Option<String>, sync_source: Option<String>) -> Result<String> {
+    pub async fn create(&self, sync_type: Option<String>, sync_source: Option<String>, s3_destination: Option<String>, sync_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Resource_data_sync<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, sync_name: Option<String>, s3_destination: Option<String>, sync_type: Option<String>, sync_source: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, sync_type: Option<String>, sync_source: Option<String>, s3_destination: Option<String>, sync_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

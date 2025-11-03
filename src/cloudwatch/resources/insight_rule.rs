@@ -21,7 +21,7 @@ impl<'a> Insight_rule<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, rule_definition: String, rule_name: String, tags: Option<Vec<String>>, rule_state: Option<String>, apply_on_transformed_logs: Option<bool>) -> Result<String> {
+    pub async fn create(&self, rule_name: String, rule_definition: String, tags: Option<Vec<String>>, rule_state: Option<String>, apply_on_transformed_logs: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

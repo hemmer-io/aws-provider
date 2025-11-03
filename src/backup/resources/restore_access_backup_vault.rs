@@ -21,7 +21,7 @@ impl<'a> Restore_access_backup_vault<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, creator_request_id: Option<String>, requester_comment: Option<String>, backup_vault_name: Option<String>, source_backup_vault_arn: String, backup_vault_tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, source_backup_vault_arn: String, creator_request_id: Option<String>, requester_comment: Option<String>, backup_vault_tags: Option<HashMap<String, String>>, backup_vault_name: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

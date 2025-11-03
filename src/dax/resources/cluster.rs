@@ -21,7 +21,7 @@ impl<'a> Cluster<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, availability_zones: Option<Vec<String>>, cluster_name: String, notification_topic_arn: Option<String>, tags: Option<Vec<String>>, iam_role_arn: String, replication_factor: i64, security_group_ids: Option<Vec<String>>, parameter_group_name: Option<String>, sse_specification: Option<String>, preferred_maintenance_window: Option<String>, node_type: String, network_type: Option<String>, cluster_endpoint_encryption_type: Option<String>, subnet_group_name: Option<String>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, notification_topic_arn: Option<String>, security_group_ids: Option<Vec<String>>, replication_factor: i64, preferred_maintenance_window: Option<String>, parameter_group_name: Option<String>, tags: Option<Vec<String>>, cluster_name: String, network_type: Option<String>, node_type: String, subnet_group_name: Option<String>, sse_specification: Option<String>, iam_role_arn: String, availability_zones: Option<Vec<String>>, cluster_endpoint_encryption_type: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Cluster<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, availability_zones: Option<Vec<String>>, cluster_name: Option<String>, notification_topic_arn: Option<String>, tags: Option<Vec<String>>, iam_role_arn: Option<String>, replication_factor: Option<i64>, security_group_ids: Option<Vec<String>>, parameter_group_name: Option<String>, sse_specification: Option<String>, preferred_maintenance_window: Option<String>, node_type: Option<String>, network_type: Option<String>, cluster_endpoint_encryption_type: Option<String>, subnet_group_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, notification_topic_arn: Option<String>, security_group_ids: Option<Vec<String>>, replication_factor: Option<i64>, preferred_maintenance_window: Option<String>, parameter_group_name: Option<String>, tags: Option<Vec<String>>, cluster_name: Option<String>, network_type: Option<String>, node_type: Option<String>, subnet_group_name: Option<String>, sse_specification: Option<String>, iam_role_arn: Option<String>, availability_zones: Option<Vec<String>>, cluster_endpoint_encryption_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

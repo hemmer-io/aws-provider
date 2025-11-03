@@ -21,7 +21,7 @@ impl<'a> Model<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, model_type: String, model_id: String, event_type_name: String, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, model_type: String, description: Option<String>, model_id: String, event_type_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Model<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, model_type: Option<String>, model_id: Option<String>, event_type_name: Option<String>, tags: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, model_type: Option<String>, description: Option<String>, model_id: Option<String>, event_type_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

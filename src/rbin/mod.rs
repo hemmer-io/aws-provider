@@ -24,10 +24,13 @@ impl<'a> RbinService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "rule" => self.plan_rule(current_state, desired_input).await,
+            "rule" => {
+                self.plan_rule(current_state, desired_input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "rbin", resource_name
+                "rbin",
+                resource_name
             ))),
         }
     }
@@ -39,21 +42,31 @@ impl<'a> RbinService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "rule" => self.create_rule(input).await,
+            "rule" => {
+                self.create_rule(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "rbin", resource_name
+                "rbin",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "rule" => self.read_rule(id).await,
+            "rule" => {
+                self.read_rule(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "rbin", resource_name
+                "rbin",
+                resource_name
             ))),
         }
     }
@@ -66,21 +79,31 @@ impl<'a> RbinService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "rule" => self.update_rule(id, input).await,
+            "rule" => {
+                self.update_rule(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "rbin", resource_name
+                "rbin",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "rule" => self.delete_rule(id).await,
+            "rule" => {
+                self.delete_rule(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "rbin", resource_name
+                "rbin",
+                resource_name
             ))),
         }
     }
@@ -88,6 +111,7 @@ impl<'a> RbinService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Rule resource operations
@@ -110,17 +134,21 @@ impl<'a> RbinService<'a> {
     }
 
     /// Create a new rule resource
-    async fn create_rule(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_rule(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let lock_configuration = input.get_optional_string("lock_configuration")?;
-            let exclude_resource_tags = input.get_optional_string("exclude_resource_tags")?;
             let retention_period = input.get_string("retention_period")?;
             let tags = input.get_optional_string("tags")?;
             let resource_type = input.get_string("resource_type")?;
-            let resource_tags = input.get_optional_string("resource_tags")?;
+            let exclude_resource_tags = input.get_optional_string("exclude_resource_tags")?;
             let description = input.get_optional_string("description")?;
+            let resource_tags = input.get_optional_string("resource_tags")?;
+            let lock_configuration = input.get_optional_string("lock_configuration")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -134,21 +162,22 @@ impl<'a> RbinService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("lock_configuration", lock_configuration.unwrap_or_default())
-                .with_field(
-                    "exclude_resource_tags",
-                    exclude_resource_tags.unwrap_or_default(),
-                )
                 .with_field("retention_period", retention_period.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
                 .with_field("resource_type", resource_type.unwrap_or_default())
+                .with_field("exclude_resource_tags", exclude_resource_tags.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
                 .with_field("resource_tags", resource_tags.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default()))
+                .with_field("lock_configuration", lock_configuration.unwrap_or_default())
+            )
         })
     }
 
     /// Read a rule resource
-    async fn read_rule(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_rule(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -160,21 +189,27 @@ impl<'a> RbinService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a rule resource
-    async fn update_rule(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_rule(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let lock_configuration = input.get_optional_string("lock_configuration")?;
-            let exclude_resource_tags = input.get_optional_string("exclude_resource_tags")?;
             let retention_period = input.get_string("retention_period")?;
             let tags = input.get_optional_string("tags")?;
             let resource_type = input.get_string("resource_type")?;
-            let resource_tags = input.get_optional_string("resource_tags")?;
+            let exclude_resource_tags = input.get_optional_string("exclude_resource_tags")?;
             let description = input.get_optional_string("description")?;
+            let resource_tags = input.get_optional_string("resource_tags")?;
+            let lock_configuration = input.get_optional_string("lock_configuration")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -189,21 +224,22 @@ impl<'a> RbinService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("lock_configuration", lock_configuration.unwrap_or_default())
-                .with_field(
-                    "exclude_resource_tags",
-                    exclude_resource_tags.unwrap_or_default(),
-                )
                 .with_field("retention_period", retention_period.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
                 .with_field("resource_type", resource_type.unwrap_or_default())
+                .with_field("exclude_resource_tags", exclude_resource_tags.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
                 .with_field("resource_tags", resource_tags.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default()))
+                .with_field("lock_configuration", lock_configuration.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a rule resource
-    async fn delete_rule(&self, id: &str) -> Result<()> {
+    async fn delete_rule(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -217,4 +253,6 @@ impl<'a> RbinService<'a> {
             Ok(())
         })
     }
+
+
 }

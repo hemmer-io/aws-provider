@@ -38,7 +38,7 @@ impl<'a> Bandwidth_rate_limit<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, average_upload_rate_limit_in_bits_per_sec: Option<i64>, gateway_arn: Option<String>, average_download_rate_limit_in_bits_per_sec: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, average_download_rate_limit_in_bits_per_sec: Option<i64>, gateway_arn: Option<String>, average_upload_rate_limit_in_bits_per_sec: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -24,7 +24,7 @@ impl<'a> Pull_request_approval_rule_content<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, pull_request_id: Option<String>, new_rule_content: Option<String>, existing_rule_content_sha256: Option<String>, approval_rule_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, existing_rule_content_sha256: Option<String>, new_rule_content: Option<String>, pull_request_id: Option<String>, approval_rule_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

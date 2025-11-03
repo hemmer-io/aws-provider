@@ -21,7 +21,7 @@ impl<'a> Identity_pool<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, saml_provider_ar_ns: Option<Vec<String>>, identity_pool_tags: Option<HashMap<String, String>>, allow_unauthenticated_identities: bool, cognito_identity_providers: Option<Vec<String>>, developer_provider_name: Option<String>, open_id_connect_provider_ar_ns: Option<Vec<String>>, identity_pool_name: String, allow_classic_flow: Option<bool>, supported_login_providers: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, allow_classic_flow: Option<bool>, allow_unauthenticated_identities: bool, cognito_identity_providers: Option<Vec<String>>, supported_login_providers: Option<HashMap<String, String>>, developer_provider_name: Option<String>, identity_pool_name: String, open_id_connect_provider_ar_ns: Option<Vec<String>>, saml_provider_ar_ns: Option<Vec<String>>, identity_pool_tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Identity_pool<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, saml_provider_ar_ns: Option<Vec<String>>, identity_pool_tags: Option<HashMap<String, String>>, allow_unauthenticated_identities: Option<bool>, cognito_identity_providers: Option<Vec<String>>, developer_provider_name: Option<String>, open_id_connect_provider_ar_ns: Option<Vec<String>>, identity_pool_name: Option<String>, allow_classic_flow: Option<bool>, supported_login_providers: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, allow_classic_flow: Option<bool>, allow_unauthenticated_identities: Option<bool>, cognito_identity_providers: Option<Vec<String>>, supported_login_providers: Option<HashMap<String, String>>, developer_provider_name: Option<String>, identity_pool_name: Option<String>, open_id_connect_provider_ar_ns: Option<Vec<String>>, saml_provider_ar_ns: Option<Vec<String>>, identity_pool_tags: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

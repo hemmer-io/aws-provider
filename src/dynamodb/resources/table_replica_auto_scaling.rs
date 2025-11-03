@@ -38,7 +38,7 @@ impl<'a> Table_replica_auto_scaling<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, provisioned_write_capacity_auto_scaling_update: Option<String>, replica_updates: Option<Vec<String>>, table_name: Option<String>, global_secondary_index_updates: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, replica_updates: Option<Vec<String>>, global_secondary_index_updates: Option<Vec<String>>, table_name: Option<String>, provisioned_write_capacity_auto_scaling_update: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

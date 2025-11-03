@@ -21,7 +21,7 @@ impl<'a> Vpc_endpoint_service_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, dry_run: Option<bool>, network_load_balancer_arns: Option<Vec<String>>, acceptance_required: Option<bool>, private_dns_name: Option<String>, supported_regions: Option<Vec<String>>, gateway_load_balancer_arns: Option<Vec<String>>, supported_ip_address_types: Option<Vec<String>>, client_token: Option<String>, tag_specifications: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, acceptance_required: Option<bool>, gateway_load_balancer_arns: Option<Vec<String>>, supported_regions: Option<Vec<String>>, network_load_balancer_arns: Option<Vec<String>>, client_token: Option<String>, supported_ip_address_types: Option<Vec<String>>, private_dns_name: Option<String>, tag_specifications: Option<Vec<String>>, dry_run: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

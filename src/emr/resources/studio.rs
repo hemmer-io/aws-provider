@@ -21,7 +21,7 @@ impl<'a> Studio<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, engine_security_group_id: String, vpc_id: String, name: String, idc_instance_arn: Option<String>, service_role: String, tags: Option<Vec<String>>, encryption_key_arn: Option<String>, workspace_security_group_id: String, default_s3_location: String, idp_relay_state_parameter_name: Option<String>, trusted_identity_propagation_enabled: Option<bool>, idc_user_assignment: Option<String>, auth_mode: String, subnet_ids: Vec<String>, description: Option<String>, user_role: Option<String>, idp_auth_url: Option<String>) -> Result<String> {
+    pub async fn create(&self, vpc_id: String, engine_security_group_id: String, trusted_identity_propagation_enabled: Option<bool>, idp_relay_state_parameter_name: Option<String>, subnet_ids: Vec<String>, idp_auth_url: Option<String>, idc_instance_arn: Option<String>, service_role: String, description: Option<String>, tags: Option<Vec<String>>, idc_user_assignment: Option<String>, encryption_key_arn: Option<String>, user_role: Option<String>, workspace_security_group_id: String, name: String, default_s3_location: String, auth_mode: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Studio<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, engine_security_group_id: Option<String>, vpc_id: Option<String>, name: Option<String>, idc_instance_arn: Option<String>, service_role: Option<String>, tags: Option<Vec<String>>, encryption_key_arn: Option<String>, workspace_security_group_id: Option<String>, default_s3_location: Option<String>, idp_relay_state_parameter_name: Option<String>, trusted_identity_propagation_enabled: Option<bool>, idc_user_assignment: Option<String>, auth_mode: Option<String>, subnet_ids: Option<Vec<String>>, description: Option<String>, user_role: Option<String>, idp_auth_url: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, vpc_id: Option<String>, engine_security_group_id: Option<String>, trusted_identity_propagation_enabled: Option<bool>, idp_relay_state_parameter_name: Option<String>, subnet_ids: Option<Vec<String>>, idp_auth_url: Option<String>, idc_instance_arn: Option<String>, service_role: Option<String>, description: Option<String>, tags: Option<Vec<String>>, idc_user_assignment: Option<String>, encryption_key_arn: Option<String>, user_role: Option<String>, workspace_security_group_id: Option<String>, name: Option<String>, default_s3_location: Option<String>, auth_mode: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

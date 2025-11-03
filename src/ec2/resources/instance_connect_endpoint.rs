@@ -21,7 +21,7 @@ impl<'a> Instance_connect_endpoint<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: Option<String>, ip_address_type: Option<String>, security_group_ids: Option<Vec<String>>, tag_specifications: Option<Vec<String>>, preserve_client_ip: Option<bool>, subnet_id: String, dry_run: Option<bool>) -> Result<String> {
+    pub async fn create(&self, dry_run: Option<bool>, preserve_client_ip: Option<bool>, tag_specifications: Option<Vec<String>>, security_group_ids: Option<Vec<String>>, ip_address_type: Option<String>, client_token: Option<String>, subnet_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -24,7 +24,7 @@ impl<'a> Project_visibility<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, project_arn: Option<String>, project_visibility: Option<String>, resource_access_role: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, resource_access_role: Option<String>, project_visibility: Option<String>, project_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

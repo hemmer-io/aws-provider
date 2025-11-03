@@ -21,7 +21,7 @@ impl<'a> Push_notification_registration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, device_type: String, client_token: Option<String>, contact_configuration: String, instance_id: String, pinpoint_app_arn: String, device_token: String) -> Result<String> {
+    pub async fn create(&self, device_type: String, device_token: String, contact_configuration: String, client_token: Option<String>, instance_id: String, pinpoint_app_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Image<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: String, image_scanning_configuration: Option<String>, container_recipe_arn: Option<String>, image_recipe_arn: Option<String>, enhanced_image_metadata_enabled: Option<bool>, tags: Option<HashMap<String, String>>, workflows: Option<Vec<String>>, infrastructure_configuration_arn: String, execution_role: Option<String>, image_tests_configuration: Option<String>, distribution_configuration_arn: Option<String>, logging_configuration: Option<String>) -> Result<String> {
+    pub async fn create(&self, infrastructure_configuration_arn: String, container_recipe_arn: Option<String>, image_scanning_configuration: Option<String>, image_tests_configuration: Option<String>, enhanced_image_metadata_enabled: Option<bool>, logging_configuration: Option<String>, tags: Option<HashMap<String, String>>, execution_role: Option<String>, image_recipe_arn: Option<String>, workflows: Option<Vec<String>>, client_token: String, distribution_configuration_arn: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Dashboard<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, refresh_schedule: Option<String>, name: String, tags_list: Option<Vec<String>>, termination_protection_enabled: Option<bool>, widgets: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, refresh_schedule: Option<String>, tags_list: Option<Vec<String>>, widgets: Option<Vec<String>>, name: String, termination_protection_enabled: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Dashboard<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, refresh_schedule: Option<String>, name: Option<String>, tags_list: Option<Vec<String>>, termination_protection_enabled: Option<bool>, widgets: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, refresh_schedule: Option<String>, tags_list: Option<Vec<String>>, widgets: Option<Vec<String>>, name: Option<String>, termination_protection_enabled: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

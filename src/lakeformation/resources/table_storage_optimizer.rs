@@ -24,7 +24,7 @@ impl<'a> Table_storage_optimizer<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, table_name: Option<String>, database_name: Option<String>, storage_optimizer_config: Option<HashMap<String, HashMap<String, String>>>, catalog_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, catalog_id: Option<String>, database_name: Option<String>, table_name: Option<String>, storage_optimizer_config: Option<HashMap<String, HashMap<String, String>>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

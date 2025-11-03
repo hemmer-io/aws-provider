@@ -21,7 +21,7 @@ impl<'a> Approval_rule_template<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, approval_rule_template_name: String, approval_rule_template_description: Option<String>, approval_rule_template_content: String) -> Result<String> {
+    pub async fn create(&self, approval_rule_template_content: String, approval_rule_template_name: String, approval_rule_template_description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

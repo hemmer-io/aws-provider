@@ -21,7 +21,7 @@ impl<'a> Meeting_with_attendees<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tenant_ids: Option<Vec<String>>, notifications_configuration: Option<String>, media_placement_network_type: Option<String>, client_request_token: String, media_region: String, primary_meeting_id: Option<String>, meeting_features: Option<String>, external_meeting_id: String, meeting_host_id: Option<String>, tags: Option<Vec<String>>, attendees: Vec<String>) -> Result<String> {
+    pub async fn create(&self, meeting_features: Option<String>, primary_meeting_id: Option<String>, media_placement_network_type: Option<String>, notifications_configuration: Option<String>, attendees: Vec<String>, meeting_host_id: Option<String>, tags: Option<Vec<String>>, tenant_ids: Option<Vec<String>>, client_request_token: String, external_meeting_id: String, media_region: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

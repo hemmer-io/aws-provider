@@ -25,16 +25,15 @@ impl<'a> SupplychainService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "data_integration_flow_execution" => {
-                self.plan_data_integration_flow_execution(current_state, desired_input)
-                    .await
+                self.plan_data_integration_flow_execution(current_state, desired_input).await
             }
             "data_integration_event" => {
-                self.plan_data_integration_event(current_state, desired_input)
-                    .await
+                self.plan_data_integration_event(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "supplychain", resource_name
+                "supplychain",
+                resource_name
             ))),
         }
     }
@@ -49,24 +48,34 @@ impl<'a> SupplychainService<'a> {
             "data_integration_flow_execution" => {
                 self.create_data_integration_flow_execution(input).await
             }
-            "data_integration_event" => self.create_data_integration_event(input).await,
+            "data_integration_event" => {
+                self.create_data_integration_event(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "supplychain", resource_name
+                "supplychain",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
             "data_integration_flow_execution" => {
                 self.read_data_integration_flow_execution(id).await
             }
-            "data_integration_event" => self.read_data_integration_event(id).await,
+            "data_integration_event" => {
+                self.read_data_integration_event(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "supplychain", resource_name
+                "supplychain",
+                resource_name
             ))),
         }
     }
@@ -82,24 +91,34 @@ impl<'a> SupplychainService<'a> {
             "data_integration_flow_execution" => {
                 self.update_data_integration_flow_execution(id, input).await
             }
-            "data_integration_event" => self.update_data_integration_event(id, input).await,
+            "data_integration_event" => {
+                self.update_data_integration_event(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "supplychain", resource_name
+                "supplychain",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
             "data_integration_flow_execution" => {
                 self.delete_data_integration_flow_execution(id).await
             }
-            "data_integration_event" => self.delete_data_integration_event(id).await,
+            "data_integration_event" => {
+                self.delete_data_integration_event(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "supplychain", resource_name
+                "supplychain",
+                resource_name
             ))),
         }
     }
@@ -107,6 +126,7 @@ impl<'a> SupplychainService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Data_integration_flow_execution resource operations
@@ -137,6 +157,7 @@ impl<'a> SupplychainService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.supplychain_client
@@ -147,12 +168,17 @@ impl<'a> SupplychainService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a data_integration_flow_execution resource
-    async fn read_data_integration_flow_execution(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_data_integration_flow_execution(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -164,7 +190,8 @@ impl<'a> SupplychainService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -177,6 +204,7 @@ impl<'a> SupplychainService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.supplychain_client
@@ -188,12 +216,17 @@ impl<'a> SupplychainService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a data_integration_flow_execution resource
-    async fn delete_data_integration_flow_execution(&self, id: &str) -> Result<()> {
+    async fn delete_data_integration_flow_execution(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -207,6 +240,7 @@ impl<'a> SupplychainService<'a> {
             Ok(())
         })
     }
+
 
     // ------------------------------------------------------------------------
     // Data_integration_event resource operations
@@ -229,10 +263,14 @@ impl<'a> SupplychainService<'a> {
     }
 
     /// Create a new data_integration_event resource
-    async fn create_data_integration_event(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_data_integration_event(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -244,12 +282,17 @@ impl<'a> SupplychainService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a data_integration_event resource
-    async fn read_data_integration_event(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_data_integration_event(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -261,7 +304,8 @@ impl<'a> SupplychainService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -274,6 +318,7 @@ impl<'a> SupplychainService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.supplychain_client
@@ -285,12 +330,17 @@ impl<'a> SupplychainService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a data_integration_event resource
-    async fn delete_data_integration_event(&self, id: &str) -> Result<()> {
+    async fn delete_data_integration_event(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -304,4 +354,6 @@ impl<'a> SupplychainService<'a> {
             Ok(())
         })
     }
+
+
 }

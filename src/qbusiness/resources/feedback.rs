@@ -21,7 +21,7 @@ impl<'a> Feedback<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, message_id: String, user_id: Option<String>, application_id: String, message_copied_at: Option<String>, conversation_id: String, message_usefulness: Option<String>) -> Result<String> {
+    pub async fn create(&self, message_usefulness: Option<String>, application_id: String, message_id: String, user_id: Option<String>, conversation_id: String, message_copied_at: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

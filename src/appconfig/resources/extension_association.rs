@@ -21,7 +21,7 @@ impl<'a> Extension_association<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<HashMap<String, String>>, parameters: Option<HashMap<String, String>>, extension_version_number: Option<i64>, extension_identifier: String, resource_identifier: String) -> Result<String> {
+    pub async fn create(&self, parameters: Option<HashMap<String, String>>, extension_version_number: Option<i64>, extension_identifier: String, resource_identifier: String, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Extension_association<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, parameters: Option<HashMap<String, String>>, extension_version_number: Option<i64>, extension_identifier: Option<String>, resource_identifier: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, parameters: Option<HashMap<String, String>>, extension_version_number: Option<i64>, extension_identifier: Option<String>, resource_identifier: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

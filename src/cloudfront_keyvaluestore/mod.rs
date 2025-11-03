@@ -25,14 +25,18 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "key_value_store" => {
-                self.plan_key_value_store(current_state, desired_input)
-                    .await
+                self.plan_key_value_store(current_state, desired_input).await
             }
-            "keys" => self.plan_keys(current_state, desired_input).await,
-            "key" => self.plan_key(current_state, desired_input).await,
+            "keys" => {
+                self.plan_keys(current_state, desired_input).await
+            }
+            "key" => {
+                self.plan_key(current_state, desired_input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "cloudfront_keyvaluestore", resource_name
+                "cloudfront_keyvaluestore",
+                resource_name
             ))),
         }
     }
@@ -44,25 +48,43 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "key_value_store" => self.create_key_value_store(input).await,
-            "keys" => self.create_keys(input).await,
-            "key" => self.create_key(input).await,
+            "key_value_store" => {
+                self.create_key_value_store(input).await
+            }
+            "keys" => {
+                self.create_keys(input).await
+            }
+            "key" => {
+                self.create_key(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "cloudfront_keyvaluestore", resource_name
+                "cloudfront_keyvaluestore",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "key_value_store" => self.read_key_value_store(id).await,
-            "keys" => self.read_keys(id).await,
-            "key" => self.read_key(id).await,
+            "key_value_store" => {
+                self.read_key_value_store(id).await
+            }
+            "keys" => {
+                self.read_keys(id).await
+            }
+            "key" => {
+                self.read_key(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "cloudfront_keyvaluestore", resource_name
+                "cloudfront_keyvaluestore",
+                resource_name
             ))),
         }
     }
@@ -75,25 +97,43 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "key_value_store" => self.update_key_value_store(id, input).await,
-            "keys" => self.update_keys(id, input).await,
-            "key" => self.update_key(id, input).await,
+            "key_value_store" => {
+                self.update_key_value_store(id, input).await
+            }
+            "keys" => {
+                self.update_keys(id, input).await
+            }
+            "key" => {
+                self.update_key(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "cloudfront_keyvaluestore", resource_name
+                "cloudfront_keyvaluestore",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "key_value_store" => self.delete_key_value_store(id).await,
-            "keys" => self.delete_keys(id).await,
-            "key" => self.delete_key(id).await,
+            "key_value_store" => {
+                self.delete_key_value_store(id).await
+            }
+            "keys" => {
+                self.delete_keys(id).await
+            }
+            "key" => {
+                self.delete_key(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "cloudfront_keyvaluestore", resource_name
+                "cloudfront_keyvaluestore",
+                resource_name
             ))),
         }
     }
@@ -101,6 +141,7 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Key_value_store resource operations
@@ -123,10 +164,14 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
     }
 
     /// Create a new key_value_store resource
-    async fn create_key_value_store(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_key_value_store(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -138,12 +183,17 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a key_value_store resource
-    async fn read_key_value_store(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_key_value_store(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -155,7 +205,8 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -168,6 +219,7 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.cloudfront_keyvaluestore_client
@@ -179,12 +231,17 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a key_value_store resource
-    async fn delete_key_value_store(&self, id: &str) -> Result<()> {
+    async fn delete_key_value_store(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -198,6 +255,7 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
             Ok(())
         })
     }
+
 
     // ------------------------------------------------------------------------
     // Keys resource operations
@@ -220,14 +278,18 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
     }
 
     /// Create a new keys resource
-    async fn create_keys(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_keys(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let kvs_arn = input.get_string("kvs_arn")?;
             let puts = input.get_optional_string("puts")?;
+            let kvs_arn = input.get_string("kvs_arn")?;
             let if_match = input.get_string("if_match")?;
             let deletes = input.get_optional_string("deletes")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -241,15 +303,19 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("kvs_arn", kvs_arn.unwrap_or_default())
                 .with_field("puts", puts.unwrap_or_default())
+                .with_field("kvs_arn", kvs_arn.unwrap_or_default())
                 .with_field("if_match", if_match.unwrap_or_default())
-                .with_field("deletes", deletes.unwrap_or_default()))
+                .with_field("deletes", deletes.unwrap_or_default())
+            )
         })
     }
 
     /// Read a keys resource
-    async fn read_keys(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_keys(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -261,18 +327,24 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a keys resource
-    async fn update_keys(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_keys(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let kvs_arn = input.get_string("kvs_arn")?;
             let puts = input.get_optional_string("puts")?;
+            let kvs_arn = input.get_string("kvs_arn")?;
             let if_match = input.get_string("if_match")?;
             let deletes = input.get_optional_string("deletes")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -287,15 +359,19 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("kvs_arn", kvs_arn.unwrap_or_default())
                 .with_field("puts", puts.unwrap_or_default())
+                .with_field("kvs_arn", kvs_arn.unwrap_or_default())
                 .with_field("if_match", if_match.unwrap_or_default())
-                .with_field("deletes", deletes.unwrap_or_default()))
+                .with_field("deletes", deletes.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a keys resource
-    async fn delete_keys(&self, id: &str) -> Result<()> {
+    async fn delete_keys(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -309,6 +385,7 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
             Ok(())
         })
     }
+
 
     // ------------------------------------------------------------------------
     // Key resource operations
@@ -331,14 +408,18 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
     }
 
     /// Create a new key resource
-    async fn create_key(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_key(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let value = input.get_string("value")?;
+            let if_match = input.get_string("if_match")?;
             let key = input.get_string("key")?;
             let kvs_arn = input.get_string("kvs_arn")?;
-            let if_match = input.get_string("if_match")?;
-            let value = input.get_string("value")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -352,15 +433,19 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("value", value.unwrap_or_default())
+                .with_field("if_match", if_match.unwrap_or_default())
                 .with_field("key", key.unwrap_or_default())
                 .with_field("kvs_arn", kvs_arn.unwrap_or_default())
-                .with_field("if_match", if_match.unwrap_or_default())
-                .with_field("value", value.unwrap_or_default()))
+            )
         })
     }
 
     /// Read a key resource
-    async fn read_key(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_key(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -372,18 +457,24 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a key resource
-    async fn update_key(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_key(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let value = input.get_string("value")?;
+            let if_match = input.get_string("if_match")?;
             let key = input.get_string("key")?;
             let kvs_arn = input.get_string("kvs_arn")?;
-            let if_match = input.get_string("if_match")?;
-            let value = input.get_string("value")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -398,15 +489,19 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("value", value.unwrap_or_default())
+                .with_field("if_match", if_match.unwrap_or_default())
                 .with_field("key", key.unwrap_or_default())
                 .with_field("kvs_arn", kvs_arn.unwrap_or_default())
-                .with_field("if_match", if_match.unwrap_or_default())
-                .with_field("value", value.unwrap_or_default()))
+            )
         })
     }
 
     /// Delete a key resource
-    async fn delete_key(&self, id: &str) -> Result<()> {
+    async fn delete_key(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -420,4 +515,6 @@ impl<'a> Cloudfront_keyvaluestoreService<'a> {
             Ok(())
         })
     }
+
+
 }

@@ -21,7 +21,7 @@ impl<'a> Platform_application<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, attributes: String, name: String, platform: String) -> Result<String> {
+    pub async fn create(&self, name: String, platform: String, attributes: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

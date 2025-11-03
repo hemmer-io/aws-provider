@@ -21,7 +21,7 @@ impl<'a> Game_server_group<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, role_arn: String, game_server_group_name: String, auto_scaling_policy: Option<String>, instance_definitions: Vec<String>, balancing_strategy: Option<String>, max_size: i64, vpc_subnets: Option<Vec<String>>, tags: Option<Vec<String>>, game_server_protection_policy: Option<String>, min_size: i64, launch_template: String) -> Result<String> {
+    pub async fn create(&self, max_size: i64, game_server_group_name: String, role_arn: String, auto_scaling_policy: Option<String>, vpc_subnets: Option<Vec<String>>, tags: Option<Vec<String>>, launch_template: String, balancing_strategy: Option<String>, instance_definitions: Vec<String>, min_size: i64, game_server_protection_policy: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Game_server_group<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, role_arn: Option<String>, game_server_group_name: Option<String>, auto_scaling_policy: Option<String>, instance_definitions: Option<Vec<String>>, balancing_strategy: Option<String>, max_size: Option<i64>, vpc_subnets: Option<Vec<String>>, tags: Option<Vec<String>>, game_server_protection_policy: Option<String>, min_size: Option<i64>, launch_template: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, max_size: Option<i64>, game_server_group_name: Option<String>, role_arn: Option<String>, auto_scaling_policy: Option<String>, vpc_subnets: Option<Vec<String>>, tags: Option<Vec<String>>, launch_template: Option<String>, balancing_strategy: Option<String>, instance_definitions: Option<Vec<String>>, min_size: Option<i64>, game_server_protection_policy: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

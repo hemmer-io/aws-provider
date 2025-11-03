@@ -21,7 +21,7 @@ impl<'a> Deployment_strategy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, growth_factor: String, description: Option<String>, final_bake_time_in_minutes: Option<i64>, replicate_to: Option<String>, tags: Option<HashMap<String, String>>, deployment_duration_in_minutes: i64, name: String, growth_type: Option<String>) -> Result<String> {
+    pub async fn create(&self, growth_factor: String, growth_type: Option<String>, tags: Option<HashMap<String, String>>, final_bake_time_in_minutes: Option<i64>, description: Option<String>, replicate_to: Option<String>, deployment_duration_in_minutes: i64, name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Deployment_strategy<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, growth_factor: Option<String>, description: Option<String>, final_bake_time_in_minutes: Option<i64>, replicate_to: Option<String>, tags: Option<HashMap<String, String>>, deployment_duration_in_minutes: Option<i64>, name: Option<String>, growth_type: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, growth_factor: Option<String>, growth_type: Option<String>, tags: Option<HashMap<String, String>>, final_bake_time_in_minutes: Option<i64>, description: Option<String>, replicate_to: Option<String>, deployment_duration_in_minutes: Option<i64>, name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

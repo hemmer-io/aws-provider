@@ -21,7 +21,7 @@ impl<'a> Verified_access_endpoint<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tag_specifications: Option<Vec<String>>, attachment_type: String, application_domain: Option<String>, endpoint_domain_prefix: Option<String>, dry_run: Option<bool>, load_balancer_options: Option<String>, rds_options: Option<String>, sse_specification: Option<String>, verified_access_group_id: String, endpoint_type: String, security_group_ids: Option<Vec<String>>, policy_document: Option<String>, domain_certificate_arn: Option<String>, cidr_options: Option<String>, network_interface_options: Option<String>, description: Option<String>, client_token: Option<String>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, sse_specification: Option<String>, endpoint_domain_prefix: Option<String>, network_interface_options: Option<String>, dry_run: Option<bool>, policy_document: Option<String>, rds_options: Option<String>, domain_certificate_arn: Option<String>, tag_specifications: Option<Vec<String>>, attachment_type: String, cidr_options: Option<String>, endpoint_type: String, security_group_ids: Option<Vec<String>>, client_token: Option<String>, verified_access_group_id: String, application_domain: Option<String>, load_balancer_options: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

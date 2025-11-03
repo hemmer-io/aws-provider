@@ -21,7 +21,7 @@ impl<'a> Target_group<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, health_check_interval_seconds: Option<i64>, unhealthy_threshold_count: Option<i64>, ip_address_type: Option<String>, port: Option<i64>, name: String, health_check_protocol: Option<String>, protocol_version: Option<String>, vpc_id: Option<String>, protocol: Option<String>, healthy_threshold_count: Option<i64>, health_check_enabled: Option<bool>, health_check_port: Option<String>, tags: Option<Vec<String>>, target_type: Option<String>, health_check_timeout_seconds: Option<i64>, health_check_path: Option<String>, matcher: Option<String>) -> Result<String> {
+    pub async fn create(&self, target_type: Option<String>, name: String, port: Option<i64>, healthy_threshold_count: Option<i64>, health_check_path: Option<String>, vpc_id: Option<String>, health_check_port: Option<String>, health_check_interval_seconds: Option<i64>, unhealthy_threshold_count: Option<i64>, ip_address_type: Option<String>, tags: Option<Vec<String>>, health_check_protocol: Option<String>, matcher: Option<String>, health_check_timeout_seconds: Option<i64>, protocol: Option<String>, protocol_version: Option<String>, health_check_enabled: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

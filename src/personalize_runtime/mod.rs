@@ -25,20 +25,18 @@ impl<'a> Personalize_runtimeService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "personalized_ranking" => {
-                self.plan_personalized_ranking(current_state, desired_input)
-                    .await
+                self.plan_personalized_ranking(current_state, desired_input).await
             }
             "recommendations" => {
-                self.plan_recommendations(current_state, desired_input)
-                    .await
+                self.plan_recommendations(current_state, desired_input).await
             }
             "action_recommendations" => {
-                self.plan_action_recommendations(current_state, desired_input)
-                    .await
+                self.plan_action_recommendations(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "personalize_runtime", resource_name
+                "personalize_runtime",
+                resource_name
             ))),
         }
     }
@@ -50,25 +48,43 @@ impl<'a> Personalize_runtimeService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "personalized_ranking" => self.create_personalized_ranking(input).await,
-            "recommendations" => self.create_recommendations(input).await,
-            "action_recommendations" => self.create_action_recommendations(input).await,
+            "personalized_ranking" => {
+                self.create_personalized_ranking(input).await
+            }
+            "recommendations" => {
+                self.create_recommendations(input).await
+            }
+            "action_recommendations" => {
+                self.create_action_recommendations(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "personalize_runtime", resource_name
+                "personalize_runtime",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "personalized_ranking" => self.read_personalized_ranking(id).await,
-            "recommendations" => self.read_recommendations(id).await,
-            "action_recommendations" => self.read_action_recommendations(id).await,
+            "personalized_ranking" => {
+                self.read_personalized_ranking(id).await
+            }
+            "recommendations" => {
+                self.read_recommendations(id).await
+            }
+            "action_recommendations" => {
+                self.read_action_recommendations(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "personalize_runtime", resource_name
+                "personalize_runtime",
+                resource_name
             ))),
         }
     }
@@ -81,25 +97,43 @@ impl<'a> Personalize_runtimeService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "personalized_ranking" => self.update_personalized_ranking(id, input).await,
-            "recommendations" => self.update_recommendations(id, input).await,
-            "action_recommendations" => self.update_action_recommendations(id, input).await,
+            "personalized_ranking" => {
+                self.update_personalized_ranking(id, input).await
+            }
+            "recommendations" => {
+                self.update_recommendations(id, input).await
+            }
+            "action_recommendations" => {
+                self.update_action_recommendations(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "personalize_runtime", resource_name
+                "personalize_runtime",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "personalized_ranking" => self.delete_personalized_ranking(id).await,
-            "recommendations" => self.delete_recommendations(id).await,
-            "action_recommendations" => self.delete_action_recommendations(id).await,
+            "personalized_ranking" => {
+                self.delete_personalized_ranking(id).await
+            }
+            "recommendations" => {
+                self.delete_recommendations(id).await
+            }
+            "action_recommendations" => {
+                self.delete_action_recommendations(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "personalize_runtime", resource_name
+                "personalize_runtime",
+                resource_name
             ))),
         }
     }
@@ -107,6 +141,7 @@ impl<'a> Personalize_runtimeService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Personalized_ranking resource operations
@@ -129,10 +164,14 @@ impl<'a> Personalize_runtimeService<'a> {
     }
 
     /// Create a new personalized_ranking resource
-    async fn create_personalized_ranking(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_personalized_ranking(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -144,12 +183,17 @@ impl<'a> Personalize_runtimeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a personalized_ranking resource
-    async fn read_personalized_ranking(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_personalized_ranking(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -161,7 +205,8 @@ impl<'a> Personalize_runtimeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -174,6 +219,7 @@ impl<'a> Personalize_runtimeService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.personalize_runtime_client
@@ -185,12 +231,17 @@ impl<'a> Personalize_runtimeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a personalized_ranking resource
-    async fn delete_personalized_ranking(&self, id: &str) -> Result<()> {
+    async fn delete_personalized_ranking(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -204,6 +255,7 @@ impl<'a> Personalize_runtimeService<'a> {
             Ok(())
         })
     }
+
 
     // ------------------------------------------------------------------------
     // Recommendations resource operations
@@ -226,10 +278,14 @@ impl<'a> Personalize_runtimeService<'a> {
     }
 
     /// Create a new recommendations resource
-    async fn create_recommendations(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_recommendations(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -241,12 +297,17 @@ impl<'a> Personalize_runtimeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a recommendations resource
-    async fn read_recommendations(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_recommendations(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -258,7 +319,8 @@ impl<'a> Personalize_runtimeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -271,6 +333,7 @@ impl<'a> Personalize_runtimeService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.personalize_runtime_client
@@ -282,12 +345,17 @@ impl<'a> Personalize_runtimeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a recommendations resource
-    async fn delete_recommendations(&self, id: &str) -> Result<()> {
+    async fn delete_recommendations(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -301,6 +369,7 @@ impl<'a> Personalize_runtimeService<'a> {
             Ok(())
         })
     }
+
 
     // ------------------------------------------------------------------------
     // Action_recommendations resource operations
@@ -323,10 +392,14 @@ impl<'a> Personalize_runtimeService<'a> {
     }
 
     /// Create a new action_recommendations resource
-    async fn create_action_recommendations(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_action_recommendations(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -338,12 +411,17 @@ impl<'a> Personalize_runtimeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a action_recommendations resource
-    async fn read_action_recommendations(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_action_recommendations(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -355,7 +433,8 @@ impl<'a> Personalize_runtimeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -368,6 +447,7 @@ impl<'a> Personalize_runtimeService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.personalize_runtime_client
@@ -379,12 +459,17 @@ impl<'a> Personalize_runtimeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a action_recommendations resource
-    async fn delete_action_recommendations(&self, id: &str) -> Result<()> {
+    async fn delete_action_recommendations(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -398,4 +483,6 @@ impl<'a> Personalize_runtimeService<'a> {
             Ok(())
         })
     }
+
+
 }

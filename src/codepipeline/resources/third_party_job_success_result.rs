@@ -21,7 +21,7 @@ impl<'a> Third_party_job_success_result<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, job_id: String, execution_details: Option<String>, client_token: String, continuation_token: Option<String>, current_revision: Option<String>) -> Result<String> {
+    pub async fn create(&self, client_token: String, execution_details: Option<String>, job_id: String, continuation_token: Option<String>, current_revision: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

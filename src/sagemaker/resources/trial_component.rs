@@ -21,7 +21,7 @@ impl<'a> Trial_component<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, trial_component_name: String, parameters: Option<HashMap<String, String>>, input_artifacts: Option<HashMap<String, String>>, output_artifacts: Option<HashMap<String, String>>, tags: Option<Vec<String>>, start_time: Option<String>, status: Option<String>, display_name: Option<String>, metadata_properties: Option<String>, end_time: Option<String>) -> Result<String> {
+    pub async fn create(&self, parameters: Option<HashMap<String, String>>, status: Option<String>, end_time: Option<String>, output_artifacts: Option<HashMap<String, String>>, metadata_properties: Option<String>, display_name: Option<String>, input_artifacts: Option<HashMap<String, String>>, tags: Option<Vec<String>>, start_time: Option<String>, trial_component_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Trial_component<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, trial_component_name: Option<String>, parameters: Option<HashMap<String, String>>, input_artifacts: Option<HashMap<String, String>>, output_artifacts: Option<HashMap<String, String>>, tags: Option<Vec<String>>, start_time: Option<String>, status: Option<String>, display_name: Option<String>, metadata_properties: Option<String>, end_time: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, parameters: Option<HashMap<String, String>>, status: Option<String>, end_time: Option<String>, output_artifacts: Option<HashMap<String, String>>, metadata_properties: Option<String>, display_name: Option<String>, input_artifacts: Option<HashMap<String, String>>, tags: Option<Vec<String>>, start_time: Option<String>, trial_component_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

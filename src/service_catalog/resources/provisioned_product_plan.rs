@@ -21,7 +21,7 @@ impl<'a> Provisioned_product_plan<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, notification_arns: Option<Vec<String>>, product_id: String, plan_name: String, path_id: Option<String>, provisioned_product_name: String, provisioning_artifact_id: String, idempotency_token: String, provisioning_parameters: Option<Vec<String>>, tags: Option<Vec<String>>, plan_type: String, accept_language: Option<String>) -> Result<String> {
+    pub async fn create(&self, plan_type: String, provisioned_product_name: String, path_id: Option<String>, product_id: String, notification_arns: Option<Vec<String>>, accept_language: Option<String>, plan_name: String, provisioning_artifact_id: String, provisioning_parameters: Option<Vec<String>>, idempotency_token: String, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

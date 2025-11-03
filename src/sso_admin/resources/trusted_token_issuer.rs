@@ -21,7 +21,7 @@ impl<'a> Trusted_token_issuer<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, instance_arn: String, name: String, trusted_token_issuer_configuration: String, client_token: Option<String>, tags: Option<Vec<String>>, trusted_token_issuer_type: String) -> Result<String> {
+    pub async fn create(&self, trusted_token_issuer_configuration: String, name: String, trusted_token_issuer_type: String, client_token: Option<String>, instance_arn: String, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Trusted_token_issuer<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, instance_arn: Option<String>, name: Option<String>, trusted_token_issuer_configuration: Option<String>, client_token: Option<String>, tags: Option<Vec<String>>, trusted_token_issuer_type: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, trusted_token_issuer_configuration: Option<String>, name: Option<String>, trusted_token_issuer_type: Option<String>, client_token: Option<String>, instance_arn: Option<String>, tags: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

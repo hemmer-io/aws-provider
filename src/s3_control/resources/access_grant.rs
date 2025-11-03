@@ -21,7 +21,7 @@ impl<'a> Access_grant<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, access_grants_location_id: String, permission: String, tags: Option<Vec<String>>, grantee: String, s3_prefix_type: Option<String>, account_id: String, application_arn: Option<String>, access_grants_location_configuration: Option<String>) -> Result<String> {
+    pub async fn create(&self, s3_prefix_type: Option<String>, account_id: String, access_grants_location_id: String, permission: String, application_arn: Option<String>, tags: Option<Vec<String>>, access_grants_location_configuration: Option<String>, grantee: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

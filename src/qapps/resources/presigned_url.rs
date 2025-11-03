@@ -21,7 +21,7 @@ impl<'a> Presigned_url<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, file_contents_sha256: String, app_id: String, instance_id: String, scope: String, card_id: String, file_name: String, session_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, scope: String, file_contents_sha256: String, card_id: String, session_id: Option<String>, instance_id: String, file_name: String, app_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

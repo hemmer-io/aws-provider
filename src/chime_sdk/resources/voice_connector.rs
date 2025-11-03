@@ -21,7 +21,7 @@ impl<'a> Voice_connector<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, network_type: Option<String>, name: String, tags: Option<Vec<String>>, integration_type: Option<String>, aws_region: Option<String>, require_encryption: bool) -> Result<String> {
+    pub async fn create(&self, require_encryption: bool, tags: Option<Vec<String>>, integration_type: Option<String>, network_type: Option<String>, aws_region: Option<String>, name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Voice_connector<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, network_type: Option<String>, name: Option<String>, tags: Option<Vec<String>>, integration_type: Option<String>, aws_region: Option<String>, require_encryption: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, require_encryption: Option<bool>, tags: Option<Vec<String>>, integration_type: Option<String>, network_type: Option<String>, aws_region: Option<String>, name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

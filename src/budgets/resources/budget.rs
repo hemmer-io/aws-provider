@@ -21,7 +21,7 @@ impl<'a> Budget<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, budget: String, account_id: String, notifications_with_subscribers: Option<Vec<String>>, resource_tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, notifications_with_subscribers: Option<Vec<String>>, budget: String, resource_tags: Option<Vec<String>>, account_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Budget<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, budget: Option<String>, account_id: Option<String>, notifications_with_subscribers: Option<Vec<String>>, resource_tags: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, notifications_with_subscribers: Option<Vec<String>>, budget: Option<String>, resource_tags: Option<Vec<String>>, account_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

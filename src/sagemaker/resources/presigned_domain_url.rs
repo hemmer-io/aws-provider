@@ -21,7 +21,7 @@ impl<'a> Presigned_domain_url<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, user_profile_name: String, expires_in_seconds: Option<i64>, session_expiration_duration_in_seconds: Option<i64>, space_name: Option<String>, landing_uri: Option<String>, domain_id: String) -> Result<String> {
+    pub async fn create(&self, session_expiration_duration_in_seconds: Option<i64>, domain_id: String, expires_in_seconds: Option<i64>, landing_uri: Option<String>, space_name: Option<String>, user_profile_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

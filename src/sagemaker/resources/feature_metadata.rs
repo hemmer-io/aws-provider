@@ -38,7 +38,7 @@ impl<'a> Feature_metadata<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, feature_group_name: Option<String>, description: Option<String>, parameter_removals: Option<Vec<String>>, feature_name: Option<String>, parameter_additions: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, feature_name: Option<String>, parameter_removals: Option<Vec<String>>, feature_group_name: Option<String>, description: Option<String>, parameter_additions: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

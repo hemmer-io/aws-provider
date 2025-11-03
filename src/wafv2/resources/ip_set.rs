@@ -21,7 +21,7 @@ impl<'a> Ip_set<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, scope: String, addresses: Vec<String>, name: String, ip_address_version: String, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, name: String, description: Option<String>, scope: String, ip_address_version: String, addresses: Vec<String>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Ip_set<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, scope: Option<String>, addresses: Option<Vec<String>>, name: Option<String>, ip_address_version: Option<String>, description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, name: Option<String>, description: Option<String>, scope: Option<String>, ip_address_version: Option<String>, addresses: Option<Vec<String>>, tags: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

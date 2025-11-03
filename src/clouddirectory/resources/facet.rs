@@ -21,7 +21,7 @@ impl<'a> Facet<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, object_type: Option<String>, attributes: Option<Vec<String>>, schema_arn: String, name: String, facet_style: Option<String>) -> Result<String> {
+    pub async fn create(&self, name: String, attributes: Option<Vec<String>>, object_type: Option<String>, facet_style: Option<String>, schema_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Facet<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, object_type: Option<String>, attributes: Option<Vec<String>>, schema_arn: Option<String>, name: Option<String>, facet_style: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, name: Option<String>, attributes: Option<Vec<String>>, object_type: Option<String>, facet_style: Option<String>, schema_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

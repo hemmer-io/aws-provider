@@ -21,7 +21,7 @@ impl<'a> Directory_config<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, directory_name: String, certificate_based_auth_properties: Option<String>, organizational_unit_distinguished_names: Vec<String>, service_account_credentials: Option<String>) -> Result<String> {
+    pub async fn create(&self, service_account_credentials: Option<String>, directory_name: String, organizational_unit_distinguished_names: Vec<String>, certificate_based_auth_properties: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Directory_config<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, directory_name: Option<String>, certificate_based_auth_properties: Option<String>, organizational_unit_distinguished_names: Option<Vec<String>>, service_account_credentials: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, service_account_credentials: Option<String>, directory_name: Option<String>, organizational_unit_distinguished_names: Option<Vec<String>>, certificate_based_auth_properties: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

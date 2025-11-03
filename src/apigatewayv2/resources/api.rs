@@ -21,7 +21,7 @@ impl<'a> Api<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, cors_configuration: Option<String>, ip_address_type: Option<String>, tags: Option<HashMap<String, String>>, credentials_arn: Option<String>, api_key_selection_expression: Option<String>, protocol_type: String, disable_schema_validation: Option<bool>, name: String, route_selection_expression: Option<String>, target: Option<String>, route_key: Option<String>, disable_execute_api_endpoint: Option<bool>, description: Option<String>, version: Option<String>) -> Result<String> {
+    pub async fn create(&self, target: Option<String>, disable_execute_api_endpoint: Option<bool>, credentials_arn: Option<String>, ip_address_type: Option<String>, cors_configuration: Option<String>, description: Option<String>, name: String, protocol_type: String, route_key: Option<String>, api_key_selection_expression: Option<String>, disable_schema_validation: Option<bool>, route_selection_expression: Option<String>, tags: Option<HashMap<String, String>>, version: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Api<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, cors_configuration: Option<String>, ip_address_type: Option<String>, tags: Option<HashMap<String, String>>, credentials_arn: Option<String>, api_key_selection_expression: Option<String>, protocol_type: Option<String>, disable_schema_validation: Option<bool>, name: Option<String>, route_selection_expression: Option<String>, target: Option<String>, route_key: Option<String>, disable_execute_api_endpoint: Option<bool>, description: Option<String>, version: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, target: Option<String>, disable_execute_api_endpoint: Option<bool>, credentials_arn: Option<String>, ip_address_type: Option<String>, cors_configuration: Option<String>, description: Option<String>, name: Option<String>, protocol_type: Option<String>, route_key: Option<String>, api_key_selection_expression: Option<String>, disable_schema_validation: Option<bool>, route_selection_expression: Option<String>, tags: Option<HashMap<String, String>>, version: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Bot<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, name: String, nlu_intent_confidence_threshold: Option<f64>, voice_id: Option<String>, idle_session_ttl_in_seconds: Option<i64>, intents: Option<Vec<String>>, enable_model_improvements: Option<bool>, checksum: Option<String>, abort_statement: Option<String>, locale: String, tags: Option<Vec<String>>, create_version: Option<bool>, child_directed: bool, detect_sentiment: Option<bool>, description: Option<String>, process_behavior: Option<String>, clarification_prompt: Option<String>) -> Result<String> {
+    pub async fn create(&self, intents: Option<Vec<String>>, voice_id: Option<String>, child_directed: bool, nlu_intent_confidence_threshold: Option<f64>, tags: Option<Vec<String>>, enable_model_improvements: Option<bool>, create_version: Option<bool>, clarification_prompt: Option<String>, checksum: Option<String>, process_behavior: Option<String>, description: Option<String>, locale: String, detect_sentiment: Option<bool>, abort_statement: Option<String>, name: String, idle_session_ttl_in_seconds: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

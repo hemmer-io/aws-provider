@@ -25,16 +25,15 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "license_server_endpoint" => {
-                self.plan_license_server_endpoint(current_state, desired_input)
-                    .await
+                self.plan_license_server_endpoint(current_state, desired_input).await
             }
             "identity_provider_settings" => {
-                self.plan_identity_provider_settings(current_state, desired_input)
-                    .await
+                self.plan_identity_provider_settings(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "license_manager_user_subscriptions", resource_name
+                "license_manager_user_subscriptions",
+                resource_name
             ))),
         }
     }
@@ -46,23 +45,37 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "license_server_endpoint" => self.create_license_server_endpoint(input).await,
-            "identity_provider_settings" => self.create_identity_provider_settings(input).await,
+            "license_server_endpoint" => {
+                self.create_license_server_endpoint(input).await
+            }
+            "identity_provider_settings" => {
+                self.create_identity_provider_settings(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "license_manager_user_subscriptions", resource_name
+                "license_manager_user_subscriptions",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "license_server_endpoint" => self.read_license_server_endpoint(id).await,
-            "identity_provider_settings" => self.read_identity_provider_settings(id).await,
+            "license_server_endpoint" => {
+                self.read_license_server_endpoint(id).await
+            }
+            "identity_provider_settings" => {
+                self.read_identity_provider_settings(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "license_manager_user_subscriptions", resource_name
+                "license_manager_user_subscriptions",
+                resource_name
             ))),
         }
     }
@@ -75,23 +88,37 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "license_server_endpoint" => self.update_license_server_endpoint(id, input).await,
-            "identity_provider_settings" => self.update_identity_provider_settings(id, input).await,
+            "license_server_endpoint" => {
+                self.update_license_server_endpoint(id, input).await
+            }
+            "identity_provider_settings" => {
+                self.update_identity_provider_settings(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "license_manager_user_subscriptions", resource_name
+                "license_manager_user_subscriptions",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "license_server_endpoint" => self.delete_license_server_endpoint(id).await,
-            "identity_provider_settings" => self.delete_identity_provider_settings(id).await,
+            "license_server_endpoint" => {
+                self.delete_license_server_endpoint(id).await
+            }
+            "identity_provider_settings" => {
+                self.delete_identity_provider_settings(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "license_manager_user_subscriptions", resource_name
+                "license_manager_user_subscriptions",
+                resource_name
             ))),
         }
     }
@@ -99,6 +126,7 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // License_server_endpoint resource operations
@@ -121,13 +149,17 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
     }
 
     /// Create a new license_server_endpoint resource
-    async fn create_license_server_endpoint(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_license_server_endpoint(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
             let tags = input.get_optional_string("tags")?;
             let license_server_settings = input.get_string("license_server_settings")?;
             let identity_provider_arn = input.get_string("identity_provider_arn")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -142,19 +174,17 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
                 .with_field("tags", tags.unwrap_or_default())
-                .with_field(
-                    "license_server_settings",
-                    license_server_settings.unwrap_or_default(),
-                )
-                .with_field(
-                    "identity_provider_arn",
-                    identity_provider_arn.unwrap_or_default(),
-                ))
+                .with_field("license_server_settings", license_server_settings.unwrap_or_default())
+                .with_field("identity_provider_arn", identity_provider_arn.unwrap_or_default())
+            )
         })
     }
 
     /// Read a license_server_endpoint resource
-    async fn read_license_server_endpoint(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_license_server_endpoint(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -166,7 +196,8 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -182,6 +213,7 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
             let license_server_settings = input.get_string("license_server_settings")?;
             let identity_provider_arn = input.get_string("identity_provider_arn")?;
 
+
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.license_manager_user_subscriptions_client
@@ -196,19 +228,17 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
             Ok(ResourceOutput::new()
                 .with_id(id)
                 .with_field("tags", tags.unwrap_or_default())
-                .with_field(
-                    "license_server_settings",
-                    license_server_settings.unwrap_or_default(),
-                )
-                .with_field(
-                    "identity_provider_arn",
-                    identity_provider_arn.unwrap_or_default(),
-                ))
+                .with_field("license_server_settings", license_server_settings.unwrap_or_default())
+                .with_field("identity_provider_arn", identity_provider_arn.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a license_server_endpoint resource
-    async fn delete_license_server_endpoint(&self, id: &str) -> Result<()> {
+    async fn delete_license_server_endpoint(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -222,6 +252,7 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
             Ok(())
         })
     }
+
 
     // ------------------------------------------------------------------------
     // Identity_provider_settings resource operations
@@ -251,10 +282,11 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let product = input.get_optional_string("product")?;
+            let identity_provider_arn = input.get_optional_string("identity_provider_arn")?;
             let update_settings = input.get_string("update_settings")?;
             let identity_provider = input.get_optional_string("identity_provider")?;
-            let identity_provider_arn = input.get_optional_string("identity_provider_arn")?;
-            let product = input.get_optional_string("product")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -268,18 +300,19 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("product", product.unwrap_or_default())
+                .with_field("identity_provider_arn", identity_provider_arn.unwrap_or_default())
                 .with_field("update_settings", update_settings.unwrap_or_default())
                 .with_field("identity_provider", identity_provider.unwrap_or_default())
-                .with_field(
-                    "identity_provider_arn",
-                    identity_provider_arn.unwrap_or_default(),
-                )
-                .with_field("product", product.unwrap_or_default()))
+            )
         })
     }
 
     /// Read a identity_provider_settings resource
-    async fn read_identity_provider_settings(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_identity_provider_settings(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -291,7 +324,8 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -303,10 +337,11 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let product = input.get_optional_string("product")?;
+            let identity_provider_arn = input.get_optional_string("identity_provider_arn")?;
             let update_settings = input.get_string("update_settings")?;
             let identity_provider = input.get_optional_string("identity_provider")?;
-            let identity_provider_arn = input.get_optional_string("identity_provider_arn")?;
-            let product = input.get_optional_string("product")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -321,18 +356,19 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("product", product.unwrap_or_default())
+                .with_field("identity_provider_arn", identity_provider_arn.unwrap_or_default())
                 .with_field("update_settings", update_settings.unwrap_or_default())
                 .with_field("identity_provider", identity_provider.unwrap_or_default())
-                .with_field(
-                    "identity_provider_arn",
-                    identity_provider_arn.unwrap_or_default(),
-                )
-                .with_field("product", product.unwrap_or_default()))
+            )
         })
     }
 
     /// Delete a identity_provider_settings resource
-    async fn delete_identity_provider_settings(&self, id: &str) -> Result<()> {
+    async fn delete_identity_provider_settings(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -346,4 +382,6 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
             Ok(())
         })
     }
+
+
 }

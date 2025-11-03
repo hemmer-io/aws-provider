@@ -21,7 +21,7 @@ impl<'a> Device_definition_version<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, devices: Option<Vec<String>>, amzn_client_token: Option<String>, device_definition_id: String) -> Result<String> {
+    pub async fn create(&self, device_definition_id: String, amzn_client_token: Option<String>, devices: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

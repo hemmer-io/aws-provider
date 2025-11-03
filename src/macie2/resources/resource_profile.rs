@@ -38,7 +38,7 @@ impl<'a> Resource_profile<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, sensitivity_score_override: Option<i64>, resource_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, resource_arn: Option<String>, sensitivity_score_override: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

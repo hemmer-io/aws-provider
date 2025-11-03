@@ -21,7 +21,7 @@ impl<'a> Event_type<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, description: Option<String>, event_ingestion: Option<String>, labels: Option<Vec<String>>, event_orchestration: Option<String>, event_variables: Vec<String>, name: String, entity_types: Vec<String>) -> Result<String> {
+    pub async fn create(&self, event_ingestion: Option<String>, name: String, description: Option<String>, event_variables: Vec<String>, labels: Option<Vec<String>>, entity_types: Vec<String>, event_orchestration: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

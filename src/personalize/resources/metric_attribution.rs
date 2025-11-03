@@ -21,7 +21,7 @@ impl<'a> Metric_attribution<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, metrics_output_config: String, metrics: Vec<String>, name: String, dataset_group_arn: String) -> Result<String> {
+    pub async fn create(&self, name: String, metrics: Vec<String>, metrics_output_config: String, dataset_group_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Metric_attribution<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, metrics_output_config: Option<String>, metrics: Option<Vec<String>>, name: Option<String>, dataset_group_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, name: Option<String>, metrics: Option<Vec<String>>, metrics_output_config: Option<String>, dataset_group_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Instance_profile<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, instance_profile_name: Option<String>, publicly_accessible: Option<bool>, availability_zone: Option<String>, description: Option<String>, vpc_security_groups: Option<String>, network_type: Option<String>, subnet_group_identifier: Option<String>, kms_key_arn: Option<String>) -> Result<String> {
+    pub async fn create(&self, publicly_accessible: Option<bool>, network_type: Option<String>, kms_key_arn: Option<String>, instance_profile_name: Option<String>, subnet_group_identifier: Option<String>, vpc_security_groups: Option<String>, availability_zone: Option<String>, tags: Option<Vec<String>>, description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

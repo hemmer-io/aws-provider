@@ -21,7 +21,7 @@ impl<'a> Lifecycle_event_hook_execution_status<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, status: Option<String>, lifecycle_event_hook_execution_id: Option<String>, deployment_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, deployment_id: Option<String>, status: Option<String>, lifecycle_event_hook_execution_id: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Code_binding<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, language: String, registry_name: String, schema_name: String, schema_version: Option<String>) -> Result<String> {
+    pub async fn create(&self, schema_version: Option<String>, registry_name: String, language: String, schema_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

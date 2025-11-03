@@ -21,7 +21,7 @@ impl<'a> Scaling_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, policy_name: String, resource_id: String, step_scaling_policy_configuration: Option<String>, policy_type: Option<String>, service_namespace: String, target_tracking_scaling_policy_configuration: Option<String>, scalable_dimension: String, predictive_scaling_policy_configuration: Option<String>) -> Result<String> {
+    pub async fn create(&self, policy_type: Option<String>, predictive_scaling_policy_configuration: Option<String>, resource_id: String, policy_name: String, scalable_dimension: String, service_namespace: String, step_scaling_policy_configuration: Option<String>, target_tracking_scaling_policy_configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

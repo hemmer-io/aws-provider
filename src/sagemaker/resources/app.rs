@@ -21,7 +21,7 @@ impl<'a> App<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, space_name: Option<String>, resource_spec: Option<String>, domain_id: String, app_type: String, app_name: String, recovery_mode: Option<bool>, user_profile_name: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, resource_spec: Option<String>, tags: Option<Vec<String>>, app_name: String, user_profile_name: Option<String>, space_name: Option<String>, app_type: String, recovery_mode: Option<bool>, domain_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

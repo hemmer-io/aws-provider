@@ -21,7 +21,7 @@ impl<'a> Scan<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<HashMap<String, String>>, client_token: Option<String>, scan_name: String, analysis_type: Option<String>, resource_id: String, scan_type: Option<String>) -> Result<String> {
+    pub async fn create(&self, scan_type: Option<String>, scan_name: String, client_token: Option<String>, analysis_type: Option<String>, tags: Option<HashMap<String, String>>, resource_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

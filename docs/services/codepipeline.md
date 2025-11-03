@@ -1,0 +1,732 @@
+# Codepipeline Service
+
+
+
+**Resources**: 14
+
+---
+
+## Overview
+
+The codepipeline service provides access to 14 resource types:
+
+- [Custom_action_type](#custom_action_type) [CD]
+- [Webhook](#webhook) [CD]
+- [Action_type](#action_type) [RU]
+- [Pipeline_state](#pipeline_state) [R]
+- [Third_party_job_details](#third_party_job_details) [R]
+- [Job_success_result](#job_success_result) [C]
+- [Job_failure_result](#job_failure_result) [C]
+- [Third_party_job_success_result](#third_party_job_success_result) [C]
+- [Action_revision](#action_revision) [C]
+- [Pipeline_execution](#pipeline_execution) [R]
+- [Third_party_job_failure_result](#third_party_job_failure_result) [C]
+- [Pipeline](#pipeline) [CRUD]
+- [Approval_result](#approval_result) [C]
+- [Job_details](#job_details) [R]
+
+---
+
+## Resources
+
+
+### Custom_action_type
+
+CustomActionType resource
+
+**Operations**: ✅ Create ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `version` | String | ✅ | <p>The version identifier of the custom action.</p> |
+| `tags` | Vec<String> |  | <p>The tags for the custom action.</p> |
+| `input_artifact_details` | String | ✅ | <p>The details of the input artifact for the action, such as its commit ID.</p> |
+| `category` | String | ✅ | <p>The category of the custom action, such as a build action or a test
+            action.</p> |
+| `configuration_properties` | Vec<String> |  | <p>The configuration properties for the custom action.</p>
+         <note>
+            <p>You can refer to a name in the configuration properties of the custom action
+                within the URL templates by following the format of {Config:name}, as long as the
+                configuration property is both required and not secret. For more information, see
+                    <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html">Create a
+                    Custom Action for a Pipeline</a>.</p>
+         </note> |
+| `provider` | String | ✅ | <p>The provider of the service used in the custom action, such as
+            CodeDeploy.</p> |
+| `settings` | String |  | <p>URLs that provide users information about this custom action.</p> |
+| `output_artifact_details` | String | ✅ | <p>The details of the output artifact of the action, such as its commit ID.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create custom_action_type
+custom_action_type = provider.codepipeline.Custom_action_type {
+    version = "value"  # <p>The version identifier of the custom action.</p>
+    input_artifact_details = "value"  # <p>The details of the input artifact for the action, such as its commit ID.</p>
+    category = "value"  # <p>The category of the custom action, such as a build action or a test
+            action.</p>
+    provider = "value"  # <p>The provider of the service used in the custom action, such as
+            CodeDeploy.</p>
+    output_artifact_details = "value"  # <p>The details of the output artifact of the action, such as its commit ID.</p>
+}
+
+```
+
+---
+
+
+### Webhook
+
+Webhook resource
+
+**Operations**: ✅ Create ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `tags` | Vec<String> |  | <p>The tags for the webhook.</p> |
+| `webhook` | String | ✅ | <p>The detail provided in an input file to create the webhook, such as the webhook
+            name, the pipeline name, and the action name. Give the webhook a unique name that helps
+            you identify it. You might name the webhook after the pipeline and action it targets so
+            that you can easily recognize what it's used for later.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create webhook
+webhook = provider.codepipeline.Webhook {
+    webhook = "value"  # <p>The detail provided in an input file to create the webhook, such as the webhook
+            name, the pipeline name, and the action name. Give the webhook a unique name that helps
+            you identify it. You might name the webhook after the pipeline and action it targets so
+            that you can easily recognize what it's used for later.</p>
+}
+
+```
+
+---
+
+
+### Action_type
+
+ActionType resource
+
+**Operations**: ✅ Read ✅ Update
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `action_type` | String | ✅ | <p>The action type definition for the action type to be updated.</p> |
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `action_type` | String | <p>The action type information for the requested action type, such as the action type
+            ID.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access action_type outputs
+action_type_id = action_type.id
+action_type_action_type = action_type.action_type
+```
+
+---
+
+
+### Pipeline_state
+
+PipelineState resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `created` | String | <p>The date and time the pipeline was created, in timestamp format.</p> |
+| `pipeline_version` | i64 | <p>The version number of the pipeline.</p>
+         <note>
+            <p>A newly created pipeline is always assigned a version number of
+                <code>1</code>.</p>
+         </note> |
+| `updated` | String | <p>The date and time the pipeline was last updated, in timestamp format.</p> |
+| `pipeline_name` | String | <p>The name of the pipeline for which you want to get the state.</p> |
+| `stage_states` | Vec<String> | <p>A list of the pipeline stage output information, including stage name, state, most
+            recent run details, whether the stage is disabled, and other data.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access pipeline_state outputs
+pipeline_state_id = pipeline_state.id
+pipeline_state_created = pipeline_state.created
+pipeline_state_pipeline_version = pipeline_state.pipeline_version
+pipeline_state_updated = pipeline_state.updated
+pipeline_state_pipeline_name = pipeline_state.pipeline_name
+pipeline_state_stage_states = pipeline_state.stage_states
+```
+
+---
+
+
+### Third_party_job_details
+
+ThirdPartyJobDetails resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `job_details` | String | <p>The details of the job, including any protected values defined for the
+            job.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access third_party_job_details outputs
+third_party_job_details_id = third_party_job_details.id
+third_party_job_details_job_details = third_party_job_details.job_details
+```
+
+---
+
+
+### Job_success_result
+
+JobSuccessResult resource
+
+**Operations**: ✅ Create
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `job_id` | String | ✅ | <p>The unique system-generated ID of the job that succeeded. This is the same ID
+            returned from <code>PollForJobs</code>.</p> |
+| `continuation_token` | String |  | <p>A token generated by a job worker, such as a CodeDeploy deployment ID, that a
+            successful job provides to identify a custom action in progress. Future jobs use this
+            token to identify the running instance of the action. It can be reused to return more
+            information about the progress of the custom action. When the action is complete, no
+            continuation token should be supplied.</p> |
+| `execution_details` | String |  | <p>The execution details of the successful job, such as the actions taken by the job
+            worker.</p> |
+| `current_revision` | String |  | <p>The ID of the current revision of the artifact successfully worked on by the
+            job.</p> |
+| `output_variables` | HashMap<String, String> |  | <p>Key-value pairs produced as output by a job worker that can be made available to a
+            downstream action configuration. <code>outputVariables</code> can be included only when
+            there is no continuation token on the request.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create job_success_result
+job_success_result = provider.codepipeline.Job_success_result {
+    job_id = "value"  # <p>The unique system-generated ID of the job that succeeded. This is the same ID
+            returned from <code>PollForJobs</code>.</p>
+}
+
+```
+
+---
+
+
+### Job_failure_result
+
+JobFailureResult resource
+
+**Operations**: ✅ Create
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `job_id` | String | ✅ | <p>The unique system-generated ID of the job that failed. This is the same ID returned
+            from <code>PollForJobs</code>.</p> |
+| `failure_details` | String | ✅ | <p>The details about the failure of a job.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create job_failure_result
+job_failure_result = provider.codepipeline.Job_failure_result {
+    job_id = "value"  # <p>The unique system-generated ID of the job that failed. This is the same ID returned
+            from <code>PollForJobs</code>.</p>
+    failure_details = "value"  # <p>The details about the failure of a job.</p>
+}
+
+```
+
+---
+
+
+### Third_party_job_success_result
+
+ThirdPartyJobSuccessResult resource
+
+**Operations**: ✅ Create
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `client_token` | String | ✅ | <p>The clientToken portion of the clientId and clientToken pair used to verify that
+            the calling entity is allowed access to the job and its details.</p> |
+| `execution_details` | String |  | <p>The details of the actions taken and results produced on an artifact as it passes
+            through stages in the pipeline. </p> |
+| `job_id` | String | ✅ | <p>The ID of the job that successfully completed. This is the same ID returned from
+                <code>PollForThirdPartyJobs</code>.</p> |
+| `continuation_token` | String |  | <p>A token generated by a job worker, such as a CodeDeploy deployment ID, that a
+            successful job provides to identify a partner action in progress. Future jobs use this
+            token to identify the running instance of the action. It can be reused to return more
+            information about the progress of the partner action. When the action is complete, no
+            continuation token should be supplied.</p> |
+| `current_revision` | String |  | <p>Represents information about a current revision.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create third_party_job_success_result
+third_party_job_success_result = provider.codepipeline.Third_party_job_success_result {
+    client_token = "value"  # <p>The clientToken portion of the clientId and clientToken pair used to verify that
+            the calling entity is allowed access to the job and its details.</p>
+    job_id = "value"  # <p>The ID of the job that successfully completed. This is the same ID returned from
+                <code>PollForThirdPartyJobs</code>.</p>
+}
+
+```
+
+---
+
+
+### Action_revision
+
+ActionRevision resource
+
+**Operations**: ✅ Create
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `action_revision` | String | ✅ | <p>Represents information about the version (or revision) of an action.</p> |
+| `stage_name` | String | ✅ | <p>The name of the stage that contains the action that acts on the revision.</p> |
+| `pipeline_name` | String | ✅ | <p>The name of the pipeline that starts processing the revision to the
+            source.</p> |
+| `action_name` | String | ✅ | <p>The name of the action that processes the revision.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create action_revision
+action_revision = provider.codepipeline.Action_revision {
+    action_revision = "value"  # <p>Represents information about the version (or revision) of an action.</p>
+    stage_name = "value"  # <p>The name of the stage that contains the action that acts on the revision.</p>
+    pipeline_name = "value"  # <p>The name of the pipeline that starts processing the revision to the
+            source.</p>
+    action_name = "value"  # <p>The name of the action that processes the revision.</p>
+}
+
+```
+
+---
+
+
+### Pipeline_execution
+
+PipelineExecution resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `pipeline_execution` | String | <p>Represents information about the execution of a pipeline.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access pipeline_execution outputs
+pipeline_execution_id = pipeline_execution.id
+pipeline_execution_pipeline_execution = pipeline_execution.pipeline_execution
+```
+
+---
+
+
+### Third_party_job_failure_result
+
+ThirdPartyJobFailureResult resource
+
+**Operations**: ✅ Create
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `client_token` | String | ✅ | <p>The clientToken portion of the clientId and clientToken pair used to verify that
+            the calling entity is allowed access to the job and its details.</p> |
+| `failure_details` | String | ✅ | <p>Represents information about failure details.</p> |
+| `job_id` | String | ✅ | <p>The ID of the job that failed. This is the same ID returned from
+                <code>PollForThirdPartyJobs</code>.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create third_party_job_failure_result
+third_party_job_failure_result = provider.codepipeline.Third_party_job_failure_result {
+    client_token = "value"  # <p>The clientToken portion of the clientId and clientToken pair used to verify that
+            the calling entity is allowed access to the job and its details.</p>
+    failure_details = "value"  # <p>Represents information about failure details.</p>
+    job_id = "value"  # <p>The ID of the job that failed. This is the same ID returned from
+                <code>PollForThirdPartyJobs</code>.</p>
+}
+
+```
+
+---
+
+
+### Pipeline
+
+Pipeline resource
+
+**Operations**: ✅ Create ✅ Read ✅ Update ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `tags` | Vec<String> |  | <p>The tags for the pipeline.</p> |
+| `pipeline` | String | ✅ | <p>Represents the structure of actions and stages to be performed in the pipeline.
+        </p> |
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `metadata` | String | <p>Represents the pipeline metadata information returned as part of the output of a
+                <code>GetPipeline</code> action.</p> |
+| `pipeline` | String | <p>Represents the structure of actions and stages to be performed in the pipeline.
+        </p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create pipeline
+pipeline = provider.codepipeline.Pipeline {
+    pipeline = "value"  # <p>Represents the structure of actions and stages to be performed in the pipeline.
+        </p>
+}
+
+# Access pipeline outputs
+pipeline_id = pipeline.id
+pipeline_metadata = pipeline.metadata
+pipeline_pipeline = pipeline.pipeline
+```
+
+---
+
+
+### Approval_result
+
+ApprovalResult resource
+
+**Operations**: ✅ Create
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `stage_name` | String | ✅ | <p>The name of the stage that contains the action.</p> |
+| `action_name` | String | ✅ | <p>The name of the action for which approval is requested.</p> |
+| `result` | String | ✅ | <p>Represents information about the result of the approval request.</p> |
+| `token` | String | ✅ | <p>The system-generated token used to identify a unique approval request. The token
+            for each open approval request can be obtained using the <a>GetPipelineState</a> action. It is used to validate that the approval
+            request corresponding to this token is still valid.</p>
+         <important>
+            <p>For a pipeline where the execution mode is set to PARALLEL, the token required to
+                approve/reject an approval request as detailed above is not available. Instead, use
+                the <code>externalExecutionId</code> in the response output from the <a>ListActionExecutions</a> action as the token in the approval
+                request.</p>
+         </important> |
+| `pipeline_name` | String | ✅ | <p>The name of the pipeline that contains the action. </p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create approval_result
+approval_result = provider.codepipeline.Approval_result {
+    stage_name = "value"  # <p>The name of the stage that contains the action.</p>
+    action_name = "value"  # <p>The name of the action for which approval is requested.</p>
+    result = "value"  # <p>Represents information about the result of the approval request.</p>
+    token = "value"  # <p>The system-generated token used to identify a unique approval request. The token
+            for each open approval request can be obtained using the <a>GetPipelineState</a> action. It is used to validate that the approval
+            request corresponding to this token is still valid.</p>
+         <important>
+            <p>For a pipeline where the execution mode is set to PARALLEL, the token required to
+                approve/reject an approval request as detailed above is not available. Instead, use
+                the <code>externalExecutionId</code> in the response output from the <a>ListActionExecutions</a> action as the token in the approval
+                request.</p>
+         </important>
+    pipeline_name = "value"  # <p>The name of the pipeline that contains the action. </p>
+}
+
+```
+
+---
+
+
+### Job_details
+
+JobDetails resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `job_details` | String | <p>The details of the job.</p>
+         <note>
+            <p>If AWSSessionCredentials is used, a long-running job can call
+                    <code>GetJobDetails</code> again to obtain new credentials.</p>
+         </note> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access job_details outputs
+job_details_id = job_details.id
+job_details_job_details = job_details.job_details
+```
+
+---
+
+
+
+## Common Operations
+
+### Creating Multiple Resources
+
+```kcl
+import aws
+
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create multiple custom_action_type resources
+custom_action_type_0 = provider.codepipeline.Custom_action_type {
+    version = "value-0"
+    input_artifact_details = "value-0"
+    category = "value-0"
+    provider = "value-0"
+    output_artifact_details = "value-0"
+}
+custom_action_type_1 = provider.codepipeline.Custom_action_type {
+    version = "value-1"
+    input_artifact_details = "value-1"
+    category = "value-1"
+    provider = "value-1"
+    output_artifact_details = "value-1"
+}
+custom_action_type_2 = provider.codepipeline.Custom_action_type {
+    version = "value-2"
+    input_artifact_details = "value-2"
+    category = "value-2"
+    provider = "value-2"
+    output_artifact_details = "value-2"
+}
+```
+
+### Conditional Creation
+
+```kcl
+# Only create in production
+if environment == "production":
+    custom_action_type = provider.codepipeline.Custom_action_type {
+        version = "production-value"
+        input_artifact_details = "production-value"
+        category = "production-value"
+        provider = "production-value"
+        output_artifact_details = "production-value"
+    }
+```
+
+---
+
+## Related Documentation
+
+- [AWS Codepipeline Documentation](https://docs.aws.amazon.com/codepipeline/)
+- [Getting Started Guide](../getting-started.md)
+- [Installation Guide](../installation.md)
+- ⬅️ [Back to README](../../README.md)

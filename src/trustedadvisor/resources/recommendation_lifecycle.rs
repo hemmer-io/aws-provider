@@ -24,7 +24,7 @@ impl<'a> Recommendation_lifecycle<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, lifecycle_stage: Option<String>, update_reason: Option<String>, update_reason_code: Option<String>, recommendation_identifier: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, update_reason: Option<String>, lifecycle_stage: Option<String>, update_reason_code: Option<String>, recommendation_identifier: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Group_certificate_authority<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, amzn_client_token: Option<String>, group_id: String) -> Result<String> {
+    pub async fn create(&self, group_id: String, amzn_client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

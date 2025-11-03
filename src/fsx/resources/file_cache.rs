@@ -21,7 +21,7 @@ impl<'a> File_cache<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, storage_capacity: i64, kms_key_id: Option<String>, lustre_configuration: Option<String>, data_repository_associations: Option<Vec<String>>, file_cache_type: String, security_group_ids: Option<Vec<String>>, file_cache_type_version: String, tags: Option<Vec<String>>, client_request_token: Option<String>, copy_tags_to_data_repository_associations: Option<bool>, subnet_ids: Vec<String>) -> Result<String> {
+    pub async fn create(&self, file_cache_type: String, tags: Option<Vec<String>>, storage_capacity: i64, subnet_ids: Vec<String>, security_group_ids: Option<Vec<String>>, lustre_configuration: Option<String>, file_cache_type_version: String, kms_key_id: Option<String>, copy_tags_to_data_repository_associations: Option<bool>, client_request_token: Option<String>, data_repository_associations: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> File_cache<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, storage_capacity: Option<i64>, kms_key_id: Option<String>, lustre_configuration: Option<String>, data_repository_associations: Option<Vec<String>>, file_cache_type: Option<String>, security_group_ids: Option<Vec<String>>, file_cache_type_version: Option<String>, tags: Option<Vec<String>>, client_request_token: Option<String>, copy_tags_to_data_repository_associations: Option<bool>, subnet_ids: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, file_cache_type: Option<String>, tags: Option<Vec<String>>, storage_capacity: Option<i64>, subnet_ids: Option<Vec<String>>, security_group_ids: Option<Vec<String>>, lustre_configuration: Option<String>, file_cache_type_version: Option<String>, kms_key_id: Option<String>, copy_tags_to_data_repository_associations: Option<bool>, client_request_token: Option<String>, data_repository_associations: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

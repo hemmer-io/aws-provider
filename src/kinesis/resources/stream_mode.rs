@@ -24,7 +24,7 @@ impl<'a> Stream_mode<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, stream_arn: Option<String>, stream_mode_details: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, stream_mode_details: Option<String>, stream_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

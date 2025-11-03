@@ -24,7 +24,7 @@ impl<'a> Security_group_rule_descriptions_egress<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, security_group_rule_descriptions: Option<Vec<String>>, dry_run: Option<bool>, group_id: Option<String>, group_name: Option<String>, ip_permissions: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, dry_run: Option<bool>, security_group_rule_descriptions: Option<Vec<String>>, group_name: Option<String>, group_id: Option<String>, ip_permissions: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Replication_config<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, compute_config: String, replication_config_identifier: String, resource_identifier: Option<String>, tags: Option<Vec<String>>, source_endpoint_arn: String, replication_type: String, table_mappings: String, replication_settings: Option<String>, target_endpoint_arn: String, supplemental_settings: Option<String>) -> Result<String> {
+    pub async fn create(&self, replication_settings: Option<String>, tags: Option<Vec<String>>, resource_identifier: Option<String>, table_mappings: String, supplemental_settings: Option<String>, target_endpoint_arn: String, replication_type: String, source_endpoint_arn: String, compute_config: String, replication_config_identifier: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

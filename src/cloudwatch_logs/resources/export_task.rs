@@ -21,7 +21,7 @@ impl<'a> Export_task<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, destination_prefix: Option<String>, log_stream_name_prefix: Option<String>, task_name: Option<String>, log_group_name: String, to: String, from: String, destination: String) -> Result<String> {
+    pub async fn create(&self, to: String, task_name: Option<String>, log_group_name: String, log_stream_name_prefix: Option<String>, destination_prefix: Option<String>, from: String, destination: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

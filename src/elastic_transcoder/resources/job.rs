@@ -21,7 +21,7 @@ impl<'a> Job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, pipeline_id: String, inputs: Option<Vec<String>>, playlists: Option<Vec<String>>, output_key_prefix: Option<String>, input: Option<String>, output: Option<String>, outputs: Option<Vec<String>>, user_metadata: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, playlists: Option<Vec<String>>, output: Option<String>, output_key_prefix: Option<String>, pipeline_id: String, outputs: Option<Vec<String>>, input: Option<String>, user_metadata: Option<HashMap<String, String>>, inputs: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

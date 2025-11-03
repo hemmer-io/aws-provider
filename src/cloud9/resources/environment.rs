@@ -24,7 +24,7 @@ impl<'a> Environment<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, environment_id: Option<String>, managed_credentials_action: Option<String>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, name: Option<String>, managed_credentials_action: Option<String>, environment_id: Option<String>, description: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

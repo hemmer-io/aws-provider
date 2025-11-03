@@ -38,7 +38,7 @@ impl<'a> Encryption_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, kms_access_role_arn: Option<String>, kms_key_arn: Option<String>, encryption_type: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, kms_key_arn: Option<String>, kms_access_role_arn: Option<String>, encryption_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

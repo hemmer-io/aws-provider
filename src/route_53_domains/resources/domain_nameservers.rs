@@ -24,7 +24,7 @@ impl<'a> Domain_nameservers<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, fi_auth_key: Option<String>, nameservers: Option<Vec<String>>, domain_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, nameservers: Option<Vec<String>>, fi_auth_key: Option<String>, domain_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Response_plan<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, chat_channel: Option<String>, tags: Option<HashMap<String, String>>, engagements: Option<Vec<String>>, client_token: Option<String>, actions: Option<Vec<String>>, name: String, integrations: Option<Vec<String>>, display_name: Option<String>, incident_template: String) -> Result<String> {
+    pub async fn create(&self, engagements: Option<Vec<String>>, chat_channel: Option<String>, tags: Option<HashMap<String, String>>, client_token: Option<String>, display_name: Option<String>, incident_template: String, actions: Option<Vec<String>>, name: String, integrations: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Response_plan<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, chat_channel: Option<String>, tags: Option<HashMap<String, String>>, engagements: Option<Vec<String>>, client_token: Option<String>, actions: Option<Vec<String>>, name: Option<String>, integrations: Option<Vec<String>>, display_name: Option<String>, incident_template: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, engagements: Option<Vec<String>>, chat_channel: Option<String>, tags: Option<HashMap<String, String>>, client_token: Option<String>, display_name: Option<String>, incident_template: Option<String>, actions: Option<Vec<String>>, name: Option<String>, integrations: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

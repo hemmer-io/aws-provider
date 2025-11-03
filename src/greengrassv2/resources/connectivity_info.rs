@@ -38,7 +38,7 @@ impl<'a> Connectivity_info<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, connectivity_info: Option<Vec<String>>, thing_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, thing_name: Option<String>, connectivity_info: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Cluster<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, broker_node_group_info: String, tags: Option<HashMap<String, String>>, storage_mode: Option<String>, open_monitoring: Option<String>, encryption_info: Option<String>, kafka_version: String, client_authentication: Option<String>, configuration_info: Option<String>, cluster_name: String, enhanced_monitoring: Option<String>, number_of_broker_nodes: i64, logging_info: Option<String>) -> Result<String> {
+    pub async fn create(&self, client_authentication: Option<String>, logging_info: Option<String>, configuration_info: Option<String>, kafka_version: String, number_of_broker_nodes: i64, tags: Option<HashMap<String, String>>, storage_mode: Option<String>, open_monitoring: Option<String>, enhanced_monitoring: Option<String>, broker_node_group_info: String, encryption_info: Option<String>, cluster_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

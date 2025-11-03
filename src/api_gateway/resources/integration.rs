@@ -21,7 +21,7 @@ impl<'a> Integration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, cache_key_parameters: Option<String>, http_method: String, rest_api_id: String, request_parameters: Option<String>, timeout_in_millis: Option<i64>, type: String, resource_id: String, tls_config: Option<String>, content_handling: Option<String>, uri: Option<String>, connection_type: Option<String>, credentials: Option<String>, integration_http_method: Option<String>, cache_namespace: Option<String>, passthrough_behavior: Option<String>, request_templates: Option<String>, connection_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, cache_namespace: Option<String>, tls_config: Option<String>, content_handling: Option<String>, timeout_in_millis: Option<i64>, integration_http_method: Option<String>, http_method: String, uri: Option<String>, connection_type: Option<String>, cache_key_parameters: Option<String>, passthrough_behavior: Option<String>, rest_api_id: String, type: String, credentials: Option<String>, request_parameters: Option<String>, resource_id: String, request_templates: Option<String>, connection_id: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Integration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, cache_key_parameters: Option<String>, http_method: Option<String>, rest_api_id: Option<String>, request_parameters: Option<String>, timeout_in_millis: Option<i64>, type: Option<String>, resource_id: Option<String>, tls_config: Option<String>, content_handling: Option<String>, uri: Option<String>, connection_type: Option<String>, credentials: Option<String>, integration_http_method: Option<String>, cache_namespace: Option<String>, passthrough_behavior: Option<String>, request_templates: Option<String>, connection_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, cache_namespace: Option<String>, tls_config: Option<String>, content_handling: Option<String>, timeout_in_millis: Option<i64>, integration_http_method: Option<String>, http_method: Option<String>, uri: Option<String>, connection_type: Option<String>, cache_key_parameters: Option<String>, passthrough_behavior: Option<String>, rest_api_id: Option<String>, type: Option<String>, credentials: Option<String>, request_parameters: Option<String>, resource_id: Option<String>, request_templates: Option<String>, connection_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -38,7 +38,7 @@ impl<'a> Software_set<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, validation_status: Option<String>, id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, id: Option<String>, validation_status: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

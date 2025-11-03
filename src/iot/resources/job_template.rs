@@ -21,7 +21,7 @@ impl<'a> Job_template<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, job_executions_retry_config: Option<String>, maintenance_windows: Option<Vec<String>>, job_arn: Option<String>, abort_config: Option<String>, destination_package_versions: Option<Vec<String>>, job_template_id: String, document: Option<String>, presigned_url_config: Option<String>, description: String, document_source: Option<String>, job_executions_rollout_config: Option<String>, timeout_config: Option<String>) -> Result<String> {
+    pub async fn create(&self, destination_package_versions: Option<Vec<String>>, description: String, presigned_url_config: Option<String>, document: Option<String>, abort_config: Option<String>, job_arn: Option<String>, job_executions_retry_config: Option<String>, job_template_id: String, maintenance_windows: Option<Vec<String>>, job_executions_rollout_config: Option<String>, timeout_config: Option<String>, tags: Option<Vec<String>>, document_source: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

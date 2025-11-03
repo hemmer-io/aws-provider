@@ -21,7 +21,7 @@ impl<'a> Custom_key_store<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, cloud_hsm_cluster_id: Option<String>, key_store_password: Option<String>, custom_key_store_type: Option<String>, xks_proxy_vpc_endpoint_service_owner: Option<String>, xks_proxy_connectivity: Option<String>, xks_proxy_authentication_credential: Option<String>, trust_anchor_certificate: Option<String>, xks_proxy_uri_endpoint: Option<String>, xks_proxy_vpc_endpoint_service_name: Option<String>, custom_key_store_name: String, xks_proxy_uri_path: Option<String>) -> Result<String> {
+    pub async fn create(&self, trust_anchor_certificate: Option<String>, xks_proxy_uri_endpoint: Option<String>, cloud_hsm_cluster_id: Option<String>, xks_proxy_connectivity: Option<String>, xks_proxy_uri_path: Option<String>, custom_key_store_type: Option<String>, xks_proxy_vpc_endpoint_service_owner: Option<String>, xks_proxy_authentication_credential: Option<String>, custom_key_store_name: String, key_store_password: Option<String>, xks_proxy_vpc_endpoint_service_name: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Custom_key_store<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, cloud_hsm_cluster_id: Option<String>, key_store_password: Option<String>, custom_key_store_type: Option<String>, xks_proxy_vpc_endpoint_service_owner: Option<String>, xks_proxy_connectivity: Option<String>, xks_proxy_authentication_credential: Option<String>, trust_anchor_certificate: Option<String>, xks_proxy_uri_endpoint: Option<String>, xks_proxy_vpc_endpoint_service_name: Option<String>, custom_key_store_name: Option<String>, xks_proxy_uri_path: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, trust_anchor_certificate: Option<String>, xks_proxy_uri_endpoint: Option<String>, cloud_hsm_cluster_id: Option<String>, xks_proxy_connectivity: Option<String>, xks_proxy_uri_path: Option<String>, custom_key_store_type: Option<String>, xks_proxy_vpc_endpoint_service_owner: Option<String>, xks_proxy_authentication_credential: Option<String>, custom_key_store_name: Option<String>, key_store_password: Option<String>, xks_proxy_vpc_endpoint_service_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters
