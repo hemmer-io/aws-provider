@@ -24,7 +24,7 @@ impl<'a> Firewall_analysis_settings<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, enabled_analysis_types: Option<Vec<String>>, firewall_name: Option<String>, update_token: Option<String>, firewall_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, enabled_analysis_types: Option<Vec<String>>, update_token: Option<String>, firewall_arn: Option<String>, firewall_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

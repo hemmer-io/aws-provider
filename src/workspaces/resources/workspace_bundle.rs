@@ -21,7 +21,7 @@ impl<'a> Workspace_bundle<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, compute_type: String, tags: Option<Vec<String>>, bundle_name: String, bundle_description: String, user_storage: String, root_storage: Option<String>, image_id: String) -> Result<String> {
+    pub async fn create(&self, user_storage: String, root_storage: Option<String>, compute_type: String, tags: Option<Vec<String>>, bundle_name: String, bundle_description: String, image_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Workspace_bundle<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, compute_type: Option<String>, tags: Option<Vec<String>>, bundle_name: Option<String>, bundle_description: Option<String>, user_storage: Option<String>, root_storage: Option<String>, image_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, user_storage: Option<String>, root_storage: Option<String>, compute_type: Option<String>, tags: Option<Vec<String>>, bundle_name: Option<String>, bundle_description: Option<String>, image_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

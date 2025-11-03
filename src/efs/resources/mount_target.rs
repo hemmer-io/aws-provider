@@ -21,7 +21,7 @@ impl<'a> Mount_target<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, ipv6_address: Option<String>, subnet_id: String, file_system_id: String, ip_address: Option<String>, ip_address_type: Option<String>, security_groups: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, subnet_id: String, ipv6_address: Option<String>, file_system_id: String, ip_address_type: Option<String>, security_groups: Option<Vec<String>>, ip_address: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

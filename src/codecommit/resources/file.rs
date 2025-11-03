@@ -21,7 +21,7 @@ impl<'a> File<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, parent_commit_id: Option<String>, file_content: String, file_path: String, commit_message: Option<String>, name: Option<String>, file_mode: Option<String>, repository_name: String, branch_name: String, email: Option<String>) -> Result<String> {
+    pub async fn create(&self, name: Option<String>, file_content: String, parent_commit_id: Option<String>, file_mode: Option<String>, commit_message: Option<String>, repository_name: String, branch_name: String, email: Option<String>, file_path: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

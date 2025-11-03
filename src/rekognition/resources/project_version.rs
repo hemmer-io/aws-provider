@@ -21,7 +21,7 @@ impl<'a> Project_version<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, feature_config: Option<String>, project_arn: String, training_data: Option<String>, output_config: String, version_name: String, testing_data: Option<String>, kms_key_id: Option<String>, version_description: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, training_data: Option<String>, project_arn: String, version_description: Option<String>, kms_key_id: Option<String>, testing_data: Option<String>, output_config: String, tags: Option<HashMap<String, String>>, version_name: String, feature_config: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

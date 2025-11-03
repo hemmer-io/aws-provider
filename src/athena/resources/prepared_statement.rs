@@ -21,7 +21,7 @@ impl<'a> Prepared_statement<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, statement_name: String, query_statement: String, work_group: String, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, query_statement: String, work_group: String, statement_name: String, description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Prepared_statement<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, statement_name: Option<String>, query_statement: Option<String>, work_group: Option<String>, description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, query_statement: Option<String>, work_group: Option<String>, statement_name: Option<String>, description: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

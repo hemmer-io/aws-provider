@@ -24,7 +24,7 @@ impl<'a> Firewall_domains<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, firewall_domain_list_id: Option<String>, operation: Option<String>, domains: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, domains: Option<Vec<String>>, operation: Option<String>, firewall_domain_list_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Resource_set<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<HashMap<String, String>>, resource_set_name: String, resource_set_type: String, resources: Vec<String>) -> Result<String> {
+    pub async fn create(&self, resources: Vec<String>, tags: Option<HashMap<String, String>>, resource_set_name: String, resource_set_type: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Resource_set<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, resource_set_name: Option<String>, resource_set_type: Option<String>, resources: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, resources: Option<Vec<String>>, tags: Option<HashMap<String, String>>, resource_set_name: Option<String>, resource_set_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

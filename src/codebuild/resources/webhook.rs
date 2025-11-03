@@ -21,7 +21,7 @@ impl<'a> Webhook<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, branch_filter: Option<String>, manual_creation: Option<bool>, filter_groups: Option<Vec<Vec<String>>>, pull_request_build_policy: Option<String>, scope_configuration: Option<String>, build_type: Option<String>, project_name: String) -> Result<String> {
+    pub async fn create(&self, filter_groups: Option<Vec<Vec<String>>>, branch_filter: Option<String>, manual_creation: Option<bool>, build_type: Option<String>, scope_configuration: Option<String>, pull_request_build_policy: Option<String>, project_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Webhook<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, branch_filter: Option<String>, manual_creation: Option<bool>, filter_groups: Option<Vec<Vec<String>>>, pull_request_build_policy: Option<String>, scope_configuration: Option<String>, build_type: Option<String>, project_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, filter_groups: Option<Vec<Vec<String>>>, branch_filter: Option<String>, manual_creation: Option<bool>, build_type: Option<String>, scope_configuration: Option<String>, pull_request_build_policy: Option<String>, project_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

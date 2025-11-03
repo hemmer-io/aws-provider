@@ -21,7 +21,7 @@ impl<'a> Warm_pool<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, auto_scaling_group_name: String, pool_state: Option<String>, max_group_prepared_capacity: Option<i64>, instance_reuse_policy: Option<String>, min_size: Option<i64>) -> Result<String> {
+    pub async fn create(&self, instance_reuse_policy: Option<String>, min_size: Option<i64>, pool_state: Option<String>, auto_scaling_group_name: String, max_group_prepared_capacity: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

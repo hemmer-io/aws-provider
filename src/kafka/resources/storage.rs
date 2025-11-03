@@ -24,7 +24,7 @@ impl<'a> Storage<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, current_version: Option<String>, provisioned_throughput: Option<String>, storage_mode: Option<String>, cluster_arn: Option<String>, volume_size_gb: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, provisioned_throughput: Option<String>, volume_size_gb: Option<i64>, cluster_arn: Option<String>, current_version: Option<String>, storage_mode: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

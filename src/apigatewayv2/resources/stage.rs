@@ -21,7 +21,7 @@ impl<'a> Stage<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, access_log_settings: Option<String>, api_id: String, stage_name: String, stage_variables: Option<HashMap<String, String>>, route_settings: Option<HashMap<String, String>>, auto_deploy: Option<bool>, deployment_id: Option<String>, tags: Option<HashMap<String, String>>, description: Option<String>, default_route_settings: Option<String>, client_certificate_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, stage_name: String, default_route_settings: Option<String>, route_settings: Option<HashMap<String, String>>, access_log_settings: Option<String>, stage_variables: Option<HashMap<String, String>>, api_id: String, description: Option<String>, auto_deploy: Option<bool>, deployment_id: Option<String>, client_certificate_id: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Stage<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, access_log_settings: Option<String>, api_id: Option<String>, stage_name: Option<String>, stage_variables: Option<HashMap<String, String>>, route_settings: Option<HashMap<String, String>>, auto_deploy: Option<bool>, deployment_id: Option<String>, tags: Option<HashMap<String, String>>, description: Option<String>, default_route_settings: Option<String>, client_certificate_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, stage_name: Option<String>, default_route_settings: Option<String>, route_settings: Option<HashMap<String, String>>, access_log_settings: Option<String>, stage_variables: Option<HashMap<String, String>>, api_id: Option<String>, description: Option<String>, auto_deploy: Option<bool>, deployment_id: Option<String>, client_certificate_id: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

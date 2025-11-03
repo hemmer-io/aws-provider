@@ -21,7 +21,7 @@ impl<'a> Access_point<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, vpc_configuration: Option<String>, scope: Option<String>, tags: Option<Vec<String>>, public_access_block_configuration: Option<String>, name: String, account_id: String, bucket_account_id: Option<String>, bucket: String) -> Result<String> {
+    pub async fn create(&self, bucket_account_id: Option<String>, account_id: String, vpc_configuration: Option<String>, scope: Option<String>, name: String, public_access_block_configuration: Option<String>, bucket: String, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

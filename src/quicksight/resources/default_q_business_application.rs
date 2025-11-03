@@ -38,7 +38,7 @@ impl<'a> Default_q_business_application<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, namespace: Option<String>, aws_account_id: Option<String>, application_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, application_id: Option<String>, aws_account_id: Option<String>, namespace: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

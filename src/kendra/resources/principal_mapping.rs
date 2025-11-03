@@ -21,7 +21,7 @@ impl<'a> Principal_mapping<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, index_id: String, group_members: String, group_id: String, ordering_id: Option<i64>, data_source_id: Option<String>, role_arn: Option<String>) -> Result<String> {
+    pub async fn create(&self, ordering_id: Option<i64>, index_id: String, data_source_id: Option<String>, group_id: String, group_members: String, role_arn: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

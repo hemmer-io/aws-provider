@@ -21,7 +21,7 @@ impl<'a> Recipe_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, dataset_name: Option<String>, encryption_mode: Option<String>, max_capacity: Option<i64>, max_retries: Option<i64>, timeout: Option<i64>, name: String, recipe_reference: Option<String>, database_outputs: Option<Vec<String>>, project_name: Option<String>, encryption_key_arn: Option<String>, tags: Option<HashMap<String, String>>, outputs: Option<Vec<String>>, role_arn: String, data_catalog_outputs: Option<Vec<String>>, log_subscription: Option<String>) -> Result<String> {
+    pub async fn create(&self, name: String, log_subscription: Option<String>, database_outputs: Option<Vec<String>>, encryption_mode: Option<String>, role_arn: String, recipe_reference: Option<String>, data_catalog_outputs: Option<Vec<String>>, project_name: Option<String>, tags: Option<HashMap<String, String>>, max_capacity: Option<i64>, timeout: Option<i64>, outputs: Option<Vec<String>>, encryption_key_arn: Option<String>, dataset_name: Option<String>, max_retries: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Recipe_job<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, dataset_name: Option<String>, encryption_mode: Option<String>, max_capacity: Option<i64>, max_retries: Option<i64>, timeout: Option<i64>, name: Option<String>, recipe_reference: Option<String>, database_outputs: Option<Vec<String>>, project_name: Option<String>, encryption_key_arn: Option<String>, tags: Option<HashMap<String, String>>, outputs: Option<Vec<String>>, role_arn: Option<String>, data_catalog_outputs: Option<Vec<String>>, log_subscription: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, name: Option<String>, log_subscription: Option<String>, database_outputs: Option<Vec<String>>, encryption_mode: Option<String>, role_arn: Option<String>, recipe_reference: Option<String>, data_catalog_outputs: Option<Vec<String>>, project_name: Option<String>, tags: Option<HashMap<String, String>>, max_capacity: Option<i64>, timeout: Option<i64>, outputs: Option<Vec<String>>, encryption_key_arn: Option<String>, dataset_name: Option<String>, max_retries: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

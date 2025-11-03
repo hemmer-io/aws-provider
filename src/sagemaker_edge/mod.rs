@@ -24,14 +24,16 @@ impl<'a> Sagemaker_edgeService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "deployments" => self.plan_deployments(current_state, desired_input).await,
+            "deployments" => {
+                self.plan_deployments(current_state, desired_input).await
+            }
             "device_registration" => {
-                self.plan_device_registration(current_state, desired_input)
-                    .await
+                self.plan_device_registration(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "sagemaker_edge", resource_name
+                "sagemaker_edge",
+                resource_name
             ))),
         }
     }
@@ -43,23 +45,37 @@ impl<'a> Sagemaker_edgeService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "deployments" => self.create_deployments(input).await,
-            "device_registration" => self.create_device_registration(input).await,
+            "deployments" => {
+                self.create_deployments(input).await
+            }
+            "device_registration" => {
+                self.create_device_registration(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "sagemaker_edge", resource_name
+                "sagemaker_edge",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "deployments" => self.read_deployments(id).await,
-            "device_registration" => self.read_device_registration(id).await,
+            "deployments" => {
+                self.read_deployments(id).await
+            }
+            "device_registration" => {
+                self.read_device_registration(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "sagemaker_edge", resource_name
+                "sagemaker_edge",
+                resource_name
             ))),
         }
     }
@@ -72,23 +88,37 @@ impl<'a> Sagemaker_edgeService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "deployments" => self.update_deployments(id, input).await,
-            "device_registration" => self.update_device_registration(id, input).await,
+            "deployments" => {
+                self.update_deployments(id, input).await
+            }
+            "device_registration" => {
+                self.update_device_registration(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "sagemaker_edge", resource_name
+                "sagemaker_edge",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "deployments" => self.delete_deployments(id).await,
-            "device_registration" => self.delete_device_registration(id).await,
+            "deployments" => {
+                self.delete_deployments(id).await
+            }
+            "device_registration" => {
+                self.delete_device_registration(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "sagemaker_edge", resource_name
+                "sagemaker_edge",
+                resource_name
             ))),
         }
     }
@@ -96,6 +126,7 @@ impl<'a> Sagemaker_edgeService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Deployments resource operations
@@ -118,10 +149,14 @@ impl<'a> Sagemaker_edgeService<'a> {
     }
 
     /// Create a new deployments resource
-    async fn create_deployments(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_deployments(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -133,12 +168,17 @@ impl<'a> Sagemaker_edgeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a deployments resource
-    async fn read_deployments(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_deployments(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -150,14 +190,20 @@ impl<'a> Sagemaker_edgeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a deployments resource
-    async fn update_deployments(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_deployments(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -170,12 +216,17 @@ impl<'a> Sagemaker_edgeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a deployments resource
-    async fn delete_deployments(&self, id: &str) -> Result<()> {
+    async fn delete_deployments(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -189,6 +240,7 @@ impl<'a> Sagemaker_edgeService<'a> {
             Ok(())
         })
     }
+
 
     // ------------------------------------------------------------------------
     // Device_registration resource operations
@@ -211,10 +263,14 @@ impl<'a> Sagemaker_edgeService<'a> {
     }
 
     /// Create a new device_registration resource
-    async fn create_device_registration(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_device_registration(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -226,12 +282,17 @@ impl<'a> Sagemaker_edgeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a device_registration resource
-    async fn read_device_registration(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_device_registration(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -243,7 +304,8 @@ impl<'a> Sagemaker_edgeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -256,6 +318,7 @@ impl<'a> Sagemaker_edgeService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.sagemaker_edge_client
@@ -267,12 +330,17 @@ impl<'a> Sagemaker_edgeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a device_registration resource
-    async fn delete_device_registration(&self, id: &str) -> Result<()> {
+    async fn delete_device_registration(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -286,4 +354,6 @@ impl<'a> Sagemaker_edgeService<'a> {
             Ok(())
         })
     }
+
+
 }

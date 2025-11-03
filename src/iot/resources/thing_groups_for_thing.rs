@@ -24,7 +24,7 @@ impl<'a> Thing_groups_for_thing<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, thing_groups_to_remove: Option<Vec<String>>, thing_groups_to_add: Option<Vec<String>>, override_dynamic_groups: Option<bool>, thing_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, thing_groups_to_add: Option<Vec<String>>, override_dynamic_groups: Option<bool>, thing_groups_to_remove: Option<Vec<String>>, thing_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

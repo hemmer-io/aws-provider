@@ -21,7 +21,7 @@ impl<'a> Direct_connect_gateway_association_proposal<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, gateway_id: String, remove_allowed_prefixes_to_direct_connect_gateway: Option<Vec<String>>, direct_connect_gateway_owner_account: String, add_allowed_prefixes_to_direct_connect_gateway: Option<Vec<String>>, direct_connect_gateway_id: String) -> Result<String> {
+    pub async fn create(&self, add_allowed_prefixes_to_direct_connect_gateway: Option<Vec<String>>, remove_allowed_prefixes_to_direct_connect_gateway: Option<Vec<String>>, gateway_id: String, direct_connect_gateway_id: String, direct_connect_gateway_owner_account: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

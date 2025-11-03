@@ -21,7 +21,7 @@ impl<'a> Table<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, retention_properties: Option<String>, tags: Option<Vec<String>>, database_name: String, magnetic_store_write_properties: Option<String>, schema: Option<String>, table_name: String) -> Result<String> {
+    pub async fn create(&self, retention_properties: Option<String>, magnetic_store_write_properties: Option<String>, tags: Option<Vec<String>>, schema: Option<String>, database_name: String, table_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Table<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, retention_properties: Option<String>, tags: Option<Vec<String>>, database_name: Option<String>, magnetic_store_write_properties: Option<String>, schema: Option<String>, table_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, retention_properties: Option<String>, magnetic_store_write_properties: Option<String>, tags: Option<Vec<String>>, schema: Option<String>, database_name: Option<String>, table_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

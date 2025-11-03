@@ -21,7 +21,7 @@ impl<'a> Domain<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, dead_letter_queue_url: Option<String>, default_encryption_key: Option<String>, matching: Option<String>, domain_name: String, rule_based_matching: Option<String>, default_expiration_days: i64, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, default_encryption_key: Option<String>, domain_name: String, default_expiration_days: i64, dead_letter_queue_url: Option<String>, matching: Option<String>, rule_based_matching: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Domain<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, dead_letter_queue_url: Option<String>, default_encryption_key: Option<String>, matching: Option<String>, domain_name: Option<String>, rule_based_matching: Option<String>, default_expiration_days: Option<i64>, tags: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, default_encryption_key: Option<String>, domain_name: Option<String>, default_expiration_days: Option<i64>, dead_letter_queue_url: Option<String>, matching: Option<String>, rule_based_matching: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

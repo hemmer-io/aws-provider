@@ -21,7 +21,7 @@ impl<'a> Job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, target_selection: Option<String>, job_executions_rollout_config: Option<String>, presigned_url_config: Option<String>, abort_config: Option<String>, destination_package_versions: Option<Vec<String>>, document: Option<String>, document_source: Option<String>, namespace_id: Option<String>, job_id: String, timeout_config: Option<String>, document_parameters: Option<HashMap<String, String>>, scheduling_config: Option<String>, targets: Vec<String>, description: Option<String>, job_template_arn: Option<String>, tags: Option<Vec<String>>, job_executions_retry_config: Option<String>) -> Result<String> {
+    pub async fn create(&self, targets: Vec<String>, document_source: Option<String>, job_executions_rollout_config: Option<String>, document_parameters: Option<HashMap<String, String>>, namespace_id: Option<String>, job_executions_retry_config: Option<String>, timeout_config: Option<String>, document: Option<String>, job_template_arn: Option<String>, destination_package_versions: Option<Vec<String>>, presigned_url_config: Option<String>, abort_config: Option<String>, scheduling_config: Option<String>, job_id: String, description: Option<String>, target_selection: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Job<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, target_selection: Option<String>, job_executions_rollout_config: Option<String>, presigned_url_config: Option<String>, abort_config: Option<String>, destination_package_versions: Option<Vec<String>>, document: Option<String>, document_source: Option<String>, namespace_id: Option<String>, job_id: Option<String>, timeout_config: Option<String>, document_parameters: Option<HashMap<String, String>>, scheduling_config: Option<String>, targets: Option<Vec<String>>, description: Option<String>, job_template_arn: Option<String>, tags: Option<Vec<String>>, job_executions_retry_config: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, targets: Option<Vec<String>>, document_source: Option<String>, job_executions_rollout_config: Option<String>, document_parameters: Option<HashMap<String, String>>, namespace_id: Option<String>, job_executions_retry_config: Option<String>, timeout_config: Option<String>, document: Option<String>, job_template_arn: Option<String>, destination_package_versions: Option<Vec<String>>, presigned_url_config: Option<String>, abort_config: Option<String>, scheduling_config: Option<String>, job_id: Option<String>, description: Option<String>, target_selection: Option<String>, tags: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

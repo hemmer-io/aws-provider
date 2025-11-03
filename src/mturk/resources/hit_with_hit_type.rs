@@ -21,7 +21,7 @@ impl<'a> Hit_with_hit_type<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, hit_type_id: String, lifetime_in_seconds: i64, question: Option<String>, requester_annotation: Option<String>, assignment_review_policy: Option<String>, max_assignments: Option<i64>, unique_request_token: Option<String>, hit_layout_id: Option<String>, hit_review_policy: Option<String>, hit_layout_parameters: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, hit_type_id: String, lifetime_in_seconds: i64, assignment_review_policy: Option<String>, question: Option<String>, requester_annotation: Option<String>, hit_layout_id: Option<String>, hit_review_policy: Option<String>, hit_layout_parameters: Option<Vec<String>>, max_assignments: Option<i64>, unique_request_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

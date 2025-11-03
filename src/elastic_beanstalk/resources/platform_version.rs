@@ -21,7 +21,7 @@ impl<'a> Platform_version<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, platform_name: String, platform_version: String, platform_definition_bundle: String, environment_name: Option<String>, option_settings: Option<Vec<String>>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, platform_version: String, platform_definition_bundle: String, environment_name: Option<String>, platform_name: String, option_settings: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

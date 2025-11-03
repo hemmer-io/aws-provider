@@ -25,16 +25,15 @@ impl<'a> Route53_recovery_clusterService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "routing_control_state" => {
-                self.plan_routing_control_state(current_state, desired_input)
-                    .await
+                self.plan_routing_control_state(current_state, desired_input).await
             }
             "routing_control_states" => {
-                self.plan_routing_control_states(current_state, desired_input)
-                    .await
+                self.plan_routing_control_states(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "route53_recovery_cluster", resource_name
+                "route53_recovery_cluster",
+                resource_name
             ))),
         }
     }
@@ -46,23 +45,37 @@ impl<'a> Route53_recovery_clusterService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "routing_control_state" => self.create_routing_control_state(input).await,
-            "routing_control_states" => self.create_routing_control_states(input).await,
+            "routing_control_state" => {
+                self.create_routing_control_state(input).await
+            }
+            "routing_control_states" => {
+                self.create_routing_control_states(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "route53_recovery_cluster", resource_name
+                "route53_recovery_cluster",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "routing_control_state" => self.read_routing_control_state(id).await,
-            "routing_control_states" => self.read_routing_control_states(id).await,
+            "routing_control_state" => {
+                self.read_routing_control_state(id).await
+            }
+            "routing_control_states" => {
+                self.read_routing_control_states(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "route53_recovery_cluster", resource_name
+                "route53_recovery_cluster",
+                resource_name
             ))),
         }
     }
@@ -75,23 +88,37 @@ impl<'a> Route53_recovery_clusterService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "routing_control_state" => self.update_routing_control_state(id, input).await,
-            "routing_control_states" => self.update_routing_control_states(id, input).await,
+            "routing_control_state" => {
+                self.update_routing_control_state(id, input).await
+            }
+            "routing_control_states" => {
+                self.update_routing_control_states(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "route53_recovery_cluster", resource_name
+                "route53_recovery_cluster",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "routing_control_state" => self.delete_routing_control_state(id).await,
-            "routing_control_states" => self.delete_routing_control_states(id).await,
+            "routing_control_state" => {
+                self.delete_routing_control_state(id).await
+            }
+            "routing_control_states" => {
+                self.delete_routing_control_states(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "route53_recovery_cluster", resource_name
+                "route53_recovery_cluster",
+                resource_name
             ))),
         }
     }
@@ -99,6 +126,7 @@ impl<'a> Route53_recovery_clusterService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Routing_control_state resource operations
@@ -121,13 +149,17 @@ impl<'a> Route53_recovery_clusterService<'a> {
     }
 
     /// Create a new routing_control_state resource
-    async fn create_routing_control_state(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_routing_control_state(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
             let routing_control_state = input.get_string("routing_control_state")?;
             let safety_rules_to_override = input.get_optional_string("safety_rules_to_override")?;
             let routing_control_arn = input.get_string("routing_control_arn")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -141,23 +173,18 @@ impl<'a> Route53_recovery_clusterService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field(
-                    "routing_control_state",
-                    routing_control_state.unwrap_or_default(),
-                )
-                .with_field(
-                    "safety_rules_to_override",
-                    safety_rules_to_override.unwrap_or_default(),
-                )
-                .with_field(
-                    "routing_control_arn",
-                    routing_control_arn.unwrap_or_default(),
-                ))
+                .with_field("routing_control_state", routing_control_state.unwrap_or_default())
+                .with_field("safety_rules_to_override", safety_rules_to_override.unwrap_or_default())
+                .with_field("routing_control_arn", routing_control_arn.unwrap_or_default())
+            )
         })
     }
 
     /// Read a routing_control_state resource
-    async fn read_routing_control_state(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_routing_control_state(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -169,7 +196,8 @@ impl<'a> Route53_recovery_clusterService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -185,6 +213,7 @@ impl<'a> Route53_recovery_clusterService<'a> {
             let safety_rules_to_override = input.get_optional_string("safety_rules_to_override")?;
             let routing_control_arn = input.get_string("routing_control_arn")?;
 
+
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.route53_recovery_cluster_client
@@ -198,23 +227,18 @@ impl<'a> Route53_recovery_clusterService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field(
-                    "routing_control_state",
-                    routing_control_state.unwrap_or_default(),
-                )
-                .with_field(
-                    "safety_rules_to_override",
-                    safety_rules_to_override.unwrap_or_default(),
-                )
-                .with_field(
-                    "routing_control_arn",
-                    routing_control_arn.unwrap_or_default(),
-                ))
+                .with_field("routing_control_state", routing_control_state.unwrap_or_default())
+                .with_field("safety_rules_to_override", safety_rules_to_override.unwrap_or_default())
+                .with_field("routing_control_arn", routing_control_arn.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a routing_control_state resource
-    async fn delete_routing_control_state(&self, id: &str) -> Result<()> {
+    async fn delete_routing_control_state(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -228,6 +252,7 @@ impl<'a> Route53_recovery_clusterService<'a> {
             Ok(())
         })
     }
+
 
     // ------------------------------------------------------------------------
     // Routing_control_states resource operations
@@ -250,13 +275,16 @@ impl<'a> Route53_recovery_clusterService<'a> {
     }
 
     /// Create a new routing_control_states resource
-    async fn create_routing_control_states(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_routing_control_states(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let update_routing_control_state_entries =
-                input.get_string("update_routing_control_state_entries")?;
+            let update_routing_control_state_entries = input.get_string("update_routing_control_state_entries")?;
             let safety_rules_to_override = input.get_optional_string("safety_rules_to_override")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -270,19 +298,17 @@ impl<'a> Route53_recovery_clusterService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field(
-                    "update_routing_control_state_entries",
-                    update_routing_control_state_entries.unwrap_or_default(),
-                )
-                .with_field(
-                    "safety_rules_to_override",
-                    safety_rules_to_override.unwrap_or_default(),
-                ))
+                .with_field("update_routing_control_state_entries", update_routing_control_state_entries.unwrap_or_default())
+                .with_field("safety_rules_to_override", safety_rules_to_override.unwrap_or_default())
+            )
         })
     }
 
     /// Read a routing_control_states resource
-    async fn read_routing_control_states(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_routing_control_states(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -294,7 +320,8 @@ impl<'a> Route53_recovery_clusterService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -306,9 +333,9 @@ impl<'a> Route53_recovery_clusterService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let update_routing_control_state_entries =
-                input.get_string("update_routing_control_state_entries")?;
+            let update_routing_control_state_entries = input.get_string("update_routing_control_state_entries")?;
             let safety_rules_to_override = input.get_optional_string("safety_rules_to_override")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -323,19 +350,17 @@ impl<'a> Route53_recovery_clusterService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field(
-                    "update_routing_control_state_entries",
-                    update_routing_control_state_entries.unwrap_or_default(),
-                )
-                .with_field(
-                    "safety_rules_to_override",
-                    safety_rules_to_override.unwrap_or_default(),
-                ))
+                .with_field("update_routing_control_state_entries", update_routing_control_state_entries.unwrap_or_default())
+                .with_field("safety_rules_to_override", safety_rules_to_override.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a routing_control_states resource
-    async fn delete_routing_control_states(&self, id: &str) -> Result<()> {
+    async fn delete_routing_control_states(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -349,4 +374,6 @@ impl<'a> Route53_recovery_clusterService<'a> {
             Ok(())
         })
     }
+
+
 }

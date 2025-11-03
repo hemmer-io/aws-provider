@@ -21,7 +21,7 @@ impl<'a> Object_tagging<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, expected_bucket_owner: Option<String>, checksum_algorithm: Option<String>, bucket: String, request_payer: Option<String>, content_md5: Option<String>, version_id: Option<String>, key: String, tagging: String) -> Result<String> {
+    pub async fn create(&self, tagging: String, checksum_algorithm: Option<String>, content_md5: Option<String>, bucket: String, version_id: Option<String>, key: String, expected_bucket_owner: Option<String>, request_payer: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

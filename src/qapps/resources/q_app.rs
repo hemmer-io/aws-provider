@@ -21,7 +21,7 @@ impl<'a> Q_app<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<HashMap<String, String>>, title: String, instance_id: String, description: Option<String>, app_definition: String) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, app_definition: String, tags: Option<HashMap<String, String>>, instance_id: String, title: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Q_app<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, title: Option<String>, instance_id: Option<String>, description: Option<String>, app_definition: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, app_definition: Option<String>, tags: Option<HashMap<String, String>>, instance_id: Option<String>, title: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

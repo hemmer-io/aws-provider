@@ -21,7 +21,7 @@ impl<'a> Vpc_attachment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, client_token: Option<String>, vpc_arn: String, subnet_arns: Vec<String>, options: Option<String>, core_network_id: String) -> Result<String> {
+    pub async fn create(&self, core_network_id: String, options: Option<String>, subnet_arns: Vec<String>, vpc_arn: String, tags: Option<Vec<String>>, client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Vpc_attachment<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, client_token: Option<String>, vpc_arn: Option<String>, subnet_arns: Option<Vec<String>>, options: Option<String>, core_network_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, core_network_id: Option<String>, options: Option<String>, subnet_arns: Option<Vec<String>>, vpc_arn: Option<String>, tags: Option<Vec<String>>, client_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

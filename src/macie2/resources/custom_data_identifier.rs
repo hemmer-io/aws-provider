@@ -21,7 +21,7 @@ impl<'a> Custom_data_identifier<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<HashMap<String, String>>, client_token: Option<String>, description: Option<String>, keywords: Option<Vec<String>>, severity_levels: Option<Vec<String>>, name: String, ignore_words: Option<Vec<String>>, maximum_match_distance: Option<i64>, regex: String) -> Result<String> {
+    pub async fn create(&self, severity_levels: Option<Vec<String>>, client_token: Option<String>, maximum_match_distance: Option<i64>, ignore_words: Option<Vec<String>>, keywords: Option<Vec<String>>, regex: String, name: String, tags: Option<HashMap<String, String>>, description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

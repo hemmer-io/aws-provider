@@ -21,7 +21,7 @@ impl<'a> Vpc_ingress_connection<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, ingress_vpc_configuration: String, tags: Option<Vec<String>>, vpc_ingress_connection_name: String, service_arn: String) -> Result<String> {
+    pub async fn create(&self, vpc_ingress_connection_name: String, tags: Option<Vec<String>>, service_arn: String, ingress_vpc_configuration: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Vpc_ingress_connection<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, ingress_vpc_configuration: Option<String>, tags: Option<Vec<String>>, vpc_ingress_connection_name: Option<String>, service_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, vpc_ingress_connection_name: Option<String>, tags: Option<Vec<String>>, service_arn: Option<String>, ingress_vpc_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

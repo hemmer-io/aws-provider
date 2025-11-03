@@ -21,7 +21,7 @@ impl<'a> Ml_transform<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, name: String, glue_version: Option<String>, max_capacity: Option<f64>, max_retries: Option<i64>, input_record_tables: Vec<String>, parameters: String, role: String, number_of_workers: Option<i64>, transform_encryption: Option<String>, timeout: Option<i64>, tags: Option<HashMap<String, String>>, worker_type: Option<String>) -> Result<String> {
+    pub async fn create(&self, glue_version: Option<String>, description: Option<String>, worker_type: Option<String>, name: String, role: String, parameters: String, max_capacity: Option<f64>, tags: Option<HashMap<String, String>>, transform_encryption: Option<String>, timeout: Option<i64>, input_record_tables: Vec<String>, number_of_workers: Option<i64>, max_retries: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Ml_transform<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, name: Option<String>, glue_version: Option<String>, max_capacity: Option<f64>, max_retries: Option<i64>, input_record_tables: Option<Vec<String>>, parameters: Option<String>, role: Option<String>, number_of_workers: Option<i64>, transform_encryption: Option<String>, timeout: Option<i64>, tags: Option<HashMap<String, String>>, worker_type: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, glue_version: Option<String>, description: Option<String>, worker_type: Option<String>, name: Option<String>, role: Option<String>, parameters: Option<String>, max_capacity: Option<f64>, tags: Option<HashMap<String, String>>, transform_encryption: Option<String>, timeout: Option<i64>, input_record_tables: Option<Vec<String>>, number_of_workers: Option<i64>, max_retries: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

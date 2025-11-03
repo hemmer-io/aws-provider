@@ -21,7 +21,7 @@ impl<'a> Security_profile<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, hierarchy_restricted_resources: Option<Vec<String>>, description: Option<String>, permissions: Option<Vec<String>>, instance_id: String, allowed_access_control_hierarchy_group_id: Option<String>, tags: Option<HashMap<String, String>>, applications: Option<Vec<String>>, security_profile_name: String, allowed_access_control_tags: Option<HashMap<String, String>>, tag_restricted_resources: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, applications: Option<Vec<String>>, allowed_access_control_hierarchy_group_id: Option<String>, security_profile_name: String, instance_id: String, description: Option<String>, allowed_access_control_tags: Option<HashMap<String, String>>, tag_restricted_resources: Option<Vec<String>>, hierarchy_restricted_resources: Option<Vec<String>>, tags: Option<HashMap<String, String>>, permissions: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Security_profile<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, hierarchy_restricted_resources: Option<Vec<String>>, description: Option<String>, permissions: Option<Vec<String>>, instance_id: Option<String>, allowed_access_control_hierarchy_group_id: Option<String>, tags: Option<HashMap<String, String>>, applications: Option<Vec<String>>, security_profile_name: Option<String>, allowed_access_control_tags: Option<HashMap<String, String>>, tag_restricted_resources: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, applications: Option<Vec<String>>, allowed_access_control_hierarchy_group_id: Option<String>, security_profile_name: Option<String>, instance_id: Option<String>, description: Option<String>, allowed_access_control_tags: Option<HashMap<String, String>>, tag_restricted_resources: Option<Vec<String>>, hierarchy_restricted_resources: Option<Vec<String>>, tags: Option<HashMap<String, String>>, permissions: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

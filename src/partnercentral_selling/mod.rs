@@ -25,12 +25,12 @@ impl<'a> Partnercentral_sellingService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "selling_system_settings" => {
-                self.plan_selling_system_settings(current_state, desired_input)
-                    .await
+                self.plan_selling_system_settings(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "partnercentral_selling", resource_name
+                "partnercentral_selling",
+                resource_name
             ))),
         }
     }
@@ -42,21 +42,31 @@ impl<'a> Partnercentral_sellingService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "selling_system_settings" => self.create_selling_system_settings(input).await,
+            "selling_system_settings" => {
+                self.create_selling_system_settings(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "partnercentral_selling", resource_name
+                "partnercentral_selling",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "selling_system_settings" => self.read_selling_system_settings(id).await,
+            "selling_system_settings" => {
+                self.read_selling_system_settings(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "partnercentral_selling", resource_name
+                "partnercentral_selling",
+                resource_name
             ))),
         }
     }
@@ -69,21 +79,31 @@ impl<'a> Partnercentral_sellingService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "selling_system_settings" => self.update_selling_system_settings(id, input).await,
+            "selling_system_settings" => {
+                self.update_selling_system_settings(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "partnercentral_selling", resource_name
+                "partnercentral_selling",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "selling_system_settings" => self.delete_selling_system_settings(id).await,
+            "selling_system_settings" => {
+                self.delete_selling_system_settings(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "partnercentral_selling", resource_name
+                "partnercentral_selling",
+                resource_name
             ))),
         }
     }
@@ -91,6 +111,7 @@ impl<'a> Partnercentral_sellingService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Selling_system_settings resource operations
@@ -113,13 +134,16 @@ impl<'a> Partnercentral_sellingService<'a> {
     }
 
     /// Create a new selling_system_settings resource
-    async fn create_selling_system_settings(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_selling_system_settings(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
             let catalog = input.get_string("catalog")?;
-            let resource_snapshot_job_role_identifier =
-                input.get_optional_string("resource_snapshot_job_role_identifier")?;
+            let resource_snapshot_job_role_identifier = input.get_optional_string("resource_snapshot_job_role_identifier")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -134,15 +158,16 @@ impl<'a> Partnercentral_sellingService<'a> {
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
                 .with_field("catalog", catalog.unwrap_or_default())
-                .with_field(
-                    "resource_snapshot_job_role_identifier",
-                    resource_snapshot_job_role_identifier.unwrap_or_default(),
-                ))
+                .with_field("resource_snapshot_job_role_identifier", resource_snapshot_job_role_identifier.unwrap_or_default())
+            )
         })
     }
 
     /// Read a selling_system_settings resource
-    async fn read_selling_system_settings(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_selling_system_settings(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -154,7 +179,8 @@ impl<'a> Partnercentral_sellingService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -167,8 +193,8 @@ impl<'a> Partnercentral_sellingService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
             let catalog = input.get_string("catalog")?;
-            let resource_snapshot_job_role_identifier =
-                input.get_optional_string("resource_snapshot_job_role_identifier")?;
+            let resource_snapshot_job_role_identifier = input.get_optional_string("resource_snapshot_job_role_identifier")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -184,15 +210,16 @@ impl<'a> Partnercentral_sellingService<'a> {
             Ok(ResourceOutput::new()
                 .with_id(id)
                 .with_field("catalog", catalog.unwrap_or_default())
-                .with_field(
-                    "resource_snapshot_job_role_identifier",
-                    resource_snapshot_job_role_identifier.unwrap_or_default(),
-                ))
+                .with_field("resource_snapshot_job_role_identifier", resource_snapshot_job_role_identifier.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a selling_system_settings resource
-    async fn delete_selling_system_settings(&self, id: &str) -> Result<()> {
+    async fn delete_selling_system_settings(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -206,4 +233,6 @@ impl<'a> Partnercentral_sellingService<'a> {
             Ok(())
         })
     }
+
+
 }

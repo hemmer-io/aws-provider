@@ -21,7 +21,7 @@ impl<'a> Dashboard<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, definition: Option<String>, source_entity: Option<String>, tags: Option<Vec<String>>, dashboard_id: String, folder_arns: Option<Vec<String>>, link_entities: Option<Vec<String>>, link_sharing_configuration: Option<String>, version_description: Option<String>, theme_arn: Option<String>, validation_strategy: Option<String>, dashboard_publish_options: Option<String>, aws_account_id: String, name: String, permissions: Option<Vec<String>>, parameters: Option<String>) -> Result<String> {
+    pub async fn create(&self, version_description: Option<String>, theme_arn: Option<String>, folder_arns: Option<Vec<String>>, permissions: Option<Vec<String>>, tags: Option<Vec<String>>, validation_strategy: Option<String>, name: String, parameters: Option<String>, link_entities: Option<Vec<String>>, dashboard_publish_options: Option<String>, source_entity: Option<String>, aws_account_id: String, definition: Option<String>, dashboard_id: String, link_sharing_configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Dashboard<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, definition: Option<String>, source_entity: Option<String>, tags: Option<Vec<String>>, dashboard_id: Option<String>, folder_arns: Option<Vec<String>>, link_entities: Option<Vec<String>>, link_sharing_configuration: Option<String>, version_description: Option<String>, theme_arn: Option<String>, validation_strategy: Option<String>, dashboard_publish_options: Option<String>, aws_account_id: Option<String>, name: Option<String>, permissions: Option<Vec<String>>, parameters: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, version_description: Option<String>, theme_arn: Option<String>, folder_arns: Option<Vec<String>>, permissions: Option<Vec<String>>, tags: Option<Vec<String>>, validation_strategy: Option<String>, name: Option<String>, parameters: Option<String>, link_entities: Option<Vec<String>>, dashboard_publish_options: Option<String>, source_entity: Option<String>, aws_account_id: Option<String>, definition: Option<String>, dashboard_id: Option<String>, link_sharing_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

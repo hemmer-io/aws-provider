@@ -21,7 +21,7 @@ impl<'a> Domain_name<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, domain_name: String, certificate_body: Option<String>, tags: Option<String>, certificate_name: Option<String>, certificate_chain: Option<String>, ownership_verification_certificate_arn: Option<String>, regional_certificate_arn: Option<String>, certificate_arn: Option<String>, security_policy: Option<String>, certificate_private_key: Option<String>, regional_certificate_name: Option<String>, endpoint_configuration: Option<String>, policy: Option<String>, mutual_tls_authentication: Option<String>, routing_mode: Option<String>) -> Result<String> {
+    pub async fn create(&self, endpoint_configuration: Option<String>, certificate_private_key: Option<String>, certificate_body: Option<String>, certificate_arn: Option<String>, tags: Option<String>, ownership_verification_certificate_arn: Option<String>, certificate_chain: Option<String>, security_policy: Option<String>, policy: Option<String>, regional_certificate_arn: Option<String>, domain_name: String, certificate_name: Option<String>, routing_mode: Option<String>, regional_certificate_name: Option<String>, mutual_tls_authentication: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Domain_name<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, domain_name: Option<String>, certificate_body: Option<String>, tags: Option<String>, certificate_name: Option<String>, certificate_chain: Option<String>, ownership_verification_certificate_arn: Option<String>, regional_certificate_arn: Option<String>, certificate_arn: Option<String>, security_policy: Option<String>, certificate_private_key: Option<String>, regional_certificate_name: Option<String>, endpoint_configuration: Option<String>, policy: Option<String>, mutual_tls_authentication: Option<String>, routing_mode: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, endpoint_configuration: Option<String>, certificate_private_key: Option<String>, certificate_body: Option<String>, certificate_arn: Option<String>, tags: Option<String>, ownership_verification_certificate_arn: Option<String>, certificate_chain: Option<String>, security_policy: Option<String>, policy: Option<String>, regional_certificate_arn: Option<String>, domain_name: Option<String>, certificate_name: Option<String>, routing_mode: Option<String>, regional_certificate_name: Option<String>, mutual_tls_authentication: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

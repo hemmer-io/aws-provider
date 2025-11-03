@@ -21,7 +21,7 @@ impl<'a> Assessment_template<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, duration_in_seconds: i64, rules_package_arns: Vec<String>, user_attributes_for_findings: Option<Vec<String>>, assessment_target_arn: String, assessment_template_name: String) -> Result<String> {
+    pub async fn create(&self, user_attributes_for_findings: Option<Vec<String>>, assessment_target_arn: String, rules_package_arns: Vec<String>, duration_in_seconds: i64, assessment_template_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

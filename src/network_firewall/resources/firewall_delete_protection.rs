@@ -24,7 +24,7 @@ impl<'a> Firewall_delete_protection<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, update_token: Option<String>, firewall_arn: Option<String>, delete_protection: Option<bool>, firewall_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, firewall_name: Option<String>, delete_protection: Option<bool>, update_token: Option<String>, firewall_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

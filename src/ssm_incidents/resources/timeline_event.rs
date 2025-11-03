@@ -21,7 +21,7 @@ impl<'a> Timeline_event<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, event_time: String, event_type: String, event_data: String, client_token: Option<String>, event_references: Option<Vec<String>>, incident_record_arn: String) -> Result<String> {
+    pub async fn create(&self, event_time: String, event_references: Option<Vec<String>>, incident_record_arn: String, event_type: String, event_data: String, client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Timeline_event<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, event_time: Option<String>, event_type: Option<String>, event_data: Option<String>, client_token: Option<String>, event_references: Option<Vec<String>>, incident_record_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, event_time: Option<String>, event_references: Option<Vec<String>>, incident_record_arn: Option<String>, event_type: Option<String>, event_data: Option<String>, client_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

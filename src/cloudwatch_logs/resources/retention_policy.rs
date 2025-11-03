@@ -21,7 +21,7 @@ impl<'a> Retention_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, log_group_name: String, retention_in_days: i64) -> Result<String> {
+    pub async fn create(&self, retention_in_days: i64, log_group_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

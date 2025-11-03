@@ -21,7 +21,7 @@ impl<'a> Pipeline<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, pipeline_name: String, pipeline_display_name: Option<String>, tags: Option<Vec<String>>, parallelism_configuration: Option<String>, pipeline_description: Option<String>, client_request_token: String, role_arn: String, pipeline_definition: Option<String>, pipeline_definition_s3_location: Option<String>) -> Result<String> {
+    pub async fn create(&self, pipeline_description: Option<String>, role_arn: String, parallelism_configuration: Option<String>, pipeline_display_name: Option<String>, tags: Option<Vec<String>>, pipeline_definition_s3_location: Option<String>, client_request_token: String, pipeline_definition: Option<String>, pipeline_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Pipeline<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, pipeline_name: Option<String>, pipeline_display_name: Option<String>, tags: Option<Vec<String>>, parallelism_configuration: Option<String>, pipeline_description: Option<String>, client_request_token: Option<String>, role_arn: Option<String>, pipeline_definition: Option<String>, pipeline_definition_s3_location: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, pipeline_description: Option<String>, role_arn: Option<String>, parallelism_configuration: Option<String>, pipeline_display_name: Option<String>, tags: Option<Vec<String>>, pipeline_definition_s3_location: Option<String>, client_request_token: Option<String>, pipeline_definition: Option<String>, pipeline_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

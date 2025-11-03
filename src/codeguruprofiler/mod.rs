@@ -25,12 +25,12 @@ impl<'a> CodeguruprofilerService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "findings_report_account_summary" => {
-                self.plan_findings_report_account_summary(current_state, desired_input)
-                    .await
+                self.plan_findings_report_account_summary(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "codeguruprofiler", resource_name
+                "codeguruprofiler",
+                resource_name
             ))),
         }
     }
@@ -47,20 +47,26 @@ impl<'a> CodeguruprofilerService<'a> {
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "codeguruprofiler", resource_name
+                "codeguruprofiler",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
             "findings_report_account_summary" => {
                 self.read_findings_report_account_summary(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "codeguruprofiler", resource_name
+                "codeguruprofiler",
+                resource_name
             ))),
         }
     }
@@ -78,20 +84,26 @@ impl<'a> CodeguruprofilerService<'a> {
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "codeguruprofiler", resource_name
+                "codeguruprofiler",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
             "findings_report_account_summary" => {
                 self.delete_findings_report_account_summary(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "codeguruprofiler", resource_name
+                "codeguruprofiler",
+                resource_name
             ))),
         }
     }
@@ -99,6 +111,7 @@ impl<'a> CodeguruprofilerService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Findings_report_account_summary resource operations
@@ -129,6 +142,7 @@ impl<'a> CodeguruprofilerService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.codeguruprofiler_client
@@ -139,12 +153,17 @@ impl<'a> CodeguruprofilerService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a findings_report_account_summary resource
-    async fn read_findings_report_account_summary(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_findings_report_account_summary(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -156,7 +175,8 @@ impl<'a> CodeguruprofilerService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -169,6 +189,7 @@ impl<'a> CodeguruprofilerService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.codeguruprofiler_client
@@ -180,12 +201,17 @@ impl<'a> CodeguruprofilerService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a findings_report_account_summary resource
-    async fn delete_findings_report_account_summary(&self, id: &str) -> Result<()> {
+    async fn delete_findings_report_account_summary(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -199,4 +225,6 @@ impl<'a> CodeguruprofilerService<'a> {
             Ok(())
         })
     }
+
+
 }

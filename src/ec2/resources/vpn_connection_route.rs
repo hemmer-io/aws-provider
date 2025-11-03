@@ -21,7 +21,7 @@ impl<'a> Vpn_connection_route<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, vpn_connection_id: String, destination_cidr_block: String) -> Result<String> {
+    pub async fn create(&self, destination_cidr_block: String, vpn_connection_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Launch_template_version<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, launch_template_name: Option<String>, dry_run: Option<bool>, version_description: Option<String>, resolve_alias: Option<bool>, source_version: Option<String>, client_token: Option<String>, launch_template_data: String, launch_template_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, launch_template_id: Option<String>, source_version: Option<String>, client_token: Option<String>, launch_template_data: String, version_description: Option<String>, resolve_alias: Option<bool>, dry_run: Option<bool>, launch_template_name: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

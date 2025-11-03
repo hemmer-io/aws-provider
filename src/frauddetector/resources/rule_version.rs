@@ -24,7 +24,7 @@ impl<'a> Rule_version<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, outcomes: Option<Vec<String>>, language: Option<String>, tags: Option<Vec<String>>, rule: Option<String>, description: Option<String>, expression: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, expression: Option<String>, language: Option<String>, description: Option<String>, rule: Option<String>, outcomes: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

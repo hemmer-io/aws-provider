@@ -21,7 +21,7 @@ impl<'a> Filter<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, action: Option<String>, rank: Option<i64>, detector_id: String, name: String, finding_criteria: String, tags: Option<HashMap<String, String>>, client_token: Option<String>) -> Result<String> {
+    pub async fn create(&self, rank: Option<i64>, finding_criteria: String, name: String, action: Option<String>, tags: Option<HashMap<String, String>>, client_token: Option<String>, detector_id: String, description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Filter<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, action: Option<String>, rank: Option<i64>, detector_id: Option<String>, name: Option<String>, finding_criteria: Option<String>, tags: Option<HashMap<String, String>>, client_token: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, rank: Option<i64>, finding_criteria: Option<String>, name: Option<String>, action: Option<String>, tags: Option<HashMap<String, String>>, client_token: Option<String>, detector_id: Option<String>, description: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

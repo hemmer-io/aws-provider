@@ -38,7 +38,7 @@ impl<'a> Voice_channel<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, voice_channel_request: Option<String>, application_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, application_id: Option<String>, voice_channel_request: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

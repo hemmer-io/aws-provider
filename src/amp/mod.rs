@@ -25,12 +25,12 @@ impl<'a> AmpService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "default_scraper_configuration" => {
-                self.plan_default_scraper_configuration(current_state, desired_input)
-                    .await
+                self.plan_default_scraper_configuration(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "amp", resource_name
+                "amp",
+                resource_name
             ))),
         }
     }
@@ -47,18 +47,26 @@ impl<'a> AmpService<'a> {
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "amp", resource_name
+                "amp",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "default_scraper_configuration" => self.read_default_scraper_configuration(id).await,
+            "default_scraper_configuration" => {
+                self.read_default_scraper_configuration(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "amp", resource_name
+                "amp",
+                resource_name
             ))),
         }
     }
@@ -76,18 +84,26 @@ impl<'a> AmpService<'a> {
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "amp", resource_name
+                "amp",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "default_scraper_configuration" => self.delete_default_scraper_configuration(id).await,
+            "default_scraper_configuration" => {
+                self.delete_default_scraper_configuration(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "amp", resource_name
+                "amp",
+                resource_name
             ))),
         }
     }
@@ -95,6 +111,7 @@ impl<'a> AmpService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Default_scraper_configuration resource operations
@@ -125,6 +142,7 @@ impl<'a> AmpService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.amp_client
@@ -135,12 +153,17 @@ impl<'a> AmpService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a default_scraper_configuration resource
-    async fn read_default_scraper_configuration(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_default_scraper_configuration(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -152,7 +175,8 @@ impl<'a> AmpService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -165,6 +189,7 @@ impl<'a> AmpService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.amp_client
@@ -176,12 +201,17 @@ impl<'a> AmpService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a default_scraper_configuration resource
-    async fn delete_default_scraper_configuration(&self, id: &str) -> Result<()> {
+    async fn delete_default_scraper_configuration(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -195,4 +225,6 @@ impl<'a> AmpService<'a> {
             Ok(())
         })
     }
+
+
 }

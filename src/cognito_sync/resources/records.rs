@@ -24,7 +24,7 @@ impl<'a> Records<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, record_patches: Option<Vec<String>>, dataset_name: Option<String>, sync_session_token: Option<String>, device_id: Option<String>, identity_id: Option<String>, identity_pool_id: Option<String>, client_context: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, device_id: Option<String>, record_patches: Option<Vec<String>>, identity_pool_id: Option<String>, dataset_name: Option<String>, client_context: Option<String>, identity_id: Option<String>, sync_session_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -24,7 +24,7 @@ impl<'a> Configuration_set_reputation_metrics_enabled<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, enabled: Option<bool>, configuration_set_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, configuration_set_name: Option<String>, enabled: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -38,7 +38,7 @@ impl<'a> Server_certificate<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, new_server_certificate_name: Option<String>, server_certificate_name: Option<String>, new_path: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, server_certificate_name: Option<String>, new_path: Option<String>, new_server_certificate_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

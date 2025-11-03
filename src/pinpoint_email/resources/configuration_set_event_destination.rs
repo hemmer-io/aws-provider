@@ -21,7 +21,7 @@ impl<'a> Configuration_set_event_destination<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, event_destination_name: String, event_destination: String, configuration_set_name: String) -> Result<String> {
+    pub async fn create(&self, event_destination: String, event_destination_name: String, configuration_set_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Configuration_set_event_destination<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, event_destination_name: Option<String>, event_destination: Option<String>, configuration_set_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, event_destination: Option<String>, event_destination_name: Option<String>, configuration_set_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

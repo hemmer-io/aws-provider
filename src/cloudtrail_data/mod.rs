@@ -24,10 +24,13 @@ impl<'a> Cloudtrail_dataService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "audit_events" => self.plan_audit_events(current_state, desired_input).await,
+            "audit_events" => {
+                self.plan_audit_events(current_state, desired_input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "cloudtrail_data", resource_name
+                "cloudtrail_data",
+                resource_name
             ))),
         }
     }
@@ -39,21 +42,31 @@ impl<'a> Cloudtrail_dataService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "audit_events" => self.create_audit_events(input).await,
+            "audit_events" => {
+                self.create_audit_events(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "cloudtrail_data", resource_name
+                "cloudtrail_data",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "audit_events" => self.read_audit_events(id).await,
+            "audit_events" => {
+                self.read_audit_events(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "cloudtrail_data", resource_name
+                "cloudtrail_data",
+                resource_name
             ))),
         }
     }
@@ -66,21 +79,31 @@ impl<'a> Cloudtrail_dataService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "audit_events" => self.update_audit_events(id, input).await,
+            "audit_events" => {
+                self.update_audit_events(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "cloudtrail_data", resource_name
+                "cloudtrail_data",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "audit_events" => self.delete_audit_events(id).await,
+            "audit_events" => {
+                self.delete_audit_events(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "cloudtrail_data", resource_name
+                "cloudtrail_data",
+                resource_name
             ))),
         }
     }
@@ -88,6 +111,7 @@ impl<'a> Cloudtrail_dataService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Audit_events resource operations
@@ -110,13 +134,17 @@ impl<'a> Cloudtrail_dataService<'a> {
     }
 
     /// Create a new audit_events resource
-    async fn create_audit_events(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_audit_events(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let audit_events = input.get_string("audit_events")?;
             let channel_arn = input.get_string("channel_arn")?;
             let external_id = input.get_optional_string("external_id")?;
-            let audit_events = input.get_string("audit_events")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -130,14 +158,18 @@ impl<'a> Cloudtrail_dataService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("audit_events", audit_events.unwrap_or_default())
                 .with_field("channel_arn", channel_arn.unwrap_or_default())
                 .with_field("external_id", external_id.unwrap_or_default())
-                .with_field("audit_events", audit_events.unwrap_or_default()))
+            )
         })
     }
 
     /// Read a audit_events resource
-    async fn read_audit_events(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_audit_events(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -149,17 +181,23 @@ impl<'a> Cloudtrail_dataService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a audit_events resource
-    async fn update_audit_events(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_audit_events(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let audit_events = input.get_string("audit_events")?;
             let channel_arn = input.get_string("channel_arn")?;
             let external_id = input.get_optional_string("external_id")?;
-            let audit_events = input.get_string("audit_events")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -174,14 +212,18 @@ impl<'a> Cloudtrail_dataService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("audit_events", audit_events.unwrap_or_default())
                 .with_field("channel_arn", channel_arn.unwrap_or_default())
                 .with_field("external_id", external_id.unwrap_or_default())
-                .with_field("audit_events", audit_events.unwrap_or_default()))
+            )
         })
     }
 
     /// Delete a audit_events resource
-    async fn delete_audit_events(&self, id: &str) -> Result<()> {
+    async fn delete_audit_events(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -195,4 +237,6 @@ impl<'a> Cloudtrail_dataService<'a> {
             Ok(())
         })
     }
+
+
 }

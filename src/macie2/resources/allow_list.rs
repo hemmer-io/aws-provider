@@ -21,7 +21,7 @@ impl<'a> Allow_list<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, criteria: String, name: String, tags: Option<HashMap<String, String>>, client_token: String) -> Result<String> {
+    pub async fn create(&self, client_token: String, name: String, description: Option<String>, tags: Option<HashMap<String, String>>, criteria: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Allow_list<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, criteria: Option<String>, name: Option<String>, tags: Option<HashMap<String, String>>, client_token: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, client_token: Option<String>, name: Option<String>, description: Option<String>, tags: Option<HashMap<String, String>>, criteria: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

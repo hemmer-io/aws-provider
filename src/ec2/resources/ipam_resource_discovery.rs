@@ -21,7 +21,7 @@ impl<'a> Ipam_resource_discovery<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: Option<String>, description: Option<String>, tag_specifications: Option<Vec<String>>, operating_regions: Option<Vec<String>>, dry_run: Option<bool>) -> Result<String> {
+    pub async fn create(&self, dry_run: Option<bool>, description: Option<String>, client_token: Option<String>, tag_specifications: Option<Vec<String>>, operating_regions: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

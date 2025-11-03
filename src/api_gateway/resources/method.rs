@@ -21,7 +21,7 @@ impl<'a> Method<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, api_key_required: Option<bool>, http_method: String, resource_id: String, authorizer_id: Option<String>, request_parameters: Option<HashMap<String, bool>>, authorization_scopes: Option<String>, operation_name: Option<String>, request_models: Option<String>, request_validator_id: Option<String>, authorization_type: String, rest_api_id: String) -> Result<String> {
+    pub async fn create(&self, request_parameters: Option<HashMap<String, bool>>, authorizer_id: Option<String>, operation_name: Option<String>, request_validator_id: Option<String>, resource_id: String, authorization_type: String, authorization_scopes: Option<String>, request_models: Option<String>, http_method: String, rest_api_id: String, api_key_required: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Method<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, api_key_required: Option<bool>, http_method: Option<String>, resource_id: Option<String>, authorizer_id: Option<String>, request_parameters: Option<HashMap<String, bool>>, authorization_scopes: Option<String>, operation_name: Option<String>, request_models: Option<String>, request_validator_id: Option<String>, authorization_type: Option<String>, rest_api_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, request_parameters: Option<HashMap<String, bool>>, authorizer_id: Option<String>, operation_name: Option<String>, request_validator_id: Option<String>, resource_id: Option<String>, authorization_type: Option<String>, authorization_scopes: Option<String>, request_models: Option<String>, http_method: Option<String>, rest_api_id: Option<String>, api_key_required: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -38,7 +38,7 @@ impl<'a> Partner_account<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, sidewalk: Option<String>, partner_account_id: Option<String>, partner_type: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, partner_type: Option<String>, partner_account_id: Option<String>, sidewalk: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

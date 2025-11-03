@@ -24,7 +24,7 @@ impl<'a> Assessment_framework_share<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, request_id: Option<String>, request_type: Option<String>, action: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, action: Option<String>, request_id: Option<String>, request_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

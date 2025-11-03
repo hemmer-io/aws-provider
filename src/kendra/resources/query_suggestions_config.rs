@@ -38,7 +38,7 @@ impl<'a> Query_suggestions_config<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, attribute_suggestions_config: Option<String>, minimum_query_count: Option<i64>, query_log_look_back_window_in_days: Option<i64>, include_queries_without_user_information: Option<bool>, index_id: Option<String>, mode: Option<String>, minimum_number_of_querying_users: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, minimum_query_count: Option<i64>, mode: Option<String>, index_id: Option<String>, include_queries_without_user_information: Option<bool>, minimum_number_of_querying_users: Option<i64>, query_log_look_back_window_in_days: Option<i64>, attribute_suggestions_config: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -24,7 +24,7 @@ impl<'a> Contact_flow_name<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, instance_id: Option<String>, description: Option<String>, contact_flow_id: Option<String>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, instance_id: Option<String>, contact_flow_id: Option<String>, name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

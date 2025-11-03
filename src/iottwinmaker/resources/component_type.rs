@@ -21,7 +21,7 @@ impl<'a> Component_type<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<HashMap<String, String>>, functions: Option<HashMap<String, String>>, property_definitions: Option<HashMap<String, String>>, extends_from: Option<Vec<String>>, property_groups: Option<HashMap<String, String>>, description: Option<String>, composite_component_types: Option<HashMap<String, String>>, component_type_id: String, workspace_id: String, is_singleton: Option<bool>, component_type_name: Option<String>) -> Result<String> {
+    pub async fn create(&self, tags: Option<HashMap<String, String>>, composite_component_types: Option<HashMap<String, String>>, workspace_id: String, property_groups: Option<HashMap<String, String>>, is_singleton: Option<bool>, component_type_id: String, property_definitions: Option<HashMap<String, String>>, extends_from: Option<Vec<String>>, description: Option<String>, functions: Option<HashMap<String, String>>, component_type_name: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Component_type<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, functions: Option<HashMap<String, String>>, property_definitions: Option<HashMap<String, String>>, extends_from: Option<Vec<String>>, property_groups: Option<HashMap<String, String>>, description: Option<String>, composite_component_types: Option<HashMap<String, String>>, component_type_id: Option<String>, workspace_id: Option<String>, is_singleton: Option<bool>, component_type_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, composite_component_types: Option<HashMap<String, String>>, workspace_id: Option<String>, property_groups: Option<HashMap<String, String>>, is_singleton: Option<bool>, component_type_id: Option<String>, property_definitions: Option<HashMap<String, String>>, extends_from: Option<Vec<String>>, description: Option<String>, functions: Option<HashMap<String, String>>, component_type_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

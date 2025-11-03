@@ -21,7 +21,7 @@ impl<'a> Task_set<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, service: String, launch_type: Option<String>, service_registries: Option<Vec<String>>, platform_version: Option<String>, client_token: Option<String>, tags: Option<Vec<String>>, task_definition: String, cluster: String, scale: Option<String>, external_id: Option<String>, load_balancers: Option<Vec<String>>, network_configuration: Option<String>, capacity_provider_strategy: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, platform_version: Option<String>, task_definition: String, launch_type: Option<String>, service_registries: Option<Vec<String>>, load_balancers: Option<Vec<String>>, cluster: String, capacity_provider_strategy: Option<Vec<String>>, scale: Option<String>, network_configuration: Option<String>, service: String, external_id: Option<String>, client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Task_set<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, service: Option<String>, launch_type: Option<String>, service_registries: Option<Vec<String>>, platform_version: Option<String>, client_token: Option<String>, tags: Option<Vec<String>>, task_definition: Option<String>, cluster: Option<String>, scale: Option<String>, external_id: Option<String>, load_balancers: Option<Vec<String>>, network_configuration: Option<String>, capacity_provider_strategy: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, platform_version: Option<String>, task_definition: Option<String>, launch_type: Option<String>, service_registries: Option<Vec<String>>, load_balancers: Option<Vec<String>>, cluster: Option<String>, capacity_provider_strategy: Option<Vec<String>>, scale: Option<String>, network_configuration: Option<String>, service: Option<String>, external_id: Option<String>, client_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

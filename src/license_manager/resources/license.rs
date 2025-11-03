@@ -21,7 +21,7 @@ impl<'a> License<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, product_name: String, beneficiary: String, license_metadata: Option<Vec<String>>, client_token: String, entitlements: Vec<String>, license_name: String, product_sku: String, home_region: String, validity: String, consumption_configuration: String, issuer: String) -> Result<String> {
+    pub async fn create(&self, license_name: String, product_name: String, product_sku: String, license_metadata: Option<Vec<String>>, entitlements: Vec<String>, validity: String, beneficiary: String, client_token: String, home_region: String, tags: Option<Vec<String>>, consumption_configuration: String, issuer: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

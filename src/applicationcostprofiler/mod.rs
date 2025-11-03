@@ -25,12 +25,12 @@ impl<'a> ApplicationcostprofilerService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "report_definition" => {
-                self.plan_report_definition(current_state, desired_input)
-                    .await
+                self.plan_report_definition(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "applicationcostprofiler", resource_name
+                "applicationcostprofiler",
+                resource_name
             ))),
         }
     }
@@ -42,21 +42,31 @@ impl<'a> ApplicationcostprofilerService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "report_definition" => self.create_report_definition(input).await,
+            "report_definition" => {
+                self.create_report_definition(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "applicationcostprofiler", resource_name
+                "applicationcostprofiler",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "report_definition" => self.read_report_definition(id).await,
+            "report_definition" => {
+                self.read_report_definition(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "applicationcostprofiler", resource_name
+                "applicationcostprofiler",
+                resource_name
             ))),
         }
     }
@@ -69,21 +79,31 @@ impl<'a> ApplicationcostprofilerService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "report_definition" => self.update_report_definition(id, input).await,
+            "report_definition" => {
+                self.update_report_definition(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "applicationcostprofiler", resource_name
+                "applicationcostprofiler",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "report_definition" => self.delete_report_definition(id).await,
+            "report_definition" => {
+                self.delete_report_definition(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "applicationcostprofiler", resource_name
+                "applicationcostprofiler",
+                resource_name
             ))),
         }
     }
@@ -91,6 +111,7 @@ impl<'a> ApplicationcostprofilerService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Report_definition resource operations
@@ -113,15 +134,19 @@ impl<'a> ApplicationcostprofilerService<'a> {
     }
 
     /// Create a new report_definition resource
-    async fn create_report_definition(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_report_definition(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let report_frequency = input.get_string("report_frequency")?;
+            let report_id = input.get_string("report_id")?;
             let report_description = input.get_string("report_description")?;
+            let report_frequency = input.get_string("report_frequency")?;
             let format = input.get_string("format")?;
             let destination_s3_location = input.get_string("destination_s3_location")?;
-            let report_id = input.get_string("report_id")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -135,19 +160,20 @@ impl<'a> ApplicationcostprofilerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("report_frequency", report_frequency.unwrap_or_default())
+                .with_field("report_id", report_id.unwrap_or_default())
                 .with_field("report_description", report_description.unwrap_or_default())
+                .with_field("report_frequency", report_frequency.unwrap_or_default())
                 .with_field("format", format.unwrap_or_default())
-                .with_field(
-                    "destination_s3_location",
-                    destination_s3_location.unwrap_or_default(),
-                )
-                .with_field("report_id", report_id.unwrap_or_default()))
+                .with_field("destination_s3_location", destination_s3_location.unwrap_or_default())
+            )
         })
     }
 
     /// Read a report_definition resource
-    async fn read_report_definition(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_report_definition(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -159,7 +185,8 @@ impl<'a> ApplicationcostprofilerService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -171,11 +198,12 @@ impl<'a> ApplicationcostprofilerService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let report_frequency = input.get_string("report_frequency")?;
+            let report_id = input.get_string("report_id")?;
             let report_description = input.get_string("report_description")?;
+            let report_frequency = input.get_string("report_frequency")?;
             let format = input.get_string("format")?;
             let destination_s3_location = input.get_string("destination_s3_location")?;
-            let report_id = input.get_string("report_id")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -190,19 +218,20 @@ impl<'a> ApplicationcostprofilerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("report_frequency", report_frequency.unwrap_or_default())
+                .with_field("report_id", report_id.unwrap_or_default())
                 .with_field("report_description", report_description.unwrap_or_default())
+                .with_field("report_frequency", report_frequency.unwrap_or_default())
                 .with_field("format", format.unwrap_or_default())
-                .with_field(
-                    "destination_s3_location",
-                    destination_s3_location.unwrap_or_default(),
-                )
-                .with_field("report_id", report_id.unwrap_or_default()))
+                .with_field("destination_s3_location", destination_s3_location.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a report_definition resource
-    async fn delete_report_definition(&self, id: &str) -> Result<()> {
+    async fn delete_report_definition(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -216,4 +245,6 @@ impl<'a> ApplicationcostprofilerService<'a> {
             Ok(())
         })
     }
+
+
 }

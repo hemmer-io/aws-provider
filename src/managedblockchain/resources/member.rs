@@ -21,7 +21,7 @@ impl<'a> Member<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, invitation_id: String, member_configuration: String, client_request_token: String, network_id: String) -> Result<String> {
+    pub async fn create(&self, member_configuration: String, client_request_token: String, invitation_id: String, network_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Member<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, invitation_id: Option<String>, member_configuration: Option<String>, client_request_token: Option<String>, network_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, member_configuration: Option<String>, client_request_token: Option<String>, invitation_id: Option<String>, network_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

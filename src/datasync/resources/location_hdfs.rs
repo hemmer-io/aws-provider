@@ -21,7 +21,7 @@ impl<'a> Location_hdfs<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, authentication_type: String, subdirectory: Option<String>, tags: Option<Vec<String>>, kerberos_keytab: Option<String>, kms_key_provider_uri: Option<String>, name_nodes: Vec<String>, block_size: Option<i64>, kerberos_krb5_conf: Option<String>, simple_user: Option<String>, qop_configuration: Option<String>, agent_arns: Vec<String>, kerberos_principal: Option<String>, replication_factor: Option<i64>) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, replication_factor: Option<i64>, subdirectory: Option<String>, kerberos_principal: Option<String>, kerberos_krb5_conf: Option<String>, agent_arns: Vec<String>, authentication_type: String, simple_user: Option<String>, kms_key_provider_uri: Option<String>, kerberos_keytab: Option<String>, name_nodes: Vec<String>, block_size: Option<i64>, qop_configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Location_hdfs<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, authentication_type: Option<String>, subdirectory: Option<String>, tags: Option<Vec<String>>, kerberos_keytab: Option<String>, kms_key_provider_uri: Option<String>, name_nodes: Option<Vec<String>>, block_size: Option<i64>, kerberos_krb5_conf: Option<String>, simple_user: Option<String>, qop_configuration: Option<String>, agent_arns: Option<Vec<String>>, kerberos_principal: Option<String>, replication_factor: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, replication_factor: Option<i64>, subdirectory: Option<String>, kerberos_principal: Option<String>, kerberos_krb5_conf: Option<String>, agent_arns: Option<Vec<String>>, authentication_type: Option<String>, simple_user: Option<String>, kms_key_provider_uri: Option<String>, kerberos_keytab: Option<String>, name_nodes: Option<Vec<String>>, block_size: Option<i64>, qop_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -24,7 +24,7 @@ impl<'a> Repository_name<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, new_name: Option<String>, old_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, old_name: Option<String>, new_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

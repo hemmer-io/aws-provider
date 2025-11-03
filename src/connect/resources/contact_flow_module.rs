@@ -21,7 +21,7 @@ impl<'a> Contact_flow_module<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, content: String, instance_id: String, name: String, description: Option<String>, tags: Option<HashMap<String, String>>, client_token: Option<String>) -> Result<String> {
+    pub async fn create(&self, instance_id: String, tags: Option<HashMap<String, String>>, description: Option<String>, content: String, name: String, client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

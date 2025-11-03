@@ -24,7 +24,7 @@ impl<'a> Scheduled_action<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, action_type: Option<String>, desired_start_time: Option<i64>, action_id: Option<String>, domain_name: Option<String>, schedule_at: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, action_type: Option<String>, domain_name: Option<String>, action_id: Option<String>, schedule_at: Option<String>, desired_start_time: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

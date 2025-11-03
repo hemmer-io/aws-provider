@@ -24,7 +24,7 @@ impl<'a> Package_versions_status<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, format: Option<String>, namespace: Option<String>, target_status: Option<String>, domain: Option<String>, versions: Option<Vec<String>>, package: Option<String>, expected_status: Option<String>, version_revisions: Option<HashMap<String, String>>, repository: Option<String>, domain_owner: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, namespace: Option<String>, version_revisions: Option<HashMap<String, String>>, package: Option<String>, target_status: Option<String>, repository: Option<String>, domain: Option<String>, versions: Option<Vec<String>>, expected_status: Option<String>, domain_owner: Option<String>, format: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

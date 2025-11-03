@@ -21,7 +21,7 @@ impl<'a> File_system_from_backup<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, storage_type: Option<String>, backup_id: String, client_request_token: Option<String>, windows_configuration: Option<String>, subnet_ids: Vec<String>, lustre_configuration: Option<String>, kms_key_id: Option<String>, file_system_type_version: Option<String>, security_group_ids: Option<Vec<String>>, storage_capacity: Option<i64>, network_type: Option<String>, open_zfs_configuration: Option<String>) -> Result<String> {
+    pub async fn create(&self, network_type: Option<String>, client_request_token: Option<String>, tags: Option<Vec<String>>, lustre_configuration: Option<String>, file_system_type_version: Option<String>, security_group_ids: Option<Vec<String>>, storage_type: Option<String>, subnet_ids: Vec<String>, open_zfs_configuration: Option<String>, windows_configuration: Option<String>, storage_capacity: Option<i64>, backup_id: String, kms_key_id: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Grant<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, operations: Vec<String>, retiring_principal: Option<String>, grant_tokens: Option<Vec<String>>, dry_run: Option<bool>, name: Option<String>, key_id: String, constraints: Option<String>, grantee_principal: String) -> Result<String> {
+    pub async fn create(&self, name: Option<String>, dry_run: Option<bool>, grant_tokens: Option<Vec<String>>, key_id: String, retiring_principal: Option<String>, operations: Vec<String>, grantee_principal: String, constraints: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Environment_membership<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, permissions: String, environment_id: String, user_arn: String) -> Result<String> {
+    pub async fn create(&self, environment_id: String, user_arn: String, permissions: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Environment_membership<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, permissions: Option<String>, environment_id: Option<String>, user_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, environment_id: Option<String>, user_arn: Option<String>, permissions: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

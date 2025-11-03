@@ -21,7 +21,7 @@ impl<'a> Coip_cidr<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, coip_pool_id: String, cidr: String, dry_run: Option<bool>) -> Result<String> {
+    pub async fn create(&self, cidr: String, coip_pool_id: String, dry_run: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

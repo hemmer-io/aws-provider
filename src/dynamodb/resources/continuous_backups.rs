@@ -38,7 +38,7 @@ impl<'a> Continuous_backups<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, point_in_time_recovery_specification: Option<String>, table_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, table_name: Option<String>, point_in_time_recovery_specification: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

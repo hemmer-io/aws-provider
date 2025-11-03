@@ -21,7 +21,7 @@ impl<'a> Forecast_export_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, destination: String, tags: Option<Vec<String>>, forecast_arn: String, forecast_export_job_name: String, format: Option<String>) -> Result<String> {
+    pub async fn create(&self, forecast_export_job_name: String, tags: Option<Vec<String>>, forecast_arn: String, format: Option<String>, destination: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

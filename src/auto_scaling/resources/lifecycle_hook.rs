@@ -21,7 +21,7 @@ impl<'a> Lifecycle_hook<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, role_arn: Option<String>, auto_scaling_group_name: String, notification_target_arn: Option<String>, heartbeat_timeout: Option<i64>, default_result: Option<String>, notification_metadata: Option<String>, lifecycle_hook_name: String, lifecycle_transition: Option<String>) -> Result<String> {
+    pub async fn create(&self, heartbeat_timeout: Option<i64>, auto_scaling_group_name: String, lifecycle_hook_name: String, notification_metadata: Option<String>, lifecycle_transition: Option<String>, default_result: Option<String>, role_arn: Option<String>, notification_target_arn: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

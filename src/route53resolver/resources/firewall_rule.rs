@@ -21,7 +21,7 @@ impl<'a> Firewall_rule<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, firewall_domain_redirection_action: Option<String>, qtype: Option<String>, block_override_ttl: Option<i64>, block_response: Option<String>, confidence_threshold: Option<String>, dns_threat_protection: Option<String>, block_override_domain: Option<String>, firewall_rule_group_id: String, priority: i64, action: String, firewall_domain_list_id: Option<String>, creator_request_id: String, block_override_dns_type: Option<String>, name: String) -> Result<String> {
+    pub async fn create(&self, qtype: Option<String>, dns_threat_protection: Option<String>, confidence_threshold: Option<String>, creator_request_id: String, firewall_rule_group_id: String, firewall_domain_list_id: Option<String>, action: String, block_response: Option<String>, block_override_domain: Option<String>, block_override_ttl: Option<i64>, name: String, block_override_dns_type: Option<String>, firewall_domain_redirection_action: Option<String>, priority: i64) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Firewall_rule<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, firewall_domain_redirection_action: Option<String>, qtype: Option<String>, block_override_ttl: Option<i64>, block_response: Option<String>, confidence_threshold: Option<String>, dns_threat_protection: Option<String>, block_override_domain: Option<String>, firewall_rule_group_id: Option<String>, priority: Option<i64>, action: Option<String>, firewall_domain_list_id: Option<String>, creator_request_id: Option<String>, block_override_dns_type: Option<String>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, qtype: Option<String>, dns_threat_protection: Option<String>, confidence_threshold: Option<String>, creator_request_id: Option<String>, firewall_rule_group_id: Option<String>, firewall_domain_list_id: Option<String>, action: Option<String>, block_response: Option<String>, block_override_domain: Option<String>, block_override_ttl: Option<i64>, name: Option<String>, block_override_dns_type: Option<String>, firewall_domain_redirection_action: Option<String>, priority: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

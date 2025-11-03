@@ -38,7 +38,7 @@ impl<'a> User<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, namespace: Option<String>, unapply_custom_permissions: Option<bool>, email: Option<String>, custom_federation_provider_url: Option<String>, external_login_id: Option<String>, custom_permissions_name: Option<String>, aws_account_id: Option<String>, user_name: Option<String>, role: Option<String>, external_login_federation_provider_type: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, custom_permissions_name: Option<String>, role: Option<String>, external_login_federation_provider_type: Option<String>, external_login_id: Option<String>, user_name: Option<String>, namespace: Option<String>, unapply_custom_permissions: Option<bool>, custom_federation_provider_url: Option<String>, email: Option<String>, aws_account_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

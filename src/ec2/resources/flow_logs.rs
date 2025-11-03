@@ -21,7 +21,7 @@ impl<'a> Flow_logs<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, deliver_logs_permission_arn: Option<String>, destination_options: Option<String>, log_group_name: Option<String>, log_destination_type: Option<String>, log_destination: Option<String>, tag_specifications: Option<Vec<String>>, resource_ids: Vec<String>, dry_run: Option<bool>, deliver_cross_account_role: Option<String>, resource_type: String, client_token: Option<String>, traffic_type: Option<String>, log_format: Option<String>, max_aggregation_interval: Option<i64>) -> Result<String> {
+    pub async fn create(&self, dry_run: Option<bool>, resource_ids: Vec<String>, resource_type: String, traffic_type: Option<String>, log_destination_type: Option<String>, log_destination: Option<String>, log_format: Option<String>, client_token: Option<String>, tag_specifications: Option<Vec<String>>, max_aggregation_interval: Option<i64>, destination_options: Option<String>, deliver_logs_permission_arn: Option<String>, log_group_name: Option<String>, deliver_cross_account_role: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

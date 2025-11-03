@@ -21,7 +21,7 @@ impl<'a> Sol_network_instance<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, ns_description: Option<String>, tags: Option<HashMap<String, String>>, nsd_info_id: String, ns_name: String) -> Result<String> {
+    pub async fn create(&self, tags: Option<HashMap<String, String>>, ns_description: Option<String>, ns_name: String, nsd_info_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Sol_network_instance<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, ns_description: Option<String>, tags: Option<HashMap<String, String>>, nsd_info_id: Option<String>, ns_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, ns_description: Option<String>, ns_name: Option<String>, nsd_info_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

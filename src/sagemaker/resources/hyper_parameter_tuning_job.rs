@@ -21,7 +21,7 @@ impl<'a> Hyper_parameter_tuning_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, hyper_parameter_tuning_job_name: String, hyper_parameter_tuning_job_config: String, training_job_definition: Option<String>, training_job_definitions: Option<Vec<String>>, warm_start_config: Option<String>, tags: Option<Vec<String>>, autotune: Option<String>) -> Result<String> {
+    pub async fn create(&self, warm_start_config: Option<String>, autotune: Option<String>, hyper_parameter_tuning_job_name: String, tags: Option<Vec<String>>, training_job_definitions: Option<Vec<String>>, training_job_definition: Option<String>, hyper_parameter_tuning_job_config: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Inference_recommendations_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, stopping_conditions: Option<String>, job_name: String, job_type: String, role_arn: String, tags: Option<Vec<String>>, input_config: String, output_config: Option<String>, job_description: Option<String>) -> Result<String> {
+    pub async fn create(&self, job_description: Option<String>, job_name: String, role_arn: String, stopping_conditions: Option<String>, input_config: String, tags: Option<Vec<String>>, job_type: String, output_config: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

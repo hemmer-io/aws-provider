@@ -24,7 +24,7 @@ impl<'a> Reputation_entity_customer_managed_status<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, reputation_entity_type: Option<String>, reputation_entity_reference: Option<String>, sending_status: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, reputation_entity_reference: Option<String>, sending_status: Option<String>, reputation_entity_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

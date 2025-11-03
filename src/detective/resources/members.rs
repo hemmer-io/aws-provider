@@ -21,7 +21,7 @@ impl<'a> Members<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, accounts: Vec<String>, message: Option<String>, disable_email_notification: Option<bool>, graph_arn: String) -> Result<String> {
+    pub async fn create(&self, accounts: Vec<String>, disable_email_notification: Option<bool>, graph_arn: String, message: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

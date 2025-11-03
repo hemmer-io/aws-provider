@@ -21,7 +21,7 @@ impl<'a> Route_server<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, persist_routes: Option<String>, persist_routes_duration: Option<i64>, tag_specifications: Option<Vec<String>>, sns_notifications_enabled: Option<bool>, client_token: Option<String>, dry_run: Option<bool>, amazon_side_asn: i64) -> Result<String> {
+    pub async fn create(&self, dry_run: Option<bool>, amazon_side_asn: i64, persist_routes_duration: Option<i64>, sns_notifications_enabled: Option<bool>, persist_routes: Option<String>, client_token: Option<String>, tag_specifications: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

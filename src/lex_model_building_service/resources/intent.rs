@@ -21,7 +21,7 @@ impl<'a> Intent<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, kendra_configuration: Option<String>, create_version: Option<bool>, fulfillment_activity: Option<String>, checksum: Option<String>, output_contexts: Option<Vec<String>>, sample_utterances: Option<Vec<String>>, name: String, follow_up_prompt: Option<String>, confirmation_prompt: Option<String>, rejection_statement: Option<String>, slots: Option<Vec<String>>, dialog_code_hook: Option<String>, parent_intent_signature: Option<String>, conclusion_statement: Option<String>, input_contexts: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, dialog_code_hook: Option<String>, slots: Option<Vec<String>>, confirmation_prompt: Option<String>, sample_utterances: Option<Vec<String>>, conclusion_statement: Option<String>, fulfillment_activity: Option<String>, input_contexts: Option<Vec<String>>, output_contexts: Option<Vec<String>>, rejection_statement: Option<String>, follow_up_prompt: Option<String>, parent_intent_signature: Option<String>, name: String, checksum: Option<String>, create_version: Option<bool>, kendra_configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

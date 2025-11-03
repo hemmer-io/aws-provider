@@ -25,13 +25,15 @@ impl<'a> CloudcontrolService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "resource_request_status" => {
-                self.plan_resource_request_status(current_state, desired_input)
-                    .await
+                self.plan_resource_request_status(current_state, desired_input).await
             }
-            "resource" => self.plan_resource(current_state, desired_input).await,
+            "resource" => {
+                self.plan_resource(current_state, desired_input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "cloudcontrol", resource_name
+                "cloudcontrol",
+                resource_name
             ))),
         }
     }
@@ -43,23 +45,37 @@ impl<'a> CloudcontrolService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "resource_request_status" => self.create_resource_request_status(input).await,
-            "resource" => self.create_resource(input).await,
+            "resource_request_status" => {
+                self.create_resource_request_status(input).await
+            }
+            "resource" => {
+                self.create_resource(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "cloudcontrol", resource_name
+                "cloudcontrol",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "resource_request_status" => self.read_resource_request_status(id).await,
-            "resource" => self.read_resource(id).await,
+            "resource_request_status" => {
+                self.read_resource_request_status(id).await
+            }
+            "resource" => {
+                self.read_resource(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "cloudcontrol", resource_name
+                "cloudcontrol",
+                resource_name
             ))),
         }
     }
@@ -72,23 +88,37 @@ impl<'a> CloudcontrolService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "resource_request_status" => self.update_resource_request_status(id, input).await,
-            "resource" => self.update_resource(id, input).await,
+            "resource_request_status" => {
+                self.update_resource_request_status(id, input).await
+            }
+            "resource" => {
+                self.update_resource(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "cloudcontrol", resource_name
+                "cloudcontrol",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "resource_request_status" => self.delete_resource_request_status(id).await,
-            "resource" => self.delete_resource(id).await,
+            "resource_request_status" => {
+                self.delete_resource_request_status(id).await
+            }
+            "resource" => {
+                self.delete_resource(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "cloudcontrol", resource_name
+                "cloudcontrol",
+                resource_name
             ))),
         }
     }
@@ -96,6 +126,7 @@ impl<'a> CloudcontrolService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Resource_request_status resource operations
@@ -118,10 +149,14 @@ impl<'a> CloudcontrolService<'a> {
     }
 
     /// Create a new resource_request_status resource
-    async fn create_resource_request_status(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_resource_request_status(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -133,12 +168,17 @@ impl<'a> CloudcontrolService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a resource_request_status resource
-    async fn read_resource_request_status(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_resource_request_status(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -150,7 +190,8 @@ impl<'a> CloudcontrolService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -163,6 +204,7 @@ impl<'a> CloudcontrolService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
 
+
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.cloudcontrol_client
@@ -174,12 +216,17 @@ impl<'a> CloudcontrolService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a resource_request_status resource
-    async fn delete_resource_request_status(&self, id: &str) -> Result<()> {
+    async fn delete_resource_request_status(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -193,6 +240,7 @@ impl<'a> CloudcontrolService<'a> {
             Ok(())
         })
     }
+
 
     // ------------------------------------------------------------------------
     // Resource resource operations
@@ -215,15 +263,19 @@ impl<'a> CloudcontrolService<'a> {
     }
 
     /// Create a new resource resource
-    async fn create_resource(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_resource(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
             let client_token = input.get_optional_string("client_token")?;
-            let role_arn = input.get_optional_string("role_arn")?;
+            let desired_state = input.get_string("desired_state")?;
             let type_name = input.get_string("type_name")?;
             let type_version_id = input.get_optional_string("type_version_id")?;
-            let desired_state = input.get_string("desired_state")?;
+            let role_arn = input.get_optional_string("role_arn")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -238,15 +290,19 @@ impl<'a> CloudcontrolService<'a> {
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
                 .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("role_arn", role_arn.unwrap_or_default())
+                .with_field("desired_state", desired_state.unwrap_or_default())
                 .with_field("type_name", type_name.unwrap_or_default())
                 .with_field("type_version_id", type_version_id.unwrap_or_default())
-                .with_field("desired_state", desired_state.unwrap_or_default()))
+                .with_field("role_arn", role_arn.unwrap_or_default())
+            )
         })
     }
 
     /// Read a resource resource
-    async fn read_resource(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_resource(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -258,19 +314,25 @@ impl<'a> CloudcontrolService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a resource resource
-    async fn update_resource(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_resource(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
             let client_token = input.get_optional_string("client_token")?;
-            let role_arn = input.get_optional_string("role_arn")?;
+            let desired_state = input.get_string("desired_state")?;
             let type_name = input.get_string("type_name")?;
             let type_version_id = input.get_optional_string("type_version_id")?;
-            let desired_state = input.get_string("desired_state")?;
+            let role_arn = input.get_optional_string("role_arn")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -286,15 +348,19 @@ impl<'a> CloudcontrolService<'a> {
             Ok(ResourceOutput::new()
                 .with_id(id)
                 .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("role_arn", role_arn.unwrap_or_default())
+                .with_field("desired_state", desired_state.unwrap_or_default())
                 .with_field("type_name", type_name.unwrap_or_default())
                 .with_field("type_version_id", type_version_id.unwrap_or_default())
-                .with_field("desired_state", desired_state.unwrap_or_default()))
+                .with_field("role_arn", role_arn.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a resource resource
-    async fn delete_resource(&self, id: &str) -> Result<()> {
+    async fn delete_resource(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -308,4 +374,6 @@ impl<'a> CloudcontrolService<'a> {
             Ok(())
         })
     }
+
+
 }

@@ -21,7 +21,7 @@ impl<'a> Data_lake_exception_subscription<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, exception_time_to_live: Option<i64>, subscription_protocol: String, notification_endpoint: String) -> Result<String> {
+    pub async fn create(&self, subscription_protocol: String, notification_endpoint: String, exception_time_to_live: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Data_lake_exception_subscription<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, exception_time_to_live: Option<i64>, subscription_protocol: Option<String>, notification_endpoint: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, subscription_protocol: Option<String>, notification_endpoint: Option<String>, exception_time_to_live: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

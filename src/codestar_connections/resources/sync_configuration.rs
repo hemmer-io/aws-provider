@@ -21,7 +21,7 @@ impl<'a> Sync_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, trigger_resource_update_on: Option<String>, resource_name: String, sync_type: String, publish_deployment_status: Option<String>, branch: String, config_file: String, role_arn: String, repository_link_id: String) -> Result<String> {
+    pub async fn create(&self, resource_name: String, sync_type: String, branch: String, config_file: String, repository_link_id: String, publish_deployment_status: Option<String>, role_arn: String, trigger_resource_update_on: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Sync_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, trigger_resource_update_on: Option<String>, resource_name: Option<String>, sync_type: Option<String>, publish_deployment_status: Option<String>, branch: Option<String>, config_file: Option<String>, role_arn: Option<String>, repository_link_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, resource_name: Option<String>, sync_type: Option<String>, branch: Option<String>, config_file: Option<String>, repository_link_id: Option<String>, publish_deployment_status: Option<String>, role_arn: Option<String>, trigger_resource_update_on: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

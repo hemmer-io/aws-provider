@@ -21,7 +21,7 @@ impl<'a> Theme_for_stack<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, theme_styling: String, favicon_s3_location: String, title_text: String, footer_links: Option<Vec<String>>, organization_logo_s3_location: String, stack_name: String) -> Result<String> {
+    pub async fn create(&self, theme_styling: String, favicon_s3_location: String, footer_links: Option<Vec<String>>, stack_name: String, title_text: String, organization_logo_s3_location: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Theme_for_stack<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, theme_styling: Option<String>, favicon_s3_location: Option<String>, title_text: Option<String>, footer_links: Option<Vec<String>>, organization_logo_s3_location: Option<String>, stack_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, theme_styling: Option<String>, favicon_s3_location: Option<String>, footer_links: Option<Vec<String>>, stack_name: Option<String>, title_text: Option<String>, organization_logo_s3_location: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

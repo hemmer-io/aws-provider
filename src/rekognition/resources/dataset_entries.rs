@@ -24,7 +24,7 @@ impl<'a> Dataset_entries<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, dataset_arn: Option<String>, changes: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, changes: Option<String>, dataset_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

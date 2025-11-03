@@ -38,7 +38,7 @@ impl<'a> Ca_certificate<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, certificate_id: Option<String>, remove_auto_registration: Option<bool>, new_status: Option<String>, new_auto_registration_status: Option<String>, registration_config: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, remove_auto_registration: Option<bool>, certificate_id: Option<String>, new_status: Option<String>, registration_config: Option<String>, new_auto_registration_status: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

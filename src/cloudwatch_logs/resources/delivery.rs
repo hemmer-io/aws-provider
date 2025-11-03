@@ -21,7 +21,7 @@ impl<'a> Delivery<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, s3_delivery_configuration: Option<String>, delivery_source_name: String, field_delimiter: Option<String>, delivery_destination_arn: String, record_fields: Option<Vec<String>>, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, delivery_source_name: String, delivery_destination_arn: String, field_delimiter: Option<String>, s3_delivery_configuration: Option<String>, tags: Option<HashMap<String, String>>, record_fields: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

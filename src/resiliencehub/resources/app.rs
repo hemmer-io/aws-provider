@@ -21,7 +21,7 @@ impl<'a> App<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, policy_arn: Option<String>, event_subscriptions: Option<Vec<String>>, tags: Option<HashMap<String, String>>, name: String, aws_application_arn: Option<String>, client_token: Option<String>, permission_model: Option<String>, assessment_schedule: Option<String>) -> Result<String> {
+    pub async fn create(&self, policy_arn: Option<String>, tags: Option<HashMap<String, String>>, assessment_schedule: Option<String>, aws_application_arn: Option<String>, description: Option<String>, name: String, event_subscriptions: Option<Vec<String>>, permission_model: Option<String>, client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> App<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, policy_arn: Option<String>, event_subscriptions: Option<Vec<String>>, tags: Option<HashMap<String, String>>, name: Option<String>, aws_application_arn: Option<String>, client_token: Option<String>, permission_model: Option<String>, assessment_schedule: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, policy_arn: Option<String>, tags: Option<HashMap<String, String>>, assessment_schedule: Option<String>, aws_application_arn: Option<String>, description: Option<String>, name: Option<String>, event_subscriptions: Option<Vec<String>>, permission_model: Option<String>, client_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

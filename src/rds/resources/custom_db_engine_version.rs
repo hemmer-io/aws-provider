@@ -21,7 +21,7 @@ impl<'a> Custom_db_engine_version<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, image_id: Option<String>, description: Option<String>, database_installation_files_s3_prefix: Option<String>, use_aws_provided_latest_image: Option<bool>, engine_version: String, engine: String, source_custom_db_engine_version_identifier: Option<String>, manifest: Option<String>, database_installation_files_s3_bucket_name: Option<String>, kms_key_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, engine_version: String, use_aws_provided_latest_image: Option<bool>, tags: Option<Vec<String>>, kms_key_id: Option<String>, source_custom_db_engine_version_identifier: Option<String>, engine: String, database_installation_files_s3_bucket_name: Option<String>, description: Option<String>, image_id: Option<String>, manifest: Option<String>, database_installation_files_s3_prefix: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

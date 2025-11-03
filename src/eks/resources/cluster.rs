@@ -21,7 +21,7 @@ impl<'a> Cluster<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, remote_network_config: Option<String>, deletion_protection: Option<bool>, logging: Option<String>, client_request_token: Option<String>, storage_config: Option<String>, encryption_config: Option<Vec<String>>, resources_vpc_config: String, outpost_config: Option<String>, upgrade_policy: Option<String>, name: String, bootstrap_self_managed_addons: Option<bool>, role_arn: String, kubernetes_network_config: Option<String>, zonal_shift_config: Option<String>, compute_config: Option<String>, version: Option<String>, access_config: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, upgrade_policy: Option<String>, access_config: Option<String>, version: Option<String>, zonal_shift_config: Option<String>, storage_config: Option<String>, resources_vpc_config: String, kubernetes_network_config: Option<String>, deletion_protection: Option<bool>, encryption_config: Option<Vec<String>>, client_request_token: Option<String>, outpost_config: Option<String>, bootstrap_self_managed_addons: Option<bool>, remote_network_config: Option<String>, logging: Option<String>, name: String, compute_config: Option<String>, role_arn: String, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Integration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, domain_name: String, event_trigger_names: Option<Vec<String>>, flow_definition: Option<String>, uri: Option<String>, object_type_name: Option<String>, object_type_names: Option<HashMap<String, String>>, role_arn: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, tags: Option<HashMap<String, String>>, object_type_name: Option<String>, flow_definition: Option<String>, event_trigger_names: Option<Vec<String>>, role_arn: Option<String>, domain_name: String, object_type_names: Option<HashMap<String, String>>, uri: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

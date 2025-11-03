@@ -21,7 +21,7 @@ impl<'a> Pipeline<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, content_config: Option<String>, output_bucket: Option<String>, role: String, input_bucket: String, aws_kms_key_arn: Option<String>, thumbnail_config: Option<String>, name: String, notifications: Option<String>) -> Result<String> {
+    pub async fn create(&self, aws_kms_key_arn: Option<String>, input_bucket: String, notifications: Option<String>, thumbnail_config: Option<String>, content_config: Option<String>, output_bucket: Option<String>, name: String, role: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Pipeline<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, content_config: Option<String>, output_bucket: Option<String>, role: Option<String>, input_bucket: Option<String>, aws_kms_key_arn: Option<String>, thumbnail_config: Option<String>, name: Option<String>, notifications: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, aws_kms_key_arn: Option<String>, input_bucket: Option<String>, notifications: Option<String>, thumbnail_config: Option<String>, content_config: Option<String>, output_bucket: Option<String>, name: Option<String>, role: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

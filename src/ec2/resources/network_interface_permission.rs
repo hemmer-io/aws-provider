@@ -21,7 +21,7 @@ impl<'a> Network_interface_permission<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, permission: String, aws_account_id: Option<String>, aws_service: Option<String>, dry_run: Option<bool>, network_interface_id: String) -> Result<String> {
+    pub async fn create(&self, network_interface_id: String, aws_account_id: Option<String>, aws_service: Option<String>, permission: String, dry_run: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

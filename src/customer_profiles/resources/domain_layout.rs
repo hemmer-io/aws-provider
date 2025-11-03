@@ -21,7 +21,7 @@ impl<'a> Domain_layout<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, layout_definition_name: String, description: String, layout_type: String, tags: Option<HashMap<String, String>>, is_default: Option<bool>, domain_name: String, layout: String, display_name: String) -> Result<String> {
+    pub async fn create(&self, layout: String, domain_name: String, layout_type: String, display_name: String, layout_definition_name: String, is_default: Option<bool>, description: String, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Domain_layout<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, layout_definition_name: Option<String>, description: Option<String>, layout_type: Option<String>, tags: Option<HashMap<String, String>>, is_default: Option<bool>, domain_name: Option<String>, layout: Option<String>, display_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, layout: Option<String>, domain_name: Option<String>, layout_type: Option<String>, display_name: Option<String>, layout_definition_name: Option<String>, is_default: Option<bool>, description: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

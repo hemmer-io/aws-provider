@@ -25,12 +25,12 @@ impl<'a> SecuritylakeService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "data_lake_exception_subscription" => {
-                self.plan_data_lake_exception_subscription(current_state, desired_input)
-                    .await
+                self.plan_data_lake_exception_subscription(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "securitylake", resource_name
+                "securitylake",
+                resource_name
             ))),
         }
     }
@@ -47,20 +47,26 @@ impl<'a> SecuritylakeService<'a> {
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "securitylake", resource_name
+                "securitylake",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
             "data_lake_exception_subscription" => {
                 self.read_data_lake_exception_subscription(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "securitylake", resource_name
+                "securitylake",
+                resource_name
             ))),
         }
     }
@@ -74,25 +80,30 @@ impl<'a> SecuritylakeService<'a> {
     ) -> Result<ResourceOutput> {
         match resource_name {
             "data_lake_exception_subscription" => {
-                self.update_data_lake_exception_subscription(id, input)
-                    .await
+                self.update_data_lake_exception_subscription(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "securitylake", resource_name
+                "securitylake",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
             "data_lake_exception_subscription" => {
                 self.delete_data_lake_exception_subscription(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "securitylake", resource_name
+                "securitylake",
+                resource_name
             ))),
         }
     }
@@ -100,6 +111,7 @@ impl<'a> SecuritylakeService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Data_lake_exception_subscription resource operations
@@ -129,9 +141,10 @@ impl<'a> SecuritylakeService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let exception_time_to_live = input.get_optional_string("exception_time_to_live")?;
             let subscription_protocol = input.get_string("subscription_protocol")?;
             let notification_endpoint = input.get_string("notification_endpoint")?;
+            let exception_time_to_live = input.get_optional_string("exception_time_to_live")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -145,23 +158,18 @@ impl<'a> SecuritylakeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field(
-                    "exception_time_to_live",
-                    exception_time_to_live.unwrap_or_default(),
-                )
-                .with_field(
-                    "subscription_protocol",
-                    subscription_protocol.unwrap_or_default(),
-                )
-                .with_field(
-                    "notification_endpoint",
-                    notification_endpoint.unwrap_or_default(),
-                ))
+                .with_field("subscription_protocol", subscription_protocol.unwrap_or_default())
+                .with_field("notification_endpoint", notification_endpoint.unwrap_or_default())
+                .with_field("exception_time_to_live", exception_time_to_live.unwrap_or_default())
+            )
         })
     }
 
     /// Read a data_lake_exception_subscription resource
-    async fn read_data_lake_exception_subscription(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_data_lake_exception_subscription(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -173,7 +181,8 @@ impl<'a> SecuritylakeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -185,9 +194,10 @@ impl<'a> SecuritylakeService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let exception_time_to_live = input.get_optional_string("exception_time_to_live")?;
             let subscription_protocol = input.get_string("subscription_protocol")?;
             let notification_endpoint = input.get_string("notification_endpoint")?;
+            let exception_time_to_live = input.get_optional_string("exception_time_to_live")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -202,23 +212,18 @@ impl<'a> SecuritylakeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field(
-                    "exception_time_to_live",
-                    exception_time_to_live.unwrap_or_default(),
-                )
-                .with_field(
-                    "subscription_protocol",
-                    subscription_protocol.unwrap_or_default(),
-                )
-                .with_field(
-                    "notification_endpoint",
-                    notification_endpoint.unwrap_or_default(),
-                ))
+                .with_field("subscription_protocol", subscription_protocol.unwrap_or_default())
+                .with_field("notification_endpoint", notification_endpoint.unwrap_or_default())
+                .with_field("exception_time_to_live", exception_time_to_live.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a data_lake_exception_subscription resource
-    async fn delete_data_lake_exception_subscription(&self, id: &str) -> Result<()> {
+    async fn delete_data_lake_exception_subscription(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -232,4 +237,6 @@ impl<'a> SecuritylakeService<'a> {
             Ok(())
         })
     }
+
+
 }

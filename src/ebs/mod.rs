@@ -24,10 +24,13 @@ impl<'a> EbsService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "snapshot_block" => self.plan_snapshot_block(current_state, desired_input).await,
+            "snapshot_block" => {
+                self.plan_snapshot_block(current_state, desired_input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "ebs", resource_name
+                "ebs",
+                resource_name
             ))),
         }
     }
@@ -39,21 +42,31 @@ impl<'a> EbsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "snapshot_block" => self.create_snapshot_block(input).await,
+            "snapshot_block" => {
+                self.create_snapshot_block(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "ebs", resource_name
+                "ebs",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "snapshot_block" => self.read_snapshot_block(id).await,
+            "snapshot_block" => {
+                self.read_snapshot_block(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "ebs", resource_name
+                "ebs",
+                resource_name
             ))),
         }
     }
@@ -66,21 +79,31 @@ impl<'a> EbsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "snapshot_block" => self.update_snapshot_block(id, input).await,
+            "snapshot_block" => {
+                self.update_snapshot_block(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "ebs", resource_name
+                "ebs",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "snapshot_block" => self.delete_snapshot_block(id).await,
+            "snapshot_block" => {
+                self.delete_snapshot_block(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "ebs", resource_name
+                "ebs",
+                resource_name
             ))),
         }
     }
@@ -88,6 +111,7 @@ impl<'a> EbsService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Snapshot_block resource operations
@@ -110,17 +134,21 @@ impl<'a> EbsService<'a> {
     }
 
     /// Create a new snapshot_block resource
-    async fn create_snapshot_block(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_snapshot_block(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let checksum_algorithm = input.get_string("checksum_algorithm")?;
-            let block_data = input.get_string("block_data")?;
-            let block_index = input.get_string("block_index")?;
             let progress = input.get_optional_string("progress")?;
+            let block_index = input.get_string("block_index")?;
             let snapshot_id = input.get_string("snapshot_id")?;
-            let data_length = input.get_string("data_length")?;
+            let block_data = input.get_string("block_data")?;
+            let checksum_algorithm = input.get_string("checksum_algorithm")?;
             let checksum = input.get_string("checksum")?;
+            let data_length = input.get_string("data_length")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -134,18 +162,22 @@ impl<'a> EbsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("checksum_algorithm", checksum_algorithm.unwrap_or_default())
-                .with_field("block_data", block_data.unwrap_or_default())
-                .with_field("block_index", block_index.unwrap_or_default())
                 .with_field("progress", progress.unwrap_or_default())
+                .with_field("block_index", block_index.unwrap_or_default())
                 .with_field("snapshot_id", snapshot_id.unwrap_or_default())
+                .with_field("block_data", block_data.unwrap_or_default())
+                .with_field("checksum_algorithm", checksum_algorithm.unwrap_or_default())
+                .with_field("checksum", checksum.unwrap_or_default())
                 .with_field("data_length", data_length.unwrap_or_default())
-                .with_field("checksum", checksum.unwrap_or_default()))
+            )
         })
     }
 
     /// Read a snapshot_block resource
-    async fn read_snapshot_block(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_snapshot_block(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -157,7 +189,8 @@ impl<'a> EbsService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -169,13 +202,14 @@ impl<'a> EbsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let checksum_algorithm = input.get_string("checksum_algorithm")?;
-            let block_data = input.get_string("block_data")?;
-            let block_index = input.get_string("block_index")?;
             let progress = input.get_optional_string("progress")?;
+            let block_index = input.get_string("block_index")?;
             let snapshot_id = input.get_string("snapshot_id")?;
-            let data_length = input.get_string("data_length")?;
+            let block_data = input.get_string("block_data")?;
+            let checksum_algorithm = input.get_string("checksum_algorithm")?;
             let checksum = input.get_string("checksum")?;
+            let data_length = input.get_string("data_length")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -190,18 +224,22 @@ impl<'a> EbsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("checksum_algorithm", checksum_algorithm.unwrap_or_default())
-                .with_field("block_data", block_data.unwrap_or_default())
-                .with_field("block_index", block_index.unwrap_or_default())
                 .with_field("progress", progress.unwrap_or_default())
+                .with_field("block_index", block_index.unwrap_or_default())
                 .with_field("snapshot_id", snapshot_id.unwrap_or_default())
+                .with_field("block_data", block_data.unwrap_or_default())
+                .with_field("checksum_algorithm", checksum_algorithm.unwrap_or_default())
+                .with_field("checksum", checksum.unwrap_or_default())
                 .with_field("data_length", data_length.unwrap_or_default())
-                .with_field("checksum", checksum.unwrap_or_default()))
+            )
         })
     }
 
     /// Delete a snapshot_block resource
-    async fn delete_snapshot_block(&self, id: &str) -> Result<()> {
+    async fn delete_snapshot_block(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -215,4 +253,6 @@ impl<'a> EbsService<'a> {
             Ok(())
         })
     }
+
+
 }

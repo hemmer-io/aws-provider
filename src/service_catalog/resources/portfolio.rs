@@ -21,7 +21,7 @@ impl<'a> Portfolio<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, display_name: String, provider_name: String, tags: Option<Vec<String>>, idempotency_token: String, accept_language: Option<String>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, tags: Option<Vec<String>>, display_name: String, idempotency_token: String, accept_language: Option<String>, provider_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Portfolio<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, display_name: Option<String>, provider_name: Option<String>, tags: Option<Vec<String>>, idempotency_token: Option<String>, accept_language: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, tags: Option<Vec<String>>, display_name: Option<String>, idempotency_token: Option<String>, accept_language: Option<String>, provider_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

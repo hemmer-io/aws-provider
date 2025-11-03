@@ -21,7 +21,7 @@ impl<'a> Domain_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, domain_name: Option<String>, service_type: Option<String>, tls_config: Option<String>, authentication_type: Option<String>, application_protocol: Option<String>, server_certificate_arns: Option<Vec<String>>, client_certificate_config: Option<String>, server_certificate_config: Option<String>, validation_certificate_arn: Option<String>, tags: Option<Vec<String>>, authorizer_config: Option<String>, domain_configuration_name: String) -> Result<String> {
+    pub async fn create(&self, domain_configuration_name: String, validation_certificate_arn: Option<String>, service_type: Option<String>, authentication_type: Option<String>, application_protocol: Option<String>, domain_name: Option<String>, server_certificate_arns: Option<Vec<String>>, authorizer_config: Option<String>, tags: Option<Vec<String>>, tls_config: Option<String>, server_certificate_config: Option<String>, client_certificate_config: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Domain_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, domain_name: Option<String>, service_type: Option<String>, tls_config: Option<String>, authentication_type: Option<String>, application_protocol: Option<String>, server_certificate_arns: Option<Vec<String>>, client_certificate_config: Option<String>, server_certificate_config: Option<String>, validation_certificate_arn: Option<String>, tags: Option<Vec<String>>, authorizer_config: Option<String>, domain_configuration_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, domain_configuration_name: Option<String>, validation_certificate_arn: Option<String>, service_type: Option<String>, authentication_type: Option<String>, application_protocol: Option<String>, domain_name: Option<String>, server_certificate_arns: Option<Vec<String>>, authorizer_config: Option<String>, tags: Option<Vec<String>>, tls_config: Option<String>, server_certificate_config: Option<String>, client_certificate_config: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

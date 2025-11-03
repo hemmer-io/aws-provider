@@ -21,7 +21,7 @@ impl<'a> Detector<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, detector_id: String, description: Option<String>, event_type_name: String, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, detector_id: String, event_type_name: String, tags: Option<Vec<String>>, description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

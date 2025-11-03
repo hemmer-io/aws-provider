@@ -38,7 +38,7 @@ impl<'a> Relational_database_parameters<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, relational_database_name: Option<String>, parameters: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, parameters: Option<Vec<String>>, relational_database_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

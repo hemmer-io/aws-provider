@@ -21,7 +21,7 @@ impl<'a> Storage_virtual_machine<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, name: String, active_directory_configuration: Option<String>, svm_admin_password: Option<String>, file_system_id: String, client_request_token: Option<String>, tags: Option<Vec<String>>, root_volume_security_style: Option<String>) -> Result<String> {
+    pub async fn create(&self, client_request_token: Option<String>, svm_admin_password: Option<String>, root_volume_security_style: Option<String>, tags: Option<Vec<String>>, file_system_id: String, name: String, active_directory_configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Storage_virtual_machine<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, name: Option<String>, active_directory_configuration: Option<String>, svm_admin_password: Option<String>, file_system_id: Option<String>, client_request_token: Option<String>, tags: Option<Vec<String>>, root_volume_security_style: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, client_request_token: Option<String>, svm_admin_password: Option<String>, root_volume_security_style: Option<String>, tags: Option<Vec<String>>, file_system_id: Option<String>, name: Option<String>, active_directory_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

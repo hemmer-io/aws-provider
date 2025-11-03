@@ -21,7 +21,7 @@ impl<'a> Storage_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, disallow_ingest_null_na_n: Option<bool>, storage_type: String, multi_layer_storage: Option<String>, disassociated_data_storage: Option<String>, warm_tier: Option<String>, retention_period: Option<String>, warm_tier_retention_period: Option<String>) -> Result<String> {
+    pub async fn create(&self, disallow_ingest_null_na_n: Option<bool>, storage_type: String, disassociated_data_storage: Option<String>, warm_tier_retention_period: Option<String>, warm_tier: Option<String>, multi_layer_storage: Option<String>, retention_period: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

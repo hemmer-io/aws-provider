@@ -21,7 +21,7 @@ impl<'a> Terms<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, enforcement: String, links: Option<HashMap<String, String>>, terms_name: String, terms_source: String, client_id: String, user_pool_id: String) -> Result<String> {
+    pub async fn create(&self, enforcement: String, terms_source: String, client_id: String, links: Option<HashMap<String, String>>, user_pool_id: String, terms_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Terms<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, enforcement: Option<String>, links: Option<HashMap<String, String>>, terms_name: Option<String>, terms_source: Option<String>, client_id: Option<String>, user_pool_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, enforcement: Option<String>, terms_source: Option<String>, client_id: Option<String>, links: Option<HashMap<String, String>>, user_pool_id: Option<String>, terms_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Cluster_v2<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, provisioned: Option<String>, tags: Option<HashMap<String, String>>, cluster_name: String, serverless: Option<String>) -> Result<String> {
+    pub async fn create(&self, serverless: Option<String>, cluster_name: String, tags: Option<HashMap<String, String>>, provisioned: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

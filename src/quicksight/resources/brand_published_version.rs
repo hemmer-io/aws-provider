@@ -38,7 +38,7 @@ impl<'a> Brand_published_version<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, aws_account_id: Option<String>, brand_id: Option<String>, version_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, version_id: Option<String>, brand_id: Option<String>, aws_account_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

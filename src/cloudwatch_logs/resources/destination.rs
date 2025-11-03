@@ -21,7 +21,7 @@ impl<'a> Destination<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, role_arn: String, tags: Option<HashMap<String, String>>, target_arn: String, destination_name: String) -> Result<String> {
+    pub async fn create(&self, role_arn: String, target_arn: String, tags: Option<HashMap<String, String>>, destination_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

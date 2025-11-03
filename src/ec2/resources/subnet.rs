@@ -21,7 +21,7 @@ impl<'a> Subnet<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, ipv6_netmask_length: Option<i64>, outpost_arn: Option<String>, tag_specifications: Option<Vec<String>>, vpc_id: String, ipv4_ipam_pool_id: Option<String>, availability_zone_id: Option<String>, ipv6_ipam_pool_id: Option<String>, dry_run: Option<bool>, availability_zone: Option<String>, ipv6_cidr_block: Option<String>, cidr_block: Option<String>, ipv4_netmask_length: Option<i64>, ipv6_native: Option<bool>) -> Result<String> {
+    pub async fn create(&self, ipv6_cidr_block: Option<String>, outpost_arn: Option<String>, ipv6_ipam_pool_id: Option<String>, ipv4_ipam_pool_id: Option<String>, dry_run: Option<bool>, ipv6_netmask_length: Option<i64>, ipv6_native: Option<bool>, cidr_block: Option<String>, vpc_id: String, ipv4_netmask_length: Option<i64>, availability_zone: Option<String>, tag_specifications: Option<Vec<String>>, availability_zone_id: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

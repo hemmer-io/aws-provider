@@ -38,7 +38,7 @@ impl<'a> Service_access_policies<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, domain_name: Option<String>, access_policies: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, access_policies: Option<String>, domain_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Trust<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, conditional_forwarder_ipv6_addrs: Option<Vec<String>>, trust_password: String, selective_auth: Option<String>, trust_type: Option<String>, remote_domain_name: String, directory_id: String, conditional_forwarder_ip_addrs: Option<Vec<String>>, trust_direction: String) -> Result<String> {
+    pub async fn create(&self, conditional_forwarder_ip_addrs: Option<Vec<String>>, trust_direction: String, directory_id: String, trust_password: String, selective_auth: Option<String>, remote_domain_name: String, conditional_forwarder_ipv6_addrs: Option<Vec<String>>, trust_type: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Trust<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, conditional_forwarder_ipv6_addrs: Option<Vec<String>>, trust_password: Option<String>, selective_auth: Option<String>, trust_type: Option<String>, remote_domain_name: Option<String>, directory_id: Option<String>, conditional_forwarder_ip_addrs: Option<Vec<String>>, trust_direction: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, conditional_forwarder_ip_addrs: Option<Vec<String>>, trust_direction: Option<String>, directory_id: Option<String>, trust_password: Option<String>, selective_auth: Option<String>, remote_domain_name: Option<String>, conditional_forwarder_ipv6_addrs: Option<Vec<String>>, trust_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

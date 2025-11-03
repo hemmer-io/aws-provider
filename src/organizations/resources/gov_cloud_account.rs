@@ -21,7 +21,7 @@ impl<'a> Gov_cloud_account<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, role_name: Option<String>, account_name: String, tags: Option<Vec<String>>, iam_user_access_to_billing: Option<String>, email: String) -> Result<String> {
+    pub async fn create(&self, email: String, role_name: Option<String>, account_name: String, iam_user_access_to_billing: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

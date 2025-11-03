@@ -21,7 +21,7 @@ impl<'a> Publishing_destination<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: Option<String>, destination_type: String, destination_properties: String, detector_id: String) -> Result<String> {
+    pub async fn create(&self, detector_id: String, destination_type: String, destination_properties: String, client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Publishing_destination<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, client_token: Option<String>, destination_type: Option<String>, destination_properties: Option<String>, detector_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, detector_id: Option<String>, destination_type: Option<String>, destination_properties: Option<String>, client_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

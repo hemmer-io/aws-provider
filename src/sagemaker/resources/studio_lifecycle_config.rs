@@ -21,7 +21,7 @@ impl<'a> Studio_lifecycle_config<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, studio_lifecycle_config_name: String, studio_lifecycle_config_app_type: String, tags: Option<Vec<String>>, studio_lifecycle_config_content: String) -> Result<String> {
+    pub async fn create(&self, studio_lifecycle_config_name: String, studio_lifecycle_config_content: String, tags: Option<Vec<String>>, studio_lifecycle_config_app_type: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

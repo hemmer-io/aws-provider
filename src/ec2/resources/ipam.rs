@@ -21,7 +21,7 @@ impl<'a> Ipam<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, enable_private_gua: Option<bool>, tag_specifications: Option<Vec<String>>, metered_account: Option<String>, dry_run: Option<bool>, description: Option<String>, client_token: Option<String>, operating_regions: Option<Vec<String>>, tier: Option<String>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, dry_run: Option<bool>, enable_private_gua: Option<bool>, tag_specifications: Option<Vec<String>>, client_token: Option<String>, metered_account: Option<String>, operating_regions: Option<Vec<String>>, tier: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

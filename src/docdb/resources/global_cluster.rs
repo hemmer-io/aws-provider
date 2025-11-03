@@ -21,7 +21,7 @@ impl<'a> Global_cluster<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, deletion_protection: Option<bool>, global_cluster_identifier: String, engine_version: Option<String>, database_name: Option<String>, storage_encrypted: Option<bool>, engine: Option<String>, source_db_cluster_identifier: Option<String>) -> Result<String> {
+    pub async fn create(&self, storage_encrypted: Option<bool>, source_db_cluster_identifier: Option<String>, deletion_protection: Option<bool>, global_cluster_identifier: String, database_name: Option<String>, engine_version: Option<String>, engine: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

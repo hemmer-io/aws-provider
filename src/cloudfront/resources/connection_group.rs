@@ -21,7 +21,7 @@ impl<'a> Connection_group<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<String>, anycast_ip_list_id: Option<String>, enabled: Option<bool>, name: String, ipv6_enabled: Option<bool>) -> Result<String> {
+    pub async fn create(&self, name: String, anycast_ip_list_id: Option<String>, ipv6_enabled: Option<bool>, enabled: Option<bool>, tags: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Connection_group<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<String>, anycast_ip_list_id: Option<String>, enabled: Option<bool>, name: Option<String>, ipv6_enabled: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, name: Option<String>, anycast_ip_list_id: Option<String>, ipv6_enabled: Option<bool>, enabled: Option<bool>, tags: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

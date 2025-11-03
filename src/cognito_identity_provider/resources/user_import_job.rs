@@ -21,7 +21,7 @@ impl<'a> User_import_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, user_pool_id: String, job_name: String, cloud_watch_logs_role_arn: String) -> Result<String> {
+    pub async fn create(&self, cloud_watch_logs_role_arn: String, user_pool_id: String, job_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

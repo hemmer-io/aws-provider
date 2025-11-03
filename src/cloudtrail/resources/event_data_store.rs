@@ -21,7 +21,7 @@ impl<'a> Event_data_store<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags_list: Option<Vec<String>>, kms_key_id: Option<String>, billing_mode: Option<String>, retention_period: Option<i64>, termination_protection_enabled: Option<bool>, advanced_event_selectors: Option<Vec<String>>, organization_enabled: Option<bool>, start_ingestion: Option<bool>, name: String, multi_region_enabled: Option<bool>) -> Result<String> {
+    pub async fn create(&self, kms_key_id: Option<String>, billing_mode: Option<String>, advanced_event_selectors: Option<Vec<String>>, start_ingestion: Option<bool>, name: String, multi_region_enabled: Option<bool>, retention_period: Option<i64>, organization_enabled: Option<bool>, termination_protection_enabled: Option<bool>, tags_list: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Event_data_store<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags_list: Option<Vec<String>>, kms_key_id: Option<String>, billing_mode: Option<String>, retention_period: Option<i64>, termination_protection_enabled: Option<bool>, advanced_event_selectors: Option<Vec<String>>, organization_enabled: Option<bool>, start_ingestion: Option<bool>, name: Option<String>, multi_region_enabled: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, kms_key_id: Option<String>, billing_mode: Option<String>, advanced_event_selectors: Option<Vec<String>>, start_ingestion: Option<bool>, name: Option<String>, multi_region_enabled: Option<bool>, retention_period: Option<i64>, organization_enabled: Option<bool>, termination_protection_enabled: Option<bool>, tags_list: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

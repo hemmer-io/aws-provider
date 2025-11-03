@@ -21,7 +21,7 @@ impl<'a> Matchmaking_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, game_properties: Option<Vec<String>>, acceptance_required: bool, custom_event_data: Option<String>, tags: Option<Vec<String>>, flex_match_mode: Option<String>, game_session_queue_arns: Option<Vec<String>>, name: String, request_timeout_seconds: i64, acceptance_timeout_seconds: Option<i64>, rule_set_name: String, additional_player_count: Option<i64>, game_session_data: Option<String>, notification_target: Option<String>, backfill_mode: Option<String>, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, notification_target: Option<String>, game_session_data: Option<String>, acceptance_required: bool, acceptance_timeout_seconds: Option<i64>, request_timeout_seconds: i64, rule_set_name: String, game_session_queue_arns: Option<Vec<String>>, custom_event_data: Option<String>, game_properties: Option<Vec<String>>, backfill_mode: Option<String>, additional_player_count: Option<i64>, description: Option<String>, name: String, flex_match_mode: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Matchmaking_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, game_properties: Option<Vec<String>>, acceptance_required: Option<bool>, custom_event_data: Option<String>, tags: Option<Vec<String>>, flex_match_mode: Option<String>, game_session_queue_arns: Option<Vec<String>>, name: Option<String>, request_timeout_seconds: Option<i64>, acceptance_timeout_seconds: Option<i64>, rule_set_name: Option<String>, additional_player_count: Option<i64>, game_session_data: Option<String>, notification_target: Option<String>, backfill_mode: Option<String>, description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, notification_target: Option<String>, game_session_data: Option<String>, acceptance_required: Option<bool>, acceptance_timeout_seconds: Option<i64>, request_timeout_seconds: Option<i64>, rule_set_name: Option<String>, game_session_queue_arns: Option<Vec<String>>, custom_event_data: Option<String>, game_properties: Option<Vec<String>>, backfill_mode: Option<String>, additional_player_count: Option<i64>, description: Option<String>, name: Option<String>, flex_match_mode: Option<String>, tags: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

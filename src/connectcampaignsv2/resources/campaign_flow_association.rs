@@ -24,7 +24,7 @@ impl<'a> Campaign_flow_association<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, connect_campaign_flow_arn: Option<String>, id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, id: Option<String>, connect_campaign_flow_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

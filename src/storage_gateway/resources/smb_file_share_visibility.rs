@@ -24,7 +24,7 @@ impl<'a> Smb_file_share_visibility<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, gateway_arn: Option<String>, file_shares_visible: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, file_shares_visible: Option<bool>, gateway_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

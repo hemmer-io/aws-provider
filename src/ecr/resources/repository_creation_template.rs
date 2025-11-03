@@ -21,7 +21,7 @@ impl<'a> Repository_creation_template<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, repository_policy: Option<String>, image_tag_mutability: Option<String>, encryption_configuration: Option<String>, resource_tags: Option<Vec<String>>, lifecycle_policy: Option<String>, description: Option<String>, prefix: String, image_tag_mutability_exclusion_filters: Option<Vec<String>>, applied_for: Vec<String>, custom_role_arn: Option<String>) -> Result<String> {
+    pub async fn create(&self, prefix: String, image_tag_mutability_exclusion_filters: Option<Vec<String>>, repository_policy: Option<String>, custom_role_arn: Option<String>, image_tag_mutability: Option<String>, lifecycle_policy: Option<String>, description: Option<String>, encryption_configuration: Option<String>, applied_for: Vec<String>, resource_tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Repository_creation_template<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, repository_policy: Option<String>, image_tag_mutability: Option<String>, encryption_configuration: Option<String>, resource_tags: Option<Vec<String>>, lifecycle_policy: Option<String>, description: Option<String>, prefix: Option<String>, image_tag_mutability_exclusion_filters: Option<Vec<String>>, applied_for: Option<Vec<String>>, custom_role_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, prefix: Option<String>, image_tag_mutability_exclusion_filters: Option<Vec<String>>, repository_policy: Option<String>, custom_role_arn: Option<String>, image_tag_mutability: Option<String>, lifecycle_policy: Option<String>, description: Option<String>, encryption_configuration: Option<String>, applied_for: Option<Vec<String>>, resource_tags: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Transit_virtual_interface<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, connection_id: String, new_transit_virtual_interface: String) -> Result<String> {
+    pub async fn create(&self, new_transit_virtual_interface: String, connection_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -24,7 +24,7 @@ impl<'a> Assessment_control<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, comment_body: Option<String>, assessment_id: Option<String>, control_id: Option<String>, control_status: Option<String>, control_set_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, control_set_id: Option<String>, comment_body: Option<String>, assessment_id: Option<String>, control_id: Option<String>, control_status: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Directory<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, name: String, short_name: Option<String>, description: Option<String>, tags: Option<Vec<String>>, network_type: Option<String>, size: String, password: String, vpc_settings: Option<String>) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, name: String, password: String, vpc_settings: Option<String>, network_type: Option<String>, description: Option<String>, short_name: Option<String>, size: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

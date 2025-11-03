@@ -21,7 +21,7 @@ impl<'a> Crawler<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, schedule: Option<String>, schema_change_policy: Option<String>, configuration: Option<String>, crawler_security_configuration: Option<String>, role: String, database_name: Option<String>, table_prefix: Option<String>, lineage_configuration: Option<String>, tags: Option<HashMap<String, String>>, classifiers: Option<Vec<String>>, targets: String, recrawl_policy: Option<String>, lake_formation_configuration: Option<String>, name: String) -> Result<String> {
+    pub async fn create(&self, classifiers: Option<Vec<String>>, schedule: Option<String>, name: String, tags: Option<HashMap<String, String>>, role: String, configuration: Option<String>, targets: String, schema_change_policy: Option<String>, database_name: Option<String>, description: Option<String>, table_prefix: Option<String>, recrawl_policy: Option<String>, lake_formation_configuration: Option<String>, lineage_configuration: Option<String>, crawler_security_configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Crawler<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, schedule: Option<String>, schema_change_policy: Option<String>, configuration: Option<String>, crawler_security_configuration: Option<String>, role: Option<String>, database_name: Option<String>, table_prefix: Option<String>, lineage_configuration: Option<String>, tags: Option<HashMap<String, String>>, classifiers: Option<Vec<String>>, targets: Option<String>, recrawl_policy: Option<String>, lake_formation_configuration: Option<String>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, classifiers: Option<Vec<String>>, schedule: Option<String>, name: Option<String>, tags: Option<HashMap<String, String>>, role: Option<String>, configuration: Option<String>, targets: Option<String>, schema_change_policy: Option<String>, database_name: Option<String>, description: Option<String>, table_prefix: Option<String>, recrawl_policy: Option<String>, lake_formation_configuration: Option<String>, lineage_configuration: Option<String>, crawler_security_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

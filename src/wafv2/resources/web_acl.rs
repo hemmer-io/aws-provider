@@ -21,7 +21,7 @@ impl<'a> Web_acl<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, custom_response_bodies: Option<HashMap<String, String>>, challenge_config: Option<String>, token_domains: Option<Vec<String>>, association_config: Option<String>, default_action: String, on_source_d_do_s_protection_config: Option<String>, captcha_config: Option<String>, data_protection_config: Option<String>, name: String, description: Option<String>, application_config: Option<String>, rules: Option<Vec<String>>, scope: String, visibility_config: String, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, on_source_d_do_s_protection_config: Option<String>, captcha_config: Option<String>, rules: Option<Vec<String>>, data_protection_config: Option<String>, visibility_config: String, default_action: String, name: String, association_config: Option<String>, tags: Option<Vec<String>>, token_domains: Option<Vec<String>>, application_config: Option<String>, description: Option<String>, challenge_config: Option<String>, scope: String, custom_response_bodies: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Web_acl<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, custom_response_bodies: Option<HashMap<String, String>>, challenge_config: Option<String>, token_domains: Option<Vec<String>>, association_config: Option<String>, default_action: Option<String>, on_source_d_do_s_protection_config: Option<String>, captcha_config: Option<String>, data_protection_config: Option<String>, name: Option<String>, description: Option<String>, application_config: Option<String>, rules: Option<Vec<String>>, scope: Option<String>, visibility_config: Option<String>, tags: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, on_source_d_do_s_protection_config: Option<String>, captcha_config: Option<String>, rules: Option<Vec<String>>, data_protection_config: Option<String>, visibility_config: Option<String>, default_action: Option<String>, name: Option<String>, association_config: Option<String>, tags: Option<Vec<String>>, token_domains: Option<Vec<String>>, application_config: Option<String>, description: Option<String>, challenge_config: Option<String>, scope: Option<String>, custom_response_bodies: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

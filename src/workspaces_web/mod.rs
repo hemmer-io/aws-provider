@@ -24,10 +24,13 @@ impl<'a> Workspaces_webService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "session" => self.plan_session(current_state, desired_input).await,
+            "session" => {
+                self.plan_session(current_state, desired_input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "workspaces_web", resource_name
+                "workspaces_web",
+                resource_name
             ))),
         }
     }
@@ -39,21 +42,31 @@ impl<'a> Workspaces_webService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "session" => self.create_session(input).await,
+            "session" => {
+                self.create_session(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "workspaces_web", resource_name
+                "workspaces_web",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "session" => self.read_session(id).await,
+            "session" => {
+                self.read_session(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "workspaces_web", resource_name
+                "workspaces_web",
+                resource_name
             ))),
         }
     }
@@ -66,21 +79,31 @@ impl<'a> Workspaces_webService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "session" => self.update_session(id, input).await,
+            "session" => {
+                self.update_session(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "workspaces_web", resource_name
+                "workspaces_web",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "session" => self.delete_session(id).await,
+            "session" => {
+                self.delete_session(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "workspaces_web", resource_name
+                "workspaces_web",
+                resource_name
             ))),
         }
     }
@@ -88,6 +111,7 @@ impl<'a> Workspaces_webService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Session resource operations
@@ -110,10 +134,14 @@ impl<'a> Workspaces_webService<'a> {
     }
 
     /// Create a new session resource
-    async fn create_session(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_session(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -125,12 +153,17 @@ impl<'a> Workspaces_webService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id("placeholder-id"))
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
         })
     }
 
     /// Read a session resource
-    async fn read_session(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_session(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -142,14 +175,20 @@ impl<'a> Workspaces_webService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a session resource
-    async fn update_session(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_session(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -162,12 +201,17 @@ impl<'a> Workspaces_webService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
         })
     }
 
     /// Delete a session resource
-    async fn delete_session(&self, id: &str) -> Result<()> {
+    async fn delete_session(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -181,4 +225,6 @@ impl<'a> Workspaces_webService<'a> {
             Ok(())
         })
     }
+
+
 }

@@ -21,7 +21,7 @@ impl<'a> Datastore<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, datastore_storage: Option<String>, retention_period: Option<String>, tags: Option<Vec<String>>, file_format_configuration: Option<String>, datastore_name: String, datastore_partitions: Option<String>) -> Result<String> {
+    pub async fn create(&self, retention_period: Option<String>, datastore_partitions: Option<String>, datastore_name: String, datastore_storage: Option<String>, tags: Option<Vec<String>>, file_format_configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Datastore<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, datastore_storage: Option<String>, retention_period: Option<String>, tags: Option<Vec<String>>, file_format_configuration: Option<String>, datastore_name: Option<String>, datastore_partitions: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, retention_period: Option<String>, datastore_partitions: Option<String>, datastore_name: Option<String>, datastore_storage: Option<String>, tags: Option<Vec<String>>, file_format_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

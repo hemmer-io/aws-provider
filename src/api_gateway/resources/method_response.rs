@@ -21,7 +21,7 @@ impl<'a> Method_response<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, http_method: String, status_code: String, response_parameters: Option<HashMap<String, bool>>, response_models: Option<String>, resource_id: String, rest_api_id: String) -> Result<String> {
+    pub async fn create(&self, rest_api_id: String, resource_id: String, http_method: String, response_parameters: Option<HashMap<String, bool>>, response_models: Option<String>, status_code: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Method_response<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, http_method: Option<String>, status_code: Option<String>, response_parameters: Option<HashMap<String, bool>>, response_models: Option<String>, resource_id: Option<String>, rest_api_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, rest_api_id: Option<String>, resource_id: Option<String>, http_method: Option<String>, response_parameters: Option<HashMap<String, bool>>, response_models: Option<String>, status_code: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Queue<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, outbound_email_config: Option<String>, name: String, hours_of_operation_id: String, instance_id: String, description: Option<String>, max_contacts: Option<i64>, quick_connect_ids: Option<Vec<String>>, outbound_caller_config: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, name: String, outbound_email_config: Option<String>, max_contacts: Option<i64>, hours_of_operation_id: String, description: Option<String>, outbound_caller_config: Option<String>, tags: Option<HashMap<String, String>>, instance_id: String, quick_connect_ids: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

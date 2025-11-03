@@ -21,7 +21,7 @@ impl<'a> Data_view<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: Option<String>, partition_columns: Option<Vec<String>>, destination_type_params: String, as_of_timestamp: Option<String>, dataset_id: String, auto_update: Option<bool>, sort_columns: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, partition_columns: Option<Vec<String>>, sort_columns: Option<Vec<String>>, client_token: Option<String>, dataset_id: String, as_of_timestamp: Option<String>, destination_type_params: String, auto_update: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

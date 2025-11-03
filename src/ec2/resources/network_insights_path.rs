@@ -21,7 +21,7 @@ impl<'a> Network_insights_path<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, destination_port: Option<i64>, filter_at_source: Option<String>, source_ip: Option<String>, source: String, destination: Option<String>, protocol: String, destination_ip: Option<String>, dry_run: Option<bool>, filter_at_destination: Option<String>, client_token: String, tag_specifications: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, source_ip: Option<String>, destination_ip: Option<String>, destination_port: Option<i64>, destination: Option<String>, protocol: String, tag_specifications: Option<Vec<String>>, dry_run: Option<bool>, client_token: String, filter_at_source: Option<String>, source: String, filter_at_destination: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Rate_based_rule<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, rate_limit: i64, rate_key: String, name: String, change_token: String, tags: Option<Vec<String>>, metric_name: String) -> Result<String> {
+    pub async fn create(&self, rate_limit: i64, change_token: String, rate_key: String, name: String, metric_name: String, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Rate_based_rule<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, rate_limit: Option<i64>, rate_key: Option<String>, name: Option<String>, change_token: Option<String>, tags: Option<Vec<String>>, metric_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, rate_limit: Option<i64>, change_token: Option<String>, rate_key: Option<String>, name: Option<String>, metric_name: Option<String>, tags: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

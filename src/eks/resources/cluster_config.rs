@@ -24,7 +24,7 @@ impl<'a> Cluster_config<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, name: Option<String>, kubernetes_network_config: Option<String>, compute_config: Option<String>, client_request_token: Option<String>, remote_network_config: Option<String>, resources_vpc_config: Option<String>, logging: Option<String>, zonal_shift_config: Option<String>, upgrade_policy: Option<String>, deletion_protection: Option<bool>, storage_config: Option<String>, access_config: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, storage_config: Option<String>, upgrade_policy: Option<String>, deletion_protection: Option<bool>, name: Option<String>, access_config: Option<String>, zonal_shift_config: Option<String>, client_request_token: Option<String>, logging: Option<String>, compute_config: Option<String>, resources_vpc_config: Option<String>, kubernetes_network_config: Option<String>, remote_network_config: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

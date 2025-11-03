@@ -38,7 +38,7 @@ impl<'a> App_version<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, app_arn: Option<String>, additional_info: Option<HashMap<String, Vec<String>>>) -> Result<()> {
+    pub async fn update(&self, id: &str, additional_info: Option<HashMap<String, Vec<String>>>, app_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

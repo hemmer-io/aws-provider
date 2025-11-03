@@ -21,7 +21,7 @@ impl<'a> Disk<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, availability_zone: String, add_ons: Option<Vec<String>>, disk_name: String, size_in_gb: i64, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, size_in_gb: i64, add_ons: Option<Vec<String>>, disk_name: String, availability_zone: String, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

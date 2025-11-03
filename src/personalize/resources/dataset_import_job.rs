@@ -21,7 +21,7 @@ impl<'a> Dataset_import_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, job_name: String, role_arn: String, dataset_arn: String, publish_attribution_metrics_to_s3: Option<bool>, import_mode: Option<String>, data_source: String, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, job_name: String, data_source: String, role_arn: String, dataset_arn: String, tags: Option<Vec<String>>, import_mode: Option<String>, publish_attribution_metrics_to_s3: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

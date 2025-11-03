@@ -21,7 +21,7 @@ impl<'a> License_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, disassociate_when_not_found: Option<bool>, product_information_list: Option<Vec<String>>, license_rules: Option<String>, description: Option<String>, license_count_hard_limit: Option<bool>, tags: Option<Vec<String>>, name: String, license_counting_type: String, license_count: Option<i64>) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, disassociate_when_not_found: Option<bool>, product_information_list: Option<Vec<String>>, name: String, license_rules: Option<String>, description: Option<String>, license_count: Option<i64>, license_count_hard_limit: Option<bool>, license_counting_type: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> License_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, disassociate_when_not_found: Option<bool>, product_information_list: Option<Vec<String>>, license_rules: Option<String>, description: Option<String>, license_count_hard_limit: Option<bool>, tags: Option<Vec<String>>, name: Option<String>, license_counting_type: Option<String>, license_count: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, disassociate_when_not_found: Option<bool>, product_information_list: Option<Vec<String>>, name: Option<String>, license_rules: Option<String>, description: Option<String>, license_count: Option<i64>, license_count_hard_limit: Option<bool>, license_counting_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

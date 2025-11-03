@@ -38,7 +38,7 @@ impl<'a> Maintenance_start_time<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, hour_of_day: Option<i64>, software_update_preferences: Option<String>, gateway_arn: Option<String>, day_of_week: Option<i64>, day_of_month: Option<i64>, minute_of_hour: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, software_update_preferences: Option<String>, gateway_arn: Option<String>, day_of_week: Option<i64>, hour_of_day: Option<i64>, day_of_month: Option<i64>, minute_of_hour: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

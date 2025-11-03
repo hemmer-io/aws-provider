@@ -24,10 +24,13 @@ impl<'a> Sagemaker_featurestore_runtimeService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "record" => self.plan_record(current_state, desired_input).await,
+            "record" => {
+                self.plan_record(current_state, desired_input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "sagemaker_featurestore_runtime", resource_name
+                "sagemaker_featurestore_runtime",
+                resource_name
             ))),
         }
     }
@@ -39,21 +42,31 @@ impl<'a> Sagemaker_featurestore_runtimeService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "record" => self.create_record(input).await,
+            "record" => {
+                self.create_record(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "sagemaker_featurestore_runtime", resource_name
+                "sagemaker_featurestore_runtime",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "record" => self.read_record(id).await,
+            "record" => {
+                self.read_record(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "sagemaker_featurestore_runtime", resource_name
+                "sagemaker_featurestore_runtime",
+                resource_name
             ))),
         }
     }
@@ -66,21 +79,31 @@ impl<'a> Sagemaker_featurestore_runtimeService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "record" => self.update_record(id, input).await,
+            "record" => {
+                self.update_record(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "sagemaker_featurestore_runtime", resource_name
+                "sagemaker_featurestore_runtime",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "record" => self.delete_record(id).await,
+            "record" => {
+                self.delete_record(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "sagemaker_featurestore_runtime", resource_name
+                "sagemaker_featurestore_runtime",
+                resource_name
             ))),
         }
     }
@@ -88,6 +111,7 @@ impl<'a> Sagemaker_featurestore_runtimeService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Record resource operations
@@ -110,14 +134,18 @@ impl<'a> Sagemaker_featurestore_runtimeService<'a> {
     }
 
     /// Create a new record resource
-    async fn create_record(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_record(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let feature_group_name = input.get_string("feature_group_name")?;
             let target_stores = input.get_optional_string("target_stores")?;
             let ttl_duration = input.get_optional_string("ttl_duration")?;
-            let feature_group_name = input.get_string("feature_group_name")?;
             let record = input.get_string("record")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -131,15 +159,19 @@ impl<'a> Sagemaker_featurestore_runtimeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("feature_group_name", feature_group_name.unwrap_or_default())
                 .with_field("target_stores", target_stores.unwrap_or_default())
                 .with_field("ttl_duration", ttl_duration.unwrap_or_default())
-                .with_field("feature_group_name", feature_group_name.unwrap_or_default())
-                .with_field("record", record.unwrap_or_default()))
+                .with_field("record", record.unwrap_or_default())
+            )
         })
     }
 
     /// Read a record resource
-    async fn read_record(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_record(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -151,18 +183,24 @@ impl<'a> Sagemaker_featurestore_runtimeService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
     /// Update a record resource
-    async fn update_record(&self, id: &str, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn update_record(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let feature_group_name = input.get_string("feature_group_name")?;
             let target_stores = input.get_optional_string("target_stores")?;
             let ttl_duration = input.get_optional_string("ttl_duration")?;
-            let feature_group_name = input.get_string("feature_group_name")?;
             let record = input.get_string("record")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -177,15 +215,19 @@ impl<'a> Sagemaker_featurestore_runtimeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("feature_group_name", feature_group_name.unwrap_or_default())
                 .with_field("target_stores", target_stores.unwrap_or_default())
                 .with_field("ttl_duration", ttl_duration.unwrap_or_default())
-                .with_field("feature_group_name", feature_group_name.unwrap_or_default())
-                .with_field("record", record.unwrap_or_default()))
+                .with_field("record", record.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a record resource
-    async fn delete_record(&self, id: &str) -> Result<()> {
+    async fn delete_record(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -199,4 +241,6 @@ impl<'a> Sagemaker_featurestore_runtimeService<'a> {
             Ok(())
         })
     }
+
+
 }

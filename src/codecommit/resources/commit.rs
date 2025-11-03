@@ -21,7 +21,7 @@ impl<'a> Commit<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, commit_message: Option<String>, set_file_modes: Option<Vec<String>>, author_name: Option<String>, keep_empty_folders: Option<bool>, repository_name: String, delete_files: Option<Vec<String>>, put_files: Option<Vec<String>>, branch_name: String, parent_commit_id: Option<String>, email: Option<String>) -> Result<String> {
+    pub async fn create(&self, parent_commit_id: Option<String>, author_name: Option<String>, put_files: Option<Vec<String>>, branch_name: String, commit_message: Option<String>, repository_name: String, keep_empty_folders: Option<bool>, delete_files: Option<Vec<String>>, set_file_modes: Option<Vec<String>>, email: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

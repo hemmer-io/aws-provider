@@ -21,7 +21,7 @@ impl<'a> Location_object_storage<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, subdirectory: Option<String>, access_key: Option<String>, tags: Option<Vec<String>>, server_protocol: Option<String>, bucket_name: String, server_port: Option<i64>, server_certificate: Option<String>, secret_key: Option<String>, server_hostname: String, cmk_secret_config: Option<String>, agent_arns: Option<Vec<String>>, custom_secret_config: Option<String>) -> Result<String> {
+    pub async fn create(&self, server_protocol: Option<String>, bucket_name: String, server_hostname: String, subdirectory: Option<String>, server_port: Option<i64>, secret_key: Option<String>, server_certificate: Option<String>, cmk_secret_config: Option<String>, access_key: Option<String>, custom_secret_config: Option<String>, agent_arns: Option<Vec<String>>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Location_object_storage<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, subdirectory: Option<String>, access_key: Option<String>, tags: Option<Vec<String>>, server_protocol: Option<String>, bucket_name: Option<String>, server_port: Option<i64>, server_certificate: Option<String>, secret_key: Option<String>, server_hostname: Option<String>, cmk_secret_config: Option<String>, agent_arns: Option<Vec<String>>, custom_secret_config: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, server_protocol: Option<String>, bucket_name: Option<String>, server_hostname: Option<String>, subdirectory: Option<String>, server_port: Option<i64>, secret_key: Option<String>, server_certificate: Option<String>, cmk_secret_config: Option<String>, access_key: Option<String>, custom_secret_config: Option<String>, agent_arns: Option<Vec<String>>, tags: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

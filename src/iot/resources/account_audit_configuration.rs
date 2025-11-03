@@ -38,7 +38,7 @@ impl<'a> Account_audit_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, audit_notification_target_configurations: Option<HashMap<String, String>>, role_arn: Option<String>, audit_check_configurations: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, audit_notification_target_configurations: Option<HashMap<String, String>>, audit_check_configurations: Option<HashMap<String, String>>, role_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

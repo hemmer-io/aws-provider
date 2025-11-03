@@ -21,7 +21,7 @@ impl<'a> Db_shard_group<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, db_cluster_identifier: String, publicly_accessible: Option<bool>, min_acu: Option<f64>, compute_redundancy: Option<i64>, db_shard_group_identifier: String, tags: Option<Vec<String>>, max_acu: f64) -> Result<String> {
+    pub async fn create(&self, db_cluster_identifier: String, db_shard_group_identifier: String, tags: Option<Vec<String>>, compute_redundancy: Option<i64>, max_acu: f64, min_acu: Option<f64>, publicly_accessible: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

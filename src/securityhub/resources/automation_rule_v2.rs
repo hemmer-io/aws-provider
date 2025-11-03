@@ -21,7 +21,7 @@ impl<'a> Automation_rule_v2<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, rule_name: String, actions: Vec<String>, rule_order: String, client_token: Option<String>, description: String, criteria: String, rule_status: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, rule_name: String, description: String, rule_order: String, rule_status: Option<String>, client_token: Option<String>, actions: Vec<String>, tags: Option<HashMap<String, String>>, criteria: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Automation_rule_v2<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, rule_name: Option<String>, actions: Option<Vec<String>>, rule_order: Option<String>, client_token: Option<String>, description: Option<String>, criteria: Option<String>, rule_status: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, rule_name: Option<String>, description: Option<String>, rule_order: Option<String>, rule_status: Option<String>, client_token: Option<String>, actions: Option<Vec<String>>, tags: Option<HashMap<String, String>>, criteria: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

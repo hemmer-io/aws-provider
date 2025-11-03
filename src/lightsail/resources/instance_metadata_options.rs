@@ -24,7 +24,7 @@ impl<'a> Instance_metadata_options<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, http_protocol_ipv6: Option<String>, instance_name: Option<String>, http_tokens: Option<String>, http_endpoint: Option<String>, http_put_response_hop_limit: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, http_endpoint: Option<String>, http_tokens: Option<String>, instance_name: Option<String>, http_put_response_hop_limit: Option<i64>, http_protocol_ipv6: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

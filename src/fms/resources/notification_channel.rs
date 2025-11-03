@@ -21,7 +21,7 @@ impl<'a> Notification_channel<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, sns_topic_arn: String, sns_role_name: String) -> Result<String> {
+    pub async fn create(&self, sns_role_name: String, sns_topic_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

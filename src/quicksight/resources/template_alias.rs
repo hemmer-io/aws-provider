@@ -21,7 +21,7 @@ impl<'a> Template_alias<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, alias_name: String, aws_account_id: String, template_version_number: i64, template_id: String) -> Result<String> {
+    pub async fn create(&self, template_version_number: i64, aws_account_id: String, template_id: String, alias_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Template_alias<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, alias_name: Option<String>, aws_account_id: Option<String>, template_version_number: Option<i64>, template_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, template_version_number: Option<i64>, aws_account_id: Option<String>, template_id: Option<String>, alias_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

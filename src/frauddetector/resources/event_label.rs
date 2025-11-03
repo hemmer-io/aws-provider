@@ -24,7 +24,7 @@ impl<'a> Event_label<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, label_timestamp: Option<String>, event_type_name: Option<String>, assigned_label: Option<String>, event_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, event_type_name: Option<String>, label_timestamp: Option<String>, event_id: Option<String>, assigned_label: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

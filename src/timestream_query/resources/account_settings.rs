@@ -38,7 +38,7 @@ impl<'a> Account_settings<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, max_query_tcu: Option<i64>, query_pricing_model: Option<String>, query_compute: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, query_compute: Option<String>, max_query_tcu: Option<i64>, query_pricing_model: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

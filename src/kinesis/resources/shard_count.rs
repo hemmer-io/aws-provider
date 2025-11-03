@@ -24,7 +24,7 @@ impl<'a> Shard_count<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, stream_arn: Option<String>, target_shard_count: Option<i64>, scaling_type: Option<String>, stream_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, scaling_type: Option<String>, stream_arn: Option<String>, target_shard_count: Option<i64>, stream_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Default_subnet<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, ipv6_native: Option<bool>, dry_run: Option<bool>, availability_zone_id: Option<String>, availability_zone: Option<String>) -> Result<String> {
+    pub async fn create(&self, ipv6_native: Option<bool>, availability_zone_id: Option<String>, availability_zone: Option<String>, dry_run: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

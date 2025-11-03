@@ -21,7 +21,7 @@ impl<'a> Cluster<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, request_id: Option<String>, cluster_type: Option<String>, network_settings: Option<String>, instance_role_arn: Option<String>, tags: Option<HashMap<String, String>>, name: Option<String>) -> Result<String> {
+    pub async fn create(&self, tags: Option<HashMap<String, String>>, request_id: Option<String>, instance_role_arn: Option<String>, network_settings: Option<String>, name: Option<String>, cluster_type: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Cluster<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, request_id: Option<String>, cluster_type: Option<String>, network_settings: Option<String>, instance_role_arn: Option<String>, tags: Option<HashMap<String, String>>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, request_id: Option<String>, instance_role_arn: Option<String>, network_settings: Option<String>, name: Option<String>, cluster_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

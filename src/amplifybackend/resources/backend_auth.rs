@@ -21,7 +21,7 @@ impl<'a> Backend_auth<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, resource_name: String, backend_environment_name: String, resource_config: String, app_id: String) -> Result<String> {
+    pub async fn create(&self, backend_environment_name: String, resource_config: String, resource_name: String, app_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Backend_auth<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, resource_name: Option<String>, backend_environment_name: Option<String>, resource_config: Option<String>, app_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, backend_environment_name: Option<String>, resource_config: Option<String>, resource_name: Option<String>, app_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

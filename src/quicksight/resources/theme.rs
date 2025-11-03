@@ -21,7 +21,7 @@ impl<'a> Theme<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, name: String, tags: Option<Vec<String>>, configuration: String, theme_id: String, aws_account_id: String, base_theme_id: String, version_description: Option<String>, permissions: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, permissions: Option<Vec<String>>, aws_account_id: String, base_theme_id: String, configuration: String, tags: Option<Vec<String>>, name: String, version_description: Option<String>, theme_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Theme<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, name: Option<String>, tags: Option<Vec<String>>, configuration: Option<String>, theme_id: Option<String>, aws_account_id: Option<String>, base_theme_id: Option<String>, version_description: Option<String>, permissions: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, permissions: Option<Vec<String>>, aws_account_id: Option<String>, base_theme_id: Option<String>, configuration: Option<String>, tags: Option<Vec<String>>, name: Option<String>, version_description: Option<String>, theme_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

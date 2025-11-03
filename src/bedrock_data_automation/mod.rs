@@ -25,12 +25,12 @@ impl<'a> Bedrock_data_automationService<'a> {
     ) -> Result<ResourcePlan> {
         match resource_name {
             "blueprint_version" => {
-                self.plan_blueprint_version(current_state, desired_input)
-                    .await
+                self.plan_blueprint_version(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "bedrock_data_automation", resource_name
+                "bedrock_data_automation",
+                resource_name
             ))),
         }
     }
@@ -42,21 +42,31 @@ impl<'a> Bedrock_data_automationService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "blueprint_version" => self.create_blueprint_version(input).await,
+            "blueprint_version" => {
+                self.create_blueprint_version(input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "bedrock_data_automation", resource_name
+                "bedrock_data_automation",
+                resource_name
             ))),
         }
     }
 
     /// Read resource state
-    pub async fn read_resource(&self, resource_name: &str, id: &str) -> Result<ResourceOutput> {
+    pub async fn read_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         match resource_name {
-            "blueprint_version" => self.read_blueprint_version(id).await,
+            "blueprint_version" => {
+                self.read_blueprint_version(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "bedrock_data_automation", resource_name
+                "bedrock_data_automation",
+                resource_name
             ))),
         }
     }
@@ -69,21 +79,31 @@ impl<'a> Bedrock_data_automationService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "blueprint_version" => self.update_blueprint_version(id, input).await,
+            "blueprint_version" => {
+                self.update_blueprint_version(id, input).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "bedrock_data_automation", resource_name
+                "bedrock_data_automation",
+                resource_name
             ))),
         }
     }
 
     /// Delete a resource
-    pub async fn delete_resource(&self, resource_name: &str, id: &str) -> Result<()> {
+    pub async fn delete_resource(
+        &self,
+        resource_name: &str,
+        id: &str,
+    ) -> Result<()> {
         match resource_name {
-            "blueprint_version" => self.delete_blueprint_version(id).await,
+            "blueprint_version" => {
+                self.delete_blueprint_version(id).await
+            }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
-                "bedrock_data_automation", resource_name
+                "bedrock_data_automation",
+                resource_name
             ))),
         }
     }
@@ -91,6 +111,7 @@ impl<'a> Bedrock_data_automationService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
 
     // ------------------------------------------------------------------------
     // Blueprint_version resource operations
@@ -113,12 +134,16 @@ impl<'a> Bedrock_data_automationService<'a> {
     }
 
     /// Create a new blueprint_version resource
-    async fn create_blueprint_version(&self, input: ResourceInput) -> Result<ResourceOutput> {
+    async fn create_blueprint_version(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
             let blueprint_arn = input.get_string("blueprint_arn")?;
             let client_token = input.get_optional_string("client_token")?;
+
 
             // TODO: Call AWS SDK to create the resource
             // Example:
@@ -133,12 +158,16 @@ impl<'a> Bedrock_data_automationService<'a> {
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
                 .with_field("blueprint_arn", blueprint_arn.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default()))
+                .with_field("client_token", client_token.unwrap_or_default())
+            )
         })
     }
 
     /// Read a blueprint_version resource
-    async fn read_blueprint_version(&self, id: &str) -> Result<ResourceOutput> {
+    async fn read_blueprint_version(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to read the resource
             // Example:
@@ -150,7 +179,8 @@ impl<'a> Bedrock_data_automationService<'a> {
             //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
 
             // Return placeholder output
-            Ok(ResourceOutput::new().with_id(id))
+            Ok(ResourceOutput::new()
+                .with_id(id))
         })
     }
 
@@ -164,6 +194,7 @@ impl<'a> Bedrock_data_automationService<'a> {
             // Extract input fields
             let blueprint_arn = input.get_string("blueprint_arn")?;
             let client_token = input.get_optional_string("client_token")?;
+
 
             // TODO: Call AWS SDK to update the resource
             // Example:
@@ -179,12 +210,16 @@ impl<'a> Bedrock_data_automationService<'a> {
             Ok(ResourceOutput::new()
                 .with_id(id)
                 .with_field("blueprint_arn", blueprint_arn.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default()))
+                .with_field("client_token", client_token.unwrap_or_default())
+            )
         })
     }
 
     /// Delete a blueprint_version resource
-    async fn delete_blueprint_version(&self, id: &str) -> Result<()> {
+    async fn delete_blueprint_version(
+        &self,
+        id: &str,
+    ) -> Result<()> {
         self.provider.runtime().block_on(async {
             // TODO: Call AWS SDK to delete the resource
             // Example:
@@ -198,4 +233,6 @@ impl<'a> Bedrock_data_automationService<'a> {
             Ok(())
         })
     }
+
+
 }

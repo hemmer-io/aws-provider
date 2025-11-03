@@ -21,7 +21,7 @@ impl<'a> Traffic_distribution_group<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: Option<String>, name: String, description: Option<String>, instance_id: String, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, instance_id: String, name: String, tags: Option<HashMap<String, String>>, client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

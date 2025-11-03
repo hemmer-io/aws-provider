@@ -21,7 +21,7 @@ impl<'a> Db_proxy_endpoint<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, db_proxy_endpoint_name: String, vpc_security_group_ids: Option<String>, tags: Option<Vec<String>>, vpc_subnet_ids: String, db_proxy_name: String, target_role: Option<String>, endpoint_network_type: Option<String>) -> Result<String> {
+    pub async fn create(&self, vpc_security_group_ids: Option<String>, target_role: Option<String>, vpc_subnet_ids: String, endpoint_network_type: Option<String>, tags: Option<Vec<String>>, db_proxy_name: String, db_proxy_endpoint_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Environment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, group_name: Option<String>, template_name: Option<String>, tags: Option<Vec<String>>, version_label: Option<String>, application_name: String, platform_arn: Option<String>, option_settings: Option<Vec<String>>, cname_prefix: Option<String>, options_to_remove: Option<Vec<String>>, solution_stack_name: Option<String>, operations_role: Option<String>, description: Option<String>, environment_name: Option<String>, tier: Option<String>) -> Result<String> {
+    pub async fn create(&self, template_name: Option<String>, option_settings: Option<Vec<String>>, tags: Option<Vec<String>>, solution_stack_name: Option<String>, group_name: Option<String>, description: Option<String>, cname_prefix: Option<String>, environment_name: Option<String>, version_label: Option<String>, operations_role: Option<String>, application_name: String, tier: Option<String>, options_to_remove: Option<Vec<String>>, platform_arn: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Environment<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, group_name: Option<String>, template_name: Option<String>, tags: Option<Vec<String>>, version_label: Option<String>, application_name: Option<String>, platform_arn: Option<String>, option_settings: Option<Vec<String>>, cname_prefix: Option<String>, options_to_remove: Option<Vec<String>>, solution_stack_name: Option<String>, operations_role: Option<String>, description: Option<String>, environment_name: Option<String>, tier: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, template_name: Option<String>, option_settings: Option<Vec<String>>, tags: Option<Vec<String>>, solution_stack_name: Option<String>, group_name: Option<String>, description: Option<String>, cname_prefix: Option<String>, environment_name: Option<String>, version_label: Option<String>, operations_role: Option<String>, application_name: Option<String>, tier: Option<String>, options_to_remove: Option<Vec<String>>, platform_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

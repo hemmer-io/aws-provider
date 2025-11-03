@@ -21,7 +21,7 @@ impl<'a> User_profile<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, user_settings: Option<String>, single_sign_on_user_identifier: Option<String>, domain_id: String, single_sign_on_user_value: Option<String>, user_profile_name: String) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, user_settings: Option<String>, domain_id: String, user_profile_name: String, single_sign_on_user_identifier: Option<String>, single_sign_on_user_value: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> User_profile<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, user_settings: Option<String>, single_sign_on_user_identifier: Option<String>, domain_id: Option<String>, single_sign_on_user_value: Option<String>, user_profile_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, user_settings: Option<String>, domain_id: Option<String>, user_profile_name: Option<String>, single_sign_on_user_identifier: Option<String>, single_sign_on_user_value: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

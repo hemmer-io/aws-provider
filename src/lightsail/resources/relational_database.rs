@@ -21,7 +21,7 @@ impl<'a> Relational_database<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, master_database_name: String, publicly_accessible: Option<bool>, tags: Option<Vec<String>>, relational_database_bundle_id: String, preferred_maintenance_window: Option<String>, availability_zone: Option<String>, relational_database_blueprint_id: String, master_username: String, master_user_password: Option<String>, relational_database_name: String, preferred_backup_window: Option<String>) -> Result<String> {
+    pub async fn create(&self, relational_database_blueprint_id: String, tags: Option<Vec<String>>, relational_database_bundle_id: String, preferred_backup_window: Option<String>, master_username: String, availability_zone: Option<String>, master_database_name: String, relational_database_name: String, preferred_maintenance_window: Option<String>, publicly_accessible: Option<bool>, master_user_password: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Relational_database<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, master_database_name: Option<String>, publicly_accessible: Option<bool>, tags: Option<Vec<String>>, relational_database_bundle_id: Option<String>, preferred_maintenance_window: Option<String>, availability_zone: Option<String>, relational_database_blueprint_id: Option<String>, master_username: Option<String>, master_user_password: Option<String>, relational_database_name: Option<String>, preferred_backup_window: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, relational_database_blueprint_id: Option<String>, tags: Option<Vec<String>>, relational_database_bundle_id: Option<String>, preferred_backup_window: Option<String>, master_username: Option<String>, availability_zone: Option<String>, master_database_name: Option<String>, relational_database_name: Option<String>, preferred_maintenance_window: Option<String>, publicly_accessible: Option<bool>, master_user_password: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

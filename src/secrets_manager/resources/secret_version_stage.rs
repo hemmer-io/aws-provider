@@ -24,7 +24,7 @@ impl<'a> Secret_version_stage<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, move_to_version_id: Option<String>, secret_id: Option<String>, remove_from_version_id: Option<String>, version_stage: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, version_stage: Option<String>, move_to_version_id: Option<String>, secret_id: Option<String>, remove_from_version_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

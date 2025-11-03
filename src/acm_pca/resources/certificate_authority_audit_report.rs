@@ -21,7 +21,7 @@ impl<'a> Certificate_authority_audit_report<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, s3_bucket_name: String, audit_report_response_format: String, certificate_authority_arn: String) -> Result<String> {
+    pub async fn create(&self, certificate_authority_arn: String, s3_bucket_name: String, audit_report_response_format: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

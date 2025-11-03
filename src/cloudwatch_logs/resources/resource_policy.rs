@@ -21,7 +21,7 @@ impl<'a> Resource_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, policy_name: Option<String>, expected_revision_id: Option<String>, resource_arn: Option<String>, policy_document: Option<String>) -> Result<String> {
+    pub async fn create(&self, policy_document: Option<String>, policy_name: Option<String>, resource_arn: Option<String>, expected_revision_id: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

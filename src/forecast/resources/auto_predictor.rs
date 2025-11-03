@@ -21,7 +21,7 @@ impl<'a> Auto_predictor<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, encryption_config: Option<String>, forecast_dimensions: Option<Vec<String>>, forecast_types: Option<Vec<String>>, explain_predictor: Option<bool>, tags: Option<Vec<String>>, forecast_horizon: Option<i64>, predictor_name: String, monitor_config: Option<String>, time_alignment_boundary: Option<String>, data_config: Option<String>, reference_predictor_arn: Option<String>, optimization_metric: Option<String>, forecast_frequency: Option<String>) -> Result<String> {
+    pub async fn create(&self, predictor_name: String, forecast_dimensions: Option<Vec<String>>, forecast_horizon: Option<i64>, monitor_config: Option<String>, data_config: Option<String>, encryption_config: Option<String>, reference_predictor_arn: Option<String>, forecast_frequency: Option<String>, forecast_types: Option<Vec<String>>, explain_predictor: Option<bool>, optimization_metric: Option<String>, tags: Option<Vec<String>>, time_alignment_boundary: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

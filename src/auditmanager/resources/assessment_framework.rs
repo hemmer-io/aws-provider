@@ -21,7 +21,7 @@ impl<'a> Assessment_framework<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<HashMap<String, String>>, compliance_type: Option<String>, name: String, control_sets: Vec<String>, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, name: String, description: Option<String>, compliance_type: Option<String>, control_sets: Vec<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Assessment_framework<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, compliance_type: Option<String>, name: Option<String>, control_sets: Option<Vec<String>>, description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, name: Option<String>, description: Option<String>, compliance_type: Option<String>, control_sets: Option<Vec<String>>, tags: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

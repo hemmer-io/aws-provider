@@ -38,7 +38,7 @@ impl<'a> Custom_routing_accelerator_attributes<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, flow_logs_s3_prefix: Option<String>, accelerator_arn: Option<String>, flow_logs_s3_bucket: Option<String>, flow_logs_enabled: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, flow_logs_s3_prefix: Option<String>, accelerator_arn: Option<String>, flow_logs_enabled: Option<bool>, flow_logs_s3_bucket: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

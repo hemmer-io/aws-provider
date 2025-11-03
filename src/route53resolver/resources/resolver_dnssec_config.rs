@@ -38,7 +38,7 @@ impl<'a> Resolver_dnssec_config<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, validation: Option<String>, resource_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, resource_id: Option<String>, validation: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

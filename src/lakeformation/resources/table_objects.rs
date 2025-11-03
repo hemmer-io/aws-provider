@@ -38,7 +38,7 @@ impl<'a> Table_objects<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, transaction_id: Option<String>, catalog_id: Option<String>, table_name: Option<String>, write_operations: Option<Vec<String>>, database_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, database_name: Option<String>, transaction_id: Option<String>, table_name: Option<String>, write_operations: Option<Vec<String>>, catalog_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

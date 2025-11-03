@@ -21,7 +21,7 @@ impl<'a> Interconnect<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, location: String, interconnect_name: String, provider_name: Option<String>, request_mac_sec: Option<bool>, lag_id: Option<String>, bandwidth: String) -> Result<String> {
+    pub async fn create(&self, bandwidth: String, request_mac_sec: Option<bool>, lag_id: Option<String>, location: String, provider_name: Option<String>, tags: Option<Vec<String>>, interconnect_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

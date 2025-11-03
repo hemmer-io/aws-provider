@@ -24,7 +24,7 @@ impl<'a> Subscription_grant_status<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, status: Option<String>, identifier: Option<String>, target_name: Option<String>, domain_identifier: Option<String>, asset_identifier: Option<String>, failure_cause: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, target_name: Option<String>, domain_identifier: Option<String>, asset_identifier: Option<String>, identifier: Option<String>, status: Option<String>, failure_cause: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

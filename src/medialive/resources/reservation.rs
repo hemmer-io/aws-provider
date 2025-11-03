@@ -38,7 +38,7 @@ impl<'a> Reservation<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, name: Option<String>, reservation_id: Option<String>, renewal_settings: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, reservation_id: Option<String>, name: Option<String>, renewal_settings: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

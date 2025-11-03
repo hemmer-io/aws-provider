@@ -24,7 +24,7 @@ impl<'a> Queue_name<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, name: Option<String>, description: Option<String>, instance_id: Option<String>, queue_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, queue_id: Option<String>, name: Option<String>, instance_id: Option<String>, description: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

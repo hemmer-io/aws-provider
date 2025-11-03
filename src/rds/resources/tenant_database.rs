@@ -21,7 +21,7 @@ impl<'a> Tenant_database<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, master_username: String, character_set_name: Option<String>, tags: Option<Vec<String>>, tenant_db_name: String, master_user_password: Option<String>, master_user_secret_kms_key_id: Option<String>, nchar_character_set_name: Option<String>, db_instance_identifier: String, manage_master_user_password: Option<bool>) -> Result<String> {
+    pub async fn create(&self, nchar_character_set_name: Option<String>, character_set_name: Option<String>, db_instance_identifier: String, master_user_secret_kms_key_id: Option<String>, master_user_password: Option<String>, manage_master_user_password: Option<bool>, tags: Option<Vec<String>>, tenant_db_name: String, master_username: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

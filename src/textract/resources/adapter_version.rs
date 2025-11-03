@@ -21,7 +21,7 @@ impl<'a> Adapter_version<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, adapter_id: String, dataset_config: String, kms_key_id: Option<String>, output_config: String, tags: Option<HashMap<String, String>>, client_request_token: Option<String>) -> Result<String> {
+    pub async fn create(&self, client_request_token: Option<String>, adapter_id: String, dataset_config: String, kms_key_id: Option<String>, tags: Option<HashMap<String, String>>, output_config: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

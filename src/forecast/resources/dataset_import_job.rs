@@ -21,7 +21,7 @@ impl<'a> Dataset_import_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, dataset_arn: String, geolocation_format: Option<String>, tags: Option<Vec<String>>, dataset_import_job_name: String, use_geolocation_for_time_zone: Option<bool>, timestamp_format: Option<String>, time_zone: Option<String>, import_mode: Option<String>, data_source: String, format: Option<String>) -> Result<String> {
+    pub async fn create(&self, data_source: String, use_geolocation_for_time_zone: Option<bool>, tags: Option<Vec<String>>, timestamp_format: Option<String>, time_zone: Option<String>, geolocation_format: Option<String>, dataset_arn: String, import_mode: Option<String>, format: Option<String>, dataset_import_job_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Authentication_profile<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, authentication_profile_content: String, authentication_profile_name: String) -> Result<String> {
+    pub async fn create(&self, authentication_profile_name: String, authentication_profile_content: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

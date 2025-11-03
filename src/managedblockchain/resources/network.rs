@@ -21,7 +21,7 @@ impl<'a> Network<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, voting_policy: String, description: Option<String>, client_request_token: String, framework_version: String, tags: Option<HashMap<String, String>>, member_configuration: String, framework: String, name: String, framework_configuration: Option<String>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, tags: Option<HashMap<String, String>>, framework: String, member_configuration: String, framework_version: String, name: String, voting_policy: String, client_request_token: String, framework_configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

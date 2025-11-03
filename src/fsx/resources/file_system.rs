@@ -21,7 +21,7 @@ impl<'a> File_system<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, storage_type: Option<String>, lustre_configuration: Option<String>, open_zfs_configuration: Option<String>, network_type: Option<String>, client_request_token: Option<String>, subnet_ids: Vec<String>, security_group_ids: Option<Vec<String>>, windows_configuration: Option<String>, file_system_type: String, ontap_configuration: Option<String>, tags: Option<Vec<String>>, kms_key_id: Option<String>, file_system_type_version: Option<String>, storage_capacity: Option<i64>) -> Result<String> {
+    pub async fn create(&self, storage_type: Option<String>, tags: Option<Vec<String>>, file_system_type: String, kms_key_id: Option<String>, subnet_ids: Vec<String>, open_zfs_configuration: Option<String>, windows_configuration: Option<String>, client_request_token: Option<String>, lustre_configuration: Option<String>, ontap_configuration: Option<String>, security_group_ids: Option<Vec<String>>, file_system_type_version: Option<String>, network_type: Option<String>, storage_capacity: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> File_system<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, storage_type: Option<String>, lustre_configuration: Option<String>, open_zfs_configuration: Option<String>, network_type: Option<String>, client_request_token: Option<String>, subnet_ids: Option<Vec<String>>, security_group_ids: Option<Vec<String>>, windows_configuration: Option<String>, file_system_type: Option<String>, ontap_configuration: Option<String>, tags: Option<Vec<String>>, kms_key_id: Option<String>, file_system_type_version: Option<String>, storage_capacity: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, storage_type: Option<String>, tags: Option<Vec<String>>, file_system_type: Option<String>, kms_key_id: Option<String>, subnet_ids: Option<Vec<String>>, open_zfs_configuration: Option<String>, windows_configuration: Option<String>, client_request_token: Option<String>, lustre_configuration: Option<String>, ontap_configuration: Option<String>, security_group_ids: Option<Vec<String>>, file_system_type_version: Option<String>, network_type: Option<String>, storage_capacity: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

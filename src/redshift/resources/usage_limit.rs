@@ -21,7 +21,7 @@ impl<'a> Usage_limit<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, feature_type: String, period: Option<String>, breach_action: Option<String>, amount: i64, tags: Option<Vec<String>>, limit_type: String, cluster_identifier: String) -> Result<String> {
+    pub async fn create(&self, breach_action: Option<String>, cluster_identifier: String, amount: i64, tags: Option<Vec<String>>, feature_type: String, period: Option<String>, limit_type: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

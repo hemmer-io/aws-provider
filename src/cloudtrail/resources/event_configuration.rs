@@ -21,7 +21,7 @@ impl<'a> Event_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, context_key_selectors: Vec<String>, event_data_store: Option<String>, max_event_size: String) -> Result<String> {
+    pub async fn create(&self, event_data_store: Option<String>, max_event_size: String, context_key_selectors: Vec<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

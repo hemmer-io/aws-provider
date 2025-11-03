@@ -38,7 +38,7 @@ impl<'a> Resource<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, hybrid_access_enabled: Option<bool>, role_arn: Option<String>, with_federation: Option<bool>, resource_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, role_arn: Option<String>, resource_arn: Option<String>, with_federation: Option<bool>, hybrid_access_enabled: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

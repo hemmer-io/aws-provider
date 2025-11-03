@@ -21,7 +21,7 @@ impl<'a> Metric_filter<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, filter_name: String, log_group_name: String, metric_transformations: Vec<String>, filter_pattern: String, apply_on_transformed_logs: Option<bool>, field_selection_criteria: Option<String>, emit_system_field_dimensions: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, apply_on_transformed_logs: Option<bool>, field_selection_criteria: Option<String>, metric_transformations: Vec<String>, emit_system_field_dimensions: Option<Vec<String>>, log_group_name: String, filter_name: String, filter_pattern: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

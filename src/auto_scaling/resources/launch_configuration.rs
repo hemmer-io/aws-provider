@@ -21,7 +21,7 @@ impl<'a> Launch_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, launch_configuration_name: String, spot_price: Option<String>, block_device_mappings: Option<Vec<String>>, ebs_optimized: Option<bool>, placement_tenancy: Option<String>, iam_instance_profile: Option<String>, metadata_options: Option<String>, security_groups: Option<Vec<String>>, associate_public_ip_address: Option<bool>, classic_link_vpc_security_groups: Option<Vec<String>>, kernel_id: Option<String>, instance_monitoring: Option<String>, image_id: Option<String>, instance_type: Option<String>, classic_link_vpc_id: Option<String>, user_data: Option<String>, key_name: Option<String>, instance_id: Option<String>, ramdisk_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, image_id: Option<String>, placement_tenancy: Option<String>, launch_configuration_name: String, associate_public_ip_address: Option<bool>, key_name: Option<String>, security_groups: Option<Vec<String>>, instance_monitoring: Option<String>, ebs_optimized: Option<bool>, instance_id: Option<String>, kernel_id: Option<String>, ramdisk_id: Option<String>, iam_instance_profile: Option<String>, user_data: Option<String>, instance_type: Option<String>, classic_link_vpc_id: Option<String>, classic_link_vpc_security_groups: Option<Vec<String>>, metadata_options: Option<String>, block_device_mappings: Option<Vec<String>>, spot_price: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

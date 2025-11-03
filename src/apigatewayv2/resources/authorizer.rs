@@ -21,7 +21,7 @@ impl<'a> Authorizer<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, enable_simple_responses: Option<bool>, identity_source: Vec<String>, authorizer_result_ttl_in_seconds: Option<i64>, api_id: String, authorizer_uri: Option<String>, name: String, identity_validation_expression: Option<String>, jwt_configuration: Option<String>, authorizer_credentials_arn: Option<String>, authorizer_payload_format_version: Option<String>, authorizer_type: String) -> Result<String> {
+    pub async fn create(&self, authorizer_uri: Option<String>, authorizer_credentials_arn: Option<String>, name: String, identity_source: Vec<String>, authorizer_type: String, enable_simple_responses: Option<bool>, api_id: String, identity_validation_expression: Option<String>, jwt_configuration: Option<String>, authorizer_result_ttl_in_seconds: Option<i64>, authorizer_payload_format_version: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Authorizer<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, enable_simple_responses: Option<bool>, identity_source: Option<Vec<String>>, authorizer_result_ttl_in_seconds: Option<i64>, api_id: Option<String>, authorizer_uri: Option<String>, name: Option<String>, identity_validation_expression: Option<String>, jwt_configuration: Option<String>, authorizer_credentials_arn: Option<String>, authorizer_payload_format_version: Option<String>, authorizer_type: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, authorizer_uri: Option<String>, authorizer_credentials_arn: Option<String>, name: Option<String>, identity_source: Option<Vec<String>>, authorizer_type: Option<String>, enable_simple_responses: Option<bool>, api_id: Option<String>, identity_validation_expression: Option<String>, jwt_configuration: Option<String>, authorizer_result_ttl_in_seconds: Option<i64>, authorizer_payload_format_version: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

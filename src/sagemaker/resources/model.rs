@@ -21,7 +21,7 @@ impl<'a> Model<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, inference_execution_config: Option<String>, execution_role_arn: Option<String>, enable_network_isolation: Option<bool>, vpc_config: Option<String>, containers: Option<Vec<String>>, model_name: String, primary_container: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, inference_execution_config: Option<String>, containers: Option<Vec<String>>, vpc_config: Option<String>, enable_network_isolation: Option<bool>, execution_role_arn: Option<String>, tags: Option<Vec<String>>, model_name: String, primary_container: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
