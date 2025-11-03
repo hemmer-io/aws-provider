@@ -21,7 +21,7 @@ impl<'a> Label<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, start_time: String, rating: String, equipment: Option<String>, label_group_name: String, notes: Option<String>, fault_code: Option<String>, client_token: String, end_time: String) -> Result<String> {
+    pub async fn create(&self, end_time: String, equipment: Option<String>, client_token: String, label_group_name: String, notes: Option<String>, fault_code: Option<String>, start_time: String, rating: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

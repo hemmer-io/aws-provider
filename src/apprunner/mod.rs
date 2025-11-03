@@ -24,14 +24,17 @@ impl<'a> ApprunnerService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "default_auto_scaling_configuration" => {
-                self.plan_default_auto_scaling_configuration(current_state, desired_input).await
+            "vpc_connector" => {
+                self.plan_vpc_connector(current_state, desired_input).await
             }
             "vpc_ingress_connection" => {
                 self.plan_vpc_ingress_connection(current_state, desired_input).await
             }
-            "observability_configuration" => {
-                self.plan_observability_configuration(current_state, desired_input).await
+            "auto_scaling_configuration" => {
+                self.plan_auto_scaling_configuration(current_state, desired_input).await
+            }
+            "default_auto_scaling_configuration" => {
+                self.plan_default_auto_scaling_configuration(current_state, desired_input).await
             }
             "service" => {
                 self.plan_service(current_state, desired_input).await
@@ -42,11 +45,8 @@ impl<'a> ApprunnerService<'a> {
             "custom_domains" => {
                 self.plan_custom_domains(current_state, desired_input).await
             }
-            "vpc_connector" => {
-                self.plan_vpc_connector(current_state, desired_input).await
-            }
-            "auto_scaling_configuration" => {
-                self.plan_auto_scaling_configuration(current_state, desired_input).await
+            "observability_configuration" => {
+                self.plan_observability_configuration(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -63,14 +63,17 @@ impl<'a> ApprunnerService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "default_auto_scaling_configuration" => {
-                self.create_default_auto_scaling_configuration(input).await
+            "vpc_connector" => {
+                self.create_vpc_connector(input).await
             }
             "vpc_ingress_connection" => {
                 self.create_vpc_ingress_connection(input).await
             }
-            "observability_configuration" => {
-                self.create_observability_configuration(input).await
+            "auto_scaling_configuration" => {
+                self.create_auto_scaling_configuration(input).await
+            }
+            "default_auto_scaling_configuration" => {
+                self.create_default_auto_scaling_configuration(input).await
             }
             "service" => {
                 self.create_service(input).await
@@ -81,11 +84,8 @@ impl<'a> ApprunnerService<'a> {
             "custom_domains" => {
                 self.create_custom_domains(input).await
             }
-            "vpc_connector" => {
-                self.create_vpc_connector(input).await
-            }
-            "auto_scaling_configuration" => {
-                self.create_auto_scaling_configuration(input).await
+            "observability_configuration" => {
+                self.create_observability_configuration(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -102,14 +102,17 @@ impl<'a> ApprunnerService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "default_auto_scaling_configuration" => {
-                self.read_default_auto_scaling_configuration(id).await
+            "vpc_connector" => {
+                self.read_vpc_connector(id).await
             }
             "vpc_ingress_connection" => {
                 self.read_vpc_ingress_connection(id).await
             }
-            "observability_configuration" => {
-                self.read_observability_configuration(id).await
+            "auto_scaling_configuration" => {
+                self.read_auto_scaling_configuration(id).await
+            }
+            "default_auto_scaling_configuration" => {
+                self.read_default_auto_scaling_configuration(id).await
             }
             "service" => {
                 self.read_service(id).await
@@ -120,11 +123,8 @@ impl<'a> ApprunnerService<'a> {
             "custom_domains" => {
                 self.read_custom_domains(id).await
             }
-            "vpc_connector" => {
-                self.read_vpc_connector(id).await
-            }
-            "auto_scaling_configuration" => {
-                self.read_auto_scaling_configuration(id).await
+            "observability_configuration" => {
+                self.read_observability_configuration(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -142,14 +142,17 @@ impl<'a> ApprunnerService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "default_auto_scaling_configuration" => {
-                self.update_default_auto_scaling_configuration(id, input).await
+            "vpc_connector" => {
+                self.update_vpc_connector(id, input).await
             }
             "vpc_ingress_connection" => {
                 self.update_vpc_ingress_connection(id, input).await
             }
-            "observability_configuration" => {
-                self.update_observability_configuration(id, input).await
+            "auto_scaling_configuration" => {
+                self.update_auto_scaling_configuration(id, input).await
+            }
+            "default_auto_scaling_configuration" => {
+                self.update_default_auto_scaling_configuration(id, input).await
             }
             "service" => {
                 self.update_service(id, input).await
@@ -160,11 +163,8 @@ impl<'a> ApprunnerService<'a> {
             "custom_domains" => {
                 self.update_custom_domains(id, input).await
             }
-            "vpc_connector" => {
-                self.update_vpc_connector(id, input).await
-            }
-            "auto_scaling_configuration" => {
-                self.update_auto_scaling_configuration(id, input).await
+            "observability_configuration" => {
+                self.update_observability_configuration(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -181,14 +181,17 @@ impl<'a> ApprunnerService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "default_auto_scaling_configuration" => {
-                self.delete_default_auto_scaling_configuration(id).await
+            "vpc_connector" => {
+                self.delete_vpc_connector(id).await
             }
             "vpc_ingress_connection" => {
                 self.delete_vpc_ingress_connection(id).await
             }
-            "observability_configuration" => {
-                self.delete_observability_configuration(id).await
+            "auto_scaling_configuration" => {
+                self.delete_auto_scaling_configuration(id).await
+            }
+            "default_auto_scaling_configuration" => {
+                self.delete_default_auto_scaling_configuration(id).await
             }
             "service" => {
                 self.delete_service(id).await
@@ -199,11 +202,8 @@ impl<'a> ApprunnerService<'a> {
             "custom_domains" => {
                 self.delete_custom_domains(id).await
             }
-            "vpc_connector" => {
-                self.delete_vpc_connector(id).await
-            }
-            "auto_scaling_configuration" => {
-                self.delete_auto_scaling_configuration(id).await
+            "observability_configuration" => {
+                self.delete_observability_configuration(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -216,6 +216,400 @@ impl<'a> ApprunnerService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
+
+    // ------------------------------------------------------------------------
+    // Vpc_connector resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a vpc_connector resource
+    async fn plan_vpc_connector(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new vpc_connector resource
+    async fn create_vpc_connector(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let vpc_connector_name = input.get_string("vpc_connector_name")?;
+            let subnets = input.get_string("subnets")?;
+            let security_groups = input.get_optional_string("security_groups")?;
+            let tags = input.get_optional_string("tags")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.apprunner_client
+            //     .create_vpc_connector()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("vpc_connector_name", vpc_connector_name.unwrap_or_default())
+                .with_field("subnets", subnets.unwrap_or_default())
+                .with_field("security_groups", security_groups.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a vpc_connector resource
+    async fn read_vpc_connector(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.apprunner_client
+            //     .describe_vpc_connector()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a vpc_connector resource
+    async fn update_vpc_connector(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let vpc_connector_name = input.get_string("vpc_connector_name")?;
+            let subnets = input.get_string("subnets")?;
+            let security_groups = input.get_optional_string("security_groups")?;
+            let tags = input.get_optional_string("tags")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.apprunner_client
+            //     .update_vpc_connector()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("vpc_connector_name", vpc_connector_name.unwrap_or_default())
+                .with_field("subnets", subnets.unwrap_or_default())
+                .with_field("security_groups", security_groups.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a vpc_connector resource
+    async fn delete_vpc_connector(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.apprunner_client
+            //     .delete_vpc_connector()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Vpc_ingress_connection resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a vpc_ingress_connection resource
+    async fn plan_vpc_ingress_connection(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new vpc_ingress_connection resource
+    async fn create_vpc_ingress_connection(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let ingress_vpc_configuration = input.get_string("ingress_vpc_configuration")?;
+            let vpc_ingress_connection_name = input.get_string("vpc_ingress_connection_name")?;
+            let tags = input.get_optional_string("tags")?;
+            let service_arn = input.get_string("service_arn")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.apprunner_client
+            //     .create_vpc_ingress_connection()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("ingress_vpc_configuration", ingress_vpc_configuration.unwrap_or_default())
+                .with_field("vpc_ingress_connection_name", vpc_ingress_connection_name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("service_arn", service_arn.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a vpc_ingress_connection resource
+    async fn read_vpc_ingress_connection(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.apprunner_client
+            //     .describe_vpc_ingress_connection()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a vpc_ingress_connection resource
+    async fn update_vpc_ingress_connection(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let ingress_vpc_configuration = input.get_string("ingress_vpc_configuration")?;
+            let vpc_ingress_connection_name = input.get_string("vpc_ingress_connection_name")?;
+            let tags = input.get_optional_string("tags")?;
+            let service_arn = input.get_string("service_arn")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.apprunner_client
+            //     .update_vpc_ingress_connection()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("ingress_vpc_configuration", ingress_vpc_configuration.unwrap_or_default())
+                .with_field("vpc_ingress_connection_name", vpc_ingress_connection_name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("service_arn", service_arn.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a vpc_ingress_connection resource
+    async fn delete_vpc_ingress_connection(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.apprunner_client
+            //     .delete_vpc_ingress_connection()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Auto_scaling_configuration resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a auto_scaling_configuration resource
+    async fn plan_auto_scaling_configuration(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new auto_scaling_configuration resource
+    async fn create_auto_scaling_configuration(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let min_size = input.get_optional_string("min_size")?;
+            let tags = input.get_optional_string("tags")?;
+            let max_size = input.get_optional_string("max_size")?;
+            let max_concurrency = input.get_optional_string("max_concurrency")?;
+            let auto_scaling_configuration_name = input.get_string("auto_scaling_configuration_name")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.apprunner_client
+            //     .create_auto_scaling_configuration()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("min_size", min_size.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("max_size", max_size.unwrap_or_default())
+                .with_field("max_concurrency", max_concurrency.unwrap_or_default())
+                .with_field("auto_scaling_configuration_name", auto_scaling_configuration_name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a auto_scaling_configuration resource
+    async fn read_auto_scaling_configuration(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.apprunner_client
+            //     .describe_auto_scaling_configuration()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a auto_scaling_configuration resource
+    async fn update_auto_scaling_configuration(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let min_size = input.get_optional_string("min_size")?;
+            let tags = input.get_optional_string("tags")?;
+            let max_size = input.get_optional_string("max_size")?;
+            let max_concurrency = input.get_optional_string("max_concurrency")?;
+            let auto_scaling_configuration_name = input.get_string("auto_scaling_configuration_name")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.apprunner_client
+            //     .update_auto_scaling_configuration()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("min_size", min_size.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("max_size", max_size.unwrap_or_default())
+                .with_field("max_concurrency", max_concurrency.unwrap_or_default())
+                .with_field("auto_scaling_configuration_name", auto_scaling_configuration_name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a auto_scaling_configuration resource
+    async fn delete_auto_scaling_configuration(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.apprunner_client
+            //     .delete_auto_scaling_configuration()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
 
 
     // ------------------------------------------------------------------------
@@ -337,262 +731,6 @@ impl<'a> ApprunnerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Vpc_ingress_connection resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a vpc_ingress_connection resource
-    async fn plan_vpc_ingress_connection(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new vpc_ingress_connection resource
-    async fn create_vpc_ingress_connection(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let vpc_ingress_connection_name = input.get_string("vpc_ingress_connection_name")?;
-            let tags = input.get_optional_string("tags")?;
-            let service_arn = input.get_string("service_arn")?;
-            let ingress_vpc_configuration = input.get_string("ingress_vpc_configuration")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.apprunner_client
-            //     .create_vpc_ingress_connection()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("vpc_ingress_connection_name", vpc_ingress_connection_name.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("service_arn", service_arn.unwrap_or_default())
-                .with_field("ingress_vpc_configuration", ingress_vpc_configuration.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a vpc_ingress_connection resource
-    async fn read_vpc_ingress_connection(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.apprunner_client
-            //     .describe_vpc_ingress_connection()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a vpc_ingress_connection resource
-    async fn update_vpc_ingress_connection(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let vpc_ingress_connection_name = input.get_string("vpc_ingress_connection_name")?;
-            let tags = input.get_optional_string("tags")?;
-            let service_arn = input.get_string("service_arn")?;
-            let ingress_vpc_configuration = input.get_string("ingress_vpc_configuration")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.apprunner_client
-            //     .update_vpc_ingress_connection()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("vpc_ingress_connection_name", vpc_ingress_connection_name.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("service_arn", service_arn.unwrap_or_default())
-                .with_field("ingress_vpc_configuration", ingress_vpc_configuration.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a vpc_ingress_connection resource
-    async fn delete_vpc_ingress_connection(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.apprunner_client
-            //     .delete_vpc_ingress_connection()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Observability_configuration resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a observability_configuration resource
-    async fn plan_observability_configuration(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new observability_configuration resource
-    async fn create_observability_configuration(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let trace_configuration = input.get_optional_string("trace_configuration")?;
-            let tags = input.get_optional_string("tags")?;
-            let observability_configuration_name = input.get_string("observability_configuration_name")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.apprunner_client
-            //     .create_observability_configuration()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("trace_configuration", trace_configuration.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("observability_configuration_name", observability_configuration_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a observability_configuration resource
-    async fn read_observability_configuration(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.apprunner_client
-            //     .describe_observability_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a observability_configuration resource
-    async fn update_observability_configuration(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let trace_configuration = input.get_optional_string("trace_configuration")?;
-            let tags = input.get_optional_string("tags")?;
-            let observability_configuration_name = input.get_string("observability_configuration_name")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.apprunner_client
-            //     .update_observability_configuration()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("trace_configuration", trace_configuration.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("observability_configuration_name", observability_configuration_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a observability_configuration resource
-    async fn delete_observability_configuration(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.apprunner_client
-            //     .delete_observability_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
     // Service resource operations
     // ------------------------------------------------------------------------
 
@@ -620,15 +758,15 @@ impl<'a> ApprunnerService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let health_check_configuration = input.get_optional_string("health_check_configuration")?;
-            let service_name = input.get_string("service_name")?;
-            let source_configuration = input.get_string("source_configuration")?;
-            let tags = input.get_optional_string("tags")?;
-            let observability_configuration = input.get_optional_string("observability_configuration")?;
-            let instance_configuration = input.get_optional_string("instance_configuration")?;
-            let encryption_configuration = input.get_optional_string("encryption_configuration")?;
             let auto_scaling_configuration_arn = input.get_optional_string("auto_scaling_configuration_arn")?;
+            let encryption_configuration = input.get_optional_string("encryption_configuration")?;
+            let instance_configuration = input.get_optional_string("instance_configuration")?;
+            let tags = input.get_optional_string("tags")?;
+            let health_check_configuration = input.get_optional_string("health_check_configuration")?;
             let network_configuration = input.get_optional_string("network_configuration")?;
+            let service_name = input.get_string("service_name")?;
+            let observability_configuration = input.get_optional_string("observability_configuration")?;
+            let source_configuration = input.get_string("source_configuration")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -643,15 +781,15 @@ impl<'a> ApprunnerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("health_check_configuration", health_check_configuration.unwrap_or_default())
-                .with_field("service_name", service_name.unwrap_or_default())
-                .with_field("source_configuration", source_configuration.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("observability_configuration", observability_configuration.unwrap_or_default())
-                .with_field("instance_configuration", instance_configuration.unwrap_or_default())
-                .with_field("encryption_configuration", encryption_configuration.unwrap_or_default())
                 .with_field("auto_scaling_configuration_arn", auto_scaling_configuration_arn.unwrap_or_default())
+                .with_field("encryption_configuration", encryption_configuration.unwrap_or_default())
+                .with_field("instance_configuration", instance_configuration.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("health_check_configuration", health_check_configuration.unwrap_or_default())
                 .with_field("network_configuration", network_configuration.unwrap_or_default())
+                .with_field("service_name", service_name.unwrap_or_default())
+                .with_field("observability_configuration", observability_configuration.unwrap_or_default())
+                .with_field("source_configuration", source_configuration.unwrap_or_default())
             )
         })
     }
@@ -685,15 +823,15 @@ impl<'a> ApprunnerService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let health_check_configuration = input.get_optional_string("health_check_configuration")?;
-            let service_name = input.get_string("service_name")?;
-            let source_configuration = input.get_string("source_configuration")?;
-            let tags = input.get_optional_string("tags")?;
-            let observability_configuration = input.get_optional_string("observability_configuration")?;
-            let instance_configuration = input.get_optional_string("instance_configuration")?;
-            let encryption_configuration = input.get_optional_string("encryption_configuration")?;
             let auto_scaling_configuration_arn = input.get_optional_string("auto_scaling_configuration_arn")?;
+            let encryption_configuration = input.get_optional_string("encryption_configuration")?;
+            let instance_configuration = input.get_optional_string("instance_configuration")?;
+            let tags = input.get_optional_string("tags")?;
+            let health_check_configuration = input.get_optional_string("health_check_configuration")?;
             let network_configuration = input.get_optional_string("network_configuration")?;
+            let service_name = input.get_string("service_name")?;
+            let observability_configuration = input.get_optional_string("observability_configuration")?;
+            let source_configuration = input.get_string("source_configuration")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -709,15 +847,15 @@ impl<'a> ApprunnerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("health_check_configuration", health_check_configuration.unwrap_or_default())
-                .with_field("service_name", service_name.unwrap_or_default())
-                .with_field("source_configuration", source_configuration.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("observability_configuration", observability_configuration.unwrap_or_default())
-                .with_field("instance_configuration", instance_configuration.unwrap_or_default())
-                .with_field("encryption_configuration", encryption_configuration.unwrap_or_default())
                 .with_field("auto_scaling_configuration_arn", auto_scaling_configuration_arn.unwrap_or_default())
+                .with_field("encryption_configuration", encryption_configuration.unwrap_or_default())
+                .with_field("instance_configuration", instance_configuration.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("health_check_configuration", health_check_configuration.unwrap_or_default())
                 .with_field("network_configuration", network_configuration.unwrap_or_default())
+                .with_field("service_name", service_name.unwrap_or_default())
+                .with_field("observability_configuration", observability_configuration.unwrap_or_default())
+                .with_field("source_configuration", source_configuration.unwrap_or_default())
             )
         })
     }
@@ -770,9 +908,9 @@ impl<'a> ApprunnerService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let provider_type = input.get_string("provider_type")?;
-            let connection_name = input.get_string("connection_name")?;
             let tags = input.get_optional_string("tags")?;
+            let connection_name = input.get_string("connection_name")?;
+            let provider_type = input.get_string("provider_type")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -787,9 +925,9 @@ impl<'a> ApprunnerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("provider_type", provider_type.unwrap_or_default())
-                .with_field("connection_name", connection_name.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
+                .with_field("connection_name", connection_name.unwrap_or_default())
+                .with_field("provider_type", provider_type.unwrap_or_default())
             )
         })
     }
@@ -823,9 +961,9 @@ impl<'a> ApprunnerService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let provider_type = input.get_string("provider_type")?;
-            let connection_name = input.get_string("connection_name")?;
             let tags = input.get_optional_string("tags")?;
+            let connection_name = input.get_string("connection_name")?;
+            let provider_type = input.get_string("provider_type")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -841,9 +979,9 @@ impl<'a> ApprunnerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("provider_type", provider_type.unwrap_or_default())
-                .with_field("connection_name", connection_name.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
+                .with_field("connection_name", connection_name.unwrap_or_default())
+                .with_field("provider_type", provider_type.unwrap_or_default())
             )
         })
     }
@@ -983,11 +1121,11 @@ impl<'a> ApprunnerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Vpc_connector resource operations
+    // Observability_configuration resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a vpc_connector resource
-    async fn plan_vpc_connector(
+    /// Plan changes to a observability_configuration resource
+    async fn plan_observability_configuration(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1002,24 +1140,23 @@ impl<'a> ApprunnerService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new vpc_connector resource
-    async fn create_vpc_connector(
+    /// Create a new observability_configuration resource
+    async fn create_observability_configuration(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let security_groups = input.get_optional_string("security_groups")?;
+            let observability_configuration_name = input.get_string("observability_configuration_name")?;
+            let trace_configuration = input.get_optional_string("trace_configuration")?;
             let tags = input.get_optional_string("tags")?;
-            let vpc_connector_name = input.get_string("vpc_connector_name")?;
-            let subnets = input.get_string("subnets")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.apprunner_client
-            //     .create_vpc_connector()
+            //     .create_observability_configuration()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1028,16 +1165,15 @@ impl<'a> ApprunnerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("security_groups", security_groups.unwrap_or_default())
+                .with_field("observability_configuration_name", observability_configuration_name.unwrap_or_default())
+                .with_field("trace_configuration", trace_configuration.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
-                .with_field("vpc_connector_name", vpc_connector_name.unwrap_or_default())
-                .with_field("subnets", subnets.unwrap_or_default())
             )
         })
     }
 
-    /// Read a vpc_connector resource
-    async fn read_vpc_connector(
+    /// Read a observability_configuration resource
+    async fn read_observability_configuration(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1045,7 +1181,7 @@ impl<'a> ApprunnerService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.apprunner_client
-            //     .describe_vpc_connector()
+            //     .describe_observability_configuration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1057,24 +1193,23 @@ impl<'a> ApprunnerService<'a> {
         })
     }
 
-    /// Update a vpc_connector resource
-    async fn update_vpc_connector(
+    /// Update a observability_configuration resource
+    async fn update_observability_configuration(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let security_groups = input.get_optional_string("security_groups")?;
+            let observability_configuration_name = input.get_string("observability_configuration_name")?;
+            let trace_configuration = input.get_optional_string("trace_configuration")?;
             let tags = input.get_optional_string("tags")?;
-            let vpc_connector_name = input.get_string("vpc_connector_name")?;
-            let subnets = input.get_string("subnets")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.apprunner_client
-            //     .update_vpc_connector()
+            //     .update_observability_configuration()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1084,16 +1219,15 @@ impl<'a> ApprunnerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("security_groups", security_groups.unwrap_or_default())
+                .with_field("observability_configuration_name", observability_configuration_name.unwrap_or_default())
+                .with_field("trace_configuration", trace_configuration.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
-                .with_field("vpc_connector_name", vpc_connector_name.unwrap_or_default())
-                .with_field("subnets", subnets.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a vpc_connector resource
-    async fn delete_vpc_connector(
+    /// Delete a observability_configuration resource
+    async fn delete_observability_configuration(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1101,141 +1235,7 @@ impl<'a> ApprunnerService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.apprunner_client
-            //     .delete_vpc_connector()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Auto_scaling_configuration resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a auto_scaling_configuration resource
-    async fn plan_auto_scaling_configuration(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new auto_scaling_configuration resource
-    async fn create_auto_scaling_configuration(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let min_size = input.get_optional_string("min_size")?;
-            let max_concurrency = input.get_optional_string("max_concurrency")?;
-            let tags = input.get_optional_string("tags")?;
-            let max_size = input.get_optional_string("max_size")?;
-            let auto_scaling_configuration_name = input.get_string("auto_scaling_configuration_name")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.apprunner_client
-            //     .create_auto_scaling_configuration()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("min_size", min_size.unwrap_or_default())
-                .with_field("max_concurrency", max_concurrency.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("max_size", max_size.unwrap_or_default())
-                .with_field("auto_scaling_configuration_name", auto_scaling_configuration_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a auto_scaling_configuration resource
-    async fn read_auto_scaling_configuration(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.apprunner_client
-            //     .describe_auto_scaling_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a auto_scaling_configuration resource
-    async fn update_auto_scaling_configuration(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let min_size = input.get_optional_string("min_size")?;
-            let max_concurrency = input.get_optional_string("max_concurrency")?;
-            let tags = input.get_optional_string("tags")?;
-            let max_size = input.get_optional_string("max_size")?;
-            let auto_scaling_configuration_name = input.get_string("auto_scaling_configuration_name")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.apprunner_client
-            //     .update_auto_scaling_configuration()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("min_size", min_size.unwrap_or_default())
-                .with_field("max_concurrency", max_concurrency.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("max_size", max_size.unwrap_or_default())
-                .with_field("auto_scaling_configuration_name", auto_scaling_configuration_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a auto_scaling_configuration resource
-    async fn delete_auto_scaling_configuration(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.apprunner_client
-            //     .delete_auto_scaling_configuration()
+            //     .delete_observability_configuration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

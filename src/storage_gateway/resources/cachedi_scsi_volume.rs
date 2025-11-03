@@ -21,7 +21,7 @@ impl<'a> Cachedi_scsi_volume<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: String, kms_encrypted: Option<bool>, gateway_arn: String, snapshot_id: Option<String>, source_volume_arn: Option<String>, tags: Option<Vec<String>>, network_interface_id: String, target_name: String, volume_size_in_bytes: i64, kms_key: Option<String>) -> Result<String> {
+    pub async fn create(&self, volume_size_in_bytes: i64, kms_encrypted: Option<bool>, source_volume_arn: Option<String>, tags: Option<Vec<String>>, snapshot_id: Option<String>, target_name: String, gateway_arn: String, network_interface_id: String, client_token: String, kms_key: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

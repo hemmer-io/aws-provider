@@ -21,7 +21,7 @@ impl<'a> Ops_item<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: String, actual_end_time: Option<String>, priority: Option<i64>, actual_start_time: Option<String>, operational_data: Option<HashMap<String, String>>, source: String, tags: Option<Vec<String>>, planned_end_time: Option<String>, ops_item_type: Option<String>, title: String, severity: Option<String>, notifications: Option<Vec<String>>, category: Option<String>, planned_start_time: Option<String>, account_id: Option<String>, related_ops_items: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, ops_item_type: Option<String>, title: String, account_id: Option<String>, category: Option<String>, tags: Option<Vec<String>>, planned_start_time: Option<String>, related_ops_items: Option<Vec<String>>, planned_end_time: Option<String>, actual_end_time: Option<String>, priority: Option<i64>, actual_start_time: Option<String>, notifications: Option<Vec<String>>, description: String, source: String, severity: Option<String>, operational_data: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Ops_item<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, actual_end_time: Option<String>, priority: Option<i64>, actual_start_time: Option<String>, operational_data: Option<HashMap<String, String>>, source: Option<String>, tags: Option<Vec<String>>, planned_end_time: Option<String>, ops_item_type: Option<String>, title: Option<String>, severity: Option<String>, notifications: Option<Vec<String>>, category: Option<String>, planned_start_time: Option<String>, account_id: Option<String>, related_ops_items: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, ops_item_type: Option<String>, title: Option<String>, account_id: Option<String>, category: Option<String>, tags: Option<Vec<String>>, planned_start_time: Option<String>, related_ops_items: Option<Vec<String>>, planned_end_time: Option<String>, actual_end_time: Option<String>, priority: Option<i64>, actual_start_time: Option<String>, notifications: Option<Vec<String>>, description: Option<String>, source: Option<String>, severity: Option<String>, operational_data: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

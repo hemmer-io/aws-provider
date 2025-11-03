@@ -21,7 +21,7 @@ impl<'a> Chat_token<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, capabilities: Option<Vec<String>>, session_duration_in_minutes: Option<i64>, user_id: String, attributes: Option<HashMap<String, String>>, room_identifier: String) -> Result<String> {
+    pub async fn create(&self, user_id: String, room_identifier: String, capabilities: Option<Vec<String>>, attributes: Option<HashMap<String, String>>, session_duration_in_minutes: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

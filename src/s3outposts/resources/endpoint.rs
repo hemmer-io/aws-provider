@@ -21,7 +21,7 @@ impl<'a> Endpoint<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, security_group_id: String, customer_owned_ipv4_pool: Option<String>, outpost_id: String, access_type: Option<String>, subnet_id: String) -> Result<String> {
+    pub async fn create(&self, customer_owned_ipv4_pool: Option<String>, outpost_id: String, security_group_id: String, subnet_id: String, access_type: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

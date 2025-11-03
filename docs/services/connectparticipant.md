@@ -11,9 +11,9 @@
 The connectparticipant service provides access to 5 resource types:
 
 - [Authentication_url](#authentication_url) [R]
+- [Participant_connection](#participant_connection) [C]
 - [Transcript](#transcript) [R]
 - [View](#view) [R]
-- [Participant_connection](#participant_connection) [C]
 - [Attachment](#attachment) [R]
 
 ---
@@ -60,6 +60,51 @@ authentication_url_authentication_url = authentication_url.authentication_url
 ---
 
 
+### Participant_connection
+
+ParticipantConnection resource
+
+**Operations**: ✅ Create
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `participant_token` | String | ✅ | <p>This is a header parameter.</p>
+         <p>The ParticipantToken as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
+            API response.</p> |
+| `connect_participant` | bool |  | <p>Amazon Connect Participant is used to mark the participant as connected for customer
+            participant in message streaming, as well as for agent or manager participant in
+            non-streaming chats.</p> |
+| `type` | Vec<String> |  | <p>Type of connection information required. If you need
+                <code>CONNECTION_CREDENTIALS</code> along with marking participant as connected,
+            pass <code>CONNECTION_CREDENTIALS</code> in <code>Type</code>.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create participant_connection
+participant_connection = provider.connectparticipant.Participant_connection {
+    participant_token = "value"  # <p>This is a header parameter.</p>
+         <p>The ParticipantToken as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
+            API response.</p>
+}
+
+```
+
+---
+
+
 ### Transcript
 
 Transcript resource
@@ -76,10 +121,10 @@ Transcript resource
 
 | Output | Type | Description |
 |--------|------|-------------|
+| `transcript` | Vec<String> | <p>The list of messages in the session.</p> |
+| `initial_contact_id` | String | <p>The initial contact ID for the contact. </p> |
 | `next_token` | String | <p>The pagination token. Use the value returned previously in the next subsequent request
             to retrieve the next set of results.</p> |
-| `initial_contact_id` | String | <p>The initial contact ID for the contact. </p> |
-| `transcript` | Vec<String> | <p>The list of messages in the session.</p> |
 
 
 #### Usage Example
@@ -95,9 +140,9 @@ provider = aws.AwsProvider {
 
 # Access transcript outputs
 transcript_id = transcript.id
-transcript_next_token = transcript.next_token
-transcript_initial_contact_id = transcript.initial_contact_id
 transcript_transcript = transcript.transcript
+transcript_initial_contact_id = transcript.initial_contact_id
+transcript_next_token = transcript.next_token
 ```
 
 ---
@@ -142,51 +187,6 @@ view_view = view.view
 ---
 
 
-### Participant_connection
-
-ParticipantConnection resource
-
-**Operations**: ✅ Create
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `type` | Vec<String> |  | <p>Type of connection information required. If you need
-                <code>CONNECTION_CREDENTIALS</code> along with marking participant as connected,
-            pass <code>CONNECTION_CREDENTIALS</code> in <code>Type</code>.</p> |
-| `connect_participant` | bool |  | <p>Amazon Connect Participant is used to mark the participant as connected for customer
-            participant in message streaming, as well as for agent or manager participant in
-            non-streaming chats.</p> |
-| `participant_token` | String | ✅ | <p>This is a header parameter.</p>
-         <p>The ParticipantToken as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
-            API response.</p> |
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create participant_connection
-participant_connection = provider.connectparticipant.Participant_connection {
-    participant_token = "value"  # <p>This is a header parameter.</p>
-         <p>The ParticipantToken as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
-            API response.</p>
-}
-
-```
-
----
-
-
 ### Attachment
 
 Attachment resource
@@ -204,9 +204,9 @@ Attachment resource
 | Output | Type | Description |
 |--------|------|-------------|
 | `url_expiry` | String | <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p> |
+| `attachment_size_in_bytes` | i64 | <p>The size of the attachment in bytes.</p> |
 | `url` | String | <p>This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response 
 to <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html">StartAttachmentUpload</a>.</p> |
-| `attachment_size_in_bytes` | i64 | <p>The size of the attachment in bytes.</p> |
 
 
 #### Usage Example
@@ -223,8 +223,8 @@ provider = aws.AwsProvider {
 # Access attachment outputs
 attachment_id = attachment.id
 attachment_url_expiry = attachment.url_expiry
-attachment_url = attachment.url
 attachment_attachment_size_in_bytes = attachment.attachment_size_in_bytes
+attachment_url = attachment.url
 ```
 
 ---

@@ -21,7 +21,7 @@ impl<'a> Transit_gateway_prefix_list_reference<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, prefix_list_id: String, transit_gateway_route_table_id: String, blackhole: Option<bool>, transit_gateway_attachment_id: Option<String>, dry_run: Option<bool>) -> Result<String> {
+    pub async fn create(&self, transit_gateway_attachment_id: Option<String>, transit_gateway_route_table_id: String, dry_run: Option<bool>, prefix_list_id: String, blackhole: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

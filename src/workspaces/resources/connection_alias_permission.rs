@@ -24,7 +24,7 @@ impl<'a> Connection_alias_permission<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, connection_alias_permission: Option<String>, alias_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, alias_id: Option<String>, connection_alias_permission: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

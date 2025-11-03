@@ -21,7 +21,7 @@ impl<'a> Segment_snapshot<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, destination_uri: Option<String>, segment_definition_name: String, domain_name: String, data_format: String, role_arn: Option<String>, encryption_key: Option<String>) -> Result<String> {
+    pub async fn create(&self, domain_name: String, destination_uri: Option<String>, segment_definition_name: String, role_arn: Option<String>, data_format: String, encryption_key: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

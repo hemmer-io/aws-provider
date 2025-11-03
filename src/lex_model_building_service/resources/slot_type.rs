@@ -21,7 +21,7 @@ impl<'a> Slot_type<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, enumeration_values: Option<Vec<String>>, checksum: Option<String>, value_selection_strategy: Option<String>, slot_type_configurations: Option<Vec<String>>, parent_slot_type_signature: Option<String>, create_version: Option<bool>, description: Option<String>, name: String) -> Result<String> {
+    pub async fn create(&self, create_version: Option<bool>, parent_slot_type_signature: Option<String>, value_selection_strategy: Option<String>, checksum: Option<String>, slot_type_configurations: Option<Vec<String>>, enumeration_values: Option<Vec<String>>, description: Option<String>, name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

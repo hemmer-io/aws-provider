@@ -38,7 +38,7 @@ impl<'a> Job_execution<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, step_timeout_in_minutes: Option<i64>, status: Option<String>, expected_version: Option<i64>, thing_name: Option<String>, execution_number: Option<i64>, include_job_execution_state: Option<bool>, job_id: Option<String>, status_details: Option<HashMap<String, String>>, include_job_document: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, thing_name: Option<String>, status: Option<String>, job_id: Option<String>, execution_number: Option<i64>, expected_version: Option<i64>, include_job_execution_state: Option<bool>, include_job_document: Option<bool>, step_timeout_in_minutes: Option<i64>, status_details: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

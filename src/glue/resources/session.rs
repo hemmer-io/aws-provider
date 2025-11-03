@@ -21,7 +21,7 @@ impl<'a> Session<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, number_of_workers: Option<i64>, glue_version: Option<String>, role: String, default_arguments: Option<HashMap<String, String>>, description: Option<String>, worker_type: Option<String>, id: String, request_origin: Option<String>, security_configuration: Option<String>, tags: Option<HashMap<String, String>>, connections: Option<String>, idle_timeout: Option<i64>, timeout: Option<i64>, max_capacity: Option<f64>, command: String) -> Result<String> {
+    pub async fn create(&self, default_arguments: Option<HashMap<String, String>>, command: String, number_of_workers: Option<i64>, max_capacity: Option<f64>, worker_type: Option<String>, request_origin: Option<String>, timeout: Option<i64>, connections: Option<String>, role: String, tags: Option<HashMap<String, String>>, description: Option<String>, security_configuration: Option<String>, idle_timeout: Option<i64>, id: String, glue_version: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

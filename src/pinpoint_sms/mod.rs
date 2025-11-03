@@ -24,35 +24,71 @@ impl<'a> Pinpoint_smsService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "configuration_set" => {
-                self.plan_configuration_set(current_state, desired_input).await
-            }
             "configuration_set_event_destination" => {
                 self.plan_configuration_set_event_destination(current_state, desired_input).await
             }
             "configuration_set_event_destinations" => {
                 self.plan_configuration_set_event_destinations(current_state, desired_input).await
             }
-            "keywords" => {
-                self.plan_keywords(current_state, desired_input).await
+            "configuration_set" => {
+                self.plan_configuration_set(current_state, desired_input).await
             }
-            "default_message_type" => {
-                self.plan_default_message_type(current_state, desired_input).await
+            "registration_version" => {
+                self.plan_registration_version(current_state, desired_input).await
             }
-            "protect_configuration_country_rule_set" => {
-                self.plan_protect_configuration_country_rule_set(current_state, desired_input).await
+            "registrations" => {
+                self.plan_registrations(current_state, desired_input).await
+            }
+            "registration_attachment" => {
+                self.plan_registration_attachment(current_state, desired_input).await
+            }
+            "verified_destination_number" => {
+                self.plan_verified_destination_number(current_state, desired_input).await
+            }
+            "registration_association" => {
+                self.plan_registration_association(current_state, desired_input).await
             }
             "opted_out_number" => {
                 self.plan_opted_out_number(current_state, desired_input).await
             }
-            "registration_field_values" => {
-                self.plan_registration_field_values(current_state, desired_input).await
+            "phone_numbers" => {
+                self.plan_phone_numbers(current_state, desired_input).await
             }
-            "default_sender_id" => {
-                self.plan_default_sender_id(current_state, desired_input).await
+            "account_default_protect_configuration" => {
+                self.plan_account_default_protect_configuration(current_state, desired_input).await
             }
-            "configuration_sets" => {
-                self.plan_configuration_sets(current_state, desired_input).await
+            "keywords" => {
+                self.plan_keywords(current_state, desired_input).await
+            }
+            "pool" => {
+                self.plan_pool(current_state, desired_input).await
+            }
+            "protect_configuration" => {
+                self.plan_protect_configuration(current_state, desired_input).await
+            }
+            "account_attributes" => {
+                self.plan_account_attributes(current_state, desired_input).await
+            }
+            "registration_field_definitions" => {
+                self.plan_registration_field_definitions(current_state, desired_input).await
+            }
+            "registration_type_definitions" => {
+                self.plan_registration_type_definitions(current_state, desired_input).await
+            }
+            "media_message_spend_limit_override" => {
+                self.plan_media_message_spend_limit_override(current_state, desired_input).await
+            }
+            "sender_id" => {
+                self.plan_sender_id(current_state, desired_input).await
+            }
+            "registration_versions" => {
+                self.plan_registration_versions(current_state, desired_input).await
+            }
+            "message_feedback" => {
+                self.plan_message_feedback(current_state, desired_input).await
+            }
+            "registration_section_definitions" => {
+                self.plan_registration_section_definitions(current_state, desired_input).await
             }
             "text_message_spend_limit_override" => {
                 self.plan_text_message_spend_limit_override(current_state, desired_input).await
@@ -63,107 +99,71 @@ impl<'a> Pinpoint_smsService<'a> {
             "protect_configurations" => {
                 self.plan_protect_configurations(current_state, desired_input).await
             }
-            "spend_limits" => {
-                self.plan_spend_limits(current_state, desired_input).await
+            "registration_field_value" => {
+                self.plan_registration_field_value(current_state, desired_input).await
             }
-            "opt_out_lists" => {
-                self.plan_opt_out_lists(current_state, desired_input).await
+            "default_message_type" => {
+                self.plan_default_message_type(current_state, desired_input).await
             }
-            "registration_section_definitions" => {
-                self.plan_registration_section_definitions(current_state, desired_input).await
-            }
-            "protect_configuration_rule_set_number_override" => {
-                self.plan_protect_configuration_rule_set_number_override(current_state, desired_input).await
+            "registration_field_values" => {
+                self.plan_registration_field_values(current_state, desired_input).await
             }
             "opt_out_list" => {
                 self.plan_opt_out_list(current_state, desired_input).await
             }
-            "pool" => {
-                self.plan_pool(current_state, desired_input).await
-            }
-            "media_message_spend_limit_override" => {
-                self.plan_media_message_spend_limit_override(current_state, desired_input).await
-            }
             "sender_ids" => {
                 self.plan_sender_ids(current_state, desired_input).await
             }
-            "account_default_protect_configuration" => {
-                self.plan_account_default_protect_configuration(current_state, desired_input).await
-            }
-            "verified_destination_number" => {
-                self.plan_verified_destination_number(current_state, desired_input).await
-            }
-            "keyword" => {
-                self.plan_keyword(current_state, desired_input).await
-            }
-            "registration_version" => {
-                self.plan_registration_version(current_state, desired_input).await
-            }
-            "event_destination" => {
-                self.plan_event_destination(current_state, desired_input).await
-            }
-            "registration_attachment" => {
-                self.plan_registration_attachment(current_state, desired_input).await
-            }
-            "protect_configuration" => {
-                self.plan_protect_configuration(current_state, desired_input).await
-            }
-            "voice_message_spend_limit_override" => {
-                self.plan_voice_message_spend_limit_override(current_state, desired_input).await
-            }
-            "account_attributes" => {
-                self.plan_account_attributes(current_state, desired_input).await
-            }
-            "opted_out_numbers" => {
-                self.plan_opted_out_numbers(current_state, desired_input).await
-            }
-            "registration_field_definitions" => {
-                self.plan_registration_field_definitions(current_state, desired_input).await
-            }
-            "registration" => {
-                self.plan_registration(current_state, desired_input).await
-            }
-            "phone_numbers" => {
-                self.plan_phone_numbers(current_state, desired_input).await
+            "protect_configuration_country_rule_set" => {
+                self.plan_protect_configuration_country_rule_set(current_state, desired_input).await
             }
             "resource_policy" => {
                 self.plan_resource_policy(current_state, desired_input).await
             }
-            "registration_versions" => {
-                self.plan_registration_versions(current_state, desired_input).await
+            "opted_out_numbers" => {
+                self.plan_opted_out_numbers(current_state, desired_input).await
             }
             "registration_attachments" => {
                 self.plan_registration_attachments(current_state, desired_input).await
             }
-            "registrations" => {
-                self.plan_registrations(current_state, desired_input).await
+            "registration" => {
+                self.plan_registration(current_state, desired_input).await
             }
-            "registration_type_definitions" => {
-                self.plan_registration_type_definitions(current_state, desired_input).await
+            "event_destination" => {
+                self.plan_event_destination(current_state, desired_input).await
             }
-            "message_feedback" => {
-                self.plan_message_feedback(current_state, desired_input).await
+            "protect_configuration_rule_set_number_override" => {
+                self.plan_protect_configuration_rule_set_number_override(current_state, desired_input).await
             }
-            "sender_id" => {
-                self.plan_sender_id(current_state, desired_input).await
+            "opt_out_lists" => {
+                self.plan_opt_out_lists(current_state, desired_input).await
+            }
+            "default_sender_id" => {
+                self.plan_default_sender_id(current_state, desired_input).await
             }
             "verified_destination_numbers" => {
                 self.plan_verified_destination_numbers(current_state, desired_input).await
             }
-            "registration_association" => {
-                self.plan_registration_association(current_state, desired_input).await
+            "pools" => {
+                self.plan_pools(current_state, desired_input).await
             }
             "configuration_set" => {
                 self.plan_configuration_set(current_state, desired_input).await
             }
-            "pools" => {
-                self.plan_pools(current_state, desired_input).await
+            "voice_message_spend_limit_override" => {
+                self.plan_voice_message_spend_limit_override(current_state, desired_input).await
+            }
+            "configuration_sets" => {
+                self.plan_configuration_sets(current_state, desired_input).await
             }
             "phone_number" => {
                 self.plan_phone_number(current_state, desired_input).await
             }
-            "registration_field_value" => {
-                self.plan_registration_field_value(current_state, desired_input).await
+            "keyword" => {
+                self.plan_keyword(current_state, desired_input).await
+            }
+            "spend_limits" => {
+                self.plan_spend_limits(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -180,35 +180,71 @@ impl<'a> Pinpoint_smsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "configuration_set" => {
-                self.create_configuration_set(input).await
-            }
             "configuration_set_event_destination" => {
                 self.create_configuration_set_event_destination(input).await
             }
             "configuration_set_event_destinations" => {
                 self.create_configuration_set_event_destinations(input).await
             }
-            "keywords" => {
-                self.create_keywords(input).await
+            "configuration_set" => {
+                self.create_configuration_set(input).await
             }
-            "default_message_type" => {
-                self.create_default_message_type(input).await
+            "registration_version" => {
+                self.create_registration_version(input).await
             }
-            "protect_configuration_country_rule_set" => {
-                self.create_protect_configuration_country_rule_set(input).await
+            "registrations" => {
+                self.create_registrations(input).await
+            }
+            "registration_attachment" => {
+                self.create_registration_attachment(input).await
+            }
+            "verified_destination_number" => {
+                self.create_verified_destination_number(input).await
+            }
+            "registration_association" => {
+                self.create_registration_association(input).await
             }
             "opted_out_number" => {
                 self.create_opted_out_number(input).await
             }
-            "registration_field_values" => {
-                self.create_registration_field_values(input).await
+            "phone_numbers" => {
+                self.create_phone_numbers(input).await
             }
-            "default_sender_id" => {
-                self.create_default_sender_id(input).await
+            "account_default_protect_configuration" => {
+                self.create_account_default_protect_configuration(input).await
             }
-            "configuration_sets" => {
-                self.create_configuration_sets(input).await
+            "keywords" => {
+                self.create_keywords(input).await
+            }
+            "pool" => {
+                self.create_pool(input).await
+            }
+            "protect_configuration" => {
+                self.create_protect_configuration(input).await
+            }
+            "account_attributes" => {
+                self.create_account_attributes(input).await
+            }
+            "registration_field_definitions" => {
+                self.create_registration_field_definitions(input).await
+            }
+            "registration_type_definitions" => {
+                self.create_registration_type_definitions(input).await
+            }
+            "media_message_spend_limit_override" => {
+                self.create_media_message_spend_limit_override(input).await
+            }
+            "sender_id" => {
+                self.create_sender_id(input).await
+            }
+            "registration_versions" => {
+                self.create_registration_versions(input).await
+            }
+            "message_feedback" => {
+                self.create_message_feedback(input).await
+            }
+            "registration_section_definitions" => {
+                self.create_registration_section_definitions(input).await
             }
             "text_message_spend_limit_override" => {
                 self.create_text_message_spend_limit_override(input).await
@@ -219,107 +255,71 @@ impl<'a> Pinpoint_smsService<'a> {
             "protect_configurations" => {
                 self.create_protect_configurations(input).await
             }
-            "spend_limits" => {
-                self.create_spend_limits(input).await
+            "registration_field_value" => {
+                self.create_registration_field_value(input).await
             }
-            "opt_out_lists" => {
-                self.create_opt_out_lists(input).await
+            "default_message_type" => {
+                self.create_default_message_type(input).await
             }
-            "registration_section_definitions" => {
-                self.create_registration_section_definitions(input).await
-            }
-            "protect_configuration_rule_set_number_override" => {
-                self.create_protect_configuration_rule_set_number_override(input).await
+            "registration_field_values" => {
+                self.create_registration_field_values(input).await
             }
             "opt_out_list" => {
                 self.create_opt_out_list(input).await
             }
-            "pool" => {
-                self.create_pool(input).await
-            }
-            "media_message_spend_limit_override" => {
-                self.create_media_message_spend_limit_override(input).await
-            }
             "sender_ids" => {
                 self.create_sender_ids(input).await
             }
-            "account_default_protect_configuration" => {
-                self.create_account_default_protect_configuration(input).await
-            }
-            "verified_destination_number" => {
-                self.create_verified_destination_number(input).await
-            }
-            "keyword" => {
-                self.create_keyword(input).await
-            }
-            "registration_version" => {
-                self.create_registration_version(input).await
-            }
-            "event_destination" => {
-                self.create_event_destination(input).await
-            }
-            "registration_attachment" => {
-                self.create_registration_attachment(input).await
-            }
-            "protect_configuration" => {
-                self.create_protect_configuration(input).await
-            }
-            "voice_message_spend_limit_override" => {
-                self.create_voice_message_spend_limit_override(input).await
-            }
-            "account_attributes" => {
-                self.create_account_attributes(input).await
-            }
-            "opted_out_numbers" => {
-                self.create_opted_out_numbers(input).await
-            }
-            "registration_field_definitions" => {
-                self.create_registration_field_definitions(input).await
-            }
-            "registration" => {
-                self.create_registration(input).await
-            }
-            "phone_numbers" => {
-                self.create_phone_numbers(input).await
+            "protect_configuration_country_rule_set" => {
+                self.create_protect_configuration_country_rule_set(input).await
             }
             "resource_policy" => {
                 self.create_resource_policy(input).await
             }
-            "registration_versions" => {
-                self.create_registration_versions(input).await
+            "opted_out_numbers" => {
+                self.create_opted_out_numbers(input).await
             }
             "registration_attachments" => {
                 self.create_registration_attachments(input).await
             }
-            "registrations" => {
-                self.create_registrations(input).await
+            "registration" => {
+                self.create_registration(input).await
             }
-            "registration_type_definitions" => {
-                self.create_registration_type_definitions(input).await
+            "event_destination" => {
+                self.create_event_destination(input).await
             }
-            "message_feedback" => {
-                self.create_message_feedback(input).await
+            "protect_configuration_rule_set_number_override" => {
+                self.create_protect_configuration_rule_set_number_override(input).await
             }
-            "sender_id" => {
-                self.create_sender_id(input).await
+            "opt_out_lists" => {
+                self.create_opt_out_lists(input).await
+            }
+            "default_sender_id" => {
+                self.create_default_sender_id(input).await
             }
             "verified_destination_numbers" => {
                 self.create_verified_destination_numbers(input).await
             }
-            "registration_association" => {
-                self.create_registration_association(input).await
+            "pools" => {
+                self.create_pools(input).await
             }
             "configuration_set" => {
                 self.create_configuration_set(input).await
             }
-            "pools" => {
-                self.create_pools(input).await
+            "voice_message_spend_limit_override" => {
+                self.create_voice_message_spend_limit_override(input).await
+            }
+            "configuration_sets" => {
+                self.create_configuration_sets(input).await
             }
             "phone_number" => {
                 self.create_phone_number(input).await
             }
-            "registration_field_value" => {
-                self.create_registration_field_value(input).await
+            "keyword" => {
+                self.create_keyword(input).await
+            }
+            "spend_limits" => {
+                self.create_spend_limits(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -336,35 +336,71 @@ impl<'a> Pinpoint_smsService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "configuration_set" => {
-                self.read_configuration_set(id).await
-            }
             "configuration_set_event_destination" => {
                 self.read_configuration_set_event_destination(id).await
             }
             "configuration_set_event_destinations" => {
                 self.read_configuration_set_event_destinations(id).await
             }
-            "keywords" => {
-                self.read_keywords(id).await
+            "configuration_set" => {
+                self.read_configuration_set(id).await
             }
-            "default_message_type" => {
-                self.read_default_message_type(id).await
+            "registration_version" => {
+                self.read_registration_version(id).await
             }
-            "protect_configuration_country_rule_set" => {
-                self.read_protect_configuration_country_rule_set(id).await
+            "registrations" => {
+                self.read_registrations(id).await
+            }
+            "registration_attachment" => {
+                self.read_registration_attachment(id).await
+            }
+            "verified_destination_number" => {
+                self.read_verified_destination_number(id).await
+            }
+            "registration_association" => {
+                self.read_registration_association(id).await
             }
             "opted_out_number" => {
                 self.read_opted_out_number(id).await
             }
-            "registration_field_values" => {
-                self.read_registration_field_values(id).await
+            "phone_numbers" => {
+                self.read_phone_numbers(id).await
             }
-            "default_sender_id" => {
-                self.read_default_sender_id(id).await
+            "account_default_protect_configuration" => {
+                self.read_account_default_protect_configuration(id).await
             }
-            "configuration_sets" => {
-                self.read_configuration_sets(id).await
+            "keywords" => {
+                self.read_keywords(id).await
+            }
+            "pool" => {
+                self.read_pool(id).await
+            }
+            "protect_configuration" => {
+                self.read_protect_configuration(id).await
+            }
+            "account_attributes" => {
+                self.read_account_attributes(id).await
+            }
+            "registration_field_definitions" => {
+                self.read_registration_field_definitions(id).await
+            }
+            "registration_type_definitions" => {
+                self.read_registration_type_definitions(id).await
+            }
+            "media_message_spend_limit_override" => {
+                self.read_media_message_spend_limit_override(id).await
+            }
+            "sender_id" => {
+                self.read_sender_id(id).await
+            }
+            "registration_versions" => {
+                self.read_registration_versions(id).await
+            }
+            "message_feedback" => {
+                self.read_message_feedback(id).await
+            }
+            "registration_section_definitions" => {
+                self.read_registration_section_definitions(id).await
             }
             "text_message_spend_limit_override" => {
                 self.read_text_message_spend_limit_override(id).await
@@ -375,107 +411,71 @@ impl<'a> Pinpoint_smsService<'a> {
             "protect_configurations" => {
                 self.read_protect_configurations(id).await
             }
-            "spend_limits" => {
-                self.read_spend_limits(id).await
+            "registration_field_value" => {
+                self.read_registration_field_value(id).await
             }
-            "opt_out_lists" => {
-                self.read_opt_out_lists(id).await
+            "default_message_type" => {
+                self.read_default_message_type(id).await
             }
-            "registration_section_definitions" => {
-                self.read_registration_section_definitions(id).await
-            }
-            "protect_configuration_rule_set_number_override" => {
-                self.read_protect_configuration_rule_set_number_override(id).await
+            "registration_field_values" => {
+                self.read_registration_field_values(id).await
             }
             "opt_out_list" => {
                 self.read_opt_out_list(id).await
             }
-            "pool" => {
-                self.read_pool(id).await
-            }
-            "media_message_spend_limit_override" => {
-                self.read_media_message_spend_limit_override(id).await
-            }
             "sender_ids" => {
                 self.read_sender_ids(id).await
             }
-            "account_default_protect_configuration" => {
-                self.read_account_default_protect_configuration(id).await
-            }
-            "verified_destination_number" => {
-                self.read_verified_destination_number(id).await
-            }
-            "keyword" => {
-                self.read_keyword(id).await
-            }
-            "registration_version" => {
-                self.read_registration_version(id).await
-            }
-            "event_destination" => {
-                self.read_event_destination(id).await
-            }
-            "registration_attachment" => {
-                self.read_registration_attachment(id).await
-            }
-            "protect_configuration" => {
-                self.read_protect_configuration(id).await
-            }
-            "voice_message_spend_limit_override" => {
-                self.read_voice_message_spend_limit_override(id).await
-            }
-            "account_attributes" => {
-                self.read_account_attributes(id).await
-            }
-            "opted_out_numbers" => {
-                self.read_opted_out_numbers(id).await
-            }
-            "registration_field_definitions" => {
-                self.read_registration_field_definitions(id).await
-            }
-            "registration" => {
-                self.read_registration(id).await
-            }
-            "phone_numbers" => {
-                self.read_phone_numbers(id).await
+            "protect_configuration_country_rule_set" => {
+                self.read_protect_configuration_country_rule_set(id).await
             }
             "resource_policy" => {
                 self.read_resource_policy(id).await
             }
-            "registration_versions" => {
-                self.read_registration_versions(id).await
+            "opted_out_numbers" => {
+                self.read_opted_out_numbers(id).await
             }
             "registration_attachments" => {
                 self.read_registration_attachments(id).await
             }
-            "registrations" => {
-                self.read_registrations(id).await
+            "registration" => {
+                self.read_registration(id).await
             }
-            "registration_type_definitions" => {
-                self.read_registration_type_definitions(id).await
+            "event_destination" => {
+                self.read_event_destination(id).await
             }
-            "message_feedback" => {
-                self.read_message_feedback(id).await
+            "protect_configuration_rule_set_number_override" => {
+                self.read_protect_configuration_rule_set_number_override(id).await
             }
-            "sender_id" => {
-                self.read_sender_id(id).await
+            "opt_out_lists" => {
+                self.read_opt_out_lists(id).await
+            }
+            "default_sender_id" => {
+                self.read_default_sender_id(id).await
             }
             "verified_destination_numbers" => {
                 self.read_verified_destination_numbers(id).await
             }
-            "registration_association" => {
-                self.read_registration_association(id).await
+            "pools" => {
+                self.read_pools(id).await
             }
             "configuration_set" => {
                 self.read_configuration_set(id).await
             }
-            "pools" => {
-                self.read_pools(id).await
+            "voice_message_spend_limit_override" => {
+                self.read_voice_message_spend_limit_override(id).await
+            }
+            "configuration_sets" => {
+                self.read_configuration_sets(id).await
             }
             "phone_number" => {
                 self.read_phone_number(id).await
             }
-            "registration_field_value" => {
-                self.read_registration_field_value(id).await
+            "keyword" => {
+                self.read_keyword(id).await
+            }
+            "spend_limits" => {
+                self.read_spend_limits(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -493,35 +493,71 @@ impl<'a> Pinpoint_smsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "configuration_set" => {
-                self.update_configuration_set(id, input).await
-            }
             "configuration_set_event_destination" => {
                 self.update_configuration_set_event_destination(id, input).await
             }
             "configuration_set_event_destinations" => {
                 self.update_configuration_set_event_destinations(id, input).await
             }
-            "keywords" => {
-                self.update_keywords(id, input).await
+            "configuration_set" => {
+                self.update_configuration_set(id, input).await
             }
-            "default_message_type" => {
-                self.update_default_message_type(id, input).await
+            "registration_version" => {
+                self.update_registration_version(id, input).await
             }
-            "protect_configuration_country_rule_set" => {
-                self.update_protect_configuration_country_rule_set(id, input).await
+            "registrations" => {
+                self.update_registrations(id, input).await
+            }
+            "registration_attachment" => {
+                self.update_registration_attachment(id, input).await
+            }
+            "verified_destination_number" => {
+                self.update_verified_destination_number(id, input).await
+            }
+            "registration_association" => {
+                self.update_registration_association(id, input).await
             }
             "opted_out_number" => {
                 self.update_opted_out_number(id, input).await
             }
-            "registration_field_values" => {
-                self.update_registration_field_values(id, input).await
+            "phone_numbers" => {
+                self.update_phone_numbers(id, input).await
             }
-            "default_sender_id" => {
-                self.update_default_sender_id(id, input).await
+            "account_default_protect_configuration" => {
+                self.update_account_default_protect_configuration(id, input).await
             }
-            "configuration_sets" => {
-                self.update_configuration_sets(id, input).await
+            "keywords" => {
+                self.update_keywords(id, input).await
+            }
+            "pool" => {
+                self.update_pool(id, input).await
+            }
+            "protect_configuration" => {
+                self.update_protect_configuration(id, input).await
+            }
+            "account_attributes" => {
+                self.update_account_attributes(id, input).await
+            }
+            "registration_field_definitions" => {
+                self.update_registration_field_definitions(id, input).await
+            }
+            "registration_type_definitions" => {
+                self.update_registration_type_definitions(id, input).await
+            }
+            "media_message_spend_limit_override" => {
+                self.update_media_message_spend_limit_override(id, input).await
+            }
+            "sender_id" => {
+                self.update_sender_id(id, input).await
+            }
+            "registration_versions" => {
+                self.update_registration_versions(id, input).await
+            }
+            "message_feedback" => {
+                self.update_message_feedback(id, input).await
+            }
+            "registration_section_definitions" => {
+                self.update_registration_section_definitions(id, input).await
             }
             "text_message_spend_limit_override" => {
                 self.update_text_message_spend_limit_override(id, input).await
@@ -532,107 +568,71 @@ impl<'a> Pinpoint_smsService<'a> {
             "protect_configurations" => {
                 self.update_protect_configurations(id, input).await
             }
-            "spend_limits" => {
-                self.update_spend_limits(id, input).await
+            "registration_field_value" => {
+                self.update_registration_field_value(id, input).await
             }
-            "opt_out_lists" => {
-                self.update_opt_out_lists(id, input).await
+            "default_message_type" => {
+                self.update_default_message_type(id, input).await
             }
-            "registration_section_definitions" => {
-                self.update_registration_section_definitions(id, input).await
-            }
-            "protect_configuration_rule_set_number_override" => {
-                self.update_protect_configuration_rule_set_number_override(id, input).await
+            "registration_field_values" => {
+                self.update_registration_field_values(id, input).await
             }
             "opt_out_list" => {
                 self.update_opt_out_list(id, input).await
             }
-            "pool" => {
-                self.update_pool(id, input).await
-            }
-            "media_message_spend_limit_override" => {
-                self.update_media_message_spend_limit_override(id, input).await
-            }
             "sender_ids" => {
                 self.update_sender_ids(id, input).await
             }
-            "account_default_protect_configuration" => {
-                self.update_account_default_protect_configuration(id, input).await
-            }
-            "verified_destination_number" => {
-                self.update_verified_destination_number(id, input).await
-            }
-            "keyword" => {
-                self.update_keyword(id, input).await
-            }
-            "registration_version" => {
-                self.update_registration_version(id, input).await
-            }
-            "event_destination" => {
-                self.update_event_destination(id, input).await
-            }
-            "registration_attachment" => {
-                self.update_registration_attachment(id, input).await
-            }
-            "protect_configuration" => {
-                self.update_protect_configuration(id, input).await
-            }
-            "voice_message_spend_limit_override" => {
-                self.update_voice_message_spend_limit_override(id, input).await
-            }
-            "account_attributes" => {
-                self.update_account_attributes(id, input).await
-            }
-            "opted_out_numbers" => {
-                self.update_opted_out_numbers(id, input).await
-            }
-            "registration_field_definitions" => {
-                self.update_registration_field_definitions(id, input).await
-            }
-            "registration" => {
-                self.update_registration(id, input).await
-            }
-            "phone_numbers" => {
-                self.update_phone_numbers(id, input).await
+            "protect_configuration_country_rule_set" => {
+                self.update_protect_configuration_country_rule_set(id, input).await
             }
             "resource_policy" => {
                 self.update_resource_policy(id, input).await
             }
-            "registration_versions" => {
-                self.update_registration_versions(id, input).await
+            "opted_out_numbers" => {
+                self.update_opted_out_numbers(id, input).await
             }
             "registration_attachments" => {
                 self.update_registration_attachments(id, input).await
             }
-            "registrations" => {
-                self.update_registrations(id, input).await
+            "registration" => {
+                self.update_registration(id, input).await
             }
-            "registration_type_definitions" => {
-                self.update_registration_type_definitions(id, input).await
+            "event_destination" => {
+                self.update_event_destination(id, input).await
             }
-            "message_feedback" => {
-                self.update_message_feedback(id, input).await
+            "protect_configuration_rule_set_number_override" => {
+                self.update_protect_configuration_rule_set_number_override(id, input).await
             }
-            "sender_id" => {
-                self.update_sender_id(id, input).await
+            "opt_out_lists" => {
+                self.update_opt_out_lists(id, input).await
+            }
+            "default_sender_id" => {
+                self.update_default_sender_id(id, input).await
             }
             "verified_destination_numbers" => {
                 self.update_verified_destination_numbers(id, input).await
             }
-            "registration_association" => {
-                self.update_registration_association(id, input).await
+            "pools" => {
+                self.update_pools(id, input).await
             }
             "configuration_set" => {
                 self.update_configuration_set(id, input).await
             }
-            "pools" => {
-                self.update_pools(id, input).await
+            "voice_message_spend_limit_override" => {
+                self.update_voice_message_spend_limit_override(id, input).await
+            }
+            "configuration_sets" => {
+                self.update_configuration_sets(id, input).await
             }
             "phone_number" => {
                 self.update_phone_number(id, input).await
             }
-            "registration_field_value" => {
-                self.update_registration_field_value(id, input).await
+            "keyword" => {
+                self.update_keyword(id, input).await
+            }
+            "spend_limits" => {
+                self.update_spend_limits(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -649,35 +649,71 @@ impl<'a> Pinpoint_smsService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "configuration_set" => {
-                self.delete_configuration_set(id).await
-            }
             "configuration_set_event_destination" => {
                 self.delete_configuration_set_event_destination(id).await
             }
             "configuration_set_event_destinations" => {
                 self.delete_configuration_set_event_destinations(id).await
             }
-            "keywords" => {
-                self.delete_keywords(id).await
+            "configuration_set" => {
+                self.delete_configuration_set(id).await
             }
-            "default_message_type" => {
-                self.delete_default_message_type(id).await
+            "registration_version" => {
+                self.delete_registration_version(id).await
             }
-            "protect_configuration_country_rule_set" => {
-                self.delete_protect_configuration_country_rule_set(id).await
+            "registrations" => {
+                self.delete_registrations(id).await
+            }
+            "registration_attachment" => {
+                self.delete_registration_attachment(id).await
+            }
+            "verified_destination_number" => {
+                self.delete_verified_destination_number(id).await
+            }
+            "registration_association" => {
+                self.delete_registration_association(id).await
             }
             "opted_out_number" => {
                 self.delete_opted_out_number(id).await
             }
-            "registration_field_values" => {
-                self.delete_registration_field_values(id).await
+            "phone_numbers" => {
+                self.delete_phone_numbers(id).await
             }
-            "default_sender_id" => {
-                self.delete_default_sender_id(id).await
+            "account_default_protect_configuration" => {
+                self.delete_account_default_protect_configuration(id).await
             }
-            "configuration_sets" => {
-                self.delete_configuration_sets(id).await
+            "keywords" => {
+                self.delete_keywords(id).await
+            }
+            "pool" => {
+                self.delete_pool(id).await
+            }
+            "protect_configuration" => {
+                self.delete_protect_configuration(id).await
+            }
+            "account_attributes" => {
+                self.delete_account_attributes(id).await
+            }
+            "registration_field_definitions" => {
+                self.delete_registration_field_definitions(id).await
+            }
+            "registration_type_definitions" => {
+                self.delete_registration_type_definitions(id).await
+            }
+            "media_message_spend_limit_override" => {
+                self.delete_media_message_spend_limit_override(id).await
+            }
+            "sender_id" => {
+                self.delete_sender_id(id).await
+            }
+            "registration_versions" => {
+                self.delete_registration_versions(id).await
+            }
+            "message_feedback" => {
+                self.delete_message_feedback(id).await
+            }
+            "registration_section_definitions" => {
+                self.delete_registration_section_definitions(id).await
             }
             "text_message_spend_limit_override" => {
                 self.delete_text_message_spend_limit_override(id).await
@@ -688,107 +724,71 @@ impl<'a> Pinpoint_smsService<'a> {
             "protect_configurations" => {
                 self.delete_protect_configurations(id).await
             }
-            "spend_limits" => {
-                self.delete_spend_limits(id).await
+            "registration_field_value" => {
+                self.delete_registration_field_value(id).await
             }
-            "opt_out_lists" => {
-                self.delete_opt_out_lists(id).await
+            "default_message_type" => {
+                self.delete_default_message_type(id).await
             }
-            "registration_section_definitions" => {
-                self.delete_registration_section_definitions(id).await
-            }
-            "protect_configuration_rule_set_number_override" => {
-                self.delete_protect_configuration_rule_set_number_override(id).await
+            "registration_field_values" => {
+                self.delete_registration_field_values(id).await
             }
             "opt_out_list" => {
                 self.delete_opt_out_list(id).await
             }
-            "pool" => {
-                self.delete_pool(id).await
-            }
-            "media_message_spend_limit_override" => {
-                self.delete_media_message_spend_limit_override(id).await
-            }
             "sender_ids" => {
                 self.delete_sender_ids(id).await
             }
-            "account_default_protect_configuration" => {
-                self.delete_account_default_protect_configuration(id).await
-            }
-            "verified_destination_number" => {
-                self.delete_verified_destination_number(id).await
-            }
-            "keyword" => {
-                self.delete_keyword(id).await
-            }
-            "registration_version" => {
-                self.delete_registration_version(id).await
-            }
-            "event_destination" => {
-                self.delete_event_destination(id).await
-            }
-            "registration_attachment" => {
-                self.delete_registration_attachment(id).await
-            }
-            "protect_configuration" => {
-                self.delete_protect_configuration(id).await
-            }
-            "voice_message_spend_limit_override" => {
-                self.delete_voice_message_spend_limit_override(id).await
-            }
-            "account_attributes" => {
-                self.delete_account_attributes(id).await
-            }
-            "opted_out_numbers" => {
-                self.delete_opted_out_numbers(id).await
-            }
-            "registration_field_definitions" => {
-                self.delete_registration_field_definitions(id).await
-            }
-            "registration" => {
-                self.delete_registration(id).await
-            }
-            "phone_numbers" => {
-                self.delete_phone_numbers(id).await
+            "protect_configuration_country_rule_set" => {
+                self.delete_protect_configuration_country_rule_set(id).await
             }
             "resource_policy" => {
                 self.delete_resource_policy(id).await
             }
-            "registration_versions" => {
-                self.delete_registration_versions(id).await
+            "opted_out_numbers" => {
+                self.delete_opted_out_numbers(id).await
             }
             "registration_attachments" => {
                 self.delete_registration_attachments(id).await
             }
-            "registrations" => {
-                self.delete_registrations(id).await
+            "registration" => {
+                self.delete_registration(id).await
             }
-            "registration_type_definitions" => {
-                self.delete_registration_type_definitions(id).await
+            "event_destination" => {
+                self.delete_event_destination(id).await
             }
-            "message_feedback" => {
-                self.delete_message_feedback(id).await
+            "protect_configuration_rule_set_number_override" => {
+                self.delete_protect_configuration_rule_set_number_override(id).await
             }
-            "sender_id" => {
-                self.delete_sender_id(id).await
+            "opt_out_lists" => {
+                self.delete_opt_out_lists(id).await
+            }
+            "default_sender_id" => {
+                self.delete_default_sender_id(id).await
             }
             "verified_destination_numbers" => {
                 self.delete_verified_destination_numbers(id).await
             }
-            "registration_association" => {
-                self.delete_registration_association(id).await
+            "pools" => {
+                self.delete_pools(id).await
             }
             "configuration_set" => {
                 self.delete_configuration_set(id).await
             }
-            "pools" => {
-                self.delete_pools(id).await
+            "voice_message_spend_limit_override" => {
+                self.delete_voice_message_spend_limit_override(id).await
+            }
+            "configuration_sets" => {
+                self.delete_configuration_sets(id).await
             }
             "phone_number" => {
                 self.delete_phone_number(id).await
             }
-            "registration_field_value" => {
-                self.delete_registration_field_value(id).await
+            "keyword" => {
+                self.delete_keyword(id).await
+            }
+            "spend_limits" => {
+                self.delete_spend_limits(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -801,124 +801,6 @@ impl<'a> Pinpoint_smsService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
-
-
-    // ------------------------------------------------------------------------
-    // Configuration_set resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a configuration_set resource
-    async fn plan_configuration_set(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new configuration_set resource
-    async fn create_configuration_set(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let configuration_set_name = input.get_optional_string("configuration_set_name")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_configuration_set()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("configuration_set_name", configuration_set_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a configuration_set resource
-    async fn read_configuration_set(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_configuration_set()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a configuration_set resource
-    async fn update_configuration_set(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let configuration_set_name = input.get_optional_string("configuration_set_name")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_configuration_set()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("configuration_set_name", configuration_set_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a configuration_set resource
-    async fn delete_configuration_set(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_configuration_set()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
 
 
     // ------------------------------------------------------------------------
@@ -949,8 +831,8 @@ impl<'a> Pinpoint_smsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let event_destination_name = input.get_optional_string("event_destination_name")?;
             let configuration_set_name = input.get_string("configuration_set_name")?;
+            let event_destination_name = input.get_optional_string("event_destination_name")?;
             let event_destination = input.get_optional_string("event_destination")?;
 
 
@@ -966,8 +848,8 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("event_destination_name", event_destination_name.unwrap_or_default())
                 .with_field("configuration_set_name", configuration_set_name.unwrap_or_default())
+                .with_field("event_destination_name", event_destination_name.unwrap_or_default())
                 .with_field("event_destination", event_destination.unwrap_or_default())
             )
         })
@@ -1002,8 +884,8 @@ impl<'a> Pinpoint_smsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let event_destination_name = input.get_optional_string("event_destination_name")?;
             let configuration_set_name = input.get_string("configuration_set_name")?;
+            let event_destination_name = input.get_optional_string("event_destination_name")?;
             let event_destination = input.get_optional_string("event_destination")?;
 
 
@@ -1020,8 +902,8 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("event_destination_name", event_destination_name.unwrap_or_default())
                 .with_field("configuration_set_name", configuration_set_name.unwrap_or_default())
+                .with_field("event_destination_name", event_destination_name.unwrap_or_default())
                 .with_field("event_destination", event_destination.unwrap_or_default())
             )
         })
@@ -1162,11 +1044,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Keywords resource operations
+    // Configuration_set resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a keywords resource
-    async fn plan_keywords(
+    /// Plan changes to a configuration_set resource
+    async fn plan_configuration_set(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1181,20 +1063,21 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new keywords resource
-    async fn create_keywords(
+    /// Create a new configuration_set resource
+    async fn create_configuration_set(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let configuration_set_name = input.get_optional_string("configuration_set_name")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_keywords()
+            //     .create_configuration_set()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1203,12 +1086,13 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("configuration_set_name", configuration_set_name.unwrap_or_default())
             )
         })
     }
 
-    /// Read a keywords resource
-    async fn read_keywords(
+    /// Read a configuration_set resource
+    async fn read_configuration_set(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1216,7 +1100,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_keywords()
+            //     .describe_configuration_set()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1228,20 +1112,21 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a keywords resource
-    async fn update_keywords(
+    /// Update a configuration_set resource
+    async fn update_configuration_set(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let configuration_set_name = input.get_optional_string("configuration_set_name")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_keywords()
+            //     .update_configuration_set()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1251,12 +1136,13 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("configuration_set_name", configuration_set_name.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a keywords resource
-    async fn delete_keywords(
+    /// Delete a configuration_set resource
+    async fn delete_configuration_set(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1264,7 +1150,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_keywords()
+            //     .delete_configuration_set()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1276,11 +1162,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Default_message_type resource operations
+    // Registration_version resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a default_message_type resource
-    async fn plan_default_message_type(
+    /// Plan changes to a registration_version resource
+    async fn plan_registration_version(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1295,20 +1181,21 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new default_message_type resource
-    async fn create_default_message_type(
+    /// Create a new registration_version resource
+    async fn create_registration_version(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let registration_id = input.get_string("registration_id")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_default_message_type()
+            //     .create_registration_version()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1317,12 +1204,13 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("registration_id", registration_id.unwrap_or_default())
             )
         })
     }
 
-    /// Read a default_message_type resource
-    async fn read_default_message_type(
+    /// Read a registration_version resource
+    async fn read_registration_version(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1330,7 +1218,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_default_message_type()
+            //     .describe_registration_version()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1342,20 +1230,21 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a default_message_type resource
-    async fn update_default_message_type(
+    /// Update a registration_version resource
+    async fn update_registration_version(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let registration_id = input.get_string("registration_id")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_default_message_type()
+            //     .update_registration_version()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1365,12 +1254,13 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("registration_id", registration_id.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a default_message_type resource
-    async fn delete_default_message_type(
+    /// Delete a registration_version resource
+    async fn delete_registration_version(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1378,7 +1268,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_default_message_type()
+            //     .delete_registration_version()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1390,11 +1280,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Protect_configuration_country_rule_set resource operations
+    // Registrations resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a protect_configuration_country_rule_set resource
-    async fn plan_protect_configuration_country_rule_set(
+    /// Plan changes to a registrations resource
+    async fn plan_registrations(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1409,23 +1299,20 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new protect_configuration_country_rule_set resource
-    async fn create_protect_configuration_country_rule_set(
+    /// Create a new registrations resource
+    async fn create_registrations(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let protect_configuration_id = input.get_string("protect_configuration_id")?;
-            let number_capability = input.get_string("number_capability")?;
-            let country_rule_set_updates = input.get_string("country_rule_set_updates")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_protect_configuration_country_rule_set()
+            //     .create_registrations()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1434,15 +1321,12 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("protect_configuration_id", protect_configuration_id.unwrap_or_default())
-                .with_field("number_capability", number_capability.unwrap_or_default())
-                .with_field("country_rule_set_updates", country_rule_set_updates.unwrap_or_default())
             )
         })
     }
 
-    /// Read a protect_configuration_country_rule_set resource
-    async fn read_protect_configuration_country_rule_set(
+    /// Read a registrations resource
+    async fn read_registrations(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1450,7 +1334,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_protect_configuration_country_rule_set()
+            //     .describe_registrations()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1462,23 +1346,20 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a protect_configuration_country_rule_set resource
-    async fn update_protect_configuration_country_rule_set(
+    /// Update a registrations resource
+    async fn update_registrations(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let protect_configuration_id = input.get_string("protect_configuration_id")?;
-            let number_capability = input.get_string("number_capability")?;
-            let country_rule_set_updates = input.get_string("country_rule_set_updates")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_protect_configuration_country_rule_set()
+            //     .update_registrations()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1488,15 +1369,12 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("protect_configuration_id", protect_configuration_id.unwrap_or_default())
-                .with_field("number_capability", number_capability.unwrap_or_default())
-                .with_field("country_rule_set_updates", country_rule_set_updates.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a protect_configuration_country_rule_set resource
-    async fn delete_protect_configuration_country_rule_set(
+    /// Delete a registrations resource
+    async fn delete_registrations(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1504,7 +1382,385 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_protect_configuration_country_rule_set()
+            //     .delete_registrations()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Registration_attachment resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a registration_attachment resource
+    async fn plan_registration_attachment(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new registration_attachment resource
+    async fn create_registration_attachment(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let attachment_url = input.get_optional_string("attachment_url")?;
+            let tags = input.get_optional_string("tags")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let attachment_body = input.get_optional_string("attachment_body")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_registration_attachment()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("attachment_url", attachment_url.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("attachment_body", attachment_body.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a registration_attachment resource
+    async fn read_registration_attachment(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_registration_attachment()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a registration_attachment resource
+    async fn update_registration_attachment(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let attachment_url = input.get_optional_string("attachment_url")?;
+            let tags = input.get_optional_string("tags")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let attachment_body = input.get_optional_string("attachment_body")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_registration_attachment()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("attachment_url", attachment_url.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("attachment_body", attachment_body.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a registration_attachment resource
+    async fn delete_registration_attachment(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_registration_attachment()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Verified_destination_number resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a verified_destination_number resource
+    async fn plan_verified_destination_number(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new verified_destination_number resource
+    async fn create_verified_destination_number(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let client_token = input.get_optional_string("client_token")?;
+            let destination_phone_number = input.get_string("destination_phone_number")?;
+            let tags = input.get_optional_string("tags")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_verified_destination_number()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("destination_phone_number", destination_phone_number.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a verified_destination_number resource
+    async fn read_verified_destination_number(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_verified_destination_number()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a verified_destination_number resource
+    async fn update_verified_destination_number(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let client_token = input.get_optional_string("client_token")?;
+            let destination_phone_number = input.get_string("destination_phone_number")?;
+            let tags = input.get_optional_string("tags")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_verified_destination_number()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("destination_phone_number", destination_phone_number.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a verified_destination_number resource
+    async fn delete_verified_destination_number(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_verified_destination_number()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Registration_association resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a registration_association resource
+    async fn plan_registration_association(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new registration_association resource
+    async fn create_registration_association(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let resource_id = input.get_string("resource_id")?;
+            let registration_id = input.get_string("registration_id")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_registration_association()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("resource_id", resource_id.unwrap_or_default())
+                .with_field("registration_id", registration_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a registration_association resource
+    async fn read_registration_association(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_registration_association()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a registration_association resource
+    async fn update_registration_association(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let resource_id = input.get_string("resource_id")?;
+            let registration_id = input.get_string("registration_id")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_registration_association()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("resource_id", resource_id.unwrap_or_default())
+                .with_field("registration_id", registration_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a registration_association resource
+    async fn delete_registration_association(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_registration_association()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1638,11 +1894,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Registration_field_values resource operations
+    // Phone_numbers resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a registration_field_values resource
-    async fn plan_registration_field_values(
+    /// Plan changes to a phone_numbers resource
+    async fn plan_phone_numbers(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1657,8 +1913,8 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new registration_field_values resource
-    async fn create_registration_field_values(
+    /// Create a new phone_numbers resource
+    async fn create_phone_numbers(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -1670,7 +1926,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_registration_field_values()
+            //     .create_phone_numbers()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1683,8 +1939,8 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Read a registration_field_values resource
-    async fn read_registration_field_values(
+    /// Read a phone_numbers resource
+    async fn read_phone_numbers(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1692,7 +1948,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_registration_field_values()
+            //     .describe_phone_numbers()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1704,8 +1960,8 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a registration_field_values resource
-    async fn update_registration_field_values(
+    /// Update a phone_numbers resource
+    async fn update_phone_numbers(
         &self,
         id: &str,
         input: ResourceInput,
@@ -1717,7 +1973,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_registration_field_values()
+            //     .update_phone_numbers()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1731,8 +1987,8 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Delete a registration_field_values resource
-    async fn delete_registration_field_values(
+    /// Delete a phone_numbers resource
+    async fn delete_phone_numbers(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1740,7 +1996,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_registration_field_values()
+            //     .delete_phone_numbers()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1752,11 +2008,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Default_sender_id resource operations
+    // Account_default_protect_configuration resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a default_sender_id resource
-    async fn plan_default_sender_id(
+    /// Plan changes to a account_default_protect_configuration resource
+    async fn plan_account_default_protect_configuration(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1771,8 +2027,8 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new default_sender_id resource
-    async fn create_default_sender_id(
+    /// Create a new account_default_protect_configuration resource
+    async fn create_account_default_protect_configuration(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -1784,7 +2040,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_default_sender_id()
+            //     .create_account_default_protect_configuration()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1797,8 +2053,8 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Read a default_sender_id resource
-    async fn read_default_sender_id(
+    /// Read a account_default_protect_configuration resource
+    async fn read_account_default_protect_configuration(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1806,7 +2062,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_default_sender_id()
+            //     .describe_account_default_protect_configuration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1818,8 +2074,8 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a default_sender_id resource
-    async fn update_default_sender_id(
+    /// Update a account_default_protect_configuration resource
+    async fn update_account_default_protect_configuration(
         &self,
         id: &str,
         input: ResourceInput,
@@ -1831,7 +2087,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_default_sender_id()
+            //     .update_account_default_protect_configuration()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1845,8 +2101,8 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Delete a default_sender_id resource
-    async fn delete_default_sender_id(
+    /// Delete a account_default_protect_configuration resource
+    async fn delete_account_default_protect_configuration(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1854,7 +2110,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_default_sender_id()
+            //     .delete_account_default_protect_configuration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1866,11 +2122,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Configuration_sets resource operations
+    // Keywords resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a configuration_sets resource
-    async fn plan_configuration_sets(
+    /// Plan changes to a keywords resource
+    async fn plan_keywords(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1885,8 +2141,8 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new configuration_sets resource
-    async fn create_configuration_sets(
+    /// Create a new keywords resource
+    async fn create_keywords(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -1898,7 +2154,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_configuration_sets()
+            //     .create_keywords()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1911,8 +2167,8 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Read a configuration_sets resource
-    async fn read_configuration_sets(
+    /// Read a keywords resource
+    async fn read_keywords(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1920,7 +2176,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_configuration_sets()
+            //     .describe_keywords()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1932,8 +2188,8 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a configuration_sets resource
-    async fn update_configuration_sets(
+    /// Update a keywords resource
+    async fn update_keywords(
         &self,
         id: &str,
         input: ResourceInput,
@@ -1945,7 +2201,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_configuration_sets()
+            //     .update_keywords()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1959,8 +2215,8 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Delete a configuration_sets resource
-    async fn delete_configuration_sets(
+    /// Delete a keywords resource
+    async fn delete_keywords(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1968,7 +2224,1203 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_configuration_sets()
+            //     .delete_keywords()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Pool resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a pool resource
+    async fn plan_pool(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new pool resource
+    async fn create_pool(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let message_type = input.get_string("message_type")?;
+            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
+            let iso_country_code = input.get_string("iso_country_code")?;
+            let tags = input.get_optional_string("tags")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let origination_identity = input.get_string("origination_identity")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_pool()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("message_type", message_type.unwrap_or_default())
+                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
+                .with_field("iso_country_code", iso_country_code.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("origination_identity", origination_identity.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a pool resource
+    async fn read_pool(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_pool()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a pool resource
+    async fn update_pool(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let message_type = input.get_string("message_type")?;
+            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
+            let iso_country_code = input.get_string("iso_country_code")?;
+            let tags = input.get_optional_string("tags")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let origination_identity = input.get_string("origination_identity")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_pool()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("message_type", message_type.unwrap_or_default())
+                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
+                .with_field("iso_country_code", iso_country_code.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("origination_identity", origination_identity.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a pool resource
+    async fn delete_pool(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_pool()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Protect_configuration resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a protect_configuration resource
+    async fn plan_protect_configuration(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new protect_configuration resource
+    async fn create_protect_configuration(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let tags = input.get_optional_string("tags")?;
+            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
+            let client_token = input.get_optional_string("client_token")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_protect_configuration()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a protect_configuration resource
+    async fn read_protect_configuration(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_protect_configuration()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a protect_configuration resource
+    async fn update_protect_configuration(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let tags = input.get_optional_string("tags")?;
+            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
+            let client_token = input.get_optional_string("client_token")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_protect_configuration()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a protect_configuration resource
+    async fn delete_protect_configuration(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_protect_configuration()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Account_attributes resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a account_attributes resource
+    async fn plan_account_attributes(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new account_attributes resource
+    async fn create_account_attributes(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_account_attributes()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a account_attributes resource
+    async fn read_account_attributes(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_account_attributes()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a account_attributes resource
+    async fn update_account_attributes(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_account_attributes()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a account_attributes resource
+    async fn delete_account_attributes(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_account_attributes()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Registration_field_definitions resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a registration_field_definitions resource
+    async fn plan_registration_field_definitions(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new registration_field_definitions resource
+    async fn create_registration_field_definitions(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_registration_field_definitions()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a registration_field_definitions resource
+    async fn read_registration_field_definitions(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_registration_field_definitions()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a registration_field_definitions resource
+    async fn update_registration_field_definitions(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_registration_field_definitions()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a registration_field_definitions resource
+    async fn delete_registration_field_definitions(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_registration_field_definitions()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Registration_type_definitions resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a registration_type_definitions resource
+    async fn plan_registration_type_definitions(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new registration_type_definitions resource
+    async fn create_registration_type_definitions(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_registration_type_definitions()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a registration_type_definitions resource
+    async fn read_registration_type_definitions(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_registration_type_definitions()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a registration_type_definitions resource
+    async fn update_registration_type_definitions(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_registration_type_definitions()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a registration_type_definitions resource
+    async fn delete_registration_type_definitions(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_registration_type_definitions()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Media_message_spend_limit_override resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a media_message_spend_limit_override resource
+    async fn plan_media_message_spend_limit_override(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new media_message_spend_limit_override resource
+    async fn create_media_message_spend_limit_override(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_media_message_spend_limit_override()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a media_message_spend_limit_override resource
+    async fn read_media_message_spend_limit_override(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_media_message_spend_limit_override()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a media_message_spend_limit_override resource
+    async fn update_media_message_spend_limit_override(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_media_message_spend_limit_override()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a media_message_spend_limit_override resource
+    async fn delete_media_message_spend_limit_override(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_media_message_spend_limit_override()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Sender_id resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a sender_id resource
+    async fn plan_sender_id(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new sender_id resource
+    async fn create_sender_id(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let iso_country_code = input.get_string("iso_country_code")?;
+            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
+            let sender_id = input.get_string("sender_id")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_sender_id()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("iso_country_code", iso_country_code.unwrap_or_default())
+                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
+                .with_field("sender_id", sender_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a sender_id resource
+    async fn read_sender_id(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_sender_id()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a sender_id resource
+    async fn update_sender_id(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let iso_country_code = input.get_string("iso_country_code")?;
+            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
+            let sender_id = input.get_string("sender_id")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_sender_id()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("iso_country_code", iso_country_code.unwrap_or_default())
+                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
+                .with_field("sender_id", sender_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a sender_id resource
+    async fn delete_sender_id(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_sender_id()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Registration_versions resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a registration_versions resource
+    async fn plan_registration_versions(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new registration_versions resource
+    async fn create_registration_versions(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_registration_versions()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a registration_versions resource
+    async fn read_registration_versions(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_registration_versions()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a registration_versions resource
+    async fn update_registration_versions(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_registration_versions()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a registration_versions resource
+    async fn delete_registration_versions(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_registration_versions()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Message_feedback resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a message_feedback resource
+    async fn plan_message_feedback(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new message_feedback resource
+    async fn create_message_feedback(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let message_id = input.get_string("message_id")?;
+            let message_feedback_status = input.get_string("message_feedback_status")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_message_feedback()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("message_id", message_id.unwrap_or_default())
+                .with_field("message_feedback_status", message_feedback_status.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a message_feedback resource
+    async fn read_message_feedback(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_message_feedback()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a message_feedback resource
+    async fn update_message_feedback(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let message_id = input.get_string("message_id")?;
+            let message_feedback_status = input.get_string("message_feedback_status")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_message_feedback()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("message_id", message_id.unwrap_or_default())
+                .with_field("message_feedback_status", message_feedback_status.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a message_feedback resource
+    async fn delete_message_feedback(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_message_feedback()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Registration_section_definitions resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a registration_section_definitions resource
+    async fn plan_registration_section_definitions(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new registration_section_definitions resource
+    async fn create_registration_section_definitions(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_registration_section_definitions()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a registration_section_definitions resource
+    async fn read_registration_section_definitions(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_registration_section_definitions()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a registration_section_definitions resource
+    async fn update_registration_section_definitions(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_registration_section_definitions()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a registration_section_definitions resource
+    async fn delete_registration_section_definitions(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_registration_section_definitions()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2322,11 +3774,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Spend_limits resource operations
+    // Registration_field_value resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a spend_limits resource
-    async fn plan_spend_limits(
+    /// Plan changes to a registration_field_value resource
+    async fn plan_registration_field_value(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -2341,20 +3793,25 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new spend_limits resource
-    async fn create_spend_limits(
+    /// Create a new registration_field_value resource
+    async fn create_registration_field_value(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let registration_attachment_id = input.get_optional_string("registration_attachment_id")?;
+            let registration_id = input.get_string("registration_id")?;
+            let field_path = input.get_string("field_path")?;
+            let text_value = input.get_optional_string("text_value")?;
+            let select_choices = input.get_optional_string("select_choices")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_spend_limits()
+            //     .create_registration_field_value()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -2363,12 +3820,17 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("registration_attachment_id", registration_attachment_id.unwrap_or_default())
+                .with_field("registration_id", registration_id.unwrap_or_default())
+                .with_field("field_path", field_path.unwrap_or_default())
+                .with_field("text_value", text_value.unwrap_or_default())
+                .with_field("select_choices", select_choices.unwrap_or_default())
             )
         })
     }
 
-    /// Read a spend_limits resource
-    async fn read_spend_limits(
+    /// Read a registration_field_value resource
+    async fn read_registration_field_value(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -2376,7 +3838,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_spend_limits()
+            //     .describe_registration_field_value()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2388,20 +3850,25 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a spend_limits resource
-    async fn update_spend_limits(
+    /// Update a registration_field_value resource
+    async fn update_registration_field_value(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let registration_attachment_id = input.get_optional_string("registration_attachment_id")?;
+            let registration_id = input.get_string("registration_id")?;
+            let field_path = input.get_string("field_path")?;
+            let text_value = input.get_optional_string("text_value")?;
+            let select_choices = input.get_optional_string("select_choices")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_spend_limits()
+            //     .update_registration_field_value()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -2411,12 +3878,17 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("registration_attachment_id", registration_attachment_id.unwrap_or_default())
+                .with_field("registration_id", registration_id.unwrap_or_default())
+                .with_field("field_path", field_path.unwrap_or_default())
+                .with_field("text_value", text_value.unwrap_or_default())
+                .with_field("select_choices", select_choices.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a spend_limits resource
-    async fn delete_spend_limits(
+    /// Delete a registration_field_value resource
+    async fn delete_registration_field_value(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -2424,7 +3896,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_spend_limits()
+            //     .delete_registration_field_value()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2436,11 +3908,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Opt_out_lists resource operations
+    // Default_message_type resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a opt_out_lists resource
-    async fn plan_opt_out_lists(
+    /// Plan changes to a default_message_type resource
+    async fn plan_default_message_type(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -2455,8 +3927,8 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new opt_out_lists resource
-    async fn create_opt_out_lists(
+    /// Create a new default_message_type resource
+    async fn create_default_message_type(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -2468,7 +3940,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_opt_out_lists()
+            //     .create_default_message_type()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -2481,8 +3953,8 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Read a opt_out_lists resource
-    async fn read_opt_out_lists(
+    /// Read a default_message_type resource
+    async fn read_default_message_type(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -2490,7 +3962,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_opt_out_lists()
+            //     .describe_default_message_type()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2502,8 +3974,8 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a opt_out_lists resource
-    async fn update_opt_out_lists(
+    /// Update a default_message_type resource
+    async fn update_default_message_type(
         &self,
         id: &str,
         input: ResourceInput,
@@ -2515,7 +3987,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_opt_out_lists()
+            //     .update_default_message_type()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -2529,8 +4001,8 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Delete a opt_out_lists resource
-    async fn delete_opt_out_lists(
+    /// Delete a default_message_type resource
+    async fn delete_default_message_type(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -2538,7 +4010,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_opt_out_lists()
+            //     .delete_default_message_type()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2550,11 +4022,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Registration_section_definitions resource operations
+    // Registration_field_values resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a registration_section_definitions resource
-    async fn plan_registration_section_definitions(
+    /// Plan changes to a registration_field_values resource
+    async fn plan_registration_field_values(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -2569,8 +4041,8 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new registration_section_definitions resource
-    async fn create_registration_section_definitions(
+    /// Create a new registration_field_values resource
+    async fn create_registration_field_values(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -2582,7 +4054,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_registration_section_definitions()
+            //     .create_registration_field_values()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -2595,8 +4067,8 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Read a registration_section_definitions resource
-    async fn read_registration_section_definitions(
+    /// Read a registration_field_values resource
+    async fn read_registration_field_values(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -2604,7 +4076,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_registration_section_definitions()
+            //     .describe_registration_field_values()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2616,8 +4088,8 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a registration_section_definitions resource
-    async fn update_registration_section_definitions(
+    /// Update a registration_field_values resource
+    async fn update_registration_field_values(
         &self,
         id: &str,
         input: ResourceInput,
@@ -2629,7 +4101,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_registration_section_definitions()
+            //     .update_registration_field_values()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -2643,8 +4115,8 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Delete a registration_section_definitions resource
-    async fn delete_registration_section_definitions(
+    /// Delete a registration_field_values resource
+    async fn delete_registration_field_values(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -2652,141 +4124,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_registration_section_definitions()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Protect_configuration_rule_set_number_override resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a protect_configuration_rule_set_number_override resource
-    async fn plan_protect_configuration_rule_set_number_override(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new protect_configuration_rule_set_number_override resource
-    async fn create_protect_configuration_rule_set_number_override(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let client_token = input.get_optional_string("client_token")?;
-            let destination_phone_number = input.get_string("destination_phone_number")?;
-            let action = input.get_string("action")?;
-            let expiration_timestamp = input.get_optional_string("expiration_timestamp")?;
-            let protect_configuration_id = input.get_string("protect_configuration_id")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_protect_configuration_rule_set_number_override()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("destination_phone_number", destination_phone_number.unwrap_or_default())
-                .with_field("action", action.unwrap_or_default())
-                .with_field("expiration_timestamp", expiration_timestamp.unwrap_or_default())
-                .with_field("protect_configuration_id", protect_configuration_id.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a protect_configuration_rule_set_number_override resource
-    async fn read_protect_configuration_rule_set_number_override(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_protect_configuration_rule_set_number_override()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a protect_configuration_rule_set_number_override resource
-    async fn update_protect_configuration_rule_set_number_override(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let client_token = input.get_optional_string("client_token")?;
-            let destination_phone_number = input.get_string("destination_phone_number")?;
-            let action = input.get_string("action")?;
-            let expiration_timestamp = input.get_optional_string("expiration_timestamp")?;
-            let protect_configuration_id = input.get_string("protect_configuration_id")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_protect_configuration_rule_set_number_override()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("destination_phone_number", destination_phone_number.unwrap_or_default())
-                .with_field("action", action.unwrap_or_default())
-                .with_field("expiration_timestamp", expiration_timestamp.unwrap_or_default())
-                .with_field("protect_configuration_id", protect_configuration_id.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a protect_configuration_rule_set_number_override resource
-    async fn delete_protect_configuration_rule_set_number_override(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_protect_configuration_rule_set_number_override()
+            //     .delete_registration_field_values()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2825,8 +4163,8 @@ impl<'a> Pinpoint_smsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let tags = input.get_optional_string("tags")?;
             let opt_out_list_name = input.get_string("opt_out_list_name")?;
+            let tags = input.get_optional_string("tags")?;
             let client_token = input.get_optional_string("client_token")?;
 
 
@@ -2842,8 +4180,8 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("opt_out_list_name", opt_out_list_name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
                 .with_field("client_token", client_token.unwrap_or_default())
             )
         })
@@ -2878,8 +4216,8 @@ impl<'a> Pinpoint_smsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let tags = input.get_optional_string("tags")?;
             let opt_out_list_name = input.get_string("opt_out_list_name")?;
+            let tags = input.get_optional_string("tags")?;
             let client_token = input.get_optional_string("client_token")?;
 
 
@@ -2896,8 +4234,8 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("opt_out_list_name", opt_out_list_name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
                 .with_field("client_token", client_token.unwrap_or_default())
             )
         })
@@ -2913,258 +4251,6 @@ impl<'a> Pinpoint_smsService<'a> {
             // Example:
             // self.provider.pinpoint_sms_client
             //     .delete_opt_out_list()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Pool resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a pool resource
-    async fn plan_pool(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new pool resource
-    async fn create_pool(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let iso_country_code = input.get_string("iso_country_code")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let message_type = input.get_string("message_type")?;
-            let origination_identity = input.get_string("origination_identity")?;
-            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
-            let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_pool()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("iso_country_code", iso_country_code.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("message_type", message_type.unwrap_or_default())
-                .with_field("origination_identity", origination_identity.unwrap_or_default())
-                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a pool resource
-    async fn read_pool(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_pool()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a pool resource
-    async fn update_pool(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let iso_country_code = input.get_string("iso_country_code")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let message_type = input.get_string("message_type")?;
-            let origination_identity = input.get_string("origination_identity")?;
-            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
-            let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_pool()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("iso_country_code", iso_country_code.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("message_type", message_type.unwrap_or_default())
-                .with_field("origination_identity", origination_identity.unwrap_or_default())
-                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a pool resource
-    async fn delete_pool(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_pool()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Media_message_spend_limit_override resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a media_message_spend_limit_override resource
-    async fn plan_media_message_spend_limit_override(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new media_message_spend_limit_override resource
-    async fn create_media_message_spend_limit_override(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_media_message_spend_limit_override()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a media_message_spend_limit_override resource
-    async fn read_media_message_spend_limit_override(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_media_message_spend_limit_override()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a media_message_spend_limit_override resource
-    async fn update_media_message_spend_limit_override(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_media_message_spend_limit_override()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a media_message_spend_limit_override resource
-    async fn delete_media_message_spend_limit_override(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_media_message_spend_limit_override()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -3290,11 +4376,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Account_default_protect_configuration resource operations
+    // Protect_configuration_country_rule_set resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a account_default_protect_configuration resource
-    async fn plan_account_default_protect_configuration(
+    /// Plan changes to a protect_configuration_country_rule_set resource
+    async fn plan_protect_configuration_country_rule_set(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -3309,20 +4395,23 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new account_default_protect_configuration resource
-    async fn create_account_default_protect_configuration(
+    /// Create a new protect_configuration_country_rule_set resource
+    async fn create_protect_configuration_country_rule_set(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let country_rule_set_updates = input.get_string("country_rule_set_updates")?;
+            let protect_configuration_id = input.get_string("protect_configuration_id")?;
+            let number_capability = input.get_string("number_capability")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_account_default_protect_configuration()
+            //     .create_protect_configuration_country_rule_set()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -3331,12 +4420,15 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("country_rule_set_updates", country_rule_set_updates.unwrap_or_default())
+                .with_field("protect_configuration_id", protect_configuration_id.unwrap_or_default())
+                .with_field("number_capability", number_capability.unwrap_or_default())
             )
         })
     }
 
-    /// Read a account_default_protect_configuration resource
-    async fn read_account_default_protect_configuration(
+    /// Read a protect_configuration_country_rule_set resource
+    async fn read_protect_configuration_country_rule_set(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -3344,7 +4436,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_account_default_protect_configuration()
+            //     .describe_protect_configuration_country_rule_set()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -3356,20 +4448,23 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a account_default_protect_configuration resource
-    async fn update_account_default_protect_configuration(
+    /// Update a protect_configuration_country_rule_set resource
+    async fn update_protect_configuration_country_rule_set(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let country_rule_set_updates = input.get_string("country_rule_set_updates")?;
+            let protect_configuration_id = input.get_string("protect_configuration_id")?;
+            let number_capability = input.get_string("number_capability")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_account_default_protect_configuration()
+            //     .update_protect_configuration_country_rule_set()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -3379,12 +4474,15 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("country_rule_set_updates", country_rule_set_updates.unwrap_or_default())
+                .with_field("protect_configuration_id", protect_configuration_id.unwrap_or_default())
+                .with_field("number_capability", number_capability.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a account_default_protect_configuration resource
-    async fn delete_account_default_protect_configuration(
+    /// Delete a protect_configuration_country_rule_set resource
+    async fn delete_protect_configuration_country_rule_set(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -3392,7 +4490,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_account_default_protect_configuration()
+            //     .delete_protect_configuration_country_rule_set()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -3404,11 +4502,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Verified_destination_number resource operations
+    // Resource_policy resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a verified_destination_number resource
-    async fn plan_verified_destination_number(
+    /// Plan changes to a resource_policy resource
+    async fn plan_resource_policy(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -3423,23 +4521,22 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new verified_destination_number resource
-    async fn create_verified_destination_number(
+    /// Create a new resource_policy resource
+    async fn create_resource_policy(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let destination_phone_number = input.get_string("destination_phone_number")?;
-            let tags = input.get_optional_string("tags")?;
-            let client_token = input.get_optional_string("client_token")?;
+            let policy = input.get_string("policy")?;
+            let resource_arn = input.get_string("resource_arn")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_verified_destination_number()
+            //     .create_resource_policy()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -3448,15 +4545,14 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("destination_phone_number", destination_phone_number.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("policy", policy.unwrap_or_default())
+                .with_field("resource_arn", resource_arn.unwrap_or_default())
             )
         })
     }
 
-    /// Read a verified_destination_number resource
-    async fn read_verified_destination_number(
+    /// Read a resource_policy resource
+    async fn read_resource_policy(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -3464,7 +4560,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_verified_destination_number()
+            //     .describe_resource_policy()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -3476,23 +4572,22 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a verified_destination_number resource
-    async fn update_verified_destination_number(
+    /// Update a resource_policy resource
+    async fn update_resource_policy(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let destination_phone_number = input.get_string("destination_phone_number")?;
-            let tags = input.get_optional_string("tags")?;
-            let client_token = input.get_optional_string("client_token")?;
+            let policy = input.get_string("policy")?;
+            let resource_arn = input.get_string("resource_arn")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_verified_destination_number()
+            //     .update_resource_policy()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -3502,15 +4597,14 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("destination_phone_number", destination_phone_number.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("policy", policy.unwrap_or_default())
+                .with_field("resource_arn", resource_arn.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a verified_destination_number resource
-    async fn delete_verified_destination_number(
+    /// Delete a resource_policy resource
+    async fn delete_resource_policy(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -3518,881 +4612,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_verified_destination_number()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Keyword resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a keyword resource
-    async fn plan_keyword(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new keyword resource
-    async fn create_keyword(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let keyword = input.get_string("keyword")?;
-            let keyword_action = input.get_optional_string("keyword_action")?;
-            let origination_identity = input.get_string("origination_identity")?;
-            let keyword_message = input.get_string("keyword_message")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_keyword()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("keyword", keyword.unwrap_or_default())
-                .with_field("keyword_action", keyword_action.unwrap_or_default())
-                .with_field("origination_identity", origination_identity.unwrap_or_default())
-                .with_field("keyword_message", keyword_message.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a keyword resource
-    async fn read_keyword(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_keyword()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a keyword resource
-    async fn update_keyword(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let keyword = input.get_string("keyword")?;
-            let keyword_action = input.get_optional_string("keyword_action")?;
-            let origination_identity = input.get_string("origination_identity")?;
-            let keyword_message = input.get_string("keyword_message")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_keyword()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("keyword", keyword.unwrap_or_default())
-                .with_field("keyword_action", keyword_action.unwrap_or_default())
-                .with_field("origination_identity", origination_identity.unwrap_or_default())
-                .with_field("keyword_message", keyword_message.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a keyword resource
-    async fn delete_keyword(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_keyword()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Registration_version resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a registration_version resource
-    async fn plan_registration_version(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new registration_version resource
-    async fn create_registration_version(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let registration_id = input.get_string("registration_id")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_registration_version()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("registration_id", registration_id.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a registration_version resource
-    async fn read_registration_version(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_registration_version()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a registration_version resource
-    async fn update_registration_version(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let registration_id = input.get_string("registration_id")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_registration_version()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("registration_id", registration_id.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a registration_version resource
-    async fn delete_registration_version(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_registration_version()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Event_destination resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a event_destination resource
-    async fn plan_event_destination(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new event_destination resource
-    async fn create_event_destination(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let cloud_watch_logs_destination = input.get_optional_string("cloud_watch_logs_destination")?;
-            let kinesis_firehose_destination = input.get_optional_string("kinesis_firehose_destination")?;
-            let sns_destination = input.get_optional_string("sns_destination")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let configuration_set_name = input.get_string("configuration_set_name")?;
-            let event_destination_name = input.get_string("event_destination_name")?;
-            let matching_event_types = input.get_string("matching_event_types")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_event_destination()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("cloud_watch_logs_destination", cloud_watch_logs_destination.unwrap_or_default())
-                .with_field("kinesis_firehose_destination", kinesis_firehose_destination.unwrap_or_default())
-                .with_field("sns_destination", sns_destination.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("configuration_set_name", configuration_set_name.unwrap_or_default())
-                .with_field("event_destination_name", event_destination_name.unwrap_or_default())
-                .with_field("matching_event_types", matching_event_types.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a event_destination resource
-    async fn read_event_destination(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_event_destination()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a event_destination resource
-    async fn update_event_destination(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let cloud_watch_logs_destination = input.get_optional_string("cloud_watch_logs_destination")?;
-            let kinesis_firehose_destination = input.get_optional_string("kinesis_firehose_destination")?;
-            let sns_destination = input.get_optional_string("sns_destination")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let configuration_set_name = input.get_string("configuration_set_name")?;
-            let event_destination_name = input.get_string("event_destination_name")?;
-            let matching_event_types = input.get_string("matching_event_types")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_event_destination()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("cloud_watch_logs_destination", cloud_watch_logs_destination.unwrap_or_default())
-                .with_field("kinesis_firehose_destination", kinesis_firehose_destination.unwrap_or_default())
-                .with_field("sns_destination", sns_destination.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("configuration_set_name", configuration_set_name.unwrap_or_default())
-                .with_field("event_destination_name", event_destination_name.unwrap_or_default())
-                .with_field("matching_event_types", matching_event_types.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a event_destination resource
-    async fn delete_event_destination(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_event_destination()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Registration_attachment resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a registration_attachment resource
-    async fn plan_registration_attachment(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new registration_attachment resource
-    async fn create_registration_attachment(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let attachment_body = input.get_optional_string("attachment_body")?;
-            let attachment_url = input.get_optional_string("attachment_url")?;
-            let tags = input.get_optional_string("tags")?;
-            let client_token = input.get_optional_string("client_token")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_registration_attachment()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("attachment_body", attachment_body.unwrap_or_default())
-                .with_field("attachment_url", attachment_url.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a registration_attachment resource
-    async fn read_registration_attachment(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_registration_attachment()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a registration_attachment resource
-    async fn update_registration_attachment(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let attachment_body = input.get_optional_string("attachment_body")?;
-            let attachment_url = input.get_optional_string("attachment_url")?;
-            let tags = input.get_optional_string("tags")?;
-            let client_token = input.get_optional_string("client_token")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_registration_attachment()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("attachment_body", attachment_body.unwrap_or_default())
-                .with_field("attachment_url", attachment_url.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a registration_attachment resource
-    async fn delete_registration_attachment(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_registration_attachment()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Protect_configuration resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a protect_configuration resource
-    async fn plan_protect_configuration(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new protect_configuration resource
-    async fn create_protect_configuration(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_protect_configuration()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a protect_configuration resource
-    async fn read_protect_configuration(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_protect_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a protect_configuration resource
-    async fn update_protect_configuration(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_protect_configuration()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a protect_configuration resource
-    async fn delete_protect_configuration(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_protect_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Voice_message_spend_limit_override resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a voice_message_spend_limit_override resource
-    async fn plan_voice_message_spend_limit_override(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new voice_message_spend_limit_override resource
-    async fn create_voice_message_spend_limit_override(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_voice_message_spend_limit_override()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a voice_message_spend_limit_override resource
-    async fn read_voice_message_spend_limit_override(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_voice_message_spend_limit_override()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a voice_message_spend_limit_override resource
-    async fn update_voice_message_spend_limit_override(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_voice_message_spend_limit_override()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a voice_message_spend_limit_override resource
-    async fn delete_voice_message_spend_limit_override(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_voice_message_spend_limit_override()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Account_attributes resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a account_attributes resource
-    async fn plan_account_attributes(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new account_attributes resource
-    async fn create_account_attributes(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_account_attributes()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a account_attributes resource
-    async fn read_account_attributes(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_account_attributes()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a account_attributes resource
-    async fn update_account_attributes(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_account_attributes()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a account_attributes resource
-    async fn delete_account_attributes(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_account_attributes()
+            //     .delete_resource_policy()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -4518,596 +4738,6 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Registration_field_definitions resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a registration_field_definitions resource
-    async fn plan_registration_field_definitions(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new registration_field_definitions resource
-    async fn create_registration_field_definitions(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_registration_field_definitions()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a registration_field_definitions resource
-    async fn read_registration_field_definitions(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_registration_field_definitions()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a registration_field_definitions resource
-    async fn update_registration_field_definitions(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_registration_field_definitions()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a registration_field_definitions resource
-    async fn delete_registration_field_definitions(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_registration_field_definitions()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Registration resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a registration resource
-    async fn plan_registration(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new registration resource
-    async fn create_registration(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let registration_type = input.get_string("registration_type")?;
-            let tags = input.get_optional_string("tags")?;
-            let client_token = input.get_optional_string("client_token")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_registration()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("registration_type", registration_type.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a registration resource
-    async fn read_registration(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_registration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a registration resource
-    async fn update_registration(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let registration_type = input.get_string("registration_type")?;
-            let tags = input.get_optional_string("tags")?;
-            let client_token = input.get_optional_string("client_token")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_registration()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("registration_type", registration_type.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a registration resource
-    async fn delete_registration(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_registration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Phone_numbers resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a phone_numbers resource
-    async fn plan_phone_numbers(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new phone_numbers resource
-    async fn create_phone_numbers(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_phone_numbers()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a phone_numbers resource
-    async fn read_phone_numbers(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_phone_numbers()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a phone_numbers resource
-    async fn update_phone_numbers(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_phone_numbers()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a phone_numbers resource
-    async fn delete_phone_numbers(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_phone_numbers()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Resource_policy resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a resource_policy resource
-    async fn plan_resource_policy(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new resource_policy resource
-    async fn create_resource_policy(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let resource_arn = input.get_string("resource_arn")?;
-            let policy = input.get_string("policy")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_resource_policy()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("resource_arn", resource_arn.unwrap_or_default())
-                .with_field("policy", policy.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a resource_policy resource
-    async fn read_resource_policy(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_resource_policy()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a resource_policy resource
-    async fn update_resource_policy(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let resource_arn = input.get_string("resource_arn")?;
-            let policy = input.get_string("policy")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_resource_policy()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("resource_arn", resource_arn.unwrap_or_default())
-                .with_field("policy", policy.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a resource_policy resource
-    async fn delete_resource_policy(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_resource_policy()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Registration_versions resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a registration_versions resource
-    async fn plan_registration_versions(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new registration_versions resource
-    async fn create_registration_versions(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_registration_versions()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a registration_versions resource
-    async fn read_registration_versions(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_registration_versions()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a registration_versions resource
-    async fn update_registration_versions(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_registration_versions()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a registration_versions resource
-    async fn delete_registration_versions(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_registration_versions()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
     // Registration_attachments resource operations
     // ------------------------------------------------------------------------
 
@@ -5222,11 +4852,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Registrations resource operations
+    // Registration resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a registrations resource
-    async fn plan_registrations(
+    /// Plan changes to a registration resource
+    async fn plan_registration(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -5241,20 +4871,23 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new registrations resource
-    async fn create_registrations(
+    /// Create a new registration resource
+    async fn create_registration(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let client_token = input.get_optional_string("client_token")?;
+            let registration_type = input.get_string("registration_type")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_registrations()
+            //     .create_registration()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -5263,12 +4896,15 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("registration_type", registration_type.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
 
-    /// Read a registrations resource
-    async fn read_registrations(
+    /// Read a registration resource
+    async fn read_registration(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -5276,7 +4912,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_registrations()
+            //     .describe_registration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -5288,20 +4924,23 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a registrations resource
-    async fn update_registrations(
+    /// Update a registration resource
+    async fn update_registration(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let client_token = input.get_optional_string("client_token")?;
+            let registration_type = input.get_string("registration_type")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_registrations()
+            //     .update_registration()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -5311,12 +4950,15 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("registration_type", registration_type.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a registrations resource
-    async fn delete_registrations(
+    /// Delete a registration resource
+    async fn delete_registration(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -5324,7 +4966,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_registrations()
+            //     .delete_registration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -5336,11 +4978,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Registration_type_definitions resource operations
+    // Event_destination resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a registration_type_definitions resource
-    async fn plan_registration_type_definitions(
+    /// Plan changes to a event_destination resource
+    async fn plan_event_destination(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -5355,20 +4997,27 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new registration_type_definitions resource
-    async fn create_registration_type_definitions(
+    /// Create a new event_destination resource
+    async fn create_event_destination(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let event_destination_name = input.get_string("event_destination_name")?;
+            let configuration_set_name = input.get_string("configuration_set_name")?;
+            let matching_event_types = input.get_string("matching_event_types")?;
+            let kinesis_firehose_destination = input.get_optional_string("kinesis_firehose_destination")?;
+            let cloud_watch_logs_destination = input.get_optional_string("cloud_watch_logs_destination")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let sns_destination = input.get_optional_string("sns_destination")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_registration_type_definitions()
+            //     .create_event_destination()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -5377,12 +5026,19 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("event_destination_name", event_destination_name.unwrap_or_default())
+                .with_field("configuration_set_name", configuration_set_name.unwrap_or_default())
+                .with_field("matching_event_types", matching_event_types.unwrap_or_default())
+                .with_field("kinesis_firehose_destination", kinesis_firehose_destination.unwrap_or_default())
+                .with_field("cloud_watch_logs_destination", cloud_watch_logs_destination.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("sns_destination", sns_destination.unwrap_or_default())
             )
         })
     }
 
-    /// Read a registration_type_definitions resource
-    async fn read_registration_type_definitions(
+    /// Read a event_destination resource
+    async fn read_event_destination(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -5390,7 +5046,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_registration_type_definitions()
+            //     .describe_event_destination()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -5402,20 +5058,27 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a registration_type_definitions resource
-    async fn update_registration_type_definitions(
+    /// Update a event_destination resource
+    async fn update_event_destination(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let event_destination_name = input.get_string("event_destination_name")?;
+            let configuration_set_name = input.get_string("configuration_set_name")?;
+            let matching_event_types = input.get_string("matching_event_types")?;
+            let kinesis_firehose_destination = input.get_optional_string("kinesis_firehose_destination")?;
+            let cloud_watch_logs_destination = input.get_optional_string("cloud_watch_logs_destination")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let sns_destination = input.get_optional_string("sns_destination")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_registration_type_definitions()
+            //     .update_event_destination()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -5425,12 +5088,19 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("event_destination_name", event_destination_name.unwrap_or_default())
+                .with_field("configuration_set_name", configuration_set_name.unwrap_or_default())
+                .with_field("matching_event_types", matching_event_types.unwrap_or_default())
+                .with_field("kinesis_firehose_destination", kinesis_firehose_destination.unwrap_or_default())
+                .with_field("cloud_watch_logs_destination", cloud_watch_logs_destination.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("sns_destination", sns_destination.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a registration_type_definitions resource
-    async fn delete_registration_type_definitions(
+    /// Delete a event_destination resource
+    async fn delete_event_destination(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -5438,7 +5108,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_registration_type_definitions()
+            //     .delete_event_destination()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -5450,11 +5120,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Message_feedback resource operations
+    // Protect_configuration_rule_set_number_override resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a message_feedback resource
-    async fn plan_message_feedback(
+    /// Plan changes to a protect_configuration_rule_set_number_override resource
+    async fn plan_protect_configuration_rule_set_number_override(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -5469,22 +5139,25 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new message_feedback resource
-    async fn create_message_feedback(
+    /// Create a new protect_configuration_rule_set_number_override resource
+    async fn create_protect_configuration_rule_set_number_override(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let message_id = input.get_string("message_id")?;
-            let message_feedback_status = input.get_string("message_feedback_status")?;
+            let destination_phone_number = input.get_string("destination_phone_number")?;
+            let expiration_timestamp = input.get_optional_string("expiration_timestamp")?;
+            let protect_configuration_id = input.get_string("protect_configuration_id")?;
+            let action = input.get_string("action")?;
+            let client_token = input.get_optional_string("client_token")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_message_feedback()
+            //     .create_protect_configuration_rule_set_number_override()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -5493,14 +5166,17 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("message_id", message_id.unwrap_or_default())
-                .with_field("message_feedback_status", message_feedback_status.unwrap_or_default())
+                .with_field("destination_phone_number", destination_phone_number.unwrap_or_default())
+                .with_field("expiration_timestamp", expiration_timestamp.unwrap_or_default())
+                .with_field("protect_configuration_id", protect_configuration_id.unwrap_or_default())
+                .with_field("action", action.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
             )
         })
     }
 
-    /// Read a message_feedback resource
-    async fn read_message_feedback(
+    /// Read a protect_configuration_rule_set_number_override resource
+    async fn read_protect_configuration_rule_set_number_override(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -5508,7 +5184,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_message_feedback()
+            //     .describe_protect_configuration_rule_set_number_override()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -5520,22 +5196,25 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a message_feedback resource
-    async fn update_message_feedback(
+    /// Update a protect_configuration_rule_set_number_override resource
+    async fn update_protect_configuration_rule_set_number_override(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let message_id = input.get_string("message_id")?;
-            let message_feedback_status = input.get_string("message_feedback_status")?;
+            let destination_phone_number = input.get_string("destination_phone_number")?;
+            let expiration_timestamp = input.get_optional_string("expiration_timestamp")?;
+            let protect_configuration_id = input.get_string("protect_configuration_id")?;
+            let action = input.get_string("action")?;
+            let client_token = input.get_optional_string("client_token")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_message_feedback()
+            //     .update_protect_configuration_rule_set_number_override()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -5545,14 +5224,17 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("message_id", message_id.unwrap_or_default())
-                .with_field("message_feedback_status", message_feedback_status.unwrap_or_default())
+                .with_field("destination_phone_number", destination_phone_number.unwrap_or_default())
+                .with_field("expiration_timestamp", expiration_timestamp.unwrap_or_default())
+                .with_field("protect_configuration_id", protect_configuration_id.unwrap_or_default())
+                .with_field("action", action.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a message_feedback resource
-    async fn delete_message_feedback(
+    /// Delete a protect_configuration_rule_set_number_override resource
+    async fn delete_protect_configuration_rule_set_number_override(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -5560,7 +5242,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_message_feedback()
+            //     .delete_protect_configuration_rule_set_number_override()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -5572,11 +5254,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Sender_id resource operations
+    // Opt_out_lists resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a sender_id resource
-    async fn plan_sender_id(
+    /// Plan changes to a opt_out_lists resource
+    async fn plan_opt_out_lists(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -5591,23 +5273,20 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new sender_id resource
-    async fn create_sender_id(
+    /// Create a new opt_out_lists resource
+    async fn create_opt_out_lists(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let sender_id = input.get_string("sender_id")?;
-            let iso_country_code = input.get_string("iso_country_code")?;
-            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_sender_id()
+            //     .create_opt_out_lists()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -5616,15 +5295,12 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("sender_id", sender_id.unwrap_or_default())
-                .with_field("iso_country_code", iso_country_code.unwrap_or_default())
-                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
             )
         })
     }
 
-    /// Read a sender_id resource
-    async fn read_sender_id(
+    /// Read a opt_out_lists resource
+    async fn read_opt_out_lists(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -5632,7 +5308,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_sender_id()
+            //     .describe_opt_out_lists()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -5644,23 +5320,20 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a sender_id resource
-    async fn update_sender_id(
+    /// Update a opt_out_lists resource
+    async fn update_opt_out_lists(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let sender_id = input.get_string("sender_id")?;
-            let iso_country_code = input.get_string("iso_country_code")?;
-            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_sender_id()
+            //     .update_opt_out_lists()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -5670,15 +5343,12 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("sender_id", sender_id.unwrap_or_default())
-                .with_field("iso_country_code", iso_country_code.unwrap_or_default())
-                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a sender_id resource
-    async fn delete_sender_id(
+    /// Delete a opt_out_lists resource
+    async fn delete_opt_out_lists(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -5686,7 +5356,121 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_sender_id()
+            //     .delete_opt_out_lists()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Default_sender_id resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a default_sender_id resource
+    async fn plan_default_sender_id(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new default_sender_id resource
+    async fn create_default_sender_id(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_default_sender_id()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a default_sender_id resource
+    async fn read_default_sender_id(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_default_sender_id()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a default_sender_id resource
+    async fn update_default_sender_id(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_default_sender_id()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a default_sender_id resource
+    async fn delete_default_sender_id(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_default_sender_id()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -5812,254 +5596,6 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Registration_association resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a registration_association resource
-    async fn plan_registration_association(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new registration_association resource
-    async fn create_registration_association(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let registration_id = input.get_string("registration_id")?;
-            let resource_id = input.get_string("resource_id")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_registration_association()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("registration_id", registration_id.unwrap_or_default())
-                .with_field("resource_id", resource_id.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a registration_association resource
-    async fn read_registration_association(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_registration_association()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a registration_association resource
-    async fn update_registration_association(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let registration_id = input.get_string("registration_id")?;
-            let resource_id = input.get_string("resource_id")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_registration_association()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("registration_id", registration_id.unwrap_or_default())
-                .with_field("resource_id", resource_id.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a registration_association resource
-    async fn delete_registration_association(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_registration_association()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Configuration_set resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a configuration_set resource
-    async fn plan_configuration_set(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new configuration_set resource
-    async fn create_configuration_set(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let tags = input.get_optional_string("tags")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let configuration_set_name = input.get_string("configuration_set_name")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .create_configuration_set()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("configuration_set_name", configuration_set_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a configuration_set resource
-    async fn read_configuration_set(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .describe_configuration_set()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a configuration_set resource
-    async fn update_configuration_set(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let tags = input.get_optional_string("tags")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let configuration_set_name = input.get_string("configuration_set_name")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pinpoint_sms_client
-            //     .update_configuration_set()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("configuration_set_name", configuration_set_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a configuration_set resource
-    async fn delete_configuration_set(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pinpoint_sms_client
-            //     .delete_configuration_set()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
     // Pools resource operations
     // ------------------------------------------------------------------------
 
@@ -6174,6 +5710,360 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
+    // Configuration_set resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a configuration_set resource
+    async fn plan_configuration_set(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new configuration_set resource
+    async fn create_configuration_set(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let tags = input.get_optional_string("tags")?;
+            let configuration_set_name = input.get_string("configuration_set_name")?;
+            let client_token = input.get_optional_string("client_token")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_configuration_set()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("configuration_set_name", configuration_set_name.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a configuration_set resource
+    async fn read_configuration_set(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_configuration_set()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a configuration_set resource
+    async fn update_configuration_set(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let tags = input.get_optional_string("tags")?;
+            let configuration_set_name = input.get_string("configuration_set_name")?;
+            let client_token = input.get_optional_string("client_token")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_configuration_set()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("configuration_set_name", configuration_set_name.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a configuration_set resource
+    async fn delete_configuration_set(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_configuration_set()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Voice_message_spend_limit_override resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a voice_message_spend_limit_override resource
+    async fn plan_voice_message_spend_limit_override(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new voice_message_spend_limit_override resource
+    async fn create_voice_message_spend_limit_override(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_voice_message_spend_limit_override()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a voice_message_spend_limit_override resource
+    async fn read_voice_message_spend_limit_override(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_voice_message_spend_limit_override()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a voice_message_spend_limit_override resource
+    async fn update_voice_message_spend_limit_override(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_voice_message_spend_limit_override()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a voice_message_spend_limit_override resource
+    async fn delete_voice_message_spend_limit_override(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_voice_message_spend_limit_override()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Configuration_sets resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a configuration_sets resource
+    async fn plan_configuration_sets(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new configuration_sets resource
+    async fn create_configuration_sets(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_configuration_sets()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a configuration_sets resource
+    async fn read_configuration_sets(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_configuration_sets()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a configuration_sets resource
+    async fn update_configuration_sets(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_configuration_sets()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a configuration_sets resource
+    async fn delete_configuration_sets(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_configuration_sets()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
     // Phone_number resource operations
     // ------------------------------------------------------------------------
 
@@ -6201,14 +6091,14 @@ impl<'a> Pinpoint_smsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let two_way_channel_arn = input.get_optional_string("two_way_channel_arn")?;
-            let self_managed_opt_outs_enabled = input.get_optional_string("self_managed_opt_outs_enabled")?;
-            let opt_out_list_name = input.get_optional_string("opt_out_list_name")?;
-            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
-            let phone_number_id = input.get_string("phone_number_id")?;
-            let international_sending_enabled = input.get_optional_string("international_sending_enabled")?;
             let two_way_channel_role = input.get_optional_string("two_way_channel_role")?;
+            let phone_number_id = input.get_string("phone_number_id")?;
+            let two_way_channel_arn = input.get_optional_string("two_way_channel_arn")?;
+            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
+            let opt_out_list_name = input.get_optional_string("opt_out_list_name")?;
             let two_way_enabled = input.get_optional_string("two_way_enabled")?;
+            let international_sending_enabled = input.get_optional_string("international_sending_enabled")?;
+            let self_managed_opt_outs_enabled = input.get_optional_string("self_managed_opt_outs_enabled")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -6223,14 +6113,14 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("two_way_channel_arn", two_way_channel_arn.unwrap_or_default())
-                .with_field("self_managed_opt_outs_enabled", self_managed_opt_outs_enabled.unwrap_or_default())
-                .with_field("opt_out_list_name", opt_out_list_name.unwrap_or_default())
-                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
-                .with_field("phone_number_id", phone_number_id.unwrap_or_default())
-                .with_field("international_sending_enabled", international_sending_enabled.unwrap_or_default())
                 .with_field("two_way_channel_role", two_way_channel_role.unwrap_or_default())
+                .with_field("phone_number_id", phone_number_id.unwrap_or_default())
+                .with_field("two_way_channel_arn", two_way_channel_arn.unwrap_or_default())
+                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
+                .with_field("opt_out_list_name", opt_out_list_name.unwrap_or_default())
                 .with_field("two_way_enabled", two_way_enabled.unwrap_or_default())
+                .with_field("international_sending_enabled", international_sending_enabled.unwrap_or_default())
+                .with_field("self_managed_opt_outs_enabled", self_managed_opt_outs_enabled.unwrap_or_default())
             )
         })
     }
@@ -6264,14 +6154,14 @@ impl<'a> Pinpoint_smsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let two_way_channel_arn = input.get_optional_string("two_way_channel_arn")?;
-            let self_managed_opt_outs_enabled = input.get_optional_string("self_managed_opt_outs_enabled")?;
-            let opt_out_list_name = input.get_optional_string("opt_out_list_name")?;
-            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
-            let phone_number_id = input.get_string("phone_number_id")?;
-            let international_sending_enabled = input.get_optional_string("international_sending_enabled")?;
             let two_way_channel_role = input.get_optional_string("two_way_channel_role")?;
+            let phone_number_id = input.get_string("phone_number_id")?;
+            let two_way_channel_arn = input.get_optional_string("two_way_channel_arn")?;
+            let deletion_protection_enabled = input.get_optional_string("deletion_protection_enabled")?;
+            let opt_out_list_name = input.get_optional_string("opt_out_list_name")?;
             let two_way_enabled = input.get_optional_string("two_way_enabled")?;
+            let international_sending_enabled = input.get_optional_string("international_sending_enabled")?;
+            let self_managed_opt_outs_enabled = input.get_optional_string("self_managed_opt_outs_enabled")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -6287,14 +6177,14 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("two_way_channel_arn", two_way_channel_arn.unwrap_or_default())
-                .with_field("self_managed_opt_outs_enabled", self_managed_opt_outs_enabled.unwrap_or_default())
-                .with_field("opt_out_list_name", opt_out_list_name.unwrap_or_default())
-                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
-                .with_field("phone_number_id", phone_number_id.unwrap_or_default())
-                .with_field("international_sending_enabled", international_sending_enabled.unwrap_or_default())
                 .with_field("two_way_channel_role", two_way_channel_role.unwrap_or_default())
+                .with_field("phone_number_id", phone_number_id.unwrap_or_default())
+                .with_field("two_way_channel_arn", two_way_channel_arn.unwrap_or_default())
+                .with_field("deletion_protection_enabled", deletion_protection_enabled.unwrap_or_default())
+                .with_field("opt_out_list_name", opt_out_list_name.unwrap_or_default())
                 .with_field("two_way_enabled", two_way_enabled.unwrap_or_default())
+                .with_field("international_sending_enabled", international_sending_enabled.unwrap_or_default())
+                .with_field("self_managed_opt_outs_enabled", self_managed_opt_outs_enabled.unwrap_or_default())
             )
         })
     }
@@ -6320,11 +6210,11 @@ impl<'a> Pinpoint_smsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Registration_field_value resource operations
+    // Keyword resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a registration_field_value resource
-    async fn plan_registration_field_value(
+    /// Plan changes to a keyword resource
+    async fn plan_keyword(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -6339,25 +6229,24 @@ impl<'a> Pinpoint_smsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new registration_field_value resource
-    async fn create_registration_field_value(
+    /// Create a new keyword resource
+    async fn create_keyword(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let select_choices = input.get_optional_string("select_choices")?;
-            let registration_attachment_id = input.get_optional_string("registration_attachment_id")?;
-            let field_path = input.get_string("field_path")?;
-            let text_value = input.get_optional_string("text_value")?;
-            let registration_id = input.get_string("registration_id")?;
+            let keyword_action = input.get_optional_string("keyword_action")?;
+            let keyword = input.get_string("keyword")?;
+            let origination_identity = input.get_string("origination_identity")?;
+            let keyword_message = input.get_string("keyword_message")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .create_registration_field_value()
+            //     .create_keyword()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -6366,17 +6255,16 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("select_choices", select_choices.unwrap_or_default())
-                .with_field("registration_attachment_id", registration_attachment_id.unwrap_or_default())
-                .with_field("field_path", field_path.unwrap_or_default())
-                .with_field("text_value", text_value.unwrap_or_default())
-                .with_field("registration_id", registration_id.unwrap_or_default())
+                .with_field("keyword_action", keyword_action.unwrap_or_default())
+                .with_field("keyword", keyword.unwrap_or_default())
+                .with_field("origination_identity", origination_identity.unwrap_or_default())
+                .with_field("keyword_message", keyword_message.unwrap_or_default())
             )
         })
     }
 
-    /// Read a registration_field_value resource
-    async fn read_registration_field_value(
+    /// Read a keyword resource
+    async fn read_keyword(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -6384,7 +6272,7 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .describe_registration_field_value()
+            //     .describe_keyword()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -6396,25 +6284,24 @@ impl<'a> Pinpoint_smsService<'a> {
         })
     }
 
-    /// Update a registration_field_value resource
-    async fn update_registration_field_value(
+    /// Update a keyword resource
+    async fn update_keyword(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let select_choices = input.get_optional_string("select_choices")?;
-            let registration_attachment_id = input.get_optional_string("registration_attachment_id")?;
-            let field_path = input.get_string("field_path")?;
-            let text_value = input.get_optional_string("text_value")?;
-            let registration_id = input.get_string("registration_id")?;
+            let keyword_action = input.get_optional_string("keyword_action")?;
+            let keyword = input.get_string("keyword")?;
+            let origination_identity = input.get_string("origination_identity")?;
+            let keyword_message = input.get_string("keyword_message")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pinpoint_sms_client
-            //     .update_registration_field_value()
+            //     .update_keyword()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -6424,17 +6311,16 @@ impl<'a> Pinpoint_smsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("select_choices", select_choices.unwrap_or_default())
-                .with_field("registration_attachment_id", registration_attachment_id.unwrap_or_default())
-                .with_field("field_path", field_path.unwrap_or_default())
-                .with_field("text_value", text_value.unwrap_or_default())
-                .with_field("registration_id", registration_id.unwrap_or_default())
+                .with_field("keyword_action", keyword_action.unwrap_or_default())
+                .with_field("keyword", keyword.unwrap_or_default())
+                .with_field("origination_identity", origination_identity.unwrap_or_default())
+                .with_field("keyword_message", keyword_message.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a registration_field_value resource
-    async fn delete_registration_field_value(
+    /// Delete a keyword resource
+    async fn delete_keyword(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -6442,7 +6328,121 @@ impl<'a> Pinpoint_smsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pinpoint_sms_client
-            //     .delete_registration_field_value()
+            //     .delete_keyword()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Spend_limits resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a spend_limits resource
+    async fn plan_spend_limits(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new spend_limits resource
+    async fn create_spend_limits(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .create_spend_limits()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a spend_limits resource
+    async fn read_spend_limits(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .describe_spend_limits()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a spend_limits resource
+    async fn update_spend_limits(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pinpoint_sms_client
+            //     .update_spend_limits()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a spend_limits resource
+    async fn delete_spend_limits(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pinpoint_sms_client
+            //     .delete_spend_limits()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

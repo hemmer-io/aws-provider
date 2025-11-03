@@ -38,7 +38,7 @@ impl<'a> Sensitivity_inspection_template<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, includes: Option<String>, id: Option<String>, excludes: Option<String>, description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, includes: Option<String>, excludes: Option<String>, id: Option<String>, description: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

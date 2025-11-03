@@ -21,7 +21,7 @@ impl<'a> Table<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, encryption_specification: Option<String>, client_side_timestamps: Option<String>, auto_scaling_specification: Option<String>, cdc_specification: Option<String>, ttl: Option<String>, point_in_time_recovery: Option<String>, schema_definition: String, table_name: String, keyspace_name: String, default_time_to_live: Option<i64>, tags: Option<Vec<String>>, replica_specifications: Option<Vec<String>>, comment: Option<String>, capacity_specification: Option<String>) -> Result<String> {
+    pub async fn create(&self, schema_definition: String, default_time_to_live: Option<i64>, auto_scaling_specification: Option<String>, capacity_specification: Option<String>, encryption_specification: Option<String>, replica_specifications: Option<Vec<String>>, cdc_specification: Option<String>, tags: Option<Vec<String>>, table_name: String, client_side_timestamps: Option<String>, ttl: Option<String>, keyspace_name: String, point_in_time_recovery: Option<String>, comment: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Table<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, encryption_specification: Option<String>, client_side_timestamps: Option<String>, auto_scaling_specification: Option<String>, cdc_specification: Option<String>, ttl: Option<String>, point_in_time_recovery: Option<String>, schema_definition: Option<String>, table_name: Option<String>, keyspace_name: Option<String>, default_time_to_live: Option<i64>, tags: Option<Vec<String>>, replica_specifications: Option<Vec<String>>, comment: Option<String>, capacity_specification: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, schema_definition: Option<String>, default_time_to_live: Option<i64>, auto_scaling_specification: Option<String>, capacity_specification: Option<String>, encryption_specification: Option<String>, replica_specifications: Option<Vec<String>>, cdc_specification: Option<String>, tags: Option<Vec<String>>, table_name: Option<String>, client_side_timestamps: Option<String>, ttl: Option<String>, keyspace_name: Option<String>, point_in_time_recovery: Option<String>, comment: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

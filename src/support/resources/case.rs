@@ -21,7 +21,7 @@ impl<'a> Case<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, service_code: Option<String>, attachment_set_id: Option<String>, language: Option<String>, communication_body: String, cc_email_addresses: Option<Vec<String>>, issue_type: Option<String>, category_code: Option<String>, severity_code: Option<String>, subject: String) -> Result<String> {
+    pub async fn create(&self, attachment_set_id: Option<String>, communication_body: String, issue_type: Option<String>, category_code: Option<String>, cc_email_addresses: Option<Vec<String>>, severity_code: Option<String>, language: Option<String>, service_code: Option<String>, subject: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

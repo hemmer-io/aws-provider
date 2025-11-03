@@ -24,23 +24,23 @@ impl<'a> DetectiveService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "graph" => {
-                self.plan_graph(current_state, desired_input).await
-            }
-            "members" => {
-                self.plan_members(current_state, desired_input).await
-            }
-            "organization_configuration" => {
-                self.plan_organization_configuration(current_state, desired_input).await
-            }
-            "investigation" => {
-                self.plan_investigation(current_state, desired_input).await
+            "investigation_state" => {
+                self.plan_investigation_state(current_state, desired_input).await
             }
             "datasource_packages" => {
                 self.plan_datasource_packages(current_state, desired_input).await
             }
-            "investigation_state" => {
-                self.plan_investigation_state(current_state, desired_input).await
+            "organization_configuration" => {
+                self.plan_organization_configuration(current_state, desired_input).await
+            }
+            "members" => {
+                self.plan_members(current_state, desired_input).await
+            }
+            "graph" => {
+                self.plan_graph(current_state, desired_input).await
+            }
+            "investigation" => {
+                self.plan_investigation(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -57,23 +57,23 @@ impl<'a> DetectiveService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "graph" => {
-                self.create_graph(input).await
-            }
-            "members" => {
-                self.create_members(input).await
-            }
-            "organization_configuration" => {
-                self.create_organization_configuration(input).await
-            }
-            "investigation" => {
-                self.create_investigation(input).await
+            "investigation_state" => {
+                self.create_investigation_state(input).await
             }
             "datasource_packages" => {
                 self.create_datasource_packages(input).await
             }
-            "investigation_state" => {
-                self.create_investigation_state(input).await
+            "organization_configuration" => {
+                self.create_organization_configuration(input).await
+            }
+            "members" => {
+                self.create_members(input).await
+            }
+            "graph" => {
+                self.create_graph(input).await
+            }
+            "investigation" => {
+                self.create_investigation(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -90,23 +90,23 @@ impl<'a> DetectiveService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "graph" => {
-                self.read_graph(id).await
-            }
-            "members" => {
-                self.read_members(id).await
-            }
-            "organization_configuration" => {
-                self.read_organization_configuration(id).await
-            }
-            "investigation" => {
-                self.read_investigation(id).await
+            "investigation_state" => {
+                self.read_investigation_state(id).await
             }
             "datasource_packages" => {
                 self.read_datasource_packages(id).await
             }
-            "investigation_state" => {
-                self.read_investigation_state(id).await
+            "organization_configuration" => {
+                self.read_organization_configuration(id).await
+            }
+            "members" => {
+                self.read_members(id).await
+            }
+            "graph" => {
+                self.read_graph(id).await
+            }
+            "investigation" => {
+                self.read_investigation(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -124,23 +124,23 @@ impl<'a> DetectiveService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "graph" => {
-                self.update_graph(id, input).await
-            }
-            "members" => {
-                self.update_members(id, input).await
-            }
-            "organization_configuration" => {
-                self.update_organization_configuration(id, input).await
-            }
-            "investigation" => {
-                self.update_investigation(id, input).await
+            "investigation_state" => {
+                self.update_investigation_state(id, input).await
             }
             "datasource_packages" => {
                 self.update_datasource_packages(id, input).await
             }
-            "investigation_state" => {
-                self.update_investigation_state(id, input).await
+            "organization_configuration" => {
+                self.update_organization_configuration(id, input).await
+            }
+            "members" => {
+                self.update_members(id, input).await
+            }
+            "graph" => {
+                self.update_graph(id, input).await
+            }
+            "investigation" => {
+                self.update_investigation(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -157,23 +157,23 @@ impl<'a> DetectiveService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "graph" => {
-                self.delete_graph(id).await
-            }
-            "members" => {
-                self.delete_members(id).await
-            }
-            "organization_configuration" => {
-                self.delete_organization_configuration(id).await
-            }
-            "investigation" => {
-                self.delete_investigation(id).await
+            "investigation_state" => {
+                self.delete_investigation_state(id).await
             }
             "datasource_packages" => {
                 self.delete_datasource_packages(id).await
             }
-            "investigation_state" => {
-                self.delete_investigation_state(id).await
+            "organization_configuration" => {
+                self.delete_organization_configuration(id).await
+            }
+            "members" => {
+                self.delete_members(id).await
+            }
+            "graph" => {
+                self.delete_graph(id).await
+            }
+            "investigation" => {
+                self.delete_investigation(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -189,11 +189,11 @@ impl<'a> DetectiveService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Graph resource operations
+    // Investigation_state resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a graph resource
-    async fn plan_graph(
+    /// Plan changes to a investigation_state resource
+    async fn plan_investigation_state(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -208,21 +208,23 @@ impl<'a> DetectiveService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new graph resource
-    async fn create_graph(
+    /// Create a new investigation_state resource
+    async fn create_investigation_state(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let tags = input.get_optional_string("tags")?;
+            let investigation_id = input.get_string("investigation_id")?;
+            let state = input.get_string("state")?;
+            let graph_arn = input.get_string("graph_arn")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.detective_client
-            //     .create_graph()
+            //     .create_investigation_state()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -231,13 +233,15 @@ impl<'a> DetectiveService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("tags", tags.unwrap_or_default())
+                .with_field("investigation_id", investigation_id.unwrap_or_default())
+                .with_field("state", state.unwrap_or_default())
+                .with_field("graph_arn", graph_arn.unwrap_or_default())
             )
         })
     }
 
-    /// Read a graph resource
-    async fn read_graph(
+    /// Read a investigation_state resource
+    async fn read_investigation_state(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -245,7 +249,7 @@ impl<'a> DetectiveService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.detective_client
-            //     .describe_graph()
+            //     .describe_investigation_state()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -257,21 +261,23 @@ impl<'a> DetectiveService<'a> {
         })
     }
 
-    /// Update a graph resource
-    async fn update_graph(
+    /// Update a investigation_state resource
+    async fn update_investigation_state(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let tags = input.get_optional_string("tags")?;
+            let investigation_id = input.get_string("investigation_id")?;
+            let state = input.get_string("state")?;
+            let graph_arn = input.get_string("graph_arn")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.detective_client
-            //     .update_graph()
+            //     .update_investigation_state()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -281,13 +287,15 @@ impl<'a> DetectiveService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("tags", tags.unwrap_or_default())
+                .with_field("investigation_id", investigation_id.unwrap_or_default())
+                .with_field("state", state.unwrap_or_default())
+                .with_field("graph_arn", graph_arn.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a graph resource
-    async fn delete_graph(
+    /// Delete a investigation_state resource
+    async fn delete_investigation_state(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -295,373 +303,7 @@ impl<'a> DetectiveService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.detective_client
-            //     .delete_graph()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Members resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a members resource
-    async fn plan_members(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new members resource
-    async fn create_members(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let accounts = input.get_string("accounts")?;
-            let disable_email_notification = input.get_optional_string("disable_email_notification")?;
-            let graph_arn = input.get_string("graph_arn")?;
-            let message = input.get_optional_string("message")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.detective_client
-            //     .create_members()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("accounts", accounts.unwrap_or_default())
-                .with_field("disable_email_notification", disable_email_notification.unwrap_or_default())
-                .with_field("graph_arn", graph_arn.unwrap_or_default())
-                .with_field("message", message.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a members resource
-    async fn read_members(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.detective_client
-            //     .describe_members()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a members resource
-    async fn update_members(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let accounts = input.get_string("accounts")?;
-            let disable_email_notification = input.get_optional_string("disable_email_notification")?;
-            let graph_arn = input.get_string("graph_arn")?;
-            let message = input.get_optional_string("message")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.detective_client
-            //     .update_members()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("accounts", accounts.unwrap_or_default())
-                .with_field("disable_email_notification", disable_email_notification.unwrap_or_default())
-                .with_field("graph_arn", graph_arn.unwrap_or_default())
-                .with_field("message", message.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a members resource
-    async fn delete_members(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.detective_client
-            //     .delete_members()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Organization_configuration resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a organization_configuration resource
-    async fn plan_organization_configuration(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new organization_configuration resource
-    async fn create_organization_configuration(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let graph_arn = input.get_string("graph_arn")?;
-            let auto_enable = input.get_optional_string("auto_enable")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.detective_client
-            //     .create_organization_configuration()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("graph_arn", graph_arn.unwrap_or_default())
-                .with_field("auto_enable", auto_enable.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a organization_configuration resource
-    async fn read_organization_configuration(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.detective_client
-            //     .describe_organization_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a organization_configuration resource
-    async fn update_organization_configuration(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let graph_arn = input.get_string("graph_arn")?;
-            let auto_enable = input.get_optional_string("auto_enable")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.detective_client
-            //     .update_organization_configuration()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("graph_arn", graph_arn.unwrap_or_default())
-                .with_field("auto_enable", auto_enable.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a organization_configuration resource
-    async fn delete_organization_configuration(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.detective_client
-            //     .delete_organization_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Investigation resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a investigation resource
-    async fn plan_investigation(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new investigation resource
-    async fn create_investigation(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.detective_client
-            //     .create_investigation()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a investigation resource
-    async fn read_investigation(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.detective_client
-            //     .describe_investigation()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a investigation resource
-    async fn update_investigation(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.detective_client
-            //     .update_investigation()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a investigation resource
-    async fn delete_investigation(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.detective_client
-            //     .delete_investigation()
+            //     .delete_investigation_state()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -795,11 +437,11 @@ impl<'a> DetectiveService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Investigation_state resource operations
+    // Organization_configuration resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a investigation_state resource
-    async fn plan_investigation_state(
+    /// Plan changes to a organization_configuration resource
+    async fn plan_organization_configuration(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -814,23 +456,22 @@ impl<'a> DetectiveService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new investigation_state resource
-    async fn create_investigation_state(
+    /// Create a new organization_configuration resource
+    async fn create_organization_configuration(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let investigation_id = input.get_string("investigation_id")?;
-            let state = input.get_string("state")?;
+            let auto_enable = input.get_optional_string("auto_enable")?;
             let graph_arn = input.get_string("graph_arn")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.detective_client
-            //     .create_investigation_state()
+            //     .create_organization_configuration()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -839,15 +480,14 @@ impl<'a> DetectiveService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("investigation_id", investigation_id.unwrap_or_default())
-                .with_field("state", state.unwrap_or_default())
+                .with_field("auto_enable", auto_enable.unwrap_or_default())
                 .with_field("graph_arn", graph_arn.unwrap_or_default())
             )
         })
     }
 
-    /// Read a investigation_state resource
-    async fn read_investigation_state(
+    /// Read a organization_configuration resource
+    async fn read_organization_configuration(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -855,7 +495,7 @@ impl<'a> DetectiveService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.detective_client
-            //     .describe_investigation_state()
+            //     .describe_organization_configuration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -867,23 +507,22 @@ impl<'a> DetectiveService<'a> {
         })
     }
 
-    /// Update a investigation_state resource
-    async fn update_investigation_state(
+    /// Update a organization_configuration resource
+    async fn update_organization_configuration(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let investigation_id = input.get_string("investigation_id")?;
-            let state = input.get_string("state")?;
+            let auto_enable = input.get_optional_string("auto_enable")?;
             let graph_arn = input.get_string("graph_arn")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.detective_client
-            //     .update_investigation_state()
+            //     .update_organization_configuration()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -893,15 +532,14 @@ impl<'a> DetectiveService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("investigation_id", investigation_id.unwrap_or_default())
-                .with_field("state", state.unwrap_or_default())
+                .with_field("auto_enable", auto_enable.unwrap_or_default())
                 .with_field("graph_arn", graph_arn.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a investigation_state resource
-    async fn delete_investigation_state(
+    /// Delete a organization_configuration resource
+    async fn delete_organization_configuration(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -909,7 +547,369 @@ impl<'a> DetectiveService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.detective_client
-            //     .delete_investigation_state()
+            //     .delete_organization_configuration()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Members resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a members resource
+    async fn plan_members(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new members resource
+    async fn create_members(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let disable_email_notification = input.get_optional_string("disable_email_notification")?;
+            let accounts = input.get_string("accounts")?;
+            let graph_arn = input.get_string("graph_arn")?;
+            let message = input.get_optional_string("message")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.detective_client
+            //     .create_members()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("disable_email_notification", disable_email_notification.unwrap_or_default())
+                .with_field("accounts", accounts.unwrap_or_default())
+                .with_field("graph_arn", graph_arn.unwrap_or_default())
+                .with_field("message", message.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a members resource
+    async fn read_members(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.detective_client
+            //     .describe_members()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a members resource
+    async fn update_members(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let disable_email_notification = input.get_optional_string("disable_email_notification")?;
+            let accounts = input.get_string("accounts")?;
+            let graph_arn = input.get_string("graph_arn")?;
+            let message = input.get_optional_string("message")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.detective_client
+            //     .update_members()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("disable_email_notification", disable_email_notification.unwrap_or_default())
+                .with_field("accounts", accounts.unwrap_or_default())
+                .with_field("graph_arn", graph_arn.unwrap_or_default())
+                .with_field("message", message.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a members resource
+    async fn delete_members(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.detective_client
+            //     .delete_members()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Graph resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a graph resource
+    async fn plan_graph(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new graph resource
+    async fn create_graph(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let tags = input.get_optional_string("tags")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.detective_client
+            //     .create_graph()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("tags", tags.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a graph resource
+    async fn read_graph(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.detective_client
+            //     .describe_graph()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a graph resource
+    async fn update_graph(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let tags = input.get_optional_string("tags")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.detective_client
+            //     .update_graph()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("tags", tags.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a graph resource
+    async fn delete_graph(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.detective_client
+            //     .delete_graph()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Investigation resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a investigation resource
+    async fn plan_investigation(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new investigation resource
+    async fn create_investigation(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.detective_client
+            //     .create_investigation()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a investigation resource
+    async fn read_investigation(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.detective_client
+            //     .describe_investigation()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a investigation resource
+    async fn update_investigation(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.detective_client
+            //     .update_investigation()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a investigation resource
+    async fn delete_investigation(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.detective_client
+            //     .delete_investigation()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

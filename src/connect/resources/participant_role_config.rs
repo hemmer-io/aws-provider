@@ -24,7 +24,7 @@ impl<'a> Participant_role_config<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, channel_configuration: Option<String>, contact_id: Option<String>, instance_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, instance_id: Option<String>, contact_id: Option<String>, channel_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

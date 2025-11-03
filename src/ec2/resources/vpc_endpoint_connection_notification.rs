@@ -21,7 +21,7 @@ impl<'a> Vpc_endpoint_connection_notification<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, service_id: Option<String>, vpc_endpoint_id: Option<String>, connection_notification_arn: String, client_token: Option<String>, connection_events: Vec<String>, dry_run: Option<bool>) -> Result<String> {
+    pub async fn create(&self, client_token: Option<String>, vpc_endpoint_id: Option<String>, dry_run: Option<bool>, service_id: Option<String>, connection_notification_arn: String, connection_events: Vec<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

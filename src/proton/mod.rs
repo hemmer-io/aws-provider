@@ -24,11 +24,11 @@ impl<'a> ProtonService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "service_instance_sync_status" => {
-                self.plan_service_instance_sync_status(current_state, desired_input).await
-            }
             "repository_sync_status" => {
                 self.plan_repository_sync_status(current_state, desired_input).await
+            }
+            "service_instance_sync_status" => {
+                self.plan_service_instance_sync_status(current_state, desired_input).await
             }
             "template_sync_status" => {
                 self.plan_template_sync_status(current_state, desired_input).await
@@ -51,11 +51,11 @@ impl<'a> ProtonService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "service_instance_sync_status" => {
-                self.create_service_instance_sync_status(input).await
-            }
             "repository_sync_status" => {
                 self.create_repository_sync_status(input).await
+            }
+            "service_instance_sync_status" => {
+                self.create_service_instance_sync_status(input).await
             }
             "template_sync_status" => {
                 self.create_template_sync_status(input).await
@@ -78,11 +78,11 @@ impl<'a> ProtonService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "service_instance_sync_status" => {
-                self.read_service_instance_sync_status(id).await
-            }
             "repository_sync_status" => {
                 self.read_repository_sync_status(id).await
+            }
+            "service_instance_sync_status" => {
+                self.read_service_instance_sync_status(id).await
             }
             "template_sync_status" => {
                 self.read_template_sync_status(id).await
@@ -106,11 +106,11 @@ impl<'a> ProtonService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "service_instance_sync_status" => {
-                self.update_service_instance_sync_status(id, input).await
-            }
             "repository_sync_status" => {
                 self.update_repository_sync_status(id, input).await
+            }
+            "service_instance_sync_status" => {
+                self.update_service_instance_sync_status(id, input).await
             }
             "template_sync_status" => {
                 self.update_template_sync_status(id, input).await
@@ -133,11 +133,11 @@ impl<'a> ProtonService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "service_instance_sync_status" => {
-                self.delete_service_instance_sync_status(id).await
-            }
             "repository_sync_status" => {
                 self.delete_repository_sync_status(id).await
+            }
+            "service_instance_sync_status" => {
+                self.delete_service_instance_sync_status(id).await
             }
             "template_sync_status" => {
                 self.delete_template_sync_status(id).await
@@ -156,120 +156,6 @@ impl<'a> ProtonService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
-
-
-    // ------------------------------------------------------------------------
-    // Service_instance_sync_status resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a service_instance_sync_status resource
-    async fn plan_service_instance_sync_status(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new service_instance_sync_status resource
-    async fn create_service_instance_sync_status(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.proton_client
-            //     .create_service_instance_sync_status()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a service_instance_sync_status resource
-    async fn read_service_instance_sync_status(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.proton_client
-            //     .describe_service_instance_sync_status()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a service_instance_sync_status resource
-    async fn update_service_instance_sync_status(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.proton_client
-            //     .update_service_instance_sync_status()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a service_instance_sync_status resource
-    async fn delete_service_instance_sync_status(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.proton_client
-            //     .delete_service_instance_sync_status()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
 
 
     // ------------------------------------------------------------------------
@@ -376,6 +262,120 @@ impl<'a> ProtonService<'a> {
             // Example:
             // self.provider.proton_client
             //     .delete_repository_sync_status()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Service_instance_sync_status resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a service_instance_sync_status resource
+    async fn plan_service_instance_sync_status(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new service_instance_sync_status resource
+    async fn create_service_instance_sync_status(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.proton_client
+            //     .create_service_instance_sync_status()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a service_instance_sync_status resource
+    async fn read_service_instance_sync_status(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.proton_client
+            //     .describe_service_instance_sync_status()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a service_instance_sync_status resource
+    async fn update_service_instance_sync_status(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.proton_client
+            //     .update_service_instance_sync_status()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a service_instance_sync_status resource
+    async fn delete_service_instance_sync_status(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.proton_client
+            //     .delete_service_instance_sync_status()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

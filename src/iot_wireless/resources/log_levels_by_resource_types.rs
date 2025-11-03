@@ -38,7 +38,7 @@ impl<'a> Log_levels_by_resource_types<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, wireless_device_log_options: Option<Vec<String>>, wireless_gateway_log_options: Option<Vec<String>>, default_log_level: Option<String>, fuota_task_log_options: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, default_log_level: Option<String>, fuota_task_log_options: Option<Vec<String>>, wireless_device_log_options: Option<Vec<String>>, wireless_gateway_log_options: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

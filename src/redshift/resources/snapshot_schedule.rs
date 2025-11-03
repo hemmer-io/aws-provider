@@ -21,7 +21,7 @@ impl<'a> Snapshot_schedule<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, schedule_definitions: Option<Vec<String>>, schedule_description: Option<String>, dry_run: Option<bool>, schedule_identifier: Option<String>, next_invocations: Option<i64>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, dry_run: Option<bool>, schedule_definitions: Option<Vec<String>>, schedule_identifier: Option<String>, schedule_description: Option<String>, next_invocations: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

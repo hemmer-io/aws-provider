@@ -21,7 +21,7 @@ impl<'a> Network_insights_access_scope<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, exclude_paths: Option<Vec<String>>, client_token: String, tag_specifications: Option<Vec<String>>, match_paths: Option<Vec<String>>, dry_run: Option<bool>) -> Result<String> {
+    pub async fn create(&self, match_paths: Option<Vec<String>>, tag_specifications: Option<Vec<String>>, exclude_paths: Option<Vec<String>>, dry_run: Option<bool>, client_token: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

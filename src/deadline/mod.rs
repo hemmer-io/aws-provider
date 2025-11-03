@@ -24,14 +24,14 @@ impl<'a> DeadlineService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "queue_fleet_association" => {
-                self.plan_queue_fleet_association(current_state, desired_input).await
+            "queue_limit_association" => {
+                self.plan_queue_limit_association(current_state, desired_input).await
             }
             "sessions_statistics_aggregation" => {
                 self.plan_sessions_statistics_aggregation(current_state, desired_input).await
             }
-            "queue_limit_association" => {
-                self.plan_queue_limit_association(current_state, desired_input).await
+            "queue_fleet_association" => {
+                self.plan_queue_fleet_association(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -48,14 +48,14 @@ impl<'a> DeadlineService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "queue_fleet_association" => {
-                self.create_queue_fleet_association(input).await
+            "queue_limit_association" => {
+                self.create_queue_limit_association(input).await
             }
             "sessions_statistics_aggregation" => {
                 self.create_sessions_statistics_aggregation(input).await
             }
-            "queue_limit_association" => {
-                self.create_queue_limit_association(input).await
+            "queue_fleet_association" => {
+                self.create_queue_fleet_association(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -72,14 +72,14 @@ impl<'a> DeadlineService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "queue_fleet_association" => {
-                self.read_queue_fleet_association(id).await
+            "queue_limit_association" => {
+                self.read_queue_limit_association(id).await
             }
             "sessions_statistics_aggregation" => {
                 self.read_sessions_statistics_aggregation(id).await
             }
-            "queue_limit_association" => {
-                self.read_queue_limit_association(id).await
+            "queue_fleet_association" => {
+                self.read_queue_fleet_association(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -97,14 +97,14 @@ impl<'a> DeadlineService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "queue_fleet_association" => {
-                self.update_queue_fleet_association(id, input).await
+            "queue_limit_association" => {
+                self.update_queue_limit_association(id, input).await
             }
             "sessions_statistics_aggregation" => {
                 self.update_sessions_statistics_aggregation(id, input).await
             }
-            "queue_limit_association" => {
-                self.update_queue_limit_association(id, input).await
+            "queue_fleet_association" => {
+                self.update_queue_fleet_association(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -121,14 +121,14 @@ impl<'a> DeadlineService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "queue_fleet_association" => {
-                self.delete_queue_fleet_association(id).await
+            "queue_limit_association" => {
+                self.delete_queue_limit_association(id).await
             }
             "sessions_statistics_aggregation" => {
                 self.delete_sessions_statistics_aggregation(id).await
             }
-            "queue_limit_association" => {
-                self.delete_queue_limit_association(id).await
+            "queue_fleet_association" => {
+                self.delete_queue_fleet_association(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -144,11 +144,11 @@ impl<'a> DeadlineService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Queue_fleet_association resource operations
+    // Queue_limit_association resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a queue_fleet_association resource
-    async fn plan_queue_fleet_association(
+    /// Plan changes to a queue_limit_association resource
+    async fn plan_queue_limit_association(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -163,23 +163,23 @@ impl<'a> DeadlineService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new queue_fleet_association resource
-    async fn create_queue_fleet_association(
+    /// Create a new queue_limit_association resource
+    async fn create_queue_limit_association(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let queue_id = input.get_string("queue_id")?;
-            let fleet_id = input.get_string("fleet_id")?;
             let farm_id = input.get_string("farm_id")?;
+            let queue_id = input.get_string("queue_id")?;
+            let limit_id = input.get_string("limit_id")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.deadline_client
-            //     .create_queue_fleet_association()
+            //     .create_queue_limit_association()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -188,15 +188,15 @@ impl<'a> DeadlineService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("queue_id", queue_id.unwrap_or_default())
-                .with_field("fleet_id", fleet_id.unwrap_or_default())
                 .with_field("farm_id", farm_id.unwrap_or_default())
+                .with_field("queue_id", queue_id.unwrap_or_default())
+                .with_field("limit_id", limit_id.unwrap_or_default())
             )
         })
     }
 
-    /// Read a queue_fleet_association resource
-    async fn read_queue_fleet_association(
+    /// Read a queue_limit_association resource
+    async fn read_queue_limit_association(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -204,7 +204,7 @@ impl<'a> DeadlineService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.deadline_client
-            //     .describe_queue_fleet_association()
+            //     .describe_queue_limit_association()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -216,23 +216,23 @@ impl<'a> DeadlineService<'a> {
         })
     }
 
-    /// Update a queue_fleet_association resource
-    async fn update_queue_fleet_association(
+    /// Update a queue_limit_association resource
+    async fn update_queue_limit_association(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let queue_id = input.get_string("queue_id")?;
-            let fleet_id = input.get_string("fleet_id")?;
             let farm_id = input.get_string("farm_id")?;
+            let queue_id = input.get_string("queue_id")?;
+            let limit_id = input.get_string("limit_id")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.deadline_client
-            //     .update_queue_fleet_association()
+            //     .update_queue_limit_association()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -242,15 +242,15 @@ impl<'a> DeadlineService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("queue_id", queue_id.unwrap_or_default())
-                .with_field("fleet_id", fleet_id.unwrap_or_default())
                 .with_field("farm_id", farm_id.unwrap_or_default())
+                .with_field("queue_id", queue_id.unwrap_or_default())
+                .with_field("limit_id", limit_id.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a queue_fleet_association resource
-    async fn delete_queue_fleet_association(
+    /// Delete a queue_limit_association resource
+    async fn delete_queue_limit_association(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -258,7 +258,7 @@ impl<'a> DeadlineService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.deadline_client
-            //     .delete_queue_fleet_association()
+            //     .delete_queue_limit_association()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -384,11 +384,11 @@ impl<'a> DeadlineService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Queue_limit_association resource operations
+    // Queue_fleet_association resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a queue_limit_association resource
-    async fn plan_queue_limit_association(
+    /// Plan changes to a queue_fleet_association resource
+    async fn plan_queue_fleet_association(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -403,23 +403,23 @@ impl<'a> DeadlineService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new queue_limit_association resource
-    async fn create_queue_limit_association(
+    /// Create a new queue_fleet_association resource
+    async fn create_queue_fleet_association(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let limit_id = input.get_string("limit_id")?;
             let farm_id = input.get_string("farm_id")?;
+            let fleet_id = input.get_string("fleet_id")?;
             let queue_id = input.get_string("queue_id")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.deadline_client
-            //     .create_queue_limit_association()
+            //     .create_queue_fleet_association()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -428,15 +428,15 @@ impl<'a> DeadlineService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("limit_id", limit_id.unwrap_or_default())
                 .with_field("farm_id", farm_id.unwrap_or_default())
+                .with_field("fleet_id", fleet_id.unwrap_or_default())
                 .with_field("queue_id", queue_id.unwrap_or_default())
             )
         })
     }
 
-    /// Read a queue_limit_association resource
-    async fn read_queue_limit_association(
+    /// Read a queue_fleet_association resource
+    async fn read_queue_fleet_association(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -444,7 +444,7 @@ impl<'a> DeadlineService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.deadline_client
-            //     .describe_queue_limit_association()
+            //     .describe_queue_fleet_association()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -456,23 +456,23 @@ impl<'a> DeadlineService<'a> {
         })
     }
 
-    /// Update a queue_limit_association resource
-    async fn update_queue_limit_association(
+    /// Update a queue_fleet_association resource
+    async fn update_queue_fleet_association(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let limit_id = input.get_string("limit_id")?;
             let farm_id = input.get_string("farm_id")?;
+            let fleet_id = input.get_string("fleet_id")?;
             let queue_id = input.get_string("queue_id")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.deadline_client
-            //     .update_queue_limit_association()
+            //     .update_queue_fleet_association()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -482,15 +482,15 @@ impl<'a> DeadlineService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("limit_id", limit_id.unwrap_or_default())
                 .with_field("farm_id", farm_id.unwrap_or_default())
+                .with_field("fleet_id", fleet_id.unwrap_or_default())
                 .with_field("queue_id", queue_id.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a queue_limit_association resource
-    async fn delete_queue_limit_association(
+    /// Delete a queue_fleet_association resource
+    async fn delete_queue_fleet_association(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -498,7 +498,7 @@ impl<'a> DeadlineService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.deadline_client
-            //     .delete_queue_limit_association()
+            //     .delete_queue_fleet_association()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

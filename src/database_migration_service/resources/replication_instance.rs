@@ -21,7 +21,7 @@ impl<'a> Replication_instance<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, engine_version: Option<String>, allocated_storage: Option<i64>, preferred_maintenance_window: Option<String>, kms_key_id: Option<String>, replication_instance_class: String, replication_subnet_group_identifier: Option<String>, network_type: Option<String>, vpc_security_group_ids: Option<Vec<String>>, replication_instance_identifier: String, multi_az: Option<bool>, tags: Option<Vec<String>>, kerberos_authentication_settings: Option<String>, auto_minor_version_upgrade: Option<bool>, dns_name_servers: Option<String>, resource_identifier: Option<String>, publicly_accessible: Option<bool>, availability_zone: Option<String>) -> Result<String> {
+    pub async fn create(&self, allocated_storage: Option<i64>, preferred_maintenance_window: Option<String>, multi_az: Option<bool>, network_type: Option<String>, kms_key_id: Option<String>, resource_identifier: Option<String>, auto_minor_version_upgrade: Option<bool>, kerberos_authentication_settings: Option<String>, dns_name_servers: Option<String>, publicly_accessible: Option<bool>, availability_zone: Option<String>, replication_subnet_group_identifier: Option<String>, engine_version: Option<String>, replication_instance_class: String, tags: Option<Vec<String>>, replication_instance_identifier: String, vpc_security_group_ids: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

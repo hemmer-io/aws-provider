@@ -21,7 +21,7 @@ impl<'a> Custom_verification_email_template<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, from_email_address: String, success_redirection_url: String, failure_redirection_url: String, template_name: String, template_subject: String, template_content: String) -> Result<String> {
+    pub async fn create(&self, success_redirection_url: String, template_name: String, failure_redirection_url: String, template_content: String, from_email_address: String, template_subject: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Custom_verification_email_template<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, from_email_address: Option<String>, success_redirection_url: Option<String>, failure_redirection_url: Option<String>, template_name: Option<String>, template_subject: Option<String>, template_content: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, success_redirection_url: Option<String>, template_name: Option<String>, failure_redirection_url: Option<String>, template_content: Option<String>, from_email_address: Option<String>, template_subject: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

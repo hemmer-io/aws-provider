@@ -21,7 +21,7 @@ impl<'a> Updated_image<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, new_image_description: Option<String>, new_image_display_name: Option<String>, dry_run: Option<bool>, new_image_name: String, new_image_tags: Option<HashMap<String, String>>, existing_image_name: String) -> Result<String> {
+    pub async fn create(&self, dry_run: Option<bool>, new_image_display_name: Option<String>, new_image_name: String, existing_image_name: String, new_image_description: Option<String>, new_image_tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

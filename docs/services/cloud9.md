@@ -11,11 +11,11 @@
 The cloud9 service provides access to 6 resource types:
 
 - [Environments](#environments) [R]
-- [Environment_status](#environment_status) [R]
 - [Environment](#environment) [UD]
 - [Environment_memberships](#environment_memberships) [R]
 - [Environment_ec2](#environment_ec2) [C]
 - [Environment_membership](#environment_membership) [CUD]
+- [Environment_status](#environment_status) [R]
 
 ---
 
@@ -60,76 +60,6 @@ environments_environments = environments.environments
 ---
 
 
-### Environment_status
-
-EnvironmentStatus resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `message` | String | <p>Any informational message about the status of the environment.</p> |
-| `status` | String | <p>The status of the environment. Available values include:</p>
-         <ul>
-            <li>
-               <p>
-                  <code>connecting</code>: The environment is connecting.</p>
-            </li>
-            <li>
-               <p>
-                  <code>creating</code>: The environment is being created.</p>
-            </li>
-            <li>
-               <p>
-                  <code>deleting</code>: The environment is being deleted.</p>
-            </li>
-            <li>
-               <p>
-                  <code>error</code>: The environment is in an error state.</p>
-            </li>
-            <li>
-               <p>
-                  <code>ready</code>: The environment is ready.</p>
-            </li>
-            <li>
-               <p>
-                  <code>stopped</code>: The environment is stopped.</p>
-            </li>
-            <li>
-               <p>
-                  <code>stopping</code>: The environment is stopping.</p>
-            </li>
-         </ul> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access environment_status outputs
-environment_status_id = environment_status.id
-environment_status_message = environment_status.message
-environment_status_status = environment_status.status
-```
-
----
-
-
 ### Environment
 
 Environment resource
@@ -141,6 +71,7 @@ Environment resource
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `name` | String |  | <p>A replacement name for the environment.</p> |
+| `environment_id` | String | ✅ | <p>The ID of the environment to change settings.</p> |
 | `managed_credentials_action` | String |  | <p>Allows the environment owner to turn on or turn off the Amazon Web Services managed temporary
       credentials for an Cloud9 environment by using one of the following values:</p>
          <ul>
@@ -159,7 +90,6 @@ Environment resource
             <p>Only the environment owner can change the status of managed temporary credentials. An <code>AccessDeniedException</code> is thrown if an attempt to turn on or turn off managed temporary credentials is made by an account that's not the environment
       owner.</p>
          </note> |
-| `environment_id` | String | ✅ | <p>The ID of the environment to change settings.</p> |
 | `description` | String |  | <p>Any new or replacement description for the environment.</p> |
 
 
@@ -232,30 +162,6 @@ EnvironmentEC2 resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `instance_type` | String | ✅ | <p>The type of instance to connect to the environment (for example,
-      <code>t2.micro</code>).</p> |
-| `connection_type` | String |  | <p>The connection type used for connecting to an Amazon EC2 environment. Valid values are
-        <code>CONNECT_SSH</code> (default) and <code>CONNECT_SSM</code> (connected through
-      Amazon EC2 Systems Manager).</p>
-         <p>For more information, see <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html">Accessing no-ingress EC2 instances with
-        Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.</p> |
-| `dry_run` | bool |  | <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p> |
-| `automatic_stop_time_minutes` | i64 |  | <p>The number of minutes until the running instance is shut down after the environment has
-      last been used.</p> |
-| `client_request_token` | String |  | <p>A unique, case-sensitive string that helps Cloud9 to ensure this operation completes no
-      more than one time.</p>
-         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Client Tokens</a> in the
-        <i>Amazon EC2 API Reference</i>.</p> |
-| `description` | String |  | <p>The description of the environment to create.</p> |
-| `name` | String | ✅ | <p>The name of the environment to create.</p>
-         <p>This name is visible to other IAM users in the same Amazon Web Services account.</p> |
-| `subnet_id` | String |  | <p>The ID of the subnet in Amazon VPC that Cloud9 will use to communicate with the Amazon EC2
-      instance.</p> |
-| `owner_arn` | String |  | <p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any
-      IAM principal. If this value is not specified, the ARN defaults to this environment's
-      creator.</p> |
-| `tags` | Vec<String> |  | <p>An array of key-value pairs that will be associated with the new Cloud9 development
-      environment.</p> |
 | `image_id` | String | ✅ | <p>The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
       To choose an AMI for the instance, you must specify a valid AMI alias or a valid Amazon EC2 Systems Manager (SSM)
       path.</p>
@@ -314,6 +220,30 @@ EnvironmentEC2 resource
                </p>
             </li>
          </ul> |
+| `automatic_stop_time_minutes` | i64 |  | <p>The number of minutes until the running instance is shut down after the environment has
+      last been used.</p> |
+| `tags` | Vec<String> |  | <p>An array of key-value pairs that will be associated with the new Cloud9 development
+      environment.</p> |
+| `connection_type` | String |  | <p>The connection type used for connecting to an Amazon EC2 environment. Valid values are
+        <code>CONNECT_SSH</code> (default) and <code>CONNECT_SSM</code> (connected through
+      Amazon EC2 Systems Manager).</p>
+         <p>For more information, see <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html">Accessing no-ingress EC2 instances with
+        Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.</p> |
+| `owner_arn` | String |  | <p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any
+      IAM principal. If this value is not specified, the ARN defaults to this environment's
+      creator.</p> |
+| `name` | String | ✅ | <p>The name of the environment to create.</p>
+         <p>This name is visible to other IAM users in the same Amazon Web Services account.</p> |
+| `client_request_token` | String |  | <p>A unique, case-sensitive string that helps Cloud9 to ensure this operation completes no
+      more than one time.</p>
+         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Client Tokens</a> in the
+        <i>Amazon EC2 API Reference</i>.</p> |
+| `instance_type` | String | ✅ | <p>The type of instance to connect to the environment (for example,
+      <code>t2.micro</code>).</p> |
+| `subnet_id` | String |  | <p>The ID of the subnet in Amazon VPC that Cloud9 will use to communicate with the Amazon EC2
+      instance.</p> |
+| `dry_run` | bool |  | <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p> |
+| `description` | String |  | <p>The description of the environment to create.</p> |
 
 
 
@@ -330,10 +260,6 @@ provider = aws.AwsProvider {
 
 # Create environment_ec2
 environment_ec2 = provider.cloud9.Environment_ec2 {
-    instance_type = "value"  # <p>The type of instance to connect to the environment (for example,
-      <code>t2.micro</code>).</p>
-    name = "value"  # <p>The name of the environment to create.</p>
-         <p>This name is visible to other IAM users in the same Amazon Web Services account.</p>
     image_id = "value"  # <p>The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
       To choose an AMI for the instance, you must specify a valid AMI alias or a valid Amazon EC2 Systems Manager (SSM)
       path.</p>
@@ -392,6 +318,10 @@ environment_ec2 = provider.cloud9.Environment_ec2 {
                </p>
             </li>
          </ul>
+    name = "value"  # <p>The name of the environment to create.</p>
+         <p>This name is visible to other IAM users in the same Amazon Web Services account.</p>
+    instance_type = "value"  # <p>The type of instance to connect to the environment (for example,
+      <code>t2.micro</code>).</p>
 }
 
 ```
@@ -455,6 +385,76 @@ environment_membership = provider.cloud9.Environment_membership {
          </ul>
 }
 
+```
+
+---
+
+
+### Environment_status
+
+EnvironmentStatus resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `status` | String | <p>The status of the environment. Available values include:</p>
+         <ul>
+            <li>
+               <p>
+                  <code>connecting</code>: The environment is connecting.</p>
+            </li>
+            <li>
+               <p>
+                  <code>creating</code>: The environment is being created.</p>
+            </li>
+            <li>
+               <p>
+                  <code>deleting</code>: The environment is being deleted.</p>
+            </li>
+            <li>
+               <p>
+                  <code>error</code>: The environment is in an error state.</p>
+            </li>
+            <li>
+               <p>
+                  <code>ready</code>: The environment is ready.</p>
+            </li>
+            <li>
+               <p>
+                  <code>stopped</code>: The environment is stopped.</p>
+            </li>
+            <li>
+               <p>
+                  <code>stopping</code>: The environment is stopping.</p>
+            </li>
+         </ul> |
+| `message` | String | <p>Any informational message about the status of the environment.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access environment_status outputs
+environment_status_id = environment_status.id
+environment_status_status = environment_status.status
+environment_status_message = environment_status.message
 ```
 
 ---

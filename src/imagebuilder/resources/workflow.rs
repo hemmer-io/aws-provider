@@ -21,7 +21,7 @@ impl<'a> Workflow<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: String, data: Option<String>, semantic_version: String, kms_key_id: Option<String>, tags: Option<HashMap<String, String>>, change_description: Option<String>, description: Option<String>, name: String, uri: Option<String>, type: String) -> Result<String> {
+    pub async fn create(&self, uri: Option<String>, description: Option<String>, kms_key_id: Option<String>, semantic_version: String, change_description: Option<String>, tags: Option<HashMap<String, String>>, name: String, type: String, data: Option<String>, client_token: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

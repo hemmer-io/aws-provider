@@ -21,7 +21,7 @@ impl<'a> Channel<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, container_format: Option<String>, name: Option<String>, latency_mode: Option<String>, recording_configuration_arn: Option<String>, type: Option<String>, authorized: Option<bool>, tags: Option<HashMap<String, String>>, preset: Option<String>, playback_restriction_policy_arn: Option<String>, insecure_ingest: Option<bool>, multitrack_input_configuration: Option<String>) -> Result<String> {
+    pub async fn create(&self, authorized: Option<bool>, tags: Option<HashMap<String, String>>, preset: Option<String>, recording_configuration_arn: Option<String>, container_format: Option<String>, type: Option<String>, multitrack_input_configuration: Option<String>, latency_mode: Option<String>, insecure_ingest: Option<bool>, playback_restriction_policy_arn: Option<String>, name: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Channel<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, container_format: Option<String>, name: Option<String>, latency_mode: Option<String>, recording_configuration_arn: Option<String>, type: Option<String>, authorized: Option<bool>, tags: Option<HashMap<String, String>>, preset: Option<String>, playback_restriction_policy_arn: Option<String>, insecure_ingest: Option<bool>, multitrack_input_configuration: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, authorized: Option<bool>, tags: Option<HashMap<String, String>>, preset: Option<String>, recording_configuration_arn: Option<String>, container_format: Option<String>, type: Option<String>, multitrack_input_configuration: Option<String>, latency_mode: Option<String>, insecure_ingest: Option<bool>, playback_restriction_policy_arn: Option<String>, name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

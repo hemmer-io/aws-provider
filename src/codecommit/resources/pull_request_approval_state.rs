@@ -24,7 +24,7 @@ impl<'a> Pull_request_approval_state<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, revision_id: Option<String>, pull_request_id: Option<String>, approval_state: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, pull_request_id: Option<String>, revision_id: Option<String>, approval_state: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

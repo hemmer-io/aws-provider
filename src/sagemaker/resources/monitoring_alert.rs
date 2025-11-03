@@ -24,7 +24,7 @@ impl<'a> Monitoring_alert<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, monitoring_schedule_name: Option<String>, monitoring_alert_name: Option<String>, datapoints_to_alert: Option<i64>, evaluation_period: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, monitoring_schedule_name: Option<String>, datapoints_to_alert: Option<i64>, monitoring_alert_name: Option<String>, evaluation_period: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

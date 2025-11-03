@@ -24,44 +24,44 @@ impl<'a> Devops_guruService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "account_overview" => {
-                self.plan_account_overview(current_state, desired_input).await
-            }
-            "account_health" => {
-                self.plan_account_health(current_state, desired_input).await
-            }
-            "feedback" => {
-                self.plan_feedback(current_state, desired_input).await
-            }
-            "resource_collection_health" => {
-                self.plan_resource_collection_health(current_state, desired_input).await
-            }
-            "anomaly" => {
-                self.plan_anomaly(current_state, desired_input).await
-            }
-            "event_sources_config" => {
-                self.plan_event_sources_config(current_state, desired_input).await
+            "insight" => {
+                self.plan_insight(current_state, desired_input).await
             }
             "organization_resource_collection_health" => {
                 self.plan_organization_resource_collection_health(current_state, desired_input).await
             }
+            "feedback" => {
+                self.plan_feedback(current_state, desired_input).await
+            }
+            "cost_estimation" => {
+                self.plan_cost_estimation(current_state, desired_input).await
+            }
+            "resource_collection_health" => {
+                self.plan_resource_collection_health(current_state, desired_input).await
+            }
+            "account_overview" => {
+                self.plan_account_overview(current_state, desired_input).await
+            }
+            "event_sources_config" => {
+                self.plan_event_sources_config(current_state, desired_input).await
+            }
             "organization_overview" => {
                 self.plan_organization_overview(current_state, desired_input).await
             }
-            "organization_health" => {
-                self.plan_organization_health(current_state, desired_input).await
-            }
-            "resource_collection" => {
-                self.plan_resource_collection(current_state, desired_input).await
-            }
-            "insight" => {
-                self.plan_insight(current_state, desired_input).await
+            "anomaly" => {
+                self.plan_anomaly(current_state, desired_input).await
             }
             "service_integration" => {
                 self.plan_service_integration(current_state, desired_input).await
             }
-            "cost_estimation" => {
-                self.plan_cost_estimation(current_state, desired_input).await
+            "account_health" => {
+                self.plan_account_health(current_state, desired_input).await
+            }
+            "resource_collection" => {
+                self.plan_resource_collection(current_state, desired_input).await
+            }
+            "organization_health" => {
+                self.plan_organization_health(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -78,44 +78,44 @@ impl<'a> Devops_guruService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "account_overview" => {
-                self.create_account_overview(input).await
-            }
-            "account_health" => {
-                self.create_account_health(input).await
-            }
-            "feedback" => {
-                self.create_feedback(input).await
-            }
-            "resource_collection_health" => {
-                self.create_resource_collection_health(input).await
-            }
-            "anomaly" => {
-                self.create_anomaly(input).await
-            }
-            "event_sources_config" => {
-                self.create_event_sources_config(input).await
+            "insight" => {
+                self.create_insight(input).await
             }
             "organization_resource_collection_health" => {
                 self.create_organization_resource_collection_health(input).await
             }
+            "feedback" => {
+                self.create_feedback(input).await
+            }
+            "cost_estimation" => {
+                self.create_cost_estimation(input).await
+            }
+            "resource_collection_health" => {
+                self.create_resource_collection_health(input).await
+            }
+            "account_overview" => {
+                self.create_account_overview(input).await
+            }
+            "event_sources_config" => {
+                self.create_event_sources_config(input).await
+            }
             "organization_overview" => {
                 self.create_organization_overview(input).await
             }
-            "organization_health" => {
-                self.create_organization_health(input).await
-            }
-            "resource_collection" => {
-                self.create_resource_collection(input).await
-            }
-            "insight" => {
-                self.create_insight(input).await
+            "anomaly" => {
+                self.create_anomaly(input).await
             }
             "service_integration" => {
                 self.create_service_integration(input).await
             }
-            "cost_estimation" => {
-                self.create_cost_estimation(input).await
+            "account_health" => {
+                self.create_account_health(input).await
+            }
+            "resource_collection" => {
+                self.create_resource_collection(input).await
+            }
+            "organization_health" => {
+                self.create_organization_health(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -132,44 +132,44 @@ impl<'a> Devops_guruService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "account_overview" => {
-                self.read_account_overview(id).await
-            }
-            "account_health" => {
-                self.read_account_health(id).await
-            }
-            "feedback" => {
-                self.read_feedback(id).await
-            }
-            "resource_collection_health" => {
-                self.read_resource_collection_health(id).await
-            }
-            "anomaly" => {
-                self.read_anomaly(id).await
-            }
-            "event_sources_config" => {
-                self.read_event_sources_config(id).await
+            "insight" => {
+                self.read_insight(id).await
             }
             "organization_resource_collection_health" => {
                 self.read_organization_resource_collection_health(id).await
             }
+            "feedback" => {
+                self.read_feedback(id).await
+            }
+            "cost_estimation" => {
+                self.read_cost_estimation(id).await
+            }
+            "resource_collection_health" => {
+                self.read_resource_collection_health(id).await
+            }
+            "account_overview" => {
+                self.read_account_overview(id).await
+            }
+            "event_sources_config" => {
+                self.read_event_sources_config(id).await
+            }
             "organization_overview" => {
                 self.read_organization_overview(id).await
             }
-            "organization_health" => {
-                self.read_organization_health(id).await
-            }
-            "resource_collection" => {
-                self.read_resource_collection(id).await
-            }
-            "insight" => {
-                self.read_insight(id).await
+            "anomaly" => {
+                self.read_anomaly(id).await
             }
             "service_integration" => {
                 self.read_service_integration(id).await
             }
-            "cost_estimation" => {
-                self.read_cost_estimation(id).await
+            "account_health" => {
+                self.read_account_health(id).await
+            }
+            "resource_collection" => {
+                self.read_resource_collection(id).await
+            }
+            "organization_health" => {
+                self.read_organization_health(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -187,44 +187,44 @@ impl<'a> Devops_guruService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "account_overview" => {
-                self.update_account_overview(id, input).await
-            }
-            "account_health" => {
-                self.update_account_health(id, input).await
-            }
-            "feedback" => {
-                self.update_feedback(id, input).await
-            }
-            "resource_collection_health" => {
-                self.update_resource_collection_health(id, input).await
-            }
-            "anomaly" => {
-                self.update_anomaly(id, input).await
-            }
-            "event_sources_config" => {
-                self.update_event_sources_config(id, input).await
+            "insight" => {
+                self.update_insight(id, input).await
             }
             "organization_resource_collection_health" => {
                 self.update_organization_resource_collection_health(id, input).await
             }
+            "feedback" => {
+                self.update_feedback(id, input).await
+            }
+            "cost_estimation" => {
+                self.update_cost_estimation(id, input).await
+            }
+            "resource_collection_health" => {
+                self.update_resource_collection_health(id, input).await
+            }
+            "account_overview" => {
+                self.update_account_overview(id, input).await
+            }
+            "event_sources_config" => {
+                self.update_event_sources_config(id, input).await
+            }
             "organization_overview" => {
                 self.update_organization_overview(id, input).await
             }
-            "organization_health" => {
-                self.update_organization_health(id, input).await
-            }
-            "resource_collection" => {
-                self.update_resource_collection(id, input).await
-            }
-            "insight" => {
-                self.update_insight(id, input).await
+            "anomaly" => {
+                self.update_anomaly(id, input).await
             }
             "service_integration" => {
                 self.update_service_integration(id, input).await
             }
-            "cost_estimation" => {
-                self.update_cost_estimation(id, input).await
+            "account_health" => {
+                self.update_account_health(id, input).await
+            }
+            "resource_collection" => {
+                self.update_resource_collection(id, input).await
+            }
+            "organization_health" => {
+                self.update_organization_health(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -241,44 +241,44 @@ impl<'a> Devops_guruService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "account_overview" => {
-                self.delete_account_overview(id).await
-            }
-            "account_health" => {
-                self.delete_account_health(id).await
-            }
-            "feedback" => {
-                self.delete_feedback(id).await
-            }
-            "resource_collection_health" => {
-                self.delete_resource_collection_health(id).await
-            }
-            "anomaly" => {
-                self.delete_anomaly(id).await
-            }
-            "event_sources_config" => {
-                self.delete_event_sources_config(id).await
+            "insight" => {
+                self.delete_insight(id).await
             }
             "organization_resource_collection_health" => {
                 self.delete_organization_resource_collection_health(id).await
             }
+            "feedback" => {
+                self.delete_feedback(id).await
+            }
+            "cost_estimation" => {
+                self.delete_cost_estimation(id).await
+            }
+            "resource_collection_health" => {
+                self.delete_resource_collection_health(id).await
+            }
+            "account_overview" => {
+                self.delete_account_overview(id).await
+            }
+            "event_sources_config" => {
+                self.delete_event_sources_config(id).await
+            }
             "organization_overview" => {
                 self.delete_organization_overview(id).await
             }
-            "organization_health" => {
-                self.delete_organization_health(id).await
-            }
-            "resource_collection" => {
-                self.delete_resource_collection(id).await
-            }
-            "insight" => {
-                self.delete_insight(id).await
+            "anomaly" => {
+                self.delete_anomaly(id).await
             }
             "service_integration" => {
                 self.delete_service_integration(id).await
             }
-            "cost_estimation" => {
-                self.delete_cost_estimation(id).await
+            "account_health" => {
+                self.delete_account_health(id).await
+            }
+            "resource_collection" => {
+                self.delete_resource_collection(id).await
+            }
+            "organization_health" => {
+                self.delete_organization_health(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -294,11 +294,11 @@ impl<'a> Devops_guruService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Account_overview resource operations
+    // Insight resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a account_overview resource
-    async fn plan_account_overview(
+    /// Plan changes to a insight resource
+    async fn plan_insight(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -313,8 +313,8 @@ impl<'a> Devops_guruService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new account_overview resource
-    async fn create_account_overview(
+    /// Create a new insight resource
+    async fn create_insight(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -326,7 +326,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.devops_guru_client
-            //     .create_account_overview()
+            //     .create_insight()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -339,8 +339,8 @@ impl<'a> Devops_guruService<'a> {
         })
     }
 
-    /// Read a account_overview resource
-    async fn read_account_overview(
+    /// Read a insight resource
+    async fn read_insight(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -348,7 +348,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.devops_guru_client
-            //     .describe_account_overview()
+            //     .describe_insight()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -360,8 +360,8 @@ impl<'a> Devops_guruService<'a> {
         })
     }
 
-    /// Update a account_overview resource
-    async fn update_account_overview(
+    /// Update a insight resource
+    async fn update_insight(
         &self,
         id: &str,
         input: ResourceInput,
@@ -373,7 +373,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.devops_guru_client
-            //     .update_account_overview()
+            //     .update_insight()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -387,8 +387,8 @@ impl<'a> Devops_guruService<'a> {
         })
     }
 
-    /// Delete a account_overview resource
-    async fn delete_account_overview(
+    /// Delete a insight resource
+    async fn delete_insight(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -396,7 +396,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.devops_guru_client
-            //     .delete_account_overview()
+            //     .delete_insight()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -408,11 +408,11 @@ impl<'a> Devops_guruService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Account_health resource operations
+    // Organization_resource_collection_health resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a account_health resource
-    async fn plan_account_health(
+    /// Plan changes to a organization_resource_collection_health resource
+    async fn plan_organization_resource_collection_health(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -427,8 +427,8 @@ impl<'a> Devops_guruService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new account_health resource
-    async fn create_account_health(
+    /// Create a new organization_resource_collection_health resource
+    async fn create_organization_resource_collection_health(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -440,7 +440,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.devops_guru_client
-            //     .create_account_health()
+            //     .create_organization_resource_collection_health()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -453,8 +453,8 @@ impl<'a> Devops_guruService<'a> {
         })
     }
 
-    /// Read a account_health resource
-    async fn read_account_health(
+    /// Read a organization_resource_collection_health resource
+    async fn read_organization_resource_collection_health(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -462,7 +462,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.devops_guru_client
-            //     .describe_account_health()
+            //     .describe_organization_resource_collection_health()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -474,8 +474,8 @@ impl<'a> Devops_guruService<'a> {
         })
     }
 
-    /// Update a account_health resource
-    async fn update_account_health(
+    /// Update a organization_resource_collection_health resource
+    async fn update_organization_resource_collection_health(
         &self,
         id: &str,
         input: ResourceInput,
@@ -487,7 +487,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.devops_guru_client
-            //     .update_account_health()
+            //     .update_organization_resource_collection_health()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -501,8 +501,8 @@ impl<'a> Devops_guruService<'a> {
         })
     }
 
-    /// Delete a account_health resource
-    async fn delete_account_health(
+    /// Delete a organization_resource_collection_health resource
+    async fn delete_organization_resource_collection_health(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -510,7 +510,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.devops_guru_client
-            //     .delete_account_health()
+            //     .delete_organization_resource_collection_health()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -640,6 +640,120 @@ impl<'a> Devops_guruService<'a> {
 
 
     // ------------------------------------------------------------------------
+    // Cost_estimation resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a cost_estimation resource
+    async fn plan_cost_estimation(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new cost_estimation resource
+    async fn create_cost_estimation(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.devops_guru_client
+            //     .create_cost_estimation()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a cost_estimation resource
+    async fn read_cost_estimation(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.devops_guru_client
+            //     .describe_cost_estimation()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a cost_estimation resource
+    async fn update_cost_estimation(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.devops_guru_client
+            //     .update_cost_estimation()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a cost_estimation resource
+    async fn delete_cost_estimation(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.devops_guru_client
+            //     .delete_cost_estimation()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
     // Resource_collection_health resource operations
     // ------------------------------------------------------------------------
 
@@ -754,11 +868,11 @@ impl<'a> Devops_guruService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Anomaly resource operations
+    // Account_overview resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a anomaly resource
-    async fn plan_anomaly(
+    /// Plan changes to a account_overview resource
+    async fn plan_account_overview(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -773,8 +887,8 @@ impl<'a> Devops_guruService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new anomaly resource
-    async fn create_anomaly(
+    /// Create a new account_overview resource
+    async fn create_account_overview(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -786,7 +900,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.devops_guru_client
-            //     .create_anomaly()
+            //     .create_account_overview()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -799,8 +913,8 @@ impl<'a> Devops_guruService<'a> {
         })
     }
 
-    /// Read a anomaly resource
-    async fn read_anomaly(
+    /// Read a account_overview resource
+    async fn read_account_overview(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -808,7 +922,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.devops_guru_client
-            //     .describe_anomaly()
+            //     .describe_account_overview()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -820,8 +934,8 @@ impl<'a> Devops_guruService<'a> {
         })
     }
 
-    /// Update a anomaly resource
-    async fn update_anomaly(
+    /// Update a account_overview resource
+    async fn update_account_overview(
         &self,
         id: &str,
         input: ResourceInput,
@@ -833,7 +947,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.devops_guru_client
-            //     .update_anomaly()
+            //     .update_account_overview()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -847,8 +961,8 @@ impl<'a> Devops_guruService<'a> {
         })
     }
 
-    /// Delete a anomaly resource
-    async fn delete_anomaly(
+    /// Delete a account_overview resource
+    async fn delete_account_overview(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -856,7 +970,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.devops_guru_client
-            //     .delete_anomaly()
+            //     .delete_account_overview()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -986,120 +1100,6 @@ impl<'a> Devops_guruService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Organization_resource_collection_health resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a organization_resource_collection_health resource
-    async fn plan_organization_resource_collection_health(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new organization_resource_collection_health resource
-    async fn create_organization_resource_collection_health(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.devops_guru_client
-            //     .create_organization_resource_collection_health()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a organization_resource_collection_health resource
-    async fn read_organization_resource_collection_health(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.devops_guru_client
-            //     .describe_organization_resource_collection_health()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a organization_resource_collection_health resource
-    async fn update_organization_resource_collection_health(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.devops_guru_client
-            //     .update_organization_resource_collection_health()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a organization_resource_collection_health resource
-    async fn delete_organization_resource_collection_health(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.devops_guru_client
-            //     .delete_organization_resource_collection_health()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
     // Organization_overview resource operations
     // ------------------------------------------------------------------------
 
@@ -1214,11 +1214,11 @@ impl<'a> Devops_guruService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Organization_health resource operations
+    // Anomaly resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a organization_health resource
-    async fn plan_organization_health(
+    /// Plan changes to a anomaly resource
+    async fn plan_anomaly(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1233,8 +1233,8 @@ impl<'a> Devops_guruService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new organization_health resource
-    async fn create_organization_health(
+    /// Create a new anomaly resource
+    async fn create_anomaly(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -1246,7 +1246,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.devops_guru_client
-            //     .create_organization_health()
+            //     .create_anomaly()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1259,8 +1259,8 @@ impl<'a> Devops_guruService<'a> {
         })
     }
 
-    /// Read a organization_health resource
-    async fn read_organization_health(
+    /// Read a anomaly resource
+    async fn read_anomaly(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1268,7 +1268,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.devops_guru_client
-            //     .describe_organization_health()
+            //     .describe_anomaly()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1280,8 +1280,8 @@ impl<'a> Devops_guruService<'a> {
         })
     }
 
-    /// Update a organization_health resource
-    async fn update_organization_health(
+    /// Update a anomaly resource
+    async fn update_anomaly(
         &self,
         id: &str,
         input: ResourceInput,
@@ -1293,7 +1293,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.devops_guru_client
-            //     .update_organization_health()
+            //     .update_anomaly()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1307,8 +1307,8 @@ impl<'a> Devops_guruService<'a> {
         })
     }
 
-    /// Delete a organization_health resource
-    async fn delete_organization_health(
+    /// Delete a anomaly resource
+    async fn delete_anomaly(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1316,7 +1316,239 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.devops_guru_client
-            //     .delete_organization_health()
+            //     .delete_anomaly()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Service_integration resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a service_integration resource
+    async fn plan_service_integration(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new service_integration resource
+    async fn create_service_integration(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let service_integration = input.get_string("service_integration")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.devops_guru_client
+            //     .create_service_integration()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("service_integration", service_integration.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a service_integration resource
+    async fn read_service_integration(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.devops_guru_client
+            //     .describe_service_integration()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a service_integration resource
+    async fn update_service_integration(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let service_integration = input.get_string("service_integration")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.devops_guru_client
+            //     .update_service_integration()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("service_integration", service_integration.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a service_integration resource
+    async fn delete_service_integration(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.devops_guru_client
+            //     .delete_service_integration()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Account_health resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a account_health resource
+    async fn plan_account_health(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new account_health resource
+    async fn create_account_health(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.devops_guru_client
+            //     .create_account_health()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a account_health resource
+    async fn read_account_health(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.devops_guru_client
+            //     .describe_account_health()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a account_health resource
+    async fn update_account_health(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.devops_guru_client
+            //     .update_account_health()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a account_health resource
+    async fn delete_account_health(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.devops_guru_client
+            //     .delete_account_health()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1450,11 +1682,11 @@ impl<'a> Devops_guruService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Insight resource operations
+    // Organization_health resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a insight resource
-    async fn plan_insight(
+    /// Plan changes to a organization_health resource
+    async fn plan_organization_health(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1469,8 +1701,8 @@ impl<'a> Devops_guruService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new insight resource
-    async fn create_insight(
+    /// Create a new organization_health resource
+    async fn create_organization_health(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -1482,7 +1714,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.devops_guru_client
-            //     .create_insight()
+            //     .create_organization_health()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1495,8 +1727,8 @@ impl<'a> Devops_guruService<'a> {
         })
     }
 
-    /// Read a insight resource
-    async fn read_insight(
+    /// Read a organization_health resource
+    async fn read_organization_health(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1504,7 +1736,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.devops_guru_client
-            //     .describe_insight()
+            //     .describe_organization_health()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1516,8 +1748,8 @@ impl<'a> Devops_guruService<'a> {
         })
     }
 
-    /// Update a insight resource
-    async fn update_insight(
+    /// Update a organization_health resource
+    async fn update_organization_health(
         &self,
         id: &str,
         input: ResourceInput,
@@ -1529,7 +1761,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.devops_guru_client
-            //     .update_insight()
+            //     .update_organization_health()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1543,8 +1775,8 @@ impl<'a> Devops_guruService<'a> {
         })
     }
 
-    /// Delete a insight resource
-    async fn delete_insight(
+    /// Delete a organization_health resource
+    async fn delete_organization_health(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1552,239 +1784,7 @@ impl<'a> Devops_guruService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.devops_guru_client
-            //     .delete_insight()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Service_integration resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a service_integration resource
-    async fn plan_service_integration(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new service_integration resource
-    async fn create_service_integration(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let service_integration = input.get_string("service_integration")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.devops_guru_client
-            //     .create_service_integration()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("service_integration", service_integration.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a service_integration resource
-    async fn read_service_integration(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.devops_guru_client
-            //     .describe_service_integration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a service_integration resource
-    async fn update_service_integration(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let service_integration = input.get_string("service_integration")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.devops_guru_client
-            //     .update_service_integration()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("service_integration", service_integration.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a service_integration resource
-    async fn delete_service_integration(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.devops_guru_client
-            //     .delete_service_integration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Cost_estimation resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a cost_estimation resource
-    async fn plan_cost_estimation(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new cost_estimation resource
-    async fn create_cost_estimation(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.devops_guru_client
-            //     .create_cost_estimation()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a cost_estimation resource
-    async fn read_cost_estimation(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.devops_guru_client
-            //     .describe_cost_estimation()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a cost_estimation resource
-    async fn update_cost_estimation(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.devops_guru_client
-            //     .update_cost_estimation()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a cost_estimation resource
-    async fn delete_cost_estimation(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.devops_guru_client
-            //     .delete_cost_estimation()
+            //     .delete_organization_health()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

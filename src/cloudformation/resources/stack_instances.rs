@@ -21,7 +21,7 @@ impl<'a> Stack_instances<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, regions: Vec<String>, operation_id: Option<String>, accounts: Option<Vec<String>>, parameter_overrides: Option<Vec<String>>, call_as: Option<String>, deployment_targets: Option<String>, operation_preferences: Option<String>, stack_set_name: String) -> Result<String> {
+    pub async fn create(&self, stack_set_name: String, deployment_targets: Option<String>, accounts: Option<Vec<String>>, regions: Vec<String>, call_as: Option<String>, operation_id: Option<String>, operation_preferences: Option<String>, parameter_overrides: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Stack_instances<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, regions: Option<Vec<String>>, operation_id: Option<String>, accounts: Option<Vec<String>>, parameter_overrides: Option<Vec<String>>, call_as: Option<String>, deployment_targets: Option<String>, operation_preferences: Option<String>, stack_set_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, stack_set_name: Option<String>, deployment_targets: Option<String>, accounts: Option<Vec<String>>, regions: Option<Vec<String>>, call_as: Option<String>, operation_id: Option<String>, operation_preferences: Option<String>, parameter_overrides: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

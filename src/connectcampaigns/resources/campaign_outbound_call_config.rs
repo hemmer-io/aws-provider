@@ -24,7 +24,7 @@ impl<'a> Campaign_outbound_call_config<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, answer_machine_detection_config: Option<String>, id: Option<String>, connect_source_phone_number: Option<String>, connect_contact_flow_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, answer_machine_detection_config: Option<String>, connect_contact_flow_id: Option<String>, id: Option<String>, connect_source_phone_number: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

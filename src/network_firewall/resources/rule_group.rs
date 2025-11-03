@@ -21,7 +21,7 @@ impl<'a> Rule_group<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, summary_configuration: Option<String>, rule_group_name: String, source_metadata: Option<String>, rules: Option<String>, type: String, capacity: i64, dry_run: Option<bool>, tags: Option<Vec<String>>, analyze_rule_group: Option<bool>, encryption_configuration: Option<String>, rule_group: Option<String>) -> Result<String> {
+    pub async fn create(&self, rule_group: Option<String>, capacity: i64, dry_run: Option<bool>, tags: Option<Vec<String>>, encryption_configuration: Option<String>, rule_group_name: String, source_metadata: Option<String>, rules: Option<String>, description: Option<String>, summary_configuration: Option<String>, analyze_rule_group: Option<bool>, type: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Rule_group<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, summary_configuration: Option<String>, rule_group_name: Option<String>, source_metadata: Option<String>, rules: Option<String>, type: Option<String>, capacity: Option<i64>, dry_run: Option<bool>, tags: Option<Vec<String>>, analyze_rule_group: Option<bool>, encryption_configuration: Option<String>, rule_group: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, rule_group: Option<String>, capacity: Option<i64>, dry_run: Option<bool>, tags: Option<Vec<String>>, encryption_configuration: Option<String>, rule_group_name: Option<String>, source_metadata: Option<String>, rules: Option<String>, description: Option<String>, summary_configuration: Option<String>, analyze_rule_group: Option<bool>, type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

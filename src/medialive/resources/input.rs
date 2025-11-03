@@ -21,7 +21,7 @@ impl<'a> Input<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, multicast_settings: Option<String>, smpte2110_receiver_group_settings: Option<String>, input_security_groups: Option<Vec<String>>, name: Option<String>, sources: Option<Vec<String>>, tags: Option<HashMap<String, String>>, input_devices: Option<Vec<String>>, media_connect_flows: Option<Vec<String>>, input_network_location: Option<String>, srt_settings: Option<String>, request_id: Option<String>, role_arn: Option<String>, destinations: Option<Vec<String>>, vpc: Option<String>, type: Option<String>, sdi_sources: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, sdi_sources: Option<Vec<String>>, vpc: Option<String>, destinations: Option<Vec<String>>, input_network_location: Option<String>, role_arn: Option<String>, request_id: Option<String>, input_security_groups: Option<Vec<String>>, media_connect_flows: Option<Vec<String>>, name: Option<String>, sources: Option<Vec<String>>, tags: Option<HashMap<String, String>>, type: Option<String>, srt_settings: Option<String>, multicast_settings: Option<String>, input_devices: Option<Vec<String>>, smpte2110_receiver_group_settings: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Input<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, multicast_settings: Option<String>, smpte2110_receiver_group_settings: Option<String>, input_security_groups: Option<Vec<String>>, name: Option<String>, sources: Option<Vec<String>>, tags: Option<HashMap<String, String>>, input_devices: Option<Vec<String>>, media_connect_flows: Option<Vec<String>>, input_network_location: Option<String>, srt_settings: Option<String>, request_id: Option<String>, role_arn: Option<String>, destinations: Option<Vec<String>>, vpc: Option<String>, type: Option<String>, sdi_sources: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, sdi_sources: Option<Vec<String>>, vpc: Option<String>, destinations: Option<Vec<String>>, input_network_location: Option<String>, role_arn: Option<String>, request_id: Option<String>, input_security_groups: Option<Vec<String>>, media_connect_flows: Option<Vec<String>>, name: Option<String>, sources: Option<Vec<String>>, tags: Option<HashMap<String, String>>, type: Option<String>, srt_settings: Option<String>, multicast_settings: Option<String>, input_devices: Option<Vec<String>>, smpte2110_receiver_group_settings: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Recommendation_preferences<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, external_metrics_preference: Option<String>, utilization_preferences: Option<Vec<String>>, inferred_workload_types: Option<String>, enhanced_infrastructure_metrics: Option<String>, preferred_resources: Option<Vec<String>>, savings_estimation_mode: Option<String>, scope: Option<String>, look_back_period: Option<String>, resource_type: String) -> Result<String> {
+    pub async fn create(&self, preferred_resources: Option<Vec<String>>, savings_estimation_mode: Option<String>, scope: Option<String>, resource_type: String, inferred_workload_types: Option<String>, look_back_period: Option<String>, utilization_preferences: Option<Vec<String>>, enhanced_infrastructure_metrics: Option<String>, external_metrics_preference: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

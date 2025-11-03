@@ -272,10 +272,10 @@ impl<'a> BillingService<'a> {
             // Extract input fields
             let description = input.get_optional_string("description")?;
             let source_views = input.get_string("source_views")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let name = input.get_string("name")?;
             let data_filter_expression = input.get_optional_string("data_filter_expression")?;
             let resource_tags = input.get_optional_string("resource_tags")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -292,10 +292,10 @@ impl<'a> BillingService<'a> {
                 .with_id("placeholder-id")
                 .with_field("description", description.unwrap_or_default())
                 .with_field("source_views", source_views.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
                 .with_field("data_filter_expression", data_filter_expression.unwrap_or_default())
                 .with_field("resource_tags", resource_tags.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }
@@ -331,10 +331,10 @@ impl<'a> BillingService<'a> {
             // Extract input fields
             let description = input.get_optional_string("description")?;
             let source_views = input.get_string("source_views")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let name = input.get_string("name")?;
             let data_filter_expression = input.get_optional_string("data_filter_expression")?;
             let resource_tags = input.get_optional_string("resource_tags")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -352,10 +352,10 @@ impl<'a> BillingService<'a> {
                 .with_id(id)
                 .with_field("description", description.unwrap_or_default())
                 .with_field("source_views", source_views.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
                 .with_field("data_filter_expression", data_filter_expression.unwrap_or_default())
                 .with_field("resource_tags", resource_tags.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }

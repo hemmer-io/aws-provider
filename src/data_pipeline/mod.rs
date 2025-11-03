@@ -27,14 +27,14 @@ impl<'a> Data_pipelineService<'a> {
             "objects" => {
                 self.plan_objects(current_state, desired_input).await
             }
-            "pipeline" => {
-                self.plan_pipeline(current_state, desired_input).await
+            "pipeline_definition" => {
+                self.plan_pipeline_definition(current_state, desired_input).await
             }
             "pipelines" => {
                 self.plan_pipelines(current_state, desired_input).await
             }
-            "pipeline_definition" => {
-                self.plan_pipeline_definition(current_state, desired_input).await
+            "pipeline" => {
+                self.plan_pipeline(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -54,14 +54,14 @@ impl<'a> Data_pipelineService<'a> {
             "objects" => {
                 self.create_objects(input).await
             }
-            "pipeline" => {
-                self.create_pipeline(input).await
+            "pipeline_definition" => {
+                self.create_pipeline_definition(input).await
             }
             "pipelines" => {
                 self.create_pipelines(input).await
             }
-            "pipeline_definition" => {
-                self.create_pipeline_definition(input).await
+            "pipeline" => {
+                self.create_pipeline(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -81,14 +81,14 @@ impl<'a> Data_pipelineService<'a> {
             "objects" => {
                 self.read_objects(id).await
             }
-            "pipeline" => {
-                self.read_pipeline(id).await
+            "pipeline_definition" => {
+                self.read_pipeline_definition(id).await
             }
             "pipelines" => {
                 self.read_pipelines(id).await
             }
-            "pipeline_definition" => {
-                self.read_pipeline_definition(id).await
+            "pipeline" => {
+                self.read_pipeline(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -109,14 +109,14 @@ impl<'a> Data_pipelineService<'a> {
             "objects" => {
                 self.update_objects(id, input).await
             }
-            "pipeline" => {
-                self.update_pipeline(id, input).await
+            "pipeline_definition" => {
+                self.update_pipeline_definition(id, input).await
             }
             "pipelines" => {
                 self.update_pipelines(id, input).await
             }
-            "pipeline_definition" => {
-                self.update_pipeline_definition(id, input).await
+            "pipeline" => {
+                self.update_pipeline(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -136,14 +136,14 @@ impl<'a> Data_pipelineService<'a> {
             "objects" => {
                 self.delete_objects(id).await
             }
-            "pipeline" => {
-                self.delete_pipeline(id).await
+            "pipeline_definition" => {
+                self.delete_pipeline_definition(id).await
             }
             "pipelines" => {
                 self.delete_pipelines(id).await
             }
-            "pipeline_definition" => {
-                self.delete_pipeline_definition(id).await
+            "pipeline" => {
+                self.delete_pipeline(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -273,11 +273,11 @@ impl<'a> Data_pipelineService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Pipeline resource operations
+    // Pipeline_definition resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a pipeline resource
-    async fn plan_pipeline(
+    /// Plan changes to a pipeline_definition resource
+    async fn plan_pipeline_definition(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -292,24 +292,24 @@ impl<'a> Data_pipelineService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new pipeline resource
-    async fn create_pipeline(
+    /// Create a new pipeline_definition resource
+    async fn create_pipeline_definition(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let unique_id = input.get_string("unique_id")?;
-            let description = input.get_optional_string("description")?;
-            let name = input.get_string("name")?;
-            let tags = input.get_optional_string("tags")?;
+            let pipeline_id = input.get_string("pipeline_id")?;
+            let parameter_objects = input.get_optional_string("parameter_objects")?;
+            let pipeline_objects = input.get_string("pipeline_objects")?;
+            let parameter_values = input.get_optional_string("parameter_values")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.data_pipeline_client
-            //     .create_pipeline()
+            //     .create_pipeline_definition()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -318,16 +318,16 @@ impl<'a> Data_pipelineService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("unique_id", unique_id.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
+                .with_field("pipeline_id", pipeline_id.unwrap_or_default())
+                .with_field("parameter_objects", parameter_objects.unwrap_or_default())
+                .with_field("pipeline_objects", pipeline_objects.unwrap_or_default())
+                .with_field("parameter_values", parameter_values.unwrap_or_default())
             )
         })
     }
 
-    /// Read a pipeline resource
-    async fn read_pipeline(
+    /// Read a pipeline_definition resource
+    async fn read_pipeline_definition(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -335,7 +335,7 @@ impl<'a> Data_pipelineService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.data_pipeline_client
-            //     .describe_pipeline()
+            //     .describe_pipeline_definition()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -347,24 +347,24 @@ impl<'a> Data_pipelineService<'a> {
         })
     }
 
-    /// Update a pipeline resource
-    async fn update_pipeline(
+    /// Update a pipeline_definition resource
+    async fn update_pipeline_definition(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let unique_id = input.get_string("unique_id")?;
-            let description = input.get_optional_string("description")?;
-            let name = input.get_string("name")?;
-            let tags = input.get_optional_string("tags")?;
+            let pipeline_id = input.get_string("pipeline_id")?;
+            let parameter_objects = input.get_optional_string("parameter_objects")?;
+            let pipeline_objects = input.get_string("pipeline_objects")?;
+            let parameter_values = input.get_optional_string("parameter_values")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.data_pipeline_client
-            //     .update_pipeline()
+            //     .update_pipeline_definition()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -374,16 +374,16 @@ impl<'a> Data_pipelineService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("unique_id", unique_id.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
+                .with_field("pipeline_id", pipeline_id.unwrap_or_default())
+                .with_field("parameter_objects", parameter_objects.unwrap_or_default())
+                .with_field("pipeline_objects", pipeline_objects.unwrap_or_default())
+                .with_field("parameter_values", parameter_values.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a pipeline resource
-    async fn delete_pipeline(
+    /// Delete a pipeline_definition resource
+    async fn delete_pipeline_definition(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -391,7 +391,7 @@ impl<'a> Data_pipelineService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.data_pipeline_client
-            //     .delete_pipeline()
+            //     .delete_pipeline_definition()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -517,11 +517,11 @@ impl<'a> Data_pipelineService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Pipeline_definition resource operations
+    // Pipeline resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a pipeline_definition resource
-    async fn plan_pipeline_definition(
+    /// Plan changes to a pipeline resource
+    async fn plan_pipeline(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -536,24 +536,24 @@ impl<'a> Data_pipelineService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new pipeline_definition resource
-    async fn create_pipeline_definition(
+    /// Create a new pipeline resource
+    async fn create_pipeline(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let parameter_objects = input.get_optional_string("parameter_objects")?;
-            let pipeline_id = input.get_string("pipeline_id")?;
-            let pipeline_objects = input.get_string("pipeline_objects")?;
-            let parameter_values = input.get_optional_string("parameter_values")?;
+            let name = input.get_string("name")?;
+            let tags = input.get_optional_string("tags")?;
+            let unique_id = input.get_string("unique_id")?;
+            let description = input.get_optional_string("description")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.data_pipeline_client
-            //     .create_pipeline_definition()
+            //     .create_pipeline()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -562,16 +562,16 @@ impl<'a> Data_pipelineService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("parameter_objects", parameter_objects.unwrap_or_default())
-                .with_field("pipeline_id", pipeline_id.unwrap_or_default())
-                .with_field("pipeline_objects", pipeline_objects.unwrap_or_default())
-                .with_field("parameter_values", parameter_values.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("unique_id", unique_id.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
             )
         })
     }
 
-    /// Read a pipeline_definition resource
-    async fn read_pipeline_definition(
+    /// Read a pipeline resource
+    async fn read_pipeline(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -579,7 +579,7 @@ impl<'a> Data_pipelineService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.data_pipeline_client
-            //     .describe_pipeline_definition()
+            //     .describe_pipeline()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -591,24 +591,24 @@ impl<'a> Data_pipelineService<'a> {
         })
     }
 
-    /// Update a pipeline_definition resource
-    async fn update_pipeline_definition(
+    /// Update a pipeline resource
+    async fn update_pipeline(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let parameter_objects = input.get_optional_string("parameter_objects")?;
-            let pipeline_id = input.get_string("pipeline_id")?;
-            let pipeline_objects = input.get_string("pipeline_objects")?;
-            let parameter_values = input.get_optional_string("parameter_values")?;
+            let name = input.get_string("name")?;
+            let tags = input.get_optional_string("tags")?;
+            let unique_id = input.get_string("unique_id")?;
+            let description = input.get_optional_string("description")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.data_pipeline_client
-            //     .update_pipeline_definition()
+            //     .update_pipeline()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -618,16 +618,16 @@ impl<'a> Data_pipelineService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("parameter_objects", parameter_objects.unwrap_or_default())
-                .with_field("pipeline_id", pipeline_id.unwrap_or_default())
-                .with_field("pipeline_objects", pipeline_objects.unwrap_or_default())
-                .with_field("parameter_values", parameter_values.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("unique_id", unique_id.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a pipeline_definition resource
-    async fn delete_pipeline_definition(
+    /// Delete a pipeline resource
+    async fn delete_pipeline(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -635,7 +635,7 @@ impl<'a> Data_pipelineService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.data_pipeline_client
-            //     .delete_pipeline_definition()
+            //     .delete_pipeline()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

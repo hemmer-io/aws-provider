@@ -21,7 +21,7 @@ impl<'a> Site_to_site_vpn_attachment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, core_network_id: String, tags: Option<Vec<String>>, client_token: Option<String>, vpn_connection_arn: String) -> Result<String> {
+    pub async fn create(&self, vpn_connection_arn: String, core_network_id: String, client_token: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

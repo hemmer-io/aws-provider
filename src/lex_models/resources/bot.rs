@@ -21,7 +21,7 @@ impl<'a> Bot<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, data_privacy: String, role_arn: String, idle_session_ttl_in_seconds: i64, test_bot_alias_tags: Option<HashMap<String, String>>, bot_type: Option<String>, bot_tags: Option<HashMap<String, String>>, bot_members: Option<Vec<String>>, description: Option<String>, error_log_settings: Option<String>, bot_name: String) -> Result<String> {
+    pub async fn create(&self, bot_type: Option<String>, role_arn: String, description: Option<String>, bot_tags: Option<HashMap<String, String>>, data_privacy: String, test_bot_alias_tags: Option<HashMap<String, String>>, bot_members: Option<Vec<String>>, error_log_settings: Option<String>, bot_name: String, idle_session_ttl_in_seconds: i64) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Bot<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, data_privacy: Option<String>, role_arn: Option<String>, idle_session_ttl_in_seconds: Option<i64>, test_bot_alias_tags: Option<HashMap<String, String>>, bot_type: Option<String>, bot_tags: Option<HashMap<String, String>>, bot_members: Option<Vec<String>>, description: Option<String>, error_log_settings: Option<String>, bot_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, bot_type: Option<String>, role_arn: Option<String>, description: Option<String>, bot_tags: Option<HashMap<String, String>>, data_privacy: Option<String>, test_bot_alias_tags: Option<HashMap<String, String>>, bot_members: Option<Vec<String>>, error_log_settings: Option<String>, bot_name: Option<String>, idle_session_ttl_in_seconds: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -69,9 +69,9 @@ Service resource
 
 | Output | Type | Description |
 |--------|------|-------------|
+| `log_group_references` | Vec<HashMap<String, String>> | <p>An array of string-to-string maps that each contain information about one log group associated with this service. Each string-to-string map includes the following fields:</p> <ul> <li> <p> <code>"Type": "AWS::Resource"</code> </p> </li> <li> <p> <code>"ResourceType": "AWS::Logs::LogGroup"</code> </p> </li> <li> <p> <code>"Identifier": "<i>name-of-log-group</i>"</code> </p> </li> </ul> |
 | `service` | String | <p>A structure containing information about the service.</p> |
 | `start_time` | String | <p>The start time of the data included in the response. In a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code>.</p> <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because it was rounded to the nearest hour.</p> |
-| `log_group_references` | Vec<HashMap<String, String>> | <p>An array of string-to-string maps that each contain information about one log group associated with this service. Each string-to-string map includes the following fields:</p> <ul> <li> <p> <code>"Type": "AWS::Resource"</code> </p> </li> <li> <p> <code>"ResourceType": "AWS::Logs::LogGroup"</code> </p> </li> <li> <p> <code>"Identifier": "<i>name-of-log-group</i>"</code> </p> </li> </ul> |
 | `end_time` | String | <p>The end time of the data included in the response. In a raw HTTP Query API, it is formatted as be epoch time in seconds. For example: <code>1698778057</code>.</p> <p>This displays the time that Application Signals used for the request. It might not match your request exactly, because it was rounded to the nearest hour.</p> |
 
 
@@ -88,9 +88,9 @@ provider = aws.AwsProvider {
 
 # Access service outputs
 service_id = service.id
+service_log_group_references = service.log_group_references
 service_service = service.service
 service_start_time = service.start_time
-service_log_group_references = service.log_group_references
 service_end_time = service.end_time
 ```
 

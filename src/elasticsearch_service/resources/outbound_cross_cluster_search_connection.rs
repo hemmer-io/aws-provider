@@ -21,7 +21,7 @@ impl<'a> Outbound_cross_cluster_search_connection<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, destination_domain_info: String, connection_alias: String, source_domain_info: String) -> Result<String> {
+    pub async fn create(&self, source_domain_info: String, destination_domain_info: String, connection_alias: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

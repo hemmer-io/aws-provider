@@ -21,7 +21,7 @@ impl<'a> Optimization_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, vpc_config: Option<String>, output_config: String, deployment_instance_type: String, tags: Option<Vec<String>>, model_source: String, optimization_configs: Vec<String>, role_arn: String, optimization_environment: Option<HashMap<String, String>>, optimization_job_name: String, stopping_condition: String) -> Result<String> {
+    pub async fn create(&self, optimization_job_name: String, vpc_config: Option<String>, tags: Option<Vec<String>>, optimization_environment: Option<HashMap<String, String>>, model_source: String, optimization_configs: Vec<String>, output_config: String, role_arn: String, stopping_condition: String, deployment_instance_type: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

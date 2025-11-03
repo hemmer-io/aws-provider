@@ -24,17 +24,14 @@ impl<'a> Application_insightsService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "component_configuration_recommendation" => {
-                self.plan_component_configuration_recommendation(current_state, desired_input).await
-            }
-            "component" => {
-                self.plan_component(current_state, desired_input).await
-            }
             "problem" => {
                 self.plan_problem(current_state, desired_input).await
             }
-            "component_configuration" => {
-                self.plan_component_configuration(current_state, desired_input).await
+            "workload" => {
+                self.plan_workload(current_state, desired_input).await
+            }
+            "component" => {
+                self.plan_component(current_state, desired_input).await
             }
             "log_pattern" => {
                 self.plan_log_pattern(current_state, desired_input).await
@@ -42,14 +39,17 @@ impl<'a> Application_insightsService<'a> {
             "observation" => {
                 self.plan_observation(current_state, desired_input).await
             }
+            "component_configuration" => {
+                self.plan_component_configuration(current_state, desired_input).await
+            }
             "problem_observations" => {
                 self.plan_problem_observations(current_state, desired_input).await
             }
-            "workload" => {
-                self.plan_workload(current_state, desired_input).await
-            }
             "application" => {
                 self.plan_application(current_state, desired_input).await
+            }
+            "component_configuration_recommendation" => {
+                self.plan_component_configuration_recommendation(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -66,17 +66,14 @@ impl<'a> Application_insightsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "component_configuration_recommendation" => {
-                self.create_component_configuration_recommendation(input).await
-            }
-            "component" => {
-                self.create_component(input).await
-            }
             "problem" => {
                 self.create_problem(input).await
             }
-            "component_configuration" => {
-                self.create_component_configuration(input).await
+            "workload" => {
+                self.create_workload(input).await
+            }
+            "component" => {
+                self.create_component(input).await
             }
             "log_pattern" => {
                 self.create_log_pattern(input).await
@@ -84,14 +81,17 @@ impl<'a> Application_insightsService<'a> {
             "observation" => {
                 self.create_observation(input).await
             }
+            "component_configuration" => {
+                self.create_component_configuration(input).await
+            }
             "problem_observations" => {
                 self.create_problem_observations(input).await
             }
-            "workload" => {
-                self.create_workload(input).await
-            }
             "application" => {
                 self.create_application(input).await
+            }
+            "component_configuration_recommendation" => {
+                self.create_component_configuration_recommendation(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -108,17 +108,14 @@ impl<'a> Application_insightsService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "component_configuration_recommendation" => {
-                self.read_component_configuration_recommendation(id).await
-            }
-            "component" => {
-                self.read_component(id).await
-            }
             "problem" => {
                 self.read_problem(id).await
             }
-            "component_configuration" => {
-                self.read_component_configuration(id).await
+            "workload" => {
+                self.read_workload(id).await
+            }
+            "component" => {
+                self.read_component(id).await
             }
             "log_pattern" => {
                 self.read_log_pattern(id).await
@@ -126,14 +123,17 @@ impl<'a> Application_insightsService<'a> {
             "observation" => {
                 self.read_observation(id).await
             }
+            "component_configuration" => {
+                self.read_component_configuration(id).await
+            }
             "problem_observations" => {
                 self.read_problem_observations(id).await
             }
-            "workload" => {
-                self.read_workload(id).await
-            }
             "application" => {
                 self.read_application(id).await
+            }
+            "component_configuration_recommendation" => {
+                self.read_component_configuration_recommendation(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -151,17 +151,14 @@ impl<'a> Application_insightsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "component_configuration_recommendation" => {
-                self.update_component_configuration_recommendation(id, input).await
-            }
-            "component" => {
-                self.update_component(id, input).await
-            }
             "problem" => {
                 self.update_problem(id, input).await
             }
-            "component_configuration" => {
-                self.update_component_configuration(id, input).await
+            "workload" => {
+                self.update_workload(id, input).await
+            }
+            "component" => {
+                self.update_component(id, input).await
             }
             "log_pattern" => {
                 self.update_log_pattern(id, input).await
@@ -169,14 +166,17 @@ impl<'a> Application_insightsService<'a> {
             "observation" => {
                 self.update_observation(id, input).await
             }
+            "component_configuration" => {
+                self.update_component_configuration(id, input).await
+            }
             "problem_observations" => {
                 self.update_problem_observations(id, input).await
             }
-            "workload" => {
-                self.update_workload(id, input).await
-            }
             "application" => {
                 self.update_application(id, input).await
+            }
+            "component_configuration_recommendation" => {
+                self.update_component_configuration_recommendation(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -193,17 +193,14 @@ impl<'a> Application_insightsService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "component_configuration_recommendation" => {
-                self.delete_component_configuration_recommendation(id).await
-            }
-            "component" => {
-                self.delete_component(id).await
-            }
             "problem" => {
                 self.delete_problem(id).await
             }
-            "component_configuration" => {
-                self.delete_component_configuration(id).await
+            "workload" => {
+                self.delete_workload(id).await
+            }
+            "component" => {
+                self.delete_component(id).await
             }
             "log_pattern" => {
                 self.delete_log_pattern(id).await
@@ -211,14 +208,17 @@ impl<'a> Application_insightsService<'a> {
             "observation" => {
                 self.delete_observation(id).await
             }
+            "component_configuration" => {
+                self.delete_component_configuration(id).await
+            }
             "problem_observations" => {
                 self.delete_problem_observations(id).await
             }
-            "workload" => {
-                self.delete_workload(id).await
-            }
             "application" => {
                 self.delete_application(id).await
+            }
+            "component_configuration_recommendation" => {
+                self.delete_component_configuration_recommendation(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -234,11 +234,11 @@ impl<'a> Application_insightsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Component_configuration_recommendation resource operations
+    // Problem resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a component_configuration_recommendation resource
-    async fn plan_component_configuration_recommendation(
+    /// Plan changes to a problem resource
+    async fn plan_problem(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -253,20 +253,23 @@ impl<'a> Application_insightsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new component_configuration_recommendation resource
-    async fn create_component_configuration_recommendation(
+    /// Create a new problem resource
+    async fn create_problem(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let problem_id = input.get_string("problem_id")?;
+            let update_status = input.get_optional_string("update_status")?;
+            let visibility = input.get_optional_string("visibility")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.application_insights_client
-            //     .create_component_configuration_recommendation()
+            //     .create_problem()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -275,12 +278,15 @@ impl<'a> Application_insightsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("problem_id", problem_id.unwrap_or_default())
+                .with_field("update_status", update_status.unwrap_or_default())
+                .with_field("visibility", visibility.unwrap_or_default())
             )
         })
     }
 
-    /// Read a component_configuration_recommendation resource
-    async fn read_component_configuration_recommendation(
+    /// Read a problem resource
+    async fn read_problem(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -288,7 +294,7 @@ impl<'a> Application_insightsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.application_insights_client
-            //     .describe_component_configuration_recommendation()
+            //     .describe_problem()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -300,20 +306,23 @@ impl<'a> Application_insightsService<'a> {
         })
     }
 
-    /// Update a component_configuration_recommendation resource
-    async fn update_component_configuration_recommendation(
+    /// Update a problem resource
+    async fn update_problem(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let problem_id = input.get_string("problem_id")?;
+            let update_status = input.get_optional_string("update_status")?;
+            let visibility = input.get_optional_string("visibility")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.application_insights_client
-            //     .update_component_configuration_recommendation()
+            //     .update_problem()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -323,12 +332,15 @@ impl<'a> Application_insightsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("problem_id", problem_id.unwrap_or_default())
+                .with_field("update_status", update_status.unwrap_or_default())
+                .with_field("visibility", visibility.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a component_configuration_recommendation resource
-    async fn delete_component_configuration_recommendation(
+    /// Delete a problem resource
+    async fn delete_problem(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -336,7 +348,137 @@ impl<'a> Application_insightsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.application_insights_client
-            //     .delete_component_configuration_recommendation()
+            //     .delete_problem()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Workload resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a workload resource
+    async fn plan_workload(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new workload resource
+    async fn create_workload(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let resource_group_name = input.get_string("resource_group_name")?;
+            let workload_id = input.get_optional_string("workload_id")?;
+            let workload_configuration = input.get_string("workload_configuration")?;
+            let component_name = input.get_string("component_name")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.application_insights_client
+            //     .create_workload()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
+                .with_field("workload_id", workload_id.unwrap_or_default())
+                .with_field("workload_configuration", workload_configuration.unwrap_or_default())
+                .with_field("component_name", component_name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a workload resource
+    async fn read_workload(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.application_insights_client
+            //     .describe_workload()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a workload resource
+    async fn update_workload(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let resource_group_name = input.get_string("resource_group_name")?;
+            let workload_id = input.get_optional_string("workload_id")?;
+            let workload_configuration = input.get_string("workload_configuration")?;
+            let component_name = input.get_string("component_name")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.application_insights_client
+            //     .update_workload()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
+                .with_field("workload_id", workload_id.unwrap_or_default())
+                .with_field("workload_configuration", workload_configuration.unwrap_or_default())
+                .with_field("component_name", component_name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a workload resource
+    async fn delete_workload(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.application_insights_client
+            //     .delete_workload()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -375,9 +517,9 @@ impl<'a> Application_insightsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let resource_list = input.get_string("resource_list")?;
             let component_name = input.get_string("component_name")?;
             let resource_group_name = input.get_string("resource_group_name")?;
-            let resource_list = input.get_string("resource_list")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -392,9 +534,9 @@ impl<'a> Application_insightsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("resource_list", resource_list.unwrap_or_default())
                 .with_field("component_name", component_name.unwrap_or_default())
                 .with_field("resource_group_name", resource_group_name.unwrap_or_default())
-                .with_field("resource_list", resource_list.unwrap_or_default())
             )
         })
     }
@@ -428,9 +570,9 @@ impl<'a> Application_insightsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let resource_list = input.get_string("resource_list")?;
             let component_name = input.get_string("component_name")?;
             let resource_group_name = input.get_string("resource_group_name")?;
-            let resource_list = input.get_string("resource_list")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -446,9 +588,9 @@ impl<'a> Application_insightsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("resource_list", resource_list.unwrap_or_default())
                 .with_field("component_name", component_name.unwrap_or_default())
                 .with_field("resource_group_name", resource_group_name.unwrap_or_default())
-                .with_field("resource_list", resource_list.unwrap_or_default())
             )
         })
     }
@@ -463,270 +605,6 @@ impl<'a> Application_insightsService<'a> {
             // Example:
             // self.provider.application_insights_client
             //     .delete_component()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Problem resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a problem resource
-    async fn plan_problem(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new problem resource
-    async fn create_problem(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let update_status = input.get_optional_string("update_status")?;
-            let problem_id = input.get_string("problem_id")?;
-            let visibility = input.get_optional_string("visibility")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.application_insights_client
-            //     .create_problem()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("update_status", update_status.unwrap_or_default())
-                .with_field("problem_id", problem_id.unwrap_or_default())
-                .with_field("visibility", visibility.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a problem resource
-    async fn read_problem(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.application_insights_client
-            //     .describe_problem()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a problem resource
-    async fn update_problem(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let update_status = input.get_optional_string("update_status")?;
-            let problem_id = input.get_string("problem_id")?;
-            let visibility = input.get_optional_string("visibility")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.application_insights_client
-            //     .update_problem()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("update_status", update_status.unwrap_or_default())
-                .with_field("problem_id", problem_id.unwrap_or_default())
-                .with_field("visibility", visibility.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a problem resource
-    async fn delete_problem(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.application_insights_client
-            //     .delete_problem()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Component_configuration resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a component_configuration resource
-    async fn plan_component_configuration(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new component_configuration resource
-    async fn create_component_configuration(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let auto_config_enabled = input.get_optional_string("auto_config_enabled")?;
-            let resource_group_name = input.get_string("resource_group_name")?;
-            let monitor = input.get_optional_string("monitor")?;
-            let component_name = input.get_string("component_name")?;
-            let tier = input.get_optional_string("tier")?;
-            let component_configuration = input.get_optional_string("component_configuration")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.application_insights_client
-            //     .create_component_configuration()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("auto_config_enabled", auto_config_enabled.unwrap_or_default())
-                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
-                .with_field("monitor", monitor.unwrap_or_default())
-                .with_field("component_name", component_name.unwrap_or_default())
-                .with_field("tier", tier.unwrap_or_default())
-                .with_field("component_configuration", component_configuration.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a component_configuration resource
-    async fn read_component_configuration(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.application_insights_client
-            //     .describe_component_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a component_configuration resource
-    async fn update_component_configuration(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let auto_config_enabled = input.get_optional_string("auto_config_enabled")?;
-            let resource_group_name = input.get_string("resource_group_name")?;
-            let monitor = input.get_optional_string("monitor")?;
-            let component_name = input.get_string("component_name")?;
-            let tier = input.get_optional_string("tier")?;
-            let component_configuration = input.get_optional_string("component_configuration")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.application_insights_client
-            //     .update_component_configuration()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("auto_config_enabled", auto_config_enabled.unwrap_or_default())
-                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
-                .with_field("monitor", monitor.unwrap_or_default())
-                .with_field("component_name", component_name.unwrap_or_default())
-                .with_field("tier", tier.unwrap_or_default())
-                .with_field("component_configuration", component_configuration.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a component_configuration resource
-    async fn delete_component_configuration(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.application_insights_client
-            //     .delete_component_configuration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -765,11 +643,11 @@ impl<'a> Application_insightsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let pattern_set_name = input.get_string("pattern_set_name")?;
-            let rank = input.get_string("rank")?;
-            let pattern = input.get_string("pattern")?;
-            let resource_group_name = input.get_string("resource_group_name")?;
             let pattern_name = input.get_string("pattern_name")?;
+            let rank = input.get_string("rank")?;
+            let resource_group_name = input.get_string("resource_group_name")?;
+            let pattern_set_name = input.get_string("pattern_set_name")?;
+            let pattern = input.get_string("pattern")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -784,11 +662,11 @@ impl<'a> Application_insightsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("pattern_set_name", pattern_set_name.unwrap_or_default())
-                .with_field("rank", rank.unwrap_or_default())
-                .with_field("pattern", pattern.unwrap_or_default())
-                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
                 .with_field("pattern_name", pattern_name.unwrap_or_default())
+                .with_field("rank", rank.unwrap_or_default())
+                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
+                .with_field("pattern_set_name", pattern_set_name.unwrap_or_default())
+                .with_field("pattern", pattern.unwrap_or_default())
             )
         })
     }
@@ -822,11 +700,11 @@ impl<'a> Application_insightsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let pattern_set_name = input.get_string("pattern_set_name")?;
-            let rank = input.get_string("rank")?;
-            let pattern = input.get_string("pattern")?;
-            let resource_group_name = input.get_string("resource_group_name")?;
             let pattern_name = input.get_string("pattern_name")?;
+            let rank = input.get_string("rank")?;
+            let resource_group_name = input.get_string("resource_group_name")?;
+            let pattern_set_name = input.get_string("pattern_set_name")?;
+            let pattern = input.get_string("pattern")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -842,11 +720,11 @@ impl<'a> Application_insightsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("pattern_set_name", pattern_set_name.unwrap_or_default())
-                .with_field("rank", rank.unwrap_or_default())
-                .with_field("pattern", pattern.unwrap_or_default())
-                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
                 .with_field("pattern_name", pattern_name.unwrap_or_default())
+                .with_field("rank", rank.unwrap_or_default())
+                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
+                .with_field("pattern_set_name", pattern_set_name.unwrap_or_default())
+                .with_field("pattern", pattern.unwrap_or_default())
             )
         })
     }
@@ -986,6 +864,144 @@ impl<'a> Application_insightsService<'a> {
 
 
     // ------------------------------------------------------------------------
+    // Component_configuration resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a component_configuration resource
+    async fn plan_component_configuration(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new component_configuration resource
+    async fn create_component_configuration(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let component_configuration = input.get_optional_string("component_configuration")?;
+            let component_name = input.get_string("component_name")?;
+            let auto_config_enabled = input.get_optional_string("auto_config_enabled")?;
+            let tier = input.get_optional_string("tier")?;
+            let resource_group_name = input.get_string("resource_group_name")?;
+            let monitor = input.get_optional_string("monitor")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.application_insights_client
+            //     .create_component_configuration()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("component_configuration", component_configuration.unwrap_or_default())
+                .with_field("component_name", component_name.unwrap_or_default())
+                .with_field("auto_config_enabled", auto_config_enabled.unwrap_or_default())
+                .with_field("tier", tier.unwrap_or_default())
+                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
+                .with_field("monitor", monitor.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a component_configuration resource
+    async fn read_component_configuration(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.application_insights_client
+            //     .describe_component_configuration()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a component_configuration resource
+    async fn update_component_configuration(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let component_configuration = input.get_optional_string("component_configuration")?;
+            let component_name = input.get_string("component_name")?;
+            let auto_config_enabled = input.get_optional_string("auto_config_enabled")?;
+            let tier = input.get_optional_string("tier")?;
+            let resource_group_name = input.get_string("resource_group_name")?;
+            let monitor = input.get_optional_string("monitor")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.application_insights_client
+            //     .update_component_configuration()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("component_configuration", component_configuration.unwrap_or_default())
+                .with_field("component_name", component_name.unwrap_or_default())
+                .with_field("auto_config_enabled", auto_config_enabled.unwrap_or_default())
+                .with_field("tier", tier.unwrap_or_default())
+                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
+                .with_field("monitor", monitor.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a component_configuration resource
+    async fn delete_component_configuration(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.application_insights_client
+            //     .delete_component_configuration()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
     // Problem_observations resource operations
     // ------------------------------------------------------------------------
 
@@ -1100,136 +1116,6 @@ impl<'a> Application_insightsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Workload resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a workload resource
-    async fn plan_workload(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new workload resource
-    async fn create_workload(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let workload_id = input.get_optional_string("workload_id")?;
-            let workload_configuration = input.get_string("workload_configuration")?;
-            let resource_group_name = input.get_string("resource_group_name")?;
-            let component_name = input.get_string("component_name")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.application_insights_client
-            //     .create_workload()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("workload_id", workload_id.unwrap_or_default())
-                .with_field("workload_configuration", workload_configuration.unwrap_or_default())
-                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
-                .with_field("component_name", component_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a workload resource
-    async fn read_workload(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.application_insights_client
-            //     .describe_workload()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a workload resource
-    async fn update_workload(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let workload_id = input.get_optional_string("workload_id")?;
-            let workload_configuration = input.get_string("workload_configuration")?;
-            let resource_group_name = input.get_string("resource_group_name")?;
-            let component_name = input.get_string("component_name")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.application_insights_client
-            //     .update_workload()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("workload_id", workload_id.unwrap_or_default())
-                .with_field("workload_configuration", workload_configuration.unwrap_or_default())
-                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
-                .with_field("component_name", component_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a workload resource
-    async fn delete_workload(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.application_insights_client
-            //     .delete_workload()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
     // Application resource operations
     // ------------------------------------------------------------------------
 
@@ -1257,16 +1143,16 @@ impl<'a> Application_insightsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let sns_notification_arn = input.get_optional_string("sns_notification_arn")?;
+            let ops_center_enabled = input.get_optional_string("ops_center_enabled")?;
+            let resource_group_name = input.get_optional_string("resource_group_name")?;
+            let tags = input.get_optional_string("tags")?;
             let auto_config_enabled = input.get_optional_string("auto_config_enabled")?;
+            let auto_create = input.get_optional_string("auto_create")?;
+            let grouping_type = input.get_optional_string("grouping_type")?;
             let cwe_monitor_enabled = input.get_optional_string("cwe_monitor_enabled")?;
             let attach_missing_permission = input.get_optional_string("attach_missing_permission")?;
-            let tags = input.get_optional_string("tags")?;
+            let sns_notification_arn = input.get_optional_string("sns_notification_arn")?;
             let ops_item_sns_topic_arn = input.get_optional_string("ops_item_sns_topic_arn")?;
-            let auto_create = input.get_optional_string("auto_create")?;
-            let resource_group_name = input.get_optional_string("resource_group_name")?;
-            let grouping_type = input.get_optional_string("grouping_type")?;
-            let ops_center_enabled = input.get_optional_string("ops_center_enabled")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -1281,16 +1167,16 @@ impl<'a> Application_insightsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("sns_notification_arn", sns_notification_arn.unwrap_or_default())
+                .with_field("ops_center_enabled", ops_center_enabled.unwrap_or_default())
+                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
                 .with_field("auto_config_enabled", auto_config_enabled.unwrap_or_default())
+                .with_field("auto_create", auto_create.unwrap_or_default())
+                .with_field("grouping_type", grouping_type.unwrap_or_default())
                 .with_field("cwe_monitor_enabled", cwe_monitor_enabled.unwrap_or_default())
                 .with_field("attach_missing_permission", attach_missing_permission.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
+                .with_field("sns_notification_arn", sns_notification_arn.unwrap_or_default())
                 .with_field("ops_item_sns_topic_arn", ops_item_sns_topic_arn.unwrap_or_default())
-                .with_field("auto_create", auto_create.unwrap_or_default())
-                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
-                .with_field("grouping_type", grouping_type.unwrap_or_default())
-                .with_field("ops_center_enabled", ops_center_enabled.unwrap_or_default())
             )
         })
     }
@@ -1324,16 +1210,16 @@ impl<'a> Application_insightsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let sns_notification_arn = input.get_optional_string("sns_notification_arn")?;
+            let ops_center_enabled = input.get_optional_string("ops_center_enabled")?;
+            let resource_group_name = input.get_optional_string("resource_group_name")?;
+            let tags = input.get_optional_string("tags")?;
             let auto_config_enabled = input.get_optional_string("auto_config_enabled")?;
+            let auto_create = input.get_optional_string("auto_create")?;
+            let grouping_type = input.get_optional_string("grouping_type")?;
             let cwe_monitor_enabled = input.get_optional_string("cwe_monitor_enabled")?;
             let attach_missing_permission = input.get_optional_string("attach_missing_permission")?;
-            let tags = input.get_optional_string("tags")?;
+            let sns_notification_arn = input.get_optional_string("sns_notification_arn")?;
             let ops_item_sns_topic_arn = input.get_optional_string("ops_item_sns_topic_arn")?;
-            let auto_create = input.get_optional_string("auto_create")?;
-            let resource_group_name = input.get_optional_string("resource_group_name")?;
-            let grouping_type = input.get_optional_string("grouping_type")?;
-            let ops_center_enabled = input.get_optional_string("ops_center_enabled")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -1349,16 +1235,16 @@ impl<'a> Application_insightsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("sns_notification_arn", sns_notification_arn.unwrap_or_default())
+                .with_field("ops_center_enabled", ops_center_enabled.unwrap_or_default())
+                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
                 .with_field("auto_config_enabled", auto_config_enabled.unwrap_or_default())
+                .with_field("auto_create", auto_create.unwrap_or_default())
+                .with_field("grouping_type", grouping_type.unwrap_or_default())
                 .with_field("cwe_monitor_enabled", cwe_monitor_enabled.unwrap_or_default())
                 .with_field("attach_missing_permission", attach_missing_permission.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
+                .with_field("sns_notification_arn", sns_notification_arn.unwrap_or_default())
                 .with_field("ops_item_sns_topic_arn", ops_item_sns_topic_arn.unwrap_or_default())
-                .with_field("auto_create", auto_create.unwrap_or_default())
-                .with_field("resource_group_name", resource_group_name.unwrap_or_default())
-                .with_field("grouping_type", grouping_type.unwrap_or_default())
-                .with_field("ops_center_enabled", ops_center_enabled.unwrap_or_default())
             )
         })
     }
@@ -1373,6 +1259,120 @@ impl<'a> Application_insightsService<'a> {
             // Example:
             // self.provider.application_insights_client
             //     .delete_application()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Component_configuration_recommendation resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a component_configuration_recommendation resource
+    async fn plan_component_configuration_recommendation(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new component_configuration_recommendation resource
+    async fn create_component_configuration_recommendation(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.application_insights_client
+            //     .create_component_configuration_recommendation()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a component_configuration_recommendation resource
+    async fn read_component_configuration_recommendation(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.application_insights_client
+            //     .describe_component_configuration_recommendation()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a component_configuration_recommendation resource
+    async fn update_component_configuration_recommendation(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.application_insights_client
+            //     .update_component_configuration_recommendation()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a component_configuration_recommendation resource
+    async fn delete_component_configuration_recommendation(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.application_insights_client
+            //     .delete_component_configuration_recommendation()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

@@ -21,7 +21,7 @@ impl<'a> Inference_experiment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, type: String, model_variants: Vec<String>, name: String, endpoint_name: String, data_storage_config: Option<String>, schedule: Option<String>, description: Option<String>, shadow_mode_config: String, kms_key: Option<String>, role_arn: String) -> Result<String> {
+    pub async fn create(&self, schedule: Option<String>, model_variants: Vec<String>, data_storage_config: Option<String>, type: String, name: String, role_arn: String, description: Option<String>, endpoint_name: String, shadow_mode_config: String, tags: Option<Vec<String>>, kms_key: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Inference_experiment<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, type: Option<String>, model_variants: Option<Vec<String>>, name: Option<String>, endpoint_name: Option<String>, data_storage_config: Option<String>, schedule: Option<String>, description: Option<String>, shadow_mode_config: Option<String>, kms_key: Option<String>, role_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, schedule: Option<String>, model_variants: Option<Vec<String>>, data_storage_config: Option<String>, type: Option<String>, name: Option<String>, role_arn: Option<String>, description: Option<String>, endpoint_name: Option<String>, shadow_mode_config: Option<String>, tags: Option<Vec<String>>, kms_key: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

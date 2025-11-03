@@ -38,7 +38,7 @@ impl<'a> Hub_content<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, hub_name: Option<String>, hub_content_markdown: Option<String>, hub_content_display_name: Option<String>, hub_content_type: Option<String>, hub_content_description: Option<String>, hub_content_search_keywords: Option<Vec<String>>, support_status: Option<String>, hub_content_version: Option<String>, hub_content_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, hub_content_markdown: Option<String>, hub_content_description: Option<String>, hub_name: Option<String>, hub_content_name: Option<String>, hub_content_display_name: Option<String>, hub_content_type: Option<String>, support_status: Option<String>, hub_content_version: Option<String>, hub_content_search_keywords: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

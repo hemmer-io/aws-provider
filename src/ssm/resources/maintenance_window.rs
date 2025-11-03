@@ -21,7 +21,7 @@ impl<'a> Maintenance_window<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, end_date: Option<String>, client_token: Option<String>, schedule: String, name: String, start_date: Option<String>, allow_unassociated_targets: bool, schedule_timezone: Option<String>, description: Option<String>, schedule_offset: Option<i64>, cutoff: i64, duration: i64, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, schedule_timezone: Option<String>, allow_unassociated_targets: bool, client_token: Option<String>, schedule_offset: Option<i64>, start_date: Option<String>, cutoff: i64, tags: Option<Vec<String>>, name: String, end_date: Option<String>, duration: i64, schedule: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Maintenance_window<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, end_date: Option<String>, client_token: Option<String>, schedule: Option<String>, name: Option<String>, start_date: Option<String>, allow_unassociated_targets: Option<bool>, schedule_timezone: Option<String>, description: Option<String>, schedule_offset: Option<i64>, cutoff: Option<i64>, duration: Option<i64>, tags: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, schedule_timezone: Option<String>, allow_unassociated_targets: Option<bool>, client_token: Option<String>, schedule_offset: Option<i64>, start_date: Option<String>, cutoff: Option<i64>, tags: Option<Vec<String>>, name: Option<String>, end_date: Option<String>, duration: Option<i64>, schedule: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

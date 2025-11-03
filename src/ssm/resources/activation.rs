@@ -21,7 +21,7 @@ impl<'a> Activation<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, iam_role: String, registration_limit: Option<i64>, registration_metadata: Option<Vec<String>>, expiration_date: Option<String>, default_instance_name: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, expiration_date: Option<String>, registration_metadata: Option<Vec<String>>, description: Option<String>, default_instance_name: Option<String>, tags: Option<Vec<String>>, iam_role: String, registration_limit: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

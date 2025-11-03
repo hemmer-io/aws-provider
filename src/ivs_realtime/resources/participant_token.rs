@@ -21,7 +21,7 @@ impl<'a> Participant_token<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, stage_arn: String, capabilities: Option<Vec<String>>, user_id: Option<String>, attributes: Option<HashMap<String, String>>, duration: Option<i64>) -> Result<String> {
+    pub async fn create(&self, attributes: Option<HashMap<String, String>>, capabilities: Option<Vec<String>>, user_id: Option<String>, stage_arn: String, duration: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

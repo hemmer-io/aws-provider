@@ -21,7 +21,7 @@ impl<'a> Asset_model_composite_model<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, if_none_match: Option<String>, asset_model_composite_model_id: Option<String>, asset_model_composite_model_external_id: Option<String>, composed_asset_model_id: Option<String>, client_token: Option<String>, asset_model_composite_model_properties: Option<Vec<String>>, asset_model_composite_model_name: String, asset_model_composite_model_description: Option<String>, asset_model_composite_model_type: String, if_match: Option<String>, parent_asset_model_composite_model_id: Option<String>, match_for_version_type: Option<String>, asset_model_id: String) -> Result<String> {
+    pub async fn create(&self, asset_model_id: String, composed_asset_model_id: Option<String>, parent_asset_model_composite_model_id: Option<String>, if_none_match: Option<String>, asset_model_composite_model_name: String, if_match: Option<String>, asset_model_composite_model_id: Option<String>, asset_model_composite_model_type: String, client_token: Option<String>, asset_model_composite_model_external_id: Option<String>, asset_model_composite_model_description: Option<String>, asset_model_composite_model_properties: Option<Vec<String>>, match_for_version_type: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Asset_model_composite_model<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, if_none_match: Option<String>, asset_model_composite_model_id: Option<String>, asset_model_composite_model_external_id: Option<String>, composed_asset_model_id: Option<String>, client_token: Option<String>, asset_model_composite_model_properties: Option<Vec<String>>, asset_model_composite_model_name: Option<String>, asset_model_composite_model_description: Option<String>, asset_model_composite_model_type: Option<String>, if_match: Option<String>, parent_asset_model_composite_model_id: Option<String>, match_for_version_type: Option<String>, asset_model_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, asset_model_id: Option<String>, composed_asset_model_id: Option<String>, parent_asset_model_composite_model_id: Option<String>, if_none_match: Option<String>, asset_model_composite_model_name: Option<String>, if_match: Option<String>, asset_model_composite_model_id: Option<String>, asset_model_composite_model_type: Option<String>, client_token: Option<String>, asset_model_composite_model_external_id: Option<String>, asset_model_composite_model_description: Option<String>, asset_model_composite_model_properties: Option<Vec<String>>, match_for_version_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -24,7 +24,7 @@ impl<'a> Job_status<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, status_update_reason: Option<String>, account_id: Option<String>, job_id: Option<String>, requested_job_status: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, status_update_reason: Option<String>, requested_job_status: Option<String>, job_id: Option<String>, account_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Location_efs<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, ec2_config: String, tags: Option<Vec<String>>, access_point_arn: Option<String>, subdirectory: Option<String>, efs_filesystem_arn: String, file_system_access_role_arn: Option<String>, in_transit_encryption: Option<String>) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, subdirectory: Option<String>, efs_filesystem_arn: String, ec2_config: String, file_system_access_role_arn: Option<String>, in_transit_encryption: Option<String>, access_point_arn: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Location_efs<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, ec2_config: Option<String>, tags: Option<Vec<String>>, access_point_arn: Option<String>, subdirectory: Option<String>, efs_filesystem_arn: Option<String>, file_system_access_role_arn: Option<String>, in_transit_encryption: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, subdirectory: Option<String>, efs_filesystem_arn: Option<String>, ec2_config: Option<String>, file_system_access_role_arn: Option<String>, in_transit_encryption: Option<String>, access_point_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Task_template<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, contact_flow_id: Option<String>, constraints: Option<String>, status: Option<String>, fields: Vec<String>, instance_id: String, name: String, client_token: Option<String>, defaults: Option<String>, self_assign_flow_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, client_token: Option<String>, self_assign_flow_id: Option<String>, name: String, defaults: Option<String>, contact_flow_id: Option<String>, description: Option<String>, constraints: Option<String>, status: Option<String>, instance_id: String, fields: Vec<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Task_template<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, contact_flow_id: Option<String>, constraints: Option<String>, status: Option<String>, fields: Option<Vec<String>>, instance_id: Option<String>, name: Option<String>, client_token: Option<String>, defaults: Option<String>, self_assign_flow_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, client_token: Option<String>, self_assign_flow_id: Option<String>, name: Option<String>, defaults: Option<String>, contact_flow_id: Option<String>, description: Option<String>, constraints: Option<String>, status: Option<String>, instance_id: Option<String>, fields: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

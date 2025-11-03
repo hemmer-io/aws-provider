@@ -21,7 +21,7 @@ impl<'a> Archive<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, retention_days: Option<i64>, kms_key_identifier: Option<String>, event_pattern: Option<String>, archive_name: String, event_source_arn: String) -> Result<String> {
+    pub async fn create(&self, event_pattern: Option<String>, description: Option<String>, kms_key_identifier: Option<String>, event_source_arn: String, archive_name: String, retention_days: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Archive<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, retention_days: Option<i64>, kms_key_identifier: Option<String>, event_pattern: Option<String>, archive_name: Option<String>, event_source_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, event_pattern: Option<String>, description: Option<String>, kms_key_identifier: Option<String>, event_source_arn: Option<String>, archive_name: Option<String>, retention_days: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

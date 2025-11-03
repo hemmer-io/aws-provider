@@ -24,7 +24,7 @@ impl<'a> Sender_id<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, sender_id: Option<String>, iso_country_code: Option<String>, deletion_protection_enabled: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, iso_country_code: Option<String>, deletion_protection_enabled: Option<bool>, sender_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

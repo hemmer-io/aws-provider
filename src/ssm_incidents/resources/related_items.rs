@@ -24,7 +24,7 @@ impl<'a> Related_items<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, incident_record_arn: Option<String>, related_items_update: Option<String>, client_token: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, incident_record_arn: Option<String>, client_token: Option<String>, related_items_update: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

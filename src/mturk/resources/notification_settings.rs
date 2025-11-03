@@ -24,7 +24,7 @@ impl<'a> Notification_settings<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, notification: Option<String>, hit_type_id: Option<String>, active: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, active: Option<bool>, hit_type_id: Option<String>, notification: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Asset_model_interface_relationship<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, property_mapping_configuration: String, interface_asset_model_id: String, client_token: Option<String>, asset_model_id: String) -> Result<String> {
+    pub async fn create(&self, interface_asset_model_id: String, client_token: Option<String>, asset_model_id: String, property_mapping_configuration: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

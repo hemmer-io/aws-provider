@@ -21,7 +21,7 @@ impl<'a> Backup_vault_lock_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, min_retention_days: Option<i64>, backup_vault_name: String, max_retention_days: Option<i64>, changeable_for_days: Option<i64>) -> Result<String> {
+    pub async fn create(&self, changeable_for_days: Option<i64>, min_retention_days: Option<i64>, backup_vault_name: String, max_retention_days: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

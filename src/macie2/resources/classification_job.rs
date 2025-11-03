@@ -21,7 +21,7 @@ impl<'a> Classification_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, managed_data_identifier_selector: Option<String>, managed_data_identifier_ids: Option<Vec<String>>, s3_job_definition: String, sampling_percentage: Option<i64>, name: String, initial_run: Option<bool>, schedule_frequency: Option<String>, tags: Option<HashMap<String, String>>, client_token: String, job_type: String, allow_list_ids: Option<Vec<String>>, custom_data_identifier_ids: Option<Vec<String>>, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, client_token: String, description: Option<String>, s3_job_definition: String, allow_list_ids: Option<Vec<String>>, custom_data_identifier_ids: Option<Vec<String>>, sampling_percentage: Option<i64>, initial_run: Option<bool>, job_type: String, managed_data_identifier_selector: Option<String>, schedule_frequency: Option<String>, managed_data_identifier_ids: Option<Vec<String>>, name: String, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Classification_job<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, managed_data_identifier_selector: Option<String>, managed_data_identifier_ids: Option<Vec<String>>, s3_job_definition: Option<String>, sampling_percentage: Option<i64>, name: Option<String>, initial_run: Option<bool>, schedule_frequency: Option<String>, tags: Option<HashMap<String, String>>, client_token: Option<String>, job_type: Option<String>, allow_list_ids: Option<Vec<String>>, custom_data_identifier_ids: Option<Vec<String>>, description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, client_token: Option<String>, description: Option<String>, s3_job_definition: Option<String>, allow_list_ids: Option<Vec<String>>, custom_data_identifier_ids: Option<Vec<String>>, sampling_percentage: Option<i64>, initial_run: Option<bool>, job_type: Option<String>, managed_data_identifier_selector: Option<String>, schedule_frequency: Option<String>, managed_data_identifier_ids: Option<Vec<String>>, name: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

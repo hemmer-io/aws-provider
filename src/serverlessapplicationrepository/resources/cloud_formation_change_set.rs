@@ -21,7 +21,7 @@ impl<'a> Cloud_formation_change_set<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: Option<String>, application_id: String, parameter_overrides: Option<Vec<String>>, capabilities: Option<Vec<String>>, tags: Option<Vec<String>>, resource_types: Option<Vec<String>>, rollback_configuration: Option<String>, template_id: Option<String>, notification_arns: Option<Vec<String>>, change_set_name: Option<String>, description: Option<String>, semantic_version: Option<String>, stack_name: String) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, resource_types: Option<Vec<String>>, tags: Option<Vec<String>>, template_id: Option<String>, change_set_name: Option<String>, notification_arns: Option<Vec<String>>, semantic_version: Option<String>, application_id: String, client_token: Option<String>, parameter_overrides: Option<Vec<String>>, capabilities: Option<Vec<String>>, rollback_configuration: Option<String>, stack_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

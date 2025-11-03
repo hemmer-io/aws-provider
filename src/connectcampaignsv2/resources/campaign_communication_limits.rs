@@ -24,7 +24,7 @@ impl<'a> Campaign_communication_limits<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, communication_limits_override: Option<String>, id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, id: Option<String>, communication_limits_override: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

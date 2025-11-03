@@ -38,7 +38,7 @@ impl<'a> Component_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, auto_config_enabled: Option<bool>, resource_group_name: Option<String>, monitor: Option<bool>, component_name: Option<String>, tier: Option<String>, component_configuration: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, component_configuration: Option<String>, component_name: Option<String>, auto_config_enabled: Option<bool>, tier: Option<String>, resource_group_name: Option<String>, monitor: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

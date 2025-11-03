@@ -21,7 +21,7 @@ impl<'a> Vpc_connector<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, security_groups: Option<String>, tags: Option<Vec<String>>, vpc_connector_name: String, subnets: String) -> Result<String> {
+    pub async fn create(&self, vpc_connector_name: String, subnets: String, security_groups: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

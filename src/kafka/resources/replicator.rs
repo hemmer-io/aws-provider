@@ -21,7 +21,7 @@ impl<'a> Replicator<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, kafka_clusters: Vec<String>, tags: Option<HashMap<String, String>>, replication_info_list: Vec<String>, replicator_name: String, description: Option<String>, service_execution_role_arn: String) -> Result<String> {
+    pub async fn create(&self, tags: Option<HashMap<String, String>>, replication_info_list: Vec<String>, description: Option<String>, kafka_clusters: Vec<String>, replicator_name: String, service_execution_role_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Custom_routing_endpoint_group<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, endpoint_group_region: String, idempotency_token: String, destination_configurations: Vec<String>, listener_arn: String) -> Result<String> {
+    pub async fn create(&self, endpoint_group_region: String, destination_configurations: Vec<String>, listener_arn: String, idempotency_token: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

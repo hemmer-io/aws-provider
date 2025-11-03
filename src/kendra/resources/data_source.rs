@@ -21,7 +21,7 @@ impl<'a> Data_source<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, configuration: Option<String>, type: String, vpc_configuration: Option<String>, schedule: Option<String>, language_code: Option<String>, role_arn: Option<String>, index_id: String, tags: Option<Vec<String>>, custom_document_enrichment_configuration: Option<String>, client_token: Option<String>, description: Option<String>, name: String) -> Result<String> {
+    pub async fn create(&self, client_token: Option<String>, tags: Option<Vec<String>>, configuration: Option<String>, name: String, language_code: Option<String>, vpc_configuration: Option<String>, custom_document_enrichment_configuration: Option<String>, index_id: String, type: String, description: Option<String>, role_arn: Option<String>, schedule: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Data_source<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, configuration: Option<String>, type: Option<String>, vpc_configuration: Option<String>, schedule: Option<String>, language_code: Option<String>, role_arn: Option<String>, index_id: Option<String>, tags: Option<Vec<String>>, custom_document_enrichment_configuration: Option<String>, client_token: Option<String>, description: Option<String>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, client_token: Option<String>, tags: Option<Vec<String>>, configuration: Option<String>, name: Option<String>, language_code: Option<String>, vpc_configuration: Option<String>, custom_document_enrichment_configuration: Option<String>, index_id: Option<String>, type: Option<String>, description: Option<String>, role_arn: Option<String>, schedule: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

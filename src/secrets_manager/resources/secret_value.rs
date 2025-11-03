@@ -21,7 +21,7 @@ impl<'a> Secret_value<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, secret_id: String, client_request_token: Option<String>, version_stages: Option<Vec<String>>, secret_binary: Option<String>, secret_string: Option<String>, rotation_token: Option<String>) -> Result<String> {
+    pub async fn create(&self, rotation_token: Option<String>, secret_string: Option<String>, secret_id: String, client_request_token: Option<String>, secret_binary: Option<String>, version_stages: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

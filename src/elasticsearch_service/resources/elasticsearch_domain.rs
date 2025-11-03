@@ -21,7 +21,7 @@ impl<'a> Elasticsearch_domain<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, domain_name: String, auto_tune_options: Option<String>, domain_endpoint_options: Option<String>, elasticsearch_version: Option<String>, log_publishing_options: Option<HashMap<String, String>>, advanced_options: Option<HashMap<String, String>>, cognito_options: Option<String>, elasticsearch_cluster_config: Option<String>, ebs_options: Option<String>, vpc_options: Option<String>, encryption_at_rest_options: Option<String>, node_to_node_encryption_options: Option<String>, tag_list: Option<Vec<String>>, access_policies: Option<String>, advanced_security_options: Option<String>, snapshot_options: Option<String>) -> Result<String> {
+    pub async fn create(&self, encryption_at_rest_options: Option<String>, snapshot_options: Option<String>, log_publishing_options: Option<HashMap<String, String>>, auto_tune_options: Option<String>, ebs_options: Option<String>, vpc_options: Option<String>, elasticsearch_version: Option<String>, advanced_security_options: Option<String>, access_policies: Option<String>, domain_endpoint_options: Option<String>, cognito_options: Option<String>, advanced_options: Option<HashMap<String, String>>, domain_name: String, node_to_node_encryption_options: Option<String>, elasticsearch_cluster_config: Option<String>, tag_list: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

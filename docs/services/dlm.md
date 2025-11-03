@@ -28,16 +28,13 @@ LifecyclePolicy resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `retain_interval` | i64 |  | <p>
-            <b>[Default policies only]</b> Specifies how long the policy should retain snapshots or AMIs before 
-			deleting them. The retention period can range from 2 to 14 days, but it must be greater 
-			than the creation frequency to ensure that the policy retains at least 1 snapshot or 
-			AMI at any given time. If you do not specify a value, the default is 7.</p>
-         <p>Default: 7</p> |
-| `copy_tags` | bool |  | <p>
-            <b>[Default policies only]</b> Indicates whether the policy should copy tags from the source resource 
-			to the snapshot or AMI. If you do not specify a value, the default is <code>false</code>.</p>
-         <p>Default: false</p> |
+| `tags` | HashMap<String, String> |  | <p>The tags to apply to the lifecycle policy during creation.</p> |
+| `exclusions` | String |  | <p>
+            <b>[Default policies only]</b> Specifies exclusion parameters for volumes or instances for which you 
+			do not want to create snapshots or AMIs. The policy will not create snapshots or AMIs 
+			for target resources that match any of the specified exclusion parameters.</p> |
+| `description` | String | ✅ | <p>A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are
+			supported.</p> |
 | `state` | String | ✅ | <p>The activation state of the lifecycle policy after creation.</p> |
 | `execution_role_arn` | String | ✅ | <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by
 			the lifecycle policy.</p> |
@@ -54,20 +51,30 @@ LifecyclePolicy resource
 					<code>INSTANCE</code>.</p>
             </li>
          </ul> |
-| `cross_region_copy_targets` | Vec<String> |  | <p>
-            <b>[Default policies only]</b> Specifies destination Regions for snapshot or AMI copies. You can specify 
-			up to 3 destination Regions. If you do not want to create cross-Region copies, omit this 
-			parameter.</p> |
-| `exclusions` | String |  | <p>
-            <b>[Default policies only]</b> Specifies exclusion parameters for volumes or instances for which you 
-			do not want to create snapshots or AMIs. The policy will not create snapshots or AMIs 
-			for target resources that match any of the specified exclusion parameters.</p> |
 | `policy_details` | String |  | <p>The configuration details of the lifecycle policy.</p>
          <important>
             <p>If you create a default policy, you can specify the request parameters either in  
 				the request body, or in the PolicyDetails request structure, but not both.</p>
          </important> |
-| `tags` | HashMap<String, String> |  | <p>The tags to apply to the lifecycle policy during creation.</p> |
+| `create_interval` | i64 |  | <p>
+            <b>[Default policies only]</b> Specifies how often the policy should run and create snapshots or AMIs. 
+			The creation frequency can range from 1 to 7 days. If you do not specify a value, the 
+			default is 1.</p>
+         <p>Default: 1</p> |
+| `cross_region_copy_targets` | Vec<String> |  | <p>
+            <b>[Default policies only]</b> Specifies destination Regions for snapshot or AMI copies. You can specify 
+			up to 3 destination Regions. If you do not want to create cross-Region copies, omit this 
+			parameter.</p> |
+| `retain_interval` | i64 |  | <p>
+            <b>[Default policies only]</b> Specifies how long the policy should retain snapshots or AMIs before 
+			deleting them. The retention period can range from 2 to 14 days, but it must be greater 
+			than the creation frequency to ensure that the policy retains at least 1 snapshot or 
+			AMI at any given time. If you do not specify a value, the default is 7.</p>
+         <p>Default: 7</p> |
+| `copy_tags` | bool |  | <p>
+            <b>[Default policies only]</b> Indicates whether the policy should copy tags from the source resource 
+			to the snapshot or AMI. If you do not specify a value, the default is <code>false</code>.</p>
+         <p>Default: false</p> |
 | `extend_deletion` | bool |  | <p>
             <b>[Default policies only]</b> Defines the snapshot or AMI retention behavior for the policy if the 
 			source volume or instance is deleted, or if the policy enters the error, disabled, or 
@@ -91,13 +98,6 @@ LifecyclePolicy resource
 			you override both default behaviors simultaneously.</p>
          <p>If you do not specify a value, the default is <code>false</code>.</p>
          <p>Default: false</p> |
-| `description` | String | ✅ | <p>A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are
-			supported.</p> |
-| `create_interval` | i64 |  | <p>
-            <b>[Default policies only]</b> Specifies how often the policy should run and create snapshots or AMIs. 
-			The creation frequency can range from 1 to 7 days. If you do not specify a value, the 
-			default is 1.</p>
-         <p>Default: 1</p> |
 
 
 #### Outputs
@@ -120,11 +120,11 @@ provider = aws.AwsProvider {
 
 # Create lifecycle_policy
 lifecycle_policy = provider.dlm.Lifecycle_policy {
+    description = "value"  # <p>A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are
+			supported.</p>
     state = "value"  # <p>The activation state of the lifecycle policy after creation.</p>
     execution_role_arn = "value"  # <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by
 			the lifecycle policy.</p>
-    description = "value"  # <p>A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are
-			supported.</p>
 }
 
 # Access lifecycle_policy outputs
@@ -187,19 +187,19 @@ provider = aws.AwsProvider {
 
 # Create multiple lifecycle_policy resources
 lifecycle_policy_0 = provider.dlm.Lifecycle_policy {
+    description = "value-0"
     state = "value-0"
     execution_role_arn = "value-0"
-    description = "value-0"
 }
 lifecycle_policy_1 = provider.dlm.Lifecycle_policy {
+    description = "value-1"
     state = "value-1"
     execution_role_arn = "value-1"
-    description = "value-1"
 }
 lifecycle_policy_2 = provider.dlm.Lifecycle_policy {
+    description = "value-2"
     state = "value-2"
     execution_role_arn = "value-2"
-    description = "value-2"
 }
 ```
 
@@ -209,9 +209,9 @@ lifecycle_policy_2 = provider.dlm.Lifecycle_policy {
 # Only create in production
 if environment == "production":
     lifecycle_policy = provider.dlm.Lifecycle_policy {
+        description = "production-value"
         state = "production-value"
         execution_role_arn = "production-value"
-        description = "production-value"
     }
 ```
 

@@ -21,7 +21,7 @@ impl<'a> Container_service<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, scale: i64, tags: Option<Vec<String>>, service_name: String, power: String, public_domain_names: Option<HashMap<String, Vec<String>>>, private_registry_access: Option<String>, deployment: Option<String>) -> Result<String> {
+    pub async fn create(&self, power: String, deployment: Option<String>, tags: Option<Vec<String>>, scale: i64, public_domain_names: Option<HashMap<String, Vec<String>>>, private_registry_access: Option<String>, service_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Container_service<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, scale: Option<i64>, tags: Option<Vec<String>>, service_name: Option<String>, power: Option<String>, public_domain_names: Option<HashMap<String, Vec<String>>>, private_registry_access: Option<String>, deployment: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, power: Option<String>, deployment: Option<String>, tags: Option<Vec<String>>, scale: Option<i64>, public_domain_names: Option<HashMap<String, Vec<String>>>, private_registry_access: Option<String>, service_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -156,9 +156,9 @@ impl<'a> Bcm_dashboardsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let widgets = input.get_string("widgets")?;
-            let resource_tags = input.get_optional_string("resource_tags")?;
             let name = input.get_string("name")?;
+            let resource_tags = input.get_optional_string("resource_tags")?;
+            let widgets = input.get_string("widgets")?;
             let description = input.get_optional_string("description")?;
 
 
@@ -174,9 +174,9 @@ impl<'a> Bcm_dashboardsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("widgets", widgets.unwrap_or_default())
-                .with_field("resource_tags", resource_tags.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
+                .with_field("resource_tags", resource_tags.unwrap_or_default())
+                .with_field("widgets", widgets.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
             )
         })
@@ -211,9 +211,9 @@ impl<'a> Bcm_dashboardsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let widgets = input.get_string("widgets")?;
-            let resource_tags = input.get_optional_string("resource_tags")?;
             let name = input.get_string("name")?;
+            let resource_tags = input.get_optional_string("resource_tags")?;
+            let widgets = input.get_string("widgets")?;
             let description = input.get_optional_string("description")?;
 
 
@@ -230,9 +230,9 @@ impl<'a> Bcm_dashboardsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("widgets", widgets.unwrap_or_default())
-                .with_field("resource_tags", resource_tags.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
+                .with_field("resource_tags", resource_tags.unwrap_or_default())
+                .with_field("widgets", widgets.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
             )
         })

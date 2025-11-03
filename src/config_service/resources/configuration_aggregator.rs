@@ -21,7 +21,7 @@ impl<'a> Configuration_aggregator<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, aggregator_filters: Option<String>, tags: Option<Vec<String>>, account_aggregation_sources: Option<Vec<String>>, organization_aggregation_source: Option<String>, configuration_aggregator_name: String) -> Result<String> {
+    pub async fn create(&self, account_aggregation_sources: Option<Vec<String>>, organization_aggregation_source: Option<String>, tags: Option<Vec<String>>, aggregator_filters: Option<String>, configuration_aggregator_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

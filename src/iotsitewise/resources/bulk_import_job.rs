@@ -21,7 +21,7 @@ impl<'a> Bulk_import_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, error_report_location: String, job_name: String, files: Vec<String>, job_role_arn: String, job_configuration: String, delete_files_after_import: Option<bool>, adaptive_ingestion: Option<bool>) -> Result<String> {
+    pub async fn create(&self, job_role_arn: String, job_name: String, job_configuration: String, delete_files_after_import: Option<bool>, files: Vec<String>, adaptive_ingestion: Option<bool>, error_report_location: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

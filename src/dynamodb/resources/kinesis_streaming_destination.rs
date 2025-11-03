@@ -38,7 +38,7 @@ impl<'a> Kinesis_streaming_destination<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, stream_arn: Option<String>, update_kinesis_streaming_configuration: Option<String>, table_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, update_kinesis_streaming_configuration: Option<String>, table_name: Option<String>, stream_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

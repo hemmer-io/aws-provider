@@ -36,8 +36,8 @@ DataLakeExceptionSubscription resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `exception_time_to_live` | i64 | <p>The expiration period and time-to-live (TTL). It is the duration of time until which the exception message remains.</p> |
 | `notification_endpoint` | String | <p>The Amazon Web Services account where you receive exception notifications.</p> |
+| `exception_time_to_live` | i64 | <p>The expiration period and time-to-live (TTL). It is the duration of time until which the exception message remains.</p> |
 | `subscription_protocol` | String | <p>The subscription protocol to which exception notifications are posted.</p> |
 
 
@@ -60,8 +60,8 @@ data_lake_exception_subscription = provider.securitylake.Data_lake_exception_sub
 
 # Access data_lake_exception_subscription outputs
 data_lake_exception_subscription_id = data_lake_exception_subscription.id
-data_lake_exception_subscription_exception_time_to_live = data_lake_exception_subscription.exception_time_to_live
 data_lake_exception_subscription_notification_endpoint = data_lake_exception_subscription.notification_endpoint
+data_lake_exception_subscription_exception_time_to_live = data_lake_exception_subscription.exception_time_to_live
 data_lake_exception_subscription_subscription_protocol = data_lake_exception_subscription.subscription_protocol
 ```
 

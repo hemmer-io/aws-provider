@@ -21,7 +21,7 @@ impl<'a> Application<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, subscriptions: Option<Vec<String>>, initialization_timeout: Option<i64>, application_config: Option<String>, iframe_config: Option<String>, namespace: String, tags: Option<HashMap<String, String>>, permissions: Option<Vec<String>>, description: Option<String>, client_token: Option<String>, is_service: Option<bool>, publications: Option<Vec<String>>, name: String, application_source_config: String) -> Result<String> {
+    pub async fn create(&self, client_token: Option<String>, subscriptions: Option<Vec<String>>, initialization_timeout: Option<i64>, application_config: Option<String>, tags: Option<HashMap<String, String>>, iframe_config: Option<String>, namespace: String, description: Option<String>, name: String, application_source_config: String, publications: Option<Vec<String>>, is_service: Option<bool>, permissions: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Application<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, subscriptions: Option<Vec<String>>, initialization_timeout: Option<i64>, application_config: Option<String>, iframe_config: Option<String>, namespace: Option<String>, tags: Option<HashMap<String, String>>, permissions: Option<Vec<String>>, description: Option<String>, client_token: Option<String>, is_service: Option<bool>, publications: Option<Vec<String>>, name: Option<String>, application_source_config: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, client_token: Option<String>, subscriptions: Option<Vec<String>>, initialization_timeout: Option<i64>, application_config: Option<String>, tags: Option<HashMap<String, String>>, iframe_config: Option<String>, namespace: Option<String>, description: Option<String>, name: Option<String>, application_source_config: Option<String>, publications: Option<Vec<String>>, is_service: Option<bool>, permissions: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

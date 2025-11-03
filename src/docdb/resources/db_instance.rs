@@ -21,7 +21,7 @@ impl<'a> Db_instance<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, copy_tags_to_snapshot: Option<bool>, db_instance_class: String, preferred_maintenance_window: Option<String>, db_cluster_identifier: String, performance_insights_kms_key_id: Option<String>, db_instance_identifier: String, auto_minor_version_upgrade: Option<bool>, engine: String, availability_zone: Option<String>, tags: Option<Vec<String>>, enable_performance_insights: Option<bool>, promotion_tier: Option<i64>, ca_certificate_identifier: Option<String>) -> Result<String> {
+    pub async fn create(&self, availability_zone: Option<String>, copy_tags_to_snapshot: Option<bool>, engine: String, auto_minor_version_upgrade: Option<bool>, preferred_maintenance_window: Option<String>, promotion_tier: Option<i64>, performance_insights_kms_key_id: Option<String>, enable_performance_insights: Option<bool>, db_instance_class: String, ca_certificate_identifier: Option<String>, tags: Option<Vec<String>>, db_instance_identifier: String, db_cluster_identifier: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -24,14 +24,14 @@ impl<'a> Timestream_writeService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "database" => {
-                self.plan_database(current_state, desired_input).await
-            }
             "endpoints" => {
                 self.plan_endpoints(current_state, desired_input).await
             }
             "batch_load_task" => {
                 self.plan_batch_load_task(current_state, desired_input).await
+            }
+            "database" => {
+                self.plan_database(current_state, desired_input).await
             }
             "table" => {
                 self.plan_table(current_state, desired_input).await
@@ -51,14 +51,14 @@ impl<'a> Timestream_writeService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "database" => {
-                self.create_database(input).await
-            }
             "endpoints" => {
                 self.create_endpoints(input).await
             }
             "batch_load_task" => {
                 self.create_batch_load_task(input).await
+            }
+            "database" => {
+                self.create_database(input).await
             }
             "table" => {
                 self.create_table(input).await
@@ -78,14 +78,14 @@ impl<'a> Timestream_writeService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "database" => {
-                self.read_database(id).await
-            }
             "endpoints" => {
                 self.read_endpoints(id).await
             }
             "batch_load_task" => {
                 self.read_batch_load_task(id).await
+            }
+            "database" => {
+                self.read_database(id).await
             }
             "table" => {
                 self.read_table(id).await
@@ -106,14 +106,14 @@ impl<'a> Timestream_writeService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "database" => {
-                self.update_database(id, input).await
-            }
             "endpoints" => {
                 self.update_endpoints(id, input).await
             }
             "batch_load_task" => {
                 self.update_batch_load_task(id, input).await
+            }
+            "database" => {
+                self.update_database(id, input).await
             }
             "table" => {
                 self.update_table(id, input).await
@@ -133,14 +133,14 @@ impl<'a> Timestream_writeService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "database" => {
-                self.delete_database(id).await
-            }
             "endpoints" => {
                 self.delete_endpoints(id).await
             }
             "batch_load_task" => {
                 self.delete_batch_load_task(id).await
+            }
+            "database" => {
+                self.delete_database(id).await
             }
             "table" => {
                 self.delete_table(id).await
@@ -156,132 +156,6 @@ impl<'a> Timestream_writeService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
-
-
-    // ------------------------------------------------------------------------
-    // Database resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a database resource
-    async fn plan_database(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new database resource
-    async fn create_database(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let database_name = input.get_string("database_name")?;
-            let kms_key_id = input.get_optional_string("kms_key_id")?;
-            let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.timestream_write_client
-            //     .create_database()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("database_name", database_name.unwrap_or_default())
-                .with_field("kms_key_id", kms_key_id.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a database resource
-    async fn read_database(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.timestream_write_client
-            //     .describe_database()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a database resource
-    async fn update_database(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let database_name = input.get_string("database_name")?;
-            let kms_key_id = input.get_optional_string("kms_key_id")?;
-            let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.timestream_write_client
-            //     .update_database()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("database_name", database_name.unwrap_or_default())
-                .with_field("kms_key_id", kms_key_id.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a database resource
-    async fn delete_database(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.timestream_write_client
-            //     .delete_database()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
 
 
     // ------------------------------------------------------------------------
@@ -426,13 +300,13 @@ impl<'a> Timestream_writeService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let data_source_configuration = input.get_string("data_source_configuration")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let target_database_name = input.get_string("target_database_name")?;
             let target_table_name = input.get_string("target_table_name")?;
             let record_version = input.get_optional_string("record_version")?;
-            let client_token = input.get_optional_string("client_token")?;
+            let data_source_configuration = input.get_string("data_source_configuration")?;
             let data_model_configuration = input.get_optional_string("data_model_configuration")?;
             let report_configuration = input.get_string("report_configuration")?;
-            let target_database_name = input.get_string("target_database_name")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -447,13 +321,13 @@ impl<'a> Timestream_writeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("data_source_configuration", data_source_configuration.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("target_database_name", target_database_name.unwrap_or_default())
                 .with_field("target_table_name", target_table_name.unwrap_or_default())
                 .with_field("record_version", record_version.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("data_source_configuration", data_source_configuration.unwrap_or_default())
                 .with_field("data_model_configuration", data_model_configuration.unwrap_or_default())
                 .with_field("report_configuration", report_configuration.unwrap_or_default())
-                .with_field("target_database_name", target_database_name.unwrap_or_default())
             )
         })
     }
@@ -487,13 +361,13 @@ impl<'a> Timestream_writeService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let data_source_configuration = input.get_string("data_source_configuration")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let target_database_name = input.get_string("target_database_name")?;
             let target_table_name = input.get_string("target_table_name")?;
             let record_version = input.get_optional_string("record_version")?;
-            let client_token = input.get_optional_string("client_token")?;
+            let data_source_configuration = input.get_string("data_source_configuration")?;
             let data_model_configuration = input.get_optional_string("data_model_configuration")?;
             let report_configuration = input.get_string("report_configuration")?;
-            let target_database_name = input.get_string("target_database_name")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -509,13 +383,13 @@ impl<'a> Timestream_writeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("data_source_configuration", data_source_configuration.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("target_database_name", target_database_name.unwrap_or_default())
                 .with_field("target_table_name", target_table_name.unwrap_or_default())
                 .with_field("record_version", record_version.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("data_source_configuration", data_source_configuration.unwrap_or_default())
                 .with_field("data_model_configuration", data_model_configuration.unwrap_or_default())
                 .with_field("report_configuration", report_configuration.unwrap_or_default())
-                .with_field("target_database_name", target_database_name.unwrap_or_default())
             )
         })
     }
@@ -530,6 +404,132 @@ impl<'a> Timestream_writeService<'a> {
             // Example:
             // self.provider.timestream_write_client
             //     .delete_batch_load_task()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Database resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a database resource
+    async fn plan_database(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new database resource
+    async fn create_database(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let database_name = input.get_string("database_name")?;
+            let kms_key_id = input.get_optional_string("kms_key_id")?;
+            let tags = input.get_optional_string("tags")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.timestream_write_client
+            //     .create_database()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("database_name", database_name.unwrap_or_default())
+                .with_field("kms_key_id", kms_key_id.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a database resource
+    async fn read_database(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.timestream_write_client
+            //     .describe_database()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a database resource
+    async fn update_database(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let database_name = input.get_string("database_name")?;
+            let kms_key_id = input.get_optional_string("kms_key_id")?;
+            let tags = input.get_optional_string("tags")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.timestream_write_client
+            //     .update_database()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("database_name", database_name.unwrap_or_default())
+                .with_field("kms_key_id", kms_key_id.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a database resource
+    async fn delete_database(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.timestream_write_client
+            //     .delete_database()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -568,12 +568,12 @@ impl<'a> Timestream_writeService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let retention_properties = input.get_optional_string("retention_properties")?;
             let magnetic_store_write_properties = input.get_optional_string("magnetic_store_write_properties")?;
+            let table_name = input.get_string("table_name")?;
             let tags = input.get_optional_string("tags")?;
+            let retention_properties = input.get_optional_string("retention_properties")?;
             let schema = input.get_optional_string("schema")?;
             let database_name = input.get_string("database_name")?;
-            let table_name = input.get_string("table_name")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -588,12 +588,12 @@ impl<'a> Timestream_writeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("retention_properties", retention_properties.unwrap_or_default())
                 .with_field("magnetic_store_write_properties", magnetic_store_write_properties.unwrap_or_default())
+                .with_field("table_name", table_name.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
+                .with_field("retention_properties", retention_properties.unwrap_or_default())
                 .with_field("schema", schema.unwrap_or_default())
                 .with_field("database_name", database_name.unwrap_or_default())
-                .with_field("table_name", table_name.unwrap_or_default())
             )
         })
     }
@@ -627,12 +627,12 @@ impl<'a> Timestream_writeService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let retention_properties = input.get_optional_string("retention_properties")?;
             let magnetic_store_write_properties = input.get_optional_string("magnetic_store_write_properties")?;
+            let table_name = input.get_string("table_name")?;
             let tags = input.get_optional_string("tags")?;
+            let retention_properties = input.get_optional_string("retention_properties")?;
             let schema = input.get_optional_string("schema")?;
             let database_name = input.get_string("database_name")?;
-            let table_name = input.get_string("table_name")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -648,12 +648,12 @@ impl<'a> Timestream_writeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("retention_properties", retention_properties.unwrap_or_default())
                 .with_field("magnetic_store_write_properties", magnetic_store_write_properties.unwrap_or_default())
+                .with_field("table_name", table_name.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
+                .with_field("retention_properties", retention_properties.unwrap_or_default())
                 .with_field("schema", schema.unwrap_or_default())
                 .with_field("database_name", database_name.unwrap_or_default())
-                .with_field("table_name", table_name.unwrap_or_default())
             )
         })
     }

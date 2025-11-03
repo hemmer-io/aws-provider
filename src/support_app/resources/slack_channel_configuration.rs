@@ -21,7 +21,7 @@ impl<'a> Slack_channel_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, notify_on_create_or_reopen_case: Option<bool>, channel_role_arn: String, team_id: String, notify_on_add_correspondence_to_case: Option<bool>, channel_name: Option<String>, channel_id: String, notify_on_case_severity: String, notify_on_resolve_case: Option<bool>) -> Result<String> {
+    pub async fn create(&self, channel_id: String, notify_on_case_severity: String, channel_name: Option<String>, team_id: String, notify_on_resolve_case: Option<bool>, notify_on_create_or_reopen_case: Option<bool>, channel_role_arn: String, notify_on_add_correspondence_to_case: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Slack_channel_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, notify_on_create_or_reopen_case: Option<bool>, channel_role_arn: Option<String>, team_id: Option<String>, notify_on_add_correspondence_to_case: Option<bool>, channel_name: Option<String>, channel_id: Option<String>, notify_on_case_severity: Option<String>, notify_on_resolve_case: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, channel_id: Option<String>, notify_on_case_severity: Option<String>, channel_name: Option<String>, team_id: Option<String>, notify_on_resolve_case: Option<bool>, notify_on_create_or_reopen_case: Option<bool>, channel_role_arn: Option<String>, notify_on_add_correspondence_to_case: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

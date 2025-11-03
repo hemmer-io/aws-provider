@@ -24,7 +24,7 @@ impl<'a> Directory_setup<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, network_update_settings: Option<String>, create_snapshot_before_update: Option<bool>, update_type: Option<String>, os_update_settings: Option<String>, directory_size_update_settings: Option<String>, directory_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, update_type: Option<String>, network_update_settings: Option<String>, create_snapshot_before_update: Option<bool>, os_update_settings: Option<String>, directory_id: Option<String>, directory_size_update_settings: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

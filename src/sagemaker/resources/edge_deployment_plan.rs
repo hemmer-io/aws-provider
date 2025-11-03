@@ -21,7 +21,7 @@ impl<'a> Edge_deployment_plan<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, edge_deployment_plan_name: String, stages: Option<Vec<String>>, model_configs: Vec<String>, tags: Option<Vec<String>>, device_fleet_name: String) -> Result<String> {
+    pub async fn create(&self, stages: Option<Vec<String>>, tags: Option<Vec<String>>, edge_deployment_plan_name: String, model_configs: Vec<String>, device_fleet_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

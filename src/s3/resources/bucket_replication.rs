@@ -21,7 +21,7 @@ impl<'a> Bucket_replication<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, content_md5: Option<String>, token: Option<String>, bucket: String, checksum_algorithm: Option<String>, replication_configuration: String, expected_bucket_owner: Option<String>) -> Result<String> {
+    pub async fn create(&self, expected_bucket_owner: Option<String>, checksum_algorithm: Option<String>, content_md5: Option<String>, bucket: String, replication_configuration: String, token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

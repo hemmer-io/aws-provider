@@ -24,11 +24,11 @@ impl<'a> MediapackageService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "origin_endpoint" => {
-                self.plan_origin_endpoint(current_state, desired_input).await
-            }
             "channel" => {
                 self.plan_channel(current_state, desired_input).await
+            }
+            "origin_endpoint" => {
+                self.plan_origin_endpoint(current_state, desired_input).await
             }
             "harvest_job" => {
                 self.plan_harvest_job(current_state, desired_input).await
@@ -57,11 +57,11 @@ impl<'a> MediapackageService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "origin_endpoint" => {
-                self.create_origin_endpoint(input).await
-            }
             "channel" => {
                 self.create_channel(input).await
+            }
+            "origin_endpoint" => {
+                self.create_origin_endpoint(input).await
             }
             "harvest_job" => {
                 self.create_harvest_job(input).await
@@ -90,11 +90,11 @@ impl<'a> MediapackageService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "origin_endpoint" => {
-                self.read_origin_endpoint(id).await
-            }
             "channel" => {
                 self.read_channel(id).await
+            }
+            "origin_endpoint" => {
+                self.read_origin_endpoint(id).await
             }
             "harvest_job" => {
                 self.read_harvest_job(id).await
@@ -124,11 +124,11 @@ impl<'a> MediapackageService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "origin_endpoint" => {
-                self.update_origin_endpoint(id, input).await
-            }
             "channel" => {
                 self.update_channel(id, input).await
+            }
+            "origin_endpoint" => {
+                self.update_origin_endpoint(id, input).await
             }
             "harvest_job" => {
                 self.update_harvest_job(id, input).await
@@ -157,11 +157,11 @@ impl<'a> MediapackageService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "origin_endpoint" => {
-                self.delete_origin_endpoint(id).await
-            }
             "channel" => {
                 self.delete_channel(id).await
+            }
+            "origin_endpoint" => {
+                self.delete_origin_endpoint(id).await
             }
             "harvest_job" => {
                 self.delete_harvest_job(id).await
@@ -186,176 +186,6 @@ impl<'a> MediapackageService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
-
-
-    // ------------------------------------------------------------------------
-    // Origin_endpoint resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a origin_endpoint resource
-    async fn plan_origin_endpoint(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new origin_endpoint resource
-    async fn create_origin_endpoint(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let dash_package = input.get_optional_string("dash_package")?;
-            let channel_id = input.get_string("channel_id")?;
-            let manifest_name = input.get_optional_string("manifest_name")?;
-            let tags = input.get_optional_string("tags")?;
-            let whitelist = input.get_optional_string("whitelist")?;
-            let startover_window_seconds = input.get_optional_string("startover_window_seconds")?;
-            let description = input.get_optional_string("description")?;
-            let mss_package = input.get_optional_string("mss_package")?;
-            let time_delay_seconds = input.get_optional_string("time_delay_seconds")?;
-            let origination = input.get_optional_string("origination")?;
-            let hls_package = input.get_optional_string("hls_package")?;
-            let cmaf_package = input.get_optional_string("cmaf_package")?;
-            let id = input.get_string("id")?;
-            let authorization = input.get_optional_string("authorization")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.mediapackage_client
-            //     .create_origin_endpoint()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("dash_package", dash_package.unwrap_or_default())
-                .with_field("channel_id", channel_id.unwrap_or_default())
-                .with_field("manifest_name", manifest_name.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("whitelist", whitelist.unwrap_or_default())
-                .with_field("startover_window_seconds", startover_window_seconds.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("mss_package", mss_package.unwrap_or_default())
-                .with_field("time_delay_seconds", time_delay_seconds.unwrap_or_default())
-                .with_field("origination", origination.unwrap_or_default())
-                .with_field("hls_package", hls_package.unwrap_or_default())
-                .with_field("cmaf_package", cmaf_package.unwrap_or_default())
-                .with_field("id", id.unwrap_or_default())
-                .with_field("authorization", authorization.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a origin_endpoint resource
-    async fn read_origin_endpoint(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.mediapackage_client
-            //     .describe_origin_endpoint()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a origin_endpoint resource
-    async fn update_origin_endpoint(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let dash_package = input.get_optional_string("dash_package")?;
-            let channel_id = input.get_string("channel_id")?;
-            let manifest_name = input.get_optional_string("manifest_name")?;
-            let tags = input.get_optional_string("tags")?;
-            let whitelist = input.get_optional_string("whitelist")?;
-            let startover_window_seconds = input.get_optional_string("startover_window_seconds")?;
-            let description = input.get_optional_string("description")?;
-            let mss_package = input.get_optional_string("mss_package")?;
-            let time_delay_seconds = input.get_optional_string("time_delay_seconds")?;
-            let origination = input.get_optional_string("origination")?;
-            let hls_package = input.get_optional_string("hls_package")?;
-            let cmaf_package = input.get_optional_string("cmaf_package")?;
-            let id = input.get_string("id")?;
-            let authorization = input.get_optional_string("authorization")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.mediapackage_client
-            //     .update_origin_endpoint()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("dash_package", dash_package.unwrap_or_default())
-                .with_field("channel_id", channel_id.unwrap_or_default())
-                .with_field("manifest_name", manifest_name.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("whitelist", whitelist.unwrap_or_default())
-                .with_field("startover_window_seconds", startover_window_seconds.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("mss_package", mss_package.unwrap_or_default())
-                .with_field("time_delay_seconds", time_delay_seconds.unwrap_or_default())
-                .with_field("origination", origination.unwrap_or_default())
-                .with_field("hls_package", hls_package.unwrap_or_default())
-                .with_field("cmaf_package", cmaf_package.unwrap_or_default())
-                .with_field("id", id.unwrap_or_default())
-                .with_field("authorization", authorization.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a origin_endpoint resource
-    async fn delete_origin_endpoint(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.mediapackage_client
-            //     .delete_origin_endpoint()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
 
 
     // ------------------------------------------------------------------------
@@ -386,9 +216,9 @@ impl<'a> MediapackageService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let tags = input.get_optional_string("tags")?;
-            let description = input.get_optional_string("description")?;
             let id = input.get_string("id")?;
+            let description = input.get_optional_string("description")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -403,9 +233,9 @@ impl<'a> MediapackageService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
                 .with_field("id", id.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
@@ -439,9 +269,9 @@ impl<'a> MediapackageService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let tags = input.get_optional_string("tags")?;
-            let description = input.get_optional_string("description")?;
             let id = input.get_string("id")?;
+            let description = input.get_optional_string("description")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -457,9 +287,9 @@ impl<'a> MediapackageService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
                 .with_field("id", id.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
@@ -474,6 +304,176 @@ impl<'a> MediapackageService<'a> {
             // Example:
             // self.provider.mediapackage_client
             //     .delete_channel()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Origin_endpoint resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a origin_endpoint resource
+    async fn plan_origin_endpoint(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new origin_endpoint resource
+    async fn create_origin_endpoint(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let origination = input.get_optional_string("origination")?;
+            let mss_package = input.get_optional_string("mss_package")?;
+            let cmaf_package = input.get_optional_string("cmaf_package")?;
+            let tags = input.get_optional_string("tags")?;
+            let id = input.get_string("id")?;
+            let startover_window_seconds = input.get_optional_string("startover_window_seconds")?;
+            let authorization = input.get_optional_string("authorization")?;
+            let dash_package = input.get_optional_string("dash_package")?;
+            let description = input.get_optional_string("description")?;
+            let channel_id = input.get_string("channel_id")?;
+            let manifest_name = input.get_optional_string("manifest_name")?;
+            let time_delay_seconds = input.get_optional_string("time_delay_seconds")?;
+            let hls_package = input.get_optional_string("hls_package")?;
+            let whitelist = input.get_optional_string("whitelist")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.mediapackage_client
+            //     .create_origin_endpoint()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("origination", origination.unwrap_or_default())
+                .with_field("mss_package", mss_package.unwrap_or_default())
+                .with_field("cmaf_package", cmaf_package.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
+                .with_field("startover_window_seconds", startover_window_seconds.unwrap_or_default())
+                .with_field("authorization", authorization.unwrap_or_default())
+                .with_field("dash_package", dash_package.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("channel_id", channel_id.unwrap_or_default())
+                .with_field("manifest_name", manifest_name.unwrap_or_default())
+                .with_field("time_delay_seconds", time_delay_seconds.unwrap_or_default())
+                .with_field("hls_package", hls_package.unwrap_or_default())
+                .with_field("whitelist", whitelist.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a origin_endpoint resource
+    async fn read_origin_endpoint(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.mediapackage_client
+            //     .describe_origin_endpoint()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a origin_endpoint resource
+    async fn update_origin_endpoint(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let origination = input.get_optional_string("origination")?;
+            let mss_package = input.get_optional_string("mss_package")?;
+            let cmaf_package = input.get_optional_string("cmaf_package")?;
+            let tags = input.get_optional_string("tags")?;
+            let id = input.get_string("id")?;
+            let startover_window_seconds = input.get_optional_string("startover_window_seconds")?;
+            let authorization = input.get_optional_string("authorization")?;
+            let dash_package = input.get_optional_string("dash_package")?;
+            let description = input.get_optional_string("description")?;
+            let channel_id = input.get_string("channel_id")?;
+            let manifest_name = input.get_optional_string("manifest_name")?;
+            let time_delay_seconds = input.get_optional_string("time_delay_seconds")?;
+            let hls_package = input.get_optional_string("hls_package")?;
+            let whitelist = input.get_optional_string("whitelist")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.mediapackage_client
+            //     .update_origin_endpoint()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("origination", origination.unwrap_or_default())
+                .with_field("mss_package", mss_package.unwrap_or_default())
+                .with_field("cmaf_package", cmaf_package.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
+                .with_field("startover_window_seconds", startover_window_seconds.unwrap_or_default())
+                .with_field("authorization", authorization.unwrap_or_default())
+                .with_field("dash_package", dash_package.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("channel_id", channel_id.unwrap_or_default())
+                .with_field("manifest_name", manifest_name.unwrap_or_default())
+                .with_field("time_delay_seconds", time_delay_seconds.unwrap_or_default())
+                .with_field("hls_package", hls_package.unwrap_or_default())
+                .with_field("whitelist", whitelist.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a origin_endpoint resource
+    async fn delete_origin_endpoint(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.mediapackage_client
+            //     .delete_origin_endpoint()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -514,9 +514,9 @@ impl<'a> MediapackageService<'a> {
             // Extract input fields
             let start_time = input.get_string("start_time")?;
             let end_time = input.get_string("end_time")?;
+            let s3_destination = input.get_string("s3_destination")?;
             let id = input.get_string("id")?;
             let origin_endpoint_id = input.get_string("origin_endpoint_id")?;
-            let s3_destination = input.get_string("s3_destination")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -533,9 +533,9 @@ impl<'a> MediapackageService<'a> {
                 .with_id("placeholder-id")
                 .with_field("start_time", start_time.unwrap_or_default())
                 .with_field("end_time", end_time.unwrap_or_default())
+                .with_field("s3_destination", s3_destination.unwrap_or_default())
                 .with_field("id", id.unwrap_or_default())
                 .with_field("origin_endpoint_id", origin_endpoint_id.unwrap_or_default())
-                .with_field("s3_destination", s3_destination.unwrap_or_default())
             )
         })
     }
@@ -571,9 +571,9 @@ impl<'a> MediapackageService<'a> {
             // Extract input fields
             let start_time = input.get_string("start_time")?;
             let end_time = input.get_string("end_time")?;
+            let s3_destination = input.get_string("s3_destination")?;
             let id = input.get_string("id")?;
             let origin_endpoint_id = input.get_string("origin_endpoint_id")?;
-            let s3_destination = input.get_string("s3_destination")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -591,9 +591,9 @@ impl<'a> MediapackageService<'a> {
                 .with_id(id)
                 .with_field("start_time", start_time.unwrap_or_default())
                 .with_field("end_time", end_time.unwrap_or_default())
+                .with_field("s3_destination", s3_destination.unwrap_or_default())
                 .with_field("id", id.unwrap_or_default())
                 .with_field("origin_endpoint_id", origin_endpoint_id.unwrap_or_default())
-                .with_field("s3_destination", s3_destination.unwrap_or_default())
             )
         })
     }
@@ -646,13 +646,13 @@ impl<'a> MediapackageService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let id = input.get_string("id")?;
-            let hls_package = input.get_optional_string("hls_package")?;
-            let mss_package = input.get_optional_string("mss_package")?;
-            let tags = input.get_optional_string("tags")?;
-            let packaging_group_id = input.get_string("packaging_group_id")?;
             let cmaf_package = input.get_optional_string("cmaf_package")?;
+            let hls_package = input.get_optional_string("hls_package")?;
+            let tags = input.get_optional_string("tags")?;
             let dash_package = input.get_optional_string("dash_package")?;
+            let packaging_group_id = input.get_string("packaging_group_id")?;
+            let id = input.get_string("id")?;
+            let mss_package = input.get_optional_string("mss_package")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -667,13 +667,13 @@ impl<'a> MediapackageService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("id", id.unwrap_or_default())
-                .with_field("hls_package", hls_package.unwrap_or_default())
-                .with_field("mss_package", mss_package.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("packaging_group_id", packaging_group_id.unwrap_or_default())
                 .with_field("cmaf_package", cmaf_package.unwrap_or_default())
+                .with_field("hls_package", hls_package.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
                 .with_field("dash_package", dash_package.unwrap_or_default())
+                .with_field("packaging_group_id", packaging_group_id.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
+                .with_field("mss_package", mss_package.unwrap_or_default())
             )
         })
     }
@@ -707,13 +707,13 @@ impl<'a> MediapackageService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let id = input.get_string("id")?;
-            let hls_package = input.get_optional_string("hls_package")?;
-            let mss_package = input.get_optional_string("mss_package")?;
-            let tags = input.get_optional_string("tags")?;
-            let packaging_group_id = input.get_string("packaging_group_id")?;
             let cmaf_package = input.get_optional_string("cmaf_package")?;
+            let hls_package = input.get_optional_string("hls_package")?;
+            let tags = input.get_optional_string("tags")?;
             let dash_package = input.get_optional_string("dash_package")?;
+            let packaging_group_id = input.get_string("packaging_group_id")?;
+            let id = input.get_string("id")?;
+            let mss_package = input.get_optional_string("mss_package")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -729,13 +729,13 @@ impl<'a> MediapackageService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("id", id.unwrap_or_default())
-                .with_field("hls_package", hls_package.unwrap_or_default())
-                .with_field("mss_package", mss_package.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("packaging_group_id", packaging_group_id.unwrap_or_default())
                 .with_field("cmaf_package", cmaf_package.unwrap_or_default())
+                .with_field("hls_package", hls_package.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
                 .with_field("dash_package", dash_package.unwrap_or_default())
+                .with_field("packaging_group_id", packaging_group_id.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
+                .with_field("mss_package", mss_package.unwrap_or_default())
             )
         })
     }
@@ -788,9 +788,9 @@ impl<'a> MediapackageService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let id = input.get_string("id")?;
             let tags = input.get_optional_string("tags")?;
             let authorization = input.get_optional_string("authorization")?;
+            let id = input.get_string("id")?;
             let egress_access_logs = input.get_optional_string("egress_access_logs")?;
 
 
@@ -806,9 +806,9 @@ impl<'a> MediapackageService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("id", id.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
                 .with_field("authorization", authorization.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
                 .with_field("egress_access_logs", egress_access_logs.unwrap_or_default())
             )
         })
@@ -843,9 +843,9 @@ impl<'a> MediapackageService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let id = input.get_string("id")?;
             let tags = input.get_optional_string("tags")?;
             let authorization = input.get_optional_string("authorization")?;
+            let id = input.get_string("id")?;
             let egress_access_logs = input.get_optional_string("egress_access_logs")?;
 
 
@@ -862,9 +862,9 @@ impl<'a> MediapackageService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("id", id.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
                 .with_field("authorization", authorization.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
                 .with_field("egress_access_logs", egress_access_logs.unwrap_or_default())
             )
         })
@@ -918,12 +918,12 @@ impl<'a> MediapackageService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let id = input.get_string("id")?;
             let packaging_group_id = input.get_string("packaging_group_id")?;
-            let resource_id = input.get_optional_string("resource_id")?;
-            let tags = input.get_optional_string("tags")?;
             let source_arn = input.get_string("source_arn")?;
             let source_role_arn = input.get_string("source_role_arn")?;
+            let tags = input.get_optional_string("tags")?;
+            let resource_id = input.get_optional_string("resource_id")?;
+            let id = input.get_string("id")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -938,12 +938,12 @@ impl<'a> MediapackageService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("id", id.unwrap_or_default())
                 .with_field("packaging_group_id", packaging_group_id.unwrap_or_default())
-                .with_field("resource_id", resource_id.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("source_arn", source_arn.unwrap_or_default())
                 .with_field("source_role_arn", source_role_arn.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("resource_id", resource_id.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
             )
         })
     }
@@ -977,12 +977,12 @@ impl<'a> MediapackageService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let id = input.get_string("id")?;
             let packaging_group_id = input.get_string("packaging_group_id")?;
-            let resource_id = input.get_optional_string("resource_id")?;
-            let tags = input.get_optional_string("tags")?;
             let source_arn = input.get_string("source_arn")?;
             let source_role_arn = input.get_string("source_role_arn")?;
+            let tags = input.get_optional_string("tags")?;
+            let resource_id = input.get_optional_string("resource_id")?;
+            let id = input.get_string("id")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -998,12 +998,12 @@ impl<'a> MediapackageService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("id", id.unwrap_or_default())
                 .with_field("packaging_group_id", packaging_group_id.unwrap_or_default())
-                .with_field("resource_id", resource_id.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("source_arn", source_arn.unwrap_or_default())
                 .with_field("source_role_arn", source_role_arn.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("resource_id", resource_id.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
             )
         })
     }

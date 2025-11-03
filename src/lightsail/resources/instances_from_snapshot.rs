@@ -21,7 +21,7 @@ impl<'a> Instances_from_snapshot<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, source_instance_name: Option<String>, add_ons: Option<Vec<String>>, use_latest_restorable_auto_snapshot: Option<bool>, key_pair_name: Option<String>, restore_date: Option<String>, bundle_id: String, availability_zone: String, instance_snapshot_name: Option<String>, user_data: Option<String>, attached_disk_mapping: Option<HashMap<String, Vec<String>>>, instance_names: String, ip_address_type: Option<String>) -> Result<String> {
+    pub async fn create(&self, key_pair_name: Option<String>, instance_names: String, attached_disk_mapping: Option<HashMap<String, Vec<String>>>, user_data: Option<String>, tags: Option<Vec<String>>, add_ons: Option<Vec<String>>, source_instance_name: Option<String>, instance_snapshot_name: Option<String>, bundle_id: String, use_latest_restorable_auto_snapshot: Option<bool>, availability_zone: String, ip_address_type: Option<String>, restore_date: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

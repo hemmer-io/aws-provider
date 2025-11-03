@@ -38,7 +38,7 @@ impl<'a> Data_source<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, status: Option<String>, data_source_type: Option<String>, domain_name: Option<String>, description: Option<String>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, data_source_type: Option<String>, domain_name: Option<String>, name: Option<String>, status: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

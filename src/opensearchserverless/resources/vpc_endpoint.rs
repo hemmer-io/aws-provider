@@ -24,7 +24,7 @@ impl<'a> Vpc_endpoint<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, add_subnet_ids: Option<Vec<String>>, id: Option<String>, add_security_group_ids: Option<Vec<String>>, client_token: Option<String>, remove_subnet_ids: Option<Vec<String>>, remove_security_group_ids: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, remove_security_group_ids: Option<Vec<String>>, id: Option<String>, remove_subnet_ids: Option<Vec<String>>, client_token: Option<String>, add_security_group_ids: Option<Vec<String>>, add_subnet_ids: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

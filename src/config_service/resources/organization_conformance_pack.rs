@@ -21,7 +21,7 @@ impl<'a> Organization_conformance_pack<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, template_s3_uri: Option<String>, template_body: Option<String>, organization_conformance_pack_name: String, conformance_pack_input_parameters: Option<Vec<String>>, excluded_accounts: Option<Vec<String>>, delivery_s3_key_prefix: Option<String>, delivery_s3_bucket: Option<String>) -> Result<String> {
+    pub async fn create(&self, conformance_pack_input_parameters: Option<Vec<String>>, excluded_accounts: Option<Vec<String>>, organization_conformance_pack_name: String, template_s3_uri: Option<String>, template_body: Option<String>, delivery_s3_bucket: Option<String>, delivery_s3_key_prefix: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

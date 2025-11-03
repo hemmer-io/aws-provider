@@ -21,7 +21,7 @@ impl<'a> Integration_response<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, response_parameters: Option<HashMap<String, String>>, integration_id: String, integration_response_key: String, api_id: String, response_templates: Option<HashMap<String, String>>, template_selection_expression: Option<String>, content_handling_strategy: Option<String>) -> Result<String> {
+    pub async fn create(&self, response_parameters: Option<HashMap<String, String>>, integration_id: String, api_id: String, template_selection_expression: Option<String>, integration_response_key: String, response_templates: Option<HashMap<String, String>>, content_handling_strategy: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Integration_response<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, response_parameters: Option<HashMap<String, String>>, integration_id: Option<String>, integration_response_key: Option<String>, api_id: Option<String>, response_templates: Option<HashMap<String, String>>, template_selection_expression: Option<String>, content_handling_strategy: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, response_parameters: Option<HashMap<String, String>>, integration_id: Option<String>, api_id: Option<String>, template_selection_expression: Option<String>, integration_response_key: Option<String>, response_templates: Option<HashMap<String, String>>, content_handling_strategy: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

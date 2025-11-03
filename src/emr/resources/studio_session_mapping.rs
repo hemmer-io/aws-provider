@@ -21,7 +21,7 @@ impl<'a> Studio_session_mapping<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, studio_id: String, identity_type: String, session_policy_arn: String, identity_name: Option<String>, identity_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, identity_id: Option<String>, session_policy_arn: String, identity_name: Option<String>, identity_type: String, studio_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Studio_session_mapping<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, studio_id: Option<String>, identity_type: Option<String>, session_policy_arn: Option<String>, identity_name: Option<String>, identity_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, identity_id: Option<String>, session_policy_arn: Option<String>, identity_name: Option<String>, identity_type: Option<String>, studio_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -64,17 +64,17 @@ LaunchAction resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `parameters` | HashMap<String, String> |  |  |
-| `action_version` | String | ✅ |  |
-| `optional` | bool | ✅ | <p>Whether the launch will not be marked as failed if this action fails.</p> |
-| `resource_id` | String | ✅ |  |
-| `order` | i64 | ✅ |  |
-| `active` | bool | ✅ | <p>Whether the launch action is active.</p> |
-| `description` | String | ✅ |  |
-| `action_id` | String | ✅ |  |
-| `category` | String | ✅ |  |
-| `action_code` | String | ✅ | <p>Launch action code.</p> |
 | `name` | String | ✅ |  |
+| `order` | i64 | ✅ |  |
+| `description` | String | ✅ |  |
+| `category` | String | ✅ |  |
+| `action_id` | String | ✅ |  |
+| `action_code` | String | ✅ | <p>Launch action code.</p> |
+| `active` | bool | ✅ | <p>Whether the launch action is active.</p> |
+| `resource_id` | String | ✅ |  |
+| `parameters` | HashMap<String, String> |  |  |
+| `optional` | bool | ✅ | <p>Whether the launch will not be marked as failed if this action fails.</p> |
+| `action_version` | String | ✅ |  |
 
 
 
@@ -91,16 +91,16 @@ provider = aws.AwsProvider {
 
 # Create launch_action
 launch_action = provider.drs.Launch_action {
-    action_version = "value"  # Required field
-    optional = "value"  # <p>Whether the launch will not be marked as failed if this action fails.</p>
-    resource_id = "value"  # Required field
-    order = "value"  # Required field
-    active = "value"  # <p>Whether the launch action is active.</p>
-    description = "value"  # Required field
-    action_id = "value"  # Required field
-    category = "value"  # Required field
-    action_code = "value"  # <p>Launch action code.</p>
     name = "value"  # Required field
+    order = "value"  # Required field
+    description = "value"  # Required field
+    category = "value"  # Required field
+    action_id = "value"  # Required field
+    action_code = "value"  # <p>Launch action code.</p>
+    active = "value"  # <p>Whether the launch action is active.</p>
+    resource_id = "value"  # Required field
+    optional = "value"  # <p>Whether the launch will not be marked as failed if this action fails.</p>
+    action_version = "value"  # Required field
 }
 
 ```

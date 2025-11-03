@@ -10,114 +10,47 @@
 
 The kms service provides access to 12 resource types:
 
-- [Key_policy](#key_policy) [CR]
-- [Alias](#alias) [CUD]
+- [Custom_key_stores](#custom_key_stores) [R]
 - [Key](#key) [CR]
+- [Parameters_for_import](#parameters_for_import) [R]
+- [Primary_region](#primary_region) [U]
 - [Custom_key_store](#custom_key_store) [CUD]
 - [Imported_key_material](#imported_key_material) [D]
-- [Key_description](#key_description) [U]
-- [Primary_region](#primary_region) [U]
 - [Grant](#grant) [C]
-- [Custom_key_stores](#custom_key_stores) [R]
+- [Alias](#alias) [CUD]
 - [Key_rotation_status](#key_rotation_status) [R]
-- [Parameters_for_import](#parameters_for_import) [R]
+- [Key_policy](#key_policy) [CR]
 - [Public_key](#public_key) [R]
+- [Key_description](#key_description) [U]
 
 ---
 
 ## Resources
 
 
-### Key_policy
+### Custom_key_stores
 
-KeyPolicy resource
+CustomKeyStores resource
 
-**Operations**: ✅ Create ✅ Read
+**Operations**: ✅ Read
 
 #### Fields
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `key_id` | String | ✅ | <p>Sets the key policy on the specified KMS key.</p>
-         <p>Specify the key ID or key ARN of the KMS key.</p>
-         <p>For example:</p>
-         <ul>
-            <li>
-               <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-               </p>
-            </li>
-            <li>
-               <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-               </p>
-            </li>
-         </ul>
-         <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p> |
-| `policy` | String | ✅ | <p>The key policy to attach to the KMS key.</p>
-         <p>The key policy must meet the following criteria:</p>
-         <ul>
-            <li>
-               <p>The key policy must allow the calling principal to make a
-          subsequent <code>PutKeyPolicy</code> request on the KMS key.  This reduces the risk that
-          the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit
-          this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p>
-            </li>
-            <li>
-               <p>Each statement in the key policy must contain one or more principals. The principals
-          in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services
-          principal, you might need to enforce a delay before including the new principal in a key
-          policy because the new principal might not be immediately visible to KMS. For more
-          information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
-            Identity and Access Management User Guide</i>.</p>
-            </li>
-         </ul>
-         <note>
-            <p>If either of the required <code>Resource</code> or <code>Action</code> elements are
-        missing from a key policy statement, the policy statement has no effect. When a key policy
-        statement is missing one of these elements, the KMS console correctly reports an error,
-        but the <code>PutKeyPolicy</code> API request succeeds, even though the policy statement is
-        ineffective.</p>
-            <p>For more information on required key policy elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html#key-policy-elements">Elements in a key
-          policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
-         </note>
-         <p>A key policy document can include only the following characters:</p>
-         <ul>
-            <li>
-               <p>Printable ASCII characters from the space character (<code>\u0020</code>) through the end of the ASCII character range.</p>
-            </li>
-            <li>
-               <p>Printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>).</p>
-            </li>
-            <li>
-               <p>The tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>) special characters</p>
-            </li>
-         </ul>
-         <note>
-            <p>If the key policy exceeds the length constraint, KMS returns a
-          <code>LimitExceededException</code>.</p>
-         </note>
-         <p>For information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key policies in KMS</a> in the
-      <i>Key Management Service Developer Guide</i>.For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
-               <i>Identity and Access Management User Guide</i>
-            </i>.</p> |
-| `policy_name` | String |  | <p>The name of the key policy. If no policy name is specified, the default value is
-        <code>default</code>. The only valid value is <code>default</code>.</p> |
-| `bypass_policy_lockout_safety_check` | bool |  | <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p>
-         <important>
-            <p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do
-        not set this value to true indiscriminately.</p>
-            <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
-         </important>
-         <p>Use this parameter only when you intend to prevent the principal that is making the
-      request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a>
-      request on the KMS key.</p> |
 
 
 #### Outputs
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `policy_name` | String | <p>The name of the key policy. The only valid value is <code>default</code>.</p> |
-| `policy` | String | <p>A key policy document in JSON format.</p> |
+| `truncated` | bool | <p>A flag that indicates whether there are more items in the list. When this
+    value is true, the list in this response is truncated. To get more items, pass the value of
+    the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a
+    subsequent request.</p> |
+| `custom_key_stores` | Vec<String> | <p>Contains metadata about each custom key store.</p> |
+| `next_marker` | String | <p>When <code>Truncated</code> is true, this element is present and contains the
+    value to use for the <code>Marker</code> parameter in a subsequent request.</p> |
 
 
 #### Usage Example
@@ -131,170 +64,11 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create key_policy
-key_policy = provider.kms.Key_policy {
-    key_id = "value"  # <p>Sets the key policy on the specified KMS key.</p>
-         <p>Specify the key ID or key ARN of the KMS key.</p>
-         <p>For example:</p>
-         <ul>
-            <li>
-               <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-               </p>
-            </li>
-            <li>
-               <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-               </p>
-            </li>
-         </ul>
-         <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    policy = "value"  # <p>The key policy to attach to the KMS key.</p>
-         <p>The key policy must meet the following criteria:</p>
-         <ul>
-            <li>
-               <p>The key policy must allow the calling principal to make a
-          subsequent <code>PutKeyPolicy</code> request on the KMS key.  This reduces the risk that
-          the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit
-          this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p>
-            </li>
-            <li>
-               <p>Each statement in the key policy must contain one or more principals. The principals
-          in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services
-          principal, you might need to enforce a delay before including the new principal in a key
-          policy because the new principal might not be immediately visible to KMS. For more
-          information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
-            Identity and Access Management User Guide</i>.</p>
-            </li>
-         </ul>
-         <note>
-            <p>If either of the required <code>Resource</code> or <code>Action</code> elements are
-        missing from a key policy statement, the policy statement has no effect. When a key policy
-        statement is missing one of these elements, the KMS console correctly reports an error,
-        but the <code>PutKeyPolicy</code> API request succeeds, even though the policy statement is
-        ineffective.</p>
-            <p>For more information on required key policy elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html#key-policy-elements">Elements in a key
-          policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
-         </note>
-         <p>A key policy document can include only the following characters:</p>
-         <ul>
-            <li>
-               <p>Printable ASCII characters from the space character (<code>\u0020</code>) through the end of the ASCII character range.</p>
-            </li>
-            <li>
-               <p>Printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>).</p>
-            </li>
-            <li>
-               <p>The tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>) special characters</p>
-            </li>
-         </ul>
-         <note>
-            <p>If the key policy exceeds the length constraint, KMS returns a
-          <code>LimitExceededException</code>.</p>
-         </note>
-         <p>For information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key policies in KMS</a> in the
-      <i>Key Management Service Developer Guide</i>.For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
-               <i>Identity and Access Management User Guide</i>
-            </i>.</p>
-}
-
-# Access key_policy outputs
-key_policy_id = key_policy.id
-key_policy_policy_name = key_policy.policy_name
-key_policy_policy = key_policy.policy
-```
-
----
-
-
-### Alias
-
-Alias resource
-
-**Operations**: ✅ Create ✅ Update ✅ Delete
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `target_key_id` | String | ✅ | <p>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a>. The KMS key
-      must be in the same Amazon Web Services Region. </p>
-         <p>A valid key ID is required. If you supply a null or empty string value, this operation
-      returns an error.</p>
-         <p>For help finding the key ID and ARN, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/find-cmk-id-arn.html">Find the key ID and key ARN</a> in
-      the <i>
-               <i>Key Management Service Developer Guide</i>
-            </i>.</p>
-         <p>Specify the key ID or key ARN of the KMS key.</p>
-         <p>For example:</p>
-         <ul>
-            <li>
-               <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-               </p>
-            </li>
-            <li>
-               <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-               </p>
-            </li>
-         </ul>
-         <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p> |
-| `alias_name` | String | ✅ | <p>Specifies the alias name. This value must begin with <code>alias/</code> followed by a
-      name, such as <code>alias/ExampleAlias</code>. </p>
-         <important>
-            <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-         </important>
-         <p>The <code>AliasName</code> value must be string of 1-256 characters. It can contain only
-      alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name
-      cannot begin with <code>alias/aws/</code>. The <code>alias/aws/</code> prefix is reserved for
-        <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed
-        keys</a>.</p> |
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create alias
-alias = provider.kms.Alias {
-    target_key_id = "value"  # <p>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a>. The KMS key
-      must be in the same Amazon Web Services Region. </p>
-         <p>A valid key ID is required. If you supply a null or empty string value, this operation
-      returns an error.</p>
-         <p>For help finding the key ID and ARN, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/find-cmk-id-arn.html">Find the key ID and key ARN</a> in
-      the <i>
-               <i>Key Management Service Developer Guide</i>
-            </i>.</p>
-         <p>Specify the key ID or key ARN of the KMS key.</p>
-         <p>For example:</p>
-         <ul>
-            <li>
-               <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-               </p>
-            </li>
-            <li>
-               <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-               </p>
-            </li>
-         </ul>
-         <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    alias_name = "value"  # <p>Specifies the alias name. This value must begin with <code>alias/</code> followed by a
-      name, such as <code>alias/ExampleAlias</code>. </p>
-         <important>
-            <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-         </important>
-         <p>The <code>AliasName</code> value must be string of 1-256 characters. It can contain only
-      alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name
-      cannot begin with <code>alias/aws/</code>. The <code>alias/aws/</code> prefix is reserved for
-        <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed
-        keys</a>.</p>
-}
-
+# Access custom_key_stores outputs
+custom_key_stores_id = custom_key_stores.id
+custom_key_stores_truncated = custom_key_stores.truncated
+custom_key_stores_custom_key_stores = custom_key_stores.custom_key_stores
+custom_key_stores_next_marker = custom_key_stores.next_marker
 ```
 
 ---
@@ -447,65 +221,6 @@ Key resource
                </ul>
             </li>
          </ul> |
-| `custom_key_store_id` | String |  | <p>Creates the KMS key in the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. The <code>ConnectionState</code> of
-      the custom key store must be <code>CONNECTED</code>. To find the CustomKeyStoreID and
-      ConnectionState use the <a>DescribeCustomKeyStores</a> operation.</p>
-         <p>This parameter is valid only for symmetric encryption KMS keys in a single Region. You
-      cannot create any other type of KMS key in a custom key store.</p>
-         <p>When you create a KMS key in an CloudHSM key store, KMS generates a non-exportable 256-bit
-      symmetric key in its associated CloudHSM cluster and associates it with the KMS key. When you
-      create a KMS key in an external key store, you must use the <code>XksKeyId</code> parameter to
-      specify an external key that serves as key material for the KMS key.</p> |
-| `tags` | Vec<String> |  | <p>Assigns one or more tags to the KMS key. Use this parameter to tag the KMS key when it is
-      created. To tag an existing KMS key, use the <a>TagResource</a> operation.</p>
-         <important>
-            <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-         </important>
-         <note>
-            <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-         </note>
-         <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
-         <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are
-      required, but the tag value can be an empty (null) string. You cannot have more than one tag
-      on a KMS key with the same tag key. If you specify an existing tag key with a different tag
-      value, KMS replaces the current tag value with the specified one.</p>
-         <p>When you add tags to an Amazon Web Services resource, Amazon Web Services generates a cost allocation
-              report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details,
-              see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tags in KMS</a>.</p> |
-| `bypass_policy_lockout_safety_check` | bool |  | <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p>
-         <important>
-            <p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do
-        not set this value to true indiscriminately.</p>
-            <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
-         </important>
-         <p>Use this parameter only when you intend to prevent the principal that is making the
-      request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a>
-      request on the KMS key.</p> |
-| `description` | String |  | <p>A description of the KMS key. Use a description that helps you decide whether the KMS key
-      is appropriate for a task. The default value is an empty string (no description).</p>
-         <important>
-            <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-         </important>
-         <p>To set or change the description after the key is created, use <a>UpdateKeyDescription</a>.</p> |
-| `origin` | String |  | <p>The source of the key material for the KMS key. You cannot change the origin after you
-      create the KMS key. The default is <code>AWS_KMS</code>, which means that KMS creates the
-      key material.</p>
-         <p>To <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html">create a
-        KMS key with no key material</a> (for imported key material), set this value to
-        <code>EXTERNAL</code>. For more information about importing key material into KMS, see
-        <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key
-        Material</a> in the <i>Key Management Service Developer Guide</i>. The <code>EXTERNAL</code> origin value is valid
-      only for symmetric KMS keys.</p>
-         <p>To <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html">create a KMS
-        key in an CloudHSM key store</a> and create its key material in the associated CloudHSM
-      cluster, set this value to <code>AWS_CLOUDHSM</code>. You must also use the
-        <code>CustomKeyStoreId</code> parameter to identify the CloudHSM key store. The
-        <code>KeySpec</code> value must be <code>SYMMETRIC_DEFAULT</code>.</p>
-         <p>To <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keys.html">create a KMS key in
-        an external key store</a>, set this value to <code>EXTERNAL_KEY_STORE</code>. You must
-      also use the <code>CustomKeyStoreId</code> parameter to identify the external key store and
-      the <code>XksKeyId</code> parameter to identify the associated external key. The
-        <code>KeySpec</code> value must be <code>SYMMETRIC_DEFAULT</code>.</p> |
 | `policy` | String |  | <p>The key policy to attach to the KMS key.</p>
          <p>If you provide a key policy, it must meet the following criteria:</p>
          <ul>
@@ -543,6 +258,31 @@ Key resource
          <p>For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
                <i>Identity and Access Management User Guide</i>
             </i>.</p> |
+| `bypass_policy_lockout_safety_check` | bool |  | <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p>
+         <important>
+            <p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do
+        not set this value to true indiscriminately.</p>
+            <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
+         </important>
+         <p>Use this parameter only when you intend to prevent the principal that is making the
+      request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a>
+      request on the KMS key.</p> |
+| `tags` | Vec<String> |  | <p>Assigns one or more tags to the KMS key. Use this parameter to tag the KMS key when it is
+      created. To tag an existing KMS key, use the <a>TagResource</a> operation.</p>
+         <important>
+            <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+         </important>
+         <note>
+            <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+         </note>
+         <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
+         <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are
+      required, but the tag value can be an empty (null) string. You cannot have more than one tag
+      on a KMS key with the same tag key. If you specify an existing tag key with a different tag
+      value, KMS replaces the current tag value with the specified one.</p>
+         <p>When you add tags to an Amazon Web Services resource, Amazon Web Services generates a cost allocation
+              report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details,
+              see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tags in KMS</a>.</p> |
 | `multi_region` | bool |  | <p>Creates a multi-Region primary key that you can replicate into other Amazon Web Services Regions. You
       cannot change this value after you create the KMS key. </p>
          <p>For a multi-Region key, set this parameter to <code>True</code>. For a single-Region KMS
@@ -557,6 +297,31 @@ Key resource
          <p>You can create a symmetric or asymmetric multi-Region key, and you can create a
       multi-Region key with imported key material. However, you cannot create a multi-Region key in
       a custom key store.</p> |
+| `description` | String |  | <p>A description of the KMS key. Use a description that helps you decide whether the KMS key
+      is appropriate for a task. The default value is an empty string (no description).</p>
+         <important>
+            <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+         </important>
+         <p>To set or change the description after the key is created, use <a>UpdateKeyDescription</a>.</p> |
+| `origin` | String |  | <p>The source of the key material for the KMS key. You cannot change the origin after you
+      create the KMS key. The default is <code>AWS_KMS</code>, which means that KMS creates the
+      key material.</p>
+         <p>To <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html">create a
+        KMS key with no key material</a> (for imported key material), set this value to
+        <code>EXTERNAL</code>. For more information about importing key material into KMS, see
+        <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key
+        Material</a> in the <i>Key Management Service Developer Guide</i>. The <code>EXTERNAL</code> origin value is valid
+      only for symmetric KMS keys.</p>
+         <p>To <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html">create a KMS
+        key in an CloudHSM key store</a> and create its key material in the associated CloudHSM
+      cluster, set this value to <code>AWS_CLOUDHSM</code>. You must also use the
+        <code>CustomKeyStoreId</code> parameter to identify the CloudHSM key store. The
+        <code>KeySpec</code> value must be <code>SYMMETRIC_DEFAULT</code>.</p>
+         <p>To <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keys.html">create a KMS key in
+        an external key store</a>, set this value to <code>EXTERNAL_KEY_STORE</code>. You must
+      also use the <code>CustomKeyStoreId</code> parameter to identify the external key store and
+      the <code>XksKeyId</code> parameter to identify the associated external key. The
+        <code>KeySpec</code> value must be <code>SYMMETRIC_DEFAULT</code>.</p> |
 | `key_usage` | String |  | <p>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key. The default value is
         <code>ENCRYPT_DECRYPT</code>. This parameter is optional when you are creating a symmetric
       encryption KMS key; otherwise, it is required. You can't change the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#key-usage">
@@ -615,6 +380,15 @@ Key resource
       specified external key, a process known as <i>double encryption</i>. For
       details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-double-encryption">Double
         encryption</a> in the <i>Key Management Service Developer Guide</i>.</p> |
+| `custom_key_store_id` | String |  | <p>Creates the KMS key in the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. The <code>ConnectionState</code> of
+      the custom key store must be <code>CONNECTED</code>. To find the CustomKeyStoreID and
+      ConnectionState use the <a>DescribeCustomKeyStores</a> operation.</p>
+         <p>This parameter is valid only for symmetric encryption KMS keys in a single Region. You
+      cannot create any other type of KMS key in a custom key store.</p>
+         <p>When you create a KMS key in an CloudHSM key store, KMS generates a non-exportable 256-bit
+      symmetric key in its associated CloudHSM cluster and associates it with the KMS key. When you
+      create a KMS key in an external key store, you must use the <code>XksKeyId</code> parameter to
+      specify an external key that serves as key material for the KMS key.</p> |
 | `customer_master_key_spec` | String |  | <p>Instead, use the <code>KeySpec</code> parameter.</p>
          <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> parameters work the same
       way. Only the names differ. We recommend that you use <code>KeySpec</code> parameter in your
@@ -651,6 +425,103 @@ key_key_metadata = key.key_metadata
 ---
 
 
+### Parameters_for_import
+
+ParametersForImport resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `import_token` | String | <p>The import token to send in a subsequent <a>ImportKeyMaterial</a>
+      request.</p> |
+| `public_key` | String | <p>The public key to use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.</p> |
+| `parameters_valid_to` | String | <p>The time at which the import token and public key are no longer valid. After this time,
+      you cannot use them to make an <a>ImportKeyMaterial</a> request and you must send
+      another <code>GetParametersForImport</code> request to get new ones.</p> |
+| `key_id` | String | <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <a>ImportKeyMaterial</a> request. This is the same KMS key specified in the <code>GetParametersForImport</code>
+      request.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access parameters_for_import outputs
+parameters_for_import_id = parameters_for_import.id
+parameters_for_import_import_token = parameters_for_import.import_token
+parameters_for_import_public_key = parameters_for_import.public_key
+parameters_for_import_parameters_valid_to = parameters_for_import.parameters_valid_to
+parameters_for_import_key_id = parameters_for_import.key_id
+```
+
+---
+
+
+### Primary_region
+
+PrimaryRegion resource
+
+**Operations**: ✅ Update
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `key_id` | String | ✅ | <p>Identifies the current primary key. When the operation completes, this KMS key will be a
+      replica key.</p>
+         <p>Specify the key ID or key ARN of a multi-Region primary key.</p>
+         <p>For example:</p>
+         <ul>
+            <li>
+               <p>Key ID: <code>mrk-1234abcd12ab34cd56ef1234567890ab</code>
+               </p>
+            </li>
+            <li>
+               <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab</code>
+               </p>
+            </li>
+         </ul>
+         <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p> |
+| `primary_region` | String | ✅ | <p>The Amazon Web Services Region of the new primary key. Enter the Region ID, such as
+        <code>us-east-1</code> or <code>ap-southeast-2</code>. There must be an existing replica key
+      in this Region. </p>
+         <p>When the operation completes, the multi-Region key in this Region will be the primary
+      key.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+```
+
+---
+
+
 ### Custom_key_store
 
 CustomKeyStore resource
@@ -661,6 +532,46 @@ CustomKeyStore resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
+| `xks_proxy_uri_path` | String |  | <p>Specifies the base path to the proxy APIs for this external key store. To find this value,
+      see the documentation for your external key store proxy. This parameter is required for all
+      custom key stores with a <code>CustomKeyStoreType</code> of
+      <code>EXTERNAL_KEY_STORE</code>.</p>
+         <p>The value must start with <code>/</code> and must end with <code>/kms/xks/v1</code> where
+        <code>v1</code> represents the version of the KMS external key store proxy API. This path
+      can include an optional prefix between the required elements such as
+          <code>/<i>prefix</i>/kms/xks/v1</code>.</p>
+         <p>
+            <b>Uniqueness requirements: </b>
+         </p>
+         <ul>
+            <li>
+               <p>The combined <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> values
+          must be unique in the Amazon Web Services account and Region.</p>
+            </li>
+         </ul> |
+| `xks_proxy_vpc_endpoint_service_owner` | String |  | <p>Specifies the Amazon Web Services account ID that owns the Amazon VPC service endpoint for the interface that
+      is used to communicate with your external key store proxy (XKS proxy). This parameter is
+      optional. If not provided, the Amazon Web Services account ID calling the action will be used.</p> |
+| `key_store_password` | String |  | <p>Specifies the <code>kmsuser</code> password for an CloudHSM key store. This parameter is
+      required for custom key stores with a <code>CustomKeyStoreType</code> of
+        <code>AWS_CLOUDHSM</code>.</p>
+         <p>Enter the password of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html#concept-kmsuser">
+               <code>kmsuser</code> crypto user
+        (CU) account</a> in the specified CloudHSM cluster. KMS logs into the cluster as this
+      user to manage key material on your behalf.</p>
+         <p>The password must be a string of 7 to 32 characters. Its value is case sensitive.</p>
+         <p>This parameter tells KMS the <code>kmsuser</code> account password; it does not change
+      the password in the CloudHSM cluster.</p> |
+| `cloud_hsm_cluster_id` | String |  | <p>Identifies the CloudHSM cluster for an CloudHSM key store. This parameter is required for custom
+      key stores with <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</p>
+         <p>Enter the cluster ID of any active CloudHSM cluster that is not already associated with a
+      custom key store. To find the cluster ID, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p> |
+| `custom_key_store_type` | String |  | <p>Specifies the type of custom key store. The default value is
+      <code>AWS_CLOUDHSM</code>.</p>
+         <p>For a custom key store backed by an CloudHSM cluster, omit the parameter or enter
+        <code>AWS_CLOUDHSM</code>. For a custom key store backed by an external key manager outside
+      of Amazon Web Services, enter <code>EXTERNAL_KEY_STORE</code>. You cannot change this property after the key
+      store is created.</p> |
 | `trust_anchor_certificate` | String |  | <p>Specifies the certificate for an CloudHSM key store. This parameter is required for custom
       key stores with a <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</p>
          <p>Enter the content of the trust anchor certificate for the CloudHSM cluster. This is the
@@ -702,10 +613,6 @@ CustomKeyStore resource
           unique in the Amazon Web Services account and Region.</p>
             </li>
          </ul> |
-| `cloud_hsm_cluster_id` | String |  | <p>Identifies the CloudHSM cluster for an CloudHSM key store. This parameter is required for custom
-      key stores with <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</p>
-         <p>Enter the cluster ID of any active CloudHSM cluster that is not already associated with a
-      custom key store. To find the cluster ID, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p> |
 | `xks_proxy_connectivity` | String |  | <p>Indicates how KMS communicates with the external key store proxy. This parameter is
       required for custom key stores with a <code>CustomKeyStoreType</code> of
         <code>EXTERNAL_KEY_STORE</code>.</p>
@@ -722,32 +629,6 @@ CustomKeyStore resource
       choice does not determine the location of the external key store proxy. Even if you choose a
       VPC endpoint service, the proxy can be hosted within the VPC or outside of Amazon Web Services such as in
       your corporate data center.</p> |
-| `xks_proxy_uri_path` | String |  | <p>Specifies the base path to the proxy APIs for this external key store. To find this value,
-      see the documentation for your external key store proxy. This parameter is required for all
-      custom key stores with a <code>CustomKeyStoreType</code> of
-      <code>EXTERNAL_KEY_STORE</code>.</p>
-         <p>The value must start with <code>/</code> and must end with <code>/kms/xks/v1</code> where
-        <code>v1</code> represents the version of the KMS external key store proxy API. This path
-      can include an optional prefix between the required elements such as
-          <code>/<i>prefix</i>/kms/xks/v1</code>.</p>
-         <p>
-            <b>Uniqueness requirements: </b>
-         </p>
-         <ul>
-            <li>
-               <p>The combined <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> values
-          must be unique in the Amazon Web Services account and Region.</p>
-            </li>
-         </ul> |
-| `custom_key_store_type` | String |  | <p>Specifies the type of custom key store. The default value is
-      <code>AWS_CLOUDHSM</code>.</p>
-         <p>For a custom key store backed by an CloudHSM cluster, omit the parameter or enter
-        <code>AWS_CLOUDHSM</code>. For a custom key store backed by an external key manager outside
-      of Amazon Web Services, enter <code>EXTERNAL_KEY_STORE</code>. You cannot change this property after the key
-      store is created.</p> |
-| `xks_proxy_vpc_endpoint_service_owner` | String |  | <p>Specifies the Amazon Web Services account ID that owns the Amazon VPC service endpoint for the interface that
-      is used to communicate with your external key store proxy (XKS proxy). This parameter is
-      optional. If not provided, the Amazon Web Services account ID calling the action will be used.</p> |
 | `xks_proxy_authentication_credential` | String |  | <p>Specifies an authentication credential for the external key store proxy (XKS proxy). This
       parameter is required for all custom key stores with a <code>CustomKeyStoreType</code> of
         <code>EXTERNAL_KEY_STORE</code>.</p>
@@ -760,21 +641,6 @@ CustomKeyStore resource
       just tells KMS the credential that you established on your external key store proxy. If you
       rotate your proxy authentication credential, use the <a>UpdateCustomKeyStore</a>
       operation to provide the new credential to KMS.</p> |
-| `custom_key_store_name` | String | ✅ | <p>Specifies a friendly name for the custom key store. The name must be unique in your
-      Amazon Web Services account and Region. This parameter is required for all custom key stores.</p>
-         <important>
-            <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-         </important> |
-| `key_store_password` | String |  | <p>Specifies the <code>kmsuser</code> password for an CloudHSM key store. This parameter is
-      required for custom key stores with a <code>CustomKeyStoreType</code> of
-        <code>AWS_CLOUDHSM</code>.</p>
-         <p>Enter the password of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html#concept-kmsuser">
-               <code>kmsuser</code> crypto user
-        (CU) account</a> in the specified CloudHSM cluster. KMS logs into the cluster as this
-      user to manage key material on your behalf.</p>
-         <p>The password must be a string of 7 to 32 characters. Its value is case sensitive.</p>
-         <p>This parameter tells KMS the <code>kmsuser</code> account password; it does not change
-      the password in the CloudHSM cluster.</p> |
 | `xks_proxy_vpc_endpoint_service_name` | String |  | <p>Specifies the name of the Amazon VPC endpoint service for interface endpoints that is used to
       communicate with your external key store proxy (XKS proxy). This parameter is required when
       the value of <code>CustomKeyStoreType</code> is <code>EXTERNAL_KEY_STORE</code> and the value
@@ -791,6 +657,11 @@ CustomKeyStore resource
           name.</p>
             </li>
          </ul> |
+| `custom_key_store_name` | String | ✅ | <p>Specifies a friendly name for the custom key store. The name must be unique in your
+      Amazon Web Services account and Region. This parameter is required for all custom key stores.</p>
+         <important>
+            <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+         </important> |
 
 
 
@@ -848,6 +719,546 @@ provider = aws.AwsProvider {
 ---
 
 
+### Grant
+
+Grant resource
+
+**Operations**: ✅ Create
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `key_id` | String | ✅ | <p>Identifies the KMS key for the grant. The grant gives principals permission to use this
+      KMS key.</p>
+         <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
+different Amazon Web Services account, you must use the key ARN.</p>
+         <p>For example:</p>
+         <ul>
+            <li>
+               <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+               </p>
+            </li>
+            <li>
+               <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+               </p>
+            </li>
+         </ul>
+         <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p> |
+| `constraints` | String |  | <p>Specifies a grant constraint.</p>
+         <important>
+            <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+         </important>
+         <p>KMS supports the <code>EncryptionContextEquals</code> and
+        <code>EncryptionContextSubset</code> grant constraints, which allow the permissions in the
+      grant only when the encryption context in the request matches
+        (<code>EncryptionContextEquals</code>) or includes (<code>EncryptionContextSubset</code>)
+      the encryption context specified in the constraint. </p>
+         <p>The encryption context grant constraints are supported only on <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">grant operations</a> that include
+      an <code>EncryptionContext</code> parameter, such as cryptographic operations on symmetric
+      encryption KMS keys. Grants with grant constraints can include the <a>DescribeKey</a> and <a>RetireGrant</a> operations, but the constraint doesn't apply to these
+      operations. If a grant with a grant constraint includes the <code>CreateGrant</code>
+      operation, the constraint requires that any grants created with the <code>CreateGrant</code>
+      permission have an equally strict or stricter encryption context constraint.</p>
+         <p>You cannot use an encryption context grant constraint for cryptographic operations with
+      asymmetric KMS keys or HMAC KMS keys. Operations with these keys don't support an encryption
+      context.</p>
+         <p>Each constraint value can include up to 8 encryption context pairs. The encryption context
+      value in each constraint cannot exceed 384 characters. For information about grant
+      constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant
+        constraints</a> in the <i>Key Management Service Developer Guide</i>. For more information about encryption context,
+      see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+        context</a> in the <i>
+               <i>Key Management Service Developer Guide</i>
+            </i>. </p> |
+| `grant_tokens` | Vec<String> |  | <p>A list of grant tokens. </p>
+         <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the
+    <i>Key Management Service Developer Guide</i>.</p> |
+| `grantee_principal` | String | ✅ | <p>The identity that gets the permissions specified in the grant.</p>
+         <p>To specify the grantee principal, use the Amazon Resource Name (ARN) of an Amazon Web Services
+      principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
+      federated users, and assumed role users. For help with the ARN syntax for a principal, see
+        <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
+               <i>Identity and Access Management User Guide</i>
+            </i>.</p> |
+| `retiring_principal` | String |  | <p>The principal that has permission to use the <a>RetireGrant</a> operation to
+      retire the grant. </p>
+         <p>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an
+      Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
+      federated users, and assumed role users. For help with the ARN syntax for a principal, see
+        <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
+               <i>Identity and Access Management User Guide</i>
+            </i>.</p>
+         <p>The grant determines the retiring principal. Other principals might have permission to
+      retire the grant or revoke the grant. For details, see <a>RevokeGrant</a> and
+        <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-delete.html">Retiring and revoking
+        grants</a> in the <i>Key Management Service Developer Guide</i>. </p> |
+| `dry_run` | bool |  | <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
+         <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p> |
+| `name` | String |  | <p>A friendly name for the grant. Use this value to prevent the unintended creation of
+      duplicate grants when retrying this request.</p>
+         <important>
+            <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+         </important>
+         <p>When this value is absent, all <code>CreateGrant</code> requests result in a new grant
+      with a unique <code>GrantId</code> even if all the supplied parameters are identical. This can
+      result in unintended duplicates when you retry the <code>CreateGrant</code> request.</p>
+         <p>When this value is present, you can retry a <code>CreateGrant</code> request with
+      identical parameters; if the grant already exists, the original <code>GrantId</code> is
+      returned without creating a new grant. Note that the returned grant token is unique with every
+        <code>CreateGrant</code> request, even when a duplicate <code>GrantId</code> is returned.
+      All grant tokens for the same grant ID can be used interchangeably.</p> |
+| `operations` | Vec<String> | ✅ | <p>A list of operations that the grant permits. </p>
+         <p>This list must include only operations that are permitted in a grant. Also, the operation
+      must be supported on the KMS key. For example, you cannot create a grant for a symmetric
+      encryption KMS key that allows the <a>Sign</a> operation, or a grant for an
+      asymmetric KMS key that allows the <a>GenerateDataKey</a> operation. If you try,
+      KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant
+        operations</a> in the <i>Key Management Service Developer Guide</i>.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create grant
+grant = provider.kms.Grant {
+    key_id = "value"  # <p>Identifies the KMS key for the grant. The grant gives principals permission to use this
+      KMS key.</p>
+         <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
+different Amazon Web Services account, you must use the key ARN.</p>
+         <p>For example:</p>
+         <ul>
+            <li>
+               <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+               </p>
+            </li>
+            <li>
+               <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+               </p>
+            </li>
+         </ul>
+         <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
+    grantee_principal = "value"  # <p>The identity that gets the permissions specified in the grant.</p>
+         <p>To specify the grantee principal, use the Amazon Resource Name (ARN) of an Amazon Web Services
+      principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
+      federated users, and assumed role users. For help with the ARN syntax for a principal, see
+        <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
+               <i>Identity and Access Management User Guide</i>
+            </i>.</p>
+    operations = "value"  # <p>A list of operations that the grant permits. </p>
+         <p>This list must include only operations that are permitted in a grant. Also, the operation
+      must be supported on the KMS key. For example, you cannot create a grant for a symmetric
+      encryption KMS key that allows the <a>Sign</a> operation, or a grant for an
+      asymmetric KMS key that allows the <a>GenerateDataKey</a> operation. If you try,
+      KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant
+        operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
+}
+
+```
+
+---
+
+
+### Alias
+
+Alias resource
+
+**Operations**: ✅ Create ✅ Update ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `alias_name` | String | ✅ | <p>Specifies the alias name. This value must begin with <code>alias/</code> followed by a
+      name, such as <code>alias/ExampleAlias</code>. </p>
+         <important>
+            <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+         </important>
+         <p>The <code>AliasName</code> value must be string of 1-256 characters. It can contain only
+      alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name
+      cannot begin with <code>alias/aws/</code>. The <code>alias/aws/</code> prefix is reserved for
+        <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed
+        keys</a>.</p> |
+| `target_key_id` | String | ✅ | <p>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a>. The KMS key
+      must be in the same Amazon Web Services Region. </p>
+         <p>A valid key ID is required. If you supply a null or empty string value, this operation
+      returns an error.</p>
+         <p>For help finding the key ID and ARN, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/find-cmk-id-arn.html">Find the key ID and key ARN</a> in
+      the <i>
+               <i>Key Management Service Developer Guide</i>
+            </i>.</p>
+         <p>Specify the key ID or key ARN of the KMS key.</p>
+         <p>For example:</p>
+         <ul>
+            <li>
+               <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+               </p>
+            </li>
+            <li>
+               <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+               </p>
+            </li>
+         </ul>
+         <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create alias
+alias = provider.kms.Alias {
+    alias_name = "value"  # <p>Specifies the alias name. This value must begin with <code>alias/</code> followed by a
+      name, such as <code>alias/ExampleAlias</code>. </p>
+         <important>
+            <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
+         </important>
+         <p>The <code>AliasName</code> value must be string of 1-256 characters. It can contain only
+      alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name
+      cannot begin with <code>alias/aws/</code>. The <code>alias/aws/</code> prefix is reserved for
+        <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key">Amazon Web Services managed
+        keys</a>.</p>
+    target_key_id = "value"  # <p>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key">customer managed key</a>. The KMS key
+      must be in the same Amazon Web Services Region. </p>
+         <p>A valid key ID is required. If you supply a null or empty string value, this operation
+      returns an error.</p>
+         <p>For help finding the key ID and ARN, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/find-cmk-id-arn.html">Find the key ID and key ARN</a> in
+      the <i>
+               <i>Key Management Service Developer Guide</i>
+            </i>.</p>
+         <p>Specify the key ID or key ARN of the KMS key.</p>
+         <p>For example:</p>
+         <ul>
+            <li>
+               <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+               </p>
+            </li>
+            <li>
+               <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+               </p>
+            </li>
+         </ul>
+         <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
+}
+
+```
+
+---
+
+
+### Key_rotation_status
+
+KeyRotationStatus resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `key_id` | String | <p>Identifies the specified symmetric encryption KMS key.</p> |
+| `on_demand_rotation_start_date` | String | <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p>
+         <p>KMS uses a background process to perform rotations. As a result, there might be a slight
+      delay between initiating on-demand key rotation and the rotation's completion. Once the
+      on-demand rotation is complete, KMS removes this field from the response. You can use <a>ListKeyRotations</a> to view the details of the completed on-demand rotation.</p> |
+| `rotation_period_in_days` | i64 | <p>The number of days between each automatic rotation. The default value is 365 days.</p> |
+| `next_rotation_date` | String | <p>The next date that KMS will automatically rotate the key material.</p> |
+| `key_rotation_enabled` | bool | <p>A Boolean value that specifies whether key rotation is enabled.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access key_rotation_status outputs
+key_rotation_status_id = key_rotation_status.id
+key_rotation_status_key_id = key_rotation_status.key_id
+key_rotation_status_on_demand_rotation_start_date = key_rotation_status.on_demand_rotation_start_date
+key_rotation_status_rotation_period_in_days = key_rotation_status.rotation_period_in_days
+key_rotation_status_next_rotation_date = key_rotation_status.next_rotation_date
+key_rotation_status_key_rotation_enabled = key_rotation_status.key_rotation_enabled
+```
+
+---
+
+
+### Key_policy
+
+KeyPolicy resource
+
+**Operations**: ✅ Create ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `policy_name` | String |  | <p>The name of the key policy. If no policy name is specified, the default value is
+        <code>default</code>. The only valid value is <code>default</code>.</p> |
+| `bypass_policy_lockout_safety_check` | bool |  | <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p>
+         <important>
+            <p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do
+        not set this value to true indiscriminately.</p>
+            <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
+         </important>
+         <p>Use this parameter only when you intend to prevent the principal that is making the
+      request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a>
+      request on the KMS key.</p> |
+| `key_id` | String | ✅ | <p>Sets the key policy on the specified KMS key.</p>
+         <p>Specify the key ID or key ARN of the KMS key.</p>
+         <p>For example:</p>
+         <ul>
+            <li>
+               <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+               </p>
+            </li>
+            <li>
+               <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+               </p>
+            </li>
+         </ul>
+         <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p> |
+| `policy` | String | ✅ | <p>The key policy to attach to the KMS key.</p>
+         <p>The key policy must meet the following criteria:</p>
+         <ul>
+            <li>
+               <p>The key policy must allow the calling principal to make a
+          subsequent <code>PutKeyPolicy</code> request on the KMS key.  This reduces the risk that
+          the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit
+          this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p>
+            </li>
+            <li>
+               <p>Each statement in the key policy must contain one or more principals. The principals
+          in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services
+          principal, you might need to enforce a delay before including the new principal in a key
+          policy because the new principal might not be immediately visible to KMS. For more
+          information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
+            Identity and Access Management User Guide</i>.</p>
+            </li>
+         </ul>
+         <note>
+            <p>If either of the required <code>Resource</code> or <code>Action</code> elements are
+        missing from a key policy statement, the policy statement has no effect. When a key policy
+        statement is missing one of these elements, the KMS console correctly reports an error,
+        but the <code>PutKeyPolicy</code> API request succeeds, even though the policy statement is
+        ineffective.</p>
+            <p>For more information on required key policy elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html#key-policy-elements">Elements in a key
+          policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
+         </note>
+         <p>A key policy document can include only the following characters:</p>
+         <ul>
+            <li>
+               <p>Printable ASCII characters from the space character (<code>\u0020</code>) through the end of the ASCII character range.</p>
+            </li>
+            <li>
+               <p>Printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>).</p>
+            </li>
+            <li>
+               <p>The tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>) special characters</p>
+            </li>
+         </ul>
+         <note>
+            <p>If the key policy exceeds the length constraint, KMS returns a
+          <code>LimitExceededException</code>.</p>
+         </note>
+         <p>For information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key policies in KMS</a> in the
+      <i>Key Management Service Developer Guide</i>.For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
+               <i>Identity and Access Management User Guide</i>
+            </i>.</p> |
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `policy_name` | String | <p>The name of the key policy. The only valid value is <code>default</code>.</p> |
+| `policy` | String | <p>A key policy document in JSON format.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create key_policy
+key_policy = provider.kms.Key_policy {
+    key_id = "value"  # <p>Sets the key policy on the specified KMS key.</p>
+         <p>Specify the key ID or key ARN of the KMS key.</p>
+         <p>For example:</p>
+         <ul>
+            <li>
+               <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+               </p>
+            </li>
+            <li>
+               <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+               </p>
+            </li>
+         </ul>
+         <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
+    policy = "value"  # <p>The key policy to attach to the KMS key.</p>
+         <p>The key policy must meet the following criteria:</p>
+         <ul>
+            <li>
+               <p>The key policy must allow the calling principal to make a
+          subsequent <code>PutKeyPolicy</code> request on the KMS key.  This reduces the risk that
+          the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit
+          this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p>
+            </li>
+            <li>
+               <p>Each statement in the key policy must contain one or more principals. The principals
+          in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services
+          principal, you might need to enforce a delay before including the new principal in a key
+          policy because the new principal might not be immediately visible to KMS. For more
+          information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
+            Identity and Access Management User Guide</i>.</p>
+            </li>
+         </ul>
+         <note>
+            <p>If either of the required <code>Resource</code> or <code>Action</code> elements are
+        missing from a key policy statement, the policy statement has no effect. When a key policy
+        statement is missing one of these elements, the KMS console correctly reports an error,
+        but the <code>PutKeyPolicy</code> API request succeeds, even though the policy statement is
+        ineffective.</p>
+            <p>For more information on required key policy elements, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html#key-policy-elements">Elements in a key
+          policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
+         </note>
+         <p>A key policy document can include only the following characters:</p>
+         <ul>
+            <li>
+               <p>Printable ASCII characters from the space character (<code>\u0020</code>) through the end of the ASCII character range.</p>
+            </li>
+            <li>
+               <p>Printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>).</p>
+            </li>
+            <li>
+               <p>The tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>) special characters</p>
+            </li>
+         </ul>
+         <note>
+            <p>If the key policy exceeds the length constraint, KMS returns a
+          <code>LimitExceededException</code>.</p>
+         </note>
+         <p>For information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key policies in KMS</a> in the
+      <i>Key Management Service Developer Guide</i>.For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
+               <i>Identity and Access Management User Guide</i>
+            </i>.</p>
+}
+
+# Access key_policy outputs
+key_policy_id = key_policy.id
+key_policy_policy_name = key_policy.policy_name
+key_policy_policy = key_policy.policy
+```
+
+---
+
+
+### Public_key
+
+PublicKey resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `key_spec` | String | <p>The type of the of the public key that was downloaded.</p> |
+| `public_key` | String | <p>The exported public key. </p>
+         <p>The value is a DER-encoded X.509 public key, also known as
+        <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+         <p></p> |
+| `key_agreement_algorithms` | Vec<String> | <p>The key agreement algorithm used to derive a shared secret. This field is present only
+      when the KMS key has a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code>.</p> |
+| `customer_master_key_spec` | String | <p>Instead, use the <code>KeySpec</code> field in the <code>GetPublicKey</code>
+      response.</p>
+         <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same
+      value. We recommend that you use the <code>KeySpec</code> field in your code. However, to
+      avoid breaking changes, KMS supports both fields.</p> |
+| `key_usage` | String | <p>The permitted use of the public key. Valid values for asymmetric key pairs are
+        <code>ENCRYPT_DECRYPT</code>, <code>SIGN_VERIFY</code>, and <code>KEY_AGREEMENT</code>. </p>
+         <p>This information is critical. For example, if a public key with <code>SIGN_VERIFY</code>
+      key usage encrypts data outside of KMS, the ciphertext cannot be decrypted. </p> |
+| `signing_algorithms` | Vec<String> | <p>The signing algorithms that KMS supports for this key.</p>
+         <p>This field appears in the response only when the <code>KeyUsage</code> of the public key
+      is <code>SIGN_VERIFY</code>.</p> |
+| `key_id` | String | <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key from which the public key was
+      downloaded.</p> |
+| `encryption_algorithms` | Vec<String> | <p>The encryption algorithms that KMS supports for this key. </p>
+         <p>This information is critical. If a public key encrypts data outside of KMS by using an
+      unsupported encryption algorithm, the ciphertext cannot be decrypted. </p>
+         <p>This field appears in the response only when the <code>KeyUsage</code> of the public key
+      is <code>ENCRYPT_DECRYPT</code>.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access public_key outputs
+public_key_id = public_key.id
+public_key_key_spec = public_key.key_spec
+public_key_public_key = public_key.public_key
+public_key_key_agreement_algorithms = public_key.key_agreement_algorithms
+public_key_customer_master_key_spec = public_key.customer_master_key_spec
+public_key_key_usage = public_key.key_usage
+public_key_signing_algorithms = public_key.signing_algorithms
+public_key_key_id = public_key.key_id
+public_key_encryption_algorithms = public_key.encryption_algorithms
+```
+
+---
+
+
 ### Key_description
 
 KeyDescription resource
@@ -895,417 +1306,6 @@ provider = aws.AwsProvider {
 ---
 
 
-### Primary_region
-
-PrimaryRegion resource
-
-**Operations**: ✅ Update
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `key_id` | String | ✅ | <p>Identifies the current primary key. When the operation completes, this KMS key will be a
-      replica key.</p>
-         <p>Specify the key ID or key ARN of a multi-Region primary key.</p>
-         <p>For example:</p>
-         <ul>
-            <li>
-               <p>Key ID: <code>mrk-1234abcd12ab34cd56ef1234567890ab</code>
-               </p>
-            </li>
-            <li>
-               <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab</code>
-               </p>
-            </li>
-         </ul>
-         <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p> |
-| `primary_region` | String | ✅ | <p>The Amazon Web Services Region of the new primary key. Enter the Region ID, such as
-        <code>us-east-1</code> or <code>ap-southeast-2</code>. There must be an existing replica key
-      in this Region. </p>
-         <p>When the operation completes, the multi-Region key in this Region will be the primary
-      key.</p> |
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-```
-
----
-
-
-### Grant
-
-Grant resource
-
-**Operations**: ✅ Create
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `name` | String |  | <p>A friendly name for the grant. Use this value to prevent the unintended creation of
-      duplicate grants when retrying this request.</p>
-         <important>
-            <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-         </important>
-         <p>When this value is absent, all <code>CreateGrant</code> requests result in a new grant
-      with a unique <code>GrantId</code> even if all the supplied parameters are identical. This can
-      result in unintended duplicates when you retry the <code>CreateGrant</code> request.</p>
-         <p>When this value is present, you can retry a <code>CreateGrant</code> request with
-      identical parameters; if the grant already exists, the original <code>GrantId</code> is
-      returned without creating a new grant. Note that the returned grant token is unique with every
-        <code>CreateGrant</code> request, even when a duplicate <code>GrantId</code> is returned.
-      All grant tokens for the same grant ID can be used interchangeably.</p> |
-| `dry_run` | bool |  | <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
-         <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p> |
-| `grant_tokens` | Vec<String> |  | <p>A list of grant tokens. </p>
-         <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the
-    <i>Key Management Service Developer Guide</i>.</p> |
-| `key_id` | String | ✅ | <p>Identifies the KMS key for the grant. The grant gives principals permission to use this
-      KMS key.</p>
-         <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
-different Amazon Web Services account, you must use the key ARN.</p>
-         <p>For example:</p>
-         <ul>
-            <li>
-               <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-               </p>
-            </li>
-            <li>
-               <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-               </p>
-            </li>
-         </ul>
-         <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p> |
-| `retiring_principal` | String |  | <p>The principal that has permission to use the <a>RetireGrant</a> operation to
-      retire the grant. </p>
-         <p>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an
-      Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
-      federated users, and assumed role users. For help with the ARN syntax for a principal, see
-        <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
-               <i>Identity and Access Management User Guide</i>
-            </i>.</p>
-         <p>The grant determines the retiring principal. Other principals might have permission to
-      retire the grant or revoke the grant. For details, see <a>RevokeGrant</a> and
-        <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-delete.html">Retiring and revoking
-        grants</a> in the <i>Key Management Service Developer Guide</i>. </p> |
-| `operations` | Vec<String> | ✅ | <p>A list of operations that the grant permits. </p>
-         <p>This list must include only operations that are permitted in a grant. Also, the operation
-      must be supported on the KMS key. For example, you cannot create a grant for a symmetric
-      encryption KMS key that allows the <a>Sign</a> operation, or a grant for an
-      asymmetric KMS key that allows the <a>GenerateDataKey</a> operation. If you try,
-      KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant
-        operations</a> in the <i>Key Management Service Developer Guide</i>.</p> |
-| `grantee_principal` | String | ✅ | <p>The identity that gets the permissions specified in the grant.</p>
-         <p>To specify the grantee principal, use the Amazon Resource Name (ARN) of an Amazon Web Services
-      principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
-      federated users, and assumed role users. For help with the ARN syntax for a principal, see
-        <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
-               <i>Identity and Access Management User Guide</i>
-            </i>.</p> |
-| `constraints` | String |  | <p>Specifies a grant constraint.</p>
-         <important>
-            <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-         </important>
-         <p>KMS supports the <code>EncryptionContextEquals</code> and
-        <code>EncryptionContextSubset</code> grant constraints, which allow the permissions in the
-      grant only when the encryption context in the request matches
-        (<code>EncryptionContextEquals</code>) or includes (<code>EncryptionContextSubset</code>)
-      the encryption context specified in the constraint. </p>
-         <p>The encryption context grant constraints are supported only on <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">grant operations</a> that include
-      an <code>EncryptionContext</code> parameter, such as cryptographic operations on symmetric
-      encryption KMS keys. Grants with grant constraints can include the <a>DescribeKey</a> and <a>RetireGrant</a> operations, but the constraint doesn't apply to these
-      operations. If a grant with a grant constraint includes the <code>CreateGrant</code>
-      operation, the constraint requires that any grants created with the <code>CreateGrant</code>
-      permission have an equally strict or stricter encryption context constraint.</p>
-         <p>You cannot use an encryption context grant constraint for cryptographic operations with
-      asymmetric KMS keys or HMAC KMS keys. Operations with these keys don't support an encryption
-      context.</p>
-         <p>Each constraint value can include up to 8 encryption context pairs. The encryption context
-      value in each constraint cannot exceed 384 characters. For information about grant
-      constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant
-        constraints</a> in the <i>Key Management Service Developer Guide</i>. For more information about encryption context,
-      see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-        context</a> in the <i>
-               <i>Key Management Service Developer Guide</i>
-            </i>. </p> |
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create grant
-grant = provider.kms.Grant {
-    key_id = "value"  # <p>Identifies the KMS key for the grant. The grant gives principals permission to use this
-      KMS key.</p>
-         <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
-different Amazon Web Services account, you must use the key ARN.</p>
-         <p>For example:</p>
-         <ul>
-            <li>
-               <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-               </p>
-            </li>
-            <li>
-               <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-               </p>
-            </li>
-         </ul>
-         <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    operations = "value"  # <p>A list of operations that the grant permits. </p>
-         <p>This list must include only operations that are permitted in a grant. Also, the operation
-      must be supported on the KMS key. For example, you cannot create a grant for a symmetric
-      encryption KMS key that allows the <a>Sign</a> operation, or a grant for an
-      asymmetric KMS key that allows the <a>GenerateDataKey</a> operation. If you try,
-      KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant
-        operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    grantee_principal = "value"  # <p>The identity that gets the permissions specified in the grant.</p>
-         <p>To specify the grantee principal, use the Amazon Resource Name (ARN) of an Amazon Web Services
-      principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
-      federated users, and assumed role users. For help with the ARN syntax for a principal, see
-        <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
-               <i>Identity and Access Management User Guide</i>
-            </i>.</p>
-}
-
-```
-
----
-
-
-### Custom_key_stores
-
-CustomKeyStores resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `next_marker` | String | <p>When <code>Truncated</code> is true, this element is present and contains the
-    value to use for the <code>Marker</code> parameter in a subsequent request.</p> |
-| `truncated` | bool | <p>A flag that indicates whether there are more items in the list. When this
-    value is true, the list in this response is truncated. To get more items, pass the value of
-    the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a
-    subsequent request.</p> |
-| `custom_key_stores` | Vec<String> | <p>Contains metadata about each custom key store.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access custom_key_stores outputs
-custom_key_stores_id = custom_key_stores.id
-custom_key_stores_next_marker = custom_key_stores.next_marker
-custom_key_stores_truncated = custom_key_stores.truncated
-custom_key_stores_custom_key_stores = custom_key_stores.custom_key_stores
-```
-
----
-
-
-### Key_rotation_status
-
-KeyRotationStatus resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `key_id` | String | <p>Identifies the specified symmetric encryption KMS key.</p> |
-| `rotation_period_in_days` | i64 | <p>The number of days between each automatic rotation. The default value is 365 days.</p> |
-| `next_rotation_date` | String | <p>The next date that KMS will automatically rotate the key material.</p> |
-| `key_rotation_enabled` | bool | <p>A Boolean value that specifies whether key rotation is enabled.</p> |
-| `on_demand_rotation_start_date` | String | <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p>
-         <p>KMS uses a background process to perform rotations. As a result, there might be a slight
-      delay between initiating on-demand key rotation and the rotation's completion. Once the
-      on-demand rotation is complete, KMS removes this field from the response. You can use <a>ListKeyRotations</a> to view the details of the completed on-demand rotation.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access key_rotation_status outputs
-key_rotation_status_id = key_rotation_status.id
-key_rotation_status_key_id = key_rotation_status.key_id
-key_rotation_status_rotation_period_in_days = key_rotation_status.rotation_period_in_days
-key_rotation_status_next_rotation_date = key_rotation_status.next_rotation_date
-key_rotation_status_key_rotation_enabled = key_rotation_status.key_rotation_enabled
-key_rotation_status_on_demand_rotation_start_date = key_rotation_status.on_demand_rotation_start_date
-```
-
----
-
-
-### Parameters_for_import
-
-ParametersForImport resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `parameters_valid_to` | String | <p>The time at which the import token and public key are no longer valid. After this time,
-      you cannot use them to make an <a>ImportKeyMaterial</a> request and you must send
-      another <code>GetParametersForImport</code> request to get new ones.</p> |
-| `public_key` | String | <p>The public key to use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.</p> |
-| `key_id` | String | <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <a>ImportKeyMaterial</a> request. This is the same KMS key specified in the <code>GetParametersForImport</code>
-      request.</p> |
-| `import_token` | String | <p>The import token to send in a subsequent <a>ImportKeyMaterial</a>
-      request.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access parameters_for_import outputs
-parameters_for_import_id = parameters_for_import.id
-parameters_for_import_parameters_valid_to = parameters_for_import.parameters_valid_to
-parameters_for_import_public_key = parameters_for_import.public_key
-parameters_for_import_key_id = parameters_for_import.key_id
-parameters_for_import_import_token = parameters_for_import.import_token
-```
-
----
-
-
-### Public_key
-
-PublicKey resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `public_key` | String | <p>The exported public key. </p>
-         <p>The value is a DER-encoded X.509 public key, also known as
-        <code>SubjectPublicKeyInfo</code> (SPKI), as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-         <p></p> |
-| `key_usage` | String | <p>The permitted use of the public key. Valid values for asymmetric key pairs are
-        <code>ENCRYPT_DECRYPT</code>, <code>SIGN_VERIFY</code>, and <code>KEY_AGREEMENT</code>. </p>
-         <p>This information is critical. For example, if a public key with <code>SIGN_VERIFY</code>
-      key usage encrypts data outside of KMS, the ciphertext cannot be decrypted. </p> |
-| `encryption_algorithms` | Vec<String> | <p>The encryption algorithms that KMS supports for this key. </p>
-         <p>This information is critical. If a public key encrypts data outside of KMS by using an
-      unsupported encryption algorithm, the ciphertext cannot be decrypted. </p>
-         <p>This field appears in the response only when the <code>KeyUsage</code> of the public key
-      is <code>ENCRYPT_DECRYPT</code>.</p> |
-| `signing_algorithms` | Vec<String> | <p>The signing algorithms that KMS supports for this key.</p>
-         <p>This field appears in the response only when the <code>KeyUsage</code> of the public key
-      is <code>SIGN_VERIFY</code>.</p> |
-| `key_id` | String | <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key from which the public key was
-      downloaded.</p> |
-| `key_agreement_algorithms` | Vec<String> | <p>The key agreement algorithm used to derive a shared secret. This field is present only
-      when the KMS key has a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code>.</p> |
-| `customer_master_key_spec` | String | <p>Instead, use the <code>KeySpec</code> field in the <code>GetPublicKey</code>
-      response.</p>
-         <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same
-      value. We recommend that you use the <code>KeySpec</code> field in your code. However, to
-      avoid breaking changes, KMS supports both fields.</p> |
-| `key_spec` | String | <p>The type of the of the public key that was downloaded.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access public_key outputs
-public_key_id = public_key.id
-public_key_public_key = public_key.public_key
-public_key_key_usage = public_key.key_usage
-public_key_encryption_algorithms = public_key.encryption_algorithms
-public_key_signing_algorithms = public_key.signing_algorithms
-public_key_key_id = public_key.key_id
-public_key_key_agreement_algorithms = public_key.key_agreement_algorithms
-public_key_customer_master_key_spec = public_key.customer_master_key_spec
-public_key_key_spec = public_key.key_spec
-```
-
----
-
-
 
 ## Common Operations
 
@@ -1318,18 +1318,12 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create multiple key_policy resources
-key_policy_0 = provider.kms.Key_policy {
-    key_id = "value-0"
-    policy = "value-0"
+# Create multiple custom_key_stores resources
+custom_key_stores_0 = provider.kms.Custom_key_stores {
 }
-key_policy_1 = provider.kms.Key_policy {
-    key_id = "value-1"
-    policy = "value-1"
+custom_key_stores_1 = provider.kms.Custom_key_stores {
 }
-key_policy_2 = provider.kms.Key_policy {
-    key_id = "value-2"
-    policy = "value-2"
+custom_key_stores_2 = provider.kms.Custom_key_stores {
 }
 ```
 
@@ -1338,9 +1332,7 @@ key_policy_2 = provider.kms.Key_policy {
 ```kcl
 # Only create in production
 if environment == "production":
-    key_policy = provider.kms.Key_policy {
-        key_id = "production-value"
-        policy = "production-value"
+    custom_key_stores = provider.kms.Custom_key_stores {
     }
 ```
 

@@ -27,13 +27,13 @@ RumEvents resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
+| `app_monitor_details` | String | ✅ | <p>A structure that contains information about the app monitor that collected this telemetry information.</p> |
 | `user_details` | String | ✅ | <p>A structure that contains information about the user session that this batch of events was collected from.</p> |
-| `rum_events` | Vec<String> | ✅ | <p>An array of structures that contain the telemetry event data.</p> |
 | `id` | String | ✅ | <p>The ID of the app monitor that is sending this data.</p> |
 | `batch_id` | String | ✅ | <p>A unique identifier for this batch of RUM event data.</p> |
-| `app_monitor_details` | String | ✅ | <p>A structure that contains information about the app monitor that collected this telemetry information.</p> |
 | `alias` | String |  | <p>If the app monitor uses a resource-based policy that requires <code>PutRumEvents</code> requests to specify a certain alias,
          specify that alias here. This alias will be compared to the <code>rum:alias</code> context key in the resource-based policy.  For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html">Using resource-based policies with CloudWatch RUM</a>.</p> |
+| `rum_events` | Vec<String> | ✅ | <p>An array of structures that contain the telemetry event data.</p> |
 
 
 
@@ -50,11 +50,11 @@ provider = aws.AwsProvider {
 
 # Create rum_events
 rum_events = provider.rum.Rum_events {
+    app_monitor_details = "value"  # <p>A structure that contains information about the app monitor that collected this telemetry information.</p>
     user_details = "value"  # <p>A structure that contains information about the user session that this batch of events was collected from.</p>
-    rum_events = "value"  # <p>An array of structures that contain the telemetry event data.</p>
     id = "value"  # <p>The ID of the app monitor that is sending this data.</p>
     batch_id = "value"  # <p>A unique identifier for this batch of RUM event data.</p>
-    app_monitor_details = "value"  # <p>A structure that contains information about the app monitor that collected this telemetry information.</p>
+    rum_events = "value"  # <p>An array of structures that contain the telemetry event data.</p>
 }
 
 ```
@@ -76,25 +76,25 @@ provider = aws.AwsProvider {
 
 # Create multiple rum_events resources
 rum_events_0 = provider.rum.Rum_events {
+    app_monitor_details = "value-0"
     user_details = "value-0"
-    rum_events = "value-0"
     id = "value-0"
     batch_id = "value-0"
-    app_monitor_details = "value-0"
+    rum_events = "value-0"
 }
 rum_events_1 = provider.rum.Rum_events {
+    app_monitor_details = "value-1"
     user_details = "value-1"
-    rum_events = "value-1"
     id = "value-1"
     batch_id = "value-1"
-    app_monitor_details = "value-1"
+    rum_events = "value-1"
 }
 rum_events_2 = provider.rum.Rum_events {
+    app_monitor_details = "value-2"
     user_details = "value-2"
-    rum_events = "value-2"
     id = "value-2"
     batch_id = "value-2"
-    app_monitor_details = "value-2"
+    rum_events = "value-2"
 }
 ```
 
@@ -104,11 +104,11 @@ rum_events_2 = provider.rum.Rum_events {
 # Only create in production
 if environment == "production":
     rum_events = provider.rum.Rum_events {
+        app_monitor_details = "production-value"
         user_details = "production-value"
-        rum_events = "production-value"
         id = "production-value"
         batch_id = "production-value"
-        app_monitor_details = "production-value"
+        rum_events = "production-value"
     }
 ```
 

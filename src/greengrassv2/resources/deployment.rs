@@ -21,7 +21,7 @@ impl<'a> Deployment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, deployment_name: Option<String>, client_token: Option<String>, tags: Option<HashMap<String, String>>, components: Option<HashMap<String, String>>, target_arn: String, iot_job_configuration: Option<String>, parent_target_arn: Option<String>, deployment_policies: Option<String>) -> Result<String> {
+    pub async fn create(&self, deployment_policies: Option<String>, target_arn: String, tags: Option<HashMap<String, String>>, components: Option<HashMap<String, String>>, iot_job_configuration: Option<String>, deployment_name: Option<String>, parent_target_arn: Option<String>, client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

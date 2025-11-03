@@ -21,7 +21,7 @@ impl<'a> Constraint<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, type: String, parameters: String, idempotency_token: String, product_id: String, accept_language: Option<String>, portfolio_id: String, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, portfolio_id: String, product_id: String, parameters: String, type: String, accept_language: Option<String>, description: Option<String>, idempotency_token: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Constraint<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, type: Option<String>, parameters: Option<String>, idempotency_token: Option<String>, product_id: Option<String>, accept_language: Option<String>, portfolio_id: Option<String>, description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, portfolio_id: Option<String>, product_id: Option<String>, parameters: Option<String>, type: Option<String>, accept_language: Option<String>, description: Option<String>, idempotency_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Signing_profile<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, overrides: Option<String>, signing_parameters: Option<HashMap<String, String>>, tags: Option<HashMap<String, String>>, signing_material: Option<String>, profile_name: String, signature_validity_period: Option<String>, platform_id: String) -> Result<String> {
+    pub async fn create(&self, profile_name: String, signature_validity_period: Option<String>, overrides: Option<String>, tags: Option<HashMap<String, String>>, platform_id: String, signing_material: Option<String>, signing_parameters: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> App_instance_user<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, metadata: Option<String>, app_instance_arn: String, tags: Option<Vec<String>>, name: String, client_request_token: String, expiration_settings: Option<String>, app_instance_user_id: String) -> Result<String> {
+    pub async fn create(&self, expiration_settings: Option<String>, app_instance_user_id: String, name: String, app_instance_arn: String, metadata: Option<String>, tags: Option<Vec<String>>, client_request_token: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> App_instance_user<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, metadata: Option<String>, app_instance_arn: Option<String>, tags: Option<Vec<String>>, name: Option<String>, client_request_token: Option<String>, expiration_settings: Option<String>, app_instance_user_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, expiration_settings: Option<String>, app_instance_user_id: Option<String>, name: Option<String>, app_instance_arn: Option<String>, metadata: Option<String>, tags: Option<Vec<String>>, client_request_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

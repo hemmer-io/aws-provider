@@ -38,7 +38,7 @@ impl<'a> Organization_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, auto_enable: Option<bool>, data_sources: Option<String>, features: Option<Vec<String>>, auto_enable_organization_members: Option<String>, detector_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, auto_enable: Option<bool>, data_sources: Option<String>, detector_id: Option<String>, auto_enable_organization_members: Option<String>, features: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

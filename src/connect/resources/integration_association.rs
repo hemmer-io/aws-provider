@@ -21,7 +21,7 @@ impl<'a> Integration_association<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, source_application_url: Option<String>, source_application_name: Option<String>, instance_id: String, integration_type: String, integration_arn: String, source_type: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, tags: Option<HashMap<String, String>>, source_application_url: Option<String>, instance_id: String, integration_arn: String, source_application_name: Option<String>, source_type: Option<String>, integration_type: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

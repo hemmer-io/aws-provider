@@ -141,11 +141,11 @@ impl<'a> S3outpostsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let security_group_id = input.get_string("security_group_id")?;
             let customer_owned_ipv4_pool = input.get_optional_string("customer_owned_ipv4_pool")?;
             let outpost_id = input.get_string("outpost_id")?;
-            let access_type = input.get_optional_string("access_type")?;
+            let security_group_id = input.get_string("security_group_id")?;
             let subnet_id = input.get_string("subnet_id")?;
+            let access_type = input.get_optional_string("access_type")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -160,11 +160,11 @@ impl<'a> S3outpostsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("security_group_id", security_group_id.unwrap_or_default())
                 .with_field("customer_owned_ipv4_pool", customer_owned_ipv4_pool.unwrap_or_default())
                 .with_field("outpost_id", outpost_id.unwrap_or_default())
-                .with_field("access_type", access_type.unwrap_or_default())
+                .with_field("security_group_id", security_group_id.unwrap_or_default())
                 .with_field("subnet_id", subnet_id.unwrap_or_default())
+                .with_field("access_type", access_type.unwrap_or_default())
             )
         })
     }
@@ -198,11 +198,11 @@ impl<'a> S3outpostsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let security_group_id = input.get_string("security_group_id")?;
             let customer_owned_ipv4_pool = input.get_optional_string("customer_owned_ipv4_pool")?;
             let outpost_id = input.get_string("outpost_id")?;
-            let access_type = input.get_optional_string("access_type")?;
+            let security_group_id = input.get_string("security_group_id")?;
             let subnet_id = input.get_string("subnet_id")?;
+            let access_type = input.get_optional_string("access_type")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -218,11 +218,11 @@ impl<'a> S3outpostsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("security_group_id", security_group_id.unwrap_or_default())
                 .with_field("customer_owned_ipv4_pool", customer_owned_ipv4_pool.unwrap_or_default())
                 .with_field("outpost_id", outpost_id.unwrap_or_default())
-                .with_field("access_type", access_type.unwrap_or_default())
+                .with_field("security_group_id", security_group_id.unwrap_or_default())
                 .with_field("subnet_id", subnet_id.unwrap_or_default())
+                .with_field("access_type", access_type.unwrap_or_default())
             )
         })
     }

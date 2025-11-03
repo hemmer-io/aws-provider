@@ -142,10 +142,10 @@ impl<'a> ApplicationcostprofilerService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
             let report_id = input.get_string("report_id")?;
-            let report_description = input.get_string("report_description")?;
-            let report_frequency = input.get_string("report_frequency")?;
             let format = input.get_string("format")?;
+            let report_description = input.get_string("report_description")?;
             let destination_s3_location = input.get_string("destination_s3_location")?;
+            let report_frequency = input.get_string("report_frequency")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -161,10 +161,10 @@ impl<'a> ApplicationcostprofilerService<'a> {
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
                 .with_field("report_id", report_id.unwrap_or_default())
-                .with_field("report_description", report_description.unwrap_or_default())
-                .with_field("report_frequency", report_frequency.unwrap_or_default())
                 .with_field("format", format.unwrap_or_default())
+                .with_field("report_description", report_description.unwrap_or_default())
                 .with_field("destination_s3_location", destination_s3_location.unwrap_or_default())
+                .with_field("report_frequency", report_frequency.unwrap_or_default())
             )
         })
     }
@@ -199,10 +199,10 @@ impl<'a> ApplicationcostprofilerService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
             let report_id = input.get_string("report_id")?;
-            let report_description = input.get_string("report_description")?;
-            let report_frequency = input.get_string("report_frequency")?;
             let format = input.get_string("format")?;
+            let report_description = input.get_string("report_description")?;
             let destination_s3_location = input.get_string("destination_s3_location")?;
+            let report_frequency = input.get_string("report_frequency")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -219,10 +219,10 @@ impl<'a> ApplicationcostprofilerService<'a> {
             Ok(ResourceOutput::new()
                 .with_id(id)
                 .with_field("report_id", report_id.unwrap_or_default())
-                .with_field("report_description", report_description.unwrap_or_default())
-                .with_field("report_frequency", report_frequency.unwrap_or_default())
                 .with_field("format", format.unwrap_or_default())
+                .with_field("report_description", report_description.unwrap_or_default())
                 .with_field("destination_s3_location", destination_s3_location.unwrap_or_default())
+                .with_field("report_frequency", report_frequency.unwrap_or_default())
             )
         })
     }

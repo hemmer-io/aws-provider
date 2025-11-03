@@ -38,7 +38,7 @@ impl<'a> Account_password_policy<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, require_uppercase_characters: Option<bool>, require_lowercase_characters: Option<bool>, hard_expiry: Option<bool>, minimum_password_length: Option<i64>, require_symbols: Option<bool>, password_reuse_prevention: Option<i64>, max_password_age: Option<i64>, allow_users_to_change_password: Option<bool>, require_numbers: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, require_uppercase_characters: Option<bool>, require_numbers: Option<bool>, require_lowercase_characters: Option<bool>, max_password_age: Option<i64>, password_reuse_prevention: Option<i64>, hard_expiry: Option<bool>, minimum_password_length: Option<i64>, allow_users_to_change_password: Option<bool>, require_symbols: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

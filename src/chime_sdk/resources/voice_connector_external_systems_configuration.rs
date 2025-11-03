@@ -21,7 +21,7 @@ impl<'a> Voice_connector_external_systems_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, contact_center_system_types: Option<Vec<String>>, session_border_controller_types: Option<Vec<String>>, voice_connector_id: String) -> Result<String> {
+    pub async fn create(&self, session_border_controller_types: Option<Vec<String>>, voice_connector_id: String, contact_center_system_types: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

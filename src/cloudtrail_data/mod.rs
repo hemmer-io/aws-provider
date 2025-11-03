@@ -141,9 +141,9 @@ impl<'a> Cloudtrail_dataService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let audit_events = input.get_string("audit_events")?;
             let channel_arn = input.get_string("channel_arn")?;
             let external_id = input.get_optional_string("external_id")?;
+            let audit_events = input.get_string("audit_events")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -158,9 +158,9 @@ impl<'a> Cloudtrail_dataService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("audit_events", audit_events.unwrap_or_default())
                 .with_field("channel_arn", channel_arn.unwrap_or_default())
                 .with_field("external_id", external_id.unwrap_or_default())
+                .with_field("audit_events", audit_events.unwrap_or_default())
             )
         })
     }
@@ -194,9 +194,9 @@ impl<'a> Cloudtrail_dataService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let audit_events = input.get_string("audit_events")?;
             let channel_arn = input.get_string("channel_arn")?;
             let external_id = input.get_optional_string("external_id")?;
+            let audit_events = input.get_string("audit_events")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -212,9 +212,9 @@ impl<'a> Cloudtrail_dataService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("audit_events", audit_events.unwrap_or_default())
                 .with_field("channel_arn", channel_arn.unwrap_or_default())
                 .with_field("external_id", external_id.unwrap_or_default())
+                .with_field("audit_events", audit_events.unwrap_or_default())
             )
         })
     }

@@ -21,7 +21,7 @@ impl<'a> Virtual_mfa_device<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, virtual_mfa_device_name: String, tags: Option<Vec<String>>, path: Option<String>) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, path: Option<String>, virtual_mfa_device_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

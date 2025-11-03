@@ -38,7 +38,7 @@ impl<'a> Time_to_live<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, table_name: Option<String>, time_to_live_specification: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, time_to_live_specification: Option<String>, table_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

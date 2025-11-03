@@ -21,7 +21,7 @@ impl<'a> Folder_membership<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, folder_id: String, member_id: String, aws_account_id: String, member_type: String) -> Result<String> {
+    pub async fn create(&self, member_id: String, aws_account_id: String, folder_id: String, member_type: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

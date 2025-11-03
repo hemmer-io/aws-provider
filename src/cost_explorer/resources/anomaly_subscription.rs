@@ -21,7 +21,7 @@ impl<'a> Anomaly_subscription<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, anomaly_subscription: String, resource_tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, resource_tags: Option<Vec<String>>, anomaly_subscription: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Anomaly_subscription<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, anomaly_subscription: Option<String>, resource_tags: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, resource_tags: Option<Vec<String>>, anomaly_subscription: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

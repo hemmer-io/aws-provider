@@ -24,20 +24,20 @@ impl<'a> OpensearchserverlessService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "lifecycle_policy" => {
-                self.plan_lifecycle_policy(current_state, desired_input).await
-            }
-            "vpc_endpoint" => {
-                self.plan_vpc_endpoint(current_state, desired_input).await
+            "security_policy" => {
+                self.plan_security_policy(current_state, desired_input).await
             }
             "policies_stats" => {
                 self.plan_policies_stats(current_state, desired_input).await
             }
+            "vpc_endpoint" => {
+                self.plan_vpc_endpoint(current_state, desired_input).await
+            }
+            "lifecycle_policy" => {
+                self.plan_lifecycle_policy(current_state, desired_input).await
+            }
             "account_settings" => {
                 self.plan_account_settings(current_state, desired_input).await
-            }
-            "security_policy" => {
-                self.plan_security_policy(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -54,20 +54,20 @@ impl<'a> OpensearchserverlessService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "lifecycle_policy" => {
-                self.create_lifecycle_policy(input).await
-            }
-            "vpc_endpoint" => {
-                self.create_vpc_endpoint(input).await
+            "security_policy" => {
+                self.create_security_policy(input).await
             }
             "policies_stats" => {
                 self.create_policies_stats(input).await
             }
+            "vpc_endpoint" => {
+                self.create_vpc_endpoint(input).await
+            }
+            "lifecycle_policy" => {
+                self.create_lifecycle_policy(input).await
+            }
             "account_settings" => {
                 self.create_account_settings(input).await
-            }
-            "security_policy" => {
-                self.create_security_policy(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -84,20 +84,20 @@ impl<'a> OpensearchserverlessService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "lifecycle_policy" => {
-                self.read_lifecycle_policy(id).await
-            }
-            "vpc_endpoint" => {
-                self.read_vpc_endpoint(id).await
+            "security_policy" => {
+                self.read_security_policy(id).await
             }
             "policies_stats" => {
                 self.read_policies_stats(id).await
             }
+            "vpc_endpoint" => {
+                self.read_vpc_endpoint(id).await
+            }
+            "lifecycle_policy" => {
+                self.read_lifecycle_policy(id).await
+            }
             "account_settings" => {
                 self.read_account_settings(id).await
-            }
-            "security_policy" => {
-                self.read_security_policy(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -115,20 +115,20 @@ impl<'a> OpensearchserverlessService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "lifecycle_policy" => {
-                self.update_lifecycle_policy(id, input).await
-            }
-            "vpc_endpoint" => {
-                self.update_vpc_endpoint(id, input).await
+            "security_policy" => {
+                self.update_security_policy(id, input).await
             }
             "policies_stats" => {
                 self.update_policies_stats(id, input).await
             }
+            "vpc_endpoint" => {
+                self.update_vpc_endpoint(id, input).await
+            }
+            "lifecycle_policy" => {
+                self.update_lifecycle_policy(id, input).await
+            }
             "account_settings" => {
                 self.update_account_settings(id, input).await
-            }
-            "security_policy" => {
-                self.update_security_policy(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -145,20 +145,20 @@ impl<'a> OpensearchserverlessService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "lifecycle_policy" => {
-                self.delete_lifecycle_policy(id).await
-            }
-            "vpc_endpoint" => {
-                self.delete_vpc_endpoint(id).await
+            "security_policy" => {
+                self.delete_security_policy(id).await
             }
             "policies_stats" => {
                 self.delete_policies_stats(id).await
             }
+            "vpc_endpoint" => {
+                self.delete_vpc_endpoint(id).await
+            }
+            "lifecycle_policy" => {
+                self.delete_lifecycle_policy(id).await
+            }
             "account_settings" => {
                 self.delete_account_settings(id).await
-            }
-            "security_policy" => {
-                self.delete_security_policy(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -174,11 +174,11 @@ impl<'a> OpensearchserverlessService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Lifecycle_policy resource operations
+    // Security_policy resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a lifecycle_policy resource
-    async fn plan_lifecycle_policy(
+    /// Plan changes to a security_policy resource
+    async fn plan_security_policy(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -193,25 +193,25 @@ impl<'a> OpensearchserverlessService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new lifecycle_policy resource
-    async fn create_lifecycle_policy(
+    /// Create a new security_policy resource
+    async fn create_security_policy(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let client_token = input.get_optional_string("client_token")?;
-            let r#type = input.get_string("type")?;
-            let policy = input.get_string("policy")?;
             let description = input.get_optional_string("description")?;
             let name = input.get_string("name")?;
+            let r#type = input.get_string("type")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let policy = input.get_string("policy")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.opensearchserverless_client
-            //     .create_lifecycle_policy()
+            //     .create_security_policy()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -220,17 +220,17 @@ impl<'a> OpensearchserverlessService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("type", r#type.unwrap_or_default())
-                .with_field("policy", policy.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
+                .with_field("type", r#type.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("policy", policy.unwrap_or_default())
             )
         })
     }
 
-    /// Read a lifecycle_policy resource
-    async fn read_lifecycle_policy(
+    /// Read a security_policy resource
+    async fn read_security_policy(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -238,7 +238,7 @@ impl<'a> OpensearchserverlessService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.opensearchserverless_client
-            //     .describe_lifecycle_policy()
+            //     .describe_security_policy()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -250,25 +250,25 @@ impl<'a> OpensearchserverlessService<'a> {
         })
     }
 
-    /// Update a lifecycle_policy resource
-    async fn update_lifecycle_policy(
+    /// Update a security_policy resource
+    async fn update_security_policy(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let client_token = input.get_optional_string("client_token")?;
-            let r#type = input.get_string("type")?;
-            let policy = input.get_string("policy")?;
             let description = input.get_optional_string("description")?;
             let name = input.get_string("name")?;
+            let r#type = input.get_string("type")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let policy = input.get_string("policy")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.opensearchserverless_client
-            //     .update_lifecycle_policy()
+            //     .update_security_policy()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -278,17 +278,17 @@ impl<'a> OpensearchserverlessService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("type", r#type.unwrap_or_default())
-                .with_field("policy", policy.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
+                .with_field("type", r#type.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("policy", policy.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a lifecycle_policy resource
-    async fn delete_lifecycle_policy(
+    /// Delete a security_policy resource
+    async fn delete_security_policy(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -296,145 +296,7 @@ impl<'a> OpensearchserverlessService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.opensearchserverless_client
-            //     .delete_lifecycle_policy()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Vpc_endpoint resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a vpc_endpoint resource
-    async fn plan_vpc_endpoint(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new vpc_endpoint resource
-    async fn create_vpc_endpoint(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let add_subnet_ids = input.get_optional_string("add_subnet_ids")?;
-            let id = input.get_string("id")?;
-            let add_security_group_ids = input.get_optional_string("add_security_group_ids")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let remove_subnet_ids = input.get_optional_string("remove_subnet_ids")?;
-            let remove_security_group_ids = input.get_optional_string("remove_security_group_ids")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.opensearchserverless_client
-            //     .create_vpc_endpoint()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("add_subnet_ids", add_subnet_ids.unwrap_or_default())
-                .with_field("id", id.unwrap_or_default())
-                .with_field("add_security_group_ids", add_security_group_ids.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("remove_subnet_ids", remove_subnet_ids.unwrap_or_default())
-                .with_field("remove_security_group_ids", remove_security_group_ids.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a vpc_endpoint resource
-    async fn read_vpc_endpoint(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.opensearchserverless_client
-            //     .describe_vpc_endpoint()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a vpc_endpoint resource
-    async fn update_vpc_endpoint(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let add_subnet_ids = input.get_optional_string("add_subnet_ids")?;
-            let id = input.get_string("id")?;
-            let add_security_group_ids = input.get_optional_string("add_security_group_ids")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let remove_subnet_ids = input.get_optional_string("remove_subnet_ids")?;
-            let remove_security_group_ids = input.get_optional_string("remove_security_group_ids")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.opensearchserverless_client
-            //     .update_vpc_endpoint()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("add_subnet_ids", add_subnet_ids.unwrap_or_default())
-                .with_field("id", id.unwrap_or_default())
-                .with_field("add_security_group_ids", add_security_group_ids.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("remove_subnet_ids", remove_subnet_ids.unwrap_or_default())
-                .with_field("remove_security_group_ids", remove_security_group_ids.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a vpc_endpoint resource
-    async fn delete_vpc_endpoint(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.opensearchserverless_client
-            //     .delete_vpc_endpoint()
+            //     .delete_security_policy()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -560,6 +422,278 @@ impl<'a> OpensearchserverlessService<'a> {
 
 
     // ------------------------------------------------------------------------
+    // Vpc_endpoint resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a vpc_endpoint resource
+    async fn plan_vpc_endpoint(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new vpc_endpoint resource
+    async fn create_vpc_endpoint(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let remove_security_group_ids = input.get_optional_string("remove_security_group_ids")?;
+            let id = input.get_string("id")?;
+            let remove_subnet_ids = input.get_optional_string("remove_subnet_ids")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let add_security_group_ids = input.get_optional_string("add_security_group_ids")?;
+            let add_subnet_ids = input.get_optional_string("add_subnet_ids")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.opensearchserverless_client
+            //     .create_vpc_endpoint()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("remove_security_group_ids", remove_security_group_ids.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
+                .with_field("remove_subnet_ids", remove_subnet_ids.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("add_security_group_ids", add_security_group_ids.unwrap_or_default())
+                .with_field("add_subnet_ids", add_subnet_ids.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a vpc_endpoint resource
+    async fn read_vpc_endpoint(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.opensearchserverless_client
+            //     .describe_vpc_endpoint()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a vpc_endpoint resource
+    async fn update_vpc_endpoint(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let remove_security_group_ids = input.get_optional_string("remove_security_group_ids")?;
+            let id = input.get_string("id")?;
+            let remove_subnet_ids = input.get_optional_string("remove_subnet_ids")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let add_security_group_ids = input.get_optional_string("add_security_group_ids")?;
+            let add_subnet_ids = input.get_optional_string("add_subnet_ids")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.opensearchserverless_client
+            //     .update_vpc_endpoint()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("remove_security_group_ids", remove_security_group_ids.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
+                .with_field("remove_subnet_ids", remove_subnet_ids.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("add_security_group_ids", add_security_group_ids.unwrap_or_default())
+                .with_field("add_subnet_ids", add_subnet_ids.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a vpc_endpoint resource
+    async fn delete_vpc_endpoint(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.opensearchserverless_client
+            //     .delete_vpc_endpoint()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Lifecycle_policy resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a lifecycle_policy resource
+    async fn plan_lifecycle_policy(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new lifecycle_policy resource
+    async fn create_lifecycle_policy(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let policy = input.get_string("policy")?;
+            let description = input.get_optional_string("description")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let r#type = input.get_string("type")?;
+            let name = input.get_string("name")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.opensearchserverless_client
+            //     .create_lifecycle_policy()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("policy", policy.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("type", r#type.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a lifecycle_policy resource
+    async fn read_lifecycle_policy(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.opensearchserverless_client
+            //     .describe_lifecycle_policy()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a lifecycle_policy resource
+    async fn update_lifecycle_policy(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let policy = input.get_string("policy")?;
+            let description = input.get_optional_string("description")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let r#type = input.get_string("type")?;
+            let name = input.get_string("name")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.opensearchserverless_client
+            //     .update_lifecycle_policy()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("policy", policy.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("type", r#type.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a lifecycle_policy resource
+    async fn delete_lifecycle_policy(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.opensearchserverless_client
+            //     .delete_lifecycle_policy()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
     // Account_settings resource operations
     // ------------------------------------------------------------------------
 
@@ -667,140 +801,6 @@ impl<'a> OpensearchserverlessService<'a> {
             // Example:
             // self.provider.opensearchserverless_client
             //     .delete_account_settings()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Security_policy resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a security_policy resource
-    async fn plan_security_policy(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new security_policy resource
-    async fn create_security_policy(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let policy = input.get_string("policy")?;
-            let name = input.get_string("name")?;
-            let description = input.get_optional_string("description")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let r#type = input.get_string("type")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.opensearchserverless_client
-            //     .create_security_policy()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("policy", policy.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("type", r#type.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a security_policy resource
-    async fn read_security_policy(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.opensearchserverless_client
-            //     .describe_security_policy()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a security_policy resource
-    async fn update_security_policy(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let policy = input.get_string("policy")?;
-            let name = input.get_string("name")?;
-            let description = input.get_optional_string("description")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let r#type = input.get_string("type")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.opensearchserverless_client
-            //     .update_security_policy()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("policy", policy.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("type", r#type.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a security_policy resource
-    async fn delete_security_policy(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.opensearchserverless_client
-            //     .delete_security_policy()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

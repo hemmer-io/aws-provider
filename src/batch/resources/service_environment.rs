@@ -21,7 +21,7 @@ impl<'a> Service_environment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, service_environment_name: String, service_environment_type: String, state: Option<String>, capacity_limits: Vec<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, tags: Option<HashMap<String, String>>, service_environment_name: String, service_environment_type: String, state: Option<String>, capacity_limits: Vec<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Service_environment<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, service_environment_name: Option<String>, service_environment_type: Option<String>, state: Option<String>, capacity_limits: Option<Vec<String>>, tags: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, service_environment_name: Option<String>, service_environment_type: Option<String>, state: Option<String>, capacity_limits: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

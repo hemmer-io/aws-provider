@@ -24,7 +24,7 @@ impl<'a> Findings<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, resource_arn: Option<String>, client_token: Option<String>, ids: Option<Vec<String>>, analyzer_arn: Option<String>, status: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, analyzer_arn: Option<String>, status: Option<String>, resource_arn: Option<String>, client_token: Option<String>, ids: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

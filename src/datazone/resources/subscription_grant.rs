@@ -21,7 +21,7 @@ impl<'a> Subscription_grant<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, environment_identifier: String, subscription_target_identifier: Option<String>, domain_identifier: String, granted_entity: String, asset_target_names: Option<Vec<String>>, client_token: Option<String>) -> Result<String> {
+    pub async fn create(&self, environment_identifier: String, subscription_target_identifier: Option<String>, granted_entity: String, domain_identifier: String, client_token: Option<String>, asset_target_names: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

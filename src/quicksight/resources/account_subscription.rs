@@ -21,7 +21,7 @@ impl<'a> Account_subscription<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, admin_group: Option<Vec<String>>, first_name: Option<String>, authentication_method: String, admin_pro_group: Option<Vec<String>>, author_group: Option<Vec<String>>, author_pro_group: Option<Vec<String>>, iam_identity_center_instance_arn: Option<String>, last_name: Option<String>, realm: Option<String>, account_name: String, email_address: Option<String>, reader_group: Option<Vec<String>>, edition: Option<String>, aws_account_id: String, active_directory_name: Option<String>, directory_id: Option<String>, contact_number: Option<String>, notification_email: String, reader_pro_group: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, authentication_method: String, author_group: Option<Vec<String>>, admin_pro_group: Option<Vec<String>>, reader_pro_group: Option<Vec<String>>, author_pro_group: Option<Vec<String>>, contact_number: Option<String>, active_directory_name: Option<String>, realm: Option<String>, last_name: Option<String>, account_name: String, email_address: Option<String>, reader_group: Option<Vec<String>>, admin_group: Option<Vec<String>>, aws_account_id: String, edition: Option<String>, first_name: Option<String>, iam_identity_center_instance_arn: Option<String>, directory_id: Option<String>, notification_email: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

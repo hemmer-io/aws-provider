@@ -278,17 +278,17 @@ impl<'a> DrsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let parameters = input.get_optional_string("parameters")?;
-            let action_version = input.get_string("action_version")?;
-            let optional = input.get_string("optional")?;
-            let resource_id = input.get_string("resource_id")?;
-            let order = input.get_string("order")?;
-            let active = input.get_string("active")?;
-            let description = input.get_string("description")?;
-            let action_id = input.get_string("action_id")?;
-            let category = input.get_string("category")?;
-            let action_code = input.get_string("action_code")?;
             let name = input.get_string("name")?;
+            let order = input.get_string("order")?;
+            let description = input.get_string("description")?;
+            let category = input.get_string("category")?;
+            let action_id = input.get_string("action_id")?;
+            let action_code = input.get_string("action_code")?;
+            let active = input.get_string("active")?;
+            let resource_id = input.get_string("resource_id")?;
+            let parameters = input.get_optional_string("parameters")?;
+            let optional = input.get_string("optional")?;
+            let action_version = input.get_string("action_version")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -303,17 +303,17 @@ impl<'a> DrsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("parameters", parameters.unwrap_or_default())
-                .with_field("action_version", action_version.unwrap_or_default())
-                .with_field("optional", optional.unwrap_or_default())
-                .with_field("resource_id", resource_id.unwrap_or_default())
-                .with_field("order", order.unwrap_or_default())
-                .with_field("active", active.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("action_id", action_id.unwrap_or_default())
-                .with_field("category", category.unwrap_or_default())
-                .with_field("action_code", action_code.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
+                .with_field("order", order.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("category", category.unwrap_or_default())
+                .with_field("action_id", action_id.unwrap_or_default())
+                .with_field("action_code", action_code.unwrap_or_default())
+                .with_field("active", active.unwrap_or_default())
+                .with_field("resource_id", resource_id.unwrap_or_default())
+                .with_field("parameters", parameters.unwrap_or_default())
+                .with_field("optional", optional.unwrap_or_default())
+                .with_field("action_version", action_version.unwrap_or_default())
             )
         })
     }
@@ -347,17 +347,17 @@ impl<'a> DrsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let parameters = input.get_optional_string("parameters")?;
-            let action_version = input.get_string("action_version")?;
-            let optional = input.get_string("optional")?;
-            let resource_id = input.get_string("resource_id")?;
-            let order = input.get_string("order")?;
-            let active = input.get_string("active")?;
-            let description = input.get_string("description")?;
-            let action_id = input.get_string("action_id")?;
-            let category = input.get_string("category")?;
-            let action_code = input.get_string("action_code")?;
             let name = input.get_string("name")?;
+            let order = input.get_string("order")?;
+            let description = input.get_string("description")?;
+            let category = input.get_string("category")?;
+            let action_id = input.get_string("action_id")?;
+            let action_code = input.get_string("action_code")?;
+            let active = input.get_string("active")?;
+            let resource_id = input.get_string("resource_id")?;
+            let parameters = input.get_optional_string("parameters")?;
+            let optional = input.get_string("optional")?;
+            let action_version = input.get_string("action_version")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -373,17 +373,17 @@ impl<'a> DrsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("parameters", parameters.unwrap_or_default())
-                .with_field("action_version", action_version.unwrap_or_default())
-                .with_field("optional", optional.unwrap_or_default())
-                .with_field("resource_id", resource_id.unwrap_or_default())
-                .with_field("order", order.unwrap_or_default())
-                .with_field("active", active.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("action_id", action_id.unwrap_or_default())
-                .with_field("category", category.unwrap_or_default())
-                .with_field("action_code", action_code.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
+                .with_field("order", order.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("category", category.unwrap_or_default())
+                .with_field("action_id", action_id.unwrap_or_default())
+                .with_field("action_code", action_code.unwrap_or_default())
+                .with_field("active", active.unwrap_or_default())
+                .with_field("resource_id", resource_id.unwrap_or_default())
+                .with_field("parameters", parameters.unwrap_or_default())
+                .with_field("optional", optional.unwrap_or_default())
+                .with_field("action_version", action_version.unwrap_or_default())
             )
         })
     }

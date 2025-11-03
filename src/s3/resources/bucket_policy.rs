@@ -21,7 +21,7 @@ impl<'a> Bucket_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, expected_bucket_owner: Option<String>, content_md5: Option<String>, checksum_algorithm: Option<String>, confirm_remove_self_bucket_access: Option<bool>, policy: String, bucket: String) -> Result<String> {
+    pub async fn create(&self, policy: String, bucket: String, confirm_remove_self_bucket_access: Option<bool>, content_md5: Option<String>, checksum_algorithm: Option<String>, expected_bucket_owner: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

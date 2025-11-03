@@ -21,7 +21,7 @@ impl<'a> Core_network_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, latest_version_id: Option<i64>, core_network_id: String, client_token: Option<String>, policy_document: String, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, core_network_id: String, policy_document: String, client_token: Option<String>, latest_version_id: Option<i64>, description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

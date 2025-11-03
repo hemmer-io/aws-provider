@@ -21,7 +21,7 @@ impl<'a> Data_repository_association<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, file_system_path: Option<String>, batch_import_meta_data_on_create: Option<bool>, imported_file_chunk_size: Option<i64>, client_request_token: Option<String>, s3: Option<String>, data_repository_path: String, file_system_id: String, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, s3: Option<String>, tags: Option<Vec<String>>, file_system_path: Option<String>, client_request_token: Option<String>, file_system_id: String, data_repository_path: String, imported_file_chunk_size: Option<i64>, batch_import_meta_data_on_create: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Data_repository_association<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, file_system_path: Option<String>, batch_import_meta_data_on_create: Option<bool>, imported_file_chunk_size: Option<i64>, client_request_token: Option<String>, s3: Option<String>, data_repository_path: Option<String>, file_system_id: Option<String>, tags: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, s3: Option<String>, tags: Option<Vec<String>>, file_system_path: Option<String>, client_request_token: Option<String>, file_system_id: Option<String>, data_repository_path: Option<String>, imported_file_chunk_size: Option<i64>, batch_import_meta_data_on_create: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -24,14 +24,14 @@ impl<'a> TranslateService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "parallel_data" => {
-                self.plan_parallel_data(current_state, desired_input).await
+            "text_translation_job" => {
+                self.plan_text_translation_job(current_state, desired_input).await
             }
             "terminology" => {
                 self.plan_terminology(current_state, desired_input).await
             }
-            "text_translation_job" => {
-                self.plan_text_translation_job(current_state, desired_input).await
+            "parallel_data" => {
+                self.plan_parallel_data(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -48,14 +48,14 @@ impl<'a> TranslateService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "parallel_data" => {
-                self.create_parallel_data(input).await
+            "text_translation_job" => {
+                self.create_text_translation_job(input).await
             }
             "terminology" => {
                 self.create_terminology(input).await
             }
-            "text_translation_job" => {
-                self.create_text_translation_job(input).await
+            "parallel_data" => {
+                self.create_parallel_data(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -72,14 +72,14 @@ impl<'a> TranslateService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "parallel_data" => {
-                self.read_parallel_data(id).await
+            "text_translation_job" => {
+                self.read_text_translation_job(id).await
             }
             "terminology" => {
                 self.read_terminology(id).await
             }
-            "text_translation_job" => {
-                self.read_text_translation_job(id).await
+            "parallel_data" => {
+                self.read_parallel_data(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -97,14 +97,14 @@ impl<'a> TranslateService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "parallel_data" => {
-                self.update_parallel_data(id, input).await
+            "text_translation_job" => {
+                self.update_text_translation_job(id, input).await
             }
             "terminology" => {
                 self.update_terminology(id, input).await
             }
-            "text_translation_job" => {
-                self.update_text_translation_job(id, input).await
+            "parallel_data" => {
+                self.update_parallel_data(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -121,14 +121,14 @@ impl<'a> TranslateService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "parallel_data" => {
-                self.delete_parallel_data(id).await
+            "text_translation_job" => {
+                self.delete_text_translation_job(id).await
             }
             "terminology" => {
                 self.delete_terminology(id).await
             }
-            "text_translation_job" => {
-                self.delete_text_translation_job(id).await
+            "parallel_data" => {
+                self.delete_parallel_data(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -144,11 +144,11 @@ impl<'a> TranslateService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Parallel_data resource operations
+    // Text_translation_job resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a parallel_data resource
-    async fn plan_parallel_data(
+    /// Plan changes to a text_translation_job resource
+    async fn plan_text_translation_job(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -163,26 +163,20 @@ impl<'a> TranslateService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new parallel_data resource
-    async fn create_parallel_data(
+    /// Create a new text_translation_job resource
+    async fn create_text_translation_job(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_string("name")?;
-            let parallel_data_config = input.get_string("parallel_data_config")?;
-            let encryption_key = input.get_optional_string("encryption_key")?;
-            let client_token = input.get_string("client_token")?;
-            let tags = input.get_optional_string("tags")?;
-            let description = input.get_optional_string("description")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.translate_client
-            //     .create_parallel_data()
+            //     .create_text_translation_job()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -191,18 +185,12 @@ impl<'a> TranslateService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("name", name.unwrap_or_default())
-                .with_field("parallel_data_config", parallel_data_config.unwrap_or_default())
-                .with_field("encryption_key", encryption_key.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
             )
         })
     }
 
-    /// Read a parallel_data resource
-    async fn read_parallel_data(
+    /// Read a text_translation_job resource
+    async fn read_text_translation_job(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -210,7 +198,7 @@ impl<'a> TranslateService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.translate_client
-            //     .describe_parallel_data()
+            //     .describe_text_translation_job()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -222,26 +210,20 @@ impl<'a> TranslateService<'a> {
         })
     }
 
-    /// Update a parallel_data resource
-    async fn update_parallel_data(
+    /// Update a text_translation_job resource
+    async fn update_text_translation_job(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_string("name")?;
-            let parallel_data_config = input.get_string("parallel_data_config")?;
-            let encryption_key = input.get_optional_string("encryption_key")?;
-            let client_token = input.get_string("client_token")?;
-            let tags = input.get_optional_string("tags")?;
-            let description = input.get_optional_string("description")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.translate_client
-            //     .update_parallel_data()
+            //     .update_text_translation_job()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -251,18 +233,12 @@ impl<'a> TranslateService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("name", name.unwrap_or_default())
-                .with_field("parallel_data_config", parallel_data_config.unwrap_or_default())
-                .with_field("encryption_key", encryption_key.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a parallel_data resource
-    async fn delete_parallel_data(
+    /// Delete a text_translation_job resource
+    async fn delete_text_translation_job(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -270,7 +246,7 @@ impl<'a> TranslateService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.translate_client
-            //     .delete_parallel_data()
+            //     .delete_text_translation_job()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -396,11 +372,11 @@ impl<'a> TranslateService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Text_translation_job resource operations
+    // Parallel_data resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a text_translation_job resource
-    async fn plan_text_translation_job(
+    /// Plan changes to a parallel_data resource
+    async fn plan_parallel_data(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -415,20 +391,26 @@ impl<'a> TranslateService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new text_translation_job resource
-    async fn create_text_translation_job(
+    /// Create a new parallel_data resource
+    async fn create_parallel_data(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let description = input.get_optional_string("description")?;
+            let encryption_key = input.get_optional_string("encryption_key")?;
+            let client_token = input.get_string("client_token")?;
+            let parallel_data_config = input.get_string("parallel_data_config")?;
+            let tags = input.get_optional_string("tags")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.translate_client
-            //     .create_text_translation_job()
+            //     .create_parallel_data()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -437,12 +419,18 @@ impl<'a> TranslateService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("description", description.unwrap_or_default())
+                .with_field("encryption_key", encryption_key.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("parallel_data_config", parallel_data_config.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }
 
-    /// Read a text_translation_job resource
-    async fn read_text_translation_job(
+    /// Read a parallel_data resource
+    async fn read_parallel_data(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -450,7 +438,7 @@ impl<'a> TranslateService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.translate_client
-            //     .describe_text_translation_job()
+            //     .describe_parallel_data()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -462,20 +450,26 @@ impl<'a> TranslateService<'a> {
         })
     }
 
-    /// Update a text_translation_job resource
-    async fn update_text_translation_job(
+    /// Update a parallel_data resource
+    async fn update_parallel_data(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let description = input.get_optional_string("description")?;
+            let encryption_key = input.get_optional_string("encryption_key")?;
+            let client_token = input.get_string("client_token")?;
+            let parallel_data_config = input.get_string("parallel_data_config")?;
+            let tags = input.get_optional_string("tags")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.translate_client
-            //     .update_text_translation_job()
+            //     .update_parallel_data()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -485,12 +479,18 @@ impl<'a> TranslateService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("description", description.unwrap_or_default())
+                .with_field("encryption_key", encryption_key.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("parallel_data_config", parallel_data_config.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a text_translation_job resource
-    async fn delete_text_translation_job(
+    /// Delete a parallel_data resource
+    async fn delete_parallel_data(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -498,7 +498,7 @@ impl<'a> TranslateService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.translate_client
-            //     .delete_text_translation_job()
+            //     .delete_parallel_data()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

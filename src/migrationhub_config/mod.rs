@@ -24,11 +24,11 @@ impl<'a> Migrationhub_configService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "home_region" => {
-                self.plan_home_region(current_state, desired_input).await
-            }
             "home_region_controls" => {
                 self.plan_home_region_controls(current_state, desired_input).await
+            }
+            "home_region" => {
+                self.plan_home_region(current_state, desired_input).await
             }
             "home_region_control" => {
                 self.plan_home_region_control(current_state, desired_input).await
@@ -48,11 +48,11 @@ impl<'a> Migrationhub_configService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "home_region" => {
-                self.create_home_region(input).await
-            }
             "home_region_controls" => {
                 self.create_home_region_controls(input).await
+            }
+            "home_region" => {
+                self.create_home_region(input).await
             }
             "home_region_control" => {
                 self.create_home_region_control(input).await
@@ -72,11 +72,11 @@ impl<'a> Migrationhub_configService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "home_region" => {
-                self.read_home_region(id).await
-            }
             "home_region_controls" => {
                 self.read_home_region_controls(id).await
+            }
+            "home_region" => {
+                self.read_home_region(id).await
             }
             "home_region_control" => {
                 self.read_home_region_control(id).await
@@ -97,11 +97,11 @@ impl<'a> Migrationhub_configService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "home_region" => {
-                self.update_home_region(id, input).await
-            }
             "home_region_controls" => {
                 self.update_home_region_controls(id, input).await
+            }
+            "home_region" => {
+                self.update_home_region(id, input).await
             }
             "home_region_control" => {
                 self.update_home_region_control(id, input).await
@@ -121,11 +121,11 @@ impl<'a> Migrationhub_configService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "home_region" => {
-                self.delete_home_region(id).await
-            }
             "home_region_controls" => {
                 self.delete_home_region_controls(id).await
+            }
+            "home_region" => {
+                self.delete_home_region(id).await
             }
             "home_region_control" => {
                 self.delete_home_region_control(id).await
@@ -141,120 +141,6 @@ impl<'a> Migrationhub_configService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
-
-
-    // ------------------------------------------------------------------------
-    // Home_region resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a home_region resource
-    async fn plan_home_region(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new home_region resource
-    async fn create_home_region(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.migrationhub_config_client
-            //     .create_home_region()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a home_region resource
-    async fn read_home_region(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.migrationhub_config_client
-            //     .describe_home_region()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a home_region resource
-    async fn update_home_region(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.migrationhub_config_client
-            //     .update_home_region()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a home_region resource
-    async fn delete_home_region(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.migrationhub_config_client
-            //     .delete_home_region()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
 
 
     // ------------------------------------------------------------------------
@@ -372,6 +258,120 @@ impl<'a> Migrationhub_configService<'a> {
 
 
     // ------------------------------------------------------------------------
+    // Home_region resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a home_region resource
+    async fn plan_home_region(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new home_region resource
+    async fn create_home_region(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.migrationhub_config_client
+            //     .create_home_region()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a home_region resource
+    async fn read_home_region(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.migrationhub_config_client
+            //     .describe_home_region()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a home_region resource
+    async fn update_home_region(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.migrationhub_config_client
+            //     .update_home_region()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a home_region resource
+    async fn delete_home_region(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.migrationhub_config_client
+            //     .delete_home_region()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
     // Home_region_control resource operations
     // ------------------------------------------------------------------------
 
@@ -399,9 +399,9 @@ impl<'a> Migrationhub_configService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let dry_run = input.get_optional_string("dry_run")?;
             let home_region = input.get_string("home_region")?;
             let target = input.get_string("target")?;
+            let dry_run = input.get_optional_string("dry_run")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -416,9 +416,9 @@ impl<'a> Migrationhub_configService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("dry_run", dry_run.unwrap_or_default())
                 .with_field("home_region", home_region.unwrap_or_default())
                 .with_field("target", target.unwrap_or_default())
+                .with_field("dry_run", dry_run.unwrap_or_default())
             )
         })
     }
@@ -452,9 +452,9 @@ impl<'a> Migrationhub_configService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let dry_run = input.get_optional_string("dry_run")?;
             let home_region = input.get_string("home_region")?;
             let target = input.get_string("target")?;
+            let dry_run = input.get_optional_string("dry_run")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -470,9 +470,9 @@ impl<'a> Migrationhub_configService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("dry_run", dry_run.unwrap_or_default())
                 .with_field("home_region", home_region.unwrap_or_default())
                 .with_field("target", target.unwrap_or_default())
+                .with_field("dry_run", dry_run.unwrap_or_default())
             )
         })
     }

@@ -21,7 +21,7 @@ impl<'a> Dhcp_options<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tag_specifications: Option<Vec<String>>, dry_run: Option<bool>, dhcp_configurations: Vec<String>) -> Result<String> {
+    pub async fn create(&self, dry_run: Option<bool>, tag_specifications: Option<Vec<String>>, dhcp_configurations: Vec<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -24,7 +24,7 @@ impl<'a> Network_resource_metadata<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, global_network_id: Option<String>, resource_arn: Option<String>, metadata: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, metadata: Option<HashMap<String, String>>, resource_arn: Option<String>, global_network_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

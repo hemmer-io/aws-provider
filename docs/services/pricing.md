@@ -10,19 +10,19 @@
 
 The pricing service provides access to 4 resource types:
 
-- [Products](#products) [R]
-- [Price_list_file_url](#price_list_file_url) [R]
 - [Services](#services) [R]
+- [Price_list_file_url](#price_list_file_url) [R]
 - [Attribute_values](#attribute_values) [R]
+- [Products](#products) [R]
 
 ---
 
 ## Resources
 
 
-### Products
+### Services
 
-Products resource
+Services resource
 
 **Operations**: ✅ Read
 
@@ -36,10 +36,9 @@ Products resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `next_token` | String | <p>The pagination token that indicates the next set of results to retrieve.</p> |
-| `format_version` | String | <p>The format version of the response. For example, aws_v1.</p> |
-| `price_list` | Vec<String> | <p>The list of products that match your filters. The list contains both the product metadata and 
-         the price information.</p> |
+| `format_version` | String | <p>The format version of the response. For example, <code>aws_v1</code>.</p> |
+| `services` | Vec<String> | <p>The service metadata for the service or services in the response.</p> |
+| `next_token` | String | <p>The pagination token for the next set of retrievable results.</p> |
 
 
 #### Usage Example
@@ -53,11 +52,11 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Access products outputs
-products_id = products.id
-products_next_token = products.next_token
-products_format_version = products.format_version
-products_price_list = products.price_list
+# Access services outputs
+services_id = services.id
+services_format_version = services.format_version
+services_services = services.services
+services_next_token = services.next_token
 ```
 
 ---
@@ -96,48 +95,6 @@ provider = aws.AwsProvider {
 # Access price_list_file_url outputs
 price_list_file_url_id = price_list_file_url.id
 price_list_file_url_url = price_list_file_url.url
-```
-
----
-
-
-### Services
-
-Services resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `format_version` | String | <p>The format version of the response. For example, <code>aws_v1</code>.</p> |
-| `next_token` | String | <p>The pagination token for the next set of retrievable results.</p> |
-| `services` | Vec<String> | <p>The service metadata for the service or services in the response.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access services outputs
-services_id = services.id
-services_format_version = services.format_version
-services_next_token = services.next_token
-services_services = services.services
 ```
 
 ---
@@ -185,6 +142,49 @@ attribute_values_next_token = attribute_values.next_token
 ---
 
 
+### Products
+
+Products resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `price_list` | Vec<String> | <p>The list of products that match your filters. The list contains both the product metadata and 
+         the price information.</p> |
+| `format_version` | String | <p>The format version of the response. For example, aws_v1.</p> |
+| `next_token` | String | <p>The pagination token that indicates the next set of results to retrieve.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access products outputs
+products_id = products.id
+products_price_list = products.price_list
+products_format_version = products.format_version
+products_next_token = products.next_token
+```
+
+---
+
+
 
 ## Common Operations
 
@@ -197,12 +197,12 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create multiple products resources
-products_0 = provider.pricing.Products {
+# Create multiple services resources
+services_0 = provider.pricing.Services {
 }
-products_1 = provider.pricing.Products {
+services_1 = provider.pricing.Services {
 }
-products_2 = provider.pricing.Products {
+services_2 = provider.pricing.Services {
 }
 ```
 
@@ -211,7 +211,7 @@ products_2 = provider.pricing.Products {
 ```kcl
 # Only create in production
 if environment == "production":
-    products = provider.pricing.Products {
+    services = provider.pricing.Services {
     }
 ```
 

@@ -24,23 +24,23 @@ impl<'a> Resource_groupsService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
+            "tag_sync_task" => {
+                self.plan_tag_sync_task(current_state, desired_input).await
+            }
+            "group" => {
+                self.plan_group(current_state, desired_input).await
+            }
             "account_settings" => {
                 self.plan_account_settings(current_state, desired_input).await
             }
             "group_query" => {
                 self.plan_group_query(current_state, desired_input).await
             }
-            "tag_sync_task" => {
-                self.plan_tag_sync_task(current_state, desired_input).await
+            "tags" => {
+                self.plan_tags(current_state, desired_input).await
             }
             "group_configuration" => {
                 self.plan_group_configuration(current_state, desired_input).await
-            }
-            "group" => {
-                self.plan_group(current_state, desired_input).await
-            }
-            "tags" => {
-                self.plan_tags(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -57,23 +57,23 @@ impl<'a> Resource_groupsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "tag_sync_task" => {
+                self.create_tag_sync_task(input).await
+            }
+            "group" => {
+                self.create_group(input).await
+            }
             "account_settings" => {
                 self.create_account_settings(input).await
             }
             "group_query" => {
                 self.create_group_query(input).await
             }
-            "tag_sync_task" => {
-                self.create_tag_sync_task(input).await
+            "tags" => {
+                self.create_tags(input).await
             }
             "group_configuration" => {
                 self.create_group_configuration(input).await
-            }
-            "group" => {
-                self.create_group(input).await
-            }
-            "tags" => {
-                self.create_tags(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -90,23 +90,23 @@ impl<'a> Resource_groupsService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "tag_sync_task" => {
+                self.read_tag_sync_task(id).await
+            }
+            "group" => {
+                self.read_group(id).await
+            }
             "account_settings" => {
                 self.read_account_settings(id).await
             }
             "group_query" => {
                 self.read_group_query(id).await
             }
-            "tag_sync_task" => {
-                self.read_tag_sync_task(id).await
+            "tags" => {
+                self.read_tags(id).await
             }
             "group_configuration" => {
                 self.read_group_configuration(id).await
-            }
-            "group" => {
-                self.read_group(id).await
-            }
-            "tags" => {
-                self.read_tags(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -124,23 +124,23 @@ impl<'a> Resource_groupsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "tag_sync_task" => {
+                self.update_tag_sync_task(id, input).await
+            }
+            "group" => {
+                self.update_group(id, input).await
+            }
             "account_settings" => {
                 self.update_account_settings(id, input).await
             }
             "group_query" => {
                 self.update_group_query(id, input).await
             }
-            "tag_sync_task" => {
-                self.update_tag_sync_task(id, input).await
+            "tags" => {
+                self.update_tags(id, input).await
             }
             "group_configuration" => {
                 self.update_group_configuration(id, input).await
-            }
-            "group" => {
-                self.update_group(id, input).await
-            }
-            "tags" => {
-                self.update_tags(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -157,23 +157,23 @@ impl<'a> Resource_groupsService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
+            "tag_sync_task" => {
+                self.delete_tag_sync_task(id).await
+            }
+            "group" => {
+                self.delete_group(id).await
+            }
             "account_settings" => {
                 self.delete_account_settings(id).await
             }
             "group_query" => {
                 self.delete_group_query(id).await
             }
-            "tag_sync_task" => {
-                self.delete_tag_sync_task(id).await
+            "tags" => {
+                self.delete_tags(id).await
             }
             "group_configuration" => {
                 self.delete_group_configuration(id).await
-            }
-            "group" => {
-                self.delete_group(id).await
-            }
-            "tags" => {
-                self.delete_tags(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -186,6 +186,266 @@ impl<'a> Resource_groupsService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
+
+    // ------------------------------------------------------------------------
+    // Tag_sync_task resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a tag_sync_task resource
+    async fn plan_tag_sync_task(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new tag_sync_task resource
+    async fn create_tag_sync_task(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.resource_groups_client
+            //     .create_tag_sync_task()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a tag_sync_task resource
+    async fn read_tag_sync_task(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.resource_groups_client
+            //     .describe_tag_sync_task()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a tag_sync_task resource
+    async fn update_tag_sync_task(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.resource_groups_client
+            //     .update_tag_sync_task()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a tag_sync_task resource
+    async fn delete_tag_sync_task(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.resource_groups_client
+            //     .delete_tag_sync_task()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Group resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a group resource
+    async fn plan_group(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new group resource
+    async fn create_group(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let configuration = input.get_optional_string("configuration")?;
+            let resource_query = input.get_optional_string("resource_query")?;
+            let description = input.get_optional_string("description")?;
+            let criticality = input.get_optional_string("criticality")?;
+            let owner = input.get_optional_string("owner")?;
+            let name = input.get_string("name")?;
+            let display_name = input.get_optional_string("display_name")?;
+            let tags = input.get_optional_string("tags")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.resource_groups_client
+            //     .create_group()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("configuration", configuration.unwrap_or_default())
+                .with_field("resource_query", resource_query.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("criticality", criticality.unwrap_or_default())
+                .with_field("owner", owner.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("display_name", display_name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a group resource
+    async fn read_group(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.resource_groups_client
+            //     .describe_group()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a group resource
+    async fn update_group(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let configuration = input.get_optional_string("configuration")?;
+            let resource_query = input.get_optional_string("resource_query")?;
+            let description = input.get_optional_string("description")?;
+            let criticality = input.get_optional_string("criticality")?;
+            let owner = input.get_optional_string("owner")?;
+            let name = input.get_string("name")?;
+            let display_name = input.get_optional_string("display_name")?;
+            let tags = input.get_optional_string("tags")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.resource_groups_client
+            //     .update_group()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("configuration", configuration.unwrap_or_default())
+                .with_field("resource_query", resource_query.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("criticality", criticality.unwrap_or_default())
+                .with_field("owner", owner.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("display_name", display_name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a group resource
+    async fn delete_group(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.resource_groups_client
+            //     .delete_group()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
 
 
     // ------------------------------------------------------------------------
@@ -334,8 +594,8 @@ impl<'a> Resource_groupsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let group = input.get_optional_string("group")?;
             let resource_query = input.get_string("resource_query")?;
+            let group = input.get_optional_string("group")?;
             let group_name = input.get_optional_string("group_name")?;
 
 
@@ -351,8 +611,8 @@ impl<'a> Resource_groupsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("group", group.unwrap_or_default())
                 .with_field("resource_query", resource_query.unwrap_or_default())
+                .with_field("group", group.unwrap_or_default())
                 .with_field("group_name", group_name.unwrap_or_default())
             )
         })
@@ -387,8 +647,8 @@ impl<'a> Resource_groupsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let group = input.get_optional_string("group")?;
             let resource_query = input.get_string("resource_query")?;
+            let group = input.get_optional_string("group")?;
             let group_name = input.get_optional_string("group_name")?;
 
 
@@ -405,8 +665,8 @@ impl<'a> Resource_groupsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("group", group.unwrap_or_default())
                 .with_field("resource_query", resource_query.unwrap_or_default())
+                .with_field("group", group.unwrap_or_default())
                 .with_field("group_name", group_name.unwrap_or_default())
             )
         })
@@ -433,11 +693,11 @@ impl<'a> Resource_groupsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Tag_sync_task resource operations
+    // Tags resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a tag_sync_task resource
-    async fn plan_tag_sync_task(
+    /// Plan changes to a tags resource
+    async fn plan_tags(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -452,8 +712,8 @@ impl<'a> Resource_groupsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new tag_sync_task resource
-    async fn create_tag_sync_task(
+    /// Create a new tags resource
+    async fn create_tags(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -465,7 +725,7 @@ impl<'a> Resource_groupsService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.resource_groups_client
-            //     .create_tag_sync_task()
+            //     .create_tags()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -478,8 +738,8 @@ impl<'a> Resource_groupsService<'a> {
         })
     }
 
-    /// Read a tag_sync_task resource
-    async fn read_tag_sync_task(
+    /// Read a tags resource
+    async fn read_tags(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -487,7 +747,7 @@ impl<'a> Resource_groupsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.resource_groups_client
-            //     .describe_tag_sync_task()
+            //     .describe_tags()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -499,8 +759,8 @@ impl<'a> Resource_groupsService<'a> {
         })
     }
 
-    /// Update a tag_sync_task resource
-    async fn update_tag_sync_task(
+    /// Update a tags resource
+    async fn update_tags(
         &self,
         id: &str,
         input: ResourceInput,
@@ -512,7 +772,7 @@ impl<'a> Resource_groupsService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.resource_groups_client
-            //     .update_tag_sync_task()
+            //     .update_tags()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -526,8 +786,8 @@ impl<'a> Resource_groupsService<'a> {
         })
     }
 
-    /// Delete a tag_sync_task resource
-    async fn delete_tag_sync_task(
+    /// Delete a tags resource
+    async fn delete_tags(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -535,7 +795,7 @@ impl<'a> Resource_groupsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.resource_groups_client
-            //     .delete_tag_sync_task()
+            //     .delete_tags()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -658,266 +918,6 @@ impl<'a> Resource_groupsService<'a> {
             // Example:
             // self.provider.resource_groups_client
             //     .delete_group_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Group resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a group resource
-    async fn plan_group(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new group resource
-    async fn create_group(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let display_name = input.get_optional_string("display_name")?;
-            let name = input.get_string("name")?;
-            let resource_query = input.get_optional_string("resource_query")?;
-            let configuration = input.get_optional_string("configuration")?;
-            let description = input.get_optional_string("description")?;
-            let criticality = input.get_optional_string("criticality")?;
-            let owner = input.get_optional_string("owner")?;
-            let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.resource_groups_client
-            //     .create_group()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("display_name", display_name.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("resource_query", resource_query.unwrap_or_default())
-                .with_field("configuration", configuration.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("criticality", criticality.unwrap_or_default())
-                .with_field("owner", owner.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a group resource
-    async fn read_group(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.resource_groups_client
-            //     .describe_group()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a group resource
-    async fn update_group(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let display_name = input.get_optional_string("display_name")?;
-            let name = input.get_string("name")?;
-            let resource_query = input.get_optional_string("resource_query")?;
-            let configuration = input.get_optional_string("configuration")?;
-            let description = input.get_optional_string("description")?;
-            let criticality = input.get_optional_string("criticality")?;
-            let owner = input.get_optional_string("owner")?;
-            let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.resource_groups_client
-            //     .update_group()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("display_name", display_name.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("resource_query", resource_query.unwrap_or_default())
-                .with_field("configuration", configuration.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("criticality", criticality.unwrap_or_default())
-                .with_field("owner", owner.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a group resource
-    async fn delete_group(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.resource_groups_client
-            //     .delete_group()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Tags resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a tags resource
-    async fn plan_tags(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new tags resource
-    async fn create_tags(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.resource_groups_client
-            //     .create_tags()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a tags resource
-    async fn read_tags(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.resource_groups_client
-            //     .describe_tags()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a tags resource
-    async fn update_tags(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.resource_groups_client
-            //     .update_tags()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a tags resource
-    async fn delete_tags(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.resource_groups_client
-            //     .delete_tags()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

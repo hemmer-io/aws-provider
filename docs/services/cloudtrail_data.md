@@ -27,12 +27,12 @@ AuditEvents resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `audit_events` | Vec<String> | ✅ | <p>The JSON payload of events that you want to ingest. You can also point to the JSON event
-         payload in a file.</p> |
 | `channel_arn` | String | ✅ | <p>The ARN or ID (the ARN suffix) of a channel.</p> |
 | `external_id` | String |  | <p>A unique identifier that is conditionally required when the channel's resource policy includes an external 
          ID. This value can be any string, 
          such as a passphrase or account number.</p> |
+| `audit_events` | Vec<String> | ✅ | <p>The JSON payload of events that you want to ingest. You can also point to the JSON event
+         payload in a file.</p> |
 
 
 
@@ -49,9 +49,9 @@ provider = aws.AwsProvider {
 
 # Create audit_events
 audit_events = provider.cloudtrail_data.Audit_events {
+    channel_arn = "value"  # <p>The ARN or ID (the ARN suffix) of a channel.</p>
     audit_events = "value"  # <p>The JSON payload of events that you want to ingest. You can also point to the JSON event
          payload in a file.</p>
-    channel_arn = "value"  # <p>The ARN or ID (the ARN suffix) of a channel.</p>
 }
 
 ```
@@ -73,16 +73,16 @@ provider = aws.AwsProvider {
 
 # Create multiple audit_events resources
 audit_events_0 = provider.cloudtrail_data.Audit_events {
-    audit_events = "value-0"
     channel_arn = "value-0"
+    audit_events = "value-0"
 }
 audit_events_1 = provider.cloudtrail_data.Audit_events {
-    audit_events = "value-1"
     channel_arn = "value-1"
+    audit_events = "value-1"
 }
 audit_events_2 = provider.cloudtrail_data.Audit_events {
-    audit_events = "value-2"
     channel_arn = "value-2"
+    audit_events = "value-2"
 }
 ```
 
@@ -92,8 +92,8 @@ audit_events_2 = provider.cloudtrail_data.Audit_events {
 # Only create in production
 if environment == "production":
     audit_events = provider.cloudtrail_data.Audit_events {
-        audit_events = "production-value"
         channel_arn = "production-value"
+        audit_events = "production-value"
     }
 ```
 

@@ -21,7 +21,7 @@ impl<'a> Multi_region_cluster<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, multi_region_cluster_name_suffix: String, engine: Option<String>, engine_version: Option<String>, tls_enabled: Option<bool>, num_shards: Option<i64>, tags: Option<Vec<String>>, node_type: String, description: Option<String>, multi_region_parameter_group_name: Option<String>) -> Result<String> {
+    pub async fn create(&self, node_type: String, multi_region_parameter_group_name: Option<String>, multi_region_cluster_name_suffix: String, description: Option<String>, engine: Option<String>, engine_version: Option<String>, tags: Option<Vec<String>>, num_shards: Option<i64>, tls_enabled: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Multi_region_cluster<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, multi_region_cluster_name_suffix: Option<String>, engine: Option<String>, engine_version: Option<String>, tls_enabled: Option<bool>, num_shards: Option<i64>, tags: Option<Vec<String>>, node_type: Option<String>, description: Option<String>, multi_region_parameter_group_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, node_type: Option<String>, multi_region_parameter_group_name: Option<String>, multi_region_cluster_name_suffix: Option<String>, description: Option<String>, engine: Option<String>, engine_version: Option<String>, tags: Option<Vec<String>>, num_shards: Option<i64>, tls_enabled: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

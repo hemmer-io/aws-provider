@@ -24,7 +24,7 @@ impl<'a> Sync_blocker<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, sync_type: Option<String>, id: Option<String>, resource_name: Option<String>, resolved_reason: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, resource_name: Option<String>, resolved_reason: Option<String>, id: Option<String>, sync_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

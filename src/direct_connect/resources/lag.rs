@@ -21,7 +21,7 @@ impl<'a> Lag<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, lag_name: String, connection_id: Option<String>, tags: Option<Vec<String>>, child_connection_tags: Option<Vec<String>>, number_of_connections: i64, provider_name: Option<String>, request_mac_sec: Option<bool>, connections_bandwidth: String, location: String) -> Result<String> {
+    pub async fn create(&self, lag_name: String, location: String, tags: Option<Vec<String>>, number_of_connections: i64, provider_name: Option<String>, child_connection_tags: Option<Vec<String>>, connections_bandwidth: String, connection_id: Option<String>, request_mac_sec: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Lag<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, lag_name: Option<String>, connection_id: Option<String>, tags: Option<Vec<String>>, child_connection_tags: Option<Vec<String>>, number_of_connections: Option<i64>, provider_name: Option<String>, request_mac_sec: Option<bool>, connections_bandwidth: Option<String>, location: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, lag_name: Option<String>, location: Option<String>, tags: Option<Vec<String>>, number_of_connections: Option<i64>, provider_name: Option<String>, child_connection_tags: Option<Vec<String>>, connections_bandwidth: Option<String>, connection_id: Option<String>, request_mac_sec: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

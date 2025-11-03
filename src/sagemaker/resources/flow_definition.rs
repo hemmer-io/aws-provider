@@ -21,7 +21,7 @@ impl<'a> Flow_definition<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, human_loop_request_source: Option<String>, human_loop_activation_config: Option<String>, human_loop_config: Option<String>, output_config: String, flow_definition_name: String, role_arn: String) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, output_config: String, flow_definition_name: String, human_loop_config: Option<String>, human_loop_request_source: Option<String>, human_loop_activation_config: Option<String>, role_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

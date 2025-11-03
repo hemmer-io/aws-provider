@@ -21,7 +21,7 @@ impl<'a> Model_bias_job_definition<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, model_bias_job_output_config: String, model_bias_baseline_config: Option<String>, network_config: Option<String>, job_definition_name: String, tags: Option<Vec<String>>, model_bias_app_specification: String, job_resources: String, stopping_condition: Option<String>, role_arn: String, model_bias_job_input: String) -> Result<String> {
+    pub async fn create(&self, model_bias_job_input: String, job_definition_name: String, model_bias_baseline_config: Option<String>, role_arn: String, stopping_condition: Option<String>, model_bias_app_specification: String, model_bias_job_output_config: String, network_config: Option<String>, tags: Option<Vec<String>>, job_resources: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

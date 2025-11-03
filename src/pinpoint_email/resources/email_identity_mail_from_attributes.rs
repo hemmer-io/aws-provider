@@ -21,7 +21,7 @@ impl<'a> Email_identity_mail_from_attributes<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, behavior_on_mx_failure: Option<String>, mail_from_domain: Option<String>, email_identity: String) -> Result<String> {
+    pub async fn create(&self, email_identity: String, mail_from_domain: Option<String>, behavior_on_mx_failure: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

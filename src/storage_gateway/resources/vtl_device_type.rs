@@ -24,7 +24,7 @@ impl<'a> Vtl_device_type<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, device_type: Option<String>, vtl_device_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, vtl_device_arn: Option<String>, device_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

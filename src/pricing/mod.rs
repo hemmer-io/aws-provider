@@ -24,17 +24,17 @@ impl<'a> PricingService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "products" => {
-                self.plan_products(current_state, desired_input).await
+            "services" => {
+                self.plan_services(current_state, desired_input).await
             }
             "price_list_file_url" => {
                 self.plan_price_list_file_url(current_state, desired_input).await
             }
-            "services" => {
-                self.plan_services(current_state, desired_input).await
-            }
             "attribute_values" => {
                 self.plan_attribute_values(current_state, desired_input).await
+            }
+            "products" => {
+                self.plan_products(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -51,17 +51,17 @@ impl<'a> PricingService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "products" => {
-                self.create_products(input).await
+            "services" => {
+                self.create_services(input).await
             }
             "price_list_file_url" => {
                 self.create_price_list_file_url(input).await
             }
-            "services" => {
-                self.create_services(input).await
-            }
             "attribute_values" => {
                 self.create_attribute_values(input).await
+            }
+            "products" => {
+                self.create_products(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -78,17 +78,17 @@ impl<'a> PricingService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "products" => {
-                self.read_products(id).await
+            "services" => {
+                self.read_services(id).await
             }
             "price_list_file_url" => {
                 self.read_price_list_file_url(id).await
             }
-            "services" => {
-                self.read_services(id).await
-            }
             "attribute_values" => {
                 self.read_attribute_values(id).await
+            }
+            "products" => {
+                self.read_products(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -106,17 +106,17 @@ impl<'a> PricingService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "products" => {
-                self.update_products(id, input).await
+            "services" => {
+                self.update_services(id, input).await
             }
             "price_list_file_url" => {
                 self.update_price_list_file_url(id, input).await
             }
-            "services" => {
-                self.update_services(id, input).await
-            }
             "attribute_values" => {
                 self.update_attribute_values(id, input).await
+            }
+            "products" => {
+                self.update_products(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -133,17 +133,17 @@ impl<'a> PricingService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "products" => {
-                self.delete_products(id).await
+            "services" => {
+                self.delete_services(id).await
             }
             "price_list_file_url" => {
                 self.delete_price_list_file_url(id).await
             }
-            "services" => {
-                self.delete_services(id).await
-            }
             "attribute_values" => {
                 self.delete_attribute_values(id).await
+            }
+            "products" => {
+                self.delete_products(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -159,11 +159,11 @@ impl<'a> PricingService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Products resource operations
+    // Services resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a products resource
-    async fn plan_products(
+    /// Plan changes to a services resource
+    async fn plan_services(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -178,8 +178,8 @@ impl<'a> PricingService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new products resource
-    async fn create_products(
+    /// Create a new services resource
+    async fn create_services(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -191,7 +191,7 @@ impl<'a> PricingService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.pricing_client
-            //     .create_products()
+            //     .create_services()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -204,8 +204,8 @@ impl<'a> PricingService<'a> {
         })
     }
 
-    /// Read a products resource
-    async fn read_products(
+    /// Read a services resource
+    async fn read_services(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -213,7 +213,7 @@ impl<'a> PricingService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.pricing_client
-            //     .describe_products()
+            //     .describe_services()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -225,8 +225,8 @@ impl<'a> PricingService<'a> {
         })
     }
 
-    /// Update a products resource
-    async fn update_products(
+    /// Update a services resource
+    async fn update_services(
         &self,
         id: &str,
         input: ResourceInput,
@@ -238,7 +238,7 @@ impl<'a> PricingService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.pricing_client
-            //     .update_products()
+            //     .update_services()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -252,8 +252,8 @@ impl<'a> PricingService<'a> {
         })
     }
 
-    /// Delete a products resource
-    async fn delete_products(
+    /// Delete a services resource
+    async fn delete_services(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -261,7 +261,7 @@ impl<'a> PricingService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.pricing_client
-            //     .delete_products()
+            //     .delete_services()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -387,120 +387,6 @@ impl<'a> PricingService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Services resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a services resource
-    async fn plan_services(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new services resource
-    async fn create_services(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.pricing_client
-            //     .create_services()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a services resource
-    async fn read_services(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.pricing_client
-            //     .describe_services()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a services resource
-    async fn update_services(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.pricing_client
-            //     .update_services()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a services resource
-    async fn delete_services(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.pricing_client
-            //     .delete_services()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
     // Attribute_values resource operations
     // ------------------------------------------------------------------------
 
@@ -604,6 +490,120 @@ impl<'a> PricingService<'a> {
             // Example:
             // self.provider.pricing_client
             //     .delete_attribute_values()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Products resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a products resource
+    async fn plan_products(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new products resource
+    async fn create_products(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.pricing_client
+            //     .create_products()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a products resource
+    async fn read_products(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.pricing_client
+            //     .describe_products()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a products resource
+    async fn update_products(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.pricing_client
+            //     .update_products()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a products resource
+    async fn delete_products(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.pricing_client
+            //     .delete_products()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

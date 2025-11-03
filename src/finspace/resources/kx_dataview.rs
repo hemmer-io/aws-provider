@@ -21,7 +21,7 @@ impl<'a> Kx_dataview<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, read_write: Option<bool>, auto_update: Option<bool>, database_name: String, tags: Option<HashMap<String, String>>, client_token: String, az_mode: String, environment_id: String, dataview_name: String, availability_zone_id: Option<String>, segment_configurations: Option<Vec<String>>, changeset_id: Option<String>, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, az_mode: String, segment_configurations: Option<Vec<String>>, description: Option<String>, tags: Option<HashMap<String, String>>, database_name: String, availability_zone_id: Option<String>, auto_update: Option<bool>, client_token: String, read_write: Option<bool>, dataview_name: String, environment_id: String, changeset_id: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Kx_dataview<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, read_write: Option<bool>, auto_update: Option<bool>, database_name: Option<String>, tags: Option<HashMap<String, String>>, client_token: Option<String>, az_mode: Option<String>, environment_id: Option<String>, dataview_name: Option<String>, availability_zone_id: Option<String>, segment_configurations: Option<Vec<String>>, changeset_id: Option<String>, description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, az_mode: Option<String>, segment_configurations: Option<Vec<String>>, description: Option<String>, tags: Option<HashMap<String, String>>, database_name: Option<String>, availability_zone_id: Option<String>, auto_update: Option<bool>, client_token: Option<String>, read_write: Option<bool>, dataview_name: Option<String>, environment_id: Option<String>, changeset_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

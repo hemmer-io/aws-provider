@@ -186,11 +186,11 @@ impl<'a> Service_catalog_appregistryService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let tags = input.get_optional_string("tags")?;
-            let attributes = input.get_string("attributes")?;
             let name = input.get_string("name")?;
-            let client_token = input.get_string("client_token")?;
             let description = input.get_optional_string("description")?;
+            let tags = input.get_optional_string("tags")?;
+            let client_token = input.get_string("client_token")?;
+            let attributes = input.get_string("attributes")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -205,11 +205,11 @@ impl<'a> Service_catalog_appregistryService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("attributes", attributes.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("attributes", attributes.unwrap_or_default())
             )
         })
     }
@@ -243,11 +243,11 @@ impl<'a> Service_catalog_appregistryService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let tags = input.get_optional_string("tags")?;
-            let attributes = input.get_string("attributes")?;
             let name = input.get_string("name")?;
-            let client_token = input.get_string("client_token")?;
             let description = input.get_optional_string("description")?;
+            let tags = input.get_optional_string("tags")?;
+            let client_token = input.get_string("client_token")?;
+            let attributes = input.get_string("attributes")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -263,11 +263,11 @@ impl<'a> Service_catalog_appregistryService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("attributes", attributes.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("attributes", attributes.unwrap_or_default())
             )
         })
     }
@@ -440,8 +440,8 @@ impl<'a> Service_catalog_appregistryService<'a> {
             // Extract input fields
             let description = input.get_optional_string("description")?;
             let client_token = input.get_string("client_token")?;
-            let tags = input.get_optional_string("tags")?;
             let name = input.get_string("name")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -458,8 +458,8 @@ impl<'a> Service_catalog_appregistryService<'a> {
                 .with_id("placeholder-id")
                 .with_field("description", description.unwrap_or_default())
                 .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
@@ -495,8 +495,8 @@ impl<'a> Service_catalog_appregistryService<'a> {
             // Extract input fields
             let description = input.get_optional_string("description")?;
             let client_token = input.get_string("client_token")?;
-            let tags = input.get_optional_string("tags")?;
             let name = input.get_string("name")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -514,8 +514,8 @@ impl<'a> Service_catalog_appregistryService<'a> {
                 .with_id(id)
                 .with_field("description", description.unwrap_or_default())
                 .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }

@@ -21,7 +21,7 @@ impl<'a> Scaling_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, auto_scaling_group_name: String, policy_type: Option<String>, min_adjustment_magnitude: Option<i64>, metric_aggregation_type: Option<String>, enabled: Option<bool>, step_adjustments: Option<Vec<String>>, cooldown: Option<i64>, scaling_adjustment: Option<i64>, policy_name: String, adjustment_type: Option<String>, target_tracking_configuration: Option<String>, estimated_instance_warmup: Option<i64>, predictive_scaling_configuration: Option<String>, min_adjustment_step: Option<i64>) -> Result<String> {
+    pub async fn create(&self, scaling_adjustment: Option<i64>, min_adjustment_step: Option<i64>, enabled: Option<bool>, auto_scaling_group_name: String, cooldown: Option<i64>, adjustment_type: Option<String>, metric_aggregation_type: Option<String>, step_adjustments: Option<Vec<String>>, estimated_instance_warmup: Option<i64>, policy_name: String, target_tracking_configuration: Option<String>, min_adjustment_magnitude: Option<i64>, policy_type: Option<String>, predictive_scaling_configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

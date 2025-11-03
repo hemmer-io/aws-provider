@@ -21,7 +21,7 @@ impl<'a> Multiplex_program<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, multiplex_id: String, request_id: String, multiplex_program_settings: String, program_name: String) -> Result<String> {
+    pub async fn create(&self, multiplex_id: String, multiplex_program_settings: String, program_name: String, request_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Multiplex_program<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, multiplex_id: Option<String>, request_id: Option<String>, multiplex_program_settings: Option<String>, program_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, multiplex_id: Option<String>, multiplex_program_settings: Option<String>, program_name: Option<String>, request_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

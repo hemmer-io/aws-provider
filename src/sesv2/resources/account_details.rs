@@ -21,7 +21,7 @@ impl<'a> Account_details<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, contact_language: Option<String>, website_url: String, use_case_description: Option<String>, additional_contact_email_addresses: Option<Vec<String>>, production_access_enabled: Option<bool>, mail_type: String) -> Result<String> {
+    pub async fn create(&self, contact_language: Option<String>, mail_type: String, additional_contact_email_addresses: Option<Vec<String>>, production_access_enabled: Option<bool>, website_url: String, use_case_description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

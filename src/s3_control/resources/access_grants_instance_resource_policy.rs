@@ -21,7 +21,7 @@ impl<'a> Access_grants_instance_resource_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, policy: String, organization: Option<String>, account_id: String) -> Result<String> {
+    pub async fn create(&self, policy: String, account_id: String, organization: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

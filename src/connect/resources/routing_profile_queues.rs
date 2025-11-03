@@ -24,7 +24,7 @@ impl<'a> Routing_profile_queues<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, instance_id: Option<String>, queue_configs: Option<Vec<String>>, routing_profile_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, routing_profile_id: Option<String>, queue_configs: Option<Vec<String>>, instance_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

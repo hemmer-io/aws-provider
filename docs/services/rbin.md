@@ -27,16 +27,10 @@ Rule resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `retention_period` | String | ✅ | <p>Information about the retention period for which the retention rule is to retain resources.</p> |
-| `tags` | Vec<String> |  | <p>Information about the tags to assign to the retention rule.</p> |
-| `resource_type` | String | ✅ | <p>The resource type to be retained by the retention rule. Currently, only Amazon EBS snapshots 
-      and EBS-backed AMIs are supported. To retain snapshots, specify <code>EBS_SNAPSHOT</code>. To 
-      retain EBS-backed AMIs, specify <code>EC2_IMAGE</code>.</p> |
 | `exclude_resource_tags` | Vec<String> |  | <p>[Region-level retention rules only] Specifies the exclusion tags to use to identify resources that are to be excluded, 
 or ignored, by a Region-level retention rule. Resources that have any of these tags are not retained by the retention rule 
 upon deletion.</p>
          <p>You can't specify exclusion tags for tag-level retention rules.</p> |
-| `description` | String |  | <p>The retention rule description.</p> |
 | `resource_tags` | Vec<String> |  | <p>[Tag-level retention rules only] Specifies the resource tags to use to identify resources that are to be retained by a 
   tag-level retention rule. For tag-level retention rules, only deleted resources, of the specified resource type, that 
   have one or more of the specified tag key and value pairs are retained. If a resource is deleted, but it does not have 
@@ -45,6 +39,12 @@ upon deletion.</p>
          <p>To create a Region-level retention rule, omit this parameter. A Region-level retention rule 
       does not have any resource tags specified. It retains all deleted resources of the specified 
       resource type in the Region in which the rule is created, even if the resources are not tagged.</p> |
+| `retention_period` | String | ✅ | <p>Information about the retention period for which the retention rule is to retain resources.</p> |
+| `description` | String |  | <p>The retention rule description.</p> |
+| `resource_type` | String | ✅ | <p>The resource type to be retained by the retention rule. Currently, only Amazon EBS snapshots 
+      and EBS-backed AMIs are supported. To retain snapshots, specify <code>EBS_SNAPSHOT</code>. To 
+      retain EBS-backed AMIs, specify <code>EC2_IMAGE</code>.</p> |
+| `tags` | Vec<String> |  | <p>Information about the tags to assign to the retention rule.</p> |
 | `lock_configuration` | String |  | <p>Information about the retention rule lock configuration.</p> |
 
 
@@ -52,6 +52,21 @@ upon deletion.</p>
 
 | Output | Type | Description |
 |--------|------|-------------|
+| `lock_configuration` | String | <p>Information about the retention rule lock configuration.</p> |
+| `resource_type` | String | <p>The resource type retained by the retention rule.</p> |
+| `status` | String | <p>The state of the retention rule. Only retention rules that are in the <code>available</code> 
+      state retain resources.</p> |
+| `rule_arn` | String | <p>The Amazon Resource Name (ARN) of the retention rule.</p> |
+| `exclude_resource_tags` | Vec<String> | <p>[Region-level retention rules only] Information about the exclusion tags used to identify resources that are to be 
+excluded, or ignored, by the retention rule.</p> |
+| `description` | String | <p>The retention rule description.</p> |
+| `retention_period` | String | <p>Information about the retention period for which the retention rule is to retain resources.</p> |
+| `identifier` | String | <p>The unique ID of the retention rule.</p> |
+| `resource_tags` | Vec<String> | <p>[Tag-level retention rules only] Information about the resource tags used to identify resources that are retained by the retention 
+      rule.</p> |
+| `lock_end_time` | String | <p>The date and time at which the unlock delay is set to expire. Only returned 
+      for retention rules that have been unlocked and that are still within the unlock 
+      delay period.</p> |
 | `lock_state` | String | <p>[Region-level retention rules only] The lock state for the retention rule.</p>
          <ul>
             <li>
@@ -76,21 +91,6 @@ upon deletion.</p>
         only; it can never transition back to <code>null</code>.</p>
             </li>
          </ul> |
-| `exclude_resource_tags` | Vec<String> | <p>[Region-level retention rules only] Information about the exclusion tags used to identify resources that are to be 
-excluded, or ignored, by the retention rule.</p> |
-| `status` | String | <p>The state of the retention rule. Only retention rules that are in the <code>available</code> 
-      state retain resources.</p> |
-| `identifier` | String | <p>The unique ID of the retention rule.</p> |
-| `rule_arn` | String | <p>The Amazon Resource Name (ARN) of the retention rule.</p> |
-| `lock_configuration` | String | <p>Information about the retention rule lock configuration.</p> |
-| `lock_end_time` | String | <p>The date and time at which the unlock delay is set to expire. Only returned 
-      for retention rules that have been unlocked and that are still within the unlock 
-      delay period.</p> |
-| `resource_tags` | Vec<String> | <p>[Tag-level retention rules only] Information about the resource tags used to identify resources that are retained by the retention 
-      rule.</p> |
-| `retention_period` | String | <p>Information about the retention period for which the retention rule is to retain resources.</p> |
-| `description` | String | <p>The retention rule description.</p> |
-| `resource_type` | String | <p>The resource type retained by the retention rule.</p> |
 
 
 #### Usage Example
@@ -114,17 +114,17 @@ rule = provider.rbin.Rule {
 
 # Access rule outputs
 rule_id = rule.id
-rule_lock_state = rule.lock_state
-rule_exclude_resource_tags = rule.exclude_resource_tags
-rule_status = rule.status
-rule_identifier = rule.identifier
-rule_rule_arn = rule.rule_arn
 rule_lock_configuration = rule.lock_configuration
-rule_lock_end_time = rule.lock_end_time
-rule_resource_tags = rule.resource_tags
-rule_retention_period = rule.retention_period
-rule_description = rule.description
 rule_resource_type = rule.resource_type
+rule_status = rule.status
+rule_rule_arn = rule.rule_arn
+rule_exclude_resource_tags = rule.exclude_resource_tags
+rule_description = rule.description
+rule_retention_period = rule.retention_period
+rule_identifier = rule.identifier
+rule_resource_tags = rule.resource_tags
+rule_lock_end_time = rule.lock_end_time
+rule_lock_state = rule.lock_state
 ```
 
 ---

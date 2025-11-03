@@ -21,7 +21,7 @@ impl<'a> Image_pipeline<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, distribution_configuration_arn: Option<String>, workflows: Option<Vec<String>>, container_recipe_arn: Option<String>, schedule: Option<String>, tags: Option<HashMap<String, String>>, logging_configuration: Option<String>, infrastructure_configuration_arn: String, image_tests_configuration: Option<String>, execution_role: Option<String>, status: Option<String>, enhanced_image_metadata_enabled: Option<bool>, image_scanning_configuration: Option<String>, description: Option<String>, client_token: String, image_recipe_arn: Option<String>, name: String) -> Result<String> {
+    pub async fn create(&self, image_tests_configuration: Option<String>, container_recipe_arn: Option<String>, execution_role: Option<String>, client_token: String, image_scanning_configuration: Option<String>, description: Option<String>, infrastructure_configuration_arn: String, workflows: Option<Vec<String>>, enhanced_image_metadata_enabled: Option<bool>, distribution_configuration_arn: Option<String>, logging_configuration: Option<String>, status: Option<String>, tags: Option<HashMap<String, String>>, schedule: Option<String>, name: String, image_recipe_arn: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Image_pipeline<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, distribution_configuration_arn: Option<String>, workflows: Option<Vec<String>>, container_recipe_arn: Option<String>, schedule: Option<String>, tags: Option<HashMap<String, String>>, logging_configuration: Option<String>, infrastructure_configuration_arn: Option<String>, image_tests_configuration: Option<String>, execution_role: Option<String>, status: Option<String>, enhanced_image_metadata_enabled: Option<bool>, image_scanning_configuration: Option<String>, description: Option<String>, client_token: Option<String>, image_recipe_arn: Option<String>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, image_tests_configuration: Option<String>, container_recipe_arn: Option<String>, execution_role: Option<String>, client_token: Option<String>, image_scanning_configuration: Option<String>, description: Option<String>, infrastructure_configuration_arn: Option<String>, workflows: Option<Vec<String>>, enhanced_image_metadata_enabled: Option<bool>, distribution_configuration_arn: Option<String>, logging_configuration: Option<String>, status: Option<String>, tags: Option<HashMap<String, String>>, schedule: Option<String>, name: Option<String>, image_recipe_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

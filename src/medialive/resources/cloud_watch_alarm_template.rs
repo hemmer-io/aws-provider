@@ -21,7 +21,7 @@ impl<'a> Cloud_watch_alarm_template<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, target_resource_type: String, group_identifier: String, comparison_operator: String, threshold: f64, description: Option<String>, datapoints_to_alarm: Option<i64>, evaluation_periods: i64, tags: Option<HashMap<String, String>>, period: i64, treat_missing_data: String, statistic: String, name: String, metric_name: String, request_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, comparison_operator: String, datapoints_to_alarm: Option<i64>, description: Option<String>, evaluation_periods: i64, period: i64, statistic: String, tags: Option<HashMap<String, String>>, treat_missing_data: String, name: String, group_identifier: String, threshold: f64, target_resource_type: String, request_id: Option<String>, metric_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Cloud_watch_alarm_template<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, target_resource_type: Option<String>, group_identifier: Option<String>, comparison_operator: Option<String>, threshold: Option<f64>, description: Option<String>, datapoints_to_alarm: Option<i64>, evaluation_periods: Option<i64>, tags: Option<HashMap<String, String>>, period: Option<i64>, treat_missing_data: Option<String>, statistic: Option<String>, name: Option<String>, metric_name: Option<String>, request_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, comparison_operator: Option<String>, datapoints_to_alarm: Option<i64>, description: Option<String>, evaluation_periods: Option<i64>, period: Option<i64>, statistic: Option<String>, tags: Option<HashMap<String, String>>, treat_missing_data: Option<String>, name: Option<String>, group_identifier: Option<String>, threshold: Option<f64>, target_resource_type: Option<String>, request_id: Option<String>, metric_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

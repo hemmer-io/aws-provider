@@ -24,7 +24,7 @@ impl<'a> Routing_profile_concurrency<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, media_concurrencies: Option<Vec<String>>, routing_profile_id: Option<String>, instance_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, instance_id: Option<String>, routing_profile_id: Option<String>, media_concurrencies: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

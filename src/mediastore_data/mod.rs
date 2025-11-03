@@ -141,12 +141,12 @@ impl<'a> Mediastore_dataService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let path = input.get_string("path")?;
-            let upload_availability = input.get_optional_string("upload_availability")?;
-            let cache_control = input.get_optional_string("cache_control")?;
-            let storage_class = input.get_optional_string("storage_class")?;
             let content_type = input.get_optional_string("content_type")?;
+            let path = input.get_string("path")?;
+            let storage_class = input.get_optional_string("storage_class")?;
+            let upload_availability = input.get_optional_string("upload_availability")?;
             let body = input.get_string("body")?;
+            let cache_control = input.get_optional_string("cache_control")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -161,12 +161,12 @@ impl<'a> Mediastore_dataService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("path", path.unwrap_or_default())
-                .with_field("upload_availability", upload_availability.unwrap_or_default())
-                .with_field("cache_control", cache_control.unwrap_or_default())
-                .with_field("storage_class", storage_class.unwrap_or_default())
                 .with_field("content_type", content_type.unwrap_or_default())
+                .with_field("path", path.unwrap_or_default())
+                .with_field("storage_class", storage_class.unwrap_or_default())
+                .with_field("upload_availability", upload_availability.unwrap_or_default())
                 .with_field("body", body.unwrap_or_default())
+                .with_field("cache_control", cache_control.unwrap_or_default())
             )
         })
     }
@@ -200,12 +200,12 @@ impl<'a> Mediastore_dataService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let path = input.get_string("path")?;
-            let upload_availability = input.get_optional_string("upload_availability")?;
-            let cache_control = input.get_optional_string("cache_control")?;
-            let storage_class = input.get_optional_string("storage_class")?;
             let content_type = input.get_optional_string("content_type")?;
+            let path = input.get_string("path")?;
+            let storage_class = input.get_optional_string("storage_class")?;
+            let upload_availability = input.get_optional_string("upload_availability")?;
             let body = input.get_string("body")?;
+            let cache_control = input.get_optional_string("cache_control")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -221,12 +221,12 @@ impl<'a> Mediastore_dataService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("path", path.unwrap_or_default())
-                .with_field("upload_availability", upload_availability.unwrap_or_default())
-                .with_field("cache_control", cache_control.unwrap_or_default())
-                .with_field("storage_class", storage_class.unwrap_or_default())
                 .with_field("content_type", content_type.unwrap_or_default())
+                .with_field("path", path.unwrap_or_default())
+                .with_field("storage_class", storage_class.unwrap_or_default())
+                .with_field("upload_availability", upload_availability.unwrap_or_default())
                 .with_field("body", body.unwrap_or_default())
+                .with_field("cache_control", cache_control.unwrap_or_default())
             )
         })
     }

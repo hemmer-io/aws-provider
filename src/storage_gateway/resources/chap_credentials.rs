@@ -38,7 +38,7 @@ impl<'a> Chap_credentials<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, secret_to_authenticate_target: Option<String>, initiator_name: Option<String>, secret_to_authenticate_initiator: Option<String>, target_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, secret_to_authenticate_initiator: Option<String>, target_arn: Option<String>, initiator_name: Option<String>, secret_to_authenticate_target: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

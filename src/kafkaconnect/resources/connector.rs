@@ -21,7 +21,7 @@ impl<'a> Connector<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, kafka_cluster_client_authentication: String, plugins: Vec<String>, worker_configuration: Option<String>, capacity: String, connector_configuration: HashMap<String, String>, connector_description: Option<String>, log_delivery: Option<String>, connector_name: String, kafka_cluster_encryption_in_transit: String, tags: Option<HashMap<String, String>>, kafka_cluster: String, service_execution_role_arn: String, kafka_connect_version: String) -> Result<String> {
+    pub async fn create(&self, log_delivery: Option<String>, plugins: Vec<String>, connector_name: String, kafka_cluster: String, connector_configuration: HashMap<String, String>, kafka_cluster_client_authentication: String, kafka_connect_version: String, connector_description: Option<String>, worker_configuration: Option<String>, kafka_cluster_encryption_in_transit: String, tags: Option<HashMap<String, String>>, service_execution_role_arn: String, capacity: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Connector<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, kafka_cluster_client_authentication: Option<String>, plugins: Option<Vec<String>>, worker_configuration: Option<String>, capacity: Option<String>, connector_configuration: Option<HashMap<String, String>>, connector_description: Option<String>, log_delivery: Option<String>, connector_name: Option<String>, kafka_cluster_encryption_in_transit: Option<String>, tags: Option<HashMap<String, String>>, kafka_cluster: Option<String>, service_execution_role_arn: Option<String>, kafka_connect_version: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, log_delivery: Option<String>, plugins: Option<Vec<String>>, connector_name: Option<String>, kafka_cluster: Option<String>, connector_configuration: Option<HashMap<String, String>>, kafka_cluster_client_authentication: Option<String>, kafka_connect_version: Option<String>, connector_description: Option<String>, worker_configuration: Option<String>, kafka_cluster_encryption_in_transit: Option<String>, tags: Option<HashMap<String, String>>, service_execution_role_arn: Option<String>, capacity: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

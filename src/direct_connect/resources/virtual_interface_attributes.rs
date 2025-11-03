@@ -24,7 +24,7 @@ impl<'a> Virtual_interface_attributes<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, virtual_interface_name: Option<String>, virtual_interface_id: Option<String>, enable_site_link: Option<bool>, mtu: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, enable_site_link: Option<bool>, mtu: Option<i64>, virtual_interface_name: Option<String>, virtual_interface_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

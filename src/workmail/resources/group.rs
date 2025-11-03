@@ -21,7 +21,7 @@ impl<'a> Group<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, organization_id: String, name: String, hidden_from_global_address_list: Option<bool>) -> Result<String> {
+    pub async fn create(&self, hidden_from_global_address_list: Option<bool>, name: String, organization_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Group<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, organization_id: Option<String>, name: Option<String>, hidden_from_global_address_list: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, hidden_from_global_address_list: Option<bool>, name: Option<String>, organization_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

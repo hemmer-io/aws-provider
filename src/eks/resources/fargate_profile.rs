@@ -21,7 +21,7 @@ impl<'a> Fargate_profile<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<HashMap<String, String>>, pod_execution_role_arn: String, fargate_profile_name: String, cluster_name: String, subnets: Option<String>, selectors: Option<Vec<String>>, client_request_token: Option<String>) -> Result<String> {
+    pub async fn create(&self, client_request_token: Option<String>, pod_execution_role_arn: String, cluster_name: String, selectors: Option<Vec<String>>, subnets: Option<String>, fargate_profile_name: String, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

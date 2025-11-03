@@ -24,44 +24,44 @@ impl<'a> FsxService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "storage_virtual_machines" => {
-                self.plan_storage_virtual_machines(current_state, desired_input).await
-            }
-            "volumes" => {
-                self.plan_volumes(current_state, desired_input).await
-            }
-            "volume" => {
-                self.plan_volume(current_state, desired_input).await
+            "data_repository_associations" => {
+                self.plan_data_repository_associations(current_state, desired_input).await
             }
             "data_repository_tasks" => {
                 self.plan_data_repository_tasks(current_state, desired_input).await
             }
-            "file_system" => {
-                self.plan_file_system(current_state, desired_input).await
-            }
-            "data_repository_association" => {
-                self.plan_data_repository_association(current_state, desired_input).await
-            }
-            "storage_virtual_machine" => {
-                self.plan_storage_virtual_machine(current_state, desired_input).await
-            }
-            "volume_from_backup" => {
-                self.plan_volume_from_backup(current_state, desired_input).await
-            }
-            "s3_access_point_attachments" => {
-                self.plan_s3_access_point_attachments(current_state, desired_input).await
-            }
-            "snapshots" => {
-                self.plan_snapshots(current_state, desired_input).await
+            "snapshot" => {
+                self.plan_snapshot(current_state, desired_input).await
             }
             "file_cache" => {
                 self.plan_file_cache(current_state, desired_input).await
             }
+            "volume_from_backup" => {
+                self.plan_volume_from_backup(current_state, desired_input).await
+            }
             "backup" => {
                 self.plan_backup(current_state, desired_input).await
             }
-            "data_repository_associations" => {
-                self.plan_data_repository_associations(current_state, desired_input).await
+            "file_system" => {
+                self.plan_file_system(current_state, desired_input).await
+            }
+            "file_system_aliases" => {
+                self.plan_file_system_aliases(current_state, desired_input).await
+            }
+            "s3_access_point_attachments" => {
+                self.plan_s3_access_point_attachments(current_state, desired_input).await
+            }
+            "storage_virtual_machines" => {
+                self.plan_storage_virtual_machines(current_state, desired_input).await
+            }
+            "file_caches" => {
+                self.plan_file_caches(current_state, desired_input).await
+            }
+            "shared_vpc_configuration" => {
+                self.plan_shared_vpc_configuration(current_state, desired_input).await
+            }
+            "volumes" => {
+                self.plan_volumes(current_state, desired_input).await
             }
             "file_systems" => {
                 self.plan_file_systems(current_state, desired_input).await
@@ -69,26 +69,26 @@ impl<'a> FsxService<'a> {
             "backups" => {
                 self.plan_backups(current_state, desired_input).await
             }
-            "file_system_aliases" => {
-                self.plan_file_system_aliases(current_state, desired_input).await
+            "data_repository_association" => {
+                self.plan_data_repository_association(current_state, desired_input).await
             }
-            "file_caches" => {
-                self.plan_file_caches(current_state, desired_input).await
-            }
-            "snapshot" => {
-                self.plan_snapshot(current_state, desired_input).await
-            }
-            "data_repository_task" => {
-                self.plan_data_repository_task(current_state, desired_input).await
+            "snapshots" => {
+                self.plan_snapshots(current_state, desired_input).await
             }
             "and_attach_s3_access_point" => {
                 self.plan_and_attach_s3_access_point(current_state, desired_input).await
             }
+            "storage_virtual_machine" => {
+                self.plan_storage_virtual_machine(current_state, desired_input).await
+            }
+            "volume" => {
+                self.plan_volume(current_state, desired_input).await
+            }
             "file_system_from_backup" => {
                 self.plan_file_system_from_backup(current_state, desired_input).await
             }
-            "shared_vpc_configuration" => {
-                self.plan_shared_vpc_configuration(current_state, desired_input).await
+            "data_repository_task" => {
+                self.plan_data_repository_task(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -105,44 +105,44 @@ impl<'a> FsxService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "storage_virtual_machines" => {
-                self.create_storage_virtual_machines(input).await
-            }
-            "volumes" => {
-                self.create_volumes(input).await
-            }
-            "volume" => {
-                self.create_volume(input).await
+            "data_repository_associations" => {
+                self.create_data_repository_associations(input).await
             }
             "data_repository_tasks" => {
                 self.create_data_repository_tasks(input).await
             }
-            "file_system" => {
-                self.create_file_system(input).await
-            }
-            "data_repository_association" => {
-                self.create_data_repository_association(input).await
-            }
-            "storage_virtual_machine" => {
-                self.create_storage_virtual_machine(input).await
-            }
-            "volume_from_backup" => {
-                self.create_volume_from_backup(input).await
-            }
-            "s3_access_point_attachments" => {
-                self.create_s3_access_point_attachments(input).await
-            }
-            "snapshots" => {
-                self.create_snapshots(input).await
+            "snapshot" => {
+                self.create_snapshot(input).await
             }
             "file_cache" => {
                 self.create_file_cache(input).await
             }
+            "volume_from_backup" => {
+                self.create_volume_from_backup(input).await
+            }
             "backup" => {
                 self.create_backup(input).await
             }
-            "data_repository_associations" => {
-                self.create_data_repository_associations(input).await
+            "file_system" => {
+                self.create_file_system(input).await
+            }
+            "file_system_aliases" => {
+                self.create_file_system_aliases(input).await
+            }
+            "s3_access_point_attachments" => {
+                self.create_s3_access_point_attachments(input).await
+            }
+            "storage_virtual_machines" => {
+                self.create_storage_virtual_machines(input).await
+            }
+            "file_caches" => {
+                self.create_file_caches(input).await
+            }
+            "shared_vpc_configuration" => {
+                self.create_shared_vpc_configuration(input).await
+            }
+            "volumes" => {
+                self.create_volumes(input).await
             }
             "file_systems" => {
                 self.create_file_systems(input).await
@@ -150,26 +150,26 @@ impl<'a> FsxService<'a> {
             "backups" => {
                 self.create_backups(input).await
             }
-            "file_system_aliases" => {
-                self.create_file_system_aliases(input).await
+            "data_repository_association" => {
+                self.create_data_repository_association(input).await
             }
-            "file_caches" => {
-                self.create_file_caches(input).await
-            }
-            "snapshot" => {
-                self.create_snapshot(input).await
-            }
-            "data_repository_task" => {
-                self.create_data_repository_task(input).await
+            "snapshots" => {
+                self.create_snapshots(input).await
             }
             "and_attach_s3_access_point" => {
                 self.create_and_attach_s3_access_point(input).await
             }
+            "storage_virtual_machine" => {
+                self.create_storage_virtual_machine(input).await
+            }
+            "volume" => {
+                self.create_volume(input).await
+            }
             "file_system_from_backup" => {
                 self.create_file_system_from_backup(input).await
             }
-            "shared_vpc_configuration" => {
-                self.create_shared_vpc_configuration(input).await
+            "data_repository_task" => {
+                self.create_data_repository_task(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -186,44 +186,44 @@ impl<'a> FsxService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "storage_virtual_machines" => {
-                self.read_storage_virtual_machines(id).await
-            }
-            "volumes" => {
-                self.read_volumes(id).await
-            }
-            "volume" => {
-                self.read_volume(id).await
+            "data_repository_associations" => {
+                self.read_data_repository_associations(id).await
             }
             "data_repository_tasks" => {
                 self.read_data_repository_tasks(id).await
             }
-            "file_system" => {
-                self.read_file_system(id).await
-            }
-            "data_repository_association" => {
-                self.read_data_repository_association(id).await
-            }
-            "storage_virtual_machine" => {
-                self.read_storage_virtual_machine(id).await
-            }
-            "volume_from_backup" => {
-                self.read_volume_from_backup(id).await
-            }
-            "s3_access_point_attachments" => {
-                self.read_s3_access_point_attachments(id).await
-            }
-            "snapshots" => {
-                self.read_snapshots(id).await
+            "snapshot" => {
+                self.read_snapshot(id).await
             }
             "file_cache" => {
                 self.read_file_cache(id).await
             }
+            "volume_from_backup" => {
+                self.read_volume_from_backup(id).await
+            }
             "backup" => {
                 self.read_backup(id).await
             }
-            "data_repository_associations" => {
-                self.read_data_repository_associations(id).await
+            "file_system" => {
+                self.read_file_system(id).await
+            }
+            "file_system_aliases" => {
+                self.read_file_system_aliases(id).await
+            }
+            "s3_access_point_attachments" => {
+                self.read_s3_access_point_attachments(id).await
+            }
+            "storage_virtual_machines" => {
+                self.read_storage_virtual_machines(id).await
+            }
+            "file_caches" => {
+                self.read_file_caches(id).await
+            }
+            "shared_vpc_configuration" => {
+                self.read_shared_vpc_configuration(id).await
+            }
+            "volumes" => {
+                self.read_volumes(id).await
             }
             "file_systems" => {
                 self.read_file_systems(id).await
@@ -231,26 +231,26 @@ impl<'a> FsxService<'a> {
             "backups" => {
                 self.read_backups(id).await
             }
-            "file_system_aliases" => {
-                self.read_file_system_aliases(id).await
+            "data_repository_association" => {
+                self.read_data_repository_association(id).await
             }
-            "file_caches" => {
-                self.read_file_caches(id).await
-            }
-            "snapshot" => {
-                self.read_snapshot(id).await
-            }
-            "data_repository_task" => {
-                self.read_data_repository_task(id).await
+            "snapshots" => {
+                self.read_snapshots(id).await
             }
             "and_attach_s3_access_point" => {
                 self.read_and_attach_s3_access_point(id).await
             }
+            "storage_virtual_machine" => {
+                self.read_storage_virtual_machine(id).await
+            }
+            "volume" => {
+                self.read_volume(id).await
+            }
             "file_system_from_backup" => {
                 self.read_file_system_from_backup(id).await
             }
-            "shared_vpc_configuration" => {
-                self.read_shared_vpc_configuration(id).await
+            "data_repository_task" => {
+                self.read_data_repository_task(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -268,44 +268,44 @@ impl<'a> FsxService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "storage_virtual_machines" => {
-                self.update_storage_virtual_machines(id, input).await
-            }
-            "volumes" => {
-                self.update_volumes(id, input).await
-            }
-            "volume" => {
-                self.update_volume(id, input).await
+            "data_repository_associations" => {
+                self.update_data_repository_associations(id, input).await
             }
             "data_repository_tasks" => {
                 self.update_data_repository_tasks(id, input).await
             }
-            "file_system" => {
-                self.update_file_system(id, input).await
-            }
-            "data_repository_association" => {
-                self.update_data_repository_association(id, input).await
-            }
-            "storage_virtual_machine" => {
-                self.update_storage_virtual_machine(id, input).await
-            }
-            "volume_from_backup" => {
-                self.update_volume_from_backup(id, input).await
-            }
-            "s3_access_point_attachments" => {
-                self.update_s3_access_point_attachments(id, input).await
-            }
-            "snapshots" => {
-                self.update_snapshots(id, input).await
+            "snapshot" => {
+                self.update_snapshot(id, input).await
             }
             "file_cache" => {
                 self.update_file_cache(id, input).await
             }
+            "volume_from_backup" => {
+                self.update_volume_from_backup(id, input).await
+            }
             "backup" => {
                 self.update_backup(id, input).await
             }
-            "data_repository_associations" => {
-                self.update_data_repository_associations(id, input).await
+            "file_system" => {
+                self.update_file_system(id, input).await
+            }
+            "file_system_aliases" => {
+                self.update_file_system_aliases(id, input).await
+            }
+            "s3_access_point_attachments" => {
+                self.update_s3_access_point_attachments(id, input).await
+            }
+            "storage_virtual_machines" => {
+                self.update_storage_virtual_machines(id, input).await
+            }
+            "file_caches" => {
+                self.update_file_caches(id, input).await
+            }
+            "shared_vpc_configuration" => {
+                self.update_shared_vpc_configuration(id, input).await
+            }
+            "volumes" => {
+                self.update_volumes(id, input).await
             }
             "file_systems" => {
                 self.update_file_systems(id, input).await
@@ -313,26 +313,26 @@ impl<'a> FsxService<'a> {
             "backups" => {
                 self.update_backups(id, input).await
             }
-            "file_system_aliases" => {
-                self.update_file_system_aliases(id, input).await
+            "data_repository_association" => {
+                self.update_data_repository_association(id, input).await
             }
-            "file_caches" => {
-                self.update_file_caches(id, input).await
-            }
-            "snapshot" => {
-                self.update_snapshot(id, input).await
-            }
-            "data_repository_task" => {
-                self.update_data_repository_task(id, input).await
+            "snapshots" => {
+                self.update_snapshots(id, input).await
             }
             "and_attach_s3_access_point" => {
                 self.update_and_attach_s3_access_point(id, input).await
             }
+            "storage_virtual_machine" => {
+                self.update_storage_virtual_machine(id, input).await
+            }
+            "volume" => {
+                self.update_volume(id, input).await
+            }
             "file_system_from_backup" => {
                 self.update_file_system_from_backup(id, input).await
             }
-            "shared_vpc_configuration" => {
-                self.update_shared_vpc_configuration(id, input).await
+            "data_repository_task" => {
+                self.update_data_repository_task(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -349,44 +349,44 @@ impl<'a> FsxService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "storage_virtual_machines" => {
-                self.delete_storage_virtual_machines(id).await
-            }
-            "volumes" => {
-                self.delete_volumes(id).await
-            }
-            "volume" => {
-                self.delete_volume(id).await
+            "data_repository_associations" => {
+                self.delete_data_repository_associations(id).await
             }
             "data_repository_tasks" => {
                 self.delete_data_repository_tasks(id).await
             }
-            "file_system" => {
-                self.delete_file_system(id).await
-            }
-            "data_repository_association" => {
-                self.delete_data_repository_association(id).await
-            }
-            "storage_virtual_machine" => {
-                self.delete_storage_virtual_machine(id).await
-            }
-            "volume_from_backup" => {
-                self.delete_volume_from_backup(id).await
-            }
-            "s3_access_point_attachments" => {
-                self.delete_s3_access_point_attachments(id).await
-            }
-            "snapshots" => {
-                self.delete_snapshots(id).await
+            "snapshot" => {
+                self.delete_snapshot(id).await
             }
             "file_cache" => {
                 self.delete_file_cache(id).await
             }
+            "volume_from_backup" => {
+                self.delete_volume_from_backup(id).await
+            }
             "backup" => {
                 self.delete_backup(id).await
             }
-            "data_repository_associations" => {
-                self.delete_data_repository_associations(id).await
+            "file_system" => {
+                self.delete_file_system(id).await
+            }
+            "file_system_aliases" => {
+                self.delete_file_system_aliases(id).await
+            }
+            "s3_access_point_attachments" => {
+                self.delete_s3_access_point_attachments(id).await
+            }
+            "storage_virtual_machines" => {
+                self.delete_storage_virtual_machines(id).await
+            }
+            "file_caches" => {
+                self.delete_file_caches(id).await
+            }
+            "shared_vpc_configuration" => {
+                self.delete_shared_vpc_configuration(id).await
+            }
+            "volumes" => {
+                self.delete_volumes(id).await
             }
             "file_systems" => {
                 self.delete_file_systems(id).await
@@ -394,26 +394,26 @@ impl<'a> FsxService<'a> {
             "backups" => {
                 self.delete_backups(id).await
             }
-            "file_system_aliases" => {
-                self.delete_file_system_aliases(id).await
+            "data_repository_association" => {
+                self.delete_data_repository_association(id).await
             }
-            "file_caches" => {
-                self.delete_file_caches(id).await
-            }
-            "snapshot" => {
-                self.delete_snapshot(id).await
-            }
-            "data_repository_task" => {
-                self.delete_data_repository_task(id).await
+            "snapshots" => {
+                self.delete_snapshots(id).await
             }
             "and_attach_s3_access_point" => {
                 self.delete_and_attach_s3_access_point(id).await
             }
+            "storage_virtual_machine" => {
+                self.delete_storage_virtual_machine(id).await
+            }
+            "volume" => {
+                self.delete_volume(id).await
+            }
             "file_system_from_backup" => {
                 self.delete_file_system_from_backup(id).await
             }
-            "shared_vpc_configuration" => {
-                self.delete_shared_vpc_configuration(id).await
+            "data_repository_task" => {
+                self.delete_data_repository_task(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -429,11 +429,11 @@ impl<'a> FsxService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Storage_virtual_machines resource operations
+    // Data_repository_associations resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a storage_virtual_machines resource
-    async fn plan_storage_virtual_machines(
+    /// Plan changes to a data_repository_associations resource
+    async fn plan_data_repository_associations(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -448,8 +448,8 @@ impl<'a> FsxService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new storage_virtual_machines resource
-    async fn create_storage_virtual_machines(
+    /// Create a new data_repository_associations resource
+    async fn create_data_repository_associations(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -461,7 +461,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .create_storage_virtual_machines()
+            //     .create_data_repository_associations()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -474,8 +474,8 @@ impl<'a> FsxService<'a> {
         })
     }
 
-    /// Read a storage_virtual_machines resource
-    async fn read_storage_virtual_machines(
+    /// Read a data_repository_associations resource
+    async fn read_data_repository_associations(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -483,7 +483,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .describe_storage_virtual_machines()
+            //     .describe_data_repository_associations()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -495,8 +495,8 @@ impl<'a> FsxService<'a> {
         })
     }
 
-    /// Update a storage_virtual_machines resource
-    async fn update_storage_virtual_machines(
+    /// Update a data_repository_associations resource
+    async fn update_data_repository_associations(
         &self,
         id: &str,
         input: ResourceInput,
@@ -508,7 +508,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .update_storage_virtual_machines()
+            //     .update_data_repository_associations()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -522,8 +522,8 @@ impl<'a> FsxService<'a> {
         })
     }
 
-    /// Delete a storage_virtual_machines resource
-    async fn delete_storage_virtual_machines(
+    /// Delete a data_repository_associations resource
+    async fn delete_data_repository_associations(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -531,259 +531,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.fsx_client
-            //     .delete_storage_virtual_machines()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Volumes resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a volumes resource
-    async fn plan_volumes(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new volumes resource
-    async fn create_volumes(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .create_volumes()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a volumes resource
-    async fn read_volumes(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .describe_volumes()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a volumes resource
-    async fn update_volumes(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .update_volumes()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a volumes resource
-    async fn delete_volumes(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.fsx_client
-            //     .delete_volumes()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Volume resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a volume resource
-    async fn plan_volume(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new volume resource
-    async fn create_volume(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let tags = input.get_optional_string("tags")?;
-            let name = input.get_string("name")?;
-            let ontap_configuration = input.get_optional_string("ontap_configuration")?;
-            let volume_type = input.get_string("volume_type")?;
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let open_zfs_configuration = input.get_optional_string("open_zfs_configuration")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .create_volume()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("ontap_configuration", ontap_configuration.unwrap_or_default())
-                .with_field("volume_type", volume_type.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("open_zfs_configuration", open_zfs_configuration.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a volume resource
-    async fn read_volume(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .describe_volume()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a volume resource
-    async fn update_volume(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let tags = input.get_optional_string("tags")?;
-            let name = input.get_string("name")?;
-            let ontap_configuration = input.get_optional_string("ontap_configuration")?;
-            let volume_type = input.get_string("volume_type")?;
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let open_zfs_configuration = input.get_optional_string("open_zfs_configuration")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .update_volume()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("ontap_configuration", ontap_configuration.unwrap_or_default())
-                .with_field("volume_type", volume_type.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("open_zfs_configuration", open_zfs_configuration.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a volume resource
-    async fn delete_volume(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.fsx_client
-            //     .delete_volume()
+            //     .delete_data_repository_associations()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -909,11 +657,11 @@ impl<'a> FsxService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // File_system resource operations
+    // Snapshot resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a file_system resource
-    async fn plan_file_system(
+    /// Plan changes to a snapshot resource
+    async fn plan_snapshot(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -928,34 +676,24 @@ impl<'a> FsxService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new file_system resource
-    async fn create_file_system(
+    /// Create a new snapshot resource
+    async fn create_snapshot(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let storage_type = input.get_optional_string("storage_type")?;
+            let name = input.get_string("name")?;
+            let volume_id = input.get_string("volume_id")?;
             let tags = input.get_optional_string("tags")?;
-            let file_system_type = input.get_string("file_system_type")?;
-            let kms_key_id = input.get_optional_string("kms_key_id")?;
-            let subnet_ids = input.get_string("subnet_ids")?;
-            let open_zfs_configuration = input.get_optional_string("open_zfs_configuration")?;
-            let windows_configuration = input.get_optional_string("windows_configuration")?;
             let client_request_token = input.get_optional_string("client_request_token")?;
-            let lustre_configuration = input.get_optional_string("lustre_configuration")?;
-            let ontap_configuration = input.get_optional_string("ontap_configuration")?;
-            let security_group_ids = input.get_optional_string("security_group_ids")?;
-            let file_system_type_version = input.get_optional_string("file_system_type_version")?;
-            let network_type = input.get_optional_string("network_type")?;
-            let storage_capacity = input.get_optional_string("storage_capacity")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .create_file_system()
+            //     .create_snapshot()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -964,26 +702,16 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("storage_type", storage_type.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("volume_id", volume_id.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
-                .with_field("file_system_type", file_system_type.unwrap_or_default())
-                .with_field("kms_key_id", kms_key_id.unwrap_or_default())
-                .with_field("subnet_ids", subnet_ids.unwrap_or_default())
-                .with_field("open_zfs_configuration", open_zfs_configuration.unwrap_or_default())
-                .with_field("windows_configuration", windows_configuration.unwrap_or_default())
                 .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("lustre_configuration", lustre_configuration.unwrap_or_default())
-                .with_field("ontap_configuration", ontap_configuration.unwrap_or_default())
-                .with_field("security_group_ids", security_group_ids.unwrap_or_default())
-                .with_field("file_system_type_version", file_system_type_version.unwrap_or_default())
-                .with_field("network_type", network_type.unwrap_or_default())
-                .with_field("storage_capacity", storage_capacity.unwrap_or_default())
             )
         })
     }
 
-    /// Read a file_system resource
-    async fn read_file_system(
+    /// Read a snapshot resource
+    async fn read_snapshot(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -991,7 +719,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .describe_file_system()
+            //     .describe_snapshot()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1003,34 +731,24 @@ impl<'a> FsxService<'a> {
         })
     }
 
-    /// Update a file_system resource
-    async fn update_file_system(
+    /// Update a snapshot resource
+    async fn update_snapshot(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let storage_type = input.get_optional_string("storage_type")?;
+            let name = input.get_string("name")?;
+            let volume_id = input.get_string("volume_id")?;
             let tags = input.get_optional_string("tags")?;
-            let file_system_type = input.get_string("file_system_type")?;
-            let kms_key_id = input.get_optional_string("kms_key_id")?;
-            let subnet_ids = input.get_string("subnet_ids")?;
-            let open_zfs_configuration = input.get_optional_string("open_zfs_configuration")?;
-            let windows_configuration = input.get_optional_string("windows_configuration")?;
             let client_request_token = input.get_optional_string("client_request_token")?;
-            let lustre_configuration = input.get_optional_string("lustre_configuration")?;
-            let ontap_configuration = input.get_optional_string("ontap_configuration")?;
-            let security_group_ids = input.get_optional_string("security_group_ids")?;
-            let file_system_type_version = input.get_optional_string("file_system_type_version")?;
-            let network_type = input.get_optional_string("network_type")?;
-            let storage_capacity = input.get_optional_string("storage_capacity")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .update_file_system()
+            //     .update_snapshot()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1040,26 +758,16 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("storage_type", storage_type.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("volume_id", volume_id.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
-                .with_field("file_system_type", file_system_type.unwrap_or_default())
-                .with_field("kms_key_id", kms_key_id.unwrap_or_default())
-                .with_field("subnet_ids", subnet_ids.unwrap_or_default())
-                .with_field("open_zfs_configuration", open_zfs_configuration.unwrap_or_default())
-                .with_field("windows_configuration", windows_configuration.unwrap_or_default())
                 .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("lustre_configuration", lustre_configuration.unwrap_or_default())
-                .with_field("ontap_configuration", ontap_configuration.unwrap_or_default())
-                .with_field("security_group_ids", security_group_ids.unwrap_or_default())
-                .with_field("file_system_type_version", file_system_type_version.unwrap_or_default())
-                .with_field("network_type", network_type.unwrap_or_default())
-                .with_field("storage_capacity", storage_capacity.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a file_system resource
-    async fn delete_file_system(
+    /// Delete a snapshot resource
+    async fn delete_snapshot(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1067,7 +775,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.fsx_client
-            //     .delete_file_system()
+            //     .delete_snapshot()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1079,11 +787,11 @@ impl<'a> FsxService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Data_repository_association resource operations
+    // File_cache resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a data_repository_association resource
-    async fn plan_data_repository_association(
+    /// Plan changes to a file_cache resource
+    async fn plan_file_cache(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1098,28 +806,31 @@ impl<'a> FsxService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new data_repository_association resource
-    async fn create_data_repository_association(
+    /// Create a new file_cache resource
+    async fn create_file_cache(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let file_system_path = input.get_optional_string("file_system_path")?;
-            let batch_import_meta_data_on_create = input.get_optional_string("batch_import_meta_data_on_create")?;
-            let imported_file_chunk_size = input.get_optional_string("imported_file_chunk_size")?;
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let s3 = input.get_optional_string("s3")?;
-            let data_repository_path = input.get_string("data_repository_path")?;
-            let file_system_id = input.get_string("file_system_id")?;
             let tags = input.get_optional_string("tags")?;
+            let lustre_configuration = input.get_optional_string("lustre_configuration")?;
+            let file_cache_type = input.get_string("file_cache_type")?;
+            let file_cache_type_version = input.get_string("file_cache_type_version")?;
+            let copy_tags_to_data_repository_associations = input.get_optional_string("copy_tags_to_data_repository_associations")?;
+            let kms_key_id = input.get_optional_string("kms_key_id")?;
+            let storage_capacity = input.get_string("storage_capacity")?;
+            let client_request_token = input.get_optional_string("client_request_token")?;
+            let subnet_ids = input.get_string("subnet_ids")?;
+            let security_group_ids = input.get_optional_string("security_group_ids")?;
+            let data_repository_associations = input.get_optional_string("data_repository_associations")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .create_data_repository_association()
+            //     .create_file_cache()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1128,20 +839,23 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("file_system_path", file_system_path.unwrap_or_default())
-                .with_field("batch_import_meta_data_on_create", batch_import_meta_data_on_create.unwrap_or_default())
-                .with_field("imported_file_chunk_size", imported_file_chunk_size.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("s3", s3.unwrap_or_default())
-                .with_field("data_repository_path", data_repository_path.unwrap_or_default())
-                .with_field("file_system_id", file_system_id.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
+                .with_field("lustre_configuration", lustre_configuration.unwrap_or_default())
+                .with_field("file_cache_type", file_cache_type.unwrap_or_default())
+                .with_field("file_cache_type_version", file_cache_type_version.unwrap_or_default())
+                .with_field("copy_tags_to_data_repository_associations", copy_tags_to_data_repository_associations.unwrap_or_default())
+                .with_field("kms_key_id", kms_key_id.unwrap_or_default())
+                .with_field("storage_capacity", storage_capacity.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("subnet_ids", subnet_ids.unwrap_or_default())
+                .with_field("security_group_ids", security_group_ids.unwrap_or_default())
+                .with_field("data_repository_associations", data_repository_associations.unwrap_or_default())
             )
         })
     }
 
-    /// Read a data_repository_association resource
-    async fn read_data_repository_association(
+    /// Read a file_cache resource
+    async fn read_file_cache(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1149,7 +863,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .describe_data_repository_association()
+            //     .describe_file_cache()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1161,28 +875,31 @@ impl<'a> FsxService<'a> {
         })
     }
 
-    /// Update a data_repository_association resource
-    async fn update_data_repository_association(
+    /// Update a file_cache resource
+    async fn update_file_cache(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let file_system_path = input.get_optional_string("file_system_path")?;
-            let batch_import_meta_data_on_create = input.get_optional_string("batch_import_meta_data_on_create")?;
-            let imported_file_chunk_size = input.get_optional_string("imported_file_chunk_size")?;
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let s3 = input.get_optional_string("s3")?;
-            let data_repository_path = input.get_string("data_repository_path")?;
-            let file_system_id = input.get_string("file_system_id")?;
             let tags = input.get_optional_string("tags")?;
+            let lustre_configuration = input.get_optional_string("lustre_configuration")?;
+            let file_cache_type = input.get_string("file_cache_type")?;
+            let file_cache_type_version = input.get_string("file_cache_type_version")?;
+            let copy_tags_to_data_repository_associations = input.get_optional_string("copy_tags_to_data_repository_associations")?;
+            let kms_key_id = input.get_optional_string("kms_key_id")?;
+            let storage_capacity = input.get_string("storage_capacity")?;
+            let client_request_token = input.get_optional_string("client_request_token")?;
+            let subnet_ids = input.get_string("subnet_ids")?;
+            let security_group_ids = input.get_optional_string("security_group_ids")?;
+            let data_repository_associations = input.get_optional_string("data_repository_associations")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .update_data_repository_association()
+            //     .update_file_cache()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1192,20 +909,23 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("file_system_path", file_system_path.unwrap_or_default())
-                .with_field("batch_import_meta_data_on_create", batch_import_meta_data_on_create.unwrap_or_default())
-                .with_field("imported_file_chunk_size", imported_file_chunk_size.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("s3", s3.unwrap_or_default())
-                .with_field("data_repository_path", data_repository_path.unwrap_or_default())
-                .with_field("file_system_id", file_system_id.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
+                .with_field("lustre_configuration", lustre_configuration.unwrap_or_default())
+                .with_field("file_cache_type", file_cache_type.unwrap_or_default())
+                .with_field("file_cache_type_version", file_cache_type_version.unwrap_or_default())
+                .with_field("copy_tags_to_data_repository_associations", copy_tags_to_data_repository_associations.unwrap_or_default())
+                .with_field("kms_key_id", kms_key_id.unwrap_or_default())
+                .with_field("storage_capacity", storage_capacity.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("subnet_ids", subnet_ids.unwrap_or_default())
+                .with_field("security_group_ids", security_group_ids.unwrap_or_default())
+                .with_field("data_repository_associations", data_repository_associations.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a data_repository_association resource
-    async fn delete_data_repository_association(
+    /// Delete a file_cache resource
+    async fn delete_file_cache(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1213,149 +933,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.fsx_client
-            //     .delete_data_repository_association()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Storage_virtual_machine resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a storage_virtual_machine resource
-    async fn plan_storage_virtual_machine(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new storage_virtual_machine resource
-    async fn create_storage_virtual_machine(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let svm_admin_password = input.get_optional_string("svm_admin_password")?;
-            let root_volume_security_style = input.get_optional_string("root_volume_security_style")?;
-            let tags = input.get_optional_string("tags")?;
-            let file_system_id = input.get_string("file_system_id")?;
-            let name = input.get_string("name")?;
-            let active_directory_configuration = input.get_optional_string("active_directory_configuration")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .create_storage_virtual_machine()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("svm_admin_password", svm_admin_password.unwrap_or_default())
-                .with_field("root_volume_security_style", root_volume_security_style.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("file_system_id", file_system_id.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("active_directory_configuration", active_directory_configuration.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a storage_virtual_machine resource
-    async fn read_storage_virtual_machine(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .describe_storage_virtual_machine()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a storage_virtual_machine resource
-    async fn update_storage_virtual_machine(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let svm_admin_password = input.get_optional_string("svm_admin_password")?;
-            let root_volume_security_style = input.get_optional_string("root_volume_security_style")?;
-            let tags = input.get_optional_string("tags")?;
-            let file_system_id = input.get_string("file_system_id")?;
-            let name = input.get_string("name")?;
-            let active_directory_configuration = input.get_optional_string("active_directory_configuration")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .update_storage_virtual_machine()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("svm_admin_password", svm_admin_password.unwrap_or_default())
-                .with_field("root_volume_security_style", root_volume_security_style.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("file_system_id", file_system_id.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("active_directory_configuration", active_directory_configuration.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a storage_virtual_machine resource
-    async fn delete_storage_virtual_machine(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.fsx_client
-            //     .delete_storage_virtual_machine()
+            //     .delete_file_cache()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1394,11 +972,11 @@ impl<'a> FsxService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let name = input.get_string("name")?;
+            let ontap_configuration = input.get_optional_string("ontap_configuration")?;
             let client_request_token = input.get_optional_string("client_request_token")?;
             let tags = input.get_optional_string("tags")?;
             let backup_id = input.get_string("backup_id")?;
-            let name = input.get_string("name")?;
-            let ontap_configuration = input.get_optional_string("ontap_configuration")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -1413,11 +991,11 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("name", name.unwrap_or_default())
+                .with_field("ontap_configuration", ontap_configuration.unwrap_or_default())
                 .with_field("client_request_token", client_request_token.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
                 .with_field("backup_id", backup_id.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("ontap_configuration", ontap_configuration.unwrap_or_default())
             )
         })
     }
@@ -1451,11 +1029,11 @@ impl<'a> FsxService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let name = input.get_string("name")?;
+            let ontap_configuration = input.get_optional_string("ontap_configuration")?;
             let client_request_token = input.get_optional_string("client_request_token")?;
             let tags = input.get_optional_string("tags")?;
             let backup_id = input.get_string("backup_id")?;
-            let name = input.get_string("name")?;
-            let ontap_configuration = input.get_optional_string("ontap_configuration")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -1471,11 +1049,11 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("name", name.unwrap_or_default())
+                .with_field("ontap_configuration", ontap_configuration.unwrap_or_default())
                 .with_field("client_request_token", client_request_token.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
                 .with_field("backup_id", backup_id.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("ontap_configuration", ontap_configuration.unwrap_or_default())
             )
         })
     }
@@ -1490,6 +1068,420 @@ impl<'a> FsxService<'a> {
             // Example:
             // self.provider.fsx_client
             //     .delete_volume_from_backup()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Backup resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a backup resource
+    async fn plan_backup(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new backup resource
+    async fn create_backup(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let client_request_token = input.get_optional_string("client_request_token")?;
+            let file_system_id = input.get_optional_string("file_system_id")?;
+            let tags = input.get_optional_string("tags")?;
+            let volume_id = input.get_optional_string("volume_id")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .create_backup()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("file_system_id", file_system_id.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("volume_id", volume_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a backup resource
+    async fn read_backup(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .describe_backup()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a backup resource
+    async fn update_backup(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let client_request_token = input.get_optional_string("client_request_token")?;
+            let file_system_id = input.get_optional_string("file_system_id")?;
+            let tags = input.get_optional_string("tags")?;
+            let volume_id = input.get_optional_string("volume_id")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .update_backup()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("file_system_id", file_system_id.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("volume_id", volume_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a backup resource
+    async fn delete_backup(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.fsx_client
+            //     .delete_backup()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // File_system resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a file_system resource
+    async fn plan_file_system(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new file_system resource
+    async fn create_file_system(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let storage_type = input.get_optional_string("storage_type")?;
+            let storage_capacity = input.get_optional_string("storage_capacity")?;
+            let tags = input.get_optional_string("tags")?;
+            let lustre_configuration = input.get_optional_string("lustre_configuration")?;
+            let file_system_type_version = input.get_optional_string("file_system_type_version")?;
+            let kms_key_id = input.get_optional_string("kms_key_id")?;
+            let ontap_configuration = input.get_optional_string("ontap_configuration")?;
+            let open_zfs_configuration = input.get_optional_string("open_zfs_configuration")?;
+            let network_type = input.get_optional_string("network_type")?;
+            let security_group_ids = input.get_optional_string("security_group_ids")?;
+            let windows_configuration = input.get_optional_string("windows_configuration")?;
+            let file_system_type = input.get_string("file_system_type")?;
+            let subnet_ids = input.get_string("subnet_ids")?;
+            let client_request_token = input.get_optional_string("client_request_token")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .create_file_system()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("storage_type", storage_type.unwrap_or_default())
+                .with_field("storage_capacity", storage_capacity.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("lustre_configuration", lustre_configuration.unwrap_or_default())
+                .with_field("file_system_type_version", file_system_type_version.unwrap_or_default())
+                .with_field("kms_key_id", kms_key_id.unwrap_or_default())
+                .with_field("ontap_configuration", ontap_configuration.unwrap_or_default())
+                .with_field("open_zfs_configuration", open_zfs_configuration.unwrap_or_default())
+                .with_field("network_type", network_type.unwrap_or_default())
+                .with_field("security_group_ids", security_group_ids.unwrap_or_default())
+                .with_field("windows_configuration", windows_configuration.unwrap_or_default())
+                .with_field("file_system_type", file_system_type.unwrap_or_default())
+                .with_field("subnet_ids", subnet_ids.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a file_system resource
+    async fn read_file_system(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .describe_file_system()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a file_system resource
+    async fn update_file_system(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let storage_type = input.get_optional_string("storage_type")?;
+            let storage_capacity = input.get_optional_string("storage_capacity")?;
+            let tags = input.get_optional_string("tags")?;
+            let lustre_configuration = input.get_optional_string("lustre_configuration")?;
+            let file_system_type_version = input.get_optional_string("file_system_type_version")?;
+            let kms_key_id = input.get_optional_string("kms_key_id")?;
+            let ontap_configuration = input.get_optional_string("ontap_configuration")?;
+            let open_zfs_configuration = input.get_optional_string("open_zfs_configuration")?;
+            let network_type = input.get_optional_string("network_type")?;
+            let security_group_ids = input.get_optional_string("security_group_ids")?;
+            let windows_configuration = input.get_optional_string("windows_configuration")?;
+            let file_system_type = input.get_string("file_system_type")?;
+            let subnet_ids = input.get_string("subnet_ids")?;
+            let client_request_token = input.get_optional_string("client_request_token")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .update_file_system()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("storage_type", storage_type.unwrap_or_default())
+                .with_field("storage_capacity", storage_capacity.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("lustre_configuration", lustre_configuration.unwrap_or_default())
+                .with_field("file_system_type_version", file_system_type_version.unwrap_or_default())
+                .with_field("kms_key_id", kms_key_id.unwrap_or_default())
+                .with_field("ontap_configuration", ontap_configuration.unwrap_or_default())
+                .with_field("open_zfs_configuration", open_zfs_configuration.unwrap_or_default())
+                .with_field("network_type", network_type.unwrap_or_default())
+                .with_field("security_group_ids", security_group_ids.unwrap_or_default())
+                .with_field("windows_configuration", windows_configuration.unwrap_or_default())
+                .with_field("file_system_type", file_system_type.unwrap_or_default())
+                .with_field("subnet_ids", subnet_ids.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a file_system resource
+    async fn delete_file_system(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.fsx_client
+            //     .delete_file_system()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // File_system_aliases resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a file_system_aliases resource
+    async fn plan_file_system_aliases(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new file_system_aliases resource
+    async fn create_file_system_aliases(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .create_file_system_aliases()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a file_system_aliases resource
+    async fn read_file_system_aliases(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .describe_file_system_aliases()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a file_system_aliases resource
+    async fn update_file_system_aliases(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .update_file_system_aliases()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a file_system_aliases resource
+    async fn delete_file_system_aliases(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.fsx_client
+            //     .delete_file_system_aliases()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1615,11 +1607,11 @@ impl<'a> FsxService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Snapshots resource operations
+    // Storage_virtual_machines resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a snapshots resource
-    async fn plan_snapshots(
+    /// Plan changes to a storage_virtual_machines resource
+    async fn plan_storage_virtual_machines(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1634,8 +1626,8 @@ impl<'a> FsxService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new snapshots resource
-    async fn create_snapshots(
+    /// Create a new storage_virtual_machines resource
+    async fn create_storage_virtual_machines(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -1647,7 +1639,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .create_snapshots()
+            //     .create_storage_virtual_machines()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1660,8 +1652,8 @@ impl<'a> FsxService<'a> {
         })
     }
 
-    /// Read a snapshots resource
-    async fn read_snapshots(
+    /// Read a storage_virtual_machines resource
+    async fn read_storage_virtual_machines(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1669,7 +1661,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .describe_snapshots()
+            //     .describe_storage_virtual_machines()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1681,8 +1673,8 @@ impl<'a> FsxService<'a> {
         })
     }
 
-    /// Update a snapshots resource
-    async fn update_snapshots(
+    /// Update a storage_virtual_machines resource
+    async fn update_storage_virtual_machines(
         &self,
         id: &str,
         input: ResourceInput,
@@ -1694,7 +1686,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .update_snapshots()
+            //     .update_storage_virtual_machines()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1708,8 +1700,8 @@ impl<'a> FsxService<'a> {
         })
     }
 
-    /// Delete a snapshots resource
-    async fn delete_snapshots(
+    /// Delete a storage_virtual_machines resource
+    async fn delete_storage_virtual_machines(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1717,7 +1709,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.fsx_client
-            //     .delete_snapshots()
+            //     .delete_storage_virtual_machines()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1729,11 +1721,11 @@ impl<'a> FsxService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // File_cache resource operations
+    // File_caches resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a file_cache resource
-    async fn plan_file_cache(
+    /// Plan changes to a file_caches resource
+    async fn plan_file_caches(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1748,31 +1740,20 @@ impl<'a> FsxService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new file_cache resource
-    async fn create_file_cache(
+    /// Create a new file_caches resource
+    async fn create_file_caches(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let file_cache_type = input.get_string("file_cache_type")?;
-            let tags = input.get_optional_string("tags")?;
-            let storage_capacity = input.get_string("storage_capacity")?;
-            let subnet_ids = input.get_string("subnet_ids")?;
-            let security_group_ids = input.get_optional_string("security_group_ids")?;
-            let lustre_configuration = input.get_optional_string("lustre_configuration")?;
-            let file_cache_type_version = input.get_string("file_cache_type_version")?;
-            let kms_key_id = input.get_optional_string("kms_key_id")?;
-            let copy_tags_to_data_repository_associations = input.get_optional_string("copy_tags_to_data_repository_associations")?;
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let data_repository_associations = input.get_optional_string("data_repository_associations")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .create_file_cache()
+            //     .create_file_caches()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1781,23 +1762,12 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("file_cache_type", file_cache_type.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("storage_capacity", storage_capacity.unwrap_or_default())
-                .with_field("subnet_ids", subnet_ids.unwrap_or_default())
-                .with_field("security_group_ids", security_group_ids.unwrap_or_default())
-                .with_field("lustre_configuration", lustre_configuration.unwrap_or_default())
-                .with_field("file_cache_type_version", file_cache_type_version.unwrap_or_default())
-                .with_field("kms_key_id", kms_key_id.unwrap_or_default())
-                .with_field("copy_tags_to_data_repository_associations", copy_tags_to_data_repository_associations.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("data_repository_associations", data_repository_associations.unwrap_or_default())
             )
         })
     }
 
-    /// Read a file_cache resource
-    async fn read_file_cache(
+    /// Read a file_caches resource
+    async fn read_file_caches(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1805,7 +1775,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .describe_file_cache()
+            //     .describe_file_caches()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1817,31 +1787,20 @@ impl<'a> FsxService<'a> {
         })
     }
 
-    /// Update a file_cache resource
-    async fn update_file_cache(
+    /// Update a file_caches resource
+    async fn update_file_caches(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let file_cache_type = input.get_string("file_cache_type")?;
-            let tags = input.get_optional_string("tags")?;
-            let storage_capacity = input.get_string("storage_capacity")?;
-            let subnet_ids = input.get_string("subnet_ids")?;
-            let security_group_ids = input.get_optional_string("security_group_ids")?;
-            let lustre_configuration = input.get_optional_string("lustre_configuration")?;
-            let file_cache_type_version = input.get_string("file_cache_type_version")?;
-            let kms_key_id = input.get_optional_string("kms_key_id")?;
-            let copy_tags_to_data_repository_associations = input.get_optional_string("copy_tags_to_data_repository_associations")?;
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let data_repository_associations = input.get_optional_string("data_repository_associations")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .update_file_cache()
+            //     .update_file_caches()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1851,23 +1810,12 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("file_cache_type", file_cache_type.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("storage_capacity", storage_capacity.unwrap_or_default())
-                .with_field("subnet_ids", subnet_ids.unwrap_or_default())
-                .with_field("security_group_ids", security_group_ids.unwrap_or_default())
-                .with_field("lustre_configuration", lustre_configuration.unwrap_or_default())
-                .with_field("file_cache_type_version", file_cache_type_version.unwrap_or_default())
-                .with_field("kms_key_id", kms_key_id.unwrap_or_default())
-                .with_field("copy_tags_to_data_repository_associations", copy_tags_to_data_repository_associations.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("data_repository_associations", data_repository_associations.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a file_cache resource
-    async fn delete_file_cache(
+    /// Delete a file_caches resource
+    async fn delete_file_caches(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1875,7 +1823,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.fsx_client
-            //     .delete_file_cache()
+            //     .delete_file_caches()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1887,11 +1835,11 @@ impl<'a> FsxService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Backup resource operations
+    // Shared_vpc_configuration resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a backup resource
-    async fn plan_backup(
+    /// Plan changes to a shared_vpc_configuration resource
+    async fn plan_shared_vpc_configuration(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1906,24 +1854,22 @@ impl<'a> FsxService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new backup resource
-    async fn create_backup(
+    /// Create a new shared_vpc_configuration resource
+    async fn create_shared_vpc_configuration(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let enable_fsx_route_table_updates_from_participant_accounts = input.get_optional_string("enable_fsx_route_table_updates_from_participant_accounts")?;
             let client_request_token = input.get_optional_string("client_request_token")?;
-            let tags = input.get_optional_string("tags")?;
-            let volume_id = input.get_optional_string("volume_id")?;
-            let file_system_id = input.get_optional_string("file_system_id")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .create_backup()
+            //     .create_shared_vpc_configuration()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1932,16 +1878,14 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("enable_fsx_route_table_updates_from_participant_accounts", enable_fsx_route_table_updates_from_participant_accounts.unwrap_or_default())
                 .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("volume_id", volume_id.unwrap_or_default())
-                .with_field("file_system_id", file_system_id.unwrap_or_default())
             )
         })
     }
 
-    /// Read a backup resource
-    async fn read_backup(
+    /// Read a shared_vpc_configuration resource
+    async fn read_shared_vpc_configuration(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1949,7 +1893,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .describe_backup()
+            //     .describe_shared_vpc_configuration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1961,24 +1905,22 @@ impl<'a> FsxService<'a> {
         })
     }
 
-    /// Update a backup resource
-    async fn update_backup(
+    /// Update a shared_vpc_configuration resource
+    async fn update_shared_vpc_configuration(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let enable_fsx_route_table_updates_from_participant_accounts = input.get_optional_string("enable_fsx_route_table_updates_from_participant_accounts")?;
             let client_request_token = input.get_optional_string("client_request_token")?;
-            let tags = input.get_optional_string("tags")?;
-            let volume_id = input.get_optional_string("volume_id")?;
-            let file_system_id = input.get_optional_string("file_system_id")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .update_backup()
+            //     .update_shared_vpc_configuration()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1988,16 +1930,14 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("enable_fsx_route_table_updates_from_participant_accounts", enable_fsx_route_table_updates_from_participant_accounts.unwrap_or_default())
                 .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("volume_id", volume_id.unwrap_or_default())
-                .with_field("file_system_id", file_system_id.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a backup resource
-    async fn delete_backup(
+    /// Delete a shared_vpc_configuration resource
+    async fn delete_shared_vpc_configuration(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -2005,7 +1945,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.fsx_client
-            //     .delete_backup()
+            //     .delete_shared_vpc_configuration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2017,11 +1957,11 @@ impl<'a> FsxService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Data_repository_associations resource operations
+    // Volumes resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a data_repository_associations resource
-    async fn plan_data_repository_associations(
+    /// Plan changes to a volumes resource
+    async fn plan_volumes(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -2036,8 +1976,8 @@ impl<'a> FsxService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new data_repository_associations resource
-    async fn create_data_repository_associations(
+    /// Create a new volumes resource
+    async fn create_volumes(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -2049,7 +1989,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .create_data_repository_associations()
+            //     .create_volumes()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -2062,8 +2002,8 @@ impl<'a> FsxService<'a> {
         })
     }
 
-    /// Read a data_repository_associations resource
-    async fn read_data_repository_associations(
+    /// Read a volumes resource
+    async fn read_volumes(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -2071,7 +2011,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .describe_data_repository_associations()
+            //     .describe_volumes()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2083,8 +2023,8 @@ impl<'a> FsxService<'a> {
         })
     }
 
-    /// Update a data_repository_associations resource
-    async fn update_data_repository_associations(
+    /// Update a volumes resource
+    async fn update_volumes(
         &self,
         id: &str,
         input: ResourceInput,
@@ -2096,7 +2036,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .update_data_repository_associations()
+            //     .update_volumes()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -2110,8 +2050,8 @@ impl<'a> FsxService<'a> {
         })
     }
 
-    /// Delete a data_repository_associations resource
-    async fn delete_data_repository_associations(
+    /// Delete a volumes resource
+    async fn delete_volumes(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -2119,7 +2059,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.fsx_client
-            //     .delete_data_repository_associations()
+            //     .delete_volumes()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2359,11 +2299,11 @@ impl<'a> FsxService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // File_system_aliases resource operations
+    // Data_repository_association resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a file_system_aliases resource
-    async fn plan_file_system_aliases(
+    /// Plan changes to a data_repository_association resource
+    async fn plan_data_repository_association(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -2378,386 +2318,28 @@ impl<'a> FsxService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new file_system_aliases resource
-    async fn create_file_system_aliases(
+    /// Create a new data_repository_association resource
+    async fn create_data_repository_association(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .create_file_system_aliases()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a file_system_aliases resource
-    async fn read_file_system_aliases(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .describe_file_system_aliases()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a file_system_aliases resource
-    async fn update_file_system_aliases(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .update_file_system_aliases()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a file_system_aliases resource
-    async fn delete_file_system_aliases(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.fsx_client
-            //     .delete_file_system_aliases()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // File_caches resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a file_caches resource
-    async fn plan_file_caches(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new file_caches resource
-    async fn create_file_caches(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .create_file_caches()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a file_caches resource
-    async fn read_file_caches(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .describe_file_caches()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a file_caches resource
-    async fn update_file_caches(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .update_file_caches()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a file_caches resource
-    async fn delete_file_caches(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.fsx_client
-            //     .delete_file_caches()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Snapshot resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a snapshot resource
-    async fn plan_snapshot(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new snapshot resource
-    async fn create_snapshot(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let volume_id = input.get_string("volume_id")?;
-            let name = input.get_string("name")?;
-            let client_request_token = input.get_optional_string("client_request_token")?;
+            let s3 = input.get_optional_string("s3")?;
             let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .create_snapshot()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("volume_id", volume_id.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a snapshot resource
-    async fn read_snapshot(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .describe_snapshot()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a snapshot resource
-    async fn update_snapshot(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let volume_id = input.get_string("volume_id")?;
-            let name = input.get_string("name")?;
+            let file_system_path = input.get_optional_string("file_system_path")?;
             let client_request_token = input.get_optional_string("client_request_token")?;
-            let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.fsx_client
-            //     .update_snapshot()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("volume_id", volume_id.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a snapshot resource
-    async fn delete_snapshot(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.fsx_client
-            //     .delete_snapshot()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Data_repository_task resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a data_repository_task resource
-    async fn plan_data_repository_task(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new data_repository_task resource
-    async fn create_data_repository_task(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let r#type = input.get_string("type")?;
-            let paths = input.get_optional_string("paths")?;
-            let capacity_to_release = input.get_optional_string("capacity_to_release")?;
-            let report = input.get_string("report")?;
             let file_system_id = input.get_string("file_system_id")?;
-            let release_configuration = input.get_optional_string("release_configuration")?;
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let tags = input.get_optional_string("tags")?;
+            let data_repository_path = input.get_string("data_repository_path")?;
+            let imported_file_chunk_size = input.get_optional_string("imported_file_chunk_size")?;
+            let batch_import_meta_data_on_create = input.get_optional_string("batch_import_meta_data_on_create")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .create_data_repository_task()
+            //     .create_data_repository_association()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -2766,20 +2348,20 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("type", r#type.unwrap_or_default())
-                .with_field("paths", paths.unwrap_or_default())
-                .with_field("capacity_to_release", capacity_to_release.unwrap_or_default())
-                .with_field("report", report.unwrap_or_default())
-                .with_field("file_system_id", file_system_id.unwrap_or_default())
-                .with_field("release_configuration", release_configuration.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("s3", s3.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
+                .with_field("file_system_path", file_system_path.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("file_system_id", file_system_id.unwrap_or_default())
+                .with_field("data_repository_path", data_repository_path.unwrap_or_default())
+                .with_field("imported_file_chunk_size", imported_file_chunk_size.unwrap_or_default())
+                .with_field("batch_import_meta_data_on_create", batch_import_meta_data_on_create.unwrap_or_default())
             )
         })
     }
 
-    /// Read a data_repository_task resource
-    async fn read_data_repository_task(
+    /// Read a data_repository_association resource
+    async fn read_data_repository_association(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -2787,7 +2369,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .describe_data_repository_task()
+            //     .describe_data_repository_association()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2799,28 +2381,28 @@ impl<'a> FsxService<'a> {
         })
     }
 
-    /// Update a data_repository_task resource
-    async fn update_data_repository_task(
+    /// Update a data_repository_association resource
+    async fn update_data_repository_association(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let r#type = input.get_string("type")?;
-            let paths = input.get_optional_string("paths")?;
-            let capacity_to_release = input.get_optional_string("capacity_to_release")?;
-            let report = input.get_string("report")?;
-            let file_system_id = input.get_string("file_system_id")?;
-            let release_configuration = input.get_optional_string("release_configuration")?;
-            let client_request_token = input.get_optional_string("client_request_token")?;
+            let s3 = input.get_optional_string("s3")?;
             let tags = input.get_optional_string("tags")?;
+            let file_system_path = input.get_optional_string("file_system_path")?;
+            let client_request_token = input.get_optional_string("client_request_token")?;
+            let file_system_id = input.get_string("file_system_id")?;
+            let data_repository_path = input.get_string("data_repository_path")?;
+            let imported_file_chunk_size = input.get_optional_string("imported_file_chunk_size")?;
+            let batch_import_meta_data_on_create = input.get_optional_string("batch_import_meta_data_on_create")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .update_data_repository_task()
+            //     .update_data_repository_association()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -2830,20 +2412,20 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("type", r#type.unwrap_or_default())
-                .with_field("paths", paths.unwrap_or_default())
-                .with_field("capacity_to_release", capacity_to_release.unwrap_or_default())
-                .with_field("report", report.unwrap_or_default())
-                .with_field("file_system_id", file_system_id.unwrap_or_default())
-                .with_field("release_configuration", release_configuration.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("s3", s3.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
+                .with_field("file_system_path", file_system_path.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("file_system_id", file_system_id.unwrap_or_default())
+                .with_field("data_repository_path", data_repository_path.unwrap_or_default())
+                .with_field("imported_file_chunk_size", imported_file_chunk_size.unwrap_or_default())
+                .with_field("batch_import_meta_data_on_create", batch_import_meta_data_on_create.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a data_repository_task resource
-    async fn delete_data_repository_task(
+    /// Delete a data_repository_association resource
+    async fn delete_data_repository_association(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -2851,7 +2433,121 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.fsx_client
-            //     .delete_data_repository_task()
+            //     .delete_data_repository_association()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Snapshots resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a snapshots resource
+    async fn plan_snapshots(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new snapshots resource
+    async fn create_snapshots(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .create_snapshots()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a snapshots resource
+    async fn read_snapshots(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .describe_snapshots()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a snapshots resource
+    async fn update_snapshots(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .update_snapshots()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a snapshots resource
+    async fn delete_snapshots(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.fsx_client
+            //     .delete_snapshots()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2890,11 +2586,11 @@ impl<'a> FsxService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let open_zfs_configuration = input.get_optional_string("open_zfs_configuration")?;
             let name = input.get_string("name")?;
             let client_request_token = input.get_optional_string("client_request_token")?;
-            let r#type = input.get_string("type")?;
             let s3_access_point = input.get_optional_string("s3_access_point")?;
-            let open_zfs_configuration = input.get_optional_string("open_zfs_configuration")?;
+            let r#type = input.get_string("type")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -2909,11 +2605,11 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("open_zfs_configuration", open_zfs_configuration.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
                 .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("type", r#type.unwrap_or_default())
                 .with_field("s3_access_point", s3_access_point.unwrap_or_default())
-                .with_field("open_zfs_configuration", open_zfs_configuration.unwrap_or_default())
+                .with_field("type", r#type.unwrap_or_default())
             )
         })
     }
@@ -2947,11 +2643,11 @@ impl<'a> FsxService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let open_zfs_configuration = input.get_optional_string("open_zfs_configuration")?;
             let name = input.get_string("name")?;
             let client_request_token = input.get_optional_string("client_request_token")?;
-            let r#type = input.get_string("type")?;
             let s3_access_point = input.get_optional_string("s3_access_point")?;
-            let open_zfs_configuration = input.get_optional_string("open_zfs_configuration")?;
+            let r#type = input.get_string("type")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -2967,11 +2663,11 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("open_zfs_configuration", open_zfs_configuration.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
                 .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("type", r#type.unwrap_or_default())
                 .with_field("s3_access_point", s3_access_point.unwrap_or_default())
-                .with_field("open_zfs_configuration", open_zfs_configuration.unwrap_or_default())
+                .with_field("type", r#type.unwrap_or_default())
             )
         })
     }
@@ -2986,6 +2682,286 @@ impl<'a> FsxService<'a> {
             // Example:
             // self.provider.fsx_client
             //     .delete_and_attach_s3_access_point()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Storage_virtual_machine resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a storage_virtual_machine resource
+    async fn plan_storage_virtual_machine(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new storage_virtual_machine resource
+    async fn create_storage_virtual_machine(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let client_request_token = input.get_optional_string("client_request_token")?;
+            let active_directory_configuration = input.get_optional_string("active_directory_configuration")?;
+            let file_system_id = input.get_string("file_system_id")?;
+            let name = input.get_string("name")?;
+            let svm_admin_password = input.get_optional_string("svm_admin_password")?;
+            let tags = input.get_optional_string("tags")?;
+            let root_volume_security_style = input.get_optional_string("root_volume_security_style")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .create_storage_virtual_machine()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("active_directory_configuration", active_directory_configuration.unwrap_or_default())
+                .with_field("file_system_id", file_system_id.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("svm_admin_password", svm_admin_password.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("root_volume_security_style", root_volume_security_style.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a storage_virtual_machine resource
+    async fn read_storage_virtual_machine(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .describe_storage_virtual_machine()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a storage_virtual_machine resource
+    async fn update_storage_virtual_machine(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let client_request_token = input.get_optional_string("client_request_token")?;
+            let active_directory_configuration = input.get_optional_string("active_directory_configuration")?;
+            let file_system_id = input.get_string("file_system_id")?;
+            let name = input.get_string("name")?;
+            let svm_admin_password = input.get_optional_string("svm_admin_password")?;
+            let tags = input.get_optional_string("tags")?;
+            let root_volume_security_style = input.get_optional_string("root_volume_security_style")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .update_storage_virtual_machine()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("active_directory_configuration", active_directory_configuration.unwrap_or_default())
+                .with_field("file_system_id", file_system_id.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("svm_admin_password", svm_admin_password.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("root_volume_security_style", root_volume_security_style.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a storage_virtual_machine resource
+    async fn delete_storage_virtual_machine(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.fsx_client
+            //     .delete_storage_virtual_machine()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Volume resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a volume resource
+    async fn plan_volume(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new volume resource
+    async fn create_volume(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let client_request_token = input.get_optional_string("client_request_token")?;
+            let ontap_configuration = input.get_optional_string("ontap_configuration")?;
+            let volume_type = input.get_string("volume_type")?;
+            let tags = input.get_optional_string("tags")?;
+            let name = input.get_string("name")?;
+            let open_zfs_configuration = input.get_optional_string("open_zfs_configuration")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .create_volume()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("ontap_configuration", ontap_configuration.unwrap_or_default())
+                .with_field("volume_type", volume_type.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("open_zfs_configuration", open_zfs_configuration.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a volume resource
+    async fn read_volume(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .describe_volume()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a volume resource
+    async fn update_volume(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let client_request_token = input.get_optional_string("client_request_token")?;
+            let ontap_configuration = input.get_optional_string("ontap_configuration")?;
+            let volume_type = input.get_string("volume_type")?;
+            let tags = input.get_optional_string("tags")?;
+            let name = input.get_string("name")?;
+            let open_zfs_configuration = input.get_optional_string("open_zfs_configuration")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.fsx_client
+            //     .update_volume()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("ontap_configuration", ontap_configuration.unwrap_or_default())
+                .with_field("volume_type", volume_type.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("open_zfs_configuration", open_zfs_configuration.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a volume resource
+    async fn delete_volume(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.fsx_client
+            //     .delete_volume()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -3024,19 +3000,19 @@ impl<'a> FsxService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let network_type = input.get_optional_string("network_type")?;
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let tags = input.get_optional_string("tags")?;
-            let lustre_configuration = input.get_optional_string("lustre_configuration")?;
-            let file_system_type_version = input.get_optional_string("file_system_type_version")?;
-            let security_group_ids = input.get_optional_string("security_group_ids")?;
-            let storage_type = input.get_optional_string("storage_type")?;
-            let subnet_ids = input.get_string("subnet_ids")?;
             let open_zfs_configuration = input.get_optional_string("open_zfs_configuration")?;
-            let windows_configuration = input.get_optional_string("windows_configuration")?;
             let storage_capacity = input.get_optional_string("storage_capacity")?;
+            let network_type = input.get_optional_string("network_type")?;
+            let subnet_ids = input.get_string("subnet_ids")?;
             let backup_id = input.get_string("backup_id")?;
+            let lustre_configuration = input.get_optional_string("lustre_configuration")?;
+            let windows_configuration = input.get_optional_string("windows_configuration")?;
+            let security_group_ids = input.get_optional_string("security_group_ids")?;
+            let tags = input.get_optional_string("tags")?;
+            let storage_type = input.get_optional_string("storage_type")?;
             let kms_key_id = input.get_optional_string("kms_key_id")?;
+            let client_request_token = input.get_optional_string("client_request_token")?;
+            let file_system_type_version = input.get_optional_string("file_system_type_version")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -3051,19 +3027,19 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("network_type", network_type.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("lustre_configuration", lustre_configuration.unwrap_or_default())
-                .with_field("file_system_type_version", file_system_type_version.unwrap_or_default())
-                .with_field("security_group_ids", security_group_ids.unwrap_or_default())
-                .with_field("storage_type", storage_type.unwrap_or_default())
-                .with_field("subnet_ids", subnet_ids.unwrap_or_default())
                 .with_field("open_zfs_configuration", open_zfs_configuration.unwrap_or_default())
-                .with_field("windows_configuration", windows_configuration.unwrap_or_default())
                 .with_field("storage_capacity", storage_capacity.unwrap_or_default())
+                .with_field("network_type", network_type.unwrap_or_default())
+                .with_field("subnet_ids", subnet_ids.unwrap_or_default())
                 .with_field("backup_id", backup_id.unwrap_or_default())
+                .with_field("lustre_configuration", lustre_configuration.unwrap_or_default())
+                .with_field("windows_configuration", windows_configuration.unwrap_or_default())
+                .with_field("security_group_ids", security_group_ids.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("storage_type", storage_type.unwrap_or_default())
                 .with_field("kms_key_id", kms_key_id.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("file_system_type_version", file_system_type_version.unwrap_or_default())
             )
         })
     }
@@ -3097,19 +3073,19 @@ impl<'a> FsxService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let network_type = input.get_optional_string("network_type")?;
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let tags = input.get_optional_string("tags")?;
-            let lustre_configuration = input.get_optional_string("lustre_configuration")?;
-            let file_system_type_version = input.get_optional_string("file_system_type_version")?;
-            let security_group_ids = input.get_optional_string("security_group_ids")?;
-            let storage_type = input.get_optional_string("storage_type")?;
-            let subnet_ids = input.get_string("subnet_ids")?;
             let open_zfs_configuration = input.get_optional_string("open_zfs_configuration")?;
-            let windows_configuration = input.get_optional_string("windows_configuration")?;
             let storage_capacity = input.get_optional_string("storage_capacity")?;
+            let network_type = input.get_optional_string("network_type")?;
+            let subnet_ids = input.get_string("subnet_ids")?;
             let backup_id = input.get_string("backup_id")?;
+            let lustre_configuration = input.get_optional_string("lustre_configuration")?;
+            let windows_configuration = input.get_optional_string("windows_configuration")?;
+            let security_group_ids = input.get_optional_string("security_group_ids")?;
+            let tags = input.get_optional_string("tags")?;
+            let storage_type = input.get_optional_string("storage_type")?;
             let kms_key_id = input.get_optional_string("kms_key_id")?;
+            let client_request_token = input.get_optional_string("client_request_token")?;
+            let file_system_type_version = input.get_optional_string("file_system_type_version")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -3125,19 +3101,19 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("network_type", network_type.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("lustre_configuration", lustre_configuration.unwrap_or_default())
-                .with_field("file_system_type_version", file_system_type_version.unwrap_or_default())
-                .with_field("security_group_ids", security_group_ids.unwrap_or_default())
-                .with_field("storage_type", storage_type.unwrap_or_default())
-                .with_field("subnet_ids", subnet_ids.unwrap_or_default())
                 .with_field("open_zfs_configuration", open_zfs_configuration.unwrap_or_default())
-                .with_field("windows_configuration", windows_configuration.unwrap_or_default())
                 .with_field("storage_capacity", storage_capacity.unwrap_or_default())
+                .with_field("network_type", network_type.unwrap_or_default())
+                .with_field("subnet_ids", subnet_ids.unwrap_or_default())
                 .with_field("backup_id", backup_id.unwrap_or_default())
+                .with_field("lustre_configuration", lustre_configuration.unwrap_or_default())
+                .with_field("windows_configuration", windows_configuration.unwrap_or_default())
+                .with_field("security_group_ids", security_group_ids.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("storage_type", storage_type.unwrap_or_default())
                 .with_field("kms_key_id", kms_key_id.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("file_system_type_version", file_system_type_version.unwrap_or_default())
             )
         })
     }
@@ -3163,11 +3139,11 @@ impl<'a> FsxService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Shared_vpc_configuration resource operations
+    // Data_repository_task resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a shared_vpc_configuration resource
-    async fn plan_shared_vpc_configuration(
+    /// Plan changes to a data_repository_task resource
+    async fn plan_data_repository_task(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -3182,22 +3158,28 @@ impl<'a> FsxService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new shared_vpc_configuration resource
-    async fn create_shared_vpc_configuration(
+    /// Create a new data_repository_task resource
+    async fn create_data_repository_task(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let capacity_to_release = input.get_optional_string("capacity_to_release")?;
+            let paths = input.get_optional_string("paths")?;
+            let report = input.get_string("report")?;
+            let file_system_id = input.get_string("file_system_id")?;
             let client_request_token = input.get_optional_string("client_request_token")?;
-            let enable_fsx_route_table_updates_from_participant_accounts = input.get_optional_string("enable_fsx_route_table_updates_from_participant_accounts")?;
+            let release_configuration = input.get_optional_string("release_configuration")?;
+            let r#type = input.get_string("type")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .create_shared_vpc_configuration()
+            //     .create_data_repository_task()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -3206,14 +3188,20 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("capacity_to_release", capacity_to_release.unwrap_or_default())
+                .with_field("paths", paths.unwrap_or_default())
+                .with_field("report", report.unwrap_or_default())
+                .with_field("file_system_id", file_system_id.unwrap_or_default())
                 .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("enable_fsx_route_table_updates_from_participant_accounts", enable_fsx_route_table_updates_from_participant_accounts.unwrap_or_default())
+                .with_field("release_configuration", release_configuration.unwrap_or_default())
+                .with_field("type", r#type.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
 
-    /// Read a shared_vpc_configuration resource
-    async fn read_shared_vpc_configuration(
+    /// Read a data_repository_task resource
+    async fn read_data_repository_task(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -3221,7 +3209,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .describe_shared_vpc_configuration()
+            //     .describe_data_repository_task()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -3233,22 +3221,28 @@ impl<'a> FsxService<'a> {
         })
     }
 
-    /// Update a shared_vpc_configuration resource
-    async fn update_shared_vpc_configuration(
+    /// Update a data_repository_task resource
+    async fn update_data_repository_task(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let capacity_to_release = input.get_optional_string("capacity_to_release")?;
+            let paths = input.get_optional_string("paths")?;
+            let report = input.get_string("report")?;
+            let file_system_id = input.get_string("file_system_id")?;
             let client_request_token = input.get_optional_string("client_request_token")?;
-            let enable_fsx_route_table_updates_from_participant_accounts = input.get_optional_string("enable_fsx_route_table_updates_from_participant_accounts")?;
+            let release_configuration = input.get_optional_string("release_configuration")?;
+            let r#type = input.get_string("type")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.fsx_client
-            //     .update_shared_vpc_configuration()
+            //     .update_data_repository_task()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -3258,14 +3252,20 @@ impl<'a> FsxService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("capacity_to_release", capacity_to_release.unwrap_or_default())
+                .with_field("paths", paths.unwrap_or_default())
+                .with_field("report", report.unwrap_or_default())
+                .with_field("file_system_id", file_system_id.unwrap_or_default())
                 .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("enable_fsx_route_table_updates_from_participant_accounts", enable_fsx_route_table_updates_from_participant_accounts.unwrap_or_default())
+                .with_field("release_configuration", release_configuration.unwrap_or_default())
+                .with_field("type", r#type.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a shared_vpc_configuration resource
-    async fn delete_shared_vpc_configuration(
+    /// Delete a data_repository_task resource
+    async fn delete_data_repository_task(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -3273,7 +3273,7 @@ impl<'a> FsxService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.fsx_client
-            //     .delete_shared_vpc_configuration()
+            //     .delete_data_repository_task()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

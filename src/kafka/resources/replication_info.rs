@@ -24,7 +24,7 @@ impl<'a> Replication_info<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, target_kafka_cluster_arn: Option<String>, consumer_group_replication: Option<String>, topic_replication: Option<String>, source_kafka_cluster_arn: Option<String>, current_version: Option<String>, replicator_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, source_kafka_cluster_arn: Option<String>, target_kafka_cluster_arn: Option<String>, topic_replication: Option<String>, replicator_arn: Option<String>, consumer_group_replication: Option<String>, current_version: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

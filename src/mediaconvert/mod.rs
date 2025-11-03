@@ -24,17 +24,20 @@ impl<'a> MediaconvertService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "jobs_query_results" => {
-                self.plan_jobs_query_results(current_state, desired_input).await
-            }
-            "preset" => {
-                self.plan_preset(current_state, desired_input).await
-            }
             "endpoints" => {
                 self.plan_endpoints(current_state, desired_input).await
             }
+            "jobs_query_results" => {
+                self.plan_jobs_query_results(current_state, desired_input).await
+            }
+            "resource_share" => {
+                self.plan_resource_share(current_state, desired_input).await
+            }
             "policy" => {
                 self.plan_policy(current_state, desired_input).await
+            }
+            "job_template" => {
+                self.plan_job_template(current_state, desired_input).await
             }
             "job" => {
                 self.plan_job(current_state, desired_input).await
@@ -42,11 +45,8 @@ impl<'a> MediaconvertService<'a> {
             "queue" => {
                 self.plan_queue(current_state, desired_input).await
             }
-            "job_template" => {
-                self.plan_job_template(current_state, desired_input).await
-            }
-            "resource_share" => {
-                self.plan_resource_share(current_state, desired_input).await
+            "preset" => {
+                self.plan_preset(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -63,17 +63,20 @@ impl<'a> MediaconvertService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "jobs_query_results" => {
-                self.create_jobs_query_results(input).await
-            }
-            "preset" => {
-                self.create_preset(input).await
-            }
             "endpoints" => {
                 self.create_endpoints(input).await
             }
+            "jobs_query_results" => {
+                self.create_jobs_query_results(input).await
+            }
+            "resource_share" => {
+                self.create_resource_share(input).await
+            }
             "policy" => {
                 self.create_policy(input).await
+            }
+            "job_template" => {
+                self.create_job_template(input).await
             }
             "job" => {
                 self.create_job(input).await
@@ -81,11 +84,8 @@ impl<'a> MediaconvertService<'a> {
             "queue" => {
                 self.create_queue(input).await
             }
-            "job_template" => {
-                self.create_job_template(input).await
-            }
-            "resource_share" => {
-                self.create_resource_share(input).await
+            "preset" => {
+                self.create_preset(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -102,17 +102,20 @@ impl<'a> MediaconvertService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "jobs_query_results" => {
-                self.read_jobs_query_results(id).await
-            }
-            "preset" => {
-                self.read_preset(id).await
-            }
             "endpoints" => {
                 self.read_endpoints(id).await
             }
+            "jobs_query_results" => {
+                self.read_jobs_query_results(id).await
+            }
+            "resource_share" => {
+                self.read_resource_share(id).await
+            }
             "policy" => {
                 self.read_policy(id).await
+            }
+            "job_template" => {
+                self.read_job_template(id).await
             }
             "job" => {
                 self.read_job(id).await
@@ -120,11 +123,8 @@ impl<'a> MediaconvertService<'a> {
             "queue" => {
                 self.read_queue(id).await
             }
-            "job_template" => {
-                self.read_job_template(id).await
-            }
-            "resource_share" => {
-                self.read_resource_share(id).await
+            "preset" => {
+                self.read_preset(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -142,17 +142,20 @@ impl<'a> MediaconvertService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "jobs_query_results" => {
-                self.update_jobs_query_results(id, input).await
-            }
-            "preset" => {
-                self.update_preset(id, input).await
-            }
             "endpoints" => {
                 self.update_endpoints(id, input).await
             }
+            "jobs_query_results" => {
+                self.update_jobs_query_results(id, input).await
+            }
+            "resource_share" => {
+                self.update_resource_share(id, input).await
+            }
             "policy" => {
                 self.update_policy(id, input).await
+            }
+            "job_template" => {
+                self.update_job_template(id, input).await
             }
             "job" => {
                 self.update_job(id, input).await
@@ -160,11 +163,8 @@ impl<'a> MediaconvertService<'a> {
             "queue" => {
                 self.update_queue(id, input).await
             }
-            "job_template" => {
-                self.update_job_template(id, input).await
-            }
-            "resource_share" => {
-                self.update_resource_share(id, input).await
+            "preset" => {
+                self.update_preset(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -181,17 +181,20 @@ impl<'a> MediaconvertService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "jobs_query_results" => {
-                self.delete_jobs_query_results(id).await
-            }
-            "preset" => {
-                self.delete_preset(id).await
-            }
             "endpoints" => {
                 self.delete_endpoints(id).await
             }
+            "jobs_query_results" => {
+                self.delete_jobs_query_results(id).await
+            }
+            "resource_share" => {
+                self.delete_resource_share(id).await
+            }
             "policy" => {
                 self.delete_policy(id).await
+            }
+            "job_template" => {
+                self.delete_job_template(id).await
             }
             "job" => {
                 self.delete_job(id).await
@@ -199,11 +202,8 @@ impl<'a> MediaconvertService<'a> {
             "queue" => {
                 self.delete_queue(id).await
             }
-            "job_template" => {
-                self.delete_job_template(id).await
-            }
-            "resource_share" => {
-                self.delete_resource_share(id).await
+            "preset" => {
+                self.delete_preset(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -216,6 +216,120 @@ impl<'a> MediaconvertService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
+
+    // ------------------------------------------------------------------------
+    // Endpoints resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a endpoints resource
+    async fn plan_endpoints(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new endpoints resource
+    async fn create_endpoints(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.mediaconvert_client
+            //     .create_endpoints()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a endpoints resource
+    async fn read_endpoints(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.mediaconvert_client
+            //     .describe_endpoints()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a endpoints resource
+    async fn update_endpoints(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.mediaconvert_client
+            //     .update_endpoints()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a endpoints resource
+    async fn delete_endpoints(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.mediaconvert_client
+            //     .delete_endpoints()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
 
 
     // ------------------------------------------------------------------------
@@ -333,11 +447,11 @@ impl<'a> MediaconvertService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Preset resource operations
+    // Resource_share resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a preset resource
-    async fn plan_preset(
+    /// Plan changes to a resource_share resource
+    async fn plan_resource_share(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -352,25 +466,22 @@ impl<'a> MediaconvertService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new preset resource
-    async fn create_preset(
+    /// Create a new resource_share resource
+    async fn create_resource_share(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let settings = input.get_string("settings")?;
-            let description = input.get_optional_string("description")?;
-            let tags = input.get_optional_string("tags")?;
-            let name = input.get_string("name")?;
-            let category = input.get_optional_string("category")?;
+            let support_case_id = input.get_string("support_case_id")?;
+            let job_id = input.get_string("job_id")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.mediaconvert_client
-            //     .create_preset()
+            //     .create_resource_share()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -379,17 +490,14 @@ impl<'a> MediaconvertService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("settings", settings.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("category", category.unwrap_or_default())
+                .with_field("support_case_id", support_case_id.unwrap_or_default())
+                .with_field("job_id", job_id.unwrap_or_default())
             )
         })
     }
 
-    /// Read a preset resource
-    async fn read_preset(
+    /// Read a resource_share resource
+    async fn read_resource_share(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -397,7 +505,7 @@ impl<'a> MediaconvertService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.mediaconvert_client
-            //     .describe_preset()
+            //     .describe_resource_share()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -409,25 +517,22 @@ impl<'a> MediaconvertService<'a> {
         })
     }
 
-    /// Update a preset resource
-    async fn update_preset(
+    /// Update a resource_share resource
+    async fn update_resource_share(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let settings = input.get_string("settings")?;
-            let description = input.get_optional_string("description")?;
-            let tags = input.get_optional_string("tags")?;
-            let name = input.get_string("name")?;
-            let category = input.get_optional_string("category")?;
+            let support_case_id = input.get_string("support_case_id")?;
+            let job_id = input.get_string("job_id")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.mediaconvert_client
-            //     .update_preset()
+            //     .update_resource_share()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -437,17 +542,14 @@ impl<'a> MediaconvertService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("settings", settings.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("category", category.unwrap_or_default())
+                .with_field("support_case_id", support_case_id.unwrap_or_default())
+                .with_field("job_id", job_id.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a preset resource
-    async fn delete_preset(
+    /// Delete a resource_share resource
+    async fn delete_resource_share(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -455,121 +557,7 @@ impl<'a> MediaconvertService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.mediaconvert_client
-            //     .delete_preset()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Endpoints resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a endpoints resource
-    async fn plan_endpoints(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new endpoints resource
-    async fn create_endpoints(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.mediaconvert_client
-            //     .create_endpoints()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a endpoints resource
-    async fn read_endpoints(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.mediaconvert_client
-            //     .describe_endpoints()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a endpoints resource
-    async fn update_endpoints(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.mediaconvert_client
-            //     .update_endpoints()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a endpoints resource
-    async fn delete_endpoints(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.mediaconvert_client
-            //     .delete_endpoints()
+            //     .delete_resource_share()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -699,6 +687,160 @@ impl<'a> MediaconvertService<'a> {
 
 
     // ------------------------------------------------------------------------
+    // Job_template resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a job_template resource
+    async fn plan_job_template(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new job_template resource
+    async fn create_job_template(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let queue = input.get_optional_string("queue")?;
+            let hop_destinations = input.get_optional_string("hop_destinations")?;
+            let category = input.get_optional_string("category")?;
+            let settings = input.get_string("settings")?;
+            let acceleration_settings = input.get_optional_string("acceleration_settings")?;
+            let status_update_interval = input.get_optional_string("status_update_interval")?;
+            let description = input.get_optional_string("description")?;
+            let priority = input.get_optional_string("priority")?;
+            let name = input.get_string("name")?;
+            let tags = input.get_optional_string("tags")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.mediaconvert_client
+            //     .create_job_template()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("queue", queue.unwrap_or_default())
+                .with_field("hop_destinations", hop_destinations.unwrap_or_default())
+                .with_field("category", category.unwrap_or_default())
+                .with_field("settings", settings.unwrap_or_default())
+                .with_field("acceleration_settings", acceleration_settings.unwrap_or_default())
+                .with_field("status_update_interval", status_update_interval.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("priority", priority.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a job_template resource
+    async fn read_job_template(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.mediaconvert_client
+            //     .describe_job_template()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a job_template resource
+    async fn update_job_template(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let queue = input.get_optional_string("queue")?;
+            let hop_destinations = input.get_optional_string("hop_destinations")?;
+            let category = input.get_optional_string("category")?;
+            let settings = input.get_string("settings")?;
+            let acceleration_settings = input.get_optional_string("acceleration_settings")?;
+            let status_update_interval = input.get_optional_string("status_update_interval")?;
+            let description = input.get_optional_string("description")?;
+            let priority = input.get_optional_string("priority")?;
+            let name = input.get_string("name")?;
+            let tags = input.get_optional_string("tags")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.mediaconvert_client
+            //     .update_job_template()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("queue", queue.unwrap_or_default())
+                .with_field("hop_destinations", hop_destinations.unwrap_or_default())
+                .with_field("category", category.unwrap_or_default())
+                .with_field("settings", settings.unwrap_or_default())
+                .with_field("acceleration_settings", acceleration_settings.unwrap_or_default())
+                .with_field("status_update_interval", status_update_interval.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("priority", priority.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a job_template resource
+    async fn delete_job_template(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.mediaconvert_client
+            //     .delete_job_template()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
     // Job resource operations
     // ------------------------------------------------------------------------
 
@@ -726,20 +868,20 @@ impl<'a> MediaconvertService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let queue = input.get_optional_string("queue")?;
-            let job_engine_version = input.get_optional_string("job_engine_version")?;
-            let acceleration_settings = input.get_optional_string("acceleration_settings")?;
-            let priority = input.get_optional_string("priority")?;
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let simulate_reserved_queue = input.get_optional_string("simulate_reserved_queue")?;
-            let role = input.get_string("role")?;
-            let status_update_interval = input.get_optional_string("status_update_interval")?;
             let user_metadata = input.get_optional_string("user_metadata")?;
             let hop_destinations = input.get_optional_string("hop_destinations")?;
-            let settings = input.get_string("settings")?;
-            let tags = input.get_optional_string("tags")?;
-            let billing_tags_source = input.get_optional_string("billing_tags_source")?;
+            let status_update_interval = input.get_optional_string("status_update_interval")?;
+            let priority = input.get_optional_string("priority")?;
+            let job_engine_version = input.get_optional_string("job_engine_version")?;
             let job_template = input.get_optional_string("job_template")?;
+            let client_request_token = input.get_optional_string("client_request_token")?;
+            let role = input.get_string("role")?;
+            let queue = input.get_optional_string("queue")?;
+            let simulate_reserved_queue = input.get_optional_string("simulate_reserved_queue")?;
+            let tags = input.get_optional_string("tags")?;
+            let acceleration_settings = input.get_optional_string("acceleration_settings")?;
+            let billing_tags_source = input.get_optional_string("billing_tags_source")?;
+            let settings = input.get_string("settings")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -754,20 +896,20 @@ impl<'a> MediaconvertService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("queue", queue.unwrap_or_default())
-                .with_field("job_engine_version", job_engine_version.unwrap_or_default())
-                .with_field("acceleration_settings", acceleration_settings.unwrap_or_default())
-                .with_field("priority", priority.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("simulate_reserved_queue", simulate_reserved_queue.unwrap_or_default())
-                .with_field("role", role.unwrap_or_default())
-                .with_field("status_update_interval", status_update_interval.unwrap_or_default())
                 .with_field("user_metadata", user_metadata.unwrap_or_default())
                 .with_field("hop_destinations", hop_destinations.unwrap_or_default())
-                .with_field("settings", settings.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("billing_tags_source", billing_tags_source.unwrap_or_default())
+                .with_field("status_update_interval", status_update_interval.unwrap_or_default())
+                .with_field("priority", priority.unwrap_or_default())
+                .with_field("job_engine_version", job_engine_version.unwrap_or_default())
                 .with_field("job_template", job_template.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("role", role.unwrap_or_default())
+                .with_field("queue", queue.unwrap_or_default())
+                .with_field("simulate_reserved_queue", simulate_reserved_queue.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("acceleration_settings", acceleration_settings.unwrap_or_default())
+                .with_field("billing_tags_source", billing_tags_source.unwrap_or_default())
+                .with_field("settings", settings.unwrap_or_default())
             )
         })
     }
@@ -801,20 +943,20 @@ impl<'a> MediaconvertService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let queue = input.get_optional_string("queue")?;
-            let job_engine_version = input.get_optional_string("job_engine_version")?;
-            let acceleration_settings = input.get_optional_string("acceleration_settings")?;
-            let priority = input.get_optional_string("priority")?;
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let simulate_reserved_queue = input.get_optional_string("simulate_reserved_queue")?;
-            let role = input.get_string("role")?;
-            let status_update_interval = input.get_optional_string("status_update_interval")?;
             let user_metadata = input.get_optional_string("user_metadata")?;
             let hop_destinations = input.get_optional_string("hop_destinations")?;
-            let settings = input.get_string("settings")?;
-            let tags = input.get_optional_string("tags")?;
-            let billing_tags_source = input.get_optional_string("billing_tags_source")?;
+            let status_update_interval = input.get_optional_string("status_update_interval")?;
+            let priority = input.get_optional_string("priority")?;
+            let job_engine_version = input.get_optional_string("job_engine_version")?;
             let job_template = input.get_optional_string("job_template")?;
+            let client_request_token = input.get_optional_string("client_request_token")?;
+            let role = input.get_string("role")?;
+            let queue = input.get_optional_string("queue")?;
+            let simulate_reserved_queue = input.get_optional_string("simulate_reserved_queue")?;
+            let tags = input.get_optional_string("tags")?;
+            let acceleration_settings = input.get_optional_string("acceleration_settings")?;
+            let billing_tags_source = input.get_optional_string("billing_tags_source")?;
+            let settings = input.get_string("settings")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -830,20 +972,20 @@ impl<'a> MediaconvertService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("queue", queue.unwrap_or_default())
-                .with_field("job_engine_version", job_engine_version.unwrap_or_default())
-                .with_field("acceleration_settings", acceleration_settings.unwrap_or_default())
-                .with_field("priority", priority.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("simulate_reserved_queue", simulate_reserved_queue.unwrap_or_default())
-                .with_field("role", role.unwrap_or_default())
-                .with_field("status_update_interval", status_update_interval.unwrap_or_default())
                 .with_field("user_metadata", user_metadata.unwrap_or_default())
                 .with_field("hop_destinations", hop_destinations.unwrap_or_default())
-                .with_field("settings", settings.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("billing_tags_source", billing_tags_source.unwrap_or_default())
+                .with_field("status_update_interval", status_update_interval.unwrap_or_default())
+                .with_field("priority", priority.unwrap_or_default())
+                .with_field("job_engine_version", job_engine_version.unwrap_or_default())
                 .with_field("job_template", job_template.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("role", role.unwrap_or_default())
+                .with_field("queue", queue.unwrap_or_default())
+                .with_field("simulate_reserved_queue", simulate_reserved_queue.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("acceleration_settings", acceleration_settings.unwrap_or_default())
+                .with_field("billing_tags_source", billing_tags_source.unwrap_or_default())
+                .with_field("settings", settings.unwrap_or_default())
             )
         })
     }
@@ -896,13 +1038,13 @@ impl<'a> MediaconvertService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let status = input.get_optional_string("status")?;
             let reservation_plan_settings = input.get_optional_string("reservation_plan_settings")?;
-            let name = input.get_string("name")?;
-            let pricing_plan = input.get_optional_string("pricing_plan")?;
-            let tags = input.get_optional_string("tags")?;
             let description = input.get_optional_string("description")?;
+            let pricing_plan = input.get_optional_string("pricing_plan")?;
+            let name = input.get_string("name")?;
+            let status = input.get_optional_string("status")?;
             let concurrent_jobs = input.get_optional_string("concurrent_jobs")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -917,13 +1059,13 @@ impl<'a> MediaconvertService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("status", status.unwrap_or_default())
                 .with_field("reservation_plan_settings", reservation_plan_settings.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("pricing_plan", pricing_plan.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
+                .with_field("pricing_plan", pricing_plan.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("status", status.unwrap_or_default())
                 .with_field("concurrent_jobs", concurrent_jobs.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
@@ -957,13 +1099,13 @@ impl<'a> MediaconvertService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let status = input.get_optional_string("status")?;
             let reservation_plan_settings = input.get_optional_string("reservation_plan_settings")?;
-            let name = input.get_string("name")?;
-            let pricing_plan = input.get_optional_string("pricing_plan")?;
-            let tags = input.get_optional_string("tags")?;
             let description = input.get_optional_string("description")?;
+            let pricing_plan = input.get_optional_string("pricing_plan")?;
+            let name = input.get_string("name")?;
+            let status = input.get_optional_string("status")?;
             let concurrent_jobs = input.get_optional_string("concurrent_jobs")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -979,13 +1121,13 @@ impl<'a> MediaconvertService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("status", status.unwrap_or_default())
                 .with_field("reservation_plan_settings", reservation_plan_settings.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("pricing_plan", pricing_plan.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
+                .with_field("pricing_plan", pricing_plan.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("status", status.unwrap_or_default())
                 .with_field("concurrent_jobs", concurrent_jobs.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
@@ -1011,11 +1153,11 @@ impl<'a> MediaconvertService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Job_template resource operations
+    // Preset resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a job_template resource
-    async fn plan_job_template(
+    /// Plan changes to a preset resource
+    async fn plan_preset(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1030,30 +1172,25 @@ impl<'a> MediaconvertService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new job_template resource
-    async fn create_job_template(
+    /// Create a new preset resource
+    async fn create_preset(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let tags = input.get_optional_string("tags")?;
-            let priority = input.get_optional_string("priority")?;
-            let status_update_interval = input.get_optional_string("status_update_interval")?;
-            let queue = input.get_optional_string("queue")?;
-            let acceleration_settings = input.get_optional_string("acceleration_settings")?;
-            let category = input.get_optional_string("category")?;
-            let description = input.get_optional_string("description")?;
             let name = input.get_string("name")?;
+            let description = input.get_optional_string("description")?;
             let settings = input.get_string("settings")?;
-            let hop_destinations = input.get_optional_string("hop_destinations")?;
+            let tags = input.get_optional_string("tags")?;
+            let category = input.get_optional_string("category")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.mediaconvert_client
-            //     .create_job_template()
+            //     .create_preset()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1062,22 +1199,17 @@ impl<'a> MediaconvertService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("priority", priority.unwrap_or_default())
-                .with_field("status_update_interval", status_update_interval.unwrap_or_default())
-                .with_field("queue", queue.unwrap_or_default())
-                .with_field("acceleration_settings", acceleration_settings.unwrap_or_default())
-                .with_field("category", category.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
                 .with_field("settings", settings.unwrap_or_default())
-                .with_field("hop_destinations", hop_destinations.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("category", category.unwrap_or_default())
             )
         })
     }
 
-    /// Read a job_template resource
-    async fn read_job_template(
+    /// Read a preset resource
+    async fn read_preset(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1085,7 +1217,7 @@ impl<'a> MediaconvertService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.mediaconvert_client
-            //     .describe_job_template()
+            //     .describe_preset()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1097,30 +1229,25 @@ impl<'a> MediaconvertService<'a> {
         })
     }
 
-    /// Update a job_template resource
-    async fn update_job_template(
+    /// Update a preset resource
+    async fn update_preset(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let tags = input.get_optional_string("tags")?;
-            let priority = input.get_optional_string("priority")?;
-            let status_update_interval = input.get_optional_string("status_update_interval")?;
-            let queue = input.get_optional_string("queue")?;
-            let acceleration_settings = input.get_optional_string("acceleration_settings")?;
-            let category = input.get_optional_string("category")?;
-            let description = input.get_optional_string("description")?;
             let name = input.get_string("name")?;
+            let description = input.get_optional_string("description")?;
             let settings = input.get_string("settings")?;
-            let hop_destinations = input.get_optional_string("hop_destinations")?;
+            let tags = input.get_optional_string("tags")?;
+            let category = input.get_optional_string("category")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.mediaconvert_client
-            //     .update_job_template()
+            //     .update_preset()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1130,22 +1257,17 @@ impl<'a> MediaconvertService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("priority", priority.unwrap_or_default())
-                .with_field("status_update_interval", status_update_interval.unwrap_or_default())
-                .with_field("queue", queue.unwrap_or_default())
-                .with_field("acceleration_settings", acceleration_settings.unwrap_or_default())
-                .with_field("category", category.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
                 .with_field("settings", settings.unwrap_or_default())
-                .with_field("hop_destinations", hop_destinations.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("category", category.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a job_template resource
-    async fn delete_job_template(
+    /// Delete a preset resource
+    async fn delete_preset(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1153,129 +1275,7 @@ impl<'a> MediaconvertService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.mediaconvert_client
-            //     .delete_job_template()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Resource_share resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a resource_share resource
-    async fn plan_resource_share(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new resource_share resource
-    async fn create_resource_share(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let support_case_id = input.get_string("support_case_id")?;
-            let job_id = input.get_string("job_id")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.mediaconvert_client
-            //     .create_resource_share()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("support_case_id", support_case_id.unwrap_or_default())
-                .with_field("job_id", job_id.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a resource_share resource
-    async fn read_resource_share(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.mediaconvert_client
-            //     .describe_resource_share()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a resource_share resource
-    async fn update_resource_share(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let support_case_id = input.get_string("support_case_id")?;
-            let job_id = input.get_string("job_id")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.mediaconvert_client
-            //     .update_resource_share()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("support_case_id", support_case_id.unwrap_or_default())
-                .with_field("job_id", job_id.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a resource_share resource
-    async fn delete_resource_share(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.mediaconvert_client
-            //     .delete_resource_share()
+            //     .delete_preset()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

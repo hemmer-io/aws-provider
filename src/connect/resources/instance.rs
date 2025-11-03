@@ -21,7 +21,7 @@ impl<'a> Instance<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: Option<String>, identity_management_type: String, inbound_calls_enabled: bool, directory_id: Option<String>, instance_alias: Option<String>, outbound_calls_enabled: bool, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, directory_id: Option<String>, tags: Option<HashMap<String, String>>, instance_alias: Option<String>, client_token: Option<String>, inbound_calls_enabled: bool, outbound_calls_enabled: bool, identity_management_type: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

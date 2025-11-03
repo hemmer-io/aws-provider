@@ -21,7 +21,7 @@ impl<'a> Ingestion<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, ingestion_id: String, aws_account_id: String, data_set_id: String, ingestion_type: Option<String>) -> Result<String> {
+    pub async fn create(&self, ingestion_type: Option<String>, data_set_id: String, ingestion_id: String, aws_account_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

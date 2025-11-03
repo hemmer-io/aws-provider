@@ -27,20 +27,14 @@ SnapshotBlock resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `progress` | i64 |  | <p>The progress of the write process, as a percentage.</p> |
 | `block_index` | i64 | ✅ | <p>The block index of the block in which to write the data. A block index is a logical 
     	index in units of <code>512</code> KiB blocks. To identify the block index, divide 
         	the logical offset of the data in the logical volume by the block size (logical offset of 
         	data/<code>524288</code>). The logical offset of the data must be <code>512</code> 
         	KiB aligned.</p> |
-| `snapshot_id` | String | ✅ | <p>The ID of the snapshot.</p>
-         <important>
-            <p>If the specified snapshot is encrypted, you must have permission to use 
-                the KMS key that was used to encrypt the snapshot. For more information, 
-                see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
-                    Using encryption</a> in the <i>Amazon Elastic Compute Cloud User 
-                        Guide</i>..</p>
-         </important> |
+| `checksum` | String | ✅ | <p>A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are
+            supported.</p> |
+| `progress` | i64 |  | <p>The progress of the write process, as a percentage.</p> |
 | `block_data` | String | ✅ | <p>The data to write to the block.</p>
          <p>The block data is not signed as part of the Signature Version 4 signing process. As a
             result, you must generate and provide a Base64-encoded SHA256 checksum for the block
@@ -52,14 +46,20 @@ SnapshotBlock resource
         	see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-checksums">
                 Using checksums with the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud User
                 Guide</i>.</p> |
-| `checksum_algorithm` | String | ✅ | <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
-            is <code>SHA256</code>.</p> |
-| `checksum` | String | ✅ | <p>A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are
-            supported.</p> |
 | `data_length` | i64 | ✅ | <p>The size of the data to write to the block, in bytes. Currently, the only supported
             size is <code>524288</code> bytes.</p>
          <p>Valid values: <code>524288</code>
          </p> |
+| `checksum_algorithm` | String | ✅ | <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
+            is <code>SHA256</code>.</p> |
+| `snapshot_id` | String | ✅ | <p>The ID of the snapshot.</p>
+         <important>
+            <p>If the specified snapshot is encrypted, you must have permission to use 
+                the KMS key that was used to encrypt the snapshot. For more information, 
+                see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
+                    Using encryption</a> in the <i>Amazon Elastic Compute Cloud User 
+                        Guide</i>..</p>
+         </important> |
 
 
 #### Outputs
@@ -67,9 +67,9 @@ SnapshotBlock resource
 | Output | Type | Description |
 |--------|------|-------------|
 | `checksum` | String | <p>The checksum generated for the block, which is Base64 encoded.</p> |
-| `data_length` | i64 | <p>The size of the data in the block.</p> |
 | `checksum_algorithm` | String | <p>The algorithm used to generate the checksum for the block, such as SHA256.</p> |
 | `block_data` | String | <p>The data content of the block.</p> |
+| `data_length` | i64 | <p>The size of the data in the block.</p> |
 
 
 #### Usage Example
@@ -90,14 +90,8 @@ snapshot_block = provider.ebs.Snapshot_block {
         	the logical offset of the data in the logical volume by the block size (logical offset of 
         	data/<code>524288</code>). The logical offset of the data must be <code>512</code> 
         	KiB aligned.</p>
-    snapshot_id = "value"  # <p>The ID of the snapshot.</p>
-         <important>
-            <p>If the specified snapshot is encrypted, you must have permission to use 
-                the KMS key that was used to encrypt the snapshot. For more information, 
-                see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
-                    Using encryption</a> in the <i>Amazon Elastic Compute Cloud User 
-                        Guide</i>..</p>
-         </important>
+    checksum = "value"  # <p>A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are
+            supported.</p>
     block_data = "value"  # <p>The data to write to the block.</p>
          <p>The block data is not signed as part of the Signature Version 4 signing process. As a
             result, you must generate and provide a Base64-encoded SHA256 checksum for the block
@@ -109,22 +103,28 @@ snapshot_block = provider.ebs.Snapshot_block {
         	see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-checksums">
                 Using checksums with the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud User
                 Guide</i>.</p>
-    checksum_algorithm = "value"  # <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
-            is <code>SHA256</code>.</p>
-    checksum = "value"  # <p>A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are
-            supported.</p>
     data_length = "value"  # <p>The size of the data to write to the block, in bytes. Currently, the only supported
             size is <code>524288</code> bytes.</p>
          <p>Valid values: <code>524288</code>
          </p>
+    checksum_algorithm = "value"  # <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
+            is <code>SHA256</code>.</p>
+    snapshot_id = "value"  # <p>The ID of the snapshot.</p>
+         <important>
+            <p>If the specified snapshot is encrypted, you must have permission to use 
+                the KMS key that was used to encrypt the snapshot. For more information, 
+                see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
+                    Using encryption</a> in the <i>Amazon Elastic Compute Cloud User 
+                        Guide</i>..</p>
+         </important>
 }
 
 # Access snapshot_block outputs
 snapshot_block_id = snapshot_block.id
 snapshot_block_checksum = snapshot_block.checksum
-snapshot_block_data_length = snapshot_block.data_length
 snapshot_block_checksum_algorithm = snapshot_block.checksum_algorithm
 snapshot_block_block_data = snapshot_block.block_data
+snapshot_block_data_length = snapshot_block.data_length
 ```
 
 ---
@@ -145,27 +145,27 @@ provider = aws.AwsProvider {
 # Create multiple snapshot_block resources
 snapshot_block_0 = provider.ebs.Snapshot_block {
     block_index = "value-0"
-    snapshot_id = "value-0"
-    block_data = "value-0"
-    checksum_algorithm = "value-0"
     checksum = "value-0"
+    block_data = "value-0"
     data_length = "value-0"
+    checksum_algorithm = "value-0"
+    snapshot_id = "value-0"
 }
 snapshot_block_1 = provider.ebs.Snapshot_block {
     block_index = "value-1"
-    snapshot_id = "value-1"
-    block_data = "value-1"
-    checksum_algorithm = "value-1"
     checksum = "value-1"
+    block_data = "value-1"
     data_length = "value-1"
+    checksum_algorithm = "value-1"
+    snapshot_id = "value-1"
 }
 snapshot_block_2 = provider.ebs.Snapshot_block {
     block_index = "value-2"
-    snapshot_id = "value-2"
-    block_data = "value-2"
-    checksum_algorithm = "value-2"
     checksum = "value-2"
+    block_data = "value-2"
     data_length = "value-2"
+    checksum_algorithm = "value-2"
+    snapshot_id = "value-2"
 }
 ```
 
@@ -176,11 +176,11 @@ snapshot_block_2 = provider.ebs.Snapshot_block {
 if environment == "production":
     snapshot_block = provider.ebs.Snapshot_block {
         block_index = "production-value"
-        snapshot_id = "production-value"
-        block_data = "production-value"
-        checksum_algorithm = "production-value"
         checksum = "production-value"
+        block_data = "production-value"
         data_length = "production-value"
+        checksum_algorithm = "production-value"
+        snapshot_id = "production-value"
     }
 ```
 

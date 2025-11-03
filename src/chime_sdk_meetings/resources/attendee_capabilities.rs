@@ -24,7 +24,7 @@ impl<'a> Attendee_capabilities<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, attendee_id: Option<String>, capabilities: Option<String>, meeting_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, meeting_id: Option<String>, attendee_id: Option<String>, capabilities: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

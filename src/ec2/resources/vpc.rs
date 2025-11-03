@@ -21,7 +21,7 @@ impl<'a> Vpc<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, ipv6_cidr_block_network_border_group: Option<String>, tag_specifications: Option<Vec<String>>, ipv4_netmask_length: Option<i64>, ipv6_pool: Option<String>, ipv6_ipam_pool_id: Option<String>, ipv6_netmask_length: Option<i64>, amazon_provided_ipv6_cidr_block: Option<bool>, instance_tenancy: Option<String>, dry_run: Option<bool>, ipv4_ipam_pool_id: Option<String>, ipv6_cidr_block: Option<String>, cidr_block: Option<String>) -> Result<String> {
+    pub async fn create(&self, instance_tenancy: Option<String>, ipv6_pool: Option<String>, ipv6_cidr_block: Option<String>, ipv4_netmask_length: Option<i64>, tag_specifications: Option<Vec<String>>, cidr_block: Option<String>, ipv6_ipam_pool_id: Option<String>, dry_run: Option<bool>, ipv6_netmask_length: Option<i64>, amazon_provided_ipv6_cidr_block: Option<bool>, ipv4_ipam_pool_id: Option<String>, ipv6_cidr_block_network_border_group: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

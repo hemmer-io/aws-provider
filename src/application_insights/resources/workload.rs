@@ -38,7 +38,7 @@ impl<'a> Workload<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, workload_id: Option<String>, workload_configuration: Option<String>, resource_group_name: Option<String>, component_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, resource_group_name: Option<String>, workload_id: Option<String>, workload_configuration: Option<String>, component_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

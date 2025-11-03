@@ -21,7 +21,7 @@ impl<'a> Notification_rule<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, targets: Vec<String>, event_type_ids: Vec<String>, resource: String, detail_type: String, status: Option<String>, name: String, tags: Option<HashMap<String, String>>, client_request_token: Option<String>) -> Result<String> {
+    pub async fn create(&self, detail_type: String, targets: Vec<String>, client_request_token: Option<String>, event_type_ids: Vec<String>, name: String, resource: String, tags: Option<HashMap<String, String>>, status: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Notification_rule<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, targets: Option<Vec<String>>, event_type_ids: Option<Vec<String>>, resource: Option<String>, detail_type: Option<String>, status: Option<String>, name: Option<String>, tags: Option<HashMap<String, String>>, client_request_token: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, detail_type: Option<String>, targets: Option<Vec<String>>, client_request_token: Option<String>, event_type_ids: Option<Vec<String>>, name: Option<String>, resource: Option<String>, tags: Option<HashMap<String, String>>, status: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

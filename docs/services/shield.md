@@ -10,19 +10,59 @@
 
 The shield service provides access to 9 resource types:
 
-- [Protection_group](#protection_group) [CRUD]
-- [Subscription_state](#subscription_state) [R]
-- [Drt_access](#drt_access) [R]
-- [Attack](#attack) [R]
-- [Emergency_contact_settings](#emergency_contact_settings) [RU]
-- [Application_layer_automatic_response](#application_layer_automatic_response) [U]
-- [Subscription](#subscription) [CRUD]
-- [Protection](#protection) [CRD]
 - [Attack_statistics](#attack_statistics) [R]
+- [Protection_group](#protection_group) [CRUD]
+- [Attack](#attack) [R]
+- [Drt_access](#drt_access) [R]
+- [Subscription_state](#subscription_state) [R]
+- [Protection](#protection) [CRD]
+- [Application_layer_automatic_response](#application_layer_automatic_response) [U]
+- [Emergency_contact_settings](#emergency_contact_settings) [RU]
+- [Subscription](#subscription) [CRUD]
 
 ---
 
 ## Resources
+
+
+### Attack_statistics
+
+AttackStatistics resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `time_range` | String | <p>The time range of the attack.</p> |
+| `data_items` | Vec<String> | <p>The data that describes the attacks detected during the time period.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access attack_statistics outputs
+attack_statistics_id = attack_statistics.id
+attack_statistics_time_range = attack_statistics.time_range
+attack_statistics_data_items = attack_statistics.data_items
+```
+
+---
 
 
 ### Protection_group
@@ -35,11 +75,11 @@ ProtectionGroup resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `pattern` | String | ✅ | <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type. </p> |
 | `resource_type` | String |  | <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group.
            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p> |
-| `tags` | Vec<String> |  | <p>One or more tag key-value pairs for the protection group.</p> |
+| `pattern` | String | ✅ | <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type. </p> |
 | `protection_group_id` | String | ✅ | <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p> |
+| `tags` | Vec<String> |  | <p>One or more tag key-value pairs for the protection group.</p> |
 | `members` | Vec<String> |  | <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p> |
 | `aggregation` | String | ✅ | <p>Defines how Shield combines resource data for the group in order to detect, mitigate, and report events.</p>
          <ul>
@@ -99,6 +139,84 @@ protection_group_protection_group = protection_group.protection_group
 ---
 
 
+### Attack
+
+Attack resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `attack` | String | <p>The attack that you requested. </p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access attack outputs
+attack_id = attack.id
+attack_attack = attack.attack
+```
+
+---
+
+
+### Drt_access
+
+DRTAccess resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `log_bucket_list` | Vec<String> | <p>The list of Amazon S3 buckets accessed by the SRT.</p> |
+| `role_arn` | String | <p>The Amazon Resource Name (ARN) of the role the SRT used to access your Amazon Web Services account.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access drt_access outputs
+drt_access_id = drt_access.id
+drt_access_log_bucket_list = drt_access.log_bucket_list
+drt_access_role_arn = drt_access.role_arn
+```
+
+---
+
+
 ### Subscription_state
 
 SubscriptionState resource
@@ -137,24 +255,59 @@ subscription_state_subscription_state = subscription_state.subscription_state
 ---
 
 
-### Drt_access
+### Protection
 
-DRTAccess resource
+Protection resource
 
-**Operations**: ✅ Read
+**Operations**: ✅ Create ✅ Read ✅ Delete
 
 #### Fields
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
+| `resource_arn` | String | ✅ | <p>The ARN (Amazon Resource Name) of the resource to be protected.</p>
+         <p>The ARN should be in one of the following formats:</p>
+         <ul>
+            <li>
+               <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
+                  </code>
+               </p>
+            </li>
+            <li>
+               <p>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i>
+                  </code>
+               </p>
+            </li>
+            <li>
+               <p>For an Amazon CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i>
+                  </code>
+               </p>
+            </li>
+            <li>
+               <p>For an Global Accelerator standard accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i>
+                  </code>
+               </p>
+            </li>
+            <li>
+               <p>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i>
+                  </code>
+               </p>
+            </li>
+            <li>
+               <p>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i>
+                  </code>
+               </p>
+            </li>
+         </ul> |
+| `tags` | Vec<String> |  | <p>One or more tag key-value pairs for the <a>Protection</a> object that is created.</p> |
+| `name` | String | ✅ | <p>Friendly name for the <code>Protection</code> you are creating.</p> |
 
 
 #### Outputs
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `role_arn` | String | <p>The Amazon Resource Name (ARN) of the role the SRT used to access your Amazon Web Services account.</p> |
-| `log_bucket_list` | Vec<String> | <p>The list of Amazon S3 buckets accessed by the SRT.</p> |
+| `protection` | String | <p>The <a>Protection</a> that you requested. </p> |
 
 
 #### Usage Example
@@ -168,32 +321,68 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Access drt_access outputs
-drt_access_id = drt_access.id
-drt_access_role_arn = drt_access.role_arn
-drt_access_log_bucket_list = drt_access.log_bucket_list
+# Create protection
+protection = provider.shield.Protection {
+    resource_arn = "value"  # <p>The ARN (Amazon Resource Name) of the resource to be protected.</p>
+         <p>The ARN should be in one of the following formats:</p>
+         <ul>
+            <li>
+               <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
+                  </code>
+               </p>
+            </li>
+            <li>
+               <p>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i>
+                  </code>
+               </p>
+            </li>
+            <li>
+               <p>For an Amazon CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i>
+                  </code>
+               </p>
+            </li>
+            <li>
+               <p>For an Global Accelerator standard accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i>
+                  </code>
+               </p>
+            </li>
+            <li>
+               <p>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i>
+                  </code>
+               </p>
+            </li>
+            <li>
+               <p>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i>
+                  </code>
+               </p>
+            </li>
+         </ul>
+    name = "value"  # <p>Friendly name for the <code>Protection</code> you are creating.</p>
+}
+
+# Access protection outputs
+protection_id = protection.id
+protection_protection = protection.protection
 ```
 
 ---
 
 
-### Attack
+### Application_layer_automatic_response
 
-Attack resource
+ApplicationLayerAutomaticResponse resource
 
-**Operations**: ✅ Read
+**Operations**: ✅ Update
 
 #### Fields
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
+| `action` | String | ✅ | <p>Specifies the action setting that Shield Advanced should use in the WAF rules that it creates on behalf of the
+   protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature,
+   when you enable or update automatic mitigation. Shield Advanced creates the WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource. </p> |
+| `resource_arn` | String | ✅ | <p>The ARN (Amazon Resource Name) of the resource.</p> |
 
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `attack` | String | <p>The attack that you requested. </p> |
 
 
 #### Usage Example
@@ -207,9 +396,6 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Access attack outputs
-attack_id = attack.id
-attack_attack = attack.attack
 ```
 
 ---
@@ -250,39 +436,6 @@ provider = aws.AwsProvider {
 # Access emergency_contact_settings outputs
 emergency_contact_settings_id = emergency_contact_settings.id
 emergency_contact_settings_emergency_contact_list = emergency_contact_settings.emergency_contact_list
-```
-
----
-
-
-### Application_layer_automatic_response
-
-ApplicationLayerAutomaticResponse resource
-
-**Operations**: ✅ Update
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `action` | String | ✅ | <p>Specifies the action setting that Shield Advanced should use in the WAF rules that it creates on behalf of the
-   protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature,
-   when you enable or update automatic mitigation. Shield Advanced creates the WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource. </p> |
-| `resource_arn` | String | ✅ | <p>The ARN (Amazon Resource Name) of the resource.</p> |
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
 ```
 
 ---
@@ -330,159 +483,6 @@ subscription_subscription = subscription.subscription
 ---
 
 
-### Protection
-
-Protection resource
-
-**Operations**: ✅ Create ✅ Read ✅ Delete
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `name` | String | ✅ | <p>Friendly name for the <code>Protection</code> you are creating.</p> |
-| `tags` | Vec<String> |  | <p>One or more tag key-value pairs for the <a>Protection</a> object that is created.</p> |
-| `resource_arn` | String | ✅ | <p>The ARN (Amazon Resource Name) of the resource to be protected.</p>
-         <p>The ARN should be in one of the following formats:</p>
-         <ul>
-            <li>
-               <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
-                  </code>
-               </p>
-            </li>
-            <li>
-               <p>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i>
-                  </code>
-               </p>
-            </li>
-            <li>
-               <p>For an Amazon CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i>
-                  </code>
-               </p>
-            </li>
-            <li>
-               <p>For an Global Accelerator standard accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i>
-                  </code>
-               </p>
-            </li>
-            <li>
-               <p>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i>
-                  </code>
-               </p>
-            </li>
-            <li>
-               <p>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i>
-                  </code>
-               </p>
-            </li>
-         </ul> |
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `protection` | String | <p>The <a>Protection</a> that you requested. </p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create protection
-protection = provider.shield.Protection {
-    name = "value"  # <p>Friendly name for the <code>Protection</code> you are creating.</p>
-    resource_arn = "value"  # <p>The ARN (Amazon Resource Name) of the resource to be protected.</p>
-         <p>The ARN should be in one of the following formats:</p>
-         <ul>
-            <li>
-               <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
-                  </code>
-               </p>
-            </li>
-            <li>
-               <p>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i>
-                  </code>
-               </p>
-            </li>
-            <li>
-               <p>For an Amazon CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i>
-                  </code>
-               </p>
-            </li>
-            <li>
-               <p>For an Global Accelerator standard accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i>
-                  </code>
-               </p>
-            </li>
-            <li>
-               <p>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i>
-                  </code>
-               </p>
-            </li>
-            <li>
-               <p>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i>
-                  </code>
-               </p>
-            </li>
-         </ul>
-}
-
-# Access protection outputs
-protection_id = protection.id
-protection_protection = protection.protection
-```
-
----
-
-
-### Attack_statistics
-
-AttackStatistics resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `data_items` | Vec<String> | <p>The data that describes the attacks detected during the time period.</p> |
-| `time_range` | String | <p>The time range of the attack.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access attack_statistics outputs
-attack_statistics_id = attack_statistics.id
-attack_statistics_data_items = attack_statistics.data_items
-attack_statistics_time_range = attack_statistics.time_range
-```
-
----
-
-
 
 ## Common Operations
 
@@ -495,21 +495,12 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create multiple protection_group resources
-protection_group_0 = provider.shield.Protection_group {
-    pattern = "value-0"
-    protection_group_id = "value-0"
-    aggregation = "value-0"
+# Create multiple attack_statistics resources
+attack_statistics_0 = provider.shield.Attack_statistics {
 }
-protection_group_1 = provider.shield.Protection_group {
-    pattern = "value-1"
-    protection_group_id = "value-1"
-    aggregation = "value-1"
+attack_statistics_1 = provider.shield.Attack_statistics {
 }
-protection_group_2 = provider.shield.Protection_group {
-    pattern = "value-2"
-    protection_group_id = "value-2"
-    aggregation = "value-2"
+attack_statistics_2 = provider.shield.Attack_statistics {
 }
 ```
 
@@ -518,10 +509,7 @@ protection_group_2 = provider.shield.Protection_group {
 ```kcl
 # Only create in production
 if environment == "production":
-    protection_group = provider.shield.Protection_group {
-        pattern = "production-value"
-        protection_group_id = "production-value"
-        aggregation = "production-value"
+    attack_statistics = provider.shield.Attack_statistics {
     }
 ```
 

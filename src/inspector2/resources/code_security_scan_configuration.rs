@@ -21,7 +21,7 @@ impl<'a> Code_security_scan_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, level: String, name: String, configuration: String, tags: Option<HashMap<String, String>>, scope_settings: Option<String>) -> Result<String> {
+    pub async fn create(&self, scope_settings: Option<String>, name: String, level: String, tags: Option<HashMap<String, String>>, configuration: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Code_security_scan_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, level: Option<String>, name: Option<String>, configuration: Option<String>, tags: Option<HashMap<String, String>>, scope_settings: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, scope_settings: Option<String>, name: Option<String>, level: Option<String>, tags: Option<HashMap<String, String>>, configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

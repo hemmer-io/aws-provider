@@ -21,7 +21,7 @@ impl<'a> Instances<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, key_pair_name: Option<String>, tags: Option<Vec<String>>, add_ons: Option<Vec<String>>, user_data: Option<String>, availability_zone: String, ip_address_type: Option<String>, instance_names: String, custom_image_name: Option<String>, bundle_id: String, blueprint_id: String) -> Result<String> {
+    pub async fn create(&self, add_ons: Option<Vec<String>>, bundle_id: String, availability_zone: String, tags: Option<Vec<String>>, custom_image_name: Option<String>, ip_address_type: Option<String>, instance_names: String, blueprint_id: String, key_pair_name: Option<String>, user_data: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

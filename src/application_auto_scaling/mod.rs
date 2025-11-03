@@ -24,23 +24,23 @@ impl<'a> Application_auto_scalingService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "scaling_policy" => {
-                self.plan_scaling_policy(current_state, desired_input).await
-            }
             "scalable_targets" => {
                 self.plan_scalable_targets(current_state, desired_input).await
-            }
-            "scaling_activities" => {
-                self.plan_scaling_activities(current_state, desired_input).await
-            }
-            "scheduled_action" => {
-                self.plan_scheduled_action(current_state, desired_input).await
             }
             "predictive_scaling_forecast" => {
                 self.plan_predictive_scaling_forecast(current_state, desired_input).await
             }
+            "scaling_policy" => {
+                self.plan_scaling_policy(current_state, desired_input).await
+            }
+            "scaling_activities" => {
+                self.plan_scaling_activities(current_state, desired_input).await
+            }
             "scaling_policies" => {
                 self.plan_scaling_policies(current_state, desired_input).await
+            }
+            "scheduled_action" => {
+                self.plan_scheduled_action(current_state, desired_input).await
             }
             "scheduled_actions" => {
                 self.plan_scheduled_actions(current_state, desired_input).await
@@ -60,23 +60,23 @@ impl<'a> Application_auto_scalingService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "scaling_policy" => {
-                self.create_scaling_policy(input).await
-            }
             "scalable_targets" => {
                 self.create_scalable_targets(input).await
-            }
-            "scaling_activities" => {
-                self.create_scaling_activities(input).await
-            }
-            "scheduled_action" => {
-                self.create_scheduled_action(input).await
             }
             "predictive_scaling_forecast" => {
                 self.create_predictive_scaling_forecast(input).await
             }
+            "scaling_policy" => {
+                self.create_scaling_policy(input).await
+            }
+            "scaling_activities" => {
+                self.create_scaling_activities(input).await
+            }
             "scaling_policies" => {
                 self.create_scaling_policies(input).await
+            }
+            "scheduled_action" => {
+                self.create_scheduled_action(input).await
             }
             "scheduled_actions" => {
                 self.create_scheduled_actions(input).await
@@ -96,23 +96,23 @@ impl<'a> Application_auto_scalingService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "scaling_policy" => {
-                self.read_scaling_policy(id).await
-            }
             "scalable_targets" => {
                 self.read_scalable_targets(id).await
-            }
-            "scaling_activities" => {
-                self.read_scaling_activities(id).await
-            }
-            "scheduled_action" => {
-                self.read_scheduled_action(id).await
             }
             "predictive_scaling_forecast" => {
                 self.read_predictive_scaling_forecast(id).await
             }
+            "scaling_policy" => {
+                self.read_scaling_policy(id).await
+            }
+            "scaling_activities" => {
+                self.read_scaling_activities(id).await
+            }
             "scaling_policies" => {
                 self.read_scaling_policies(id).await
+            }
+            "scheduled_action" => {
+                self.read_scheduled_action(id).await
             }
             "scheduled_actions" => {
                 self.read_scheduled_actions(id).await
@@ -133,23 +133,23 @@ impl<'a> Application_auto_scalingService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "scaling_policy" => {
-                self.update_scaling_policy(id, input).await
-            }
             "scalable_targets" => {
                 self.update_scalable_targets(id, input).await
-            }
-            "scaling_activities" => {
-                self.update_scaling_activities(id, input).await
-            }
-            "scheduled_action" => {
-                self.update_scheduled_action(id, input).await
             }
             "predictive_scaling_forecast" => {
                 self.update_predictive_scaling_forecast(id, input).await
             }
+            "scaling_policy" => {
+                self.update_scaling_policy(id, input).await
+            }
+            "scaling_activities" => {
+                self.update_scaling_activities(id, input).await
+            }
             "scaling_policies" => {
                 self.update_scaling_policies(id, input).await
+            }
+            "scheduled_action" => {
+                self.update_scheduled_action(id, input).await
             }
             "scheduled_actions" => {
                 self.update_scheduled_actions(id, input).await
@@ -169,23 +169,23 @@ impl<'a> Application_auto_scalingService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "scaling_policy" => {
-                self.delete_scaling_policy(id).await
-            }
             "scalable_targets" => {
                 self.delete_scalable_targets(id).await
-            }
-            "scaling_activities" => {
-                self.delete_scaling_activities(id).await
-            }
-            "scheduled_action" => {
-                self.delete_scheduled_action(id).await
             }
             "predictive_scaling_forecast" => {
                 self.delete_predictive_scaling_forecast(id).await
             }
+            "scaling_policy" => {
+                self.delete_scaling_policy(id).await
+            }
+            "scaling_activities" => {
+                self.delete_scaling_activities(id).await
+            }
             "scaling_policies" => {
                 self.delete_scaling_policies(id).await
+            }
+            "scheduled_action" => {
+                self.delete_scheduled_action(id).await
             }
             "scheduled_actions" => {
                 self.delete_scheduled_actions(id).await
@@ -201,152 +201,6 @@ impl<'a> Application_auto_scalingService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
-
-
-    // ------------------------------------------------------------------------
-    // Scaling_policy resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a scaling_policy resource
-    async fn plan_scaling_policy(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new scaling_policy resource
-    async fn create_scaling_policy(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let policy_type = input.get_optional_string("policy_type")?;
-            let predictive_scaling_policy_configuration = input.get_optional_string("predictive_scaling_policy_configuration")?;
-            let resource_id = input.get_string("resource_id")?;
-            let policy_name = input.get_string("policy_name")?;
-            let scalable_dimension = input.get_string("scalable_dimension")?;
-            let service_namespace = input.get_string("service_namespace")?;
-            let step_scaling_policy_configuration = input.get_optional_string("step_scaling_policy_configuration")?;
-            let target_tracking_scaling_policy_configuration = input.get_optional_string("target_tracking_scaling_policy_configuration")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.application_auto_scaling_client
-            //     .create_scaling_policy()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("policy_type", policy_type.unwrap_or_default())
-                .with_field("predictive_scaling_policy_configuration", predictive_scaling_policy_configuration.unwrap_or_default())
-                .with_field("resource_id", resource_id.unwrap_or_default())
-                .with_field("policy_name", policy_name.unwrap_or_default())
-                .with_field("scalable_dimension", scalable_dimension.unwrap_or_default())
-                .with_field("service_namespace", service_namespace.unwrap_or_default())
-                .with_field("step_scaling_policy_configuration", step_scaling_policy_configuration.unwrap_or_default())
-                .with_field("target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a scaling_policy resource
-    async fn read_scaling_policy(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.application_auto_scaling_client
-            //     .describe_scaling_policy()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a scaling_policy resource
-    async fn update_scaling_policy(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let policy_type = input.get_optional_string("policy_type")?;
-            let predictive_scaling_policy_configuration = input.get_optional_string("predictive_scaling_policy_configuration")?;
-            let resource_id = input.get_string("resource_id")?;
-            let policy_name = input.get_string("policy_name")?;
-            let scalable_dimension = input.get_string("scalable_dimension")?;
-            let service_namespace = input.get_string("service_namespace")?;
-            let step_scaling_policy_configuration = input.get_optional_string("step_scaling_policy_configuration")?;
-            let target_tracking_scaling_policy_configuration = input.get_optional_string("target_tracking_scaling_policy_configuration")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.application_auto_scaling_client
-            //     .update_scaling_policy()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("policy_type", policy_type.unwrap_or_default())
-                .with_field("predictive_scaling_policy_configuration", predictive_scaling_policy_configuration.unwrap_or_default())
-                .with_field("resource_id", resource_id.unwrap_or_default())
-                .with_field("policy_name", policy_name.unwrap_or_default())
-                .with_field("scalable_dimension", scalable_dimension.unwrap_or_default())
-                .with_field("service_namespace", service_namespace.unwrap_or_default())
-                .with_field("step_scaling_policy_configuration", step_scaling_policy_configuration.unwrap_or_default())
-                .with_field("target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a scaling_policy resource
-    async fn delete_scaling_policy(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.application_auto_scaling_client
-            //     .delete_scaling_policy()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
 
 
     // ------------------------------------------------------------------------
@@ -453,270 +307,6 @@ impl<'a> Application_auto_scalingService<'a> {
             // Example:
             // self.provider.application_auto_scaling_client
             //     .delete_scalable_targets()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Scaling_activities resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a scaling_activities resource
-    async fn plan_scaling_activities(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new scaling_activities resource
-    async fn create_scaling_activities(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.application_auto_scaling_client
-            //     .create_scaling_activities()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a scaling_activities resource
-    async fn read_scaling_activities(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.application_auto_scaling_client
-            //     .describe_scaling_activities()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a scaling_activities resource
-    async fn update_scaling_activities(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.application_auto_scaling_client
-            //     .update_scaling_activities()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a scaling_activities resource
-    async fn delete_scaling_activities(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.application_auto_scaling_client
-            //     .delete_scaling_activities()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Scheduled_action resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a scheduled_action resource
-    async fn plan_scheduled_action(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new scheduled_action resource
-    async fn create_scheduled_action(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let start_time = input.get_optional_string("start_time")?;
-            let end_time = input.get_optional_string("end_time")?;
-            let resource_id = input.get_string("resource_id")?;
-            let scalable_target_action = input.get_optional_string("scalable_target_action")?;
-            let timezone = input.get_optional_string("timezone")?;
-            let scalable_dimension = input.get_string("scalable_dimension")?;
-            let scheduled_action_name = input.get_string("scheduled_action_name")?;
-            let service_namespace = input.get_string("service_namespace")?;
-            let schedule = input.get_optional_string("schedule")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.application_auto_scaling_client
-            //     .create_scheduled_action()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("start_time", start_time.unwrap_or_default())
-                .with_field("end_time", end_time.unwrap_or_default())
-                .with_field("resource_id", resource_id.unwrap_or_default())
-                .with_field("scalable_target_action", scalable_target_action.unwrap_or_default())
-                .with_field("timezone", timezone.unwrap_or_default())
-                .with_field("scalable_dimension", scalable_dimension.unwrap_or_default())
-                .with_field("scheduled_action_name", scheduled_action_name.unwrap_or_default())
-                .with_field("service_namespace", service_namespace.unwrap_or_default())
-                .with_field("schedule", schedule.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a scheduled_action resource
-    async fn read_scheduled_action(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.application_auto_scaling_client
-            //     .describe_scheduled_action()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a scheduled_action resource
-    async fn update_scheduled_action(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let start_time = input.get_optional_string("start_time")?;
-            let end_time = input.get_optional_string("end_time")?;
-            let resource_id = input.get_string("resource_id")?;
-            let scalable_target_action = input.get_optional_string("scalable_target_action")?;
-            let timezone = input.get_optional_string("timezone")?;
-            let scalable_dimension = input.get_string("scalable_dimension")?;
-            let scheduled_action_name = input.get_string("scheduled_action_name")?;
-            let service_namespace = input.get_string("service_namespace")?;
-            let schedule = input.get_optional_string("schedule")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.application_auto_scaling_client
-            //     .update_scheduled_action()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("start_time", start_time.unwrap_or_default())
-                .with_field("end_time", end_time.unwrap_or_default())
-                .with_field("resource_id", resource_id.unwrap_or_default())
-                .with_field("scalable_target_action", scalable_target_action.unwrap_or_default())
-                .with_field("timezone", timezone.unwrap_or_default())
-                .with_field("scalable_dimension", scalable_dimension.unwrap_or_default())
-                .with_field("scheduled_action_name", scheduled_action_name.unwrap_or_default())
-                .with_field("service_namespace", service_namespace.unwrap_or_default())
-                .with_field("schedule", schedule.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a scheduled_action resource
-    async fn delete_scheduled_action(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.application_auto_scaling_client
-            //     .delete_scheduled_action()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -842,6 +432,266 @@ impl<'a> Application_auto_scalingService<'a> {
 
 
     // ------------------------------------------------------------------------
+    // Scaling_policy resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a scaling_policy resource
+    async fn plan_scaling_policy(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new scaling_policy resource
+    async fn create_scaling_policy(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let service_namespace = input.get_string("service_namespace")?;
+            let scalable_dimension = input.get_string("scalable_dimension")?;
+            let resource_id = input.get_string("resource_id")?;
+            let predictive_scaling_policy_configuration = input.get_optional_string("predictive_scaling_policy_configuration")?;
+            let policy_type = input.get_optional_string("policy_type")?;
+            let step_scaling_policy_configuration = input.get_optional_string("step_scaling_policy_configuration")?;
+            let policy_name = input.get_string("policy_name")?;
+            let target_tracking_scaling_policy_configuration = input.get_optional_string("target_tracking_scaling_policy_configuration")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.application_auto_scaling_client
+            //     .create_scaling_policy()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("service_namespace", service_namespace.unwrap_or_default())
+                .with_field("scalable_dimension", scalable_dimension.unwrap_or_default())
+                .with_field("resource_id", resource_id.unwrap_or_default())
+                .with_field("predictive_scaling_policy_configuration", predictive_scaling_policy_configuration.unwrap_or_default())
+                .with_field("policy_type", policy_type.unwrap_or_default())
+                .with_field("step_scaling_policy_configuration", step_scaling_policy_configuration.unwrap_or_default())
+                .with_field("policy_name", policy_name.unwrap_or_default())
+                .with_field("target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a scaling_policy resource
+    async fn read_scaling_policy(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.application_auto_scaling_client
+            //     .describe_scaling_policy()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a scaling_policy resource
+    async fn update_scaling_policy(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let service_namespace = input.get_string("service_namespace")?;
+            let scalable_dimension = input.get_string("scalable_dimension")?;
+            let resource_id = input.get_string("resource_id")?;
+            let predictive_scaling_policy_configuration = input.get_optional_string("predictive_scaling_policy_configuration")?;
+            let policy_type = input.get_optional_string("policy_type")?;
+            let step_scaling_policy_configuration = input.get_optional_string("step_scaling_policy_configuration")?;
+            let policy_name = input.get_string("policy_name")?;
+            let target_tracking_scaling_policy_configuration = input.get_optional_string("target_tracking_scaling_policy_configuration")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.application_auto_scaling_client
+            //     .update_scaling_policy()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("service_namespace", service_namespace.unwrap_or_default())
+                .with_field("scalable_dimension", scalable_dimension.unwrap_or_default())
+                .with_field("resource_id", resource_id.unwrap_or_default())
+                .with_field("predictive_scaling_policy_configuration", predictive_scaling_policy_configuration.unwrap_or_default())
+                .with_field("policy_type", policy_type.unwrap_or_default())
+                .with_field("step_scaling_policy_configuration", step_scaling_policy_configuration.unwrap_or_default())
+                .with_field("policy_name", policy_name.unwrap_or_default())
+                .with_field("target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a scaling_policy resource
+    async fn delete_scaling_policy(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.application_auto_scaling_client
+            //     .delete_scaling_policy()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Scaling_activities resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a scaling_activities resource
+    async fn plan_scaling_activities(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new scaling_activities resource
+    async fn create_scaling_activities(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.application_auto_scaling_client
+            //     .create_scaling_activities()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a scaling_activities resource
+    async fn read_scaling_activities(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.application_auto_scaling_client
+            //     .describe_scaling_activities()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a scaling_activities resource
+    async fn update_scaling_activities(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.application_auto_scaling_client
+            //     .update_scaling_activities()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a scaling_activities resource
+    async fn delete_scaling_activities(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.application_auto_scaling_client
+            //     .delete_scaling_activities()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
     // Scaling_policies resource operations
     // ------------------------------------------------------------------------
 
@@ -945,6 +795,156 @@ impl<'a> Application_auto_scalingService<'a> {
             // Example:
             // self.provider.application_auto_scaling_client
             //     .delete_scaling_policies()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Scheduled_action resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a scheduled_action resource
+    async fn plan_scheduled_action(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new scheduled_action resource
+    async fn create_scheduled_action(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let timezone = input.get_optional_string("timezone")?;
+            let start_time = input.get_optional_string("start_time")?;
+            let end_time = input.get_optional_string("end_time")?;
+            let scheduled_action_name = input.get_string("scheduled_action_name")?;
+            let scalable_dimension = input.get_string("scalable_dimension")?;
+            let scalable_target_action = input.get_optional_string("scalable_target_action")?;
+            let service_namespace = input.get_string("service_namespace")?;
+            let schedule = input.get_optional_string("schedule")?;
+            let resource_id = input.get_string("resource_id")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.application_auto_scaling_client
+            //     .create_scheduled_action()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("timezone", timezone.unwrap_or_default())
+                .with_field("start_time", start_time.unwrap_or_default())
+                .with_field("end_time", end_time.unwrap_or_default())
+                .with_field("scheduled_action_name", scheduled_action_name.unwrap_or_default())
+                .with_field("scalable_dimension", scalable_dimension.unwrap_or_default())
+                .with_field("scalable_target_action", scalable_target_action.unwrap_or_default())
+                .with_field("service_namespace", service_namespace.unwrap_or_default())
+                .with_field("schedule", schedule.unwrap_or_default())
+                .with_field("resource_id", resource_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a scheduled_action resource
+    async fn read_scheduled_action(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.application_auto_scaling_client
+            //     .describe_scheduled_action()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a scheduled_action resource
+    async fn update_scheduled_action(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let timezone = input.get_optional_string("timezone")?;
+            let start_time = input.get_optional_string("start_time")?;
+            let end_time = input.get_optional_string("end_time")?;
+            let scheduled_action_name = input.get_string("scheduled_action_name")?;
+            let scalable_dimension = input.get_string("scalable_dimension")?;
+            let scalable_target_action = input.get_optional_string("scalable_target_action")?;
+            let service_namespace = input.get_string("service_namespace")?;
+            let schedule = input.get_optional_string("schedule")?;
+            let resource_id = input.get_string("resource_id")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.application_auto_scaling_client
+            //     .update_scheduled_action()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("timezone", timezone.unwrap_or_default())
+                .with_field("start_time", start_time.unwrap_or_default())
+                .with_field("end_time", end_time.unwrap_or_default())
+                .with_field("scheduled_action_name", scheduled_action_name.unwrap_or_default())
+                .with_field("scalable_dimension", scalable_dimension.unwrap_or_default())
+                .with_field("scalable_target_action", scalable_target_action.unwrap_or_default())
+                .with_field("service_namespace", service_namespace.unwrap_or_default())
+                .with_field("schedule", schedule.unwrap_or_default())
+                .with_field("resource_id", resource_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a scheduled_action resource
+    async fn delete_scheduled_action(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.application_auto_scaling_client
+            //     .delete_scheduled_action()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

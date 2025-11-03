@@ -21,7 +21,7 @@ impl<'a> State_machine<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, encryption_configuration: Option<String>, tracing_configuration: Option<String>, definition: String, type: Option<String>, role_arn: String, logging_configuration: Option<String>, version_description: Option<String>, publish: Option<bool>, name: String, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, publish: Option<bool>, encryption_configuration: Option<String>, name: String, role_arn: String, type: Option<String>, version_description: Option<String>, tags: Option<Vec<String>>, logging_configuration: Option<String>, definition: String, tracing_configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> State_machine<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, encryption_configuration: Option<String>, tracing_configuration: Option<String>, definition: Option<String>, type: Option<String>, role_arn: Option<String>, logging_configuration: Option<String>, version_description: Option<String>, publish: Option<bool>, name: Option<String>, tags: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, publish: Option<bool>, encryption_configuration: Option<String>, name: Option<String>, role_arn: Option<String>, type: Option<String>, version_description: Option<String>, tags: Option<Vec<String>>, logging_configuration: Option<String>, definition: Option<String>, tracing_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

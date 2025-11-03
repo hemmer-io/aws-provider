@@ -21,7 +21,7 @@ impl<'a> Solution_version<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, training_mode: Option<String>, name: Option<String>, solution_arn: String, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, solution_arn: String, name: Option<String>, tags: Option<Vec<String>>, training_mode: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

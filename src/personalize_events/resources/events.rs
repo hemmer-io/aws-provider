@@ -21,7 +21,7 @@ impl<'a> Events<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, user_id: Option<String>, session_id: String, tracking_id: String, event_list: Vec<String>) -> Result<String> {
+    pub async fn create(&self, session_id: String, tracking_id: String, event_list: Vec<String>, user_id: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

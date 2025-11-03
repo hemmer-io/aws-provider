@@ -21,7 +21,7 @@ impl<'a> Snapshot_block<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, progress: Option<i64>, block_index: i64, snapshot_id: String, block_data: String, checksum_algorithm: String, checksum: String, data_length: i64) -> Result<String> {
+    pub async fn create(&self, block_index: i64, checksum: String, progress: Option<i64>, block_data: String, data_length: i64, checksum_algorithm: String, snapshot_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

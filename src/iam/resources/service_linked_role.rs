@@ -21,7 +21,7 @@ impl<'a> Service_linked_role<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, custom_suffix: Option<String>, aws_service_name: String, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, aws_service_name: String, custom_suffix: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

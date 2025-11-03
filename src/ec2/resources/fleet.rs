@@ -21,7 +21,7 @@ impl<'a> Fleet<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, on_demand_options: Option<String>, excess_capacity_termination_policy: Option<String>, valid_until: Option<String>, tag_specifications: Option<Vec<String>>, launch_template_configs: Vec<String>, spot_options: Option<String>, replace_unhealthy_instances: Option<bool>, type: Option<String>, context: Option<String>, target_capacity_specification: String, terminate_instances_with_expiration: Option<bool>, valid_from: Option<String>, dry_run: Option<bool>, client_token: Option<String>) -> Result<String> {
+    pub async fn create(&self, type: Option<String>, terminate_instances_with_expiration: Option<bool>, valid_until: Option<String>, replace_unhealthy_instances: Option<bool>, client_token: Option<String>, valid_from: Option<String>, tag_specifications: Option<Vec<String>>, context: Option<String>, target_capacity_specification: String, dry_run: Option<bool>, spot_options: Option<String>, on_demand_options: Option<String>, excess_capacity_termination_policy: Option<String>, launch_template_configs: Vec<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Delivery_destination_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, delivery_destination_policy: String, delivery_destination_name: String) -> Result<String> {
+    pub async fn create(&self, delivery_destination_name: String, delivery_destination_policy: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

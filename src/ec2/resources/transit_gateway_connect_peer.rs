@@ -21,7 +21,7 @@ impl<'a> Transit_gateway_connect_peer<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, dry_run: Option<bool>, peer_address: String, bgp_options: Option<String>, inside_cidr_blocks: Vec<String>, transit_gateway_attachment_id: String, transit_gateway_address: Option<String>, tag_specifications: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, transit_gateway_address: Option<String>, inside_cidr_blocks: Vec<String>, peer_address: String, tag_specifications: Option<Vec<String>>, dry_run: Option<bool>, bgp_options: Option<String>, transit_gateway_attachment_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

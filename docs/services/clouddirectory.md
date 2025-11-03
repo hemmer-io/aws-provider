@@ -11,18 +11,18 @@
 The clouddirectory service provides access to 13 resource types:
 
 - [Schema_as_json](#schema_as_json) [R]
-- [Object_attributes](#object_attributes) [RU]
-- [Applied_schema_version](#applied_schema_version) [R]
-- [Index](#index) [C]
-- [Object_information](#object_information) [R]
-- [Schema_from_json](#schema_from_json) [C]
 - [Directory](#directory) [CRD]
-- [Schema](#schema) [CUD]
 - [Typed_link_facet](#typed_link_facet) [CUD]
 - [Object](#object) [CD]
-- [Link_attributes](#link_attributes) [RU]
-- [Typed_link_facet_information](#typed_link_facet_information) [R]
 - [Facet](#facet) [CRUD]
+- [Schema](#schema) [CUD]
+- [Typed_link_facet_information](#typed_link_facet_information) [R]
+- [Applied_schema_version](#applied_schema_version) [R]
+- [Object_information](#object_information) [R]
+- [Index](#index) [C]
+- [Object_attributes](#object_attributes) [RU]
+- [Schema_from_json](#schema_from_json) [C]
+- [Link_attributes](#link_attributes) [RU]
 
 ---
 
@@ -45,8 +45,8 @@ SchemaAsJson resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `name` | String | <p>The name of the retrieved schema.</p> |
 | `document` | String | <p>The JSON representation of the schema document.</p> |
+| `name` | String | <p>The name of the retrieved schema.</p> |
 
 
 #### Usage Example
@@ -62,210 +62,8 @@ provider = aws.AwsProvider {
 
 # Access schema_as_json outputs
 schema_as_json_id = schema_as_json.id
-schema_as_json_name = schema_as_json.name
 schema_as_json_document = schema_as_json.document
-```
-
----
-
-
-### Object_attributes
-
-ObjectAttributes resource
-
-**Operations**: ✅ Read ✅ Update
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `object_reference` | String | ✅ | <p>The reference that identifies the object.</p> |
-| `directory_arn` | String | ✅ | <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
-      where the object resides. For more information, see <a>arns</a>.</p> |
-| `attribute_updates` | Vec<String> | ✅ | <p>The attributes update structure.</p> |
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `attributes` | Vec<String> | <p>The attributes that are associated with the object.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access object_attributes outputs
-object_attributes_id = object_attributes.id
-object_attributes_attributes = object_attributes.attributes
-```
-
----
-
-
-### Applied_schema_version
-
-AppliedSchemaVersion resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `applied_schema_arn` | String | <p>Current applied schema ARN, including the minor version in use if one was provided.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access applied_schema_version outputs
-applied_schema_version_id = applied_schema_version.id
-applied_schema_version_applied_schema_arn = applied_schema_version.applied_schema_arn
-```
-
----
-
-
-### Index
-
-Index resource
-
-**Operations**: ✅ Create
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `directory_arn` | String | ✅ | <p>The ARN of the directory where the index should be created.</p> |
-| `is_unique` | bool | ✅ | <p>Indicates whether the attribute that is being indexed has unique values or
-      not.</p> |
-| `ordered_indexed_attribute_list` | Vec<String> | ✅ | <p>Specifies the attributes that should be indexed on. Currently only a single attribute
-      is supported.</p> |
-| `parent_reference` | String |  | <p>A reference to the parent object that contains the index object.</p> |
-| `link_name` | String |  | <p>The name of the link between the parent object and the index object.</p> |
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create index
-index = provider.clouddirectory.Index {
-    directory_arn = "value"  # <p>The ARN of the directory where the index should be created.</p>
-    is_unique = "value"  # <p>Indicates whether the attribute that is being indexed has unique values or
-      not.</p>
-    ordered_indexed_attribute_list = "value"  # <p>Specifies the attributes that should be indexed on. Currently only a single attribute
-      is supported.</p>
-}
-
-```
-
----
-
-
-### Object_information
-
-ObjectInformation resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `schema_facets` | Vec<String> | <p>The facets attached to the specified object. Although the response does not include minor version information, the most recently applied minor version of each Facet is in effect. See <a>GetAppliedSchemaVersion</a> for details.</p> |
-| `object_identifier` | String | <p>The <code>ObjectIdentifier</code> of the specified object.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access object_information outputs
-object_information_id = object_information.id
-object_information_schema_facets = object_information.schema_facets
-object_information_object_identifier = object_information.object_identifier
-```
-
----
-
-
-### Schema_from_json
-
-SchemaFromJson resource
-
-**Operations**: ✅ Create
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `schema_arn` | String | ✅ | <p>The ARN of the schema to update.</p> |
-| `document` | String | ✅ | <p>The replacement JSON schema.</p> |
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create schema_from_json
-schema_from_json = provider.clouddirectory.Schema_from_json {
-    schema_arn = "value"  # <p>The ARN of the schema to update.</p>
-    document = "value"  # <p>The replacement JSON schema.</p>
-}
-
+schema_as_json_name = schema_as_json.name
 ```
 
 ---
@@ -316,43 +114,6 @@ directory = provider.clouddirectory.Directory {
 # Access directory outputs
 directory_id = directory.id
 directory_directory = directory.directory
-```
-
----
-
-
-### Schema
-
-Schema resource
-
-**Operations**: ✅ Create ✅ Update ✅ Delete
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `name` | String | ✅ | <p>The name that is associated with the schema. This is unique to each account and in each
-      region.</p> |
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create schema
-schema = provider.clouddirectory.Schema {
-    name = "value"  # <p>The name that is associated with the schema. This is unique to each account and in each
-      region.</p>
-}
-
 ```
 
 ---
@@ -411,12 +172,12 @@ Object resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
+| `schema_facets` | Vec<String> | ✅ | <p>A list of schema facets to be associated with the object. Do not provide minor version components. See <a>SchemaFacet</a> for details.</p> |
+| `object_attribute_list` | Vec<String> |  | <p>The attribute map whose attribute ARN contains the key and attribute value as the map
+      value.</p> |
 | `parent_reference` | String |  | <p>If specified, the parent reference to which this object will be attached.</p> |
 | `directory_arn` | String | ✅ | <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
       in which the object will be created. For more information, see <a>arns</a>.</p> |
-| `object_attribute_list` | Vec<String> |  | <p>The attribute map whose attribute ARN contains the key and attribute value as the map
-      value.</p> |
-| `schema_facets` | Vec<String> | ✅ | <p>A list of schema facets to be associated with the object. Do not provide minor version components. See <a>SchemaFacet</a> for details.</p> |
 | `link_name` | String |  | <p>The name of link that is used to attach this object to a parent.</p> |
 
 
@@ -434,9 +195,9 @@ provider = aws.AwsProvider {
 
 # Create object
 object = provider.clouddirectory.Object {
+    schema_facets = "value"  # <p>A list of schema facets to be associated with the object. Do not provide minor version components. See <a>SchemaFacet</a> for details.</p>
     directory_arn = "value"  # <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
       in which the object will be created. For more information, see <a>arns</a>.</p>
-    schema_facets = "value"  # <p>A list of schema facets to be associated with the object. Do not provide minor version components. See <a>SchemaFacet</a> for details.</p>
 }
 
 ```
@@ -444,26 +205,51 @@ object = provider.clouddirectory.Object {
 ---
 
 
-### Link_attributes
+### Facet
 
-LinkAttributes resource
+Facet resource
 
-**Operations**: ✅ Read ✅ Update
+**Operations**: ✅ Create ✅ Read ✅ Update ✅ Delete
 
 #### Fields
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `typed_link_specifier` | String | ✅ | <p>Allows a typed link specifier to be accepted as input.</p> |
-| `directory_arn` | String | ✅ | <p>The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see <a>arns</a> or <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p> |
-| `attribute_updates` | Vec<String> | ✅ | <p>The attributes update structure.</p> |
+| `name` | String | ✅ | <p>The name of the <a>Facet</a>, which is unique for a given schema.</p> |
+| `attributes` | Vec<String> |  | <p>The attributes that are associated with the <a>Facet</a>.</p> |
+| `object_type` | String |  | <p>Specifies whether a given object created from this facet is of type node, leaf node,
+      policy or index.</p>
+         <ul>
+            <li>
+               <p>Node: Can have multiple children but one parent.</p>
+            </li>
+         </ul>
+         <ul>
+            <li>
+               <p>Leaf node: Cannot have children but can have multiple parents.</p>
+            </li>
+         </ul>
+         <ul>
+            <li>
+               <p>Policy: Allows you to store a policy document and policy type. For more
+        information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p>
+            </li>
+         </ul>
+         <ul>
+            <li>
+               <p>Index: Can be created with the Index API.</p>
+            </li>
+         </ul> |
+| `schema_arn` | String | ✅ | <p>The schema ARN in which the new <a>Facet</a> will be created. For more
+      information, see <a>arns</a>.</p> |
+| `facet_style` | String |  | <p>There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.</p> |
 
 
 #### Outputs
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `attributes` | Vec<String> | <p>The attributes that are associated with the typed link.</p> |
+| `facet` | String | <p>The <a>Facet</a> structure that is associated with the facet.</p> |
 
 
 #### Usage Example
@@ -477,9 +263,53 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Access link_attributes outputs
-link_attributes_id = link_attributes.id
-link_attributes_attributes = link_attributes.attributes
+# Create facet
+facet = provider.clouddirectory.Facet {
+    name = "value"  # <p>The name of the <a>Facet</a>, which is unique for a given schema.</p>
+    schema_arn = "value"  # <p>The schema ARN in which the new <a>Facet</a> will be created. For more
+      information, see <a>arns</a>.</p>
+}
+
+# Access facet outputs
+facet_id = facet.id
+facet_facet = facet.facet
+```
+
+---
+
+
+### Schema
+
+Schema resource
+
+**Operations**: ✅ Create ✅ Update ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `name` | String | ✅ | <p>The name that is associated with the schema. This is unique to each account and in each
+      region.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create schema
+schema = provider.clouddirectory.Schema {
+    name = "value"  # <p>The name that is associated with the schema. This is unique to each account and in each
+      region.</p>
+}
+
 ```
 
 ---
@@ -528,51 +358,23 @@ typed_link_facet_information_identity_attribute_order = typed_link_facet_informa
 ---
 
 
-### Facet
+### Applied_schema_version
 
-Facet resource
+AppliedSchemaVersion resource
 
-**Operations**: ✅ Create ✅ Read ✅ Update ✅ Delete
+**Operations**: ✅ Read
 
 #### Fields
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `name` | String | ✅ | <p>The name of the <a>Facet</a>, which is unique for a given schema.</p> |
-| `attributes` | Vec<String> |  | <p>The attributes that are associated with the <a>Facet</a>.</p> |
-| `object_type` | String |  | <p>Specifies whether a given object created from this facet is of type node, leaf node,
-      policy or index.</p>
-         <ul>
-            <li>
-               <p>Node: Can have multiple children but one parent.</p>
-            </li>
-         </ul>
-         <ul>
-            <li>
-               <p>Leaf node: Cannot have children but can have multiple parents.</p>
-            </li>
-         </ul>
-         <ul>
-            <li>
-               <p>Policy: Allows you to store a policy document and policy type. For more
-        information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p>
-            </li>
-         </ul>
-         <ul>
-            <li>
-               <p>Index: Can be created with the Index API.</p>
-            </li>
-         </ul> |
-| `facet_style` | String |  | <p>There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.</p> |
-| `schema_arn` | String | ✅ | <p>The schema ARN in which the new <a>Facet</a> will be created. For more
-      information, see <a>arns</a>.</p> |
 
 
 #### Outputs
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `facet` | String | <p>The <a>Facet</a> structure that is associated with the facet.</p> |
+| `applied_schema_arn` | String | <p>Current applied schema ARN, including the minor version in use if one was provided.</p> |
 
 
 #### Usage Example
@@ -586,16 +388,214 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create facet
-facet = provider.clouddirectory.Facet {
-    name = "value"  # <p>The name of the <a>Facet</a>, which is unique for a given schema.</p>
-    schema_arn = "value"  # <p>The schema ARN in which the new <a>Facet</a> will be created. For more
-      information, see <a>arns</a>.</p>
+# Access applied_schema_version outputs
+applied_schema_version_id = applied_schema_version.id
+applied_schema_version_applied_schema_arn = applied_schema_version.applied_schema_arn
+```
+
+---
+
+
+### Object_information
+
+ObjectInformation resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `schema_facets` | Vec<String> | <p>The facets attached to the specified object. Although the response does not include minor version information, the most recently applied minor version of each Facet is in effect. See <a>GetAppliedSchemaVersion</a> for details.</p> |
+| `object_identifier` | String | <p>The <code>ObjectIdentifier</code> of the specified object.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
 }
 
-# Access facet outputs
-facet_id = facet.id
-facet_facet = facet.facet
+# Access object_information outputs
+object_information_id = object_information.id
+object_information_schema_facets = object_information.schema_facets
+object_information_object_identifier = object_information.object_identifier
+```
+
+---
+
+
+### Index
+
+Index resource
+
+**Operations**: ✅ Create
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `ordered_indexed_attribute_list` | Vec<String> | ✅ | <p>Specifies the attributes that should be indexed on. Currently only a single attribute
+      is supported.</p> |
+| `is_unique` | bool | ✅ | <p>Indicates whether the attribute that is being indexed has unique values or
+      not.</p> |
+| `parent_reference` | String |  | <p>A reference to the parent object that contains the index object.</p> |
+| `directory_arn` | String | ✅ | <p>The ARN of the directory where the index should be created.</p> |
+| `link_name` | String |  | <p>The name of the link between the parent object and the index object.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create index
+index = provider.clouddirectory.Index {
+    ordered_indexed_attribute_list = "value"  # <p>Specifies the attributes that should be indexed on. Currently only a single attribute
+      is supported.</p>
+    is_unique = "value"  # <p>Indicates whether the attribute that is being indexed has unique values or
+      not.</p>
+    directory_arn = "value"  # <p>The ARN of the directory where the index should be created.</p>
+}
+
+```
+
+---
+
+
+### Object_attributes
+
+ObjectAttributes resource
+
+**Operations**: ✅ Read ✅ Update
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `object_reference` | String | ✅ | <p>The reference that identifies the object.</p> |
+| `attribute_updates` | Vec<String> | ✅ | <p>The attributes update structure.</p> |
+| `directory_arn` | String | ✅ | <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+      where the object resides. For more information, see <a>arns</a>.</p> |
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `attributes` | Vec<String> | <p>The attributes that are associated with the object.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access object_attributes outputs
+object_attributes_id = object_attributes.id
+object_attributes_attributes = object_attributes.attributes
+```
+
+---
+
+
+### Schema_from_json
+
+SchemaFromJson resource
+
+**Operations**: ✅ Create
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `document` | String | ✅ | <p>The replacement JSON schema.</p> |
+| `schema_arn` | String | ✅ | <p>The ARN of the schema to update.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create schema_from_json
+schema_from_json = provider.clouddirectory.Schema_from_json {
+    document = "value"  # <p>The replacement JSON schema.</p>
+    schema_arn = "value"  # <p>The ARN of the schema to update.</p>
+}
+
+```
+
+---
+
+
+### Link_attributes
+
+LinkAttributes resource
+
+**Operations**: ✅ Read ✅ Update
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `typed_link_specifier` | String | ✅ | <p>Allows a typed link specifier to be accepted as input.</p> |
+| `directory_arn` | String | ✅ | <p>The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see <a>arns</a> or <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p> |
+| `attribute_updates` | Vec<String> | ✅ | <p>The attributes update structure.</p> |
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `attributes` | Vec<String> | <p>The attributes that are associated with the typed link.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access link_attributes outputs
+link_attributes_id = link_attributes.id
+link_attributes_attributes = link_attributes.attributes
 ```
 
 ---

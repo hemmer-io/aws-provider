@@ -21,7 +21,7 @@ impl<'a> Group<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, display_name: Option<String>, name: String, resource_query: Option<String>, configuration: Option<Vec<String>>, description: Option<String>, criticality: Option<i64>, owner: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, configuration: Option<Vec<String>>, resource_query: Option<String>, description: Option<String>, criticality: Option<i64>, owner: Option<String>, name: String, display_name: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Group<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, display_name: Option<String>, name: Option<String>, resource_query: Option<String>, configuration: Option<Vec<String>>, description: Option<String>, criticality: Option<i64>, owner: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, configuration: Option<Vec<String>>, resource_query: Option<String>, description: Option<String>, criticality: Option<i64>, owner: Option<String>, name: Option<String>, display_name: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

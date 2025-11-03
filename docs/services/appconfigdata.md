@@ -33,13 +33,6 @@ LatestConfiguration resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `next_poll_interval_in_seconds` | i64 | <p>The amount of time the client should wait before polling for configuration updates
-         again. Use <code>RequiredMinimumPollIntervalInSeconds</code> to set the desired poll
-         interval.</p> |
-| `version_label` | String | <p>The user-defined label for the AppConfig hosted configuration version. This attribute doesn't apply if the configuration is not from an AppConfig hosted configuration version. If the client already has the latest version of the configuration data, this value is empty.</p> |
-| `content_type` | String | <p>A standard MIME type describing the format of the configuration content.</p> |
-| `configuration` | String | <p>The data of the configuration. This may be empty if the client already has the latest
-         version of configuration.</p> |
 | `next_poll_configuration_token` | String | <p>The latest token describing the current state of the configuration session. This
             <i>must</i> be provided to the next call to
             <code>GetLatestConfiguration.</code>
@@ -50,6 +43,13 @@ LatestConfiguration resource
             <code>GetLatestConfiguration</code> call uses an expired token, the system returns
             <code>BadRequestException</code>.</p>
          </important> |
+| `next_poll_interval_in_seconds` | i64 | <p>The amount of time the client should wait before polling for configuration updates
+         again. Use <code>RequiredMinimumPollIntervalInSeconds</code> to set the desired poll
+         interval.</p> |
+| `content_type` | String | <p>A standard MIME type describing the format of the configuration content.</p> |
+| `configuration` | String | <p>The data of the configuration. This may be empty if the client already has the latest
+         version of configuration.</p> |
+| `version_label` | String | <p>The user-defined label for the AppConfig hosted configuration version. This attribute doesn't apply if the configuration is not from an AppConfig hosted configuration version. If the client already has the latest version of the configuration data, this value is empty.</p> |
 
 
 #### Usage Example
@@ -65,11 +65,11 @@ provider = aws.AwsProvider {
 
 # Access latest_configuration outputs
 latest_configuration_id = latest_configuration.id
+latest_configuration_next_poll_configuration_token = latest_configuration.next_poll_configuration_token
 latest_configuration_next_poll_interval_in_seconds = latest_configuration.next_poll_interval_in_seconds
-latest_configuration_version_label = latest_configuration.version_label
 latest_configuration_content_type = latest_configuration.content_type
 latest_configuration_configuration = latest_configuration.configuration
-latest_configuration_next_poll_configuration_token = latest_configuration.next_poll_configuration_token
+latest_configuration_version_label = latest_configuration.version_label
 ```
 
 ---

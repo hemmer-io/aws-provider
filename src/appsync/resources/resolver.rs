@@ -21,7 +21,7 @@ impl<'a> Resolver<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, data_source_name: Option<String>, request_mapping_template: Option<String>, kind: Option<String>, caching_config: Option<String>, field_name: String, runtime: Option<String>, response_mapping_template: Option<String>, pipeline_config: Option<String>, sync_config: Option<String>, max_batch_size: Option<i64>, code: Option<String>, api_id: String, metrics_config: Option<String>, type_name: String) -> Result<String> {
+    pub async fn create(&self, data_source_name: Option<String>, caching_config: Option<String>, type_name: String, code: Option<String>, kind: Option<String>, pipeline_config: Option<String>, max_batch_size: Option<i64>, sync_config: Option<String>, response_mapping_template: Option<String>, api_id: String, request_mapping_template: Option<String>, runtime: Option<String>, metrics_config: Option<String>, field_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Resolver<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, data_source_name: Option<String>, request_mapping_template: Option<String>, kind: Option<String>, caching_config: Option<String>, field_name: Option<String>, runtime: Option<String>, response_mapping_template: Option<String>, pipeline_config: Option<String>, sync_config: Option<String>, max_batch_size: Option<i64>, code: Option<String>, api_id: Option<String>, metrics_config: Option<String>, type_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, data_source_name: Option<String>, caching_config: Option<String>, type_name: Option<String>, code: Option<String>, kind: Option<String>, pipeline_config: Option<String>, max_batch_size: Option<i64>, sync_config: Option<String>, response_mapping_template: Option<String>, api_id: Option<String>, request_mapping_template: Option<String>, runtime: Option<String>, metrics_config: Option<String>, field_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

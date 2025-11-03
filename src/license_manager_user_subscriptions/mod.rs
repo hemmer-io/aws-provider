@@ -156,9 +156,9 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let identity_provider_arn = input.get_string("identity_provider_arn")?;
             let tags = input.get_optional_string("tags")?;
             let license_server_settings = input.get_string("license_server_settings")?;
-            let identity_provider_arn = input.get_string("identity_provider_arn")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -173,9 +173,9 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("identity_provider_arn", identity_provider_arn.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
                 .with_field("license_server_settings", license_server_settings.unwrap_or_default())
-                .with_field("identity_provider_arn", identity_provider_arn.unwrap_or_default())
             )
         })
     }
@@ -209,9 +209,9 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let identity_provider_arn = input.get_string("identity_provider_arn")?;
             let tags = input.get_optional_string("tags")?;
             let license_server_settings = input.get_string("license_server_settings")?;
-            let identity_provider_arn = input.get_string("identity_provider_arn")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -227,9 +227,9 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("identity_provider_arn", identity_provider_arn.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
                 .with_field("license_server_settings", license_server_settings.unwrap_or_default())
-                .with_field("identity_provider_arn", identity_provider_arn.unwrap_or_default())
             )
         })
     }
@@ -282,10 +282,10 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let product = input.get_optional_string("product")?;
-            let identity_provider_arn = input.get_optional_string("identity_provider_arn")?;
             let update_settings = input.get_string("update_settings")?;
             let identity_provider = input.get_optional_string("identity_provider")?;
+            let identity_provider_arn = input.get_optional_string("identity_provider_arn")?;
+            let product = input.get_optional_string("product")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -300,10 +300,10 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("product", product.unwrap_or_default())
-                .with_field("identity_provider_arn", identity_provider_arn.unwrap_or_default())
                 .with_field("update_settings", update_settings.unwrap_or_default())
                 .with_field("identity_provider", identity_provider.unwrap_or_default())
+                .with_field("identity_provider_arn", identity_provider_arn.unwrap_or_default())
+                .with_field("product", product.unwrap_or_default())
             )
         })
     }
@@ -337,10 +337,10 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let product = input.get_optional_string("product")?;
-            let identity_provider_arn = input.get_optional_string("identity_provider_arn")?;
             let update_settings = input.get_string("update_settings")?;
             let identity_provider = input.get_optional_string("identity_provider")?;
+            let identity_provider_arn = input.get_optional_string("identity_provider_arn")?;
+            let product = input.get_optional_string("product")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -356,10 +356,10 @@ impl<'a> License_manager_user_subscriptionsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("product", product.unwrap_or_default())
-                .with_field("identity_provider_arn", identity_provider_arn.unwrap_or_default())
                 .with_field("update_settings", update_settings.unwrap_or_default())
                 .with_field("identity_provider", identity_provider.unwrap_or_default())
+                .with_field("identity_provider_arn", identity_provider_arn.unwrap_or_default())
+                .with_field("product", product.unwrap_or_default())
             )
         })
     }

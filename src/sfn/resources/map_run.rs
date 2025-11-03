@@ -38,7 +38,7 @@ impl<'a> Map_run<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tolerated_failure_count: Option<i64>, map_run_arn: Option<i64>, max_concurrency: Option<i64>, tolerated_failure_percentage: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, map_run_arn: Option<i64>, tolerated_failure_percentage: Option<String>, tolerated_failure_count: Option<i64>, max_concurrency: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

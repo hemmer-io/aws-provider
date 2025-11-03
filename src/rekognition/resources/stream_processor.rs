@@ -21,7 +21,7 @@ impl<'a> Stream_processor<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, output: String, settings: String, role_arn: String, tags: Option<HashMap<String, String>>, notification_channel: Option<String>, kms_key_id: Option<String>, input: String, data_sharing_preference: Option<String>, regions_of_interest: Option<Vec<String>>, name: String) -> Result<String> {
+    pub async fn create(&self, notification_channel: Option<String>, kms_key_id: Option<String>, input: String, output: String, tags: Option<HashMap<String, String>>, data_sharing_preference: Option<String>, name: String, role_arn: String, settings: String, regions_of_interest: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Stream_processor<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, output: Option<String>, settings: Option<String>, role_arn: Option<String>, tags: Option<HashMap<String, String>>, notification_channel: Option<String>, kms_key_id: Option<String>, input: Option<String>, data_sharing_preference: Option<String>, regions_of_interest: Option<Vec<String>>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, notification_channel: Option<String>, kms_key_id: Option<String>, input: Option<String>, output: Option<String>, tags: Option<HashMap<String, String>>, data_sharing_preference: Option<String>, name: Option<String>, role_arn: Option<String>, settings: Option<String>, regions_of_interest: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

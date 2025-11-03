@@ -24,7 +24,7 @@ impl<'a> Managed_rule_set_version_expiry_date<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, version_to_expire: Option<String>, scope: Option<String>, id: Option<String>, lock_token: Option<String>, name: Option<String>, expiry_timestamp: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, version_to_expire: Option<String>, id: Option<String>, expiry_timestamp: Option<String>, name: Option<String>, lock_token: Option<String>, scope: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

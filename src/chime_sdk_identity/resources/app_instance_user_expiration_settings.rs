@@ -21,7 +21,7 @@ impl<'a> App_instance_user_expiration_settings<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, app_instance_user_arn: String, expiration_settings: Option<String>) -> Result<String> {
+    pub async fn create(&self, expiration_settings: Option<String>, app_instance_user_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

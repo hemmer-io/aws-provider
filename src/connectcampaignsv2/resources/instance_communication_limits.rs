@@ -21,7 +21,7 @@ impl<'a> Instance_communication_limits<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, connect_instance_id: String, communication_limits_config: String) -> Result<String> {
+    pub async fn create(&self, communication_limits_config: String, connect_instance_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

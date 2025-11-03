@@ -21,7 +21,7 @@ impl<'a> Batch_inference_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, role_arn: String, job_input: String, job_output: String, theme_generation_config: Option<String>, num_results: Option<i64>, batch_inference_job_config: Option<String>, job_name: String, solution_version_arn: String, batch_inference_job_mode: Option<String>, tags: Option<Vec<String>>, filter_arn: Option<String>) -> Result<String> {
+    pub async fn create(&self, batch_inference_job_config: Option<String>, tags: Option<Vec<String>>, batch_inference_job_mode: Option<String>, job_name: String, role_arn: String, filter_arn: Option<String>, job_input: String, job_output: String, solution_version_arn: String, theme_generation_config: Option<String>, num_results: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

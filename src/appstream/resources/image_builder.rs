@@ -21,7 +21,7 @@ impl<'a> Image_builder<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, appstream_agent_version: Option<String>, name: String, instance_type: String, access_endpoints: Option<Vec<String>>, softwares_to_install: Option<String>, description: Option<String>, tags: Option<HashMap<String, String>>, softwares_to_uninstall: Option<String>, image_name: Option<String>, image_arn: Option<String>, enable_default_internet_access: Option<bool>, display_name: Option<String>, vpc_config: Option<String>, iam_role_arn: Option<String>, domain_join_info: Option<String>) -> Result<String> {
+    pub async fn create(&self, image_name: Option<String>, softwares_to_install: Option<String>, description: Option<String>, image_arn: Option<String>, display_name: Option<String>, domain_join_info: Option<String>, appstream_agent_version: Option<String>, enable_default_internet_access: Option<bool>, instance_type: String, access_endpoints: Option<Vec<String>>, softwares_to_uninstall: Option<String>, vpc_config: Option<String>, name: String, tags: Option<HashMap<String, String>>, iam_role_arn: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

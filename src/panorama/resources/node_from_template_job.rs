@@ -21,7 +21,7 @@ impl<'a> Node_from_template_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, output_package_version: String, node_name: String, output_package_name: String, node_description: Option<String>, template_parameters: HashMap<String, String>, job_tags: Option<Vec<String>>, template_type: String) -> Result<String> {
+    pub async fn create(&self, template_type: String, node_description: Option<String>, node_name: String, template_parameters: HashMap<String, String>, job_tags: Option<Vec<String>>, output_package_name: String, output_package_version: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

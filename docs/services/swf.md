@@ -10,22 +10,22 @@
 
 The swf service provides access to 5 resource types:
 
-- [Activity_type](#activity_type) [RD]
-- [Workflow_execution_history](#workflow_execution_history) [R]
 - [Workflow_execution](#workflow_execution) [R]
+- [Workflow_execution_history](#workflow_execution_history) [R]
 - [Workflow_type](#workflow_type) [RD]
 - [Domain](#domain) [R]
+- [Activity_type](#activity_type) [RD]
 
 ---
 
 ## Resources
 
 
-### Activity_type
+### Workflow_execution
 
-ActivityType resource
+WorkflowExecution resource
 
-**Operations**: ✅ Read ✅ Delete
+**Operations**: ✅ Read
 
 #### Fields
 
@@ -37,24 +37,12 @@ ActivityType resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `configuration` | String | <p>The configuration settings registered with the activity type.</p> |
-| `type_info` | String | <p>General information about the activity type.</p>
-         <p>The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.</p>
-         <ul>
-            <li>
-               <p>
-                  <code>REGISTERED</code> – The type is registered and available. Workers supporting this
-        type should be running.
-      </p>
-            </li>
-            <li>
-               <p>
-                  <code>DEPRECATED</code> – The type was deprecated using <a>DeprecateActivityType</a>, but is
-        still in use. You should keep workers supporting this type running.
-        You cannot create new tasks of this type.
-      </p>
-            </li>
-         </ul> |
+| `latest_execution_context` | String | <p>The latest executionContext provided by the decider for this workflow execution. A decider can provide an
+      executionContext (a free-form string) when closing a decision task using <a>RespondDecisionTaskCompleted</a>.</p> |
+| `execution_info` | String | <p>Information about the workflow execution.</p> |
+| `open_counts` | String | <p>The number of tasks for this workflow execution. This includes open and closed tasks of all types.</p> |
+| `latest_activity_task_timestamp` | String | <p>The time when the last activity task was scheduled for this workflow execution. You can use this information to determine if the workflow has not made progress for an unusually long period of time and might require a corrective action.</p> |
+| `execution_configuration` | String | <p>The configuration settings for this workflow execution including timeout values, tasklist etc.</p> |
 
 
 #### Usage Example
@@ -68,10 +56,13 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Access activity_type outputs
-activity_type_id = activity_type.id
-activity_type_configuration = activity_type.configuration
-activity_type_type_info = activity_type.type_info
+# Access workflow_execution outputs
+workflow_execution_id = workflow_execution.id
+workflow_execution_latest_execution_context = workflow_execution.latest_execution_context
+workflow_execution_execution_info = workflow_execution.execution_info
+workflow_execution_open_counts = workflow_execution.open_counts
+workflow_execution_latest_activity_task_timestamp = workflow_execution.latest_activity_task_timestamp
+workflow_execution_execution_configuration = workflow_execution.execution_configuration
 ```
 
 ---
@@ -120,53 +111,6 @@ workflow_execution_history_events = workflow_execution_history.events
 ---
 
 
-### Workflow_execution
-
-WorkflowExecution resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `execution_configuration` | String | <p>The configuration settings for this workflow execution including timeout values, tasklist etc.</p> |
-| `latest_activity_task_timestamp` | String | <p>The time when the last activity task was scheduled for this workflow execution. You can use this information to determine if the workflow has not made progress for an unusually long period of time and might require a corrective action.</p> |
-| `execution_info` | String | <p>Information about the workflow execution.</p> |
-| `open_counts` | String | <p>The number of tasks for this workflow execution. This includes open and closed tasks of all types.</p> |
-| `latest_execution_context` | String | <p>The latest executionContext provided by the decider for this workflow execution. A decider can provide an
-      executionContext (a free-form string) when closing a decision task using <a>RespondDecisionTaskCompleted</a>.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access workflow_execution outputs
-workflow_execution_id = workflow_execution.id
-workflow_execution_execution_configuration = workflow_execution.execution_configuration
-workflow_execution_latest_activity_task_timestamp = workflow_execution.latest_activity_task_timestamp
-workflow_execution_execution_info = workflow_execution.execution_info
-workflow_execution_open_counts = workflow_execution.open_counts
-workflow_execution_latest_execution_context = workflow_execution.latest_execution_context
-```
-
----
-
-
 ### Workflow_type
 
 WorkflowType resource
@@ -183,8 +127,6 @@ WorkflowType resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `configuration` | String | <p>Configuration settings of the workflow type registered through <a>RegisterWorkflowType</a>
-         </p> |
 | `type_info` | String | <p>General information about the workflow type.</p>
          <p>The status of the workflow type (returned in the WorkflowTypeInfo structure) can be one of the following.</p>
          <ul>
@@ -198,6 +140,8 @@ WorkflowType resource
         keep workers supporting this type running. You cannot create new workflow executions of this type.</p>
             </li>
          </ul> |
+| `configuration` | String | <p>Configuration settings of the workflow type registered through <a>RegisterWorkflowType</a>
+         </p> |
 
 
 #### Usage Example
@@ -213,8 +157,8 @@ provider = aws.AwsProvider {
 
 # Access workflow_type outputs
 workflow_type_id = workflow_type.id
-workflow_type_configuration = workflow_type.configuration
 workflow_type_type_info = workflow_type.type_info
+workflow_type_configuration = workflow_type.configuration
 ```
 
 ---
@@ -262,6 +206,62 @@ domain_configuration = domain.configuration
 ---
 
 
+### Activity_type
+
+ActivityType resource
+
+**Operations**: ✅ Read ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `type_info` | String | <p>General information about the activity type.</p>
+         <p>The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.</p>
+         <ul>
+            <li>
+               <p>
+                  <code>REGISTERED</code> – The type is registered and available. Workers supporting this
+        type should be running.
+      </p>
+            </li>
+            <li>
+               <p>
+                  <code>DEPRECATED</code> – The type was deprecated using <a>DeprecateActivityType</a>, but is
+        still in use. You should keep workers supporting this type running.
+        You cannot create new tasks of this type.
+      </p>
+            </li>
+         </ul> |
+| `configuration` | String | <p>The configuration settings registered with the activity type.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access activity_type outputs
+activity_type_id = activity_type.id
+activity_type_type_info = activity_type.type_info
+activity_type_configuration = activity_type.configuration
+```
+
+---
+
+
 
 ## Common Operations
 
@@ -274,12 +274,12 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create multiple activity_type resources
-activity_type_0 = provider.swf.Activity_type {
+# Create multiple workflow_execution resources
+workflow_execution_0 = provider.swf.Workflow_execution {
 }
-activity_type_1 = provider.swf.Activity_type {
+workflow_execution_1 = provider.swf.Workflow_execution {
 }
-activity_type_2 = provider.swf.Activity_type {
+workflow_execution_2 = provider.swf.Workflow_execution {
 }
 ```
 
@@ -288,7 +288,7 @@ activity_type_2 = provider.swf.Activity_type {
 ```kcl
 # Only create in production
 if environment == "production":
-    activity_type = provider.swf.Activity_type {
+    workflow_execution = provider.swf.Workflow_execution {
     }
 ```
 

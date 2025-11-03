@@ -10,31 +10,50 @@
 
 The osis service provides access to 5 resource types:
 
-- [Pipeline_endpoint](#pipeline_endpoint) [CD]
+- [Pipeline](#pipeline) [CRUD]
 - [Pipeline_change_progress](#pipeline_change_progress) [R]
 - [Pipeline_blueprint](#pipeline_blueprint) [R]
+- [Pipeline_endpoint](#pipeline_endpoint) [CD]
 - [Resource_policy](#resource_policy) [CRD]
-- [Pipeline](#pipeline) [CRUD]
 
 ---
 
 ## Resources
 
 
-### Pipeline_endpoint
+### Pipeline
 
-PipelineEndpoint resource
+Pipeline resource
 
-**Operations**: ✅ Create ✅ Delete
+**Operations**: ✅ Create ✅ Read ✅ Update ✅ Delete
 
 #### Fields
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `vpc_options` | String | ✅ | <p>Container for the VPC configuration for the pipeline endpoint, including subnet IDs and
-   security group IDs.</p> |
-| `pipeline_arn` | String | ✅ | <p>The Amazon Resource Name (ARN) of the pipeline to create the endpoint for.</p> |
+| `vpc_options` | String |  | <p>Container for the values required to configure VPC access for the pipeline. If you don't
+   specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint.</p> |
+| `max_units` | i64 | ✅ | <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs).</p> |
+| `pipeline_configuration_body` | String | ✅ | <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as
+   a string or within a .yaml file. If you provide the configuration as a string, each new line must
+   be escaped with <code>\n</code>.</p> |
+| `min_units` | i64 | ✅ | <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p> |
+| `encryption_at_rest_options` | String |  | <p>Key-value pairs to configure encryption for data that is written to a persistent
+   buffer.</p> |
+| `tags` | Vec<String> |  | <p>List of tags to add to the pipeline upon creation.</p> |
+| `buffer_options` | String |  | <p>Key-value pairs to configure persistent buffering for the pipeline.</p> |
+| `pipeline_role_arn` | String |  | <p>The Amazon Resource Name (ARN) of the IAM role that grants the pipeline permission to access
+    Amazon Web Services resources.</p> |
+| `pipeline_name` | String | ✅ | <p>The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the
+   pipelines owned by an account within an Amazon Web Services Region.</p> |
+| `log_publishing_options` | String |  | <p>Key-value pairs to configure log publishing.</p> |
 
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `pipeline` | String | <p>Detailed information about the requested pipeline.</p> |
 
 
 #### Usage Example
@@ -48,13 +67,20 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create pipeline_endpoint
-pipeline_endpoint = provider.osis.Pipeline_endpoint {
-    vpc_options = "value"  # <p>Container for the VPC configuration for the pipeline endpoint, including subnet IDs and
-   security group IDs.</p>
-    pipeline_arn = "value"  # <p>The Amazon Resource Name (ARN) of the pipeline to create the endpoint for.</p>
+# Create pipeline
+pipeline = provider.osis.Pipeline {
+    max_units = "value"  # <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+    pipeline_configuration_body = "value"  # <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as
+   a string or within a .yaml file. If you provide the configuration as a string, each new line must
+   be escaped with <code>\n</code>.</p>
+    min_units = "value"  # <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+    pipeline_name = "value"  # <p>The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the
+   pipelines owned by an account within an Amazon Web Services Region.</p>
 }
 
+# Access pipeline outputs
+pipeline_id = pipeline.id
+pipeline_pipeline = pipeline.pipeline
 ```
 
 ---
@@ -114,8 +140,8 @@ PipelineBlueprint resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `blueprint` | String | <p>The requested blueprint in YAML format.</p> |
 | `format` | String | <p>The format of the blueprint.</p> |
+| `blueprint` | String | <p>The requested blueprint in YAML format.</p> |
 
 
 #### Usage Example
@@ -131,8 +157,47 @@ provider = aws.AwsProvider {
 
 # Access pipeline_blueprint outputs
 pipeline_blueprint_id = pipeline_blueprint.id
-pipeline_blueprint_blueprint = pipeline_blueprint.blueprint
 pipeline_blueprint_format = pipeline_blueprint.format
+pipeline_blueprint_blueprint = pipeline_blueprint.blueprint
+```
+
+---
+
+
+### Pipeline_endpoint
+
+PipelineEndpoint resource
+
+**Operations**: ✅ Create ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `pipeline_arn` | String | ✅ | <p>The Amazon Resource Name (ARN) of the pipeline to create the endpoint for.</p> |
+| `vpc_options` | String | ✅ | <p>Container for the VPC configuration for the pipeline endpoint, including subnet IDs and
+   security group IDs.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create pipeline_endpoint
+pipeline_endpoint = provider.osis.Pipeline_endpoint {
+    pipeline_arn = "value"  # <p>The Amazon Resource Name (ARN) of the pipeline to create the endpoint for.</p>
+    vpc_options = "value"  # <p>Container for the VPC configuration for the pipeline endpoint, including subnet IDs and
+   security group IDs.</p>
+}
+
 ```
 
 ---
@@ -156,8 +221,8 @@ ResourcePolicy resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `policy` | String | <p>The resource-based policy document in JSON format.</p> |
 | `resource_arn` | String | <p>The Amazon Resource Name (ARN) of the resource.</p> |
+| `policy` | String | <p>The resource-based policy document in JSON format.</p> |
 
 
 #### Usage Example
@@ -179,73 +244,8 @@ resource_policy = provider.osis.Resource_policy {
 
 # Access resource_policy outputs
 resource_policy_id = resource_policy.id
-resource_policy_policy = resource_policy.policy
 resource_policy_resource_arn = resource_policy.resource_arn
-```
-
----
-
-
-### Pipeline
-
-Pipeline resource
-
-**Operations**: ✅ Create ✅ Read ✅ Update ✅ Delete
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `min_units` | i64 | ✅ | <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p> |
-| `buffer_options` | String |  | <p>Key-value pairs to configure persistent buffering for the pipeline.</p> |
-| `pipeline_configuration_body` | String | ✅ | <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as
-   a string or within a .yaml file. If you provide the configuration as a string, each new line must
-   be escaped with <code>\n</code>.</p> |
-| `log_publishing_options` | String |  | <p>Key-value pairs to configure log publishing.</p> |
-| `vpc_options` | String |  | <p>Container for the values required to configure VPC access for the pipeline. If you don't
-   specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint.</p> |
-| `pipeline_name` | String | ✅ | <p>The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the
-   pipelines owned by an account within an Amazon Web Services Region.</p> |
-| `encryption_at_rest_options` | String |  | <p>Key-value pairs to configure encryption for data that is written to a persistent
-   buffer.</p> |
-| `pipeline_role_arn` | String |  | <p>The Amazon Resource Name (ARN) of the IAM role that grants the pipeline permission to access
-    Amazon Web Services resources.</p> |
-| `max_units` | i64 | ✅ | <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs).</p> |
-| `tags` | Vec<String> |  | <p>List of tags to add to the pipeline upon creation.</p> |
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `pipeline` | String | <p>Detailed information about the requested pipeline.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create pipeline
-pipeline = provider.osis.Pipeline {
-    min_units = "value"  # <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
-    pipeline_configuration_body = "value"  # <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as
-   a string or within a .yaml file. If you provide the configuration as a string, each new line must
-   be escaped with <code>\n</code>.</p>
-    pipeline_name = "value"  # <p>The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the
-   pipelines owned by an account within an Amazon Web Services Region.</p>
-    max_units = "value"  # <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
-}
-
-# Access pipeline outputs
-pipeline_id = pipeline.id
-pipeline_pipeline = pipeline.pipeline
+resource_policy_policy = resource_policy.policy
 ```
 
 ---
@@ -263,18 +263,24 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create multiple pipeline_endpoint resources
-pipeline_endpoint_0 = provider.osis.Pipeline_endpoint {
-    vpc_options = "value-0"
-    pipeline_arn = "value-0"
+# Create multiple pipeline resources
+pipeline_0 = provider.osis.Pipeline {
+    max_units = "value-0"
+    pipeline_configuration_body = "value-0"
+    min_units = "value-0"
+    pipeline_name = "value-0"
 }
-pipeline_endpoint_1 = provider.osis.Pipeline_endpoint {
-    vpc_options = "value-1"
-    pipeline_arn = "value-1"
+pipeline_1 = provider.osis.Pipeline {
+    max_units = "value-1"
+    pipeline_configuration_body = "value-1"
+    min_units = "value-1"
+    pipeline_name = "value-1"
 }
-pipeline_endpoint_2 = provider.osis.Pipeline_endpoint {
-    vpc_options = "value-2"
-    pipeline_arn = "value-2"
+pipeline_2 = provider.osis.Pipeline {
+    max_units = "value-2"
+    pipeline_configuration_body = "value-2"
+    min_units = "value-2"
+    pipeline_name = "value-2"
 }
 ```
 
@@ -283,9 +289,11 @@ pipeline_endpoint_2 = provider.osis.Pipeline_endpoint {
 ```kcl
 # Only create in production
 if environment == "production":
-    pipeline_endpoint = provider.osis.Pipeline_endpoint {
-        vpc_options = "production-value"
-        pipeline_arn = "production-value"
+    pipeline = provider.osis.Pipeline {
+        max_units = "production-value"
+        pipeline_configuration_body = "production-value"
+        min_units = "production-value"
+        pipeline_name = "production-value"
     }
 ```
 

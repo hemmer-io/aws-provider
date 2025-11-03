@@ -21,7 +21,7 @@ impl<'a> Change_set<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, change_set_type: Option<String>, resource_types: Option<Vec<String>>, client_token: Option<String>, resources_to_import: Option<Vec<String>>, parameters: Option<Vec<String>>, import_existing_resources: Option<bool>, rollback_configuration: Option<String>, template_body: Option<String>, role_arn: Option<String>, notification_ar_ns: Option<Vec<String>>, use_previous_template: Option<bool>, include_nested_stacks: Option<bool>, template_url: Option<String>, change_set_name: String, on_stack_failure: Option<String>, description: Option<String>, capabilities: Option<Vec<String>>, tags: Option<Vec<String>>, stack_name: String) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, on_stack_failure: Option<String>, notification_ar_ns: Option<Vec<String>>, import_existing_resources: Option<bool>, resources_to_import: Option<Vec<String>>, stack_name: String, include_nested_stacks: Option<bool>, role_arn: Option<String>, rollback_configuration: Option<String>, change_set_type: Option<String>, use_previous_template: Option<bool>, template_url: Option<String>, template_body: Option<String>, parameters: Option<Vec<String>>, resource_types: Option<Vec<String>>, change_set_name: String, client_token: Option<String>, tags: Option<Vec<String>>, capabilities: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

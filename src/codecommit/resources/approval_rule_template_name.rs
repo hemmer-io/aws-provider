@@ -24,7 +24,7 @@ impl<'a> Approval_rule_template_name<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, old_approval_rule_template_name: Option<String>, new_approval_rule_template_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, new_approval_rule_template_name: Option<String>, old_approval_rule_template_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

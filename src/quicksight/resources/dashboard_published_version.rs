@@ -24,7 +24,7 @@ impl<'a> Dashboard_published_version<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, version_number: Option<i64>, aws_account_id: Option<String>, dashboard_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, aws_account_id: Option<String>, dashboard_id: Option<String>, version_number: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

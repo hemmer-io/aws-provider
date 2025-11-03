@@ -33,8 +33,8 @@ TokenVault resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `token_vault_id` | String | <p>The ID of the token vault.</p> |
 | `kms_configuration` | String | <p>The KMS configuration for the token vault.</p> |
+| `token_vault_id` | String | <p>The ID of the token vault.</p> |
 | `last_modified_date` | String | <p>The timestamp when the token vault was last modified.</p> |
 
 
@@ -51,8 +51,8 @@ provider = aws.AwsProvider {
 
 # Access token_vault outputs
 token_vault_id = token_vault.id
-token_vault_token_vault_id = token_vault.token_vault_id
 token_vault_kms_configuration = token_vault.kms_configuration
+token_vault_token_vault_id = token_vault.token_vault_id
 token_vault_last_modified_date = token_vault.last_modified_date
 ```
 

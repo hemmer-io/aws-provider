@@ -21,7 +21,7 @@ impl<'a> User<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, first_name: Option<String>, last_name: Option<String>, api_access_principal_arn: Option<String>, client_token: Option<String>, email_address: String, type: String, api_access: Option<String>) -> Result<String> {
+    pub async fn create(&self, first_name: Option<String>, api_access: Option<String>, type: String, last_name: Option<String>, client_token: Option<String>, api_access_principal_arn: Option<String>, email_address: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> User<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, first_name: Option<String>, last_name: Option<String>, api_access_principal_arn: Option<String>, client_token: Option<String>, email_address: Option<String>, type: Option<String>, api_access: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, first_name: Option<String>, api_access: Option<String>, type: Option<String>, last_name: Option<String>, client_token: Option<String>, api_access_principal_arn: Option<String>, email_address: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

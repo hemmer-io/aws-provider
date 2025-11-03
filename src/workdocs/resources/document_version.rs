@@ -38,7 +38,7 @@ impl<'a> Document_version<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, version_id: Option<String>, document_id: Option<String>, version_status: Option<String>, authentication_token: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, document_id: Option<String>, version_status: Option<String>, authentication_token: Option<String>, version_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

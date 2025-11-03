@@ -24,14 +24,14 @@ impl<'a> Personalize_eventsService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
+            "action_interactions" => {
+                self.plan_action_interactions(current_state, desired_input).await
+            }
             "actions" => {
                 self.plan_actions(current_state, desired_input).await
             }
             "items" => {
                 self.plan_items(current_state, desired_input).await
-            }
-            "action_interactions" => {
-                self.plan_action_interactions(current_state, desired_input).await
             }
             "users" => {
                 self.plan_users(current_state, desired_input).await
@@ -54,14 +54,14 @@ impl<'a> Personalize_eventsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "action_interactions" => {
+                self.create_action_interactions(input).await
+            }
             "actions" => {
                 self.create_actions(input).await
             }
             "items" => {
                 self.create_items(input).await
-            }
-            "action_interactions" => {
-                self.create_action_interactions(input).await
             }
             "users" => {
                 self.create_users(input).await
@@ -84,14 +84,14 @@ impl<'a> Personalize_eventsService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "action_interactions" => {
+                self.read_action_interactions(id).await
+            }
             "actions" => {
                 self.read_actions(id).await
             }
             "items" => {
                 self.read_items(id).await
-            }
-            "action_interactions" => {
-                self.read_action_interactions(id).await
             }
             "users" => {
                 self.read_users(id).await
@@ -115,14 +115,14 @@ impl<'a> Personalize_eventsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "action_interactions" => {
+                self.update_action_interactions(id, input).await
+            }
             "actions" => {
                 self.update_actions(id, input).await
             }
             "items" => {
                 self.update_items(id, input).await
-            }
-            "action_interactions" => {
-                self.update_action_interactions(id, input).await
             }
             "users" => {
                 self.update_users(id, input).await
@@ -145,14 +145,14 @@ impl<'a> Personalize_eventsService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
+            "action_interactions" => {
+                self.delete_action_interactions(id).await
+            }
             "actions" => {
                 self.delete_actions(id).await
             }
             "items" => {
                 self.delete_items(id).await
-            }
-            "action_interactions" => {
-                self.delete_action_interactions(id).await
             }
             "users" => {
                 self.delete_users(id).await
@@ -171,250 +171,6 @@ impl<'a> Personalize_eventsService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
-
-
-    // ------------------------------------------------------------------------
-    // Actions resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a actions resource
-    async fn plan_actions(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new actions resource
-    async fn create_actions(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let actions = input.get_string("actions")?;
-            let dataset_arn = input.get_string("dataset_arn")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.personalize_events_client
-            //     .create_actions()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("actions", actions.unwrap_or_default())
-                .with_field("dataset_arn", dataset_arn.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a actions resource
-    async fn read_actions(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.personalize_events_client
-            //     .describe_actions()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a actions resource
-    async fn update_actions(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let actions = input.get_string("actions")?;
-            let dataset_arn = input.get_string("dataset_arn")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.personalize_events_client
-            //     .update_actions()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("actions", actions.unwrap_or_default())
-                .with_field("dataset_arn", dataset_arn.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a actions resource
-    async fn delete_actions(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.personalize_events_client
-            //     .delete_actions()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Items resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a items resource
-    async fn plan_items(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new items resource
-    async fn create_items(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let dataset_arn = input.get_string("dataset_arn")?;
-            let items = input.get_string("items")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.personalize_events_client
-            //     .create_items()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("dataset_arn", dataset_arn.unwrap_or_default())
-                .with_field("items", items.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a items resource
-    async fn read_items(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.personalize_events_client
-            //     .describe_items()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a items resource
-    async fn update_items(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let dataset_arn = input.get_string("dataset_arn")?;
-            let items = input.get_string("items")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.personalize_events_client
-            //     .update_items()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("dataset_arn", dataset_arn.unwrap_or_default())
-                .with_field("items", items.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a items resource
-    async fn delete_items(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.personalize_events_client
-            //     .delete_items()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
 
 
     // ------------------------------------------------------------------------
@@ -540,6 +296,250 @@ impl<'a> Personalize_eventsService<'a> {
 
 
     // ------------------------------------------------------------------------
+    // Actions resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a actions resource
+    async fn plan_actions(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new actions resource
+    async fn create_actions(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let dataset_arn = input.get_string("dataset_arn")?;
+            let actions = input.get_string("actions")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.personalize_events_client
+            //     .create_actions()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("dataset_arn", dataset_arn.unwrap_or_default())
+                .with_field("actions", actions.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a actions resource
+    async fn read_actions(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.personalize_events_client
+            //     .describe_actions()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a actions resource
+    async fn update_actions(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let dataset_arn = input.get_string("dataset_arn")?;
+            let actions = input.get_string("actions")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.personalize_events_client
+            //     .update_actions()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("dataset_arn", dataset_arn.unwrap_or_default())
+                .with_field("actions", actions.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a actions resource
+    async fn delete_actions(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.personalize_events_client
+            //     .delete_actions()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Items resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a items resource
+    async fn plan_items(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new items resource
+    async fn create_items(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let items = input.get_string("items")?;
+            let dataset_arn = input.get_string("dataset_arn")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.personalize_events_client
+            //     .create_items()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("items", items.unwrap_or_default())
+                .with_field("dataset_arn", dataset_arn.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a items resource
+    async fn read_items(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.personalize_events_client
+            //     .describe_items()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a items resource
+    async fn update_items(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let items = input.get_string("items")?;
+            let dataset_arn = input.get_string("dataset_arn")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.personalize_events_client
+            //     .update_items()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("items", items.unwrap_or_default())
+                .with_field("dataset_arn", dataset_arn.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a items resource
+    async fn delete_items(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.personalize_events_client
+            //     .delete_items()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
     // Users resource operations
     // ------------------------------------------------------------------------
 
@@ -567,8 +567,8 @@ impl<'a> Personalize_eventsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let dataset_arn = input.get_string("dataset_arn")?;
             let users = input.get_string("users")?;
+            let dataset_arn = input.get_string("dataset_arn")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -583,8 +583,8 @@ impl<'a> Personalize_eventsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("dataset_arn", dataset_arn.unwrap_or_default())
                 .with_field("users", users.unwrap_or_default())
+                .with_field("dataset_arn", dataset_arn.unwrap_or_default())
             )
         })
     }
@@ -618,8 +618,8 @@ impl<'a> Personalize_eventsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let dataset_arn = input.get_string("dataset_arn")?;
             let users = input.get_string("users")?;
+            let dataset_arn = input.get_string("dataset_arn")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -635,8 +635,8 @@ impl<'a> Personalize_eventsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("dataset_arn", dataset_arn.unwrap_or_default())
                 .with_field("users", users.unwrap_or_default())
+                .with_field("dataset_arn", dataset_arn.unwrap_or_default())
             )
         })
     }
@@ -689,10 +689,10 @@ impl<'a> Personalize_eventsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let user_id = input.get_optional_string("user_id")?;
             let session_id = input.get_string("session_id")?;
             let tracking_id = input.get_string("tracking_id")?;
             let event_list = input.get_string("event_list")?;
+            let user_id = input.get_optional_string("user_id")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -707,10 +707,10 @@ impl<'a> Personalize_eventsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("user_id", user_id.unwrap_or_default())
                 .with_field("session_id", session_id.unwrap_or_default())
                 .with_field("tracking_id", tracking_id.unwrap_or_default())
                 .with_field("event_list", event_list.unwrap_or_default())
+                .with_field("user_id", user_id.unwrap_or_default())
             )
         })
     }
@@ -744,10 +744,10 @@ impl<'a> Personalize_eventsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let user_id = input.get_optional_string("user_id")?;
             let session_id = input.get_string("session_id")?;
             let tracking_id = input.get_string("tracking_id")?;
             let event_list = input.get_string("event_list")?;
+            let user_id = input.get_optional_string("user_id")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -763,10 +763,10 @@ impl<'a> Personalize_eventsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("user_id", user_id.unwrap_or_default())
                 .with_field("session_id", session_id.unwrap_or_default())
                 .with_field("tracking_id", tracking_id.unwrap_or_default())
                 .with_field("event_list", event_list.unwrap_or_default())
+                .with_field("user_id", user_id.unwrap_or_default())
             )
         })
     }

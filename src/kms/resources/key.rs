@@ -21,7 +21,7 @@ impl<'a> Key<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, key_spec: Option<String>, custom_key_store_id: Option<String>, tags: Option<Vec<String>>, bypass_policy_lockout_safety_check: Option<bool>, description: Option<String>, origin: Option<String>, policy: Option<String>, multi_region: Option<bool>, key_usage: Option<String>, xks_key_id: Option<String>, customer_master_key_spec: Option<String>) -> Result<String> {
+    pub async fn create(&self, key_spec: Option<String>, policy: Option<String>, bypass_policy_lockout_safety_check: Option<bool>, tags: Option<Vec<String>>, multi_region: Option<bool>, description: Option<String>, origin: Option<String>, key_usage: Option<String>, xks_key_id: Option<String>, custom_key_store_id: Option<String>, customer_master_key_spec: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

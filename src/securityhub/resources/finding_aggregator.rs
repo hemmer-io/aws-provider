@@ -21,7 +21,7 @@ impl<'a> Finding_aggregator<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, region_linking_mode: String, regions: Option<String>) -> Result<String> {
+    pub async fn create(&self, regions: Option<String>, region_linking_mode: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Finding_aggregator<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, region_linking_mode: Option<String>, regions: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, regions: Option<String>, region_linking_mode: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

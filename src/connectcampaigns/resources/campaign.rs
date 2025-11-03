@@ -21,7 +21,7 @@ impl<'a> Campaign<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, outbound_call_config: String, name: String, connect_instance_id: String, dialer_config: String, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, outbound_call_config: String, tags: Option<HashMap<String, String>>, connect_instance_id: String, name: String, dialer_config: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

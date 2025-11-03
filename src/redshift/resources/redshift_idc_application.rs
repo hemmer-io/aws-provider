@@ -21,7 +21,7 @@ impl<'a> Redshift_idc_application<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, idc_instance_arn: String, iam_role_arn: String, service_integrations: Option<Vec<String>>, tags: Option<Vec<String>>, sso_tag_keys: Option<Vec<String>>, authorized_token_issuer_list: Option<Vec<String>>, identity_namespace: Option<String>, redshift_idc_application_name: String, idc_display_name: String) -> Result<String> {
+    pub async fn create(&self, service_integrations: Option<Vec<String>>, iam_role_arn: String, idc_instance_arn: String, identity_namespace: Option<String>, sso_tag_keys: Option<Vec<String>>, redshift_idc_application_name: String, idc_display_name: String, tags: Option<Vec<String>>, authorized_token_issuer_list: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

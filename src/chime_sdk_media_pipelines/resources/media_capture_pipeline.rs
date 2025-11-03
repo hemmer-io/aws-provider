@@ -21,7 +21,7 @@ impl<'a> Media_capture_pipeline<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, source_arn: String, client_request_token: Option<String>, sse_aws_key_management_params: Option<String>, sink_arn: String, sink_type: String, chime_sdk_meeting_configuration: Option<String>, source_type: String, sink_iam_role_arn: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, sink_arn: String, sse_aws_key_management_params: Option<String>, sink_iam_role_arn: Option<String>, chime_sdk_meeting_configuration: Option<String>, source_type: String, tags: Option<Vec<String>>, client_request_token: Option<String>, sink_type: String, source_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Explainability_export<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, destination: String, format: Option<String>, explainability_export_name: String, explainability_arn: String, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, explainability_export_name: String, destination: String, tags: Option<Vec<String>>, format: Option<String>, explainability_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

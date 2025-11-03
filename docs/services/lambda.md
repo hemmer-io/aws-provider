@@ -33,8 +33,8 @@ AccountSettings resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `account_limit` | String | <p>Limits that are related to concurrency and code storage.</p> |
 | `account_usage` | String | <p>The number of functions and amount of storage in use.</p> |
+| `account_limit` | String | <p>Limits that are related to concurrency and code storage.</p> |
 
 
 #### Usage Example
@@ -50,8 +50,8 @@ provider = aws.AwsProvider {
 
 # Access account_settings outputs
 account_settings_id = account_settings.id
-account_settings_account_limit = account_settings.account_limit
 account_settings_account_usage = account_settings.account_usage
+account_settings_account_limit = account_settings.account_limit
 ```
 
 ---

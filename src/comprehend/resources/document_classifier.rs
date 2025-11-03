@@ -21,7 +21,7 @@ impl<'a> Document_classifier<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, output_data_config: Option<String>, model_policy: Option<String>, data_access_role_arn: String, language_code: String, version_name: Option<String>, volume_kms_key_id: Option<String>, mode: Option<String>, document_classifier_name: String, input_data_config: String, tags: Option<Vec<String>>, client_request_token: Option<String>, vpc_config: Option<String>, model_kms_key_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, vpc_config: Option<String>, mode: Option<String>, input_data_config: String, model_kms_key_id: Option<String>, data_access_role_arn: String, language_code: String, model_policy: Option<String>, output_data_config: Option<String>, tags: Option<Vec<String>>, version_name: Option<String>, volume_kms_key_id: Option<String>, document_classifier_name: String, client_request_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

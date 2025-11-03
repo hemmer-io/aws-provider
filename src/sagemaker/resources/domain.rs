@@ -21,7 +21,7 @@ impl<'a> Domain<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, home_efs_file_system_kms_key_id: Option<String>, kms_key_id: Option<String>, app_network_access_type: Option<String>, subnet_ids: Option<Vec<String>>, auth_mode: String, domain_settings: Option<String>, app_security_group_management: Option<String>, default_user_settings: String, domain_name: String, vpc_id: Option<String>, tag_propagation: Option<String>, default_space_settings: Option<String>) -> Result<String> {
+    pub async fn create(&self, domain_settings: Option<String>, subnet_ids: Option<Vec<String>>, domain_name: String, default_user_settings: String, app_network_access_type: Option<String>, kms_key_id: Option<String>, default_space_settings: Option<String>, auth_mode: String, vpc_id: Option<String>, app_security_group_management: Option<String>, tag_propagation: Option<String>, tags: Option<Vec<String>>, home_efs_file_system_kms_key_id: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Domain<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, home_efs_file_system_kms_key_id: Option<String>, kms_key_id: Option<String>, app_network_access_type: Option<String>, subnet_ids: Option<Vec<String>>, auth_mode: Option<String>, domain_settings: Option<String>, app_security_group_management: Option<String>, default_user_settings: Option<String>, domain_name: Option<String>, vpc_id: Option<String>, tag_propagation: Option<String>, default_space_settings: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, domain_settings: Option<String>, subnet_ids: Option<Vec<String>>, domain_name: Option<String>, default_user_settings: Option<String>, app_network_access_type: Option<String>, kms_key_id: Option<String>, default_space_settings: Option<String>, auth_mode: Option<String>, vpc_id: Option<String>, app_security_group_management: Option<String>, tag_propagation: Option<String>, tags: Option<Vec<String>>, home_efs_file_system_kms_key_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

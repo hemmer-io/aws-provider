@@ -21,7 +21,7 @@ impl<'a> Retraining_scheduler<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, retraining_frequency: String, retraining_start_date: Option<String>, client_token: String, model_name: String, lookback_window: String, promote_mode: Option<String>) -> Result<String> {
+    pub async fn create(&self, retraining_frequency: String, promote_mode: Option<String>, lookback_window: String, retraining_start_date: Option<String>, model_name: String, client_token: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Retraining_scheduler<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, retraining_frequency: Option<String>, retraining_start_date: Option<String>, client_token: Option<String>, model_name: Option<String>, lookback_window: Option<String>, promote_mode: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, retraining_frequency: Option<String>, promote_mode: Option<String>, lookback_window: Option<String>, retraining_start_date: Option<String>, model_name: Option<String>, client_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

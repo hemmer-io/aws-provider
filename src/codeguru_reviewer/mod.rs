@@ -171,10 +171,10 @@ impl<'a> Codeguru_reviewerService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_string("name")?;
             let r#type = input.get_string("type")?;
             let client_request_token = input.get_optional_string("client_request_token")?;
             let repository_association_arn = input.get_string("repository_association_arn")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -189,10 +189,10 @@ impl<'a> Codeguru_reviewerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("name", name.unwrap_or_default())
                 .with_field("type", r#type.unwrap_or_default())
                 .with_field("client_request_token", client_request_token.unwrap_or_default())
                 .with_field("repository_association_arn", repository_association_arn.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }
@@ -226,10 +226,10 @@ impl<'a> Codeguru_reviewerService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_string("name")?;
             let r#type = input.get_string("type")?;
             let client_request_token = input.get_optional_string("client_request_token")?;
             let repository_association_arn = input.get_string("repository_association_arn")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -245,10 +245,10 @@ impl<'a> Codeguru_reviewerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("name", name.unwrap_or_default())
                 .with_field("type", r#type.unwrap_or_default())
                 .with_field("client_request_token", client_request_token.unwrap_or_default())
                 .with_field("repository_association_arn", repository_association_arn.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }
@@ -301,9 +301,9 @@ impl<'a> Codeguru_reviewerService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let reactions = input.get_string("reactions")?;
             let code_review_arn = input.get_string("code_review_arn")?;
             let recommendation_id = input.get_string("recommendation_id")?;
+            let reactions = input.get_string("reactions")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -318,9 +318,9 @@ impl<'a> Codeguru_reviewerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("reactions", reactions.unwrap_or_default())
                 .with_field("code_review_arn", code_review_arn.unwrap_or_default())
                 .with_field("recommendation_id", recommendation_id.unwrap_or_default())
+                .with_field("reactions", reactions.unwrap_or_default())
             )
         })
     }
@@ -354,9 +354,9 @@ impl<'a> Codeguru_reviewerService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let reactions = input.get_string("reactions")?;
             let code_review_arn = input.get_string("code_review_arn")?;
             let recommendation_id = input.get_string("recommendation_id")?;
+            let reactions = input.get_string("reactions")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -372,9 +372,9 @@ impl<'a> Codeguru_reviewerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("reactions", reactions.unwrap_or_default())
                 .with_field("code_review_arn", code_review_arn.unwrap_or_default())
                 .with_field("recommendation_id", recommendation_id.unwrap_or_default())
+                .with_field("reactions", reactions.unwrap_or_default())
             )
         })
     }

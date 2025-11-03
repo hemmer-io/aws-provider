@@ -38,7 +38,7 @@ impl<'a> Application_settings<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, write_application_settings_request: Option<String>, application_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, application_id: Option<String>, write_application_settings_request: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

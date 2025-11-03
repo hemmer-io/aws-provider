@@ -21,7 +21,7 @@ impl<'a> Unreferenced_merge_commit<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, source_commit_specifier: String, conflict_resolution_strategy: Option<String>, destination_commit_specifier: String, commit_message: Option<String>, repository_name: String, conflict_detail_level: Option<String>, keep_empty_folders: Option<bool>, author_name: Option<String>, merge_option: String, email: Option<String>, conflict_resolution: Option<String>) -> Result<String> {
+    pub async fn create(&self, repository_name: String, email: Option<String>, commit_message: Option<String>, source_commit_specifier: String, destination_commit_specifier: String, conflict_detail_level: Option<String>, keep_empty_folders: Option<bool>, conflict_resolution: Option<String>, conflict_resolution_strategy: Option<String>, merge_option: String, author_name: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Lifecycle_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, retain_interval: Option<i64>, copy_tags: Option<bool>, state: String, execution_role_arn: String, default_policy: Option<String>, cross_region_copy_targets: Option<Vec<String>>, exclusions: Option<String>, policy_details: Option<String>, tags: Option<HashMap<String, String>>, extend_deletion: Option<bool>, description: String, create_interval: Option<i64>) -> Result<String> {
+    pub async fn create(&self, tags: Option<HashMap<String, String>>, exclusions: Option<String>, description: String, state: String, execution_role_arn: String, default_policy: Option<String>, policy_details: Option<String>, create_interval: Option<i64>, cross_region_copy_targets: Option<Vec<String>>, retain_interval: Option<i64>, copy_tags: Option<bool>, extend_deletion: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Lifecycle_policy<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, retain_interval: Option<i64>, copy_tags: Option<bool>, state: Option<String>, execution_role_arn: Option<String>, default_policy: Option<String>, cross_region_copy_targets: Option<Vec<String>>, exclusions: Option<String>, policy_details: Option<String>, tags: Option<HashMap<String, String>>, extend_deletion: Option<bool>, description: Option<String>, create_interval: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, exclusions: Option<String>, description: Option<String>, state: Option<String>, execution_role_arn: Option<String>, default_policy: Option<String>, policy_details: Option<String>, create_interval: Option<i64>, cross_region_copy_targets: Option<Vec<String>>, retain_interval: Option<i64>, copy_tags: Option<bool>, extend_deletion: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

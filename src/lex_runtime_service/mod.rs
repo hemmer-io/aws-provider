@@ -141,14 +141,14 @@ impl<'a> Lex_runtime_serviceService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let accept = input.get_optional_string("accept")?;
-            let bot_name = input.get_string("bot_name")?;
+            let user_id = input.get_string("user_id")?;
             let dialog_action = input.get_optional_string("dialog_action")?;
             let recent_intent_summary_view = input.get_optional_string("recent_intent_summary_view")?;
-            let bot_alias = input.get_string("bot_alias")?;
-            let active_contexts = input.get_optional_string("active_contexts")?;
-            let user_id = input.get_string("user_id")?;
+            let bot_name = input.get_string("bot_name")?;
             let session_attributes = input.get_optional_string("session_attributes")?;
+            let accept = input.get_optional_string("accept")?;
+            let active_contexts = input.get_optional_string("active_contexts")?;
+            let bot_alias = input.get_string("bot_alias")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -163,14 +163,14 @@ impl<'a> Lex_runtime_serviceService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("accept", accept.unwrap_or_default())
-                .with_field("bot_name", bot_name.unwrap_or_default())
+                .with_field("user_id", user_id.unwrap_or_default())
                 .with_field("dialog_action", dialog_action.unwrap_or_default())
                 .with_field("recent_intent_summary_view", recent_intent_summary_view.unwrap_or_default())
-                .with_field("bot_alias", bot_alias.unwrap_or_default())
-                .with_field("active_contexts", active_contexts.unwrap_or_default())
-                .with_field("user_id", user_id.unwrap_or_default())
+                .with_field("bot_name", bot_name.unwrap_or_default())
                 .with_field("session_attributes", session_attributes.unwrap_or_default())
+                .with_field("accept", accept.unwrap_or_default())
+                .with_field("active_contexts", active_contexts.unwrap_or_default())
+                .with_field("bot_alias", bot_alias.unwrap_or_default())
             )
         })
     }
@@ -204,14 +204,14 @@ impl<'a> Lex_runtime_serviceService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let accept = input.get_optional_string("accept")?;
-            let bot_name = input.get_string("bot_name")?;
+            let user_id = input.get_string("user_id")?;
             let dialog_action = input.get_optional_string("dialog_action")?;
             let recent_intent_summary_view = input.get_optional_string("recent_intent_summary_view")?;
-            let bot_alias = input.get_string("bot_alias")?;
-            let active_contexts = input.get_optional_string("active_contexts")?;
-            let user_id = input.get_string("user_id")?;
+            let bot_name = input.get_string("bot_name")?;
             let session_attributes = input.get_optional_string("session_attributes")?;
+            let accept = input.get_optional_string("accept")?;
+            let active_contexts = input.get_optional_string("active_contexts")?;
+            let bot_alias = input.get_string("bot_alias")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -227,14 +227,14 @@ impl<'a> Lex_runtime_serviceService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("accept", accept.unwrap_or_default())
-                .with_field("bot_name", bot_name.unwrap_or_default())
+                .with_field("user_id", user_id.unwrap_or_default())
                 .with_field("dialog_action", dialog_action.unwrap_or_default())
                 .with_field("recent_intent_summary_view", recent_intent_summary_view.unwrap_or_default())
-                .with_field("bot_alias", bot_alias.unwrap_or_default())
-                .with_field("active_contexts", active_contexts.unwrap_or_default())
-                .with_field("user_id", user_id.unwrap_or_default())
+                .with_field("bot_name", bot_name.unwrap_or_default())
                 .with_field("session_attributes", session_attributes.unwrap_or_default())
+                .with_field("accept", accept.unwrap_or_default())
+                .with_field("active_contexts", active_contexts.unwrap_or_default())
+                .with_field("bot_alias", bot_alias.unwrap_or_default())
             )
         })
     }

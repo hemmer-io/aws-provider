@@ -35,8 +35,8 @@ FreeTierUsage resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `free_tier_usages` | Vec<String> | <p>The list of Free Tier usage objects that meet your filter expression.</p> |
 | `next_token` | String | <p>The pagination token that indicates the next set of results to retrieve.</p> |
+| `free_tier_usages` | Vec<String> | <p>The list of Free Tier usage objects that meet your filter expression.</p> |
 
 
 #### Usage Example
@@ -52,8 +52,8 @@ provider = aws.AwsProvider {
 
 # Access free_tier_usage outputs
 free_tier_usage_id = free_tier_usage.id
-free_tier_usage_free_tier_usages = free_tier_usage.free_tier_usages
 free_tier_usage_next_token = free_tier_usage.next_token
+free_tier_usage_free_tier_usages = free_tier_usage.free_tier_usages
 ```
 
 ---
@@ -75,15 +75,15 @@ AccountActivity resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `activity_id` | String | <p> A unique identifier that identifies the activity. </p> |
+| `completed_at` | String | <p> The timestamp when the activity is completed. This field appears only for activities in the <code>COMPLETED</code> state. </p> |
+| `started_at` | String | <p> The timestamp when the activity started. This field appears only for activities in the <code>IN_PROGRESS</code> or <code>COMPLETED</code> states. </p> |
+| `instructions_url` | String | <p> The URL resource that provides guidance on activity requirements and completion. </p> |
 | `title` | String | <p> A short activity title. </p> |
 | `expires_at` | String | <p> The time by which the activity must be completed to receive a reward. </p> |
-| `instructions_url` | String | <p> The URL resource that provides guidance on activity requirements and completion. </p> |
-| `completed_at` | String | <p> The timestamp when the activity is completed. This field appears only for activities in the <code>COMPLETED</code> state. </p> |
-| `description` | String | <p> Provides detailed information about the activity and its expected outcomes. </p> |
 | `status` | String | <p> The current activity status. </p> |
+| `description` | String | <p> Provides detailed information about the activity and its expected outcomes. </p> |
+| `activity_id` | String | <p> A unique identifier that identifies the activity. </p> |
 | `reward` | String | <p> A reward granted upon activity completion. </p> |
-| `started_at` | String | <p> The timestamp when the activity started. This field appears only for activities in the <code>IN_PROGRESS</code> or <code>COMPLETED</code> states. </p> |
 | `estimated_time_to_complete_in_minutes` | i64 | <p> The estimated time to complete the activity. This is the duration in minutes. </p> |
 
 
@@ -100,15 +100,15 @@ provider = aws.AwsProvider {
 
 # Access account_activity outputs
 account_activity_id = account_activity.id
-account_activity_activity_id = account_activity.activity_id
+account_activity_completed_at = account_activity.completed_at
+account_activity_started_at = account_activity.started_at
+account_activity_instructions_url = account_activity.instructions_url
 account_activity_title = account_activity.title
 account_activity_expires_at = account_activity.expires_at
-account_activity_instructions_url = account_activity.instructions_url
-account_activity_completed_at = account_activity.completed_at
-account_activity_description = account_activity.description
 account_activity_status = account_activity.status
+account_activity_description = account_activity.description
+account_activity_activity_id = account_activity.activity_id
 account_activity_reward = account_activity.reward
-account_activity_started_at = account_activity.started_at
 account_activity_estimated_time_to_complete_in_minutes = account_activity.estimated_time_to_complete_in_minutes
 ```
 

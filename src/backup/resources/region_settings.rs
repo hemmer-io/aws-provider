@@ -38,7 +38,7 @@ impl<'a> Region_settings<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, resource_type_management_preference: Option<HashMap<String, bool>>, resource_type_opt_in_preference: Option<HashMap<String, bool>>) -> Result<()> {
+    pub async fn update(&self, id: &str, resource_type_opt_in_preference: Option<HashMap<String, bool>>, resource_type_management_preference: Option<HashMap<String, bool>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

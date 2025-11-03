@@ -38,7 +38,7 @@ impl<'a> Dashboards_qa_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, aws_account_id: Option<String>, dashboards_qa_status: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, dashboards_qa_status: Option<String>, aws_account_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

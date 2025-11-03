@@ -21,7 +21,7 @@ impl<'a> Function<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, data_source_name: String, max_batch_size: Option<i64>, sync_config: Option<String>, code: Option<String>, description: Option<String>, runtime: Option<String>, response_mapping_template: Option<String>, name: String, api_id: String, request_mapping_template: Option<String>, function_version: Option<String>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, code: Option<String>, response_mapping_template: Option<String>, request_mapping_template: Option<String>, runtime: Option<String>, api_id: String, function_version: Option<String>, max_batch_size: Option<i64>, data_source_name: String, sync_config: Option<String>, name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Function<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, data_source_name: Option<String>, max_batch_size: Option<i64>, sync_config: Option<String>, code: Option<String>, description: Option<String>, runtime: Option<String>, response_mapping_template: Option<String>, name: Option<String>, api_id: Option<String>, request_mapping_template: Option<String>, function_version: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, code: Option<String>, response_mapping_template: Option<String>, request_mapping_template: Option<String>, runtime: Option<String>, api_id: Option<String>, function_version: Option<String>, max_batch_size: Option<i64>, data_source_name: Option<String>, sync_config: Option<String>, name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

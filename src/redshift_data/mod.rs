@@ -27,14 +27,14 @@ impl<'a> Redshift_dataService<'a> {
             "statement" => {
                 self.plan_statement(current_state, desired_input).await
             }
-            "statement_result" => {
-                self.plan_statement_result(current_state, desired_input).await
+            "statement_result_v2" => {
+                self.plan_statement_result_v2(current_state, desired_input).await
             }
             "table" => {
                 self.plan_table(current_state, desired_input).await
             }
-            "statement_result_v2" => {
-                self.plan_statement_result_v2(current_state, desired_input).await
+            "statement_result" => {
+                self.plan_statement_result(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -54,14 +54,14 @@ impl<'a> Redshift_dataService<'a> {
             "statement" => {
                 self.create_statement(input).await
             }
-            "statement_result" => {
-                self.create_statement_result(input).await
+            "statement_result_v2" => {
+                self.create_statement_result_v2(input).await
             }
             "table" => {
                 self.create_table(input).await
             }
-            "statement_result_v2" => {
-                self.create_statement_result_v2(input).await
+            "statement_result" => {
+                self.create_statement_result(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -81,14 +81,14 @@ impl<'a> Redshift_dataService<'a> {
             "statement" => {
                 self.read_statement(id).await
             }
-            "statement_result" => {
-                self.read_statement_result(id).await
+            "statement_result_v2" => {
+                self.read_statement_result_v2(id).await
             }
             "table" => {
                 self.read_table(id).await
             }
-            "statement_result_v2" => {
-                self.read_statement_result_v2(id).await
+            "statement_result" => {
+                self.read_statement_result(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -109,14 +109,14 @@ impl<'a> Redshift_dataService<'a> {
             "statement" => {
                 self.update_statement(id, input).await
             }
-            "statement_result" => {
-                self.update_statement_result(id, input).await
+            "statement_result_v2" => {
+                self.update_statement_result_v2(id, input).await
             }
             "table" => {
                 self.update_table(id, input).await
             }
-            "statement_result_v2" => {
-                self.update_statement_result_v2(id, input).await
+            "statement_result" => {
+                self.update_statement_result(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -136,14 +136,14 @@ impl<'a> Redshift_dataService<'a> {
             "statement" => {
                 self.delete_statement(id).await
             }
-            "statement_result" => {
-                self.delete_statement_result(id).await
+            "statement_result_v2" => {
+                self.delete_statement_result_v2(id).await
             }
             "table" => {
                 self.delete_table(id).await
             }
-            "statement_result_v2" => {
-                self.delete_statement_result_v2(id).await
+            "statement_result" => {
+                self.delete_statement_result(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -273,11 +273,11 @@ impl<'a> Redshift_dataService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Statement_result resource operations
+    // Statement_result_v2 resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a statement_result resource
-    async fn plan_statement_result(
+    /// Plan changes to a statement_result_v2 resource
+    async fn plan_statement_result_v2(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -292,8 +292,8 @@ impl<'a> Redshift_dataService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new statement_result resource
-    async fn create_statement_result(
+    /// Create a new statement_result_v2 resource
+    async fn create_statement_result_v2(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -305,7 +305,7 @@ impl<'a> Redshift_dataService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.redshift_data_client
-            //     .create_statement_result()
+            //     .create_statement_result_v2()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -318,8 +318,8 @@ impl<'a> Redshift_dataService<'a> {
         })
     }
 
-    /// Read a statement_result resource
-    async fn read_statement_result(
+    /// Read a statement_result_v2 resource
+    async fn read_statement_result_v2(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -327,7 +327,7 @@ impl<'a> Redshift_dataService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.redshift_data_client
-            //     .describe_statement_result()
+            //     .describe_statement_result_v2()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -339,8 +339,8 @@ impl<'a> Redshift_dataService<'a> {
         })
     }
 
-    /// Update a statement_result resource
-    async fn update_statement_result(
+    /// Update a statement_result_v2 resource
+    async fn update_statement_result_v2(
         &self,
         id: &str,
         input: ResourceInput,
@@ -352,7 +352,7 @@ impl<'a> Redshift_dataService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.redshift_data_client
-            //     .update_statement_result()
+            //     .update_statement_result_v2()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -366,8 +366,8 @@ impl<'a> Redshift_dataService<'a> {
         })
     }
 
-    /// Delete a statement_result resource
-    async fn delete_statement_result(
+    /// Delete a statement_result_v2 resource
+    async fn delete_statement_result_v2(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -375,7 +375,7 @@ impl<'a> Redshift_dataService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.redshift_data_client
-            //     .delete_statement_result()
+            //     .delete_statement_result_v2()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -501,11 +501,11 @@ impl<'a> Redshift_dataService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Statement_result_v2 resource operations
+    // Statement_result resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a statement_result_v2 resource
-    async fn plan_statement_result_v2(
+    /// Plan changes to a statement_result resource
+    async fn plan_statement_result(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -520,8 +520,8 @@ impl<'a> Redshift_dataService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new statement_result_v2 resource
-    async fn create_statement_result_v2(
+    /// Create a new statement_result resource
+    async fn create_statement_result(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -533,7 +533,7 @@ impl<'a> Redshift_dataService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.redshift_data_client
-            //     .create_statement_result_v2()
+            //     .create_statement_result()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -546,8 +546,8 @@ impl<'a> Redshift_dataService<'a> {
         })
     }
 
-    /// Read a statement_result_v2 resource
-    async fn read_statement_result_v2(
+    /// Read a statement_result resource
+    async fn read_statement_result(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -555,7 +555,7 @@ impl<'a> Redshift_dataService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.redshift_data_client
-            //     .describe_statement_result_v2()
+            //     .describe_statement_result()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -567,8 +567,8 @@ impl<'a> Redshift_dataService<'a> {
         })
     }
 
-    /// Update a statement_result_v2 resource
-    async fn update_statement_result_v2(
+    /// Update a statement_result resource
+    async fn update_statement_result(
         &self,
         id: &str,
         input: ResourceInput,
@@ -580,7 +580,7 @@ impl<'a> Redshift_dataService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.redshift_data_client
-            //     .update_statement_result_v2()
+            //     .update_statement_result()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -594,8 +594,8 @@ impl<'a> Redshift_dataService<'a> {
         })
     }
 
-    /// Delete a statement_result_v2 resource
-    async fn delete_statement_result_v2(
+    /// Delete a statement_result resource
+    async fn delete_statement_result(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -603,7 +603,7 @@ impl<'a> Redshift_dataService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.redshift_data_client
-            //     .delete_statement_result_v2()
+            //     .delete_statement_result()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

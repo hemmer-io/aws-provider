@@ -36,10 +36,10 @@ S3AccessPolicy resource
 | Output | Type | Description |
 |--------|------|-------------|
 | `store_id` | String | <p>The Amazon Web Services-generated Sequence Store or Reference Store ID.</p> |
+| `store_type` | String | <p>The type of store associated with the access point.</p> |
+| `update_time` | String | <p>The time when the policy was last updated.</p> |
 | `s3_access_point_arn` | String | <p>The S3 access point ARN that has the access policy.</p> |
 | `s3_access_policy` | String | <p>The current resource policy that controls S3 access on the store.</p> |
-| `update_time` | String | <p>The time when the policy was last updated.</p> |
-| `store_type` | String | <p>The type of store associated with the access point.</p> |
 
 
 #### Usage Example
@@ -62,10 +62,10 @@ s3_access_policy = provider.omics.S3_access_policy {
 # Access s3_access_policy outputs
 s3_access_policy_id = s3_access_policy.id
 s3_access_policy_store_id = s3_access_policy.store_id
+s3_access_policy_store_type = s3_access_policy.store_type
+s3_access_policy_update_time = s3_access_policy.update_time
 s3_access_policy_s3_access_point_arn = s3_access_policy.s3_access_point_arn
 s3_access_policy_s3_access_policy = s3_access_policy.s3_access_policy
-s3_access_policy_update_time = s3_access_policy.update_time
-s3_access_policy_store_type = s3_access_policy.store_type
 ```
 
 ---

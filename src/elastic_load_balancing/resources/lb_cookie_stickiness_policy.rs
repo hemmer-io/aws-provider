@@ -21,7 +21,7 @@ impl<'a> Lb_cookie_stickiness_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, policy_name: String, cookie_expiration_period: Option<i64>, load_balancer_name: String) -> Result<String> {
+    pub async fn create(&self, cookie_expiration_period: Option<i64>, policy_name: String, load_balancer_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

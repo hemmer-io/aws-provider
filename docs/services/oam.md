@@ -29,17 +29,17 @@ SinkPolicy resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `sink_identifier` | String | ✅ | <p>The ARN of the sink to attach this policy to.</p> |
 | `policy` | String | ✅ | <p>The JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.</p> <p>The policy must be in JSON string format with quotation marks escaped and no newlines.</p> <p>For examples of different types of policies, see the <b>Examples</b> section on this page.</p> |
+| `sink_identifier` | String | ✅ | <p>The ARN of the sink to attach this policy to.</p> |
 
 
 #### Outputs
 
 | Output | Type | Description |
 |--------|------|-------------|
+| `sink_arn` | String | <p>The ARN of the sink.</p> |
 | `policy` | String | <p>The policy that you specified, in JSON format.</p> |
 | `sink_id` | String | <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p> |
-| `sink_arn` | String | <p>The ARN of the sink.</p> |
 
 
 #### Usage Example
@@ -55,15 +55,15 @@ provider = aws.AwsProvider {
 
 # Create sink_policy
 sink_policy = provider.oam.Sink_policy {
-    sink_identifier = "value"  # <p>The ARN of the sink to attach this policy to.</p>
     policy = "value"  # <p>The JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.</p> <p>The policy must be in JSON string format with quotation marks escaped and no newlines.</p> <p>For examples of different types of policies, see the <b>Examples</b> section on this page.</p>
+    sink_identifier = "value"  # <p>The ARN of the sink to attach this policy to.</p>
 }
 
 # Access sink_policy outputs
 sink_policy_id = sink_policy.id
+sink_policy_sink_arn = sink_policy.sink_arn
 sink_policy_policy = sink_policy.policy
 sink_policy_sink_id = sink_policy.sink_id
-sink_policy_sink_arn = sink_policy.sink_arn
 ```
 
 ---
@@ -90,14 +90,14 @@ Link resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `link_configuration` | String | <p>This structure includes filters that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.</p> |
-| `arn` | String | <p>The ARN of the link.</p> |
 | `sink_arn` | String | <p>The ARN of the sink that is used for this link.</p> |
-| `resource_types` | Vec<String> | <p>The resource types supported by this link.</p> |
-| `tags` | HashMap<String, String> | <p>The tags assigned to the link.</p> |
-| `id` | String | <p>The random ID string that Amazon Web Services generated as part of the link ARN.</p> |
-| `label` | String | <p>The label that you assigned to this link, with the variables resolved to their actual values.</p> |
 | `label_template` | String | <p>The exact label template that was specified when the link was created, with the template variables not resolved.</p> |
+| `label` | String | <p>The label that you assigned to this link, with the variables resolved to their actual values.</p> |
+| `tags` | HashMap<String, String> | <p>The tags assigned to the link.</p> |
+| `arn` | String | <p>The ARN of the link.</p> |
+| `resource_types` | Vec<String> | <p>The resource types supported by this link.</p> |
+| `link_configuration` | String | <p>This structure includes filters that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.</p> |
+| `id` | String | <p>The random ID string that Amazon Web Services generated as part of the link ARN.</p> |
 
 
 #### Usage Example
@@ -120,14 +120,14 @@ link = provider.oam.Link {
 
 # Access link outputs
 link_id = link.id
-link_link_configuration = link.link_configuration
-link_arn = link.arn
 link_sink_arn = link.sink_arn
-link_resource_types = link.resource_types
-link_tags = link.tags
-link_id = link.id
-link_label = link.label
 link_label_template = link.label_template
+link_label = link.label
+link_tags = link.tags
+link_arn = link.arn
+link_resource_types = link.resource_types
+link_link_configuration = link.link_configuration
+link_id = link.id
 ```
 
 ---
@@ -143,8 +143,8 @@ Sink resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `tags` | HashMap<String, String> |  | <p>Assigns one or more tags (key-value pairs) to the link. </p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>For more information about using tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p> |
 | `name` | String | ✅ | <p>A name for the sink.</p> |
+| `tags` | HashMap<String, String> |  | <p>Assigns one or more tags (key-value pairs) to the link. </p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>For more information about using tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p> |
 
 
 #### Outputs
@@ -198,16 +198,16 @@ provider = aws.AwsProvider {
 
 # Create multiple sink_policy resources
 sink_policy_0 = provider.oam.Sink_policy {
-    sink_identifier = "value-0"
     policy = "value-0"
+    sink_identifier = "value-0"
 }
 sink_policy_1 = provider.oam.Sink_policy {
-    sink_identifier = "value-1"
     policy = "value-1"
+    sink_identifier = "value-1"
 }
 sink_policy_2 = provider.oam.Sink_policy {
-    sink_identifier = "value-2"
     policy = "value-2"
+    sink_identifier = "value-2"
 }
 ```
 
@@ -217,8 +217,8 @@ sink_policy_2 = provider.oam.Sink_policy {
 # Only create in production
 if environment == "production":
     sink_policy = provider.oam.Sink_policy {
-        sink_identifier = "production-value"
         policy = "production-value"
+        sink_identifier = "production-value"
     }
 ```
 

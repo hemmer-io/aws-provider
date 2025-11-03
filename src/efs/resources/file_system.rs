@@ -21,7 +21,7 @@ impl<'a> File_system<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, performance_mode: Option<String>, creation_token: String, availability_zone_name: Option<String>, encrypted: Option<bool>, backup: Option<bool>, throughput_mode: Option<String>, kms_key_id: Option<String>, tags: Option<Vec<String>>, provisioned_throughput_in_mibps: Option<f64>) -> Result<String> {
+    pub async fn create(&self, performance_mode: Option<String>, throughput_mode: Option<String>, availability_zone_name: Option<String>, provisioned_throughput_in_mibps: Option<f64>, encrypted: Option<bool>, backup: Option<bool>, tags: Option<Vec<String>>, creation_token: String, kms_key_id: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> File_system<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, performance_mode: Option<String>, creation_token: Option<String>, availability_zone_name: Option<String>, encrypted: Option<bool>, backup: Option<bool>, throughput_mode: Option<String>, kms_key_id: Option<String>, tags: Option<Vec<String>>, provisioned_throughput_in_mibps: Option<f64>) -> Result<()> {
+    pub async fn update(&self, id: &str, performance_mode: Option<String>, throughput_mode: Option<String>, availability_zone_name: Option<String>, provisioned_throughput_in_mibps: Option<f64>, encrypted: Option<bool>, backup: Option<bool>, tags: Option<Vec<String>>, creation_token: Option<String>, kms_key_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

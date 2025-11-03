@@ -38,7 +38,7 @@ impl<'a> Gateway_information<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, cloud_watch_log_group_arn: Option<String>, gateway_arn: Option<String>, gateway_name: Option<String>, gateway_timezone: Option<String>, gateway_capacity: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, gateway_timezone: Option<String>, cloud_watch_log_group_arn: Option<String>, gateway_arn: Option<String>, gateway_name: Option<String>, gateway_capacity: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

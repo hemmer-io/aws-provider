@@ -21,7 +21,7 @@ impl<'a> Tape_pool<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, retention_lock_type: Option<String>, pool_name: String, retention_lock_time_in_days: Option<i64>, tags: Option<Vec<String>>, storage_class: String) -> Result<String> {
+    pub async fn create(&self, retention_lock_time_in_days: Option<i64>, tags: Option<Vec<String>>, pool_name: String, retention_lock_type: Option<String>, storage_class: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

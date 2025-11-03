@@ -27,8 +27,8 @@ BlueprintVersion resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `blueprint_arn` | String | ✅ | ARN generated at the server side when a Blueprint is created |
 | `client_token` | String |  |  |
+| `blueprint_arn` | String | ✅ | ARN generated at the server side when a Blueprint is created |
 
 
 

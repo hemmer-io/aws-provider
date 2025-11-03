@@ -21,7 +21,7 @@ impl<'a> Integration_table_properties<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, target_table_config: Option<String>, resource_arn: String, table_name: String, source_table_config: Option<String>) -> Result<String> {
+    pub async fn create(&self, resource_arn: String, target_table_config: Option<String>, table_name: String, source_table_config: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Integration_table_properties<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, target_table_config: Option<String>, resource_arn: Option<String>, table_name: Option<String>, source_table_config: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, resource_arn: Option<String>, target_table_config: Option<String>, table_name: Option<String>, source_table_config: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

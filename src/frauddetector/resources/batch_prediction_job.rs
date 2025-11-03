@@ -21,7 +21,7 @@ impl<'a> Batch_prediction_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, job_id: String, input_path: String, detector_name: String, detector_version: Option<String>, event_type_name: String, iam_role_arn: String, output_path: String, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, iam_role_arn: String, detector_name: String, output_path: String, detector_version: Option<String>, input_path: String, job_id: String, tags: Option<Vec<String>>, event_type_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

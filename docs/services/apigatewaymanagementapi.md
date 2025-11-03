@@ -33,9 +33,9 @@ Connection resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `connected_at` | String | <p>The time in ISO 8601 format for when the connection was established.</p> |
 | `identity` | String |  |
 | `last_active_at` | String | <p>The time in ISO 8601 format for when the connection was last active.</p> |
+| `connected_at` | String | <p>The time in ISO 8601 format for when the connection was established.</p> |
 
 
 #### Usage Example
@@ -51,9 +51,9 @@ provider = aws.AwsProvider {
 
 # Access connection outputs
 connection_id = connection.id
-connection_connected_at = connection.connected_at
 connection_identity = connection.identity
 connection_last_active_at = connection.last_active_at
+connection_connected_at = connection.connected_at
 ```
 
 ---

@@ -21,7 +21,7 @@ impl<'a> Destination_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, access_policy: String, destination_name: String, force_update: Option<bool>) -> Result<String> {
+    pub async fn create(&self, destination_name: String, force_update: Option<bool>, access_policy: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -24,7 +24,7 @@ impl<'a> User_identity_info<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, identity_info: Option<String>, instance_id: Option<String>, user_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, user_id: Option<String>, instance_id: Option<String>, identity_info: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

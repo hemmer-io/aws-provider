@@ -24,7 +24,7 @@ impl<'a> Hit_type_of_hit<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, hit_type_id: Option<String>, hit_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, hit_id: Option<String>, hit_type_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

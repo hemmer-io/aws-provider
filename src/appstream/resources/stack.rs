@@ -21,7 +21,7 @@ impl<'a> Stack<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, redirect_url: Option<String>, feedback_url: Option<String>, tags: Option<HashMap<String, String>>, streaming_experience_settings: Option<String>, access_endpoints: Option<Vec<String>>, user_settings: Option<Vec<String>>, application_settings: Option<String>, embed_host_domains: Option<Vec<String>>, name: String, display_name: Option<String>, storage_connectors: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, user_settings: Option<Vec<String>>, display_name: Option<String>, feedback_url: Option<String>, name: String, access_endpoints: Option<Vec<String>>, embed_host_domains: Option<Vec<String>>, redirect_url: Option<String>, storage_connectors: Option<Vec<String>>, application_settings: Option<String>, description: Option<String>, tags: Option<HashMap<String, String>>, streaming_experience_settings: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Stack<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, redirect_url: Option<String>, feedback_url: Option<String>, tags: Option<HashMap<String, String>>, streaming_experience_settings: Option<String>, access_endpoints: Option<Vec<String>>, user_settings: Option<Vec<String>>, application_settings: Option<String>, embed_host_domains: Option<Vec<String>>, name: Option<String>, display_name: Option<String>, storage_connectors: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, user_settings: Option<Vec<String>>, display_name: Option<String>, feedback_url: Option<String>, name: Option<String>, access_endpoints: Option<Vec<String>>, embed_host_domains: Option<Vec<String>>, redirect_url: Option<String>, storage_connectors: Option<Vec<String>>, application_settings: Option<String>, description: Option<String>, tags: Option<HashMap<String, String>>, streaming_experience_settings: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

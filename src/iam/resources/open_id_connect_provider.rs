@@ -21,7 +21,7 @@ impl<'a> Open_id_connect_provider<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, thumbprint_list: Option<Vec<String>>, client_id_list: Option<Vec<String>>, tags: Option<Vec<String>>, url: String) -> Result<String> {
+    pub async fn create(&self, url: String, client_id_list: Option<Vec<String>>, thumbprint_list: Option<Vec<String>>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

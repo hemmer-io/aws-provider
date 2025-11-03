@@ -21,7 +21,7 @@ impl<'a> Composite_alarm<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, alarm_actions: Option<Vec<String>>, alarm_rule: String, actions_enabled: Option<bool>, tags: Option<Vec<String>>, actions_suppressor_extension_period: Option<i64>, alarm_description: Option<String>, alarm_name: String, actions_suppressor_wait_period: Option<i64>, insufficient_data_actions: Option<Vec<String>>, ok_actions: Option<Vec<String>>, actions_suppressor: Option<String>) -> Result<String> {
+    pub async fn create(&self, alarm_actions: Option<Vec<String>>, actions_enabled: Option<bool>, actions_suppressor_extension_period: Option<i64>, ok_actions: Option<Vec<String>>, alarm_name: String, alarm_description: Option<String>, alarm_rule: String, insufficient_data_actions: Option<Vec<String>>, tags: Option<Vec<String>>, actions_suppressor: Option<String>, actions_suppressor_wait_period: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Endpoint<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, replication_config: Option<String>, description: Option<String>, event_buses: Vec<String>, routing_config: String, role_arn: Option<String>, name: String) -> Result<String> {
+    pub async fn create(&self, role_arn: Option<String>, replication_config: Option<String>, event_buses: Vec<String>, name: String, description: Option<String>, routing_config: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Endpoint<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, replication_config: Option<String>, description: Option<String>, event_buses: Option<Vec<String>>, routing_config: Option<String>, role_arn: Option<String>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, role_arn: Option<String>, replication_config: Option<String>, event_buses: Option<Vec<String>>, name: Option<String>, description: Option<String>, routing_config: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -38,7 +38,7 @@ impl<'a> Instance_storage_config<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, storage_config: Option<String>, instance_id: Option<String>, association_id: Option<String>, client_token: Option<String>, resource_type: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, storage_config: Option<String>, client_token: Option<String>, instance_id: Option<String>, association_id: Option<String>, resource_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

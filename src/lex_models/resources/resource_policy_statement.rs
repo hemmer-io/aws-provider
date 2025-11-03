@@ -21,7 +21,7 @@ impl<'a> Resource_policy_statement<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, action: Vec<String>, condition: Option<HashMap<String, HashMap<String, String>>>, expected_revision_id: Option<String>, resource_arn: String, effect: String, principal: Vec<String>, statement_id: String) -> Result<String> {
+    pub async fn create(&self, expected_revision_id: Option<String>, statement_id: String, action: Vec<String>, effect: String, resource_arn: String, principal: Vec<String>, condition: Option<HashMap<String, HashMap<String, String>>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

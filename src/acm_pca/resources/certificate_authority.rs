@@ -21,7 +21,7 @@ impl<'a> Certificate_authority<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, idempotency_token: Option<String>, revocation_configuration: Option<String>, certificate_authority_type: String, key_storage_security_standard: Option<String>, certificate_authority_configuration: String, tags: Option<Vec<String>>, usage_mode: Option<String>) -> Result<String> {
+    pub async fn create(&self, certificate_authority_type: String, idempotency_token: Option<String>, key_storage_security_standard: Option<String>, tags: Option<Vec<String>>, usage_mode: Option<String>, certificate_authority_configuration: String, revocation_configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Certificate_authority<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, idempotency_token: Option<String>, revocation_configuration: Option<String>, certificate_authority_type: Option<String>, key_storage_security_standard: Option<String>, certificate_authority_configuration: Option<String>, tags: Option<Vec<String>>, usage_mode: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, certificate_authority_type: Option<String>, idempotency_token: Option<String>, key_storage_security_standard: Option<String>, tags: Option<Vec<String>>, usage_mode: Option<String>, certificate_authority_configuration: Option<String>, revocation_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

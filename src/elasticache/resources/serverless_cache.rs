@@ -21,7 +21,7 @@ impl<'a> Serverless_cache<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, snapshot_retention_limit: Option<i64>, cache_usage_limits: Option<String>, description: Option<String>, user_group_id: Option<String>, kms_key_id: Option<String>, major_engine_version: Option<String>, daily_snapshot_time: Option<String>, subnet_ids: Option<Vec<String>>, security_group_ids: Option<Vec<String>>, engine: String, serverless_cache_name: String, snapshot_arns_to_restore: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, serverless_cache_name: String, description: Option<String>, kms_key_id: Option<String>, security_group_ids: Option<Vec<String>>, snapshot_arns_to_restore: Option<Vec<String>>, user_group_id: Option<String>, snapshot_retention_limit: Option<i64>, engine: String, cache_usage_limits: Option<String>, major_engine_version: Option<String>, tags: Option<Vec<String>>, subnet_ids: Option<Vec<String>>, daily_snapshot_time: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

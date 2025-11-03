@@ -21,7 +21,7 @@ impl<'a> Integration_workflow<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, integration_config: String, tags: Option<HashMap<String, String>>, domain_name: String, workflow_type: String, object_type_name: String, role_arn: String) -> Result<String> {
+    pub async fn create(&self, workflow_type: String, object_type_name: String, role_arn: String, tags: Option<HashMap<String, String>>, integration_config: String, domain_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

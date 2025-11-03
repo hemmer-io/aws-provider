@@ -21,7 +21,7 @@ impl<'a> Vpc_block_public_access_exclusion<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, vpc_id: Option<String>, dry_run: Option<bool>, subnet_id: Option<String>, tag_specifications: Option<Vec<String>>, internet_gateway_exclusion_mode: String) -> Result<String> {
+    pub async fn create(&self, subnet_id: Option<String>, internet_gateway_exclusion_mode: String, dry_run: Option<bool>, tag_specifications: Option<Vec<String>>, vpc_id: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Cluster<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, job_type: String, address_id: String, tax_documents: Option<String>, initial_cluster_size: Option<i64>, snowball_capacity_preference: Option<String>, remote_management: Option<String>, kms_key_arn: Option<String>, force_create_jobs: Option<bool>, shipping_option: String, snowball_type: String, forwarding_address_id: Option<String>, role_arn: Option<String>, long_term_pricing_ids: Option<i64>, resources: Option<String>, on_device_service_configuration: Option<String>, description: Option<String>, notification: Option<String>) -> Result<String> {
+    pub async fn create(&self, forwarding_address_id: Option<String>, job_type: String, role_arn: Option<String>, description: Option<String>, force_create_jobs: Option<bool>, kms_key_arn: Option<String>, resources: Option<String>, tax_documents: Option<String>, long_term_pricing_ids: Option<i64>, address_id: String, notification: Option<String>, snowball_capacity_preference: Option<String>, snowball_type: String, shipping_option: String, on_device_service_configuration: Option<String>, remote_management: Option<String>, initial_cluster_size: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Cluster<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, job_type: Option<String>, address_id: Option<String>, tax_documents: Option<String>, initial_cluster_size: Option<i64>, snowball_capacity_preference: Option<String>, remote_management: Option<String>, kms_key_arn: Option<String>, force_create_jobs: Option<bool>, shipping_option: Option<String>, snowball_type: Option<String>, forwarding_address_id: Option<String>, role_arn: Option<String>, long_term_pricing_ids: Option<i64>, resources: Option<String>, on_device_service_configuration: Option<String>, description: Option<String>, notification: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, forwarding_address_id: Option<String>, job_type: Option<String>, role_arn: Option<String>, description: Option<String>, force_create_jobs: Option<bool>, kms_key_arn: Option<String>, resources: Option<String>, tax_documents: Option<String>, long_term_pricing_ids: Option<i64>, address_id: Option<String>, notification: Option<String>, snowball_capacity_preference: Option<String>, snowball_type: Option<String>, shipping_option: Option<String>, on_device_service_configuration: Option<String>, remote_management: Option<String>, initial_cluster_size: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

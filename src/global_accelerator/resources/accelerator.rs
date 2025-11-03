@@ -21,7 +21,7 @@ impl<'a> Accelerator<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, enabled: Option<bool>, idempotency_token: String, ip_address_type: Option<String>, name: String, tags: Option<Vec<String>>, ip_addresses: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, ip_addresses: Option<Vec<String>>, tags: Option<Vec<String>>, ip_address_type: Option<String>, idempotency_token: String, enabled: Option<bool>, name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Accelerator<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, enabled: Option<bool>, idempotency_token: Option<String>, ip_address_type: Option<String>, name: Option<String>, tags: Option<Vec<String>>, ip_addresses: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, ip_addresses: Option<Vec<String>>, tags: Option<Vec<String>>, ip_address_type: Option<String>, idempotency_token: Option<String>, enabled: Option<bool>, name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

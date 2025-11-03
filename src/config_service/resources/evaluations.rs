@@ -21,7 +21,7 @@ impl<'a> Evaluations<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, test_mode: Option<bool>, evaluations: Option<Vec<String>>, result_token: String) -> Result<String> {
+    pub async fn create(&self, evaluations: Option<Vec<String>>, test_mode: Option<bool>, result_token: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

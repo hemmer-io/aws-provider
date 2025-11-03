@@ -21,7 +21,7 @@ impl<'a> View<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, instance_id: String, client_token: Option<String>, content: String, description: Option<String>, name: String, tags: Option<HashMap<String, String>>, status: String) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, tags: Option<HashMap<String, String>>, client_token: Option<String>, status: String, name: String, instance_id: String, content: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

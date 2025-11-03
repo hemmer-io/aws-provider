@@ -21,7 +21,7 @@ impl<'a> Connection<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: Option<String>, aws_location: Option<String>, name: String, enable_trusted_identity_propagation: Option<bool>, domain_identifier: String, description: Option<String>, environment_identifier: Option<String>, scope: Option<String>, props: Option<String>) -> Result<String> {
+    pub async fn create(&self, domain_identifier: String, props: Option<String>, aws_location: Option<String>, description: Option<String>, name: String, enable_trusted_identity_propagation: Option<bool>, scope: Option<String>, environment_identifier: Option<String>, client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Connection<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, client_token: Option<String>, aws_location: Option<String>, name: Option<String>, enable_trusted_identity_propagation: Option<bool>, domain_identifier: Option<String>, description: Option<String>, environment_identifier: Option<String>, scope: Option<String>, props: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, domain_identifier: Option<String>, props: Option<String>, aws_location: Option<String>, description: Option<String>, name: Option<String>, enable_trusted_identity_propagation: Option<bool>, scope: Option<String>, environment_identifier: Option<String>, client_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

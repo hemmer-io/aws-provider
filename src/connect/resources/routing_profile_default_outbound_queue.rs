@@ -24,7 +24,7 @@ impl<'a> Routing_profile_default_outbound_queue<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, routing_profile_id: Option<String>, default_outbound_queue_id: Option<String>, instance_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, routing_profile_id: Option<String>, instance_id: Option<String>, default_outbound_queue_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

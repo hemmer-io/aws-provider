@@ -21,7 +21,7 @@ impl<'a> Network_interface<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, connection_tracking_specification: Option<String>, ipv6_address_count: Option<i64>, ipv6_prefix_count: Option<i64>, client_token: Option<String>, ipv4_prefixes: Option<Vec<String>>, subnet_id: String, tag_specifications: Option<Vec<String>>, interface_type: Option<String>, dry_run: Option<bool>, operator: Option<String>, description: Option<String>, groups: Option<Vec<String>>, private_ip_address: Option<String>, enable_primary_ipv6: Option<bool>, secondary_private_ip_address_count: Option<i64>, ipv6_addresses: Option<Vec<String>>, ipv6_prefixes: Option<Vec<String>>, ipv4_prefix_count: Option<i64>, private_ip_addresses: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, subnet_id: String, ipv4_prefix_count: Option<i64>, connection_tracking_specification: Option<String>, private_ip_addresses: Option<Vec<String>>, secondary_private_ip_address_count: Option<i64>, groups: Option<Vec<String>>, dry_run: Option<bool>, operator: Option<String>, ipv6_addresses: Option<Vec<String>>, ipv6_address_count: Option<i64>, description: Option<String>, client_token: Option<String>, interface_type: Option<String>, ipv4_prefixes: Option<Vec<String>>, ipv6_prefix_count: Option<i64>, private_ip_address: Option<String>, tag_specifications: Option<Vec<String>>, enable_primary_ipv6: Option<bool>, ipv6_prefixes: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

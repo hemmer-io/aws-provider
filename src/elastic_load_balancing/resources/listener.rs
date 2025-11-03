@@ -21,7 +21,7 @@ impl<'a> Listener<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, port: Option<i64>, load_balancer_arn: String, certificates: Option<Vec<String>>, ssl_policy: Option<String>, default_actions: Vec<String>, mutual_authentication: Option<String>, tags: Option<Vec<String>>, alpn_policy: Option<Vec<String>>, protocol: Option<String>) -> Result<String> {
+    pub async fn create(&self, port: Option<i64>, ssl_policy: Option<String>, alpn_policy: Option<Vec<String>>, mutual_authentication: Option<String>, load_balancer_arn: String, protocol: Option<String>, certificates: Option<Vec<String>>, default_actions: Vec<String>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

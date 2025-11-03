@@ -21,7 +21,7 @@ impl<'a> Hours_of_operation<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, config: Vec<String>, tags: Option<HashMap<String, String>>, description: Option<String>, name: String, time_zone: String, instance_id: String) -> Result<String> {
+    pub async fn create(&self, tags: Option<HashMap<String, String>>, description: Option<String>, time_zone: String, name: String, instance_id: String, config: Vec<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Hours_of_operation<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, config: Option<Vec<String>>, tags: Option<HashMap<String, String>>, description: Option<String>, name: Option<String>, time_zone: Option<String>, instance_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, description: Option<String>, time_zone: Option<String>, name: Option<String>, instance_id: Option<String>, config: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

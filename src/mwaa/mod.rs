@@ -27,11 +27,11 @@ impl<'a> MwaaService<'a> {
             "web_login_token" => {
                 self.plan_web_login_token(current_state, desired_input).await
             }
-            "environment" => {
-                self.plan_environment(current_state, desired_input).await
-            }
             "cli_token" => {
                 self.plan_cli_token(current_state, desired_input).await
+            }
+            "environment" => {
+                self.plan_environment(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -51,11 +51,11 @@ impl<'a> MwaaService<'a> {
             "web_login_token" => {
                 self.create_web_login_token(input).await
             }
-            "environment" => {
-                self.create_environment(input).await
-            }
             "cli_token" => {
                 self.create_cli_token(input).await
+            }
+            "environment" => {
+                self.create_environment(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -75,11 +75,11 @@ impl<'a> MwaaService<'a> {
             "web_login_token" => {
                 self.read_web_login_token(id).await
             }
-            "environment" => {
-                self.read_environment(id).await
-            }
             "cli_token" => {
                 self.read_cli_token(id).await
+            }
+            "environment" => {
+                self.read_environment(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -100,11 +100,11 @@ impl<'a> MwaaService<'a> {
             "web_login_token" => {
                 self.update_web_login_token(id, input).await
             }
-            "environment" => {
-                self.update_environment(id, input).await
-            }
             "cli_token" => {
                 self.update_cli_token(id, input).await
+            }
+            "environment" => {
+                self.update_environment(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -124,11 +124,11 @@ impl<'a> MwaaService<'a> {
             "web_login_token" => {
                 self.delete_web_login_token(id).await
             }
-            "environment" => {
-                self.delete_environment(id).await
-            }
             "cli_token" => {
                 self.delete_cli_token(id).await
+            }
+            "environment" => {
+                self.delete_environment(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -262,220 +262,6 @@ impl<'a> MwaaService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Environment resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a environment resource
-    async fn plan_environment(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new environment resource
-    async fn create_environment(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let endpoint_management = input.get_optional_string("endpoint_management")?;
-            let tags = input.get_optional_string("tags")?;
-            let plugins_s3_object_version = input.get_optional_string("plugins_s3_object_version")?;
-            let kms_key = input.get_optional_string("kms_key")?;
-            let plugins_s3_path = input.get_optional_string("plugins_s3_path")?;
-            let logging_configuration = input.get_optional_string("logging_configuration")?;
-            let webserver_access_mode = input.get_optional_string("webserver_access_mode")?;
-            let network_configuration = input.get_string("network_configuration")?;
-            let environment_class = input.get_optional_string("environment_class")?;
-            let weekly_maintenance_window_start = input.get_optional_string("weekly_maintenance_window_start")?;
-            let max_webservers = input.get_optional_string("max_webservers")?;
-            let requirements_s3_path = input.get_optional_string("requirements_s3_path")?;
-            let startup_script_s3_object_version = input.get_optional_string("startup_script_s3_object_version")?;
-            let airflow_version = input.get_optional_string("airflow_version")?;
-            let execution_role_arn = input.get_string("execution_role_arn")?;
-            let schedulers = input.get_optional_string("schedulers")?;
-            let min_workers = input.get_optional_string("min_workers")?;
-            let requirements_s3_object_version = input.get_optional_string("requirements_s3_object_version")?;
-            let airflow_configuration_options = input.get_optional_string("airflow_configuration_options")?;
-            let startup_script_s3_path = input.get_optional_string("startup_script_s3_path")?;
-            let max_workers = input.get_optional_string("max_workers")?;
-            let dag_s3_path = input.get_string("dag_s3_path")?;
-            let source_bucket_arn = input.get_string("source_bucket_arn")?;
-            let min_webservers = input.get_optional_string("min_webservers")?;
-            let name = input.get_string("name")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.mwaa_client
-            //     .create_environment()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("endpoint_management", endpoint_management.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("plugins_s3_object_version", plugins_s3_object_version.unwrap_or_default())
-                .with_field("kms_key", kms_key.unwrap_or_default())
-                .with_field("plugins_s3_path", plugins_s3_path.unwrap_or_default())
-                .with_field("logging_configuration", logging_configuration.unwrap_or_default())
-                .with_field("webserver_access_mode", webserver_access_mode.unwrap_or_default())
-                .with_field("network_configuration", network_configuration.unwrap_or_default())
-                .with_field("environment_class", environment_class.unwrap_or_default())
-                .with_field("weekly_maintenance_window_start", weekly_maintenance_window_start.unwrap_or_default())
-                .with_field("max_webservers", max_webservers.unwrap_or_default())
-                .with_field("requirements_s3_path", requirements_s3_path.unwrap_or_default())
-                .with_field("startup_script_s3_object_version", startup_script_s3_object_version.unwrap_or_default())
-                .with_field("airflow_version", airflow_version.unwrap_or_default())
-                .with_field("execution_role_arn", execution_role_arn.unwrap_or_default())
-                .with_field("schedulers", schedulers.unwrap_or_default())
-                .with_field("min_workers", min_workers.unwrap_or_default())
-                .with_field("requirements_s3_object_version", requirements_s3_object_version.unwrap_or_default())
-                .with_field("airflow_configuration_options", airflow_configuration_options.unwrap_or_default())
-                .with_field("startup_script_s3_path", startup_script_s3_path.unwrap_or_default())
-                .with_field("max_workers", max_workers.unwrap_or_default())
-                .with_field("dag_s3_path", dag_s3_path.unwrap_or_default())
-                .with_field("source_bucket_arn", source_bucket_arn.unwrap_or_default())
-                .with_field("min_webservers", min_webservers.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a environment resource
-    async fn read_environment(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.mwaa_client
-            //     .describe_environment()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a environment resource
-    async fn update_environment(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let endpoint_management = input.get_optional_string("endpoint_management")?;
-            let tags = input.get_optional_string("tags")?;
-            let plugins_s3_object_version = input.get_optional_string("plugins_s3_object_version")?;
-            let kms_key = input.get_optional_string("kms_key")?;
-            let plugins_s3_path = input.get_optional_string("plugins_s3_path")?;
-            let logging_configuration = input.get_optional_string("logging_configuration")?;
-            let webserver_access_mode = input.get_optional_string("webserver_access_mode")?;
-            let network_configuration = input.get_string("network_configuration")?;
-            let environment_class = input.get_optional_string("environment_class")?;
-            let weekly_maintenance_window_start = input.get_optional_string("weekly_maintenance_window_start")?;
-            let max_webservers = input.get_optional_string("max_webservers")?;
-            let requirements_s3_path = input.get_optional_string("requirements_s3_path")?;
-            let startup_script_s3_object_version = input.get_optional_string("startup_script_s3_object_version")?;
-            let airflow_version = input.get_optional_string("airflow_version")?;
-            let execution_role_arn = input.get_string("execution_role_arn")?;
-            let schedulers = input.get_optional_string("schedulers")?;
-            let min_workers = input.get_optional_string("min_workers")?;
-            let requirements_s3_object_version = input.get_optional_string("requirements_s3_object_version")?;
-            let airflow_configuration_options = input.get_optional_string("airflow_configuration_options")?;
-            let startup_script_s3_path = input.get_optional_string("startup_script_s3_path")?;
-            let max_workers = input.get_optional_string("max_workers")?;
-            let dag_s3_path = input.get_string("dag_s3_path")?;
-            let source_bucket_arn = input.get_string("source_bucket_arn")?;
-            let min_webservers = input.get_optional_string("min_webservers")?;
-            let name = input.get_string("name")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.mwaa_client
-            //     .update_environment()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("endpoint_management", endpoint_management.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("plugins_s3_object_version", plugins_s3_object_version.unwrap_or_default())
-                .with_field("kms_key", kms_key.unwrap_or_default())
-                .with_field("plugins_s3_path", plugins_s3_path.unwrap_or_default())
-                .with_field("logging_configuration", logging_configuration.unwrap_or_default())
-                .with_field("webserver_access_mode", webserver_access_mode.unwrap_or_default())
-                .with_field("network_configuration", network_configuration.unwrap_or_default())
-                .with_field("environment_class", environment_class.unwrap_or_default())
-                .with_field("weekly_maintenance_window_start", weekly_maintenance_window_start.unwrap_or_default())
-                .with_field("max_webservers", max_webservers.unwrap_or_default())
-                .with_field("requirements_s3_path", requirements_s3_path.unwrap_or_default())
-                .with_field("startup_script_s3_object_version", startup_script_s3_object_version.unwrap_or_default())
-                .with_field("airflow_version", airflow_version.unwrap_or_default())
-                .with_field("execution_role_arn", execution_role_arn.unwrap_or_default())
-                .with_field("schedulers", schedulers.unwrap_or_default())
-                .with_field("min_workers", min_workers.unwrap_or_default())
-                .with_field("requirements_s3_object_version", requirements_s3_object_version.unwrap_or_default())
-                .with_field("airflow_configuration_options", airflow_configuration_options.unwrap_or_default())
-                .with_field("startup_script_s3_path", startup_script_s3_path.unwrap_or_default())
-                .with_field("max_workers", max_workers.unwrap_or_default())
-                .with_field("dag_s3_path", dag_s3_path.unwrap_or_default())
-                .with_field("source_bucket_arn", source_bucket_arn.unwrap_or_default())
-                .with_field("min_webservers", min_webservers.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a environment resource
-    async fn delete_environment(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.mwaa_client
-            //     .delete_environment()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
     // Cli_token resource operations
     // ------------------------------------------------------------------------
 
@@ -583,6 +369,220 @@ impl<'a> MwaaService<'a> {
             // Example:
             // self.provider.mwaa_client
             //     .delete_cli_token()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Environment resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a environment resource
+    async fn plan_environment(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new environment resource
+    async fn create_environment(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let startup_script_s3_object_version = input.get_optional_string("startup_script_s3_object_version")?;
+            let environment_class = input.get_optional_string("environment_class")?;
+            let tags = input.get_optional_string("tags")?;
+            let min_workers = input.get_optional_string("min_workers")?;
+            let schedulers = input.get_optional_string("schedulers")?;
+            let plugins_s3_object_version = input.get_optional_string("plugins_s3_object_version")?;
+            let airflow_configuration_options = input.get_optional_string("airflow_configuration_options")?;
+            let webserver_access_mode = input.get_optional_string("webserver_access_mode")?;
+            let requirements_s3_object_version = input.get_optional_string("requirements_s3_object_version")?;
+            let weekly_maintenance_window_start = input.get_optional_string("weekly_maintenance_window_start")?;
+            let min_webservers = input.get_optional_string("min_webservers")?;
+            let airflow_version = input.get_optional_string("airflow_version")?;
+            let max_workers = input.get_optional_string("max_workers")?;
+            let logging_configuration = input.get_optional_string("logging_configuration")?;
+            let source_bucket_arn = input.get_string("source_bucket_arn")?;
+            let startup_script_s3_path = input.get_optional_string("startup_script_s3_path")?;
+            let max_webservers = input.get_optional_string("max_webservers")?;
+            let requirements_s3_path = input.get_optional_string("requirements_s3_path")?;
+            let name = input.get_string("name")?;
+            let plugins_s3_path = input.get_optional_string("plugins_s3_path")?;
+            let execution_role_arn = input.get_string("execution_role_arn")?;
+            let endpoint_management = input.get_optional_string("endpoint_management")?;
+            let network_configuration = input.get_string("network_configuration")?;
+            let kms_key = input.get_optional_string("kms_key")?;
+            let dag_s3_path = input.get_string("dag_s3_path")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.mwaa_client
+            //     .create_environment()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("startup_script_s3_object_version", startup_script_s3_object_version.unwrap_or_default())
+                .with_field("environment_class", environment_class.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("min_workers", min_workers.unwrap_or_default())
+                .with_field("schedulers", schedulers.unwrap_or_default())
+                .with_field("plugins_s3_object_version", plugins_s3_object_version.unwrap_or_default())
+                .with_field("airflow_configuration_options", airflow_configuration_options.unwrap_or_default())
+                .with_field("webserver_access_mode", webserver_access_mode.unwrap_or_default())
+                .with_field("requirements_s3_object_version", requirements_s3_object_version.unwrap_or_default())
+                .with_field("weekly_maintenance_window_start", weekly_maintenance_window_start.unwrap_or_default())
+                .with_field("min_webservers", min_webservers.unwrap_or_default())
+                .with_field("airflow_version", airflow_version.unwrap_or_default())
+                .with_field("max_workers", max_workers.unwrap_or_default())
+                .with_field("logging_configuration", logging_configuration.unwrap_or_default())
+                .with_field("source_bucket_arn", source_bucket_arn.unwrap_or_default())
+                .with_field("startup_script_s3_path", startup_script_s3_path.unwrap_or_default())
+                .with_field("max_webservers", max_webservers.unwrap_or_default())
+                .with_field("requirements_s3_path", requirements_s3_path.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("plugins_s3_path", plugins_s3_path.unwrap_or_default())
+                .with_field("execution_role_arn", execution_role_arn.unwrap_or_default())
+                .with_field("endpoint_management", endpoint_management.unwrap_or_default())
+                .with_field("network_configuration", network_configuration.unwrap_or_default())
+                .with_field("kms_key", kms_key.unwrap_or_default())
+                .with_field("dag_s3_path", dag_s3_path.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a environment resource
+    async fn read_environment(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.mwaa_client
+            //     .describe_environment()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a environment resource
+    async fn update_environment(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let startup_script_s3_object_version = input.get_optional_string("startup_script_s3_object_version")?;
+            let environment_class = input.get_optional_string("environment_class")?;
+            let tags = input.get_optional_string("tags")?;
+            let min_workers = input.get_optional_string("min_workers")?;
+            let schedulers = input.get_optional_string("schedulers")?;
+            let plugins_s3_object_version = input.get_optional_string("plugins_s3_object_version")?;
+            let airflow_configuration_options = input.get_optional_string("airflow_configuration_options")?;
+            let webserver_access_mode = input.get_optional_string("webserver_access_mode")?;
+            let requirements_s3_object_version = input.get_optional_string("requirements_s3_object_version")?;
+            let weekly_maintenance_window_start = input.get_optional_string("weekly_maintenance_window_start")?;
+            let min_webservers = input.get_optional_string("min_webservers")?;
+            let airflow_version = input.get_optional_string("airflow_version")?;
+            let max_workers = input.get_optional_string("max_workers")?;
+            let logging_configuration = input.get_optional_string("logging_configuration")?;
+            let source_bucket_arn = input.get_string("source_bucket_arn")?;
+            let startup_script_s3_path = input.get_optional_string("startup_script_s3_path")?;
+            let max_webservers = input.get_optional_string("max_webservers")?;
+            let requirements_s3_path = input.get_optional_string("requirements_s3_path")?;
+            let name = input.get_string("name")?;
+            let plugins_s3_path = input.get_optional_string("plugins_s3_path")?;
+            let execution_role_arn = input.get_string("execution_role_arn")?;
+            let endpoint_management = input.get_optional_string("endpoint_management")?;
+            let network_configuration = input.get_string("network_configuration")?;
+            let kms_key = input.get_optional_string("kms_key")?;
+            let dag_s3_path = input.get_string("dag_s3_path")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.mwaa_client
+            //     .update_environment()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("startup_script_s3_object_version", startup_script_s3_object_version.unwrap_or_default())
+                .with_field("environment_class", environment_class.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("min_workers", min_workers.unwrap_or_default())
+                .with_field("schedulers", schedulers.unwrap_or_default())
+                .with_field("plugins_s3_object_version", plugins_s3_object_version.unwrap_or_default())
+                .with_field("airflow_configuration_options", airflow_configuration_options.unwrap_or_default())
+                .with_field("webserver_access_mode", webserver_access_mode.unwrap_or_default())
+                .with_field("requirements_s3_object_version", requirements_s3_object_version.unwrap_or_default())
+                .with_field("weekly_maintenance_window_start", weekly_maintenance_window_start.unwrap_or_default())
+                .with_field("min_webservers", min_webservers.unwrap_or_default())
+                .with_field("airflow_version", airflow_version.unwrap_or_default())
+                .with_field("max_workers", max_workers.unwrap_or_default())
+                .with_field("logging_configuration", logging_configuration.unwrap_or_default())
+                .with_field("source_bucket_arn", source_bucket_arn.unwrap_or_default())
+                .with_field("startup_script_s3_path", startup_script_s3_path.unwrap_or_default())
+                .with_field("max_webservers", max_webservers.unwrap_or_default())
+                .with_field("requirements_s3_path", requirements_s3_path.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("plugins_s3_path", plugins_s3_path.unwrap_or_default())
+                .with_field("execution_role_arn", execution_role_arn.unwrap_or_default())
+                .with_field("endpoint_management", endpoint_management.unwrap_or_default())
+                .with_field("network_configuration", network_configuration.unwrap_or_default())
+                .with_field("kms_key", kms_key.unwrap_or_default())
+                .with_field("dag_s3_path", dag_s3_path.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a environment resource
+    async fn delete_environment(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.mwaa_client
+            //     .delete_environment()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

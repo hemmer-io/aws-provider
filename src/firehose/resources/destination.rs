@@ -24,7 +24,7 @@ impl<'a> Destination<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, snowflake_destination_update: Option<String>, destination_id: Option<String>, s3_destination_update: Option<String>, current_delivery_stream_version_id: Option<String>, http_endpoint_destination_update: Option<String>, amazon_open_search_serverless_destination_update: Option<String>, iceberg_destination_update: Option<String>, extended_s3_destination_update: Option<String>, delivery_stream_name: Option<String>, redshift_destination_update: Option<String>, amazonopensearchservice_destination_update: Option<String>, splunk_destination_update: Option<String>, elasticsearch_destination_update: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, iceberg_destination_update: Option<String>, extended_s3_destination_update: Option<String>, amazonopensearchservice_destination_update: Option<String>, s3_destination_update: Option<String>, destination_id: Option<String>, http_endpoint_destination_update: Option<String>, splunk_destination_update: Option<String>, snowflake_destination_update: Option<String>, amazon_open_search_serverless_destination_update: Option<String>, elasticsearch_destination_update: Option<String>, current_delivery_stream_version_id: Option<String>, redshift_destination_update: Option<String>, delivery_stream_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

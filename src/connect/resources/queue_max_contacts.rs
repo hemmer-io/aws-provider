@@ -24,7 +24,7 @@ impl<'a> Queue_max_contacts<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, max_contacts: Option<i64>, instance_id: Option<String>, queue_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, instance_id: Option<String>, queue_id: Option<String>, max_contacts: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

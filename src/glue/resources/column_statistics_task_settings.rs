@@ -21,7 +21,7 @@ impl<'a> Column_statistics_task_settings<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, security_configuration: Option<String>, tags: Option<HashMap<String, String>>, sample_size: Option<f64>, table_name: String, role: String, database_name: String, column_name_list: Option<Vec<String>>, catalog_id: Option<String>, schedule: Option<String>) -> Result<String> {
+    pub async fn create(&self, tags: Option<HashMap<String, String>>, role: String, catalog_id: Option<String>, security_configuration: Option<String>, column_name_list: Option<Vec<String>>, sample_size: Option<f64>, database_name: String, table_name: String, schedule: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Column_statistics_task_settings<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, security_configuration: Option<String>, tags: Option<HashMap<String, String>>, sample_size: Option<f64>, table_name: Option<String>, role: Option<String>, database_name: Option<String>, column_name_list: Option<Vec<String>>, catalog_id: Option<String>, schedule: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, role: Option<String>, catalog_id: Option<String>, security_configuration: Option<String>, column_name_list: Option<Vec<String>>, sample_size: Option<f64>, database_name: Option<String>, table_name: Option<String>, schedule: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

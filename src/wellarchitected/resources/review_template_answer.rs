@@ -38,7 +38,7 @@ impl<'a> Review_template_answer<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, question_id: Option<String>, notes: Option<String>, is_applicable: Option<bool>, reason: Option<String>, lens_alias: Option<String>, choice_updates: Option<HashMap<String, String>>, selected_choices: Option<Vec<String>>, template_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, question_id: Option<String>, selected_choices: Option<Vec<String>>, template_arn: Option<String>, lens_alias: Option<String>, choice_updates: Option<HashMap<String, String>>, reason: Option<String>, is_applicable: Option<bool>, notes: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters
