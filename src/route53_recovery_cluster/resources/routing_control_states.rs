@@ -24,7 +24,7 @@ impl<'a> Routing_control_states<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, update_routing_control_state_entries: Option<Vec<String>>, safety_rules_to_override: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, safety_rules_to_override: Option<Vec<String>>, update_routing_control_state_entries: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

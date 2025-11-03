@@ -21,7 +21,7 @@ impl<'a> Comment_reaction<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, reaction_value: String, comment_id: String) -> Result<String> {
+    pub async fn create(&self, comment_id: String, reaction_value: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

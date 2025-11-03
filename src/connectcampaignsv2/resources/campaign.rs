@@ -21,7 +21,7 @@ impl<'a> Campaign<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, source: Option<String>, connect_campaign_flow_arn: Option<String>, schedule: Option<String>, communication_time_config: Option<String>, communication_limits_override: Option<String>, channel_subtype_config: String, name: String, connect_instance_id: String, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, communication_time_config: Option<String>, communication_limits_override: Option<String>, connect_campaign_flow_arn: Option<String>, tags: Option<HashMap<String, String>>, connect_instance_id: String, name: String, channel_subtype_config: String, schedule: Option<String>, source: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

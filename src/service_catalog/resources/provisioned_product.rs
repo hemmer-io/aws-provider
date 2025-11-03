@@ -38,7 +38,7 @@ impl<'a> Provisioned_product<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, path_name: Option<String>, provisioning_parameters: Option<Vec<String>>, path_id: Option<String>, accept_language: Option<String>, provisioned_product_name: Option<String>, provisioned_product_id: Option<String>, provisioning_artifact_name: Option<String>, update_token: Option<String>, tags: Option<Vec<String>>, product_id: Option<String>, product_name: Option<String>, provisioning_artifact_id: Option<String>, provisioning_preferences: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, provisioning_parameters: Option<Vec<String>>, tags: Option<Vec<String>>, update_token: Option<String>, path_id: Option<String>, path_name: Option<String>, provisioned_product_name: Option<String>, product_name: Option<String>, accept_language: Option<String>, provisioning_artifact_id: Option<String>, provisioning_artifact_name: Option<String>, provisioned_product_id: Option<String>, provisioning_preferences: Option<String>, product_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

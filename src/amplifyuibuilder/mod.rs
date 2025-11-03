@@ -156,10 +156,10 @@ impl<'a> AmplifyuibuilderService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let feature_name = input.get_string("feature_name")?;
             let app_id = input.get_string("app_id")?;
-            let body = input.get_string("body")?;
+            let feature_name = input.get_string("feature_name")?;
             let environment_name = input.get_string("environment_name")?;
+            let body = input.get_string("body")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -174,10 +174,10 @@ impl<'a> AmplifyuibuilderService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("feature_name", feature_name.unwrap_or_default())
                 .with_field("app_id", app_id.unwrap_or_default())
-                .with_field("body", body.unwrap_or_default())
+                .with_field("feature_name", feature_name.unwrap_or_default())
                 .with_field("environment_name", environment_name.unwrap_or_default())
+                .with_field("body", body.unwrap_or_default())
             )
         })
     }
@@ -211,10 +211,10 @@ impl<'a> AmplifyuibuilderService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let feature_name = input.get_string("feature_name")?;
             let app_id = input.get_string("app_id")?;
-            let body = input.get_string("body")?;
+            let feature_name = input.get_string("feature_name")?;
             let environment_name = input.get_string("environment_name")?;
+            let body = input.get_string("body")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -230,10 +230,10 @@ impl<'a> AmplifyuibuilderService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("feature_name", feature_name.unwrap_or_default())
                 .with_field("app_id", app_id.unwrap_or_default())
-                .with_field("body", body.unwrap_or_default())
+                .with_field("feature_name", feature_name.unwrap_or_default())
                 .with_field("environment_name", environment_name.unwrap_or_default())
+                .with_field("body", body.unwrap_or_default())
             )
         })
     }

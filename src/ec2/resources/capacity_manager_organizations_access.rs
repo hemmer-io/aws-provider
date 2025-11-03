@@ -24,7 +24,7 @@ impl<'a> Capacity_manager_organizations_access<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, organizations_access: Option<bool>, client_token: Option<String>, dry_run: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, dry_run: Option<bool>, organizations_access: Option<bool>, client_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

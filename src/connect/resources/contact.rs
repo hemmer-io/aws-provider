@@ -21,7 +21,7 @@ impl<'a> Contact<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, name: Option<String>, attributes: Option<HashMap<String, String>>, instance_id: String, initiation_method: String, user_info: Option<String>, initiate_as: Option<String>, description: Option<String>, segment_attributes: Option<HashMap<String, String>>, previous_contact_id: Option<String>, references: Option<HashMap<String, String>>, channel: String, client_token: Option<String>, related_contact_id: Option<String>, expiry_duration_in_minutes: Option<i64>) -> Result<String> {
+    pub async fn create(&self, expiry_duration_in_minutes: Option<i64>, initiate_as: Option<String>, initiation_method: String, description: Option<String>, user_info: Option<String>, segment_attributes: Option<HashMap<String, String>>, attributes: Option<HashMap<String, String>>, previous_contact_id: Option<String>, references: Option<HashMap<String, String>>, name: Option<String>, instance_id: String, related_contact_id: Option<String>, channel: String, client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Contact<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, name: Option<String>, attributes: Option<HashMap<String, String>>, instance_id: Option<String>, initiation_method: Option<String>, user_info: Option<String>, initiate_as: Option<String>, description: Option<String>, segment_attributes: Option<HashMap<String, String>>, previous_contact_id: Option<String>, references: Option<HashMap<String, String>>, channel: Option<String>, client_token: Option<String>, related_contact_id: Option<String>, expiry_duration_in_minutes: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, expiry_duration_in_minutes: Option<i64>, initiate_as: Option<String>, initiation_method: Option<String>, description: Option<String>, user_info: Option<String>, segment_attributes: Option<HashMap<String, String>>, attributes: Option<HashMap<String, String>>, previous_contact_id: Option<String>, references: Option<HashMap<String, String>>, name: Option<String>, instance_id: Option<String>, related_contact_id: Option<String>, channel: Option<String>, client_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

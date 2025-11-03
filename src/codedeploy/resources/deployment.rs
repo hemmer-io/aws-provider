@@ -21,7 +21,7 @@ impl<'a> Deployment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, override_alarm_configuration: Option<String>, ignore_application_stop_failures: Option<bool>, file_exists_behavior: Option<String>, revision: Option<String>, deployment_config_name: Option<String>, deployment_group_name: Option<String>, target_instances: Option<String>, description: Option<String>, update_outdated_instances_only: Option<bool>, application_name: String, auto_rollback_configuration: Option<String>) -> Result<String> {
+    pub async fn create(&self, target_instances: Option<String>, description: Option<String>, update_outdated_instances_only: Option<bool>, override_alarm_configuration: Option<String>, ignore_application_stop_failures: Option<bool>, auto_rollback_configuration: Option<String>, application_name: String, deployment_config_name: Option<String>, deployment_group_name: Option<String>, file_exists_behavior: Option<String>, revision: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

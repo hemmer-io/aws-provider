@@ -21,7 +21,7 @@ impl<'a> Environment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, maintenance_window: Option<String>, software_set_update_mode: Option<String>, desktop_arn: String, desktop_endpoint: Option<String>, desired_software_set_id: Option<String>, client_token: Option<String>, device_creation_tags: Option<HashMap<String, String>>, tags: Option<HashMap<String, String>>, kms_key_arn: Option<String>, name: Option<String>, software_set_update_schedule: Option<String>) -> Result<String> {
+    pub async fn create(&self, desired_software_set_id: Option<String>, device_creation_tags: Option<HashMap<String, String>>, software_set_update_schedule: Option<String>, maintenance_window: Option<String>, name: Option<String>, desktop_arn: String, software_set_update_mode: Option<String>, desktop_endpoint: Option<String>, client_token: Option<String>, kms_key_arn: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Environment<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, maintenance_window: Option<String>, software_set_update_mode: Option<String>, desktop_arn: Option<String>, desktop_endpoint: Option<String>, desired_software_set_id: Option<String>, client_token: Option<String>, device_creation_tags: Option<HashMap<String, String>>, tags: Option<HashMap<String, String>>, kms_key_arn: Option<String>, name: Option<String>, software_set_update_schedule: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, desired_software_set_id: Option<String>, device_creation_tags: Option<HashMap<String, String>>, software_set_update_schedule: Option<String>, maintenance_window: Option<String>, name: Option<String>, desktop_arn: Option<String>, software_set_update_mode: Option<String>, desktop_endpoint: Option<String>, client_token: Option<String>, kms_key_arn: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

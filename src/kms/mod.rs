@@ -24,14 +24,17 @@ impl<'a> KmsService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "key_policy" => {
-                self.plan_key_policy(current_state, desired_input).await
-            }
-            "alias" => {
-                self.plan_alias(current_state, desired_input).await
+            "custom_key_stores" => {
+                self.plan_custom_key_stores(current_state, desired_input).await
             }
             "key" => {
                 self.plan_key(current_state, desired_input).await
+            }
+            "parameters_for_import" => {
+                self.plan_parameters_for_import(current_state, desired_input).await
+            }
+            "primary_region" => {
+                self.plan_primary_region(current_state, desired_input).await
             }
             "custom_key_store" => {
                 self.plan_custom_key_store(current_state, desired_input).await
@@ -39,26 +42,23 @@ impl<'a> KmsService<'a> {
             "imported_key_material" => {
                 self.plan_imported_key_material(current_state, desired_input).await
             }
-            "key_description" => {
-                self.plan_key_description(current_state, desired_input).await
-            }
-            "primary_region" => {
-                self.plan_primary_region(current_state, desired_input).await
-            }
             "grant" => {
                 self.plan_grant(current_state, desired_input).await
             }
-            "custom_key_stores" => {
-                self.plan_custom_key_stores(current_state, desired_input).await
+            "alias" => {
+                self.plan_alias(current_state, desired_input).await
             }
             "key_rotation_status" => {
                 self.plan_key_rotation_status(current_state, desired_input).await
             }
-            "parameters_for_import" => {
-                self.plan_parameters_for_import(current_state, desired_input).await
+            "key_policy" => {
+                self.plan_key_policy(current_state, desired_input).await
             }
             "public_key" => {
                 self.plan_public_key(current_state, desired_input).await
+            }
+            "key_description" => {
+                self.plan_key_description(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -75,14 +75,17 @@ impl<'a> KmsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "key_policy" => {
-                self.create_key_policy(input).await
-            }
-            "alias" => {
-                self.create_alias(input).await
+            "custom_key_stores" => {
+                self.create_custom_key_stores(input).await
             }
             "key" => {
                 self.create_key(input).await
+            }
+            "parameters_for_import" => {
+                self.create_parameters_for_import(input).await
+            }
+            "primary_region" => {
+                self.create_primary_region(input).await
             }
             "custom_key_store" => {
                 self.create_custom_key_store(input).await
@@ -90,26 +93,23 @@ impl<'a> KmsService<'a> {
             "imported_key_material" => {
                 self.create_imported_key_material(input).await
             }
-            "key_description" => {
-                self.create_key_description(input).await
-            }
-            "primary_region" => {
-                self.create_primary_region(input).await
-            }
             "grant" => {
                 self.create_grant(input).await
             }
-            "custom_key_stores" => {
-                self.create_custom_key_stores(input).await
+            "alias" => {
+                self.create_alias(input).await
             }
             "key_rotation_status" => {
                 self.create_key_rotation_status(input).await
             }
-            "parameters_for_import" => {
-                self.create_parameters_for_import(input).await
+            "key_policy" => {
+                self.create_key_policy(input).await
             }
             "public_key" => {
                 self.create_public_key(input).await
+            }
+            "key_description" => {
+                self.create_key_description(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -126,14 +126,17 @@ impl<'a> KmsService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "key_policy" => {
-                self.read_key_policy(id).await
-            }
-            "alias" => {
-                self.read_alias(id).await
+            "custom_key_stores" => {
+                self.read_custom_key_stores(id).await
             }
             "key" => {
                 self.read_key(id).await
+            }
+            "parameters_for_import" => {
+                self.read_parameters_for_import(id).await
+            }
+            "primary_region" => {
+                self.read_primary_region(id).await
             }
             "custom_key_store" => {
                 self.read_custom_key_store(id).await
@@ -141,26 +144,23 @@ impl<'a> KmsService<'a> {
             "imported_key_material" => {
                 self.read_imported_key_material(id).await
             }
-            "key_description" => {
-                self.read_key_description(id).await
-            }
-            "primary_region" => {
-                self.read_primary_region(id).await
-            }
             "grant" => {
                 self.read_grant(id).await
             }
-            "custom_key_stores" => {
-                self.read_custom_key_stores(id).await
+            "alias" => {
+                self.read_alias(id).await
             }
             "key_rotation_status" => {
                 self.read_key_rotation_status(id).await
             }
-            "parameters_for_import" => {
-                self.read_parameters_for_import(id).await
+            "key_policy" => {
+                self.read_key_policy(id).await
             }
             "public_key" => {
                 self.read_public_key(id).await
+            }
+            "key_description" => {
+                self.read_key_description(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -178,14 +178,17 @@ impl<'a> KmsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "key_policy" => {
-                self.update_key_policy(id, input).await
-            }
-            "alias" => {
-                self.update_alias(id, input).await
+            "custom_key_stores" => {
+                self.update_custom_key_stores(id, input).await
             }
             "key" => {
                 self.update_key(id, input).await
+            }
+            "parameters_for_import" => {
+                self.update_parameters_for_import(id, input).await
+            }
+            "primary_region" => {
+                self.update_primary_region(id, input).await
             }
             "custom_key_store" => {
                 self.update_custom_key_store(id, input).await
@@ -193,26 +196,23 @@ impl<'a> KmsService<'a> {
             "imported_key_material" => {
                 self.update_imported_key_material(id, input).await
             }
-            "key_description" => {
-                self.update_key_description(id, input).await
-            }
-            "primary_region" => {
-                self.update_primary_region(id, input).await
-            }
             "grant" => {
                 self.update_grant(id, input).await
             }
-            "custom_key_stores" => {
-                self.update_custom_key_stores(id, input).await
+            "alias" => {
+                self.update_alias(id, input).await
             }
             "key_rotation_status" => {
                 self.update_key_rotation_status(id, input).await
             }
-            "parameters_for_import" => {
-                self.update_parameters_for_import(id, input).await
+            "key_policy" => {
+                self.update_key_policy(id, input).await
             }
             "public_key" => {
                 self.update_public_key(id, input).await
+            }
+            "key_description" => {
+                self.update_key_description(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -229,14 +229,17 @@ impl<'a> KmsService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "key_policy" => {
-                self.delete_key_policy(id).await
-            }
-            "alias" => {
-                self.delete_alias(id).await
+            "custom_key_stores" => {
+                self.delete_custom_key_stores(id).await
             }
             "key" => {
                 self.delete_key(id).await
+            }
+            "parameters_for_import" => {
+                self.delete_parameters_for_import(id).await
+            }
+            "primary_region" => {
+                self.delete_primary_region(id).await
             }
             "custom_key_store" => {
                 self.delete_custom_key_store(id).await
@@ -244,26 +247,23 @@ impl<'a> KmsService<'a> {
             "imported_key_material" => {
                 self.delete_imported_key_material(id).await
             }
-            "key_description" => {
-                self.delete_key_description(id).await
-            }
-            "primary_region" => {
-                self.delete_primary_region(id).await
-            }
             "grant" => {
                 self.delete_grant(id).await
             }
-            "custom_key_stores" => {
-                self.delete_custom_key_stores(id).await
+            "alias" => {
+                self.delete_alias(id).await
             }
             "key_rotation_status" => {
                 self.delete_key_rotation_status(id).await
             }
-            "parameters_for_import" => {
-                self.delete_parameters_for_import(id).await
+            "key_policy" => {
+                self.delete_key_policy(id).await
             }
             "public_key" => {
                 self.delete_public_key(id).await
+            }
+            "key_description" => {
+                self.delete_key_description(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -279,11 +279,11 @@ impl<'a> KmsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Key_policy resource operations
+    // Custom_key_stores resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a key_policy resource
-    async fn plan_key_policy(
+    /// Plan changes to a custom_key_stores resource
+    async fn plan_custom_key_stores(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -298,24 +298,20 @@ impl<'a> KmsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new key_policy resource
-    async fn create_key_policy(
+    /// Create a new custom_key_stores resource
+    async fn create_custom_key_stores(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let key_id = input.get_string("key_id")?;
-            let policy = input.get_string("policy")?;
-            let policy_name = input.get_optional_string("policy_name")?;
-            let bypass_policy_lockout_safety_check = input.get_optional_string("bypass_policy_lockout_safety_check")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.kms_client
-            //     .create_key_policy()
+            //     .create_custom_key_stores()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -324,16 +320,12 @@ impl<'a> KmsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("key_id", key_id.unwrap_or_default())
-                .with_field("policy", policy.unwrap_or_default())
-                .with_field("policy_name", policy_name.unwrap_or_default())
-                .with_field("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check.unwrap_or_default())
             )
         })
     }
 
-    /// Read a key_policy resource
-    async fn read_key_policy(
+    /// Read a custom_key_stores resource
+    async fn read_custom_key_stores(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -341,7 +333,7 @@ impl<'a> KmsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.kms_client
-            //     .describe_key_policy()
+            //     .describe_custom_key_stores()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -353,24 +345,20 @@ impl<'a> KmsService<'a> {
         })
     }
 
-    /// Update a key_policy resource
-    async fn update_key_policy(
+    /// Update a custom_key_stores resource
+    async fn update_custom_key_stores(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let key_id = input.get_string("key_id")?;
-            let policy = input.get_string("policy")?;
-            let policy_name = input.get_optional_string("policy_name")?;
-            let bypass_policy_lockout_safety_check = input.get_optional_string("bypass_policy_lockout_safety_check")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.kms_client
-            //     .update_key_policy()
+            //     .update_custom_key_stores()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -380,16 +368,12 @@ impl<'a> KmsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("key_id", key_id.unwrap_or_default())
-                .with_field("policy", policy.unwrap_or_default())
-                .with_field("policy_name", policy_name.unwrap_or_default())
-                .with_field("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a key_policy resource
-    async fn delete_key_policy(
+    /// Delete a custom_key_stores resource
+    async fn delete_custom_key_stores(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -397,129 +381,7 @@ impl<'a> KmsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.kms_client
-            //     .delete_key_policy()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Alias resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a alias resource
-    async fn plan_alias(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new alias resource
-    async fn create_alias(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let target_key_id = input.get_string("target_key_id")?;
-            let alias_name = input.get_string("alias_name")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.kms_client
-            //     .create_alias()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("target_key_id", target_key_id.unwrap_or_default())
-                .with_field("alias_name", alias_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a alias resource
-    async fn read_alias(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.kms_client
-            //     .describe_alias()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a alias resource
-    async fn update_alias(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let target_key_id = input.get_string("target_key_id")?;
-            let alias_name = input.get_string("alias_name")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.kms_client
-            //     .update_alias()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("target_key_id", target_key_id.unwrap_or_default())
-                .with_field("alias_name", alias_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a alias resource
-    async fn delete_alias(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.kms_client
-            //     .delete_alias()
+            //     .delete_custom_key_stores()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -559,15 +421,15 @@ impl<'a> KmsService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
             let key_spec = input.get_optional_string("key_spec")?;
-            let custom_key_store_id = input.get_optional_string("custom_key_store_id")?;
-            let tags = input.get_optional_string("tags")?;
+            let policy = input.get_optional_string("policy")?;
             let bypass_policy_lockout_safety_check = input.get_optional_string("bypass_policy_lockout_safety_check")?;
+            let tags = input.get_optional_string("tags")?;
+            let multi_region = input.get_optional_string("multi_region")?;
             let description = input.get_optional_string("description")?;
             let origin = input.get_optional_string("origin")?;
-            let policy = input.get_optional_string("policy")?;
-            let multi_region = input.get_optional_string("multi_region")?;
             let key_usage = input.get_optional_string("key_usage")?;
             let xks_key_id = input.get_optional_string("xks_key_id")?;
+            let custom_key_store_id = input.get_optional_string("custom_key_store_id")?;
             let customer_master_key_spec = input.get_optional_string("customer_master_key_spec")?;
 
 
@@ -584,15 +446,15 @@ impl<'a> KmsService<'a> {
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
                 .with_field("key_spec", key_spec.unwrap_or_default())
-                .with_field("custom_key_store_id", custom_key_store_id.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
+                .with_field("policy", policy.unwrap_or_default())
                 .with_field("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("multi_region", multi_region.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
                 .with_field("origin", origin.unwrap_or_default())
-                .with_field("policy", policy.unwrap_or_default())
-                .with_field("multi_region", multi_region.unwrap_or_default())
                 .with_field("key_usage", key_usage.unwrap_or_default())
                 .with_field("xks_key_id", xks_key_id.unwrap_or_default())
+                .with_field("custom_key_store_id", custom_key_store_id.unwrap_or_default())
                 .with_field("customer_master_key_spec", customer_master_key_spec.unwrap_or_default())
             )
         })
@@ -628,15 +490,15 @@ impl<'a> KmsService<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
             let key_spec = input.get_optional_string("key_spec")?;
-            let custom_key_store_id = input.get_optional_string("custom_key_store_id")?;
-            let tags = input.get_optional_string("tags")?;
+            let policy = input.get_optional_string("policy")?;
             let bypass_policy_lockout_safety_check = input.get_optional_string("bypass_policy_lockout_safety_check")?;
+            let tags = input.get_optional_string("tags")?;
+            let multi_region = input.get_optional_string("multi_region")?;
             let description = input.get_optional_string("description")?;
             let origin = input.get_optional_string("origin")?;
-            let policy = input.get_optional_string("policy")?;
-            let multi_region = input.get_optional_string("multi_region")?;
             let key_usage = input.get_optional_string("key_usage")?;
             let xks_key_id = input.get_optional_string("xks_key_id")?;
+            let custom_key_store_id = input.get_optional_string("custom_key_store_id")?;
             let customer_master_key_spec = input.get_optional_string("customer_master_key_spec")?;
 
 
@@ -654,15 +516,15 @@ impl<'a> KmsService<'a> {
             Ok(ResourceOutput::new()
                 .with_id(id)
                 .with_field("key_spec", key_spec.unwrap_or_default())
-                .with_field("custom_key_store_id", custom_key_store_id.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
+                .with_field("policy", policy.unwrap_or_default())
                 .with_field("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("multi_region", multi_region.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
                 .with_field("origin", origin.unwrap_or_default())
-                .with_field("policy", policy.unwrap_or_default())
-                .with_field("multi_region", multi_region.unwrap_or_default())
                 .with_field("key_usage", key_usage.unwrap_or_default())
                 .with_field("xks_key_id", xks_key_id.unwrap_or_default())
+                .with_field("custom_key_store_id", custom_key_store_id.unwrap_or_default())
                 .with_field("customer_master_key_spec", customer_master_key_spec.unwrap_or_default())
             )
         })
@@ -678,6 +540,242 @@ impl<'a> KmsService<'a> {
             // Example:
             // self.provider.kms_client
             //     .delete_key()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Parameters_for_import resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a parameters_for_import resource
+    async fn plan_parameters_for_import(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new parameters_for_import resource
+    async fn create_parameters_for_import(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.kms_client
+            //     .create_parameters_for_import()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a parameters_for_import resource
+    async fn read_parameters_for_import(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.kms_client
+            //     .describe_parameters_for_import()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a parameters_for_import resource
+    async fn update_parameters_for_import(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.kms_client
+            //     .update_parameters_for_import()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a parameters_for_import resource
+    async fn delete_parameters_for_import(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.kms_client
+            //     .delete_parameters_for_import()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Primary_region resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a primary_region resource
+    async fn plan_primary_region(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new primary_region resource
+    async fn create_primary_region(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let key_id = input.get_string("key_id")?;
+            let primary_region = input.get_string("primary_region")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.kms_client
+            //     .create_primary_region()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("key_id", key_id.unwrap_or_default())
+                .with_field("primary_region", primary_region.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a primary_region resource
+    async fn read_primary_region(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.kms_client
+            //     .describe_primary_region()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a primary_region resource
+    async fn update_primary_region(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let key_id = input.get_string("key_id")?;
+            let primary_region = input.get_string("primary_region")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.kms_client
+            //     .update_primary_region()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("key_id", key_id.unwrap_or_default())
+                .with_field("primary_region", primary_region.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a primary_region resource
+    async fn delete_primary_region(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.kms_client
+            //     .delete_primary_region()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -716,17 +814,17 @@ impl<'a> KmsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let xks_proxy_uri_path = input.get_optional_string("xks_proxy_uri_path")?;
+            let xks_proxy_vpc_endpoint_service_owner = input.get_optional_string("xks_proxy_vpc_endpoint_service_owner")?;
+            let key_store_password = input.get_optional_string("key_store_password")?;
+            let cloud_hsm_cluster_id = input.get_optional_string("cloud_hsm_cluster_id")?;
+            let custom_key_store_type = input.get_optional_string("custom_key_store_type")?;
             let trust_anchor_certificate = input.get_optional_string("trust_anchor_certificate")?;
             let xks_proxy_uri_endpoint = input.get_optional_string("xks_proxy_uri_endpoint")?;
-            let cloud_hsm_cluster_id = input.get_optional_string("cloud_hsm_cluster_id")?;
             let xks_proxy_connectivity = input.get_optional_string("xks_proxy_connectivity")?;
-            let xks_proxy_uri_path = input.get_optional_string("xks_proxy_uri_path")?;
-            let custom_key_store_type = input.get_optional_string("custom_key_store_type")?;
-            let xks_proxy_vpc_endpoint_service_owner = input.get_optional_string("xks_proxy_vpc_endpoint_service_owner")?;
             let xks_proxy_authentication_credential = input.get_optional_string("xks_proxy_authentication_credential")?;
-            let custom_key_store_name = input.get_string("custom_key_store_name")?;
-            let key_store_password = input.get_optional_string("key_store_password")?;
             let xks_proxy_vpc_endpoint_service_name = input.get_optional_string("xks_proxy_vpc_endpoint_service_name")?;
+            let custom_key_store_name = input.get_string("custom_key_store_name")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -741,17 +839,17 @@ impl<'a> KmsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("xks_proxy_uri_path", xks_proxy_uri_path.unwrap_or_default())
+                .with_field("xks_proxy_vpc_endpoint_service_owner", xks_proxy_vpc_endpoint_service_owner.unwrap_or_default())
+                .with_field("key_store_password", key_store_password.unwrap_or_default())
+                .with_field("cloud_hsm_cluster_id", cloud_hsm_cluster_id.unwrap_or_default())
+                .with_field("custom_key_store_type", custom_key_store_type.unwrap_or_default())
                 .with_field("trust_anchor_certificate", trust_anchor_certificate.unwrap_or_default())
                 .with_field("xks_proxy_uri_endpoint", xks_proxy_uri_endpoint.unwrap_or_default())
-                .with_field("cloud_hsm_cluster_id", cloud_hsm_cluster_id.unwrap_or_default())
                 .with_field("xks_proxy_connectivity", xks_proxy_connectivity.unwrap_or_default())
-                .with_field("xks_proxy_uri_path", xks_proxy_uri_path.unwrap_or_default())
-                .with_field("custom_key_store_type", custom_key_store_type.unwrap_or_default())
-                .with_field("xks_proxy_vpc_endpoint_service_owner", xks_proxy_vpc_endpoint_service_owner.unwrap_or_default())
                 .with_field("xks_proxy_authentication_credential", xks_proxy_authentication_credential.unwrap_or_default())
-                .with_field("custom_key_store_name", custom_key_store_name.unwrap_or_default())
-                .with_field("key_store_password", key_store_password.unwrap_or_default())
                 .with_field("xks_proxy_vpc_endpoint_service_name", xks_proxy_vpc_endpoint_service_name.unwrap_or_default())
+                .with_field("custom_key_store_name", custom_key_store_name.unwrap_or_default())
             )
         })
     }
@@ -785,17 +883,17 @@ impl<'a> KmsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let xks_proxy_uri_path = input.get_optional_string("xks_proxy_uri_path")?;
+            let xks_proxy_vpc_endpoint_service_owner = input.get_optional_string("xks_proxy_vpc_endpoint_service_owner")?;
+            let key_store_password = input.get_optional_string("key_store_password")?;
+            let cloud_hsm_cluster_id = input.get_optional_string("cloud_hsm_cluster_id")?;
+            let custom_key_store_type = input.get_optional_string("custom_key_store_type")?;
             let trust_anchor_certificate = input.get_optional_string("trust_anchor_certificate")?;
             let xks_proxy_uri_endpoint = input.get_optional_string("xks_proxy_uri_endpoint")?;
-            let cloud_hsm_cluster_id = input.get_optional_string("cloud_hsm_cluster_id")?;
             let xks_proxy_connectivity = input.get_optional_string("xks_proxy_connectivity")?;
-            let xks_proxy_uri_path = input.get_optional_string("xks_proxy_uri_path")?;
-            let custom_key_store_type = input.get_optional_string("custom_key_store_type")?;
-            let xks_proxy_vpc_endpoint_service_owner = input.get_optional_string("xks_proxy_vpc_endpoint_service_owner")?;
             let xks_proxy_authentication_credential = input.get_optional_string("xks_proxy_authentication_credential")?;
-            let custom_key_store_name = input.get_string("custom_key_store_name")?;
-            let key_store_password = input.get_optional_string("key_store_password")?;
             let xks_proxy_vpc_endpoint_service_name = input.get_optional_string("xks_proxy_vpc_endpoint_service_name")?;
+            let custom_key_store_name = input.get_string("custom_key_store_name")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -811,17 +909,17 @@ impl<'a> KmsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("xks_proxy_uri_path", xks_proxy_uri_path.unwrap_or_default())
+                .with_field("xks_proxy_vpc_endpoint_service_owner", xks_proxy_vpc_endpoint_service_owner.unwrap_or_default())
+                .with_field("key_store_password", key_store_password.unwrap_or_default())
+                .with_field("cloud_hsm_cluster_id", cloud_hsm_cluster_id.unwrap_or_default())
+                .with_field("custom_key_store_type", custom_key_store_type.unwrap_or_default())
                 .with_field("trust_anchor_certificate", trust_anchor_certificate.unwrap_or_default())
                 .with_field("xks_proxy_uri_endpoint", xks_proxy_uri_endpoint.unwrap_or_default())
-                .with_field("cloud_hsm_cluster_id", cloud_hsm_cluster_id.unwrap_or_default())
                 .with_field("xks_proxy_connectivity", xks_proxy_connectivity.unwrap_or_default())
-                .with_field("xks_proxy_uri_path", xks_proxy_uri_path.unwrap_or_default())
-                .with_field("custom_key_store_type", custom_key_store_type.unwrap_or_default())
-                .with_field("xks_proxy_vpc_endpoint_service_owner", xks_proxy_vpc_endpoint_service_owner.unwrap_or_default())
                 .with_field("xks_proxy_authentication_credential", xks_proxy_authentication_credential.unwrap_or_default())
-                .with_field("custom_key_store_name", custom_key_store_name.unwrap_or_default())
-                .with_field("key_store_password", key_store_password.unwrap_or_default())
                 .with_field("xks_proxy_vpc_endpoint_service_name", xks_proxy_vpc_endpoint_service_name.unwrap_or_default())
+                .with_field("custom_key_store_name", custom_key_store_name.unwrap_or_default())
             )
         })
     }
@@ -961,250 +1059,6 @@ impl<'a> KmsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Key_description resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a key_description resource
-    async fn plan_key_description(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new key_description resource
-    async fn create_key_description(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let key_id = input.get_string("key_id")?;
-            let description = input.get_string("description")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.kms_client
-            //     .create_key_description()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("key_id", key_id.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a key_description resource
-    async fn read_key_description(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.kms_client
-            //     .describe_key_description()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a key_description resource
-    async fn update_key_description(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let key_id = input.get_string("key_id")?;
-            let description = input.get_string("description")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.kms_client
-            //     .update_key_description()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("key_id", key_id.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a key_description resource
-    async fn delete_key_description(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.kms_client
-            //     .delete_key_description()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Primary_region resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a primary_region resource
-    async fn plan_primary_region(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new primary_region resource
-    async fn create_primary_region(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let key_id = input.get_string("key_id")?;
-            let primary_region = input.get_string("primary_region")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.kms_client
-            //     .create_primary_region()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("key_id", key_id.unwrap_or_default())
-                .with_field("primary_region", primary_region.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a primary_region resource
-    async fn read_primary_region(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.kms_client
-            //     .describe_primary_region()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a primary_region resource
-    async fn update_primary_region(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let key_id = input.get_string("key_id")?;
-            let primary_region = input.get_string("primary_region")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.kms_client
-            //     .update_primary_region()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("key_id", key_id.unwrap_or_default())
-                .with_field("primary_region", primary_region.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a primary_region resource
-    async fn delete_primary_region(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.kms_client
-            //     .delete_primary_region()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
     // Grant resource operations
     // ------------------------------------------------------------------------
 
@@ -1232,14 +1086,14 @@ impl<'a> KmsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_optional_string("name")?;
-            let dry_run = input.get_optional_string("dry_run")?;
-            let grant_tokens = input.get_optional_string("grant_tokens")?;
             let key_id = input.get_string("key_id")?;
-            let retiring_principal = input.get_optional_string("retiring_principal")?;
-            let operations = input.get_string("operations")?;
-            let grantee_principal = input.get_string("grantee_principal")?;
             let constraints = input.get_optional_string("constraints")?;
+            let grant_tokens = input.get_optional_string("grant_tokens")?;
+            let grantee_principal = input.get_string("grantee_principal")?;
+            let retiring_principal = input.get_optional_string("retiring_principal")?;
+            let dry_run = input.get_optional_string("dry_run")?;
+            let name = input.get_optional_string("name")?;
+            let operations = input.get_string("operations")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -1254,14 +1108,14 @@ impl<'a> KmsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("name", name.unwrap_or_default())
-                .with_field("dry_run", dry_run.unwrap_or_default())
-                .with_field("grant_tokens", grant_tokens.unwrap_or_default())
                 .with_field("key_id", key_id.unwrap_or_default())
-                .with_field("retiring_principal", retiring_principal.unwrap_or_default())
-                .with_field("operations", operations.unwrap_or_default())
-                .with_field("grantee_principal", grantee_principal.unwrap_or_default())
                 .with_field("constraints", constraints.unwrap_or_default())
+                .with_field("grant_tokens", grant_tokens.unwrap_or_default())
+                .with_field("grantee_principal", grantee_principal.unwrap_or_default())
+                .with_field("retiring_principal", retiring_principal.unwrap_or_default())
+                .with_field("dry_run", dry_run.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("operations", operations.unwrap_or_default())
             )
         })
     }
@@ -1295,14 +1149,14 @@ impl<'a> KmsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_optional_string("name")?;
-            let dry_run = input.get_optional_string("dry_run")?;
-            let grant_tokens = input.get_optional_string("grant_tokens")?;
             let key_id = input.get_string("key_id")?;
-            let retiring_principal = input.get_optional_string("retiring_principal")?;
-            let operations = input.get_string("operations")?;
-            let grantee_principal = input.get_string("grantee_principal")?;
             let constraints = input.get_optional_string("constraints")?;
+            let grant_tokens = input.get_optional_string("grant_tokens")?;
+            let grantee_principal = input.get_string("grantee_principal")?;
+            let retiring_principal = input.get_optional_string("retiring_principal")?;
+            let dry_run = input.get_optional_string("dry_run")?;
+            let name = input.get_optional_string("name")?;
+            let operations = input.get_string("operations")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -1318,14 +1172,14 @@ impl<'a> KmsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("name", name.unwrap_or_default())
-                .with_field("dry_run", dry_run.unwrap_or_default())
-                .with_field("grant_tokens", grant_tokens.unwrap_or_default())
                 .with_field("key_id", key_id.unwrap_or_default())
-                .with_field("retiring_principal", retiring_principal.unwrap_or_default())
-                .with_field("operations", operations.unwrap_or_default())
-                .with_field("grantee_principal", grantee_principal.unwrap_or_default())
                 .with_field("constraints", constraints.unwrap_or_default())
+                .with_field("grant_tokens", grant_tokens.unwrap_or_default())
+                .with_field("grantee_principal", grantee_principal.unwrap_or_default())
+                .with_field("retiring_principal", retiring_principal.unwrap_or_default())
+                .with_field("dry_run", dry_run.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("operations", operations.unwrap_or_default())
             )
         })
     }
@@ -1351,11 +1205,11 @@ impl<'a> KmsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Custom_key_stores resource operations
+    // Alias resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a custom_key_stores resource
-    async fn plan_custom_key_stores(
+    /// Plan changes to a alias resource
+    async fn plan_alias(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1370,20 +1224,22 @@ impl<'a> KmsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new custom_key_stores resource
-    async fn create_custom_key_stores(
+    /// Create a new alias resource
+    async fn create_alias(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let alias_name = input.get_string("alias_name")?;
+            let target_key_id = input.get_string("target_key_id")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.kms_client
-            //     .create_custom_key_stores()
+            //     .create_alias()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1392,12 +1248,14 @@ impl<'a> KmsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("alias_name", alias_name.unwrap_or_default())
+                .with_field("target_key_id", target_key_id.unwrap_or_default())
             )
         })
     }
 
-    /// Read a custom_key_stores resource
-    async fn read_custom_key_stores(
+    /// Read a alias resource
+    async fn read_alias(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1405,7 +1263,7 @@ impl<'a> KmsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.kms_client
-            //     .describe_custom_key_stores()
+            //     .describe_alias()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1417,20 +1275,22 @@ impl<'a> KmsService<'a> {
         })
     }
 
-    /// Update a custom_key_stores resource
-    async fn update_custom_key_stores(
+    /// Update a alias resource
+    async fn update_alias(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let alias_name = input.get_string("alias_name")?;
+            let target_key_id = input.get_string("target_key_id")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.kms_client
-            //     .update_custom_key_stores()
+            //     .update_alias()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1440,12 +1300,14 @@ impl<'a> KmsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("alias_name", alias_name.unwrap_or_default())
+                .with_field("target_key_id", target_key_id.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a custom_key_stores resource
-    async fn delete_custom_key_stores(
+    /// Delete a alias resource
+    async fn delete_alias(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1453,7 +1315,7 @@ impl<'a> KmsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.kms_client
-            //     .delete_custom_key_stores()
+            //     .delete_alias()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1579,11 +1441,11 @@ impl<'a> KmsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Parameters_for_import resource operations
+    // Key_policy resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a parameters_for_import resource
-    async fn plan_parameters_for_import(
+    /// Plan changes to a key_policy resource
+    async fn plan_key_policy(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1598,20 +1460,24 @@ impl<'a> KmsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new parameters_for_import resource
-    async fn create_parameters_for_import(
+    /// Create a new key_policy resource
+    async fn create_key_policy(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let policy_name = input.get_optional_string("policy_name")?;
+            let bypass_policy_lockout_safety_check = input.get_optional_string("bypass_policy_lockout_safety_check")?;
+            let key_id = input.get_string("key_id")?;
+            let policy = input.get_string("policy")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.kms_client
-            //     .create_parameters_for_import()
+            //     .create_key_policy()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1620,12 +1486,16 @@ impl<'a> KmsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("policy_name", policy_name.unwrap_or_default())
+                .with_field("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check.unwrap_or_default())
+                .with_field("key_id", key_id.unwrap_or_default())
+                .with_field("policy", policy.unwrap_or_default())
             )
         })
     }
 
-    /// Read a parameters_for_import resource
-    async fn read_parameters_for_import(
+    /// Read a key_policy resource
+    async fn read_key_policy(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1633,7 +1503,7 @@ impl<'a> KmsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.kms_client
-            //     .describe_parameters_for_import()
+            //     .describe_key_policy()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1645,20 +1515,24 @@ impl<'a> KmsService<'a> {
         })
     }
 
-    /// Update a parameters_for_import resource
-    async fn update_parameters_for_import(
+    /// Update a key_policy resource
+    async fn update_key_policy(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let policy_name = input.get_optional_string("policy_name")?;
+            let bypass_policy_lockout_safety_check = input.get_optional_string("bypass_policy_lockout_safety_check")?;
+            let key_id = input.get_string("key_id")?;
+            let policy = input.get_string("policy")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.kms_client
-            //     .update_parameters_for_import()
+            //     .update_key_policy()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1668,12 +1542,16 @@ impl<'a> KmsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("policy_name", policy_name.unwrap_or_default())
+                .with_field("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check.unwrap_or_default())
+                .with_field("key_id", key_id.unwrap_or_default())
+                .with_field("policy", policy.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a parameters_for_import resource
-    async fn delete_parameters_for_import(
+    /// Delete a key_policy resource
+    async fn delete_key_policy(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1681,7 +1559,7 @@ impl<'a> KmsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.kms_client
-            //     .delete_parameters_for_import()
+            //     .delete_key_policy()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1796,6 +1674,128 @@ impl<'a> KmsService<'a> {
             // Example:
             // self.provider.kms_client
             //     .delete_public_key()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Key_description resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a key_description resource
+    async fn plan_key_description(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new key_description resource
+    async fn create_key_description(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let key_id = input.get_string("key_id")?;
+            let description = input.get_string("description")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.kms_client
+            //     .create_key_description()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("key_id", key_id.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a key_description resource
+    async fn read_key_description(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.kms_client
+            //     .describe_key_description()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a key_description resource
+    async fn update_key_description(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let key_id = input.get_string("key_id")?;
+            let description = input.get_string("description")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.kms_client
+            //     .update_key_description()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("key_id", key_id.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a key_description resource
+    async fn delete_key_description(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.kms_client
+            //     .delete_key_description()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

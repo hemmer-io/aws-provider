@@ -21,7 +21,7 @@ impl<'a> Dev_endpoint<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, worker_type: Option<String>, security_configuration: Option<String>, role_arn: String, public_keys: Option<Vec<String>>, extra_jars_s3_path: Option<String>, arguments: Option<HashMap<String, String>>, endpoint_name: String, glue_version: Option<String>, tags: Option<HashMap<String, String>>, security_group_ids: Option<String>, public_key: Option<String>, number_of_workers: Option<i64>, extra_python_libs_s3_path: Option<String>, number_of_nodes: Option<i64>, subnet_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, subnet_id: Option<String>, security_group_ids: Option<String>, public_keys: Option<Vec<String>>, public_key: Option<String>, worker_type: Option<String>, extra_python_libs_s3_path: Option<String>, number_of_workers: Option<i64>, number_of_nodes: Option<i64>, endpoint_name: String, role_arn: String, tags: Option<HashMap<String, String>>, extra_jars_s3_path: Option<String>, security_configuration: Option<String>, glue_version: Option<String>, arguments: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Dev_endpoint<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, worker_type: Option<String>, security_configuration: Option<String>, role_arn: Option<String>, public_keys: Option<Vec<String>>, extra_jars_s3_path: Option<String>, arguments: Option<HashMap<String, String>>, endpoint_name: Option<String>, glue_version: Option<String>, tags: Option<HashMap<String, String>>, security_group_ids: Option<String>, public_key: Option<String>, number_of_workers: Option<i64>, extra_python_libs_s3_path: Option<String>, number_of_nodes: Option<i64>, subnet_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, subnet_id: Option<String>, security_group_ids: Option<String>, public_keys: Option<Vec<String>>, public_key: Option<String>, worker_type: Option<String>, extra_python_libs_s3_path: Option<String>, number_of_workers: Option<i64>, number_of_nodes: Option<i64>, endpoint_name: Option<String>, role_arn: Option<String>, tags: Option<HashMap<String, String>>, extra_jars_s3_path: Option<String>, security_configuration: Option<String>, glue_version: Option<String>, arguments: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

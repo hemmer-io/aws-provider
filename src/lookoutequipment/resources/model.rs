@@ -21,7 +21,7 @@ impl<'a> Model<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, dataset_name: String, role_arn: Option<String>, tags: Option<Vec<String>>, dataset_schema: Option<String>, client_token: String, model_name: String, training_data_start_time: Option<String>, evaluation_data_end_time: Option<String>, off_condition: Option<String>, server_side_kms_key_id: Option<String>, evaluation_data_start_time: Option<String>, model_diagnostics_output_configuration: Option<String>, labels_input_configuration: Option<String>, training_data_end_time: Option<String>, data_pre_processing_configuration: Option<String>) -> Result<String> {
+    pub async fn create(&self, data_pre_processing_configuration: Option<String>, off_condition: Option<String>, training_data_end_time: Option<String>, role_arn: Option<String>, training_data_start_time: Option<String>, labels_input_configuration: Option<String>, client_token: String, model_diagnostics_output_configuration: Option<String>, dataset_name: String, model_name: String, server_side_kms_key_id: Option<String>, dataset_schema: Option<String>, evaluation_data_start_time: Option<String>, evaluation_data_end_time: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Model<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, dataset_name: Option<String>, role_arn: Option<String>, tags: Option<Vec<String>>, dataset_schema: Option<String>, client_token: Option<String>, model_name: Option<String>, training_data_start_time: Option<String>, evaluation_data_end_time: Option<String>, off_condition: Option<String>, server_side_kms_key_id: Option<String>, evaluation_data_start_time: Option<String>, model_diagnostics_output_configuration: Option<String>, labels_input_configuration: Option<String>, training_data_end_time: Option<String>, data_pre_processing_configuration: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, data_pre_processing_configuration: Option<String>, off_condition: Option<String>, training_data_end_time: Option<String>, role_arn: Option<String>, training_data_start_time: Option<String>, labels_input_configuration: Option<String>, client_token: Option<String>, model_diagnostics_output_configuration: Option<String>, dataset_name: Option<String>, model_name: Option<String>, server_side_kms_key_id: Option<String>, dataset_schema: Option<String>, evaluation_data_start_time: Option<String>, evaluation_data_end_time: Option<String>, tags: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

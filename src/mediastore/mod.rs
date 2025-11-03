@@ -24,17 +24,17 @@ impl<'a> MediastoreService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "metric_policy" => {
-                self.plan_metric_policy(current_state, desired_input).await
+            "cors_policy" => {
+                self.plan_cors_policy(current_state, desired_input).await
             }
             "container" => {
                 self.plan_container(current_state, desired_input).await
             }
-            "cors_policy" => {
-                self.plan_cors_policy(current_state, desired_input).await
-            }
             "lifecycle_policy" => {
                 self.plan_lifecycle_policy(current_state, desired_input).await
+            }
+            "metric_policy" => {
+                self.plan_metric_policy(current_state, desired_input).await
             }
             "container_policy" => {
                 self.plan_container_policy(current_state, desired_input).await
@@ -54,17 +54,17 @@ impl<'a> MediastoreService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "metric_policy" => {
-                self.create_metric_policy(input).await
+            "cors_policy" => {
+                self.create_cors_policy(input).await
             }
             "container" => {
                 self.create_container(input).await
             }
-            "cors_policy" => {
-                self.create_cors_policy(input).await
-            }
             "lifecycle_policy" => {
                 self.create_lifecycle_policy(input).await
+            }
+            "metric_policy" => {
+                self.create_metric_policy(input).await
             }
             "container_policy" => {
                 self.create_container_policy(input).await
@@ -84,17 +84,17 @@ impl<'a> MediastoreService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "metric_policy" => {
-                self.read_metric_policy(id).await
+            "cors_policy" => {
+                self.read_cors_policy(id).await
             }
             "container" => {
                 self.read_container(id).await
             }
-            "cors_policy" => {
-                self.read_cors_policy(id).await
-            }
             "lifecycle_policy" => {
                 self.read_lifecycle_policy(id).await
+            }
+            "metric_policy" => {
+                self.read_metric_policy(id).await
             }
             "container_policy" => {
                 self.read_container_policy(id).await
@@ -115,17 +115,17 @@ impl<'a> MediastoreService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "metric_policy" => {
-                self.update_metric_policy(id, input).await
+            "cors_policy" => {
+                self.update_cors_policy(id, input).await
             }
             "container" => {
                 self.update_container(id, input).await
             }
-            "cors_policy" => {
-                self.update_cors_policy(id, input).await
-            }
             "lifecycle_policy" => {
                 self.update_lifecycle_policy(id, input).await
+            }
+            "metric_policy" => {
+                self.update_metric_policy(id, input).await
             }
             "container_policy" => {
                 self.update_container_policy(id, input).await
@@ -145,17 +145,17 @@ impl<'a> MediastoreService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "metric_policy" => {
-                self.delete_metric_policy(id).await
+            "cors_policy" => {
+                self.delete_cors_policy(id).await
             }
             "container" => {
                 self.delete_container(id).await
             }
-            "cors_policy" => {
-                self.delete_cors_policy(id).await
-            }
             "lifecycle_policy" => {
                 self.delete_lifecycle_policy(id).await
+            }
+            "metric_policy" => {
+                self.delete_metric_policy(id).await
             }
             "container_policy" => {
                 self.delete_container_policy(id).await
@@ -174,11 +174,11 @@ impl<'a> MediastoreService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Metric_policy resource operations
+    // Cors_policy resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a metric_policy resource
-    async fn plan_metric_policy(
+    /// Plan changes to a cors_policy resource
+    async fn plan_cors_policy(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -193,22 +193,22 @@ impl<'a> MediastoreService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new metric_policy resource
-    async fn create_metric_policy(
+    /// Create a new cors_policy resource
+    async fn create_cors_policy(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let metric_policy = input.get_string("metric_policy")?;
             let container_name = input.get_string("container_name")?;
+            let cors_policy = input.get_string("cors_policy")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.mediastore_client
-            //     .create_metric_policy()
+            //     .create_cors_policy()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -217,14 +217,14 @@ impl<'a> MediastoreService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("metric_policy", metric_policy.unwrap_or_default())
                 .with_field("container_name", container_name.unwrap_or_default())
+                .with_field("cors_policy", cors_policy.unwrap_or_default())
             )
         })
     }
 
-    /// Read a metric_policy resource
-    async fn read_metric_policy(
+    /// Read a cors_policy resource
+    async fn read_cors_policy(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -232,7 +232,7 @@ impl<'a> MediastoreService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.mediastore_client
-            //     .describe_metric_policy()
+            //     .describe_cors_policy()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -244,22 +244,22 @@ impl<'a> MediastoreService<'a> {
         })
     }
 
-    /// Update a metric_policy resource
-    async fn update_metric_policy(
+    /// Update a cors_policy resource
+    async fn update_cors_policy(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let metric_policy = input.get_string("metric_policy")?;
             let container_name = input.get_string("container_name")?;
+            let cors_policy = input.get_string("cors_policy")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.mediastore_client
-            //     .update_metric_policy()
+            //     .update_cors_policy()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -269,14 +269,14 @@ impl<'a> MediastoreService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("metric_policy", metric_policy.unwrap_or_default())
                 .with_field("container_name", container_name.unwrap_or_default())
+                .with_field("cors_policy", cors_policy.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a metric_policy resource
-    async fn delete_metric_policy(
+    /// Delete a cors_policy resource
+    async fn delete_cors_policy(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -284,7 +284,7 @@ impl<'a> MediastoreService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.mediastore_client
-            //     .delete_metric_policy()
+            //     .delete_cors_policy()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -323,8 +323,8 @@ impl<'a> MediastoreService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let tags = input.get_optional_string("tags")?;
             let container_name = input.get_string("container_name")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -339,8 +339,8 @@ impl<'a> MediastoreService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("container_name", container_name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
@@ -374,8 +374,8 @@ impl<'a> MediastoreService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let tags = input.get_optional_string("tags")?;
             let container_name = input.get_string("container_name")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -391,8 +391,8 @@ impl<'a> MediastoreService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("container_name", container_name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
@@ -407,128 +407,6 @@ impl<'a> MediastoreService<'a> {
             // Example:
             // self.provider.mediastore_client
             //     .delete_container()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Cors_policy resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a cors_policy resource
-    async fn plan_cors_policy(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new cors_policy resource
-    async fn create_cors_policy(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let cors_policy = input.get_string("cors_policy")?;
-            let container_name = input.get_string("container_name")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.mediastore_client
-            //     .create_cors_policy()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("cors_policy", cors_policy.unwrap_or_default())
-                .with_field("container_name", container_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a cors_policy resource
-    async fn read_cors_policy(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.mediastore_client
-            //     .describe_cors_policy()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a cors_policy resource
-    async fn update_cors_policy(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let cors_policy = input.get_string("cors_policy")?;
-            let container_name = input.get_string("container_name")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.mediastore_client
-            //     .update_cors_policy()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("cors_policy", cors_policy.unwrap_or_default())
-                .with_field("container_name", container_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a cors_policy resource
-    async fn delete_cors_policy(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.mediastore_client
-            //     .delete_cors_policy()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -662,6 +540,128 @@ impl<'a> MediastoreService<'a> {
 
 
     // ------------------------------------------------------------------------
+    // Metric_policy resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a metric_policy resource
+    async fn plan_metric_policy(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new metric_policy resource
+    async fn create_metric_policy(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let metric_policy = input.get_string("metric_policy")?;
+            let container_name = input.get_string("container_name")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.mediastore_client
+            //     .create_metric_policy()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("metric_policy", metric_policy.unwrap_or_default())
+                .with_field("container_name", container_name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a metric_policy resource
+    async fn read_metric_policy(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.mediastore_client
+            //     .describe_metric_policy()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a metric_policy resource
+    async fn update_metric_policy(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let metric_policy = input.get_string("metric_policy")?;
+            let container_name = input.get_string("container_name")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.mediastore_client
+            //     .update_metric_policy()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("metric_policy", metric_policy.unwrap_or_default())
+                .with_field("container_name", container_name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a metric_policy resource
+    async fn delete_metric_policy(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.mediastore_client
+            //     .delete_metric_policy()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
     // Container_policy resource operations
     // ------------------------------------------------------------------------
 
@@ -689,8 +689,8 @@ impl<'a> MediastoreService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let container_name = input.get_string("container_name")?;
             let policy = input.get_string("policy")?;
+            let container_name = input.get_string("container_name")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -705,8 +705,8 @@ impl<'a> MediastoreService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("container_name", container_name.unwrap_or_default())
                 .with_field("policy", policy.unwrap_or_default())
+                .with_field("container_name", container_name.unwrap_or_default())
             )
         })
     }
@@ -740,8 +740,8 @@ impl<'a> MediastoreService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let container_name = input.get_string("container_name")?;
             let policy = input.get_string("policy")?;
+            let container_name = input.get_string("container_name")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -757,8 +757,8 @@ impl<'a> MediastoreService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("container_name", container_name.unwrap_or_default())
                 .with_field("policy", policy.unwrap_or_default())
+                .with_field("container_name", container_name.unwrap_or_default())
             )
         })
     }

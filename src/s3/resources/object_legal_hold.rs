@@ -21,7 +21,7 @@ impl<'a> Object_legal_hold<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, checksum_algorithm: Option<String>, version_id: Option<String>, key: String, legal_hold: Option<String>, bucket: String, content_md5: Option<String>, expected_bucket_owner: Option<String>, request_payer: Option<String>) -> Result<String> {
+    pub async fn create(&self, version_id: Option<String>, checksum_algorithm: Option<String>, bucket: String, legal_hold: Option<String>, content_md5: Option<String>, key: String, request_payer: Option<String>, expected_bucket_owner: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

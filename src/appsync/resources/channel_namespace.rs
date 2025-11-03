@@ -21,7 +21,7 @@ impl<'a> Channel_namespace<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, handler_configs: Option<String>, code_handlers: Option<String>, publish_auth_modes: Option<Vec<String>>, api_id: String, subscribe_auth_modes: Option<Vec<String>>, tags: Option<HashMap<String, String>>, name: String) -> Result<String> {
+    pub async fn create(&self, name: String, publish_auth_modes: Option<Vec<String>>, subscribe_auth_modes: Option<Vec<String>>, handler_configs: Option<String>, code_handlers: Option<String>, tags: Option<HashMap<String, String>>, api_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Channel_namespace<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, handler_configs: Option<String>, code_handlers: Option<String>, publish_auth_modes: Option<Vec<String>>, api_id: Option<String>, subscribe_auth_modes: Option<Vec<String>>, tags: Option<HashMap<String, String>>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, name: Option<String>, publish_auth_modes: Option<Vec<String>>, subscribe_auth_modes: Option<Vec<String>>, handler_configs: Option<String>, code_handlers: Option<String>, tags: Option<HashMap<String, String>>, api_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

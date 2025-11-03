@@ -21,7 +21,7 @@ impl<'a> Flywheel<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, flywheel_name: String, data_lake_s3_uri: String, tags: Option<Vec<String>>, data_access_role_arn: String, data_security_config: Option<String>, model_type: Option<String>, client_request_token: Option<String>, task_config: Option<String>, active_model_arn: Option<String>) -> Result<String> {
+    pub async fn create(&self, active_model_arn: Option<String>, client_request_token: Option<String>, data_access_role_arn: String, data_lake_s3_uri: String, tags: Option<Vec<String>>, flywheel_name: String, task_config: Option<String>, data_security_config: Option<String>, model_type: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Flywheel<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, flywheel_name: Option<String>, data_lake_s3_uri: Option<String>, tags: Option<Vec<String>>, data_access_role_arn: Option<String>, data_security_config: Option<String>, model_type: Option<String>, client_request_token: Option<String>, task_config: Option<String>, active_model_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, active_model_arn: Option<String>, client_request_token: Option<String>, data_access_role_arn: Option<String>, data_lake_s3_uri: Option<String>, tags: Option<Vec<String>>, flywheel_name: Option<String>, task_config: Option<String>, data_security_config: Option<String>, model_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Request_validator<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, name: Option<String>, validate_request_parameters: Option<bool>, validate_request_body: Option<bool>, rest_api_id: String) -> Result<String> {
+    pub async fn create(&self, validate_request_parameters: Option<bool>, name: Option<String>, validate_request_body: Option<bool>, rest_api_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Request_validator<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, name: Option<String>, validate_request_parameters: Option<bool>, validate_request_body: Option<bool>, rest_api_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, validate_request_parameters: Option<bool>, name: Option<String>, validate_request_body: Option<bool>, rest_api_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

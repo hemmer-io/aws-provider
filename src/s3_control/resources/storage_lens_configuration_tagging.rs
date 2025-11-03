@@ -21,7 +21,7 @@ impl<'a> Storage_lens_configuration_tagging<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, config_id: String, tags: Vec<String>, account_id: String) -> Result<String> {
+    pub async fn create(&self, account_id: String, tags: Vec<String>, config_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

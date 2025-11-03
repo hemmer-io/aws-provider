@@ -21,7 +21,7 @@ impl<'a> Phone_number_order<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, product_type: String, e164_phone_numbers: Vec<String>, name: Option<String>) -> Result<String> {
+    pub async fn create(&self, name: Option<String>, product_type: String, e164_phone_numbers: Vec<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

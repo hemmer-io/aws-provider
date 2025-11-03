@@ -38,7 +38,7 @@ impl<'a> Image_set_metadata<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, force: Option<bool>, latest_version_id: Option<String>, update_image_set_metadata_updates: Option<String>, datastore_id: Option<String>, image_set_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, update_image_set_metadata_updates: Option<String>, datastore_id: Option<String>, force: Option<bool>, image_set_id: Option<String>, latest_version_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

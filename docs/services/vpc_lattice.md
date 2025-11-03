@@ -28,18 +28,18 @@ AuthPolicy resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `resource_identifier` | String | ✅ | <p>The ID or ARN of the service network or service for which the policy is created.</p> |
 | `policy` | String | ✅ | <p>The auth policy. The policy string in JSON must not contain newlines or blank lines.</p> |
+| `resource_identifier` | String | ✅ | <p>The ID or ARN of the service network or service for which the policy is created.</p> |
 
 
 #### Outputs
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `last_updated_at` | String | <p>The date and time that the auth policy was last updated, in ISO-8601 format.</p> |
-| `state` | String | <p>The state of the auth policy. The auth policy is only active when the auth type is set to <code>AWS_IAM</code>. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is <code>NONE</code>, then any auth policy that you provide remains inactive. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service network</a> in the <i>Amazon VPC Lattice User Guide</i>.</p> |
 | `policy` | String | <p>The auth policy.</p> |
+| `state` | String | <p>The state of the auth policy. The auth policy is only active when the auth type is set to <code>AWS_IAM</code>. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is <code>NONE</code>, then any auth policy that you provide remains inactive. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service network</a> in the <i>Amazon VPC Lattice User Guide</i>.</p> |
 | `created_at` | String | <p>The date and time that the auth policy was created, in ISO-8601 format.</p> |
+| `last_updated_at` | String | <p>The date and time that the auth policy was last updated, in ISO-8601 format.</p> |
 
 
 #### Usage Example
@@ -55,16 +55,16 @@ provider = aws.AwsProvider {
 
 # Create auth_policy
 auth_policy = provider.vpc_lattice.Auth_policy {
-    resource_identifier = "value"  # <p>The ID or ARN of the service network or service for which the policy is created.</p>
     policy = "value"  # <p>The auth policy. The policy string in JSON must not contain newlines or blank lines.</p>
+    resource_identifier = "value"  # <p>The ID or ARN of the service network or service for which the policy is created.</p>
 }
 
 # Access auth_policy outputs
 auth_policy_id = auth_policy.id
-auth_policy_last_updated_at = auth_policy.last_updated_at
-auth_policy_state = auth_policy.state
 auth_policy_policy = auth_policy.policy
+auth_policy_state = auth_policy.state
 auth_policy_created_at = auth_policy.created_at
+auth_policy_last_updated_at = auth_policy.last_updated_at
 ```
 
 ---
@@ -130,16 +130,16 @@ provider = aws.AwsProvider {
 
 # Create multiple auth_policy resources
 auth_policy_0 = provider.vpc_lattice.Auth_policy {
-    resource_identifier = "value-0"
     policy = "value-0"
+    resource_identifier = "value-0"
 }
 auth_policy_1 = provider.vpc_lattice.Auth_policy {
-    resource_identifier = "value-1"
     policy = "value-1"
+    resource_identifier = "value-1"
 }
 auth_policy_2 = provider.vpc_lattice.Auth_policy {
-    resource_identifier = "value-2"
     policy = "value-2"
+    resource_identifier = "value-2"
 }
 ```
 
@@ -149,8 +149,8 @@ auth_policy_2 = provider.vpc_lattice.Auth_policy {
 # Only create in production
 if environment == "production":
     auth_policy = provider.vpc_lattice.Auth_policy {
-        resource_identifier = "production-value"
         policy = "production-value"
+        resource_identifier = "production-value"
     }
 ```
 

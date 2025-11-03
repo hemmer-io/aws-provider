@@ -24,7 +24,7 @@ impl<'a> Recovery_point_index_settings<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, iam_role_arn: Option<String>, backup_vault_name: Option<String>, index: Option<String>, recovery_point_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, recovery_point_arn: Option<String>, index: Option<String>, backup_vault_name: Option<String>, iam_role_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

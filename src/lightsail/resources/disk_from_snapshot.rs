@@ -21,7 +21,7 @@ impl<'a> Disk_from_snapshot<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, disk_name: String, restore_date: Option<String>, tags: Option<Vec<String>>, size_in_gb: i64, availability_zone: String, source_disk_name: Option<String>, disk_snapshot_name: Option<String>, add_ons: Option<Vec<String>>, use_latest_restorable_auto_snapshot: Option<bool>) -> Result<String> {
+    pub async fn create(&self, availability_zone: String, source_disk_name: Option<String>, disk_snapshot_name: Option<String>, size_in_gb: i64, add_ons: Option<Vec<String>>, restore_date: Option<String>, disk_name: String, tags: Option<Vec<String>>, use_latest_restorable_auto_snapshot: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

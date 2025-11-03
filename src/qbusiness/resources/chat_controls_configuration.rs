@@ -38,7 +38,7 @@ impl<'a> Chat_controls_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, application_id: Option<String>, creator_mode_configuration: Option<String>, client_token: Option<String>, blocked_phrases_configuration_update: Option<String>, topic_configurations_to_create_or_update: Option<Vec<String>>, topic_configurations_to_delete: Option<Vec<String>>, hallucination_reduction_configuration: Option<String>, orchestration_configuration: Option<String>, response_scope: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, topic_configurations_to_delete: Option<Vec<String>>, application_id: Option<String>, blocked_phrases_configuration_update: Option<String>, hallucination_reduction_configuration: Option<String>, creator_mode_configuration: Option<String>, topic_configurations_to_create_or_update: Option<Vec<String>>, client_token: Option<String>, orchestration_configuration: Option<String>, response_scope: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

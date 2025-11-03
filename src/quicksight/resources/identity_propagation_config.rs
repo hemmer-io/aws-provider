@@ -24,7 +24,7 @@ impl<'a> Identity_propagation_config<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, authorized_targets: Option<Vec<String>>, aws_account_id: Option<String>, service: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, aws_account_id: Option<String>, authorized_targets: Option<Vec<String>>, service: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

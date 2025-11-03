@@ -21,7 +21,7 @@ impl<'a> Model_explainability_job_definition<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, job_definition_name: String, network_config: Option<String>, model_explainability_job_input: String, model_explainability_baseline_config: Option<String>, tags: Option<Vec<String>>, model_explainability_app_specification: String, stopping_condition: Option<String>, job_resources: String, role_arn: String, model_explainability_job_output_config: String) -> Result<String> {
+    pub async fn create(&self, job_resources: String, stopping_condition: Option<String>, model_explainability_baseline_config: Option<String>, model_explainability_job_output_config: String, job_definition_name: String, tags: Option<Vec<String>>, model_explainability_app_specification: String, model_explainability_job_input: String, network_config: Option<String>, role_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

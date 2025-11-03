@@ -38,7 +38,7 @@ impl<'a> Maintenance_window_task<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, targets: Option<Vec<String>>, priority: Option<i64>, window_id: Option<String>, alarm_configuration: Option<String>, service_role_arn: Option<String>, replace: Option<bool>, max_errors: Option<String>, logging_info: Option<String>, task_arn: Option<String>, task_parameters: Option<HashMap<String, String>>, window_task_id: Option<String>, task_invocation_parameters: Option<String>, max_concurrency: Option<String>, name: Option<String>, description: Option<String>, cutoff_behavior: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, targets: Option<Vec<String>>, priority: Option<i64>, cutoff_behavior: Option<String>, task_invocation_parameters: Option<String>, window_id: Option<String>, task_parameters: Option<HashMap<String, String>>, name: Option<String>, logging_info: Option<String>, task_arn: Option<String>, alarm_configuration: Option<String>, window_task_id: Option<String>, max_errors: Option<String>, service_role_arn: Option<String>, description: Option<String>, max_concurrency: Option<String>, replace: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

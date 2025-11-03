@@ -141,10 +141,10 @@ impl<'a> Sagemaker_featurestore_runtimeService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let feature_group_name = input.get_string("feature_group_name")?;
             let target_stores = input.get_optional_string("target_stores")?;
-            let ttl_duration = input.get_optional_string("ttl_duration")?;
             let record = input.get_string("record")?;
+            let ttl_duration = input.get_optional_string("ttl_duration")?;
+            let feature_group_name = input.get_string("feature_group_name")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -159,10 +159,10 @@ impl<'a> Sagemaker_featurestore_runtimeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("feature_group_name", feature_group_name.unwrap_or_default())
                 .with_field("target_stores", target_stores.unwrap_or_default())
-                .with_field("ttl_duration", ttl_duration.unwrap_or_default())
                 .with_field("record", record.unwrap_or_default())
+                .with_field("ttl_duration", ttl_duration.unwrap_or_default())
+                .with_field("feature_group_name", feature_group_name.unwrap_or_default())
             )
         })
     }
@@ -196,10 +196,10 @@ impl<'a> Sagemaker_featurestore_runtimeService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let feature_group_name = input.get_string("feature_group_name")?;
             let target_stores = input.get_optional_string("target_stores")?;
-            let ttl_duration = input.get_optional_string("ttl_duration")?;
             let record = input.get_string("record")?;
+            let ttl_duration = input.get_optional_string("ttl_duration")?;
+            let feature_group_name = input.get_string("feature_group_name")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -215,10 +215,10 @@ impl<'a> Sagemaker_featurestore_runtimeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("feature_group_name", feature_group_name.unwrap_or_default())
                 .with_field("target_stores", target_stores.unwrap_or_default())
-                .with_field("ttl_duration", ttl_duration.unwrap_or_default())
                 .with_field("record", record.unwrap_or_default())
+                .with_field("ttl_duration", ttl_duration.unwrap_or_default())
+                .with_field("feature_group_name", feature_group_name.unwrap_or_default())
             )
         })
     }

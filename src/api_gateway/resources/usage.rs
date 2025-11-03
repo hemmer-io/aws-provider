@@ -38,7 +38,7 @@ impl<'a> Usage<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, key_id: Option<String>, patch_operations: Option<Vec<String>>, usage_plan_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, usage_plan_id: Option<String>, key_id: Option<String>, patch_operations: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

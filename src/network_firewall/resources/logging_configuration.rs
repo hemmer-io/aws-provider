@@ -38,7 +38,7 @@ impl<'a> Logging_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, firewall_arn: Option<String>, firewall_name: Option<String>, logging_configuration: Option<String>, enable_monitoring_dashboard: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, firewall_arn: Option<String>, firewall_name: Option<String>, enable_monitoring_dashboard: Option<bool>, logging_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Environment_blueprint<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, user_parameters: Option<Vec<String>>, description: Option<String>, domain_identifier: String, provisioning_properties: String, name: String) -> Result<String> {
+    pub async fn create(&self, name: String, domain_identifier: String, provisioning_properties: String, description: Option<String>, user_parameters: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Environment_blueprint<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, user_parameters: Option<Vec<String>>, description: Option<String>, domain_identifier: Option<String>, provisioning_properties: Option<String>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, name: Option<String>, domain_identifier: Option<String>, provisioning_properties: Option<String>, description: Option<String>, user_parameters: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

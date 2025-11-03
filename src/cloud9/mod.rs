@@ -27,9 +27,6 @@ impl<'a> Cloud9Service<'a> {
             "environments" => {
                 self.plan_environments(current_state, desired_input).await
             }
-            "environment_status" => {
-                self.plan_environment_status(current_state, desired_input).await
-            }
             "environment" => {
                 self.plan_environment(current_state, desired_input).await
             }
@@ -41,6 +38,9 @@ impl<'a> Cloud9Service<'a> {
             }
             "environment_membership" => {
                 self.plan_environment_membership(current_state, desired_input).await
+            }
+            "environment_status" => {
+                self.plan_environment_status(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -60,9 +60,6 @@ impl<'a> Cloud9Service<'a> {
             "environments" => {
                 self.create_environments(input).await
             }
-            "environment_status" => {
-                self.create_environment_status(input).await
-            }
             "environment" => {
                 self.create_environment(input).await
             }
@@ -74,6 +71,9 @@ impl<'a> Cloud9Service<'a> {
             }
             "environment_membership" => {
                 self.create_environment_membership(input).await
+            }
+            "environment_status" => {
+                self.create_environment_status(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -93,9 +93,6 @@ impl<'a> Cloud9Service<'a> {
             "environments" => {
                 self.read_environments(id).await
             }
-            "environment_status" => {
-                self.read_environment_status(id).await
-            }
             "environment" => {
                 self.read_environment(id).await
             }
@@ -107,6 +104,9 @@ impl<'a> Cloud9Service<'a> {
             }
             "environment_membership" => {
                 self.read_environment_membership(id).await
+            }
+            "environment_status" => {
+                self.read_environment_status(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -127,9 +127,6 @@ impl<'a> Cloud9Service<'a> {
             "environments" => {
                 self.update_environments(id, input).await
             }
-            "environment_status" => {
-                self.update_environment_status(id, input).await
-            }
             "environment" => {
                 self.update_environment(id, input).await
             }
@@ -141,6 +138,9 @@ impl<'a> Cloud9Service<'a> {
             }
             "environment_membership" => {
                 self.update_environment_membership(id, input).await
+            }
+            "environment_status" => {
+                self.update_environment_status(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -160,9 +160,6 @@ impl<'a> Cloud9Service<'a> {
             "environments" => {
                 self.delete_environments(id).await
             }
-            "environment_status" => {
-                self.delete_environment_status(id).await
-            }
             "environment" => {
                 self.delete_environment(id).await
             }
@@ -174,6 +171,9 @@ impl<'a> Cloud9Service<'a> {
             }
             "environment_membership" => {
                 self.delete_environment_membership(id).await
+            }
+            "environment_status" => {
+                self.delete_environment_status(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -303,120 +303,6 @@ impl<'a> Cloud9Service<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Environment_status resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a environment_status resource
-    async fn plan_environment_status(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new environment_status resource
-    async fn create_environment_status(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.cloud9_client
-            //     .create_environment_status()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a environment_status resource
-    async fn read_environment_status(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.cloud9_client
-            //     .describe_environment_status()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a environment_status resource
-    async fn update_environment_status(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.cloud9_client
-            //     .update_environment_status()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a environment_status resource
-    async fn delete_environment_status(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.cloud9_client
-            //     .delete_environment_status()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
     // Environment resource operations
     // ------------------------------------------------------------------------
 
@@ -445,8 +331,8 @@ impl<'a> Cloud9Service<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
             let name = input.get_optional_string("name")?;
-            let managed_credentials_action = input.get_optional_string("managed_credentials_action")?;
             let environment_id = input.get_string("environment_id")?;
+            let managed_credentials_action = input.get_optional_string("managed_credentials_action")?;
             let description = input.get_optional_string("description")?;
 
 
@@ -463,8 +349,8 @@ impl<'a> Cloud9Service<'a> {
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
                 .with_field("name", name.unwrap_or_default())
-                .with_field("managed_credentials_action", managed_credentials_action.unwrap_or_default())
                 .with_field("environment_id", environment_id.unwrap_or_default())
+                .with_field("managed_credentials_action", managed_credentials_action.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
             )
         })
@@ -500,8 +386,8 @@ impl<'a> Cloud9Service<'a> {
         self.provider.runtime().block_on(async {
             // Extract input fields
             let name = input.get_optional_string("name")?;
-            let managed_credentials_action = input.get_optional_string("managed_credentials_action")?;
             let environment_id = input.get_string("environment_id")?;
+            let managed_credentials_action = input.get_optional_string("managed_credentials_action")?;
             let description = input.get_optional_string("description")?;
 
 
@@ -519,8 +405,8 @@ impl<'a> Cloud9Service<'a> {
             Ok(ResourceOutput::new()
                 .with_id(id)
                 .with_field("name", name.unwrap_or_default())
-                .with_field("managed_credentials_action", managed_credentials_action.unwrap_or_default())
                 .with_field("environment_id", environment_id.unwrap_or_default())
+                .with_field("managed_credentials_action", managed_credentials_action.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
             )
         })
@@ -688,17 +574,17 @@ impl<'a> Cloud9Service<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let instance_type = input.get_string("instance_type")?;
-            let connection_type = input.get_optional_string("connection_type")?;
-            let dry_run = input.get_optional_string("dry_run")?;
-            let automatic_stop_time_minutes = input.get_optional_string("automatic_stop_time_minutes")?;
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let description = input.get_optional_string("description")?;
-            let name = input.get_string("name")?;
-            let subnet_id = input.get_optional_string("subnet_id")?;
-            let owner_arn = input.get_optional_string("owner_arn")?;
-            let tags = input.get_optional_string("tags")?;
             let image_id = input.get_string("image_id")?;
+            let automatic_stop_time_minutes = input.get_optional_string("automatic_stop_time_minutes")?;
+            let tags = input.get_optional_string("tags")?;
+            let connection_type = input.get_optional_string("connection_type")?;
+            let owner_arn = input.get_optional_string("owner_arn")?;
+            let name = input.get_string("name")?;
+            let client_request_token = input.get_optional_string("client_request_token")?;
+            let instance_type = input.get_string("instance_type")?;
+            let subnet_id = input.get_optional_string("subnet_id")?;
+            let dry_run = input.get_optional_string("dry_run")?;
+            let description = input.get_optional_string("description")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -713,17 +599,17 @@ impl<'a> Cloud9Service<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("instance_type", instance_type.unwrap_or_default())
-                .with_field("connection_type", connection_type.unwrap_or_default())
-                .with_field("dry_run", dry_run.unwrap_or_default())
-                .with_field("automatic_stop_time_minutes", automatic_stop_time_minutes.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("subnet_id", subnet_id.unwrap_or_default())
-                .with_field("owner_arn", owner_arn.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("image_id", image_id.unwrap_or_default())
+                .with_field("automatic_stop_time_minutes", automatic_stop_time_minutes.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("connection_type", connection_type.unwrap_or_default())
+                .with_field("owner_arn", owner_arn.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("instance_type", instance_type.unwrap_or_default())
+                .with_field("subnet_id", subnet_id.unwrap_or_default())
+                .with_field("dry_run", dry_run.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
             )
         })
     }
@@ -757,17 +643,17 @@ impl<'a> Cloud9Service<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let instance_type = input.get_string("instance_type")?;
-            let connection_type = input.get_optional_string("connection_type")?;
-            let dry_run = input.get_optional_string("dry_run")?;
-            let automatic_stop_time_minutes = input.get_optional_string("automatic_stop_time_minutes")?;
-            let client_request_token = input.get_optional_string("client_request_token")?;
-            let description = input.get_optional_string("description")?;
-            let name = input.get_string("name")?;
-            let subnet_id = input.get_optional_string("subnet_id")?;
-            let owner_arn = input.get_optional_string("owner_arn")?;
-            let tags = input.get_optional_string("tags")?;
             let image_id = input.get_string("image_id")?;
+            let automatic_stop_time_minutes = input.get_optional_string("automatic_stop_time_minutes")?;
+            let tags = input.get_optional_string("tags")?;
+            let connection_type = input.get_optional_string("connection_type")?;
+            let owner_arn = input.get_optional_string("owner_arn")?;
+            let name = input.get_string("name")?;
+            let client_request_token = input.get_optional_string("client_request_token")?;
+            let instance_type = input.get_string("instance_type")?;
+            let subnet_id = input.get_optional_string("subnet_id")?;
+            let dry_run = input.get_optional_string("dry_run")?;
+            let description = input.get_optional_string("description")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -783,17 +669,17 @@ impl<'a> Cloud9Service<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("instance_type", instance_type.unwrap_or_default())
-                .with_field("connection_type", connection_type.unwrap_or_default())
-                .with_field("dry_run", dry_run.unwrap_or_default())
-                .with_field("automatic_stop_time_minutes", automatic_stop_time_minutes.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("subnet_id", subnet_id.unwrap_or_default())
-                .with_field("owner_arn", owner_arn.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("image_id", image_id.unwrap_or_default())
+                .with_field("automatic_stop_time_minutes", automatic_stop_time_minutes.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("connection_type", connection_type.unwrap_or_default())
+                .with_field("owner_arn", owner_arn.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("instance_type", instance_type.unwrap_or_default())
+                .with_field("subnet_id", subnet_id.unwrap_or_default())
+                .with_field("dry_run", dry_run.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
             )
         })
     }
@@ -934,6 +820,120 @@ impl<'a> Cloud9Service<'a> {
             // Example:
             // self.provider.cloud9_client
             //     .delete_environment_membership()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Environment_status resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a environment_status resource
+    async fn plan_environment_status(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new environment_status resource
+    async fn create_environment_status(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.cloud9_client
+            //     .create_environment_status()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a environment_status resource
+    async fn read_environment_status(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.cloud9_client
+            //     .describe_environment_status()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a environment_status resource
+    async fn update_environment_status(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.cloud9_client
+            //     .update_environment_status()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a environment_status resource
+    async fn delete_environment_status(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.cloud9_client
+            //     .delete_environment_status()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

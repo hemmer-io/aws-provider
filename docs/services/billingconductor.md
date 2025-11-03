@@ -33,8 +33,8 @@ BillingGroupCostReport resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `billing_group_cost_report_results` | Vec<String> | <p>The list of margin summary reports.</p> |
 | `next_token` | String | <p>The pagination token used on subsequent calls to get reports.</p> |
+| `billing_group_cost_report_results` | Vec<String> | <p>The list of margin summary reports.</p> |
 
 
 #### Usage Example
@@ -50,8 +50,8 @@ provider = aws.AwsProvider {
 
 # Access billing_group_cost_report outputs
 billing_group_cost_report_id = billing_group_cost_report.id
-billing_group_cost_report_billing_group_cost_report_results = billing_group_cost_report.billing_group_cost_report_results
 billing_group_cost_report_next_token = billing_group_cost_report.next_token
+billing_group_cost_report_billing_group_cost_report_results = billing_group_cost_report.billing_group_cost_report_results
 ```
 
 ---

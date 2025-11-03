@@ -27,14 +27,14 @@ impl<'a> ConnectparticipantService<'a> {
             "authentication_url" => {
                 self.plan_authentication_url(current_state, desired_input).await
             }
+            "participant_connection" => {
+                self.plan_participant_connection(current_state, desired_input).await
+            }
             "transcript" => {
                 self.plan_transcript(current_state, desired_input).await
             }
             "view" => {
                 self.plan_view(current_state, desired_input).await
-            }
-            "participant_connection" => {
-                self.plan_participant_connection(current_state, desired_input).await
             }
             "attachment" => {
                 self.plan_attachment(current_state, desired_input).await
@@ -57,14 +57,14 @@ impl<'a> ConnectparticipantService<'a> {
             "authentication_url" => {
                 self.create_authentication_url(input).await
             }
+            "participant_connection" => {
+                self.create_participant_connection(input).await
+            }
             "transcript" => {
                 self.create_transcript(input).await
             }
             "view" => {
                 self.create_view(input).await
-            }
-            "participant_connection" => {
-                self.create_participant_connection(input).await
             }
             "attachment" => {
                 self.create_attachment(input).await
@@ -87,14 +87,14 @@ impl<'a> ConnectparticipantService<'a> {
             "authentication_url" => {
                 self.read_authentication_url(id).await
             }
+            "participant_connection" => {
+                self.read_participant_connection(id).await
+            }
             "transcript" => {
                 self.read_transcript(id).await
             }
             "view" => {
                 self.read_view(id).await
-            }
-            "participant_connection" => {
-                self.read_participant_connection(id).await
             }
             "attachment" => {
                 self.read_attachment(id).await
@@ -118,14 +118,14 @@ impl<'a> ConnectparticipantService<'a> {
             "authentication_url" => {
                 self.update_authentication_url(id, input).await
             }
+            "participant_connection" => {
+                self.update_participant_connection(id, input).await
+            }
             "transcript" => {
                 self.update_transcript(id, input).await
             }
             "view" => {
                 self.update_view(id, input).await
-            }
-            "participant_connection" => {
-                self.update_participant_connection(id, input).await
             }
             "attachment" => {
                 self.update_attachment(id, input).await
@@ -148,14 +148,14 @@ impl<'a> ConnectparticipantService<'a> {
             "authentication_url" => {
                 self.delete_authentication_url(id).await
             }
+            "participant_connection" => {
+                self.delete_participant_connection(id).await
+            }
             "transcript" => {
                 self.delete_transcript(id).await
             }
             "view" => {
                 self.delete_view(id).await
-            }
-            "participant_connection" => {
-                self.delete_participant_connection(id).await
             }
             "attachment" => {
                 self.delete_attachment(id).await
@@ -277,6 +277,132 @@ impl<'a> ConnectparticipantService<'a> {
             // Example:
             // self.provider.connectparticipant_client
             //     .delete_authentication_url()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Participant_connection resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a participant_connection resource
+    async fn plan_participant_connection(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new participant_connection resource
+    async fn create_participant_connection(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let participant_token = input.get_string("participant_token")?;
+            let connect_participant = input.get_optional_string("connect_participant")?;
+            let r#type = input.get_optional_string("type")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.connectparticipant_client
+            //     .create_participant_connection()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("participant_token", participant_token.unwrap_or_default())
+                .with_field("connect_participant", connect_participant.unwrap_or_default())
+                .with_field("type", r#type.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a participant_connection resource
+    async fn read_participant_connection(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.connectparticipant_client
+            //     .describe_participant_connection()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a participant_connection resource
+    async fn update_participant_connection(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let participant_token = input.get_string("participant_token")?;
+            let connect_participant = input.get_optional_string("connect_participant")?;
+            let r#type = input.get_optional_string("type")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.connectparticipant_client
+            //     .update_participant_connection()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("participant_token", participant_token.unwrap_or_default())
+                .with_field("connect_participant", connect_participant.unwrap_or_default())
+                .with_field("type", r#type.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a participant_connection resource
+    async fn delete_participant_connection(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.connectparticipant_client
+            //     .delete_participant_connection()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -505,132 +631,6 @@ impl<'a> ConnectparticipantService<'a> {
             // Example:
             // self.provider.connectparticipant_client
             //     .delete_view()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Participant_connection resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a participant_connection resource
-    async fn plan_participant_connection(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new participant_connection resource
-    async fn create_participant_connection(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let r#type = input.get_optional_string("type")?;
-            let connect_participant = input.get_optional_string("connect_participant")?;
-            let participant_token = input.get_string("participant_token")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.connectparticipant_client
-            //     .create_participant_connection()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("type", r#type.unwrap_or_default())
-                .with_field("connect_participant", connect_participant.unwrap_or_default())
-                .with_field("participant_token", participant_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a participant_connection resource
-    async fn read_participant_connection(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.connectparticipant_client
-            //     .describe_participant_connection()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a participant_connection resource
-    async fn update_participant_connection(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let r#type = input.get_optional_string("type")?;
-            let connect_participant = input.get_optional_string("connect_participant")?;
-            let participant_token = input.get_string("participant_token")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.connectparticipant_client
-            //     .update_participant_connection()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("type", r#type.unwrap_or_default())
-                .with_field("connect_participant", connect_participant.unwrap_or_default())
-                .with_field("participant_token", participant_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a participant_connection resource
-    async fn delete_participant_connection(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.connectparticipant_client
-            //     .delete_participant_connection()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

@@ -21,7 +21,7 @@ impl<'a> Api_key<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, generate_distinct_id: Option<bool>, value: Option<String>, stage_keys: Option<Vec<String>>, name: Option<String>, enabled: Option<bool>, description: Option<String>, customer_id: Option<String>, tags: Option<String>) -> Result<String> {
+    pub async fn create(&self, name: Option<String>, enabled: Option<bool>, stage_keys: Option<Vec<String>>, tags: Option<String>, value: Option<String>, generate_distinct_id: Option<bool>, customer_id: Option<String>, description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Api_key<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, generate_distinct_id: Option<bool>, value: Option<String>, stage_keys: Option<Vec<String>>, name: Option<String>, enabled: Option<bool>, description: Option<String>, customer_id: Option<String>, tags: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, name: Option<String>, enabled: Option<bool>, stage_keys: Option<Vec<String>>, tags: Option<String>, value: Option<String>, generate_distinct_id: Option<bool>, customer_id: Option<String>, description: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

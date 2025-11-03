@@ -21,7 +21,7 @@ impl<'a> Product<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, support_url: Option<String>, support_email: Option<String>, provisioning_artifact_parameters: Option<String>, support_description: Option<String>, distributor: Option<String>, accept_language: Option<String>, tags: Option<Vec<String>>, product_type: String, source_connection: Option<String>, description: Option<String>, owner: String, name: String, idempotency_token: String) -> Result<String> {
+    pub async fn create(&self, support_email: Option<String>, distributor: Option<String>, accept_language: Option<String>, product_type: String, provisioning_artifact_parameters: Option<String>, tags: Option<Vec<String>>, source_connection: Option<String>, idempotency_token: String, owner: String, support_description: Option<String>, name: String, support_url: Option<String>, description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Product<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, support_url: Option<String>, support_email: Option<String>, provisioning_artifact_parameters: Option<String>, support_description: Option<String>, distributor: Option<String>, accept_language: Option<String>, tags: Option<Vec<String>>, product_type: Option<String>, source_connection: Option<String>, description: Option<String>, owner: Option<String>, name: Option<String>, idempotency_token: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, support_email: Option<String>, distributor: Option<String>, accept_language: Option<String>, product_type: Option<String>, provisioning_artifact_parameters: Option<String>, tags: Option<Vec<String>>, source_connection: Option<String>, idempotency_token: Option<String>, owner: Option<String>, support_description: Option<String>, name: Option<String>, support_url: Option<String>, description: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

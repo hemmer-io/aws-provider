@@ -21,7 +21,7 @@ impl<'a> Event_subscription<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, enabled: Option<bool>, source_ids: Option<Vec<String>>, subscription_name: String, source_type: Option<String>, sns_topic_arn: String, event_categories: Option<Vec<String>>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, event_categories: Option<Vec<String>>, source_ids: Option<Vec<String>>, tags: Option<Vec<String>>, enabled: Option<bool>, source_type: Option<String>, subscription_name: String, sns_topic_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

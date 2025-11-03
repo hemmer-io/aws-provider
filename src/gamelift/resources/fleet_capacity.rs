@@ -38,7 +38,7 @@ impl<'a> Fleet_capacity<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, max_size: Option<i64>, fleet_id: Option<String>, location: Option<String>, min_size: Option<i64>, desired_instances: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, desired_instances: Option<i64>, max_size: Option<i64>, location: Option<String>, min_size: Option<i64>, fleet_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -27,17 +27,17 @@ Preferences resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `management_account_rate_type_selections` | Vec<String> |  | <p> The updated preferred rate types for the management account. </p> |
 | `member_account_rate_type_selections` | Vec<String> |  | <p> The updated preferred rate types for member accounts. </p> |
 | `standalone_account_rate_type_selections` | Vec<String> |  | <p> The updated preferred rate types for a standalone account. </p> |
+| `management_account_rate_type_selections` | Vec<String> |  | <p> The updated preferred rate types for the management account. </p> |
 
 
 #### Outputs
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `management_account_rate_type_selections` | Vec<String> | <p> The preferred rate types for the management account. </p> |
 | `standalone_account_rate_type_selections` | Vec<String> | <p> The preferred rate types for a standalone account. </p> |
+| `management_account_rate_type_selections` | Vec<String> | <p> The preferred rate types for the management account. </p> |
 | `member_account_rate_type_selections` | Vec<String> | <p> The preferred rate types for member accounts. </p> |
 
 
@@ -54,8 +54,8 @@ provider = aws.AwsProvider {
 
 # Access preferences outputs
 preferences_id = preferences.id
-preferences_management_account_rate_type_selections = preferences.management_account_rate_type_selections
 preferences_standalone_account_rate_type_selections = preferences.standalone_account_rate_type_selections
+preferences_management_account_rate_type_selections = preferences.management_account_rate_type_selections
 preferences_member_account_rate_type_selections = preferences.member_account_rate_type_selections
 ```
 

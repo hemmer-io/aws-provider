@@ -11,8 +11,8 @@
 The dynamodb_streams service provides access to 3 resource types:
 
 - [Records](#records) [R]
-- [Stream](#stream) [R]
 - [Shard_iterator](#shard_iterator) [R]
+- [Stream](#stream) [R]
 
 ---
 
@@ -35,10 +35,10 @@ Records resource
 
 | Output | Type | Description |
 |--------|------|-------------|
+| `records` | Vec<String> | <p>The stream records from the shard, which were retrieved using the shard iterator.</p> |
 | `next_shard_iterator` | String | <p>The next position in the shard from which to start sequentially reading stream records. If
       set to <code>null</code>, the shard has been closed and the requested iterator will not return
       any more data.</p> |
-| `records` | Vec<String> | <p>The stream records from the shard, which were retrieved using the shard iterator.</p> |
 
 
 #### Usage Example
@@ -54,46 +54,8 @@ provider = aws.AwsProvider {
 
 # Access records outputs
 records_id = records.id
-records_next_shard_iterator = records.next_shard_iterator
 records_records = records.records
-```
-
----
-
-
-### Stream
-
-Stream resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `stream_description` | String | <p>A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access stream outputs
-stream_id = stream.id
-stream_stream_description = stream.stream_description
+records_next_shard_iterator = records.next_shard_iterator
 ```
 
 ---
@@ -132,6 +94,44 @@ provider = aws.AwsProvider {
 # Access shard_iterator outputs
 shard_iterator_id = shard_iterator.id
 shard_iterator_shard_iterator = shard_iterator.shard_iterator
+```
+
+---
+
+
+### Stream
+
+Stream resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `stream_description` | String | <p>A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access stream outputs
+stream_id = stream.id
+stream_stream_description = stream.stream_description
 ```
 
 ---

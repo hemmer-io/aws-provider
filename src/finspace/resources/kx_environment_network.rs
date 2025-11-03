@@ -24,7 +24,7 @@ impl<'a> Kx_environment_network<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, environment_id: Option<String>, transit_gateway_configuration: Option<String>, custom_dns_configuration: Option<Vec<String>>, client_token: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, custom_dns_configuration: Option<Vec<String>>, environment_id: Option<String>, client_token: Option<String>, transit_gateway_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

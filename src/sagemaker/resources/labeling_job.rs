@@ -21,7 +21,7 @@ impl<'a> Labeling_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, labeling_job_name: String, output_config: String, labeling_job_algorithms_config: Option<String>, label_category_config_s3_uri: Option<String>, tags: Option<Vec<String>>, human_task_config: String, label_attribute_name: String, input_config: String, role_arn: String, stopping_conditions: Option<String>) -> Result<String> {
+    pub async fn create(&self, role_arn: String, labeling_job_algorithms_config: Option<String>, label_attribute_name: String, label_category_config_s3_uri: Option<String>, stopping_conditions: Option<String>, human_task_config: String, tags: Option<Vec<String>>, labeling_job_name: String, output_config: String, input_config: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

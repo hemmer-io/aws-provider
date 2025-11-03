@@ -21,7 +21,7 @@ impl<'a> Endpoint_group<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, port_overrides: Option<Vec<String>>, traffic_dial_percentage: Option<String>, health_check_port: Option<i64>, endpoint_configurations: Option<Vec<String>>, endpoint_group_region: String, listener_arn: String, health_check_interval_seconds: Option<i64>, health_check_protocol: Option<String>, threshold_count: Option<i64>, idempotency_token: String, health_check_path: Option<String>) -> Result<String> {
+    pub async fn create(&self, health_check_path: Option<String>, threshold_count: Option<i64>, health_check_protocol: Option<String>, idempotency_token: String, endpoint_group_region: String, port_overrides: Option<Vec<String>>, traffic_dial_percentage: Option<String>, listener_arn: String, health_check_interval_seconds: Option<i64>, endpoint_configurations: Option<Vec<String>>, health_check_port: Option<i64>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Endpoint_group<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, port_overrides: Option<Vec<String>>, traffic_dial_percentage: Option<String>, health_check_port: Option<i64>, endpoint_configurations: Option<Vec<String>>, endpoint_group_region: Option<String>, listener_arn: Option<String>, health_check_interval_seconds: Option<i64>, health_check_protocol: Option<String>, threshold_count: Option<i64>, idempotency_token: Option<String>, health_check_path: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, health_check_path: Option<String>, threshold_count: Option<i64>, health_check_protocol: Option<String>, idempotency_token: Option<String>, endpoint_group_region: Option<String>, port_overrides: Option<Vec<String>>, traffic_dial_percentage: Option<String>, listener_arn: Option<String>, health_check_interval_seconds: Option<i64>, endpoint_configurations: Option<Vec<String>>, health_check_port: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

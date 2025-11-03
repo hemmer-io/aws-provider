@@ -24,7 +24,7 @@ impl<'a> Application_component_config<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, secrets_manager_key: Option<String>, strategy_option: Option<String>, configure_only: Option<bool>, app_type: Option<String>, application_component_id: Option<String>, inclusion_status: Option<String>, source_code_list: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, secrets_manager_key: Option<String>, inclusion_status: Option<String>, source_code_list: Option<Vec<String>>, configure_only: Option<bool>, strategy_option: Option<String>, app_type: Option<String>, application_component_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

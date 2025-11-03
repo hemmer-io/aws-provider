@@ -24,7 +24,7 @@ impl<'a> Application_maintenance_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, application_maintenance_configuration_update: Option<String>, application_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, application_name: Option<String>, application_maintenance_configuration_update: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

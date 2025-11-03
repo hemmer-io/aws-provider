@@ -21,7 +21,7 @@ impl<'a> Email_address<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, email_address: String, client_token: Option<String>, description: Option<String>, display_name: Option<String>, instance_id: String, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, display_name: Option<String>, description: Option<String>, instance_id: String, tags: Option<HashMap<String, String>>, client_token: Option<String>, email_address: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

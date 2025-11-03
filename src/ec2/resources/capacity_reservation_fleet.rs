@@ -21,7 +21,7 @@ impl<'a> Capacity_reservation_fleet<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, allocation_strategy: Option<String>, client_token: Option<String>, tenancy: Option<String>, instance_match_criteria: Option<String>, tag_specifications: Option<Vec<String>>, dry_run: Option<bool>, end_date: Option<String>, total_target_capacity: i64, instance_type_specifications: Vec<String>) -> Result<String> {
+    pub async fn create(&self, client_token: Option<String>, tenancy: Option<String>, allocation_strategy: Option<String>, end_date: Option<String>, total_target_capacity: i64, instance_match_criteria: Option<String>, dry_run: Option<bool>, instance_type_specifications: Vec<String>, tag_specifications: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

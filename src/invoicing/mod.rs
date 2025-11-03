@@ -141,12 +141,12 @@ impl<'a> InvoicingService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let invoice_receiver = input.get_string("invoice_receiver")?;
+            let rule = input.get_string("rule")?;
             let name = input.get_string("name")?;
             let resource_tags = input.get_optional_string("resource_tags")?;
-            let tax_inheritance_disabled = input.get_optional_string("tax_inheritance_disabled")?;
-            let rule = input.get_string("rule")?;
+            let invoice_receiver = input.get_string("invoice_receiver")?;
             let description = input.get_optional_string("description")?;
+            let tax_inheritance_disabled = input.get_optional_string("tax_inheritance_disabled")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -161,12 +161,12 @@ impl<'a> InvoicingService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("invoice_receiver", invoice_receiver.unwrap_or_default())
+                .with_field("rule", rule.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
                 .with_field("resource_tags", resource_tags.unwrap_or_default())
-                .with_field("tax_inheritance_disabled", tax_inheritance_disabled.unwrap_or_default())
-                .with_field("rule", rule.unwrap_or_default())
+                .with_field("invoice_receiver", invoice_receiver.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
+                .with_field("tax_inheritance_disabled", tax_inheritance_disabled.unwrap_or_default())
             )
         })
     }
@@ -200,12 +200,12 @@ impl<'a> InvoicingService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let invoice_receiver = input.get_string("invoice_receiver")?;
+            let rule = input.get_string("rule")?;
             let name = input.get_string("name")?;
             let resource_tags = input.get_optional_string("resource_tags")?;
-            let tax_inheritance_disabled = input.get_optional_string("tax_inheritance_disabled")?;
-            let rule = input.get_string("rule")?;
+            let invoice_receiver = input.get_string("invoice_receiver")?;
             let description = input.get_optional_string("description")?;
+            let tax_inheritance_disabled = input.get_optional_string("tax_inheritance_disabled")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -221,12 +221,12 @@ impl<'a> InvoicingService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("invoice_receiver", invoice_receiver.unwrap_or_default())
+                .with_field("rule", rule.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
                 .with_field("resource_tags", resource_tags.unwrap_or_default())
-                .with_field("tax_inheritance_disabled", tax_inheritance_disabled.unwrap_or_default())
-                .with_field("rule", rule.unwrap_or_default())
+                .with_field("invoice_receiver", invoice_receiver.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
+                .with_field("tax_inheritance_disabled", tax_inheritance_disabled.unwrap_or_default())
             )
         })
     }

@@ -21,7 +21,7 @@ impl<'a> Workteam<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, notification_configuration: Option<String>, workteam_name: String, tags: Option<Vec<String>>, workforce_name: Option<String>, member_definitions: Vec<String>, description: String, worker_access_configuration: Option<String>) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, workforce_name: Option<String>, description: String, workteam_name: String, member_definitions: Vec<String>, notification_configuration: Option<String>, worker_access_configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Workteam<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, notification_configuration: Option<String>, workteam_name: Option<String>, tags: Option<Vec<String>>, workforce_name: Option<String>, member_definitions: Option<Vec<String>>, description: Option<String>, worker_access_configuration: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, workforce_name: Option<String>, description: Option<String>, workteam_name: Option<String>, member_definitions: Option<Vec<String>>, notification_configuration: Option<String>, worker_access_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

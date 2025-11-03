@@ -24,7 +24,7 @@ impl<'a> Cluster_software<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, instance_groups: Option<Vec<String>>, image_id: Option<String>, deployment_config: Option<String>, cluster_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, instance_groups: Option<Vec<String>>, image_id: Option<String>, cluster_name: Option<String>, deployment_config: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

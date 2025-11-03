@@ -21,7 +21,7 @@ impl<'a> Anonymous_web_experience_url<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, application_id: String, web_experience_id: String, session_duration_in_minutes: Option<i64>) -> Result<String> {
+    pub async fn create(&self, session_duration_in_minutes: Option<i64>, application_id: String, web_experience_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

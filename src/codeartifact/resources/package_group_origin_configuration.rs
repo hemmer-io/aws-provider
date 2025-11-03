@@ -24,7 +24,7 @@ impl<'a> Package_group_origin_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, domain: Option<String>, package_group: Option<String>, domain_owner: Option<String>, restrictions: Option<HashMap<String, String>>, add_allowed_repositories: Option<Vec<String>>, remove_allowed_repositories: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, restrictions: Option<HashMap<String, String>>, add_allowed_repositories: Option<Vec<String>>, domain_owner: Option<String>, remove_allowed_repositories: Option<Vec<String>>, domain: Option<String>, package_group: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

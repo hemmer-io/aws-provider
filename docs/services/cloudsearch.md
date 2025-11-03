@@ -10,19 +10,19 @@
 
 The cloudsearch service provides access to 14 resource types:
 
-- [Expressions](#expressions) [R]
-- [Index_field](#index_field) [D]
-- [Scaling_parameters](#scaling_parameters) [RU]
-- [Suggester](#suggester) [D]
-- [Domains](#domains) [R]
-- [Analysis_schemes](#analysis_schemes) [R]
-- [Index_fields](#index_fields) [R]
-- [Service_access_policies](#service_access_policies) [RU]
-- [Suggesters](#suggesters) [R]
 - [Domain](#domain) [CD]
-- [Expression](#expression) [D]
-- [Analysis_scheme](#analysis_scheme) [D]
+- [Scaling_parameters](#scaling_parameters) [RU]
+- [Service_access_policies](#service_access_policies) [RU]
+- [Analysis_schemes](#analysis_schemes) [R]
 - [Domain_endpoint_options](#domain_endpoint_options) [RU]
+- [Expressions](#expressions) [R]
+- [Suggester](#suggester) [D]
+- [Index_fields](#index_fields) [R]
+- [Domains](#domains) [R]
+- [Analysis_scheme](#analysis_scheme) [D]
+- [Index_field](#index_field) [D]
+- [Expression](#expression) [D]
+- [Suggesters](#suggesters) [R]
 - [Availability_options](#availability_options) [RU]
 
 ---
@@ -30,23 +30,18 @@ The cloudsearch service provides access to 14 resource types:
 ## Resources
 
 
-### Expressions
+### Domain
 
-Expressions resource
+Domain resource
 
-**Operations**: ✅ Read
+**Operations**: ✅ Create ✅ Delete
 
 #### Fields
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
+| `domain_name` | String | ✅ | <p>A name for the domain you are creating. Allowed characters are a-z (lower-case letters), 0-9, and hyphen (-). Domain names must start with a letter or number and be at least 3 and no more than 28 characters long.</p> |
 
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `expressions` | Vec<String> | <p>The expressions configured for the domain.</p> |
 
 
 #### Usage Example
@@ -60,36 +55,9 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Access expressions outputs
-expressions_id = expressions.id
-expressions_expressions = expressions.expressions
-```
-
----
-
-
-### Index_field
-
-IndexField resource
-
-**Operations**: ✅ Delete
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
+# Create domain
+domain = provider.cloudsearch.Domain {
+    domain_name = "value"  # <p>A name for the domain you are creating. Allowed characters are a-z (lower-case letters), 0-9, and hyphen (-). Domain names must start with a letter or number and be at least 3 and no more than 28 characters long.</p>
 }
 
 ```
@@ -107,8 +75,8 @@ ScalingParameters resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `scaling_parameters` | String | ✅ |  |
 | `domain_name` | String | ✅ |  |
+| `scaling_parameters` | String | ✅ |  |
 
 
 #### Outputs
@@ -132,149 +100,6 @@ provider = aws.AwsProvider {
 # Access scaling_parameters outputs
 scaling_parameters_id = scaling_parameters.id
 scaling_parameters_scaling_parameters = scaling_parameters.scaling_parameters
-```
-
----
-
-
-### Suggester
-
-Suggester resource
-
-**Operations**: ✅ Delete
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-```
-
----
-
-
-### Domains
-
-Domains resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `domain_status_list` | Vec<String> |  |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access domains outputs
-domains_id = domains.id
-domains_domain_status_list = domains.domain_status_list
-```
-
----
-
-
-### Analysis_schemes
-
-AnalysisSchemes resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `analysis_schemes` | Vec<String> | <p>The analysis scheme descriptions.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access analysis_schemes outputs
-analysis_schemes_id = analysis_schemes.id
-analysis_schemes_analysis_schemes = analysis_schemes.analysis_schemes
-```
-
----
-
-
-### Index_fields
-
-IndexFields resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `index_fields` | Vec<String> | <p>The index fields configured for the domain.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access index_fields outputs
-index_fields_id = index_fields.id
-index_fields_index_fields = index_fields.index_fields
 ```
 
 ---
@@ -320,9 +145,9 @@ service_access_policies_access_policies = service_access_policies.access_policie
 ---
 
 
-### Suggesters
+### Analysis_schemes
 
-Suggesters resource
+AnalysisSchemes resource
 
 **Operations**: ✅ Read
 
@@ -336,7 +161,7 @@ Suggesters resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `suggesters` | Vec<String> | <p>The suggesters configured for the domain specified in the request.</p> |
+| `analysis_schemes` | Vec<String> | <p>The analysis scheme descriptions.</p> |
 
 
 #### Usage Example
@@ -350,25 +175,102 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Access suggesters outputs
-suggesters_id = suggesters.id
-suggesters_suggesters = suggesters.suggesters
+# Access analysis_schemes outputs
+analysis_schemes_id = analysis_schemes.id
+analysis_schemes_analysis_schemes = analysis_schemes.analysis_schemes
 ```
 
 ---
 
 
-### Domain
+### Domain_endpoint_options
 
-Domain resource
+DomainEndpointOptions resource
 
-**Operations**: ✅ Create ✅ Delete
+**Operations**: ✅ Read ✅ Update
 
 #### Fields
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `domain_name` | String | ✅ | <p>A name for the domain you are creating. Allowed characters are a-z (lower-case letters), 0-9, and hyphen (-). Domain names must start with a letter or number and be at least 3 and no more than 28 characters long.</p> |
+| `domain_name` | String | ✅ | <p>A string that represents the name of a domain.</p> |
+| `domain_endpoint_options` | String | ✅ | <p>Whether to require that all requests to the domain arrive over HTTPS. We recommend Policy-Min-TLS-1-2-2019-07 for TLSSecurityPolicy. For compatibility with older clients, the default is Policy-Min-TLS-1-0-2019-07. </p> |
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `domain_endpoint_options` | String | <p>The status and configuration of a search domain's endpoint options.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access domain_endpoint_options outputs
+domain_endpoint_options_id = domain_endpoint_options.id
+domain_endpoint_options_domain_endpoint_options = domain_endpoint_options.domain_endpoint_options
+```
+
+---
+
+
+### Expressions
+
+Expressions resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `expressions` | Vec<String> | <p>The expressions configured for the domain.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access expressions outputs
+expressions_id = expressions.id
+expressions_expressions = expressions.expressions
+```
+
+---
+
+
+### Suggester
+
+Suggester resource
+
+**Operations**: ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
 
 
 
@@ -383,9 +285,138 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create domain
-domain = provider.cloudsearch.Domain {
-    domain_name = "value"  # <p>A name for the domain you are creating. Allowed characters are a-z (lower-case letters), 0-9, and hyphen (-). Domain names must start with a letter or number and be at least 3 and no more than 28 characters long.</p>
+```
+
+---
+
+
+### Index_fields
+
+IndexFields resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `index_fields` | Vec<String> | <p>The index fields configured for the domain.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access index_fields outputs
+index_fields_id = index_fields.id
+index_fields_index_fields = index_fields.index_fields
+```
+
+---
+
+
+### Domains
+
+Domains resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `domain_status_list` | Vec<String> |  |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access domains outputs
+domains_id = domains.id
+domains_domain_status_list = domains.domain_status_list
+```
+
+---
+
+
+### Analysis_scheme
+
+AnalysisScheme resource
+
+**Operations**: ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+```
+
+---
+
+
+### Index_field
+
+IndexField resource
+
+**Operations**: ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
 }
 
 ```
@@ -422,54 +453,23 @@ provider = aws.AwsProvider {
 ---
 
 
-### Analysis_scheme
+### Suggesters
 
-AnalysisScheme resource
+Suggesters resource
 
-**Operations**: ✅ Delete
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-```
-
----
-
-
-### Domain_endpoint_options
-
-DomainEndpointOptions resource
-
-**Operations**: ✅ Read ✅ Update
+**Operations**: ✅ Read
 
 #### Fields
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `domain_endpoint_options` | String | ✅ | <p>Whether to require that all requests to the domain arrive over HTTPS. We recommend Policy-Min-TLS-1-2-2019-07 for TLSSecurityPolicy. For compatibility with older clients, the default is Policy-Min-TLS-1-0-2019-07. </p> |
-| `domain_name` | String | ✅ | <p>A string that represents the name of a domain.</p> |
 
 
 #### Outputs
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `domain_endpoint_options` | String | <p>The status and configuration of a search domain's endpoint options.</p> |
+| `suggesters` | Vec<String> | <p>The suggesters configured for the domain specified in the request.</p> |
 
 
 #### Usage Example
@@ -483,9 +483,9 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Access domain_endpoint_options outputs
-domain_endpoint_options_id = domain_endpoint_options.id
-domain_endpoint_options_domain_endpoint_options = domain_endpoint_options.domain_endpoint_options
+# Access suggesters outputs
+suggesters_id = suggesters.id
+suggesters_suggesters = suggesters.suggesters
 ```
 
 ---
@@ -543,12 +543,15 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create multiple expressions resources
-expressions_0 = provider.cloudsearch.Expressions {
+# Create multiple domain resources
+domain_0 = provider.cloudsearch.Domain {
+    domain_name = "value-0"
 }
-expressions_1 = provider.cloudsearch.Expressions {
+domain_1 = provider.cloudsearch.Domain {
+    domain_name = "value-1"
 }
-expressions_2 = provider.cloudsearch.Expressions {
+domain_2 = provider.cloudsearch.Domain {
+    domain_name = "value-2"
 }
 ```
 
@@ -557,7 +560,8 @@ expressions_2 = provider.cloudsearch.Expressions {
 ```kcl
 # Only create in production
 if environment == "production":
-    expressions = provider.cloudsearch.Expressions {
+    domain = provider.cloudsearch.Domain {
+        domain_name = "production-value"
     }
 ```
 

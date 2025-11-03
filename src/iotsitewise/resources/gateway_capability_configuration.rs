@@ -38,7 +38,7 @@ impl<'a> Gateway_capability_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, capability_namespace: Option<String>, capability_configuration: Option<String>, gateway_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, capability_configuration: Option<String>, gateway_id: Option<String>, capability_namespace: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

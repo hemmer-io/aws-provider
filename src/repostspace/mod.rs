@@ -156,9 +156,9 @@ impl<'a> RepostspaceService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let space_id = input.get_string("space_id")?;
-            let channel_description = input.get_optional_string("channel_description")?;
             let channel_name = input.get_string("channel_name")?;
+            let channel_description = input.get_optional_string("channel_description")?;
+            let space_id = input.get_string("space_id")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -173,9 +173,9 @@ impl<'a> RepostspaceService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("space_id", space_id.unwrap_or_default())
-                .with_field("channel_description", channel_description.unwrap_or_default())
                 .with_field("channel_name", channel_name.unwrap_or_default())
+                .with_field("channel_description", channel_description.unwrap_or_default())
+                .with_field("space_id", space_id.unwrap_or_default())
             )
         })
     }
@@ -209,9 +209,9 @@ impl<'a> RepostspaceService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let space_id = input.get_string("space_id")?;
-            let channel_description = input.get_optional_string("channel_description")?;
             let channel_name = input.get_string("channel_name")?;
+            let channel_description = input.get_optional_string("channel_description")?;
+            let space_id = input.get_string("space_id")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -227,9 +227,9 @@ impl<'a> RepostspaceService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("space_id", space_id.unwrap_or_default())
-                .with_field("channel_description", channel_description.unwrap_or_default())
                 .with_field("channel_name", channel_name.unwrap_or_default())
+                .with_field("channel_description", channel_description.unwrap_or_default())
+                .with_field("space_id", space_id.unwrap_or_default())
             )
         })
     }
@@ -282,14 +282,14 @@ impl<'a> RepostspaceService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let user_kms_key = input.get_optional_string("user_kms_key")?;
-            let tier = input.get_string("tier")?;
-            let role_arn = input.get_optional_string("role_arn")?;
             let subdomain = input.get_string("subdomain")?;
-            let description = input.get_optional_string("description")?;
-            let tags = input.get_optional_string("tags")?;
-            let name = input.get_string("name")?;
+            let role_arn = input.get_optional_string("role_arn")?;
             let supported_email_domains = input.get_optional_string("supported_email_domains")?;
+            let description = input.get_optional_string("description")?;
+            let name = input.get_string("name")?;
+            let tier = input.get_string("tier")?;
+            let user_kms_key = input.get_optional_string("user_kms_key")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -304,14 +304,14 @@ impl<'a> RepostspaceService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("user_kms_key", user_kms_key.unwrap_or_default())
-                .with_field("tier", tier.unwrap_or_default())
-                .with_field("role_arn", role_arn.unwrap_or_default())
                 .with_field("subdomain", subdomain.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
+                .with_field("role_arn", role_arn.unwrap_or_default())
                 .with_field("supported_email_domains", supported_email_domains.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("tier", tier.unwrap_or_default())
+                .with_field("user_kms_key", user_kms_key.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
@@ -345,14 +345,14 @@ impl<'a> RepostspaceService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let user_kms_key = input.get_optional_string("user_kms_key")?;
-            let tier = input.get_string("tier")?;
-            let role_arn = input.get_optional_string("role_arn")?;
             let subdomain = input.get_string("subdomain")?;
-            let description = input.get_optional_string("description")?;
-            let tags = input.get_optional_string("tags")?;
-            let name = input.get_string("name")?;
+            let role_arn = input.get_optional_string("role_arn")?;
             let supported_email_domains = input.get_optional_string("supported_email_domains")?;
+            let description = input.get_optional_string("description")?;
+            let name = input.get_string("name")?;
+            let tier = input.get_string("tier")?;
+            let user_kms_key = input.get_optional_string("user_kms_key")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -368,14 +368,14 @@ impl<'a> RepostspaceService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("user_kms_key", user_kms_key.unwrap_or_default())
-                .with_field("tier", tier.unwrap_or_default())
-                .with_field("role_arn", role_arn.unwrap_or_default())
                 .with_field("subdomain", subdomain.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
+                .with_field("role_arn", role_arn.unwrap_or_default())
                 .with_field("supported_email_domains", supported_email_domains.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("tier", tier.unwrap_or_default())
+                .with_field("user_kms_key", user_kms_key.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }

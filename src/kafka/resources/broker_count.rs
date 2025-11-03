@@ -24,7 +24,7 @@ impl<'a> Broker_count<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, target_number_of_broker_nodes: Option<i64>, cluster_arn: Option<String>, current_version: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, current_version: Option<String>, target_number_of_broker_nodes: Option<i64>, cluster_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

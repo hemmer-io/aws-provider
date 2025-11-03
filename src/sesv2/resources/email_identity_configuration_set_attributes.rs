@@ -21,7 +21,7 @@ impl<'a> Email_identity_configuration_set_attributes<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, email_identity: String, configuration_set_name: Option<String>) -> Result<String> {
+    pub async fn create(&self, configuration_set_name: Option<String>, email_identity: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

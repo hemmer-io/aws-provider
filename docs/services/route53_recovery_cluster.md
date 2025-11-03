@@ -41,9 +41,9 @@ RoutingControlState resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `routing_control_arn` | String | <p>The Amazon Resource Name (ARN) of the response.</p> |
 | `routing_control_state` | String | <p>The state of the routing control.</p> |
 | `routing_control_name` | String | <p>The routing control name.</p> |
+| `routing_control_arn` | String | <p>The Amazon Resource Name (ARN) of the response.</p> |
 
 
 #### Usage Example
@@ -59,9 +59,9 @@ provider = aws.AwsProvider {
 
 # Access routing_control_state outputs
 routing_control_state_id = routing_control_state.id
-routing_control_state_routing_control_arn = routing_control_state.routing_control_arn
 routing_control_state_routing_control_state = routing_control_state.routing_control_state
 routing_control_state_routing_control_name = routing_control_state.routing_control_name
+routing_control_state_routing_control_arn = routing_control_state.routing_control_arn
 ```
 
 ---
@@ -77,12 +77,12 @@ RoutingControlStates resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `update_routing_control_state_entries` | Vec<String> | ✅ | <p>A set of routing control entries that you want to update.</p> |
 | `safety_rules_to_override` | Vec<String> |  | <p>The Amazon Resource Names (ARNs) for the safety rules that you want to override when you're updating routing
 			control states. You can override one safety rule or multiple safety rules by including one or more ARNs, separated 
 			by commas.</p>
          <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
 			Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p> |
+| `update_routing_control_state_entries` | Vec<String> | ✅ | <p>A set of routing control entries that you want to update.</p> |
 
 
 

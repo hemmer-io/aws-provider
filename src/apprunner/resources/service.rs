@@ -21,7 +21,7 @@ impl<'a> Service<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, health_check_configuration: Option<String>, service_name: String, source_configuration: String, tags: Option<Vec<String>>, observability_configuration: Option<String>, instance_configuration: Option<String>, encryption_configuration: Option<String>, auto_scaling_configuration_arn: Option<String>, network_configuration: Option<String>) -> Result<String> {
+    pub async fn create(&self, auto_scaling_configuration_arn: Option<String>, encryption_configuration: Option<String>, instance_configuration: Option<String>, tags: Option<Vec<String>>, health_check_configuration: Option<String>, network_configuration: Option<String>, service_name: String, observability_configuration: Option<String>, source_configuration: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Service<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, health_check_configuration: Option<String>, service_name: Option<String>, source_configuration: Option<String>, tags: Option<Vec<String>>, observability_configuration: Option<String>, instance_configuration: Option<String>, encryption_configuration: Option<String>, auto_scaling_configuration_arn: Option<String>, network_configuration: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, auto_scaling_configuration_arn: Option<String>, encryption_configuration: Option<String>, instance_configuration: Option<String>, tags: Option<Vec<String>>, health_check_configuration: Option<String>, network_configuration: Option<String>, service_name: Option<String>, observability_configuration: Option<String>, source_configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

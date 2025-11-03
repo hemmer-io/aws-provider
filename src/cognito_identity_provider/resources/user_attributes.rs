@@ -24,7 +24,7 @@ impl<'a> User_attributes<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, client_metadata: Option<HashMap<String, String>>, user_attributes: Option<Vec<String>>, access_token: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, access_token: Option<String>, user_attributes: Option<Vec<String>>, client_metadata: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

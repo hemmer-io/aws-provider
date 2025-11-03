@@ -21,7 +21,7 @@ impl<'a> Snapshot<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, snapshot_name: String, cluster_name: String, kms_key_id: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, snapshot_name: String, tags: Option<Vec<String>>, cluster_name: String, kms_key_id: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

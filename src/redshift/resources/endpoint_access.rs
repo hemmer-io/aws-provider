@@ -21,7 +21,7 @@ impl<'a> Endpoint_access<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, endpoint_name: String, subnet_group_name: String, cluster_identifier: Option<String>, resource_owner: Option<String>, vpc_security_group_ids: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, cluster_identifier: Option<String>, endpoint_name: String, subnet_group_name: String, vpc_security_group_ids: Option<Vec<String>>, resource_owner: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

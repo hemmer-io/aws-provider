@@ -24,50 +24,11 @@ impl<'a> WellarchitectedService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "lens_share" => {
-                self.plan_lens_share(current_state, desired_input).await
-            }
-            "lens" => {
-                self.plan_lens(current_state, desired_input).await
-            }
-            "lens_review_report" => {
-                self.plan_lens_review_report(current_state, desired_input).await
-            }
-            "review_template" => {
-                self.plan_review_template(current_state, desired_input).await
-            }
-            "share_invitation" => {
-                self.plan_share_invitation(current_state, desired_input).await
-            }
-            "review_template_lens_review" => {
-                self.plan_review_template_lens_review(current_state, desired_input).await
-            }
-            "integration" => {
-                self.plan_integration(current_state, desired_input).await
+            "profile_template" => {
+                self.plan_profile_template(current_state, desired_input).await
             }
             "lens_version" => {
                 self.plan_lens_version(current_state, desired_input).await
-            }
-            "workload" => {
-                self.plan_workload(current_state, desired_input).await
-            }
-            "consolidated_report" => {
-                self.plan_consolidated_report(current_state, desired_input).await
-            }
-            "review_template_answer" => {
-                self.plan_review_template_answer(current_state, desired_input).await
-            }
-            "profile_share" => {
-                self.plan_profile_share(current_state, desired_input).await
-            }
-            "profile" => {
-                self.plan_profile(current_state, desired_input).await
-            }
-            "workload_share" => {
-                self.plan_workload_share(current_state, desired_input).await
-            }
-            "template_share" => {
-                self.plan_template_share(current_state, desired_input).await
             }
             "milestone" => {
                 self.plan_milestone(current_state, desired_input).await
@@ -75,17 +36,56 @@ impl<'a> WellarchitectedService<'a> {
             "answer" => {
                 self.plan_answer(current_state, desired_input).await
             }
-            "lens_review" => {
-                self.plan_lens_review(current_state, desired_input).await
+            "review_template_answer" => {
+                self.plan_review_template_answer(current_state, desired_input).await
+            }
+            "consolidated_report" => {
+                self.plan_consolidated_report(current_state, desired_input).await
+            }
+            "lens_review_report" => {
+                self.plan_lens_review_report(current_state, desired_input).await
+            }
+            "review_template_lens_review" => {
+                self.plan_review_template_lens_review(current_state, desired_input).await
+            }
+            "lens_share" => {
+                self.plan_lens_share(current_state, desired_input).await
+            }
+            "lens" => {
+                self.plan_lens(current_state, desired_input).await
+            }
+            "workload" => {
+                self.plan_workload(current_state, desired_input).await
             }
             "lens_version_difference" => {
                 self.plan_lens_version_difference(current_state, desired_input).await
             }
-            "profile_template" => {
-                self.plan_profile_template(current_state, desired_input).await
+            "share_invitation" => {
+                self.plan_share_invitation(current_state, desired_input).await
+            }
+            "template_share" => {
+                self.plan_template_share(current_state, desired_input).await
+            }
+            "integration" => {
+                self.plan_integration(current_state, desired_input).await
+            }
+            "lens_review" => {
+                self.plan_lens_review(current_state, desired_input).await
+            }
+            "profile" => {
+                self.plan_profile(current_state, desired_input).await
+            }
+            "review_template" => {
+                self.plan_review_template(current_state, desired_input).await
+            }
+            "workload_share" => {
+                self.plan_workload_share(current_state, desired_input).await
             }
             "global_settings" => {
                 self.plan_global_settings(current_state, desired_input).await
+            }
+            "profile_share" => {
+                self.plan_profile_share(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -102,50 +102,11 @@ impl<'a> WellarchitectedService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "lens_share" => {
-                self.create_lens_share(input).await
-            }
-            "lens" => {
-                self.create_lens(input).await
-            }
-            "lens_review_report" => {
-                self.create_lens_review_report(input).await
-            }
-            "review_template" => {
-                self.create_review_template(input).await
-            }
-            "share_invitation" => {
-                self.create_share_invitation(input).await
-            }
-            "review_template_lens_review" => {
-                self.create_review_template_lens_review(input).await
-            }
-            "integration" => {
-                self.create_integration(input).await
+            "profile_template" => {
+                self.create_profile_template(input).await
             }
             "lens_version" => {
                 self.create_lens_version(input).await
-            }
-            "workload" => {
-                self.create_workload(input).await
-            }
-            "consolidated_report" => {
-                self.create_consolidated_report(input).await
-            }
-            "review_template_answer" => {
-                self.create_review_template_answer(input).await
-            }
-            "profile_share" => {
-                self.create_profile_share(input).await
-            }
-            "profile" => {
-                self.create_profile(input).await
-            }
-            "workload_share" => {
-                self.create_workload_share(input).await
-            }
-            "template_share" => {
-                self.create_template_share(input).await
             }
             "milestone" => {
                 self.create_milestone(input).await
@@ -153,17 +114,56 @@ impl<'a> WellarchitectedService<'a> {
             "answer" => {
                 self.create_answer(input).await
             }
-            "lens_review" => {
-                self.create_lens_review(input).await
+            "review_template_answer" => {
+                self.create_review_template_answer(input).await
+            }
+            "consolidated_report" => {
+                self.create_consolidated_report(input).await
+            }
+            "lens_review_report" => {
+                self.create_lens_review_report(input).await
+            }
+            "review_template_lens_review" => {
+                self.create_review_template_lens_review(input).await
+            }
+            "lens_share" => {
+                self.create_lens_share(input).await
+            }
+            "lens" => {
+                self.create_lens(input).await
+            }
+            "workload" => {
+                self.create_workload(input).await
             }
             "lens_version_difference" => {
                 self.create_lens_version_difference(input).await
             }
-            "profile_template" => {
-                self.create_profile_template(input).await
+            "share_invitation" => {
+                self.create_share_invitation(input).await
+            }
+            "template_share" => {
+                self.create_template_share(input).await
+            }
+            "integration" => {
+                self.create_integration(input).await
+            }
+            "lens_review" => {
+                self.create_lens_review(input).await
+            }
+            "profile" => {
+                self.create_profile(input).await
+            }
+            "review_template" => {
+                self.create_review_template(input).await
+            }
+            "workload_share" => {
+                self.create_workload_share(input).await
             }
             "global_settings" => {
                 self.create_global_settings(input).await
+            }
+            "profile_share" => {
+                self.create_profile_share(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -180,50 +180,11 @@ impl<'a> WellarchitectedService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "lens_share" => {
-                self.read_lens_share(id).await
-            }
-            "lens" => {
-                self.read_lens(id).await
-            }
-            "lens_review_report" => {
-                self.read_lens_review_report(id).await
-            }
-            "review_template" => {
-                self.read_review_template(id).await
-            }
-            "share_invitation" => {
-                self.read_share_invitation(id).await
-            }
-            "review_template_lens_review" => {
-                self.read_review_template_lens_review(id).await
-            }
-            "integration" => {
-                self.read_integration(id).await
+            "profile_template" => {
+                self.read_profile_template(id).await
             }
             "lens_version" => {
                 self.read_lens_version(id).await
-            }
-            "workload" => {
-                self.read_workload(id).await
-            }
-            "consolidated_report" => {
-                self.read_consolidated_report(id).await
-            }
-            "review_template_answer" => {
-                self.read_review_template_answer(id).await
-            }
-            "profile_share" => {
-                self.read_profile_share(id).await
-            }
-            "profile" => {
-                self.read_profile(id).await
-            }
-            "workload_share" => {
-                self.read_workload_share(id).await
-            }
-            "template_share" => {
-                self.read_template_share(id).await
             }
             "milestone" => {
                 self.read_milestone(id).await
@@ -231,17 +192,56 @@ impl<'a> WellarchitectedService<'a> {
             "answer" => {
                 self.read_answer(id).await
             }
-            "lens_review" => {
-                self.read_lens_review(id).await
+            "review_template_answer" => {
+                self.read_review_template_answer(id).await
+            }
+            "consolidated_report" => {
+                self.read_consolidated_report(id).await
+            }
+            "lens_review_report" => {
+                self.read_lens_review_report(id).await
+            }
+            "review_template_lens_review" => {
+                self.read_review_template_lens_review(id).await
+            }
+            "lens_share" => {
+                self.read_lens_share(id).await
+            }
+            "lens" => {
+                self.read_lens(id).await
+            }
+            "workload" => {
+                self.read_workload(id).await
             }
             "lens_version_difference" => {
                 self.read_lens_version_difference(id).await
             }
-            "profile_template" => {
-                self.read_profile_template(id).await
+            "share_invitation" => {
+                self.read_share_invitation(id).await
+            }
+            "template_share" => {
+                self.read_template_share(id).await
+            }
+            "integration" => {
+                self.read_integration(id).await
+            }
+            "lens_review" => {
+                self.read_lens_review(id).await
+            }
+            "profile" => {
+                self.read_profile(id).await
+            }
+            "review_template" => {
+                self.read_review_template(id).await
+            }
+            "workload_share" => {
+                self.read_workload_share(id).await
             }
             "global_settings" => {
                 self.read_global_settings(id).await
+            }
+            "profile_share" => {
+                self.read_profile_share(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -259,50 +259,11 @@ impl<'a> WellarchitectedService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "lens_share" => {
-                self.update_lens_share(id, input).await
-            }
-            "lens" => {
-                self.update_lens(id, input).await
-            }
-            "lens_review_report" => {
-                self.update_lens_review_report(id, input).await
-            }
-            "review_template" => {
-                self.update_review_template(id, input).await
-            }
-            "share_invitation" => {
-                self.update_share_invitation(id, input).await
-            }
-            "review_template_lens_review" => {
-                self.update_review_template_lens_review(id, input).await
-            }
-            "integration" => {
-                self.update_integration(id, input).await
+            "profile_template" => {
+                self.update_profile_template(id, input).await
             }
             "lens_version" => {
                 self.update_lens_version(id, input).await
-            }
-            "workload" => {
-                self.update_workload(id, input).await
-            }
-            "consolidated_report" => {
-                self.update_consolidated_report(id, input).await
-            }
-            "review_template_answer" => {
-                self.update_review_template_answer(id, input).await
-            }
-            "profile_share" => {
-                self.update_profile_share(id, input).await
-            }
-            "profile" => {
-                self.update_profile(id, input).await
-            }
-            "workload_share" => {
-                self.update_workload_share(id, input).await
-            }
-            "template_share" => {
-                self.update_template_share(id, input).await
             }
             "milestone" => {
                 self.update_milestone(id, input).await
@@ -310,17 +271,56 @@ impl<'a> WellarchitectedService<'a> {
             "answer" => {
                 self.update_answer(id, input).await
             }
-            "lens_review" => {
-                self.update_lens_review(id, input).await
+            "review_template_answer" => {
+                self.update_review_template_answer(id, input).await
+            }
+            "consolidated_report" => {
+                self.update_consolidated_report(id, input).await
+            }
+            "lens_review_report" => {
+                self.update_lens_review_report(id, input).await
+            }
+            "review_template_lens_review" => {
+                self.update_review_template_lens_review(id, input).await
+            }
+            "lens_share" => {
+                self.update_lens_share(id, input).await
+            }
+            "lens" => {
+                self.update_lens(id, input).await
+            }
+            "workload" => {
+                self.update_workload(id, input).await
             }
             "lens_version_difference" => {
                 self.update_lens_version_difference(id, input).await
             }
-            "profile_template" => {
-                self.update_profile_template(id, input).await
+            "share_invitation" => {
+                self.update_share_invitation(id, input).await
+            }
+            "template_share" => {
+                self.update_template_share(id, input).await
+            }
+            "integration" => {
+                self.update_integration(id, input).await
+            }
+            "lens_review" => {
+                self.update_lens_review(id, input).await
+            }
+            "profile" => {
+                self.update_profile(id, input).await
+            }
+            "review_template" => {
+                self.update_review_template(id, input).await
+            }
+            "workload_share" => {
+                self.update_workload_share(id, input).await
             }
             "global_settings" => {
                 self.update_global_settings(id, input).await
+            }
+            "profile_share" => {
+                self.update_profile_share(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -337,50 +337,11 @@ impl<'a> WellarchitectedService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "lens_share" => {
-                self.delete_lens_share(id).await
-            }
-            "lens" => {
-                self.delete_lens(id).await
-            }
-            "lens_review_report" => {
-                self.delete_lens_review_report(id).await
-            }
-            "review_template" => {
-                self.delete_review_template(id).await
-            }
-            "share_invitation" => {
-                self.delete_share_invitation(id).await
-            }
-            "review_template_lens_review" => {
-                self.delete_review_template_lens_review(id).await
-            }
-            "integration" => {
-                self.delete_integration(id).await
+            "profile_template" => {
+                self.delete_profile_template(id).await
             }
             "lens_version" => {
                 self.delete_lens_version(id).await
-            }
-            "workload" => {
-                self.delete_workload(id).await
-            }
-            "consolidated_report" => {
-                self.delete_consolidated_report(id).await
-            }
-            "review_template_answer" => {
-                self.delete_review_template_answer(id).await
-            }
-            "profile_share" => {
-                self.delete_profile_share(id).await
-            }
-            "profile" => {
-                self.delete_profile(id).await
-            }
-            "workload_share" => {
-                self.delete_workload_share(id).await
-            }
-            "template_share" => {
-                self.delete_template_share(id).await
             }
             "milestone" => {
                 self.delete_milestone(id).await
@@ -388,17 +349,56 @@ impl<'a> WellarchitectedService<'a> {
             "answer" => {
                 self.delete_answer(id).await
             }
-            "lens_review" => {
-                self.delete_lens_review(id).await
+            "review_template_answer" => {
+                self.delete_review_template_answer(id).await
+            }
+            "consolidated_report" => {
+                self.delete_consolidated_report(id).await
+            }
+            "lens_review_report" => {
+                self.delete_lens_review_report(id).await
+            }
+            "review_template_lens_review" => {
+                self.delete_review_template_lens_review(id).await
+            }
+            "lens_share" => {
+                self.delete_lens_share(id).await
+            }
+            "lens" => {
+                self.delete_lens(id).await
+            }
+            "workload" => {
+                self.delete_workload(id).await
             }
             "lens_version_difference" => {
                 self.delete_lens_version_difference(id).await
             }
-            "profile_template" => {
-                self.delete_profile_template(id).await
+            "share_invitation" => {
+                self.delete_share_invitation(id).await
+            }
+            "template_share" => {
+                self.delete_template_share(id).await
+            }
+            "integration" => {
+                self.delete_integration(id).await
+            }
+            "lens_review" => {
+                self.delete_lens_review(id).await
+            }
+            "profile" => {
+                self.delete_profile(id).await
+            }
+            "review_template" => {
+                self.delete_review_template(id).await
+            }
+            "workload_share" => {
+                self.delete_workload_share(id).await
             }
             "global_settings" => {
                 self.delete_global_settings(id).await
+            }
+            "profile_share" => {
+                self.delete_profile_share(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -411,6 +411,1026 @@ impl<'a> WellarchitectedService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
+
+    // ------------------------------------------------------------------------
+    // Profile_template resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a profile_template resource
+    async fn plan_profile_template(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new profile_template resource
+    async fn create_profile_template(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .create_profile_template()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a profile_template resource
+    async fn read_profile_template(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .describe_profile_template()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a profile_template resource
+    async fn update_profile_template(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .update_profile_template()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a profile_template resource
+    async fn delete_profile_template(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.wellarchitected_client
+            //     .delete_profile_template()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Lens_version resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a lens_version resource
+    async fn plan_lens_version(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new lens_version resource
+    async fn create_lens_version(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let lens_version = input.get_string("lens_version")?;
+            let client_request_token = input.get_string("client_request_token")?;
+            let lens_alias = input.get_string("lens_alias")?;
+            let is_major_version = input.get_optional_string("is_major_version")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .create_lens_version()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("lens_version", lens_version.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("lens_alias", lens_alias.unwrap_or_default())
+                .with_field("is_major_version", is_major_version.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a lens_version resource
+    async fn read_lens_version(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .describe_lens_version()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a lens_version resource
+    async fn update_lens_version(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let lens_version = input.get_string("lens_version")?;
+            let client_request_token = input.get_string("client_request_token")?;
+            let lens_alias = input.get_string("lens_alias")?;
+            let is_major_version = input.get_optional_string("is_major_version")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .update_lens_version()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("lens_version", lens_version.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("lens_alias", lens_alias.unwrap_or_default())
+                .with_field("is_major_version", is_major_version.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a lens_version resource
+    async fn delete_lens_version(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.wellarchitected_client
+            //     .delete_lens_version()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Milestone resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a milestone resource
+    async fn plan_milestone(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new milestone resource
+    async fn create_milestone(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let workload_id = input.get_string("workload_id")?;
+            let milestone_name = input.get_string("milestone_name")?;
+            let client_request_token = input.get_string("client_request_token")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .create_milestone()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("workload_id", workload_id.unwrap_or_default())
+                .with_field("milestone_name", milestone_name.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a milestone resource
+    async fn read_milestone(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .describe_milestone()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a milestone resource
+    async fn update_milestone(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let workload_id = input.get_string("workload_id")?;
+            let milestone_name = input.get_string("milestone_name")?;
+            let client_request_token = input.get_string("client_request_token")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .update_milestone()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("workload_id", workload_id.unwrap_or_default())
+                .with_field("milestone_name", milestone_name.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a milestone resource
+    async fn delete_milestone(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.wellarchitected_client
+            //     .delete_milestone()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Answer resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a answer resource
+    async fn plan_answer(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new answer resource
+    async fn create_answer(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let lens_alias = input.get_string("lens_alias")?;
+            let workload_id = input.get_string("workload_id")?;
+            let selected_choices = input.get_optional_string("selected_choices")?;
+            let choice_updates = input.get_optional_string("choice_updates")?;
+            let is_applicable = input.get_optional_string("is_applicable")?;
+            let question_id = input.get_string("question_id")?;
+            let reason = input.get_optional_string("reason")?;
+            let notes = input.get_optional_string("notes")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .create_answer()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("lens_alias", lens_alias.unwrap_or_default())
+                .with_field("workload_id", workload_id.unwrap_or_default())
+                .with_field("selected_choices", selected_choices.unwrap_or_default())
+                .with_field("choice_updates", choice_updates.unwrap_or_default())
+                .with_field("is_applicable", is_applicable.unwrap_or_default())
+                .with_field("question_id", question_id.unwrap_or_default())
+                .with_field("reason", reason.unwrap_or_default())
+                .with_field("notes", notes.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a answer resource
+    async fn read_answer(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .describe_answer()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a answer resource
+    async fn update_answer(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let lens_alias = input.get_string("lens_alias")?;
+            let workload_id = input.get_string("workload_id")?;
+            let selected_choices = input.get_optional_string("selected_choices")?;
+            let choice_updates = input.get_optional_string("choice_updates")?;
+            let is_applicable = input.get_optional_string("is_applicable")?;
+            let question_id = input.get_string("question_id")?;
+            let reason = input.get_optional_string("reason")?;
+            let notes = input.get_optional_string("notes")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .update_answer()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("lens_alias", lens_alias.unwrap_or_default())
+                .with_field("workload_id", workload_id.unwrap_or_default())
+                .with_field("selected_choices", selected_choices.unwrap_or_default())
+                .with_field("choice_updates", choice_updates.unwrap_or_default())
+                .with_field("is_applicable", is_applicable.unwrap_or_default())
+                .with_field("question_id", question_id.unwrap_or_default())
+                .with_field("reason", reason.unwrap_or_default())
+                .with_field("notes", notes.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a answer resource
+    async fn delete_answer(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.wellarchitected_client
+            //     .delete_answer()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Review_template_answer resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a review_template_answer resource
+    async fn plan_review_template_answer(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new review_template_answer resource
+    async fn create_review_template_answer(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let question_id = input.get_string("question_id")?;
+            let selected_choices = input.get_optional_string("selected_choices")?;
+            let template_arn = input.get_string("template_arn")?;
+            let lens_alias = input.get_string("lens_alias")?;
+            let choice_updates = input.get_optional_string("choice_updates")?;
+            let reason = input.get_optional_string("reason")?;
+            let is_applicable = input.get_optional_string("is_applicable")?;
+            let notes = input.get_optional_string("notes")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .create_review_template_answer()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("question_id", question_id.unwrap_or_default())
+                .with_field("selected_choices", selected_choices.unwrap_or_default())
+                .with_field("template_arn", template_arn.unwrap_or_default())
+                .with_field("lens_alias", lens_alias.unwrap_or_default())
+                .with_field("choice_updates", choice_updates.unwrap_or_default())
+                .with_field("reason", reason.unwrap_or_default())
+                .with_field("is_applicable", is_applicable.unwrap_or_default())
+                .with_field("notes", notes.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a review_template_answer resource
+    async fn read_review_template_answer(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .describe_review_template_answer()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a review_template_answer resource
+    async fn update_review_template_answer(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let question_id = input.get_string("question_id")?;
+            let selected_choices = input.get_optional_string("selected_choices")?;
+            let template_arn = input.get_string("template_arn")?;
+            let lens_alias = input.get_string("lens_alias")?;
+            let choice_updates = input.get_optional_string("choice_updates")?;
+            let reason = input.get_optional_string("reason")?;
+            let is_applicable = input.get_optional_string("is_applicable")?;
+            let notes = input.get_optional_string("notes")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .update_review_template_answer()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("question_id", question_id.unwrap_or_default())
+                .with_field("selected_choices", selected_choices.unwrap_or_default())
+                .with_field("template_arn", template_arn.unwrap_or_default())
+                .with_field("lens_alias", lens_alias.unwrap_or_default())
+                .with_field("choice_updates", choice_updates.unwrap_or_default())
+                .with_field("reason", reason.unwrap_or_default())
+                .with_field("is_applicable", is_applicable.unwrap_or_default())
+                .with_field("notes", notes.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a review_template_answer resource
+    async fn delete_review_template_answer(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.wellarchitected_client
+            //     .delete_review_template_answer()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Consolidated_report resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a consolidated_report resource
+    async fn plan_consolidated_report(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new consolidated_report resource
+    async fn create_consolidated_report(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .create_consolidated_report()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a consolidated_report resource
+    async fn read_consolidated_report(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .describe_consolidated_report()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a consolidated_report resource
+    async fn update_consolidated_report(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .update_consolidated_report()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a consolidated_report resource
+    async fn delete_consolidated_report(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.wellarchitected_client
+            //     .delete_consolidated_report()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Lens_review_report resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a lens_review_report resource
+    async fn plan_lens_review_report(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new lens_review_report resource
+    async fn create_lens_review_report(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .create_lens_review_report()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a lens_review_report resource
+    async fn read_lens_review_report(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .describe_lens_review_report()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a lens_review_report resource
+    async fn update_lens_review_report(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .update_lens_review_report()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a lens_review_report resource
+    async fn delete_lens_review_report(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.wellarchitected_client
+            //     .delete_lens_review_report()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Review_template_lens_review resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a review_template_lens_review resource
+    async fn plan_review_template_lens_review(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new review_template_lens_review resource
+    async fn create_review_template_lens_review(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let lens_alias = input.get_string("lens_alias")?;
+            let lens_notes = input.get_optional_string("lens_notes")?;
+            let pillar_notes = input.get_optional_string("pillar_notes")?;
+            let template_arn = input.get_string("template_arn")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .create_review_template_lens_review()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("lens_alias", lens_alias.unwrap_or_default())
+                .with_field("lens_notes", lens_notes.unwrap_or_default())
+                .with_field("pillar_notes", pillar_notes.unwrap_or_default())
+                .with_field("template_arn", template_arn.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a review_template_lens_review resource
+    async fn read_review_template_lens_review(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .describe_review_template_lens_review()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a review_template_lens_review resource
+    async fn update_review_template_lens_review(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let lens_alias = input.get_string("lens_alias")?;
+            let lens_notes = input.get_optional_string("lens_notes")?;
+            let pillar_notes = input.get_optional_string("pillar_notes")?;
+            let template_arn = input.get_string("template_arn")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .update_review_template_lens_review()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("lens_alias", lens_alias.unwrap_or_default())
+                .with_field("lens_notes", lens_notes.unwrap_or_default())
+                .with_field("pillar_notes", pillar_notes.unwrap_or_default())
+                .with_field("template_arn", template_arn.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a review_template_lens_review resource
+    async fn delete_review_template_lens_review(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.wellarchitected_client
+            //     .delete_review_template_lens_review()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
 
 
     // ------------------------------------------------------------------------
@@ -441,8 +1461,8 @@ impl<'a> WellarchitectedService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let shared_with = input.get_string("shared_with")?;
             let lens_alias = input.get_string("lens_alias")?;
+            let shared_with = input.get_string("shared_with")?;
             let client_request_token = input.get_string("client_request_token")?;
 
 
@@ -458,8 +1478,8 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("shared_with", shared_with.unwrap_or_default())
                 .with_field("lens_alias", lens_alias.unwrap_or_default())
+                .with_field("shared_with", shared_with.unwrap_or_default())
                 .with_field("client_request_token", client_request_token.unwrap_or_default())
             )
         })
@@ -494,8 +1514,8 @@ impl<'a> WellarchitectedService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let shared_with = input.get_string("shared_with")?;
             let lens_alias = input.get_string("lens_alias")?;
+            let shared_with = input.get_string("shared_with")?;
             let client_request_token = input.get_string("client_request_token")?;
 
 
@@ -512,8 +1532,8 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("shared_with", shared_with.unwrap_or_default())
                 .with_field("lens_alias", lens_alias.unwrap_or_default())
+                .with_field("shared_with", shared_with.unwrap_or_default())
                 .with_field("client_request_token", client_request_token.unwrap_or_default())
             )
         })
@@ -654,11 +1674,11 @@ impl<'a> WellarchitectedService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Lens_review_report resource operations
+    // Workload resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a lens_review_report resource
-    async fn plan_lens_review_report(
+    /// Plan changes to a workload resource
+    async fn plan_workload(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -673,20 +1693,40 @@ impl<'a> WellarchitectedService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new lens_review_report resource
-    async fn create_lens_review_report(
+    /// Create a new workload resource
+    async fn create_workload(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let workload_name = input.get_string("workload_name")?;
+            let environment = input.get_string("environment")?;
+            let review_owner = input.get_optional_string("review_owner")?;
+            let profile_arns = input.get_optional_string("profile_arns")?;
+            let aws_regions = input.get_optional_string("aws_regions")?;
+            let notes = input.get_optional_string("notes")?;
+            let non_aws_regions = input.get_optional_string("non_aws_regions")?;
+            let description = input.get_string("description")?;
+            let account_ids = input.get_optional_string("account_ids")?;
+            let architectural_design = input.get_optional_string("architectural_design")?;
+            let client_request_token = input.get_string("client_request_token")?;
+            let pillar_priorities = input.get_optional_string("pillar_priorities")?;
+            let industry_type = input.get_optional_string("industry_type")?;
+            let tags = input.get_optional_string("tags")?;
+            let lenses = input.get_string("lenses")?;
+            let discovery_config = input.get_optional_string("discovery_config")?;
+            let applications = input.get_optional_string("applications")?;
+            let review_template_arns = input.get_optional_string("review_template_arns")?;
+            let jira_configuration = input.get_optional_string("jira_configuration")?;
+            let industry = input.get_optional_string("industry")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.wellarchitected_client
-            //     .create_lens_review_report()
+            //     .create_workload()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -695,12 +1735,32 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("workload_name", workload_name.unwrap_or_default())
+                .with_field("environment", environment.unwrap_or_default())
+                .with_field("review_owner", review_owner.unwrap_or_default())
+                .with_field("profile_arns", profile_arns.unwrap_or_default())
+                .with_field("aws_regions", aws_regions.unwrap_or_default())
+                .with_field("notes", notes.unwrap_or_default())
+                .with_field("non_aws_regions", non_aws_regions.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("account_ids", account_ids.unwrap_or_default())
+                .with_field("architectural_design", architectural_design.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("pillar_priorities", pillar_priorities.unwrap_or_default())
+                .with_field("industry_type", industry_type.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("lenses", lenses.unwrap_or_default())
+                .with_field("discovery_config", discovery_config.unwrap_or_default())
+                .with_field("applications", applications.unwrap_or_default())
+                .with_field("review_template_arns", review_template_arns.unwrap_or_default())
+                .with_field("jira_configuration", jira_configuration.unwrap_or_default())
+                .with_field("industry", industry.unwrap_or_default())
             )
         })
     }
 
-    /// Read a lens_review_report resource
-    async fn read_lens_review_report(
+    /// Read a workload resource
+    async fn read_workload(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -708,7 +1768,7 @@ impl<'a> WellarchitectedService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.wellarchitected_client
-            //     .describe_lens_review_report()
+            //     .describe_workload()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -720,20 +1780,40 @@ impl<'a> WellarchitectedService<'a> {
         })
     }
 
-    /// Update a lens_review_report resource
-    async fn update_lens_review_report(
+    /// Update a workload resource
+    async fn update_workload(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let workload_name = input.get_string("workload_name")?;
+            let environment = input.get_string("environment")?;
+            let review_owner = input.get_optional_string("review_owner")?;
+            let profile_arns = input.get_optional_string("profile_arns")?;
+            let aws_regions = input.get_optional_string("aws_regions")?;
+            let notes = input.get_optional_string("notes")?;
+            let non_aws_regions = input.get_optional_string("non_aws_regions")?;
+            let description = input.get_string("description")?;
+            let account_ids = input.get_optional_string("account_ids")?;
+            let architectural_design = input.get_optional_string("architectural_design")?;
+            let client_request_token = input.get_string("client_request_token")?;
+            let pillar_priorities = input.get_optional_string("pillar_priorities")?;
+            let industry_type = input.get_optional_string("industry_type")?;
+            let tags = input.get_optional_string("tags")?;
+            let lenses = input.get_string("lenses")?;
+            let discovery_config = input.get_optional_string("discovery_config")?;
+            let applications = input.get_optional_string("applications")?;
+            let review_template_arns = input.get_optional_string("review_template_arns")?;
+            let jira_configuration = input.get_optional_string("jira_configuration")?;
+            let industry = input.get_optional_string("industry")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.wellarchitected_client
-            //     .update_lens_review_report()
+            //     .update_workload()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -743,12 +1823,32 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("workload_name", workload_name.unwrap_or_default())
+                .with_field("environment", environment.unwrap_or_default())
+                .with_field("review_owner", review_owner.unwrap_or_default())
+                .with_field("profile_arns", profile_arns.unwrap_or_default())
+                .with_field("aws_regions", aws_regions.unwrap_or_default())
+                .with_field("notes", notes.unwrap_or_default())
+                .with_field("non_aws_regions", non_aws_regions.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("account_ids", account_ids.unwrap_or_default())
+                .with_field("architectural_design", architectural_design.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("pillar_priorities", pillar_priorities.unwrap_or_default())
+                .with_field("industry_type", industry_type.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("lenses", lenses.unwrap_or_default())
+                .with_field("discovery_config", discovery_config.unwrap_or_default())
+                .with_field("applications", applications.unwrap_or_default())
+                .with_field("review_template_arns", review_template_arns.unwrap_or_default())
+                .with_field("jira_configuration", jira_configuration.unwrap_or_default())
+                .with_field("industry", industry.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a lens_review_report resource
-    async fn delete_lens_review_report(
+    /// Delete a workload resource
+    async fn delete_workload(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -756,7 +1856,7 @@ impl<'a> WellarchitectedService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.wellarchitected_client
-            //     .delete_lens_review_report()
+            //     .delete_workload()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -768,11 +1868,11 @@ impl<'a> WellarchitectedService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Review_template resource operations
+    // Lens_version_difference resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a review_template resource
-    async fn plan_review_template(
+    /// Plan changes to a lens_version_difference resource
+    async fn plan_lens_version_difference(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -787,26 +1887,20 @@ impl<'a> WellarchitectedService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new review_template resource
-    async fn create_review_template(
+    /// Create a new lens_version_difference resource
+    async fn create_lens_version_difference(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let client_request_token = input.get_string("client_request_token")?;
-            let lenses = input.get_string("lenses")?;
-            let notes = input.get_optional_string("notes")?;
-            let description = input.get_string("description")?;
-            let tags = input.get_optional_string("tags")?;
-            let template_name = input.get_string("template_name")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.wellarchitected_client
-            //     .create_review_template()
+            //     .create_lens_version_difference()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -815,18 +1909,12 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("lenses", lenses.unwrap_or_default())
-                .with_field("notes", notes.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("template_name", template_name.unwrap_or_default())
             )
         })
     }
 
-    /// Read a review_template resource
-    async fn read_review_template(
+    /// Read a lens_version_difference resource
+    async fn read_lens_version_difference(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -834,7 +1922,7 @@ impl<'a> WellarchitectedService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.wellarchitected_client
-            //     .describe_review_template()
+            //     .describe_lens_version_difference()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -846,26 +1934,20 @@ impl<'a> WellarchitectedService<'a> {
         })
     }
 
-    /// Update a review_template resource
-    async fn update_review_template(
+    /// Update a lens_version_difference resource
+    async fn update_lens_version_difference(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let client_request_token = input.get_string("client_request_token")?;
-            let lenses = input.get_string("lenses")?;
-            let notes = input.get_optional_string("notes")?;
-            let description = input.get_string("description")?;
-            let tags = input.get_optional_string("tags")?;
-            let template_name = input.get_string("template_name")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.wellarchitected_client
-            //     .update_review_template()
+            //     .update_lens_version_difference()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -875,18 +1957,12 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("lenses", lenses.unwrap_or_default())
-                .with_field("notes", notes.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("template_name", template_name.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a review_template resource
-    async fn delete_review_template(
+    /// Delete a lens_version_difference resource
+    async fn delete_lens_version_difference(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -894,7 +1970,7 @@ impl<'a> WellarchitectedService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.wellarchitected_client
-            //     .delete_review_template()
+            //     .delete_lens_version_difference()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1028,11 +2104,11 @@ impl<'a> WellarchitectedService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Review_template_lens_review resource operations
+    // Template_share resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a review_template_lens_review resource
-    async fn plan_review_template_lens_review(
+    /// Plan changes to a template_share resource
+    async fn plan_template_share(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1047,24 +2123,23 @@ impl<'a> WellarchitectedService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new review_template_lens_review resource
-    async fn create_review_template_lens_review(
+    /// Create a new template_share resource
+    async fn create_template_share(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let lens_alias = input.get_string("lens_alias")?;
-            let lens_notes = input.get_optional_string("lens_notes")?;
+            let client_request_token = input.get_string("client_request_token")?;
             let template_arn = input.get_string("template_arn")?;
-            let pillar_notes = input.get_optional_string("pillar_notes")?;
+            let shared_with = input.get_string("shared_with")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.wellarchitected_client
-            //     .create_review_template_lens_review()
+            //     .create_template_share()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1073,16 +2148,15 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("lens_alias", lens_alias.unwrap_or_default())
-                .with_field("lens_notes", lens_notes.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
                 .with_field("template_arn", template_arn.unwrap_or_default())
-                .with_field("pillar_notes", pillar_notes.unwrap_or_default())
+                .with_field("shared_with", shared_with.unwrap_or_default())
             )
         })
     }
 
-    /// Read a review_template_lens_review resource
-    async fn read_review_template_lens_review(
+    /// Read a template_share resource
+    async fn read_template_share(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1090,7 +2164,7 @@ impl<'a> WellarchitectedService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.wellarchitected_client
-            //     .describe_review_template_lens_review()
+            //     .describe_template_share()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1102,24 +2176,23 @@ impl<'a> WellarchitectedService<'a> {
         })
     }
 
-    /// Update a review_template_lens_review resource
-    async fn update_review_template_lens_review(
+    /// Update a template_share resource
+    async fn update_template_share(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let lens_alias = input.get_string("lens_alias")?;
-            let lens_notes = input.get_optional_string("lens_notes")?;
+            let client_request_token = input.get_string("client_request_token")?;
             let template_arn = input.get_string("template_arn")?;
-            let pillar_notes = input.get_optional_string("pillar_notes")?;
+            let shared_with = input.get_string("shared_with")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.wellarchitected_client
-            //     .update_review_template_lens_review()
+            //     .update_template_share()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1129,16 +2202,15 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("lens_alias", lens_alias.unwrap_or_default())
-                .with_field("lens_notes", lens_notes.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
                 .with_field("template_arn", template_arn.unwrap_or_default())
-                .with_field("pillar_notes", pillar_notes.unwrap_or_default())
+                .with_field("shared_with", shared_with.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a review_template_lens_review resource
-    async fn delete_review_template_lens_review(
+    /// Delete a template_share resource
+    async fn delete_template_share(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1146,7 +2218,7 @@ impl<'a> WellarchitectedService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.wellarchitected_client
-            //     .delete_review_template_lens_review()
+            //     .delete_template_share()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1185,9 +2257,9 @@ impl<'a> WellarchitectedService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let client_request_token = input.get_string("client_request_token")?;
             let workload_id = input.get_string("workload_id")?;
             let integrating_service = input.get_string("integrating_service")?;
+            let client_request_token = input.get_string("client_request_token")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -1202,9 +2274,9 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
                 .with_field("workload_id", workload_id.unwrap_or_default())
                 .with_field("integrating_service", integrating_service.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
             )
         })
     }
@@ -1238,9 +2310,9 @@ impl<'a> WellarchitectedService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let client_request_token = input.get_string("client_request_token")?;
             let workload_id = input.get_string("workload_id")?;
             let integrating_service = input.get_string("integrating_service")?;
+            let client_request_token = input.get_string("client_request_token")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -1256,9 +2328,9 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
                 .with_field("workload_id", workload_id.unwrap_or_default())
                 .with_field("integrating_service", integrating_service.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
             )
         })
     }
@@ -1273,1378 +2345,6 @@ impl<'a> WellarchitectedService<'a> {
             // Example:
             // self.provider.wellarchitected_client
             //     .delete_integration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Lens_version resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a lens_version resource
-    async fn plan_lens_version(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new lens_version resource
-    async fn create_lens_version(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let lens_alias = input.get_string("lens_alias")?;
-            let lens_version = input.get_string("lens_version")?;
-            let is_major_version = input.get_optional_string("is_major_version")?;
-            let client_request_token = input.get_string("client_request_token")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .create_lens_version()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("lens_alias", lens_alias.unwrap_or_default())
-                .with_field("lens_version", lens_version.unwrap_or_default())
-                .with_field("is_major_version", is_major_version.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a lens_version resource
-    async fn read_lens_version(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .describe_lens_version()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a lens_version resource
-    async fn update_lens_version(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let lens_alias = input.get_string("lens_alias")?;
-            let lens_version = input.get_string("lens_version")?;
-            let is_major_version = input.get_optional_string("is_major_version")?;
-            let client_request_token = input.get_string("client_request_token")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .update_lens_version()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("lens_alias", lens_alias.unwrap_or_default())
-                .with_field("lens_version", lens_version.unwrap_or_default())
-                .with_field("is_major_version", is_major_version.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a lens_version resource
-    async fn delete_lens_version(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.wellarchitected_client
-            //     .delete_lens_version()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Workload resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a workload resource
-    async fn plan_workload(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new workload resource
-    async fn create_workload(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let discovery_config = input.get_optional_string("discovery_config")?;
-            let jira_configuration = input.get_optional_string("jira_configuration")?;
-            let industry = input.get_optional_string("industry")?;
-            let non_aws_regions = input.get_optional_string("non_aws_regions")?;
-            let tags = input.get_optional_string("tags")?;
-            let industry_type = input.get_optional_string("industry_type")?;
-            let lenses = input.get_string("lenses")?;
-            let description = input.get_string("description")?;
-            let review_owner = input.get_optional_string("review_owner")?;
-            let aws_regions = input.get_optional_string("aws_regions")?;
-            let pillar_priorities = input.get_optional_string("pillar_priorities")?;
-            let notes = input.get_optional_string("notes")?;
-            let applications = input.get_optional_string("applications")?;
-            let architectural_design = input.get_optional_string("architectural_design")?;
-            let environment = input.get_string("environment")?;
-            let account_ids = input.get_optional_string("account_ids")?;
-            let client_request_token = input.get_string("client_request_token")?;
-            let profile_arns = input.get_optional_string("profile_arns")?;
-            let workload_name = input.get_string("workload_name")?;
-            let review_template_arns = input.get_optional_string("review_template_arns")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .create_workload()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("discovery_config", discovery_config.unwrap_or_default())
-                .with_field("jira_configuration", jira_configuration.unwrap_or_default())
-                .with_field("industry", industry.unwrap_or_default())
-                .with_field("non_aws_regions", non_aws_regions.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("industry_type", industry_type.unwrap_or_default())
-                .with_field("lenses", lenses.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("review_owner", review_owner.unwrap_or_default())
-                .with_field("aws_regions", aws_regions.unwrap_or_default())
-                .with_field("pillar_priorities", pillar_priorities.unwrap_or_default())
-                .with_field("notes", notes.unwrap_or_default())
-                .with_field("applications", applications.unwrap_or_default())
-                .with_field("architectural_design", architectural_design.unwrap_or_default())
-                .with_field("environment", environment.unwrap_or_default())
-                .with_field("account_ids", account_ids.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("profile_arns", profile_arns.unwrap_or_default())
-                .with_field("workload_name", workload_name.unwrap_or_default())
-                .with_field("review_template_arns", review_template_arns.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a workload resource
-    async fn read_workload(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .describe_workload()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a workload resource
-    async fn update_workload(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let discovery_config = input.get_optional_string("discovery_config")?;
-            let jira_configuration = input.get_optional_string("jira_configuration")?;
-            let industry = input.get_optional_string("industry")?;
-            let non_aws_regions = input.get_optional_string("non_aws_regions")?;
-            let tags = input.get_optional_string("tags")?;
-            let industry_type = input.get_optional_string("industry_type")?;
-            let lenses = input.get_string("lenses")?;
-            let description = input.get_string("description")?;
-            let review_owner = input.get_optional_string("review_owner")?;
-            let aws_regions = input.get_optional_string("aws_regions")?;
-            let pillar_priorities = input.get_optional_string("pillar_priorities")?;
-            let notes = input.get_optional_string("notes")?;
-            let applications = input.get_optional_string("applications")?;
-            let architectural_design = input.get_optional_string("architectural_design")?;
-            let environment = input.get_string("environment")?;
-            let account_ids = input.get_optional_string("account_ids")?;
-            let client_request_token = input.get_string("client_request_token")?;
-            let profile_arns = input.get_optional_string("profile_arns")?;
-            let workload_name = input.get_string("workload_name")?;
-            let review_template_arns = input.get_optional_string("review_template_arns")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .update_workload()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("discovery_config", discovery_config.unwrap_or_default())
-                .with_field("jira_configuration", jira_configuration.unwrap_or_default())
-                .with_field("industry", industry.unwrap_or_default())
-                .with_field("non_aws_regions", non_aws_regions.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("industry_type", industry_type.unwrap_or_default())
-                .with_field("lenses", lenses.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("review_owner", review_owner.unwrap_or_default())
-                .with_field("aws_regions", aws_regions.unwrap_or_default())
-                .with_field("pillar_priorities", pillar_priorities.unwrap_or_default())
-                .with_field("notes", notes.unwrap_or_default())
-                .with_field("applications", applications.unwrap_or_default())
-                .with_field("architectural_design", architectural_design.unwrap_or_default())
-                .with_field("environment", environment.unwrap_or_default())
-                .with_field("account_ids", account_ids.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("profile_arns", profile_arns.unwrap_or_default())
-                .with_field("workload_name", workload_name.unwrap_or_default())
-                .with_field("review_template_arns", review_template_arns.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a workload resource
-    async fn delete_workload(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.wellarchitected_client
-            //     .delete_workload()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Consolidated_report resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a consolidated_report resource
-    async fn plan_consolidated_report(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new consolidated_report resource
-    async fn create_consolidated_report(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .create_consolidated_report()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a consolidated_report resource
-    async fn read_consolidated_report(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .describe_consolidated_report()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a consolidated_report resource
-    async fn update_consolidated_report(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .update_consolidated_report()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a consolidated_report resource
-    async fn delete_consolidated_report(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.wellarchitected_client
-            //     .delete_consolidated_report()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Review_template_answer resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a review_template_answer resource
-    async fn plan_review_template_answer(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new review_template_answer resource
-    async fn create_review_template_answer(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let question_id = input.get_string("question_id")?;
-            let notes = input.get_optional_string("notes")?;
-            let is_applicable = input.get_optional_string("is_applicable")?;
-            let reason = input.get_optional_string("reason")?;
-            let lens_alias = input.get_string("lens_alias")?;
-            let choice_updates = input.get_optional_string("choice_updates")?;
-            let selected_choices = input.get_optional_string("selected_choices")?;
-            let template_arn = input.get_string("template_arn")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .create_review_template_answer()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("question_id", question_id.unwrap_or_default())
-                .with_field("notes", notes.unwrap_or_default())
-                .with_field("is_applicable", is_applicable.unwrap_or_default())
-                .with_field("reason", reason.unwrap_or_default())
-                .with_field("lens_alias", lens_alias.unwrap_or_default())
-                .with_field("choice_updates", choice_updates.unwrap_or_default())
-                .with_field("selected_choices", selected_choices.unwrap_or_default())
-                .with_field("template_arn", template_arn.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a review_template_answer resource
-    async fn read_review_template_answer(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .describe_review_template_answer()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a review_template_answer resource
-    async fn update_review_template_answer(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let question_id = input.get_string("question_id")?;
-            let notes = input.get_optional_string("notes")?;
-            let is_applicable = input.get_optional_string("is_applicable")?;
-            let reason = input.get_optional_string("reason")?;
-            let lens_alias = input.get_string("lens_alias")?;
-            let choice_updates = input.get_optional_string("choice_updates")?;
-            let selected_choices = input.get_optional_string("selected_choices")?;
-            let template_arn = input.get_string("template_arn")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .update_review_template_answer()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("question_id", question_id.unwrap_or_default())
-                .with_field("notes", notes.unwrap_or_default())
-                .with_field("is_applicable", is_applicable.unwrap_or_default())
-                .with_field("reason", reason.unwrap_or_default())
-                .with_field("lens_alias", lens_alias.unwrap_or_default())
-                .with_field("choice_updates", choice_updates.unwrap_or_default())
-                .with_field("selected_choices", selected_choices.unwrap_or_default())
-                .with_field("template_arn", template_arn.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a review_template_answer resource
-    async fn delete_review_template_answer(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.wellarchitected_client
-            //     .delete_review_template_answer()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Profile_share resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a profile_share resource
-    async fn plan_profile_share(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new profile_share resource
-    async fn create_profile_share(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let profile_arn = input.get_string("profile_arn")?;
-            let client_request_token = input.get_string("client_request_token")?;
-            let shared_with = input.get_string("shared_with")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .create_profile_share()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("profile_arn", profile_arn.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("shared_with", shared_with.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a profile_share resource
-    async fn read_profile_share(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .describe_profile_share()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a profile_share resource
-    async fn update_profile_share(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let profile_arn = input.get_string("profile_arn")?;
-            let client_request_token = input.get_string("client_request_token")?;
-            let shared_with = input.get_string("shared_with")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .update_profile_share()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("profile_arn", profile_arn.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("shared_with", shared_with.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a profile_share resource
-    async fn delete_profile_share(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.wellarchitected_client
-            //     .delete_profile_share()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Profile resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a profile resource
-    async fn plan_profile(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new profile resource
-    async fn create_profile(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let profile_questions = input.get_string("profile_questions")?;
-            let profile_description = input.get_string("profile_description")?;
-            let tags = input.get_optional_string("tags")?;
-            let profile_name = input.get_string("profile_name")?;
-            let client_request_token = input.get_string("client_request_token")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .create_profile()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("profile_questions", profile_questions.unwrap_or_default())
-                .with_field("profile_description", profile_description.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("profile_name", profile_name.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a profile resource
-    async fn read_profile(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .describe_profile()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a profile resource
-    async fn update_profile(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let profile_questions = input.get_string("profile_questions")?;
-            let profile_description = input.get_string("profile_description")?;
-            let tags = input.get_optional_string("tags")?;
-            let profile_name = input.get_string("profile_name")?;
-            let client_request_token = input.get_string("client_request_token")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .update_profile()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("profile_questions", profile_questions.unwrap_or_default())
-                .with_field("profile_description", profile_description.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("profile_name", profile_name.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a profile resource
-    async fn delete_profile(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.wellarchitected_client
-            //     .delete_profile()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Workload_share resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a workload_share resource
-    async fn plan_workload_share(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new workload_share resource
-    async fn create_workload_share(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let workload_id = input.get_string("workload_id")?;
-            let shared_with = input.get_string("shared_with")?;
-            let permission_type = input.get_string("permission_type")?;
-            let client_request_token = input.get_string("client_request_token")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .create_workload_share()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("workload_id", workload_id.unwrap_or_default())
-                .with_field("shared_with", shared_with.unwrap_or_default())
-                .with_field("permission_type", permission_type.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a workload_share resource
-    async fn read_workload_share(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .describe_workload_share()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a workload_share resource
-    async fn update_workload_share(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let workload_id = input.get_string("workload_id")?;
-            let shared_with = input.get_string("shared_with")?;
-            let permission_type = input.get_string("permission_type")?;
-            let client_request_token = input.get_string("client_request_token")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .update_workload_share()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("workload_id", workload_id.unwrap_or_default())
-                .with_field("shared_with", shared_with.unwrap_or_default())
-                .with_field("permission_type", permission_type.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a workload_share resource
-    async fn delete_workload_share(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.wellarchitected_client
-            //     .delete_workload_share()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Template_share resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a template_share resource
-    async fn plan_template_share(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new template_share resource
-    async fn create_template_share(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let client_request_token = input.get_string("client_request_token")?;
-            let shared_with = input.get_string("shared_with")?;
-            let template_arn = input.get_string("template_arn")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .create_template_share()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("shared_with", shared_with.unwrap_or_default())
-                .with_field("template_arn", template_arn.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a template_share resource
-    async fn read_template_share(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .describe_template_share()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a template_share resource
-    async fn update_template_share(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let client_request_token = input.get_string("client_request_token")?;
-            let shared_with = input.get_string("shared_with")?;
-            let template_arn = input.get_string("template_arn")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .update_template_share()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("shared_with", shared_with.unwrap_or_default())
-                .with_field("template_arn", template_arn.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a template_share resource
-    async fn delete_template_share(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.wellarchitected_client
-            //     .delete_template_share()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Milestone resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a milestone resource
-    async fn plan_milestone(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new milestone resource
-    async fn create_milestone(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let milestone_name = input.get_string("milestone_name")?;
-            let client_request_token = input.get_string("client_request_token")?;
-            let workload_id = input.get_string("workload_id")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .create_milestone()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("milestone_name", milestone_name.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("workload_id", workload_id.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a milestone resource
-    async fn read_milestone(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .describe_milestone()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a milestone resource
-    async fn update_milestone(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let milestone_name = input.get_string("milestone_name")?;
-            let client_request_token = input.get_string("client_request_token")?;
-            let workload_id = input.get_string("workload_id")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .update_milestone()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("milestone_name", milestone_name.unwrap_or_default())
-                .with_field("client_request_token", client_request_token.unwrap_or_default())
-                .with_field("workload_id", workload_id.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a milestone resource
-    async fn delete_milestone(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.wellarchitected_client
-            //     .delete_milestone()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Answer resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a answer resource
-    async fn plan_answer(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new answer resource
-    async fn create_answer(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let reason = input.get_optional_string("reason")?;
-            let lens_alias = input.get_string("lens_alias")?;
-            let question_id = input.get_string("question_id")?;
-            let notes = input.get_optional_string("notes")?;
-            let is_applicable = input.get_optional_string("is_applicable")?;
-            let workload_id = input.get_string("workload_id")?;
-            let selected_choices = input.get_optional_string("selected_choices")?;
-            let choice_updates = input.get_optional_string("choice_updates")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .create_answer()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("reason", reason.unwrap_or_default())
-                .with_field("lens_alias", lens_alias.unwrap_or_default())
-                .with_field("question_id", question_id.unwrap_or_default())
-                .with_field("notes", notes.unwrap_or_default())
-                .with_field("is_applicable", is_applicable.unwrap_or_default())
-                .with_field("workload_id", workload_id.unwrap_or_default())
-                .with_field("selected_choices", selected_choices.unwrap_or_default())
-                .with_field("choice_updates", choice_updates.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a answer resource
-    async fn read_answer(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .describe_answer()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a answer resource
-    async fn update_answer(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let reason = input.get_optional_string("reason")?;
-            let lens_alias = input.get_string("lens_alias")?;
-            let question_id = input.get_string("question_id")?;
-            let notes = input.get_optional_string("notes")?;
-            let is_applicable = input.get_optional_string("is_applicable")?;
-            let workload_id = input.get_string("workload_id")?;
-            let selected_choices = input.get_optional_string("selected_choices")?;
-            let choice_updates = input.get_optional_string("choice_updates")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.wellarchitected_client
-            //     .update_answer()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("reason", reason.unwrap_or_default())
-                .with_field("lens_alias", lens_alias.unwrap_or_default())
-                .with_field("question_id", question_id.unwrap_or_default())
-                .with_field("notes", notes.unwrap_or_default())
-                .with_field("is_applicable", is_applicable.unwrap_or_default())
-                .with_field("workload_id", workload_id.unwrap_or_default())
-                .with_field("selected_choices", selected_choices.unwrap_or_default())
-                .with_field("choice_updates", choice_updates.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a answer resource
-    async fn delete_answer(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.wellarchitected_client
-            //     .delete_answer()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2683,11 +2383,11 @@ impl<'a> WellarchitectedService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let pillar_notes = input.get_optional_string("pillar_notes")?;
-            let lens_alias = input.get_string("lens_alias")?;
             let workload_id = input.get_string("workload_id")?;
-            let jira_configuration = input.get_optional_string("jira_configuration")?;
+            let lens_alias = input.get_string("lens_alias")?;
             let lens_notes = input.get_optional_string("lens_notes")?;
+            let pillar_notes = input.get_optional_string("pillar_notes")?;
+            let jira_configuration = input.get_optional_string("jira_configuration")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -2702,11 +2402,11 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("pillar_notes", pillar_notes.unwrap_or_default())
-                .with_field("lens_alias", lens_alias.unwrap_or_default())
                 .with_field("workload_id", workload_id.unwrap_or_default())
-                .with_field("jira_configuration", jira_configuration.unwrap_or_default())
+                .with_field("lens_alias", lens_alias.unwrap_or_default())
                 .with_field("lens_notes", lens_notes.unwrap_or_default())
+                .with_field("pillar_notes", pillar_notes.unwrap_or_default())
+                .with_field("jira_configuration", jira_configuration.unwrap_or_default())
             )
         })
     }
@@ -2740,11 +2440,11 @@ impl<'a> WellarchitectedService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let pillar_notes = input.get_optional_string("pillar_notes")?;
-            let lens_alias = input.get_string("lens_alias")?;
             let workload_id = input.get_string("workload_id")?;
-            let jira_configuration = input.get_optional_string("jira_configuration")?;
+            let lens_alias = input.get_string("lens_alias")?;
             let lens_notes = input.get_optional_string("lens_notes")?;
+            let pillar_notes = input.get_optional_string("pillar_notes")?;
+            let jira_configuration = input.get_optional_string("jira_configuration")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -2760,11 +2460,11 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("pillar_notes", pillar_notes.unwrap_or_default())
-                .with_field("lens_alias", lens_alias.unwrap_or_default())
                 .with_field("workload_id", workload_id.unwrap_or_default())
-                .with_field("jira_configuration", jira_configuration.unwrap_or_default())
+                .with_field("lens_alias", lens_alias.unwrap_or_default())
                 .with_field("lens_notes", lens_notes.unwrap_or_default())
+                .with_field("pillar_notes", pillar_notes.unwrap_or_default())
+                .with_field("jira_configuration", jira_configuration.unwrap_or_default())
             )
         })
     }
@@ -2790,11 +2490,11 @@ impl<'a> WellarchitectedService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Lens_version_difference resource operations
+    // Profile resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a lens_version_difference resource
-    async fn plan_lens_version_difference(
+    /// Plan changes to a profile resource
+    async fn plan_profile(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -2809,20 +2509,25 @@ impl<'a> WellarchitectedService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new lens_version_difference resource
-    async fn create_lens_version_difference(
+    /// Create a new profile resource
+    async fn create_profile(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let profile_name = input.get_string("profile_name")?;
+            let profile_questions = input.get_string("profile_questions")?;
+            let client_request_token = input.get_string("client_request_token")?;
+            let tags = input.get_optional_string("tags")?;
+            let profile_description = input.get_string("profile_description")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.wellarchitected_client
-            //     .create_lens_version_difference()
+            //     .create_profile()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -2831,12 +2536,17 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("profile_name", profile_name.unwrap_or_default())
+                .with_field("profile_questions", profile_questions.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("profile_description", profile_description.unwrap_or_default())
             )
         })
     }
 
-    /// Read a lens_version_difference resource
-    async fn read_lens_version_difference(
+    /// Read a profile resource
+    async fn read_profile(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -2844,7 +2554,7 @@ impl<'a> WellarchitectedService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.wellarchitected_client
-            //     .describe_lens_version_difference()
+            //     .describe_profile()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2856,20 +2566,25 @@ impl<'a> WellarchitectedService<'a> {
         })
     }
 
-    /// Update a lens_version_difference resource
-    async fn update_lens_version_difference(
+    /// Update a profile resource
+    async fn update_profile(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let profile_name = input.get_string("profile_name")?;
+            let profile_questions = input.get_string("profile_questions")?;
+            let client_request_token = input.get_string("client_request_token")?;
+            let tags = input.get_optional_string("tags")?;
+            let profile_description = input.get_string("profile_description")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.wellarchitected_client
-            //     .update_lens_version_difference()
+            //     .update_profile()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -2879,12 +2594,17 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("profile_name", profile_name.unwrap_or_default())
+                .with_field("profile_questions", profile_questions.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("profile_description", profile_description.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a lens_version_difference resource
-    async fn delete_lens_version_difference(
+    /// Delete a profile resource
+    async fn delete_profile(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -2892,7 +2612,7 @@ impl<'a> WellarchitectedService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.wellarchitected_client
-            //     .delete_lens_version_difference()
+            //     .delete_profile()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2904,11 +2624,11 @@ impl<'a> WellarchitectedService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Profile_template resource operations
+    // Review_template resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a profile_template resource
-    async fn plan_profile_template(
+    /// Plan changes to a review_template resource
+    async fn plan_review_template(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -2923,20 +2643,26 @@ impl<'a> WellarchitectedService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new profile_template resource
-    async fn create_profile_template(
+    /// Create a new review_template resource
+    async fn create_review_template(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let client_request_token = input.get_string("client_request_token")?;
+            let template_name = input.get_string("template_name")?;
+            let lenses = input.get_string("lenses")?;
+            let tags = input.get_optional_string("tags")?;
+            let notes = input.get_optional_string("notes")?;
+            let description = input.get_string("description")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.wellarchitected_client
-            //     .create_profile_template()
+            //     .create_review_template()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -2945,12 +2671,18 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("template_name", template_name.unwrap_or_default())
+                .with_field("lenses", lenses.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("notes", notes.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
             )
         })
     }
 
-    /// Read a profile_template resource
-    async fn read_profile_template(
+    /// Read a review_template resource
+    async fn read_review_template(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -2958,7 +2690,7 @@ impl<'a> WellarchitectedService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.wellarchitected_client
-            //     .describe_profile_template()
+            //     .describe_review_template()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2970,20 +2702,26 @@ impl<'a> WellarchitectedService<'a> {
         })
     }
 
-    /// Update a profile_template resource
-    async fn update_profile_template(
+    /// Update a review_template resource
+    async fn update_review_template(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let client_request_token = input.get_string("client_request_token")?;
+            let template_name = input.get_string("template_name")?;
+            let lenses = input.get_string("lenses")?;
+            let tags = input.get_optional_string("tags")?;
+            let notes = input.get_optional_string("notes")?;
+            let description = input.get_string("description")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.wellarchitected_client
-            //     .update_profile_template()
+            //     .update_review_template()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -2993,12 +2731,18 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("template_name", template_name.unwrap_or_default())
+                .with_field("lenses", lenses.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("notes", notes.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a profile_template resource
-    async fn delete_profile_template(
+    /// Delete a review_template resource
+    async fn delete_review_template(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -3006,7 +2750,137 @@ impl<'a> WellarchitectedService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.wellarchitected_client
-            //     .delete_profile_template()
+            //     .delete_review_template()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Workload_share resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a workload_share resource
+    async fn plan_workload_share(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new workload_share resource
+    async fn create_workload_share(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let shared_with = input.get_string("shared_with")?;
+            let permission_type = input.get_string("permission_type")?;
+            let client_request_token = input.get_string("client_request_token")?;
+            let workload_id = input.get_string("workload_id")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .create_workload_share()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("shared_with", shared_with.unwrap_or_default())
+                .with_field("permission_type", permission_type.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("workload_id", workload_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a workload_share resource
+    async fn read_workload_share(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .describe_workload_share()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a workload_share resource
+    async fn update_workload_share(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let shared_with = input.get_string("shared_with")?;
+            let permission_type = input.get_string("permission_type")?;
+            let client_request_token = input.get_string("client_request_token")?;
+            let workload_id = input.get_string("workload_id")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .update_workload_share()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("shared_with", shared_with.unwrap_or_default())
+                .with_field("permission_type", permission_type.unwrap_or_default())
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("workload_id", workload_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a workload_share resource
+    async fn delete_workload_share(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.wellarchitected_client
+            //     .delete_workload_share()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -3045,9 +2919,9 @@ impl<'a> WellarchitectedService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let organization_sharing_status = input.get_optional_string("organization_sharing_status")?;
             let discovery_integration_status = input.get_optional_string("discovery_integration_status")?;
             let jira_configuration = input.get_optional_string("jira_configuration")?;
+            let organization_sharing_status = input.get_optional_string("organization_sharing_status")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -3062,9 +2936,9 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("organization_sharing_status", organization_sharing_status.unwrap_or_default())
                 .with_field("discovery_integration_status", discovery_integration_status.unwrap_or_default())
                 .with_field("jira_configuration", jira_configuration.unwrap_or_default())
+                .with_field("organization_sharing_status", organization_sharing_status.unwrap_or_default())
             )
         })
     }
@@ -3098,9 +2972,9 @@ impl<'a> WellarchitectedService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let organization_sharing_status = input.get_optional_string("organization_sharing_status")?;
             let discovery_integration_status = input.get_optional_string("discovery_integration_status")?;
             let jira_configuration = input.get_optional_string("jira_configuration")?;
+            let organization_sharing_status = input.get_optional_string("organization_sharing_status")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -3116,9 +2990,9 @@ impl<'a> WellarchitectedService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("organization_sharing_status", organization_sharing_status.unwrap_or_default())
                 .with_field("discovery_integration_status", discovery_integration_status.unwrap_or_default())
                 .with_field("jira_configuration", jira_configuration.unwrap_or_default())
+                .with_field("organization_sharing_status", organization_sharing_status.unwrap_or_default())
             )
         })
     }
@@ -3133,6 +3007,132 @@ impl<'a> WellarchitectedService<'a> {
             // Example:
             // self.provider.wellarchitected_client
             //     .delete_global_settings()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Profile_share resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a profile_share resource
+    async fn plan_profile_share(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new profile_share resource
+    async fn create_profile_share(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let client_request_token = input.get_string("client_request_token")?;
+            let profile_arn = input.get_string("profile_arn")?;
+            let shared_with = input.get_string("shared_with")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .create_profile_share()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("profile_arn", profile_arn.unwrap_or_default())
+                .with_field("shared_with", shared_with.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a profile_share resource
+    async fn read_profile_share(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .describe_profile_share()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a profile_share resource
+    async fn update_profile_share(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let client_request_token = input.get_string("client_request_token")?;
+            let profile_arn = input.get_string("profile_arn")?;
+            let shared_with = input.get_string("shared_with")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.wellarchitected_client
+            //     .update_profile_share()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("client_request_token", client_request_token.unwrap_or_default())
+                .with_field("profile_arn", profile_arn.unwrap_or_default())
+                .with_field("shared_with", shared_with.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a profile_share resource
+    async fn delete_profile_share(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.wellarchitected_client
+            //     .delete_profile_share()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

@@ -21,7 +21,7 @@ impl<'a> Local_gateway_route_table_virtual_interface_group_association<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, local_gateway_virtual_interface_group_id: String, dry_run: Option<bool>, local_gateway_route_table_id: String, tag_specifications: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, local_gateway_virtual_interface_group_id: String, tag_specifications: Option<Vec<String>>, local_gateway_route_table_id: String, dry_run: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -171,8 +171,8 @@ impl<'a> PollyService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_string("name")?;
             let content = input.get_string("content")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -187,8 +187,8 @@ impl<'a> PollyService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("name", name.unwrap_or_default())
                 .with_field("content", content.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }
@@ -222,8 +222,8 @@ impl<'a> PollyService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_string("name")?;
             let content = input.get_string("content")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -239,8 +239,8 @@ impl<'a> PollyService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("name", name.unwrap_or_default())
                 .with_field("content", content.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }

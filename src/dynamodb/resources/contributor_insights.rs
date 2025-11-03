@@ -38,7 +38,7 @@ impl<'a> Contributor_insights<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, table_name: Option<String>, contributor_insights_action: Option<String>, contributor_insights_mode: Option<String>, index_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, table_name: Option<String>, contributor_insights_mode: Option<String>, index_name: Option<String>, contributor_insights_action: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

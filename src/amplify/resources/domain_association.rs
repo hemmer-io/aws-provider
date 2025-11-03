@@ -21,7 +21,7 @@ impl<'a> Domain_association<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, sub_domain_settings: Vec<String>, auto_sub_domain_iam_role: Option<String>, auto_sub_domain_creation_patterns: Option<Vec<String>>, app_id: String, domain_name: String, certificate_settings: Option<String>, enable_auto_sub_domain: Option<bool>) -> Result<String> {
+    pub async fn create(&self, app_id: String, auto_sub_domain_iam_role: Option<String>, certificate_settings: Option<String>, domain_name: String, enable_auto_sub_domain: Option<bool>, sub_domain_settings: Vec<String>, auto_sub_domain_creation_patterns: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Domain_association<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, sub_domain_settings: Option<Vec<String>>, auto_sub_domain_iam_role: Option<String>, auto_sub_domain_creation_patterns: Option<Vec<String>>, app_id: Option<String>, domain_name: Option<String>, certificate_settings: Option<String>, enable_auto_sub_domain: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, app_id: Option<String>, auto_sub_domain_iam_role: Option<String>, certificate_settings: Option<String>, domain_name: Option<String>, enable_auto_sub_domain: Option<bool>, sub_domain_settings: Option<Vec<String>>, auto_sub_domain_creation_patterns: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

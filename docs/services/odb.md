@@ -34,8 +34,8 @@ OciOnboardingStatus resource
 | Output | Type | Description |
 |--------|------|-------------|
 | `existing_tenancy_activation_link` | String | <p>The existing OCI tenancy activation link for your Amazon Web Services account.</p> |
-| `status` | String |  |
 | `new_tenancy_activation_link` | String | <p>A new OCI tenancy activation link for your Amazon Web Services account.</p> |
+| `status` | String |  |
 
 
 #### Usage Example
@@ -52,8 +52,8 @@ provider = aws.AwsProvider {
 # Access oci_onboarding_status outputs
 oci_onboarding_status_id = oci_onboarding_status.id
 oci_onboarding_status_existing_tenancy_activation_link = oci_onboarding_status.existing_tenancy_activation_link
-oci_onboarding_status_status = oci_onboarding_status.status
 oci_onboarding_status_new_tenancy_activation_link = oci_onboarding_status.new_tenancy_activation_link
+oci_onboarding_status_status = oci_onboarding_status.status
 ```
 
 ---

@@ -24,29 +24,29 @@ impl<'a> CodeconnectionsService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "sync_blocker_summary" => {
-                self.plan_sync_blocker_summary(current_state, desired_input).await
-            }
-            "resource_sync_status" => {
-                self.plan_resource_sync_status(current_state, desired_input).await
-            }
-            "sync_configuration" => {
-                self.plan_sync_configuration(current_state, desired_input).await
+            "host" => {
+                self.plan_host(current_state, desired_input).await
             }
             "repository_link" => {
                 self.plan_repository_link(current_state, desired_input).await
             }
-            "sync_blocker" => {
-                self.plan_sync_blocker(current_state, desired_input).await
-            }
-            "connection" => {
-                self.plan_connection(current_state, desired_input).await
+            "sync_configuration" => {
+                self.plan_sync_configuration(current_state, desired_input).await
             }
             "repository_sync_status" => {
                 self.plan_repository_sync_status(current_state, desired_input).await
             }
-            "host" => {
-                self.plan_host(current_state, desired_input).await
+            "connection" => {
+                self.plan_connection(current_state, desired_input).await
+            }
+            "resource_sync_status" => {
+                self.plan_resource_sync_status(current_state, desired_input).await
+            }
+            "sync_blocker_summary" => {
+                self.plan_sync_blocker_summary(current_state, desired_input).await
+            }
+            "sync_blocker" => {
+                self.plan_sync_blocker(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -63,29 +63,29 @@ impl<'a> CodeconnectionsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "sync_blocker_summary" => {
-                self.create_sync_blocker_summary(input).await
-            }
-            "resource_sync_status" => {
-                self.create_resource_sync_status(input).await
-            }
-            "sync_configuration" => {
-                self.create_sync_configuration(input).await
+            "host" => {
+                self.create_host(input).await
             }
             "repository_link" => {
                 self.create_repository_link(input).await
             }
-            "sync_blocker" => {
-                self.create_sync_blocker(input).await
-            }
-            "connection" => {
-                self.create_connection(input).await
+            "sync_configuration" => {
+                self.create_sync_configuration(input).await
             }
             "repository_sync_status" => {
                 self.create_repository_sync_status(input).await
             }
-            "host" => {
-                self.create_host(input).await
+            "connection" => {
+                self.create_connection(input).await
+            }
+            "resource_sync_status" => {
+                self.create_resource_sync_status(input).await
+            }
+            "sync_blocker_summary" => {
+                self.create_sync_blocker_summary(input).await
+            }
+            "sync_blocker" => {
+                self.create_sync_blocker(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -102,29 +102,29 @@ impl<'a> CodeconnectionsService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "sync_blocker_summary" => {
-                self.read_sync_blocker_summary(id).await
-            }
-            "resource_sync_status" => {
-                self.read_resource_sync_status(id).await
-            }
-            "sync_configuration" => {
-                self.read_sync_configuration(id).await
+            "host" => {
+                self.read_host(id).await
             }
             "repository_link" => {
                 self.read_repository_link(id).await
             }
-            "sync_blocker" => {
-                self.read_sync_blocker(id).await
-            }
-            "connection" => {
-                self.read_connection(id).await
+            "sync_configuration" => {
+                self.read_sync_configuration(id).await
             }
             "repository_sync_status" => {
                 self.read_repository_sync_status(id).await
             }
-            "host" => {
-                self.read_host(id).await
+            "connection" => {
+                self.read_connection(id).await
+            }
+            "resource_sync_status" => {
+                self.read_resource_sync_status(id).await
+            }
+            "sync_blocker_summary" => {
+                self.read_sync_blocker_summary(id).await
+            }
+            "sync_blocker" => {
+                self.read_sync_blocker(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -142,29 +142,29 @@ impl<'a> CodeconnectionsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "sync_blocker_summary" => {
-                self.update_sync_blocker_summary(id, input).await
-            }
-            "resource_sync_status" => {
-                self.update_resource_sync_status(id, input).await
-            }
-            "sync_configuration" => {
-                self.update_sync_configuration(id, input).await
+            "host" => {
+                self.update_host(id, input).await
             }
             "repository_link" => {
                 self.update_repository_link(id, input).await
             }
-            "sync_blocker" => {
-                self.update_sync_blocker(id, input).await
-            }
-            "connection" => {
-                self.update_connection(id, input).await
+            "sync_configuration" => {
+                self.update_sync_configuration(id, input).await
             }
             "repository_sync_status" => {
                 self.update_repository_sync_status(id, input).await
             }
-            "host" => {
-                self.update_host(id, input).await
+            "connection" => {
+                self.update_connection(id, input).await
+            }
+            "resource_sync_status" => {
+                self.update_resource_sync_status(id, input).await
+            }
+            "sync_blocker_summary" => {
+                self.update_sync_blocker_summary(id, input).await
+            }
+            "sync_blocker" => {
+                self.update_sync_blocker(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -181,29 +181,29 @@ impl<'a> CodeconnectionsService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "sync_blocker_summary" => {
-                self.delete_sync_blocker_summary(id).await
-            }
-            "resource_sync_status" => {
-                self.delete_resource_sync_status(id).await
-            }
-            "sync_configuration" => {
-                self.delete_sync_configuration(id).await
+            "host" => {
+                self.delete_host(id).await
             }
             "repository_link" => {
                 self.delete_repository_link(id).await
             }
-            "sync_blocker" => {
-                self.delete_sync_blocker(id).await
-            }
-            "connection" => {
-                self.delete_connection(id).await
+            "sync_configuration" => {
+                self.delete_sync_configuration(id).await
             }
             "repository_sync_status" => {
                 self.delete_repository_sync_status(id).await
             }
-            "host" => {
-                self.delete_host(id).await
+            "connection" => {
+                self.delete_connection(id).await
+            }
+            "resource_sync_status" => {
+                self.delete_resource_sync_status(id).await
+            }
+            "sync_blocker_summary" => {
+                self.delete_sync_blocker_summary(id).await
+            }
+            "sync_blocker" => {
+                self.delete_sync_blocker(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -219,11 +219,11 @@ impl<'a> CodeconnectionsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Sync_blocker_summary resource operations
+    // Host resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a sync_blocker_summary resource
-    async fn plan_sync_blocker_summary(
+    /// Plan changes to a host resource
+    async fn plan_host(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -238,20 +238,25 @@ impl<'a> CodeconnectionsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new sync_blocker_summary resource
-    async fn create_sync_blocker_summary(
+    /// Create a new host resource
+    async fn create_host(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let provider_type = input.get_string("provider_type")?;
+            let provider_endpoint = input.get_string("provider_endpoint")?;
+            let vpc_configuration = input.get_optional_string("vpc_configuration")?;
+            let name = input.get_string("name")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.codeconnections_client
-            //     .create_sync_blocker_summary()
+            //     .create_host()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -260,12 +265,17 @@ impl<'a> CodeconnectionsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("provider_type", provider_type.unwrap_or_default())
+                .with_field("provider_endpoint", provider_endpoint.unwrap_or_default())
+                .with_field("vpc_configuration", vpc_configuration.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
 
-    /// Read a sync_blocker_summary resource
-    async fn read_sync_blocker_summary(
+    /// Read a host resource
+    async fn read_host(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -273,7 +283,7 @@ impl<'a> CodeconnectionsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.codeconnections_client
-            //     .describe_sync_blocker_summary()
+            //     .describe_host()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -285,20 +295,25 @@ impl<'a> CodeconnectionsService<'a> {
         })
     }
 
-    /// Update a sync_blocker_summary resource
-    async fn update_sync_blocker_summary(
+    /// Update a host resource
+    async fn update_host(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let provider_type = input.get_string("provider_type")?;
+            let provider_endpoint = input.get_string("provider_endpoint")?;
+            let vpc_configuration = input.get_optional_string("vpc_configuration")?;
+            let name = input.get_string("name")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.codeconnections_client
-            //     .update_sync_blocker_summary()
+            //     .update_host()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -308,12 +323,17 @@ impl<'a> CodeconnectionsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("provider_type", provider_type.unwrap_or_default())
+                .with_field("provider_endpoint", provider_endpoint.unwrap_or_default())
+                .with_field("vpc_configuration", vpc_configuration.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a sync_blocker_summary resource
-    async fn delete_sync_blocker_summary(
+    /// Delete a host resource
+    async fn delete_host(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -321,271 +341,7 @@ impl<'a> CodeconnectionsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.codeconnections_client
-            //     .delete_sync_blocker_summary()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Resource_sync_status resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a resource_sync_status resource
-    async fn plan_resource_sync_status(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new resource_sync_status resource
-    async fn create_resource_sync_status(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.codeconnections_client
-            //     .create_resource_sync_status()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a resource_sync_status resource
-    async fn read_resource_sync_status(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.codeconnections_client
-            //     .describe_resource_sync_status()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a resource_sync_status resource
-    async fn update_resource_sync_status(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.codeconnections_client
-            //     .update_resource_sync_status()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a resource_sync_status resource
-    async fn delete_resource_sync_status(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.codeconnections_client
-            //     .delete_resource_sync_status()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Sync_configuration resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a sync_configuration resource
-    async fn plan_sync_configuration(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new sync_configuration resource
-    async fn create_sync_configuration(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let role_arn = input.get_string("role_arn")?;
-            let trigger_resource_update_on = input.get_optional_string("trigger_resource_update_on")?;
-            let sync_type = input.get_string("sync_type")?;
-            let repository_link_id = input.get_string("repository_link_id")?;
-            let resource_name = input.get_string("resource_name")?;
-            let config_file = input.get_string("config_file")?;
-            let pull_request_comment = input.get_optional_string("pull_request_comment")?;
-            let publish_deployment_status = input.get_optional_string("publish_deployment_status")?;
-            let branch = input.get_string("branch")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.codeconnections_client
-            //     .create_sync_configuration()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("role_arn", role_arn.unwrap_or_default())
-                .with_field("trigger_resource_update_on", trigger_resource_update_on.unwrap_or_default())
-                .with_field("sync_type", sync_type.unwrap_or_default())
-                .with_field("repository_link_id", repository_link_id.unwrap_or_default())
-                .with_field("resource_name", resource_name.unwrap_or_default())
-                .with_field("config_file", config_file.unwrap_or_default())
-                .with_field("pull_request_comment", pull_request_comment.unwrap_or_default())
-                .with_field("publish_deployment_status", publish_deployment_status.unwrap_or_default())
-                .with_field("branch", branch.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a sync_configuration resource
-    async fn read_sync_configuration(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.codeconnections_client
-            //     .describe_sync_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a sync_configuration resource
-    async fn update_sync_configuration(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let role_arn = input.get_string("role_arn")?;
-            let trigger_resource_update_on = input.get_optional_string("trigger_resource_update_on")?;
-            let sync_type = input.get_string("sync_type")?;
-            let repository_link_id = input.get_string("repository_link_id")?;
-            let resource_name = input.get_string("resource_name")?;
-            let config_file = input.get_string("config_file")?;
-            let pull_request_comment = input.get_optional_string("pull_request_comment")?;
-            let publish_deployment_status = input.get_optional_string("publish_deployment_status")?;
-            let branch = input.get_string("branch")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.codeconnections_client
-            //     .update_sync_configuration()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("role_arn", role_arn.unwrap_or_default())
-                .with_field("trigger_resource_update_on", trigger_resource_update_on.unwrap_or_default())
-                .with_field("sync_type", sync_type.unwrap_or_default())
-                .with_field("repository_link_id", repository_link_id.unwrap_or_default())
-                .with_field("resource_name", resource_name.unwrap_or_default())
-                .with_field("config_file", config_file.unwrap_or_default())
-                .with_field("pull_request_comment", pull_request_comment.unwrap_or_default())
-                .with_field("publish_deployment_status", publish_deployment_status.unwrap_or_default())
-                .with_field("branch", branch.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a sync_configuration resource
-    async fn delete_sync_configuration(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.codeconnections_client
-            //     .delete_sync_configuration()
+            //     .delete_host()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -624,11 +380,11 @@ impl<'a> CodeconnectionsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let connection_arn = input.get_string("connection_arn")?;
-            let owner_id = input.get_string("owner_id")?;
-            let repository_name = input.get_string("repository_name")?;
-            let encryption_key_arn = input.get_optional_string("encryption_key_arn")?;
             let tags = input.get_optional_string("tags")?;
+            let connection_arn = input.get_string("connection_arn")?;
+            let repository_name = input.get_string("repository_name")?;
+            let owner_id = input.get_string("owner_id")?;
+            let encryption_key_arn = input.get_optional_string("encryption_key_arn")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -643,11 +399,11 @@ impl<'a> CodeconnectionsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("connection_arn", connection_arn.unwrap_or_default())
-                .with_field("owner_id", owner_id.unwrap_or_default())
-                .with_field("repository_name", repository_name.unwrap_or_default())
-                .with_field("encryption_key_arn", encryption_key_arn.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
+                .with_field("connection_arn", connection_arn.unwrap_or_default())
+                .with_field("repository_name", repository_name.unwrap_or_default())
+                .with_field("owner_id", owner_id.unwrap_or_default())
+                .with_field("encryption_key_arn", encryption_key_arn.unwrap_or_default())
             )
         })
     }
@@ -681,11 +437,11 @@ impl<'a> CodeconnectionsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let connection_arn = input.get_string("connection_arn")?;
-            let owner_id = input.get_string("owner_id")?;
-            let repository_name = input.get_string("repository_name")?;
-            let encryption_key_arn = input.get_optional_string("encryption_key_arn")?;
             let tags = input.get_optional_string("tags")?;
+            let connection_arn = input.get_string("connection_arn")?;
+            let repository_name = input.get_string("repository_name")?;
+            let owner_id = input.get_string("owner_id")?;
+            let encryption_key_arn = input.get_optional_string("encryption_key_arn")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -701,11 +457,11 @@ impl<'a> CodeconnectionsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("connection_arn", connection_arn.unwrap_or_default())
-                .with_field("owner_id", owner_id.unwrap_or_default())
-                .with_field("repository_name", repository_name.unwrap_or_default())
-                .with_field("encryption_key_arn", encryption_key_arn.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
+                .with_field("connection_arn", connection_arn.unwrap_or_default())
+                .with_field("repository_name", repository_name.unwrap_or_default())
+                .with_field("owner_id", owner_id.unwrap_or_default())
+                .with_field("encryption_key_arn", encryption_key_arn.unwrap_or_default())
             )
         })
     }
@@ -731,11 +487,11 @@ impl<'a> CodeconnectionsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Sync_blocker resource operations
+    // Sync_configuration resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a sync_blocker resource
-    async fn plan_sync_blocker(
+    /// Plan changes to a sync_configuration resource
+    async fn plan_sync_configuration(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -750,24 +506,29 @@ impl<'a> CodeconnectionsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new sync_blocker resource
-    async fn create_sync_blocker(
+    /// Create a new sync_configuration resource
+    async fn create_sync_configuration(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let id = input.get_string("id")?;
+            let branch = input.get_string("branch")?;
             let resource_name = input.get_string("resource_name")?;
+            let config_file = input.get_string("config_file")?;
+            let repository_link_id = input.get_string("repository_link_id")?;
+            let role_arn = input.get_string("role_arn")?;
             let sync_type = input.get_string("sync_type")?;
-            let resolved_reason = input.get_string("resolved_reason")?;
+            let publish_deployment_status = input.get_optional_string("publish_deployment_status")?;
+            let trigger_resource_update_on = input.get_optional_string("trigger_resource_update_on")?;
+            let pull_request_comment = input.get_optional_string("pull_request_comment")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.codeconnections_client
-            //     .create_sync_blocker()
+            //     .create_sync_configuration()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -776,16 +537,21 @@ impl<'a> CodeconnectionsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("id", id.unwrap_or_default())
+                .with_field("branch", branch.unwrap_or_default())
                 .with_field("resource_name", resource_name.unwrap_or_default())
+                .with_field("config_file", config_file.unwrap_or_default())
+                .with_field("repository_link_id", repository_link_id.unwrap_or_default())
+                .with_field("role_arn", role_arn.unwrap_or_default())
                 .with_field("sync_type", sync_type.unwrap_or_default())
-                .with_field("resolved_reason", resolved_reason.unwrap_or_default())
+                .with_field("publish_deployment_status", publish_deployment_status.unwrap_or_default())
+                .with_field("trigger_resource_update_on", trigger_resource_update_on.unwrap_or_default())
+                .with_field("pull_request_comment", pull_request_comment.unwrap_or_default())
             )
         })
     }
 
-    /// Read a sync_blocker resource
-    async fn read_sync_blocker(
+    /// Read a sync_configuration resource
+    async fn read_sync_configuration(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -793,7 +559,7 @@ impl<'a> CodeconnectionsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.codeconnections_client
-            //     .describe_sync_blocker()
+            //     .describe_sync_configuration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -805,24 +571,29 @@ impl<'a> CodeconnectionsService<'a> {
         })
     }
 
-    /// Update a sync_blocker resource
-    async fn update_sync_blocker(
+    /// Update a sync_configuration resource
+    async fn update_sync_configuration(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let id = input.get_string("id")?;
+            let branch = input.get_string("branch")?;
             let resource_name = input.get_string("resource_name")?;
+            let config_file = input.get_string("config_file")?;
+            let repository_link_id = input.get_string("repository_link_id")?;
+            let role_arn = input.get_string("role_arn")?;
             let sync_type = input.get_string("sync_type")?;
-            let resolved_reason = input.get_string("resolved_reason")?;
+            let publish_deployment_status = input.get_optional_string("publish_deployment_status")?;
+            let trigger_resource_update_on = input.get_optional_string("trigger_resource_update_on")?;
+            let pull_request_comment = input.get_optional_string("pull_request_comment")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.codeconnections_client
-            //     .update_sync_blocker()
+            //     .update_sync_configuration()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -832,16 +603,21 @@ impl<'a> CodeconnectionsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("id", id.unwrap_or_default())
+                .with_field("branch", branch.unwrap_or_default())
                 .with_field("resource_name", resource_name.unwrap_or_default())
+                .with_field("config_file", config_file.unwrap_or_default())
+                .with_field("repository_link_id", repository_link_id.unwrap_or_default())
+                .with_field("role_arn", role_arn.unwrap_or_default())
                 .with_field("sync_type", sync_type.unwrap_or_default())
-                .with_field("resolved_reason", resolved_reason.unwrap_or_default())
+                .with_field("publish_deployment_status", publish_deployment_status.unwrap_or_default())
+                .with_field("trigger_resource_update_on", trigger_resource_update_on.unwrap_or_default())
+                .with_field("pull_request_comment", pull_request_comment.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a sync_blocker resource
-    async fn delete_sync_blocker(
+    /// Delete a sync_configuration resource
+    async fn delete_sync_configuration(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -849,7 +625,121 @@ impl<'a> CodeconnectionsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.codeconnections_client
-            //     .delete_sync_blocker()
+            //     .delete_sync_configuration()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Repository_sync_status resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a repository_sync_status resource
+    async fn plan_repository_sync_status(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new repository_sync_status resource
+    async fn create_repository_sync_status(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.codeconnections_client
+            //     .create_repository_sync_status()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a repository_sync_status resource
+    async fn read_repository_sync_status(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.codeconnections_client
+            //     .describe_repository_sync_status()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a repository_sync_status resource
+    async fn update_repository_sync_status(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.codeconnections_client
+            //     .update_repository_sync_status()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a repository_sync_status resource
+    async fn delete_repository_sync_status(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.codeconnections_client
+            //     .delete_repository_sync_status()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -991,11 +881,11 @@ impl<'a> CodeconnectionsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Repository_sync_status resource operations
+    // Resource_sync_status resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a repository_sync_status resource
-    async fn plan_repository_sync_status(
+    /// Plan changes to a resource_sync_status resource
+    async fn plan_resource_sync_status(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1010,8 +900,8 @@ impl<'a> CodeconnectionsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new repository_sync_status resource
-    async fn create_repository_sync_status(
+    /// Create a new resource_sync_status resource
+    async fn create_resource_sync_status(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -1023,7 +913,7 @@ impl<'a> CodeconnectionsService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.codeconnections_client
-            //     .create_repository_sync_status()
+            //     .create_resource_sync_status()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1036,8 +926,8 @@ impl<'a> CodeconnectionsService<'a> {
         })
     }
 
-    /// Read a repository_sync_status resource
-    async fn read_repository_sync_status(
+    /// Read a resource_sync_status resource
+    async fn read_resource_sync_status(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1045,7 +935,7 @@ impl<'a> CodeconnectionsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.codeconnections_client
-            //     .describe_repository_sync_status()
+            //     .describe_resource_sync_status()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1057,8 +947,8 @@ impl<'a> CodeconnectionsService<'a> {
         })
     }
 
-    /// Update a repository_sync_status resource
-    async fn update_repository_sync_status(
+    /// Update a resource_sync_status resource
+    async fn update_resource_sync_status(
         &self,
         id: &str,
         input: ResourceInput,
@@ -1070,7 +960,7 @@ impl<'a> CodeconnectionsService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.codeconnections_client
-            //     .update_repository_sync_status()
+            //     .update_resource_sync_status()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1084,8 +974,8 @@ impl<'a> CodeconnectionsService<'a> {
         })
     }
 
-    /// Delete a repository_sync_status resource
-    async fn delete_repository_sync_status(
+    /// Delete a resource_sync_status resource
+    async fn delete_resource_sync_status(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1093,7 +983,7 @@ impl<'a> CodeconnectionsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.codeconnections_client
-            //     .delete_repository_sync_status()
+            //     .delete_resource_sync_status()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1105,11 +995,11 @@ impl<'a> CodeconnectionsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Host resource operations
+    // Sync_blocker_summary resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a host resource
-    async fn plan_host(
+    /// Plan changes to a sync_blocker_summary resource
+    async fn plan_sync_blocker_summary(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1124,25 +1014,20 @@ impl<'a> CodeconnectionsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new host resource
-    async fn create_host(
+    /// Create a new sync_blocker_summary resource
+    async fn create_sync_blocker_summary(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let tags = input.get_optional_string("tags")?;
-            let provider_endpoint = input.get_string("provider_endpoint")?;
-            let name = input.get_string("name")?;
-            let provider_type = input.get_string("provider_type")?;
-            let vpc_configuration = input.get_optional_string("vpc_configuration")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.codeconnections_client
-            //     .create_host()
+            //     .create_sync_blocker_summary()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1151,17 +1036,12 @@ impl<'a> CodeconnectionsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("provider_endpoint", provider_endpoint.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("provider_type", provider_type.unwrap_or_default())
-                .with_field("vpc_configuration", vpc_configuration.unwrap_or_default())
             )
         })
     }
 
-    /// Read a host resource
-    async fn read_host(
+    /// Read a sync_blocker_summary resource
+    async fn read_sync_blocker_summary(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1169,7 +1049,7 @@ impl<'a> CodeconnectionsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.codeconnections_client
-            //     .describe_host()
+            //     .describe_sync_blocker_summary()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1181,25 +1061,20 @@ impl<'a> CodeconnectionsService<'a> {
         })
     }
 
-    /// Update a host resource
-    async fn update_host(
+    /// Update a sync_blocker_summary resource
+    async fn update_sync_blocker_summary(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let tags = input.get_optional_string("tags")?;
-            let provider_endpoint = input.get_string("provider_endpoint")?;
-            let name = input.get_string("name")?;
-            let provider_type = input.get_string("provider_type")?;
-            let vpc_configuration = input.get_optional_string("vpc_configuration")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.codeconnections_client
-            //     .update_host()
+            //     .update_sync_blocker_summary()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1209,17 +1084,12 @@ impl<'a> CodeconnectionsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("provider_endpoint", provider_endpoint.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("provider_type", provider_type.unwrap_or_default())
-                .with_field("vpc_configuration", vpc_configuration.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a host resource
-    async fn delete_host(
+    /// Delete a sync_blocker_summary resource
+    async fn delete_sync_blocker_summary(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1227,7 +1097,137 @@ impl<'a> CodeconnectionsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.codeconnections_client
-            //     .delete_host()
+            //     .delete_sync_blocker_summary()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Sync_blocker resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a sync_blocker resource
+    async fn plan_sync_blocker(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new sync_blocker resource
+    async fn create_sync_blocker(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let resolved_reason = input.get_string("resolved_reason")?;
+            let id = input.get_string("id")?;
+            let sync_type = input.get_string("sync_type")?;
+            let resource_name = input.get_string("resource_name")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.codeconnections_client
+            //     .create_sync_blocker()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("resolved_reason", resolved_reason.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
+                .with_field("sync_type", sync_type.unwrap_or_default())
+                .with_field("resource_name", resource_name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a sync_blocker resource
+    async fn read_sync_blocker(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.codeconnections_client
+            //     .describe_sync_blocker()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a sync_blocker resource
+    async fn update_sync_blocker(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let resolved_reason = input.get_string("resolved_reason")?;
+            let id = input.get_string("id")?;
+            let sync_type = input.get_string("sync_type")?;
+            let resource_name = input.get_string("resource_name")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.codeconnections_client
+            //     .update_sync_blocker()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("resolved_reason", resolved_reason.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
+                .with_field("sync_type", sync_type.unwrap_or_default())
+                .with_field("resource_name", resource_name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a sync_blocker resource
+    async fn delete_sync_blocker(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.codeconnections_client
+            //     .delete_sync_blocker()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

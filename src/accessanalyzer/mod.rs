@@ -24,20 +24,20 @@ impl<'a> AccessanalyzerService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "finding_recommendation" => {
-                self.plan_finding_recommendation(current_state, desired_input).await
+            "finding_v2" => {
+                self.plan_finding_v2(current_state, desired_input).await
             }
             "generated_policy" => {
                 self.plan_generated_policy(current_state, desired_input).await
             }
-            "access_preview" => {
-                self.plan_access_preview(current_state, desired_input).await
-            }
-            "findings_statistics" => {
-                self.plan_findings_statistics(current_state, desired_input).await
+            "finding_recommendation" => {
+                self.plan_finding_recommendation(current_state, desired_input).await
             }
             "analyzed_resource" => {
                 self.plan_analyzed_resource(current_state, desired_input).await
+            }
+            "access_preview" => {
+                self.plan_access_preview(current_state, desired_input).await
             }
             "finding" => {
                 self.plan_finding(current_state, desired_input).await
@@ -45,8 +45,8 @@ impl<'a> AccessanalyzerService<'a> {
             "findings" => {
                 self.plan_findings(current_state, desired_input).await
             }
-            "finding_v2" => {
-                self.plan_finding_v2(current_state, desired_input).await
+            "findings_statistics" => {
+                self.plan_findings_statistics(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -63,20 +63,20 @@ impl<'a> AccessanalyzerService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "finding_recommendation" => {
-                self.create_finding_recommendation(input).await
+            "finding_v2" => {
+                self.create_finding_v2(input).await
             }
             "generated_policy" => {
                 self.create_generated_policy(input).await
             }
-            "access_preview" => {
-                self.create_access_preview(input).await
-            }
-            "findings_statistics" => {
-                self.create_findings_statistics(input).await
+            "finding_recommendation" => {
+                self.create_finding_recommendation(input).await
             }
             "analyzed_resource" => {
                 self.create_analyzed_resource(input).await
+            }
+            "access_preview" => {
+                self.create_access_preview(input).await
             }
             "finding" => {
                 self.create_finding(input).await
@@ -84,8 +84,8 @@ impl<'a> AccessanalyzerService<'a> {
             "findings" => {
                 self.create_findings(input).await
             }
-            "finding_v2" => {
-                self.create_finding_v2(input).await
+            "findings_statistics" => {
+                self.create_findings_statistics(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -102,20 +102,20 @@ impl<'a> AccessanalyzerService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "finding_recommendation" => {
-                self.read_finding_recommendation(id).await
+            "finding_v2" => {
+                self.read_finding_v2(id).await
             }
             "generated_policy" => {
                 self.read_generated_policy(id).await
             }
-            "access_preview" => {
-                self.read_access_preview(id).await
-            }
-            "findings_statistics" => {
-                self.read_findings_statistics(id).await
+            "finding_recommendation" => {
+                self.read_finding_recommendation(id).await
             }
             "analyzed_resource" => {
                 self.read_analyzed_resource(id).await
+            }
+            "access_preview" => {
+                self.read_access_preview(id).await
             }
             "finding" => {
                 self.read_finding(id).await
@@ -123,8 +123,8 @@ impl<'a> AccessanalyzerService<'a> {
             "findings" => {
                 self.read_findings(id).await
             }
-            "finding_v2" => {
-                self.read_finding_v2(id).await
+            "findings_statistics" => {
+                self.read_findings_statistics(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -142,20 +142,20 @@ impl<'a> AccessanalyzerService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "finding_recommendation" => {
-                self.update_finding_recommendation(id, input).await
+            "finding_v2" => {
+                self.update_finding_v2(id, input).await
             }
             "generated_policy" => {
                 self.update_generated_policy(id, input).await
             }
-            "access_preview" => {
-                self.update_access_preview(id, input).await
-            }
-            "findings_statistics" => {
-                self.update_findings_statistics(id, input).await
+            "finding_recommendation" => {
+                self.update_finding_recommendation(id, input).await
             }
             "analyzed_resource" => {
                 self.update_analyzed_resource(id, input).await
+            }
+            "access_preview" => {
+                self.update_access_preview(id, input).await
             }
             "finding" => {
                 self.update_finding(id, input).await
@@ -163,8 +163,8 @@ impl<'a> AccessanalyzerService<'a> {
             "findings" => {
                 self.update_findings(id, input).await
             }
-            "finding_v2" => {
-                self.update_finding_v2(id, input).await
+            "findings_statistics" => {
+                self.update_findings_statistics(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -181,20 +181,20 @@ impl<'a> AccessanalyzerService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "finding_recommendation" => {
-                self.delete_finding_recommendation(id).await
+            "finding_v2" => {
+                self.delete_finding_v2(id).await
             }
             "generated_policy" => {
                 self.delete_generated_policy(id).await
             }
-            "access_preview" => {
-                self.delete_access_preview(id).await
-            }
-            "findings_statistics" => {
-                self.delete_findings_statistics(id).await
+            "finding_recommendation" => {
+                self.delete_finding_recommendation(id).await
             }
             "analyzed_resource" => {
                 self.delete_analyzed_resource(id).await
+            }
+            "access_preview" => {
+                self.delete_access_preview(id).await
             }
             "finding" => {
                 self.delete_finding(id).await
@@ -202,8 +202,8 @@ impl<'a> AccessanalyzerService<'a> {
             "findings" => {
                 self.delete_findings(id).await
             }
-            "finding_v2" => {
-                self.delete_finding_v2(id).await
+            "findings_statistics" => {
+                self.delete_findings_statistics(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -219,11 +219,11 @@ impl<'a> AccessanalyzerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Finding_recommendation resource operations
+    // Finding_v2 resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a finding_recommendation resource
-    async fn plan_finding_recommendation(
+    /// Plan changes to a finding_v2 resource
+    async fn plan_finding_v2(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -238,8 +238,8 @@ impl<'a> AccessanalyzerService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new finding_recommendation resource
-    async fn create_finding_recommendation(
+    /// Create a new finding_v2 resource
+    async fn create_finding_v2(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -251,7 +251,7 @@ impl<'a> AccessanalyzerService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.accessanalyzer_client
-            //     .create_finding_recommendation()
+            //     .create_finding_v2()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -264,8 +264,8 @@ impl<'a> AccessanalyzerService<'a> {
         })
     }
 
-    /// Read a finding_recommendation resource
-    async fn read_finding_recommendation(
+    /// Read a finding_v2 resource
+    async fn read_finding_v2(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -273,7 +273,7 @@ impl<'a> AccessanalyzerService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.accessanalyzer_client
-            //     .describe_finding_recommendation()
+            //     .describe_finding_v2()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -285,8 +285,8 @@ impl<'a> AccessanalyzerService<'a> {
         })
     }
 
-    /// Update a finding_recommendation resource
-    async fn update_finding_recommendation(
+    /// Update a finding_v2 resource
+    async fn update_finding_v2(
         &self,
         id: &str,
         input: ResourceInput,
@@ -298,7 +298,7 @@ impl<'a> AccessanalyzerService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.accessanalyzer_client
-            //     .update_finding_recommendation()
+            //     .update_finding_v2()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -312,8 +312,8 @@ impl<'a> AccessanalyzerService<'a> {
         })
     }
 
-    /// Delete a finding_recommendation resource
-    async fn delete_finding_recommendation(
+    /// Delete a finding_v2 resource
+    async fn delete_finding_v2(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -321,7 +321,7 @@ impl<'a> AccessanalyzerService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.accessanalyzer_client
-            //     .delete_finding_recommendation()
+            //     .delete_finding_v2()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -447,11 +447,11 @@ impl<'a> AccessanalyzerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Access_preview resource operations
+    // Finding_recommendation resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a access_preview resource
-    async fn plan_access_preview(
+    /// Plan changes to a finding_recommendation resource
+    async fn plan_finding_recommendation(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -466,134 +466,8 @@ impl<'a> AccessanalyzerService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new access_preview resource
-    async fn create_access_preview(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let analyzer_arn = input.get_string("analyzer_arn")?;
-            let configurations = input.get_string("configurations")?;
-            let client_token = input.get_optional_string("client_token")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.accessanalyzer_client
-            //     .create_access_preview()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("analyzer_arn", analyzer_arn.unwrap_or_default())
-                .with_field("configurations", configurations.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a access_preview resource
-    async fn read_access_preview(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.accessanalyzer_client
-            //     .describe_access_preview()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a access_preview resource
-    async fn update_access_preview(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let analyzer_arn = input.get_string("analyzer_arn")?;
-            let configurations = input.get_string("configurations")?;
-            let client_token = input.get_optional_string("client_token")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.accessanalyzer_client
-            //     .update_access_preview()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("analyzer_arn", analyzer_arn.unwrap_or_default())
-                .with_field("configurations", configurations.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a access_preview resource
-    async fn delete_access_preview(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.accessanalyzer_client
-            //     .delete_access_preview()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Findings_statistics resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a findings_statistics resource
-    async fn plan_findings_statistics(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new findings_statistics resource
-    async fn create_findings_statistics(
+    /// Create a new finding_recommendation resource
+    async fn create_finding_recommendation(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -605,7 +479,7 @@ impl<'a> AccessanalyzerService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.accessanalyzer_client
-            //     .create_findings_statistics()
+            //     .create_finding_recommendation()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -618,8 +492,8 @@ impl<'a> AccessanalyzerService<'a> {
         })
     }
 
-    /// Read a findings_statistics resource
-    async fn read_findings_statistics(
+    /// Read a finding_recommendation resource
+    async fn read_finding_recommendation(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -627,7 +501,7 @@ impl<'a> AccessanalyzerService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.accessanalyzer_client
-            //     .describe_findings_statistics()
+            //     .describe_finding_recommendation()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -639,8 +513,8 @@ impl<'a> AccessanalyzerService<'a> {
         })
     }
 
-    /// Update a findings_statistics resource
-    async fn update_findings_statistics(
+    /// Update a finding_recommendation resource
+    async fn update_finding_recommendation(
         &self,
         id: &str,
         input: ResourceInput,
@@ -652,7 +526,7 @@ impl<'a> AccessanalyzerService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.accessanalyzer_client
-            //     .update_findings_statistics()
+            //     .update_finding_recommendation()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -666,8 +540,8 @@ impl<'a> AccessanalyzerService<'a> {
         })
     }
 
-    /// Delete a findings_statistics resource
-    async fn delete_findings_statistics(
+    /// Delete a finding_recommendation resource
+    async fn delete_finding_recommendation(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -675,7 +549,7 @@ impl<'a> AccessanalyzerService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.accessanalyzer_client
-            //     .delete_findings_statistics()
+            //     .delete_finding_recommendation()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -790,6 +664,132 @@ impl<'a> AccessanalyzerService<'a> {
             // Example:
             // self.provider.accessanalyzer_client
             //     .delete_analyzed_resource()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Access_preview resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a access_preview resource
+    async fn plan_access_preview(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new access_preview resource
+    async fn create_access_preview(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let client_token = input.get_optional_string("client_token")?;
+            let analyzer_arn = input.get_string("analyzer_arn")?;
+            let configurations = input.get_string("configurations")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.accessanalyzer_client
+            //     .create_access_preview()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("analyzer_arn", analyzer_arn.unwrap_or_default())
+                .with_field("configurations", configurations.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a access_preview resource
+    async fn read_access_preview(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.accessanalyzer_client
+            //     .describe_access_preview()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a access_preview resource
+    async fn update_access_preview(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let client_token = input.get_optional_string("client_token")?;
+            let analyzer_arn = input.get_string("analyzer_arn")?;
+            let configurations = input.get_string("configurations")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.accessanalyzer_client
+            //     .update_access_preview()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("analyzer_arn", analyzer_arn.unwrap_or_default())
+                .with_field("configurations", configurations.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a access_preview resource
+    async fn delete_access_preview(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.accessanalyzer_client
+            //     .delete_access_preview()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -942,11 +942,11 @@ impl<'a> AccessanalyzerService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let analyzer_arn = input.get_string("analyzer_arn")?;
+            let status = input.get_string("status")?;
             let resource_arn = input.get_optional_string("resource_arn")?;
             let client_token = input.get_optional_string("client_token")?;
             let ids = input.get_optional_string("ids")?;
-            let analyzer_arn = input.get_string("analyzer_arn")?;
-            let status = input.get_string("status")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -961,11 +961,11 @@ impl<'a> AccessanalyzerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("analyzer_arn", analyzer_arn.unwrap_or_default())
+                .with_field("status", status.unwrap_or_default())
                 .with_field("resource_arn", resource_arn.unwrap_or_default())
                 .with_field("client_token", client_token.unwrap_or_default())
                 .with_field("ids", ids.unwrap_or_default())
-                .with_field("analyzer_arn", analyzer_arn.unwrap_or_default())
-                .with_field("status", status.unwrap_or_default())
             )
         })
     }
@@ -999,11 +999,11 @@ impl<'a> AccessanalyzerService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let analyzer_arn = input.get_string("analyzer_arn")?;
+            let status = input.get_string("status")?;
             let resource_arn = input.get_optional_string("resource_arn")?;
             let client_token = input.get_optional_string("client_token")?;
             let ids = input.get_optional_string("ids")?;
-            let analyzer_arn = input.get_string("analyzer_arn")?;
-            let status = input.get_string("status")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -1019,11 +1019,11 @@ impl<'a> AccessanalyzerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("analyzer_arn", analyzer_arn.unwrap_or_default())
+                .with_field("status", status.unwrap_or_default())
                 .with_field("resource_arn", resource_arn.unwrap_or_default())
                 .with_field("client_token", client_token.unwrap_or_default())
                 .with_field("ids", ids.unwrap_or_default())
-                .with_field("analyzer_arn", analyzer_arn.unwrap_or_default())
-                .with_field("status", status.unwrap_or_default())
             )
         })
     }
@@ -1049,11 +1049,11 @@ impl<'a> AccessanalyzerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Finding_v2 resource operations
+    // Findings_statistics resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a finding_v2 resource
-    async fn plan_finding_v2(
+    /// Plan changes to a findings_statistics resource
+    async fn plan_findings_statistics(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1068,8 +1068,8 @@ impl<'a> AccessanalyzerService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new finding_v2 resource
-    async fn create_finding_v2(
+    /// Create a new findings_statistics resource
+    async fn create_findings_statistics(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -1081,7 +1081,7 @@ impl<'a> AccessanalyzerService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.accessanalyzer_client
-            //     .create_finding_v2()
+            //     .create_findings_statistics()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1094,8 +1094,8 @@ impl<'a> AccessanalyzerService<'a> {
         })
     }
 
-    /// Read a finding_v2 resource
-    async fn read_finding_v2(
+    /// Read a findings_statistics resource
+    async fn read_findings_statistics(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1103,7 +1103,7 @@ impl<'a> AccessanalyzerService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.accessanalyzer_client
-            //     .describe_finding_v2()
+            //     .describe_findings_statistics()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1115,8 +1115,8 @@ impl<'a> AccessanalyzerService<'a> {
         })
     }
 
-    /// Update a finding_v2 resource
-    async fn update_finding_v2(
+    /// Update a findings_statistics resource
+    async fn update_findings_statistics(
         &self,
         id: &str,
         input: ResourceInput,
@@ -1128,7 +1128,7 @@ impl<'a> AccessanalyzerService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.accessanalyzer_client
-            //     .update_finding_v2()
+            //     .update_findings_statistics()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1142,8 +1142,8 @@ impl<'a> AccessanalyzerService<'a> {
         })
     }
 
-    /// Delete a finding_v2 resource
-    async fn delete_finding_v2(
+    /// Delete a findings_statistics resource
+    async fn delete_findings_statistics(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1151,7 +1151,7 @@ impl<'a> AccessanalyzerService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.accessanalyzer_client
-            //     .delete_finding_v2()
+            //     .delete_findings_statistics()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

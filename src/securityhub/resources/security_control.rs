@@ -24,7 +24,7 @@ impl<'a> Security_control<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, security_control_id: Option<String>, parameters: Option<HashMap<String, String>>, last_update_reason: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, last_update_reason: Option<String>, security_control_id: Option<String>, parameters: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

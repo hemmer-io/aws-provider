@@ -21,7 +21,7 @@ impl<'a> Application_assignment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, application_arn: String, principal_id: String, principal_type: String) -> Result<String> {
+    pub async fn create(&self, principal_type: String, application_arn: String, principal_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

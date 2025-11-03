@@ -21,7 +21,7 @@ impl<'a> Application<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, iam_identity_center_options: Option<String>, data_sources: Option<Vec<String>>, name: String, client_token: Option<String>, app_configs: Option<Vec<String>>, tag_list: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, app_configs: Option<Vec<String>>, client_token: Option<String>, data_sources: Option<Vec<String>>, tag_list: Option<Vec<String>>, name: String, iam_identity_center_options: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Application<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, iam_identity_center_options: Option<String>, data_sources: Option<Vec<String>>, name: Option<String>, client_token: Option<String>, app_configs: Option<Vec<String>>, tag_list: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, app_configs: Option<Vec<String>>, client_token: Option<String>, data_sources: Option<Vec<String>>, tag_list: Option<Vec<String>>, name: Option<String>, iam_identity_center_options: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

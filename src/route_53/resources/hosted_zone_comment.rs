@@ -24,7 +24,7 @@ impl<'a> Hosted_zone_comment<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, id: Option<String>, comment: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, comment: Option<String>, id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -75,11 +75,11 @@ ParametersForExport resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `export_token` | String | <p>The export token to initiate key export from Amazon Web Services Payment Cryptography. The export token expires after 30 days. You can use the same export token to export multiple keys from the same service account.</p> |
-| `signing_key_certificate_chain` | String | <p>The root certificate authority (CA) that signed the signing key certificate in PEM format (base64 encoded).</p> |
 | `parameters_valid_until_timestamp` | String | <p>The validity period of the export token.</p> |
-| `signing_key_algorithm` | String | <p>The algorithm of the signing key certificate for use in TR-34 key block generation. <code>RSA_2048</code> is the only signing key algorithm allowed.</p> |
 | `signing_key_certificate` | String | <p>The signing key certificate in PEM format (base64 encoded) of the public key for signature within the TR-34 key block. The certificate expires after 30 days.</p> |
+| `signing_key_certificate_chain` | String | <p>The root certificate authority (CA) that signed the signing key certificate in PEM format (base64 encoded).</p> |
+| `export_token` | String | <p>The export token to initiate key export from Amazon Web Services Payment Cryptography. The export token expires after 30 days. You can use the same export token to export multiple keys from the same service account.</p> |
+| `signing_key_algorithm` | String | <p>The algorithm of the signing key certificate for use in TR-34 key block generation. <code>RSA_2048</code> is the only signing key algorithm allowed.</p> |
 
 
 #### Usage Example
@@ -95,11 +95,11 @@ provider = aws.AwsProvider {
 
 # Access parameters_for_export outputs
 parameters_for_export_id = parameters_for_export.id
-parameters_for_export_export_token = parameters_for_export.export_token
-parameters_for_export_signing_key_certificate_chain = parameters_for_export.signing_key_certificate_chain
 parameters_for_export_parameters_valid_until_timestamp = parameters_for_export.parameters_valid_until_timestamp
-parameters_for_export_signing_key_algorithm = parameters_for_export.signing_key_algorithm
 parameters_for_export_signing_key_certificate = parameters_for_export.signing_key_certificate
+parameters_for_export_signing_key_certificate_chain = parameters_for_export.signing_key_certificate_chain
+parameters_for_export_export_token = parameters_for_export.export_token
+parameters_for_export_signing_key_algorithm = parameters_for_export.signing_key_algorithm
 ```
 
 ---
@@ -121,11 +121,11 @@ ParametersForImport resource
 
 | Output | Type | Description |
 |--------|------|-------------|
+| `wrapping_key_algorithm` | String | <p>The algorithm of the wrapping key for use within TR-34 WrappedKeyBlock or RSA WrappedKeyCryptogram.</p> |
+| `parameters_valid_until_timestamp` | String | <p>The validity period of the import token.</p> |
 | `import_token` | String | <p>The import token to initiate key import into Amazon Web Services Payment Cryptography. The import token expires after 30 days. You can use the same import token to import multiple keys to the same service account.</p> |
 | `wrapping_key_certificate` | String | <p>The wrapping key certificate in PEM format (base64 encoded) of the wrapping key for use within the TR-34 key block. The certificate expires in 30 days.</p> |
 | `wrapping_key_certificate_chain` | String | <p>The Amazon Web Services Payment Cryptography root certificate authority (CA) that signed the wrapping key certificate in PEM format (base64 encoded).</p> |
-| `wrapping_key_algorithm` | String | <p>The algorithm of the wrapping key for use within TR-34 WrappedKeyBlock or RSA WrappedKeyCryptogram.</p> |
-| `parameters_valid_until_timestamp` | String | <p>The validity period of the import token.</p> |
 
 
 #### Usage Example
@@ -141,11 +141,11 @@ provider = aws.AwsProvider {
 
 # Access parameters_for_import outputs
 parameters_for_import_id = parameters_for_import.id
+parameters_for_import_wrapping_key_algorithm = parameters_for_import.wrapping_key_algorithm
+parameters_for_import_parameters_valid_until_timestamp = parameters_for_import.parameters_valid_until_timestamp
 parameters_for_import_import_token = parameters_for_import.import_token
 parameters_for_import_wrapping_key_certificate = parameters_for_import.wrapping_key_certificate
 parameters_for_import_wrapping_key_certificate_chain = parameters_for_import.wrapping_key_certificate_chain
-parameters_for_import_wrapping_key_algorithm = parameters_for_import.wrapping_key_algorithm
-parameters_for_import_parameters_valid_until_timestamp = parameters_for_import.parameters_valid_until_timestamp
 ```
 
 ---

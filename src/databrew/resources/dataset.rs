@@ -21,7 +21,7 @@ impl<'a> Dataset<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, format: Option<String>, name: String, input: String, tags: Option<HashMap<String, String>>, format_options: Option<String>, path_options: Option<String>) -> Result<String> {
+    pub async fn create(&self, input: String, format_options: Option<String>, path_options: Option<String>, name: String, tags: Option<HashMap<String, String>>, format: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Dataset<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, format: Option<String>, name: Option<String>, input: Option<String>, tags: Option<HashMap<String, String>>, format_options: Option<String>, path_options: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, input: Option<String>, format_options: Option<String>, path_options: Option<String>, name: Option<String>, tags: Option<HashMap<String, String>>, format: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

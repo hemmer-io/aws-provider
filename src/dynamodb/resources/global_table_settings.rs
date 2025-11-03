@@ -38,7 +38,7 @@ impl<'a> Global_table_settings<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, global_table_provisioned_write_capacity_auto_scaling_settings_update: Option<String>, global_table_name: Option<String>, global_table_provisioned_write_capacity_units: Option<i64>, global_table_global_secondary_index_settings_update: Option<Vec<String>>, replica_settings_update: Option<Vec<String>>, global_table_billing_mode: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, global_table_provisioned_write_capacity_auto_scaling_settings_update: Option<String>, global_table_provisioned_write_capacity_units: Option<i64>, replica_settings_update: Option<Vec<String>>, global_table_global_secondary_index_settings_update: Option<Vec<String>>, global_table_billing_mode: Option<String>, global_table_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

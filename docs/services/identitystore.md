@@ -10,13 +10,53 @@
 
 The identitystore service provides access to 3 resource types:
 
-- [Group_id](#group_id) [R]
 - [User_id](#user_id) [R]
+- [Group_id](#group_id) [R]
 - [Group_membership_id](#group_membership_id) [R]
 
 ---
 
 ## Resources
+
+
+### User_id
+
+UserId resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `user_id` | String | <p>The identifier for a user in the identity store.</p> |
+| `identity_store_id` | String | <p>The globally unique identifier for the identity store.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access user_id outputs
+user_id_id = user_id.id
+user_id_user_id = user_id.user_id
+user_id_identity_store_id = user_id.identity_store_id
+```
+
+---
 
 
 ### Group_id
@@ -54,46 +94,6 @@ provider = aws.AwsProvider {
 group_id_id = group_id.id
 group_id_identity_store_id = group_id.identity_store_id
 group_id_group_id = group_id.group_id
-```
-
----
-
-
-### User_id
-
-UserId resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `identity_store_id` | String | <p>The globally unique identifier for the identity store.</p> |
-| `user_id` | String | <p>The identifier for a user in the identity store.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access user_id outputs
-user_id_id = user_id.id
-user_id_identity_store_id = user_id.identity_store_id
-user_id_user_id = user_id.user_id
 ```
 
 ---
@@ -151,12 +151,12 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create multiple group_id resources
-group_id_0 = provider.identitystore.Group_id {
+# Create multiple user_id resources
+user_id_0 = provider.identitystore.User_id {
 }
-group_id_1 = provider.identitystore.Group_id {
+user_id_1 = provider.identitystore.User_id {
 }
-group_id_2 = provider.identitystore.Group_id {
+user_id_2 = provider.identitystore.User_id {
 }
 ```
 
@@ -165,7 +165,7 @@ group_id_2 = provider.identitystore.Group_id {
 ```kcl
 # Only create in production
 if environment == "production":
-    group_id = provider.identitystore.Group_id {
+    user_id = provider.identitystore.User_id {
     }
 ```
 

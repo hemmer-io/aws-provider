@@ -21,7 +21,7 @@ impl<'a> Store_image_task<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, s3_object_tags: Option<Vec<String>>, bucket: String, dry_run: Option<bool>, image_id: String) -> Result<String> {
+    pub async fn create(&self, bucket: String, image_id: String, s3_object_tags: Option<Vec<String>>, dry_run: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

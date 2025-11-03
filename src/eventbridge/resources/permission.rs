@@ -21,7 +21,7 @@ impl<'a> Permission<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, action: Option<String>, policy: Option<String>, event_bus_name: Option<String>, principal: Option<String>, statement_id: Option<String>, condition: Option<String>) -> Result<String> {
+    pub async fn create(&self, statement_id: Option<String>, action: Option<String>, condition: Option<String>, event_bus_name: Option<String>, policy: Option<String>, principal: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

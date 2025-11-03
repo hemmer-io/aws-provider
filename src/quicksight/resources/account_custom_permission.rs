@@ -38,7 +38,7 @@ impl<'a> Account_custom_permission<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, aws_account_id: Option<String>, custom_permissions_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, custom_permissions_name: Option<String>, aws_account_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Application_instance<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, runtime_role_arn: Option<String>, name: Option<String>, manifest_overrides_payload: Option<String>, application_instance_id_to_replace: Option<String>, tags: Option<HashMap<String, String>>, manifest_payload: String, description: Option<String>, default_runtime_context_device: String) -> Result<String> {
+    pub async fn create(&self, manifest_overrides_payload: Option<String>, runtime_role_arn: Option<String>, default_runtime_context_device: String, tags: Option<HashMap<String, String>>, name: Option<String>, manifest_payload: String, description: Option<String>, application_instance_id_to_replace: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -33,19 +33,19 @@ HumanLoop resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `human_loop_arn` | String | <p>The Amazon Resource Name (ARN) of the human loop.</p> |
+| `human_loop_name` | String | <p>The name of the human loop. The name must be lowercase, unique within the Region in your
+      account, and can have up to 63 characters. Valid characters: a-z, 0-9, and - (hyphen).</p> |
 | `failure_code` | String | <p>A failure code that identifies the type of failure.</p>
          <p>Possible values: <code>ValidationError</code>, <code>Expired</code>,
         <code>InternalError</code>
          </p> |
-| `human_loop_status` | String | <p>The status of the human loop. </p> |
-| `creation_time` | String | <p>The creation time when Amazon Augmented AI created the human loop.</p> |
 | `human_loop_output` | String | <p>An object that contains information about the output of the human loop.</p> |
-| `human_loop_name` | String | <p>The name of the human loop. The name must be lowercase, unique within the Region in your
-      account, and can have up to 63 characters. Valid characters: a-z, 0-9, and - (hyphen).</p> |
-| `flow_definition_arn` | String | <p>The Amazon Resource Name (ARN) of the flow definition.</p> |
 | `failure_reason` | String | <p>The reason why a human loop failed. The failure reason is returned when the status of the
       human loop is <code>Failed</code>.</p> |
+| `creation_time` | String | <p>The creation time when Amazon Augmented AI created the human loop.</p> |
+| `human_loop_status` | String | <p>The status of the human loop. </p> |
+| `flow_definition_arn` | String | <p>The Amazon Resource Name (ARN) of the flow definition.</p> |
+| `human_loop_arn` | String | <p>The Amazon Resource Name (ARN) of the human loop.</p> |
 
 
 #### Usage Example
@@ -61,14 +61,14 @@ provider = aws.AwsProvider {
 
 # Access human_loop outputs
 human_loop_id = human_loop.id
-human_loop_human_loop_arn = human_loop.human_loop_arn
-human_loop_failure_code = human_loop.failure_code
-human_loop_human_loop_status = human_loop.human_loop_status
-human_loop_creation_time = human_loop.creation_time
-human_loop_human_loop_output = human_loop.human_loop_output
 human_loop_human_loop_name = human_loop.human_loop_name
-human_loop_flow_definition_arn = human_loop.flow_definition_arn
+human_loop_failure_code = human_loop.failure_code
+human_loop_human_loop_output = human_loop.human_loop_output
 human_loop_failure_reason = human_loop.failure_reason
+human_loop_creation_time = human_loop.creation_time
+human_loop_human_loop_status = human_loop.human_loop_status
+human_loop_flow_definition_arn = human_loop.flow_definition_arn
+human_loop_human_loop_arn = human_loop.human_loop_arn
 ```
 
 ---

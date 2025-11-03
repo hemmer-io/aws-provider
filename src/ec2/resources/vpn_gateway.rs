@@ -21,7 +21,7 @@ impl<'a> Vpn_gateway<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tag_specifications: Option<Vec<String>>, type: String, dry_run: Option<bool>, amazon_side_asn: Option<i64>, availability_zone: Option<String>) -> Result<String> {
+    pub async fn create(&self, type: String, tag_specifications: Option<Vec<String>>, amazon_side_asn: Option<i64>, availability_zone: Option<String>, dry_run: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

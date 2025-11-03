@@ -21,7 +21,7 @@ impl<'a> Data_grant<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, source_data_set_id: String, name: String, receiver_principal: String, ends_at: Option<String>, description: Option<String>, tags: Option<HashMap<String, String>>, grant_distribution_scope: String) -> Result<String> {
+    pub async fn create(&self, ends_at: Option<String>, grant_distribution_scope: String, description: Option<String>, receiver_principal: String, tags: Option<HashMap<String, String>>, name: String, source_data_set_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

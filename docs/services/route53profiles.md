@@ -119,16 +119,16 @@ Profile resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `client_token` | String | ✅ | <p>
-            <code>ClientToken</code> is an idempotency token that ensures a call to <code>CreateProfile</code> completes only once. You choose the value to pass. 
-  For example, an issue might prevent you from getting a response from <code>CreateProfile</code>. 
-  In this case, safely retry your call to <code>CreateProfile</code> by using the same <code>CreateProfile</code> parameter value.
+| `tags` | Vec<String> |  | <p>
+  A list of the tag keys and values that you want to associate with the Route 53 Profile.
 </p> |
 | `name` | String | ✅ | <p>
   A name for the Profile.
 </p> |
-| `tags` | Vec<String> |  | <p>
-  A list of the tag keys and values that you want to associate with the Route 53 Profile.
+| `client_token` | String | ✅ | <p>
+            <code>ClientToken</code> is an idempotency token that ensures a call to <code>CreateProfile</code> completes only once. You choose the value to pass. 
+  For example, an issue might prevent you from getting a response from <code>CreateProfile</code>. 
+  In this case, safely retry your call to <code>CreateProfile</code> by using the same <code>CreateProfile</code> parameter value.
 </p> |
 
 
@@ -154,13 +154,13 @@ provider = aws.AwsProvider {
 
 # Create profile
 profile = provider.route53profiles.Profile {
+    name = "value"  # <p>
+  A name for the Profile.
+</p>
     client_token = "value"  # <p>
             <code>ClientToken</code> is an idempotency token that ensures a call to <code>CreateProfile</code> completes only once. You choose the value to pass. 
   For example, an issue might prevent you from getting a response from <code>CreateProfile</code>. 
   In this case, safely retry your call to <code>CreateProfile</code> by using the same <code>CreateProfile</code> parameter value.
-</p>
-    name = "value"  # <p>
-  A name for the Profile.
 </p>
 }
 

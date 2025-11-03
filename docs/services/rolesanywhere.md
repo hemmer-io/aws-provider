@@ -27,8 +27,8 @@ NotificationSettings resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `trust_anchor_id` | String | ✅ | <p>The unique identifier of the trust anchor.</p> |
 | `notification_settings` | Vec<String> | ✅ | <p>A list of notification settings to be associated to the trust anchor.</p> |
+| `trust_anchor_id` | String | ✅ | <p>The unique identifier of the trust anchor.</p> |
 
 
 
@@ -45,8 +45,8 @@ provider = aws.AwsProvider {
 
 # Create notification_settings
 notification_settings = provider.rolesanywhere.Notification_settings {
-    trust_anchor_id = "value"  # <p>The unique identifier of the trust anchor.</p>
     notification_settings = "value"  # <p>A list of notification settings to be associated to the trust anchor.</p>
+    trust_anchor_id = "value"  # <p>The unique identifier of the trust anchor.</p>
 }
 
 ```
@@ -68,16 +68,16 @@ provider = aws.AwsProvider {
 
 # Create multiple notification_settings resources
 notification_settings_0 = provider.rolesanywhere.Notification_settings {
-    trust_anchor_id = "value-0"
     notification_settings = "value-0"
+    trust_anchor_id = "value-0"
 }
 notification_settings_1 = provider.rolesanywhere.Notification_settings {
-    trust_anchor_id = "value-1"
     notification_settings = "value-1"
+    trust_anchor_id = "value-1"
 }
 notification_settings_2 = provider.rolesanywhere.Notification_settings {
-    trust_anchor_id = "value-2"
     notification_settings = "value-2"
+    trust_anchor_id = "value-2"
 }
 ```
 
@@ -87,8 +87,8 @@ notification_settings_2 = provider.rolesanywhere.Notification_settings {
 # Only create in production
 if environment == "production":
     notification_settings = provider.rolesanywhere.Notification_settings {
-        trust_anchor_id = "production-value"
         notification_settings = "production-value"
+        trust_anchor_id = "production-value"
     }
 ```
 

@@ -141,13 +141,13 @@ impl<'a> EbsService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let progress = input.get_optional_string("progress")?;
             let block_index = input.get_string("block_index")?;
-            let snapshot_id = input.get_string("snapshot_id")?;
-            let block_data = input.get_string("block_data")?;
-            let checksum_algorithm = input.get_string("checksum_algorithm")?;
             let checksum = input.get_string("checksum")?;
+            let progress = input.get_optional_string("progress")?;
+            let block_data = input.get_string("block_data")?;
             let data_length = input.get_string("data_length")?;
+            let checksum_algorithm = input.get_string("checksum_algorithm")?;
+            let snapshot_id = input.get_string("snapshot_id")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -162,13 +162,13 @@ impl<'a> EbsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("progress", progress.unwrap_or_default())
                 .with_field("block_index", block_index.unwrap_or_default())
-                .with_field("snapshot_id", snapshot_id.unwrap_or_default())
-                .with_field("block_data", block_data.unwrap_or_default())
-                .with_field("checksum_algorithm", checksum_algorithm.unwrap_or_default())
                 .with_field("checksum", checksum.unwrap_or_default())
+                .with_field("progress", progress.unwrap_or_default())
+                .with_field("block_data", block_data.unwrap_or_default())
                 .with_field("data_length", data_length.unwrap_or_default())
+                .with_field("checksum_algorithm", checksum_algorithm.unwrap_or_default())
+                .with_field("snapshot_id", snapshot_id.unwrap_or_default())
             )
         })
     }
@@ -202,13 +202,13 @@ impl<'a> EbsService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let progress = input.get_optional_string("progress")?;
             let block_index = input.get_string("block_index")?;
-            let snapshot_id = input.get_string("snapshot_id")?;
-            let block_data = input.get_string("block_data")?;
-            let checksum_algorithm = input.get_string("checksum_algorithm")?;
             let checksum = input.get_string("checksum")?;
+            let progress = input.get_optional_string("progress")?;
+            let block_data = input.get_string("block_data")?;
             let data_length = input.get_string("data_length")?;
+            let checksum_algorithm = input.get_string("checksum_algorithm")?;
+            let snapshot_id = input.get_string("snapshot_id")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -224,13 +224,13 @@ impl<'a> EbsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("progress", progress.unwrap_or_default())
                 .with_field("block_index", block_index.unwrap_or_default())
-                .with_field("snapshot_id", snapshot_id.unwrap_or_default())
-                .with_field("block_data", block_data.unwrap_or_default())
-                .with_field("checksum_algorithm", checksum_algorithm.unwrap_or_default())
                 .with_field("checksum", checksum.unwrap_or_default())
+                .with_field("progress", progress.unwrap_or_default())
+                .with_field("block_data", block_data.unwrap_or_default())
                 .with_field("data_length", data_length.unwrap_or_default())
+                .with_field("checksum_algorithm", checksum_algorithm.unwrap_or_default())
+                .with_field("snapshot_id", snapshot_id.unwrap_or_default())
             )
         })
     }

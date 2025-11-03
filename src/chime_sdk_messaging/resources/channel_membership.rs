@@ -21,7 +21,7 @@ impl<'a> Channel_membership<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, channel_arn: String, chime_bearer: String, sub_channel_id: Option<String>, type: String, member_arn: String) -> Result<String> {
+    pub async fn create(&self, chime_bearer: String, sub_channel_id: Option<String>, member_arn: String, channel_arn: String, type: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Vpc_connection<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, authentication: String, security_groups: Vec<String>, target_cluster_arn: String, vpc_id: String, client_subnets: Vec<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, vpc_id: String, security_groups: Vec<String>, client_subnets: Vec<String>, authentication: String, target_cluster_arn: String, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

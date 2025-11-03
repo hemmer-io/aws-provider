@@ -21,7 +21,7 @@ impl<'a> Integration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, source_arn: String, kms_key_id: Option<String>, additional_encryption_context: Option<HashMap<String, String>>, tags: Option<Vec<String>>, data_filter: Option<String>, target_arn: String, integration_name: String) -> Result<String> {
+    pub async fn create(&self, source_arn: String, additional_encryption_context: Option<HashMap<String, String>>, tags: Option<Vec<String>>, integration_name: String, target_arn: String, kms_key_id: Option<String>, description: Option<String>, data_filter: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

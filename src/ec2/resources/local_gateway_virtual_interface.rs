@@ -21,7 +21,7 @@ impl<'a> Local_gateway_virtual_interface<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, peer_bgp_asn_extended: Option<i64>, vlan: i64, peer_bgp_asn: Option<i64>, local_gateway_virtual_interface_group_id: String, outpost_lag_id: String, tag_specifications: Option<Vec<String>>, dry_run: Option<bool>, peer_address: String, local_address: String) -> Result<String> {
+    pub async fn create(&self, outpost_lag_id: String, local_address: String, peer_address: String, peer_bgp_asn_extended: Option<i64>, peer_bgp_asn: Option<i64>, local_gateway_virtual_interface_group_id: String, vlan: i64, dry_run: Option<bool>, tag_specifications: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

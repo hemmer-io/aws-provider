@@ -10,58 +10,12 @@
 
 The mpa service provides access to 2 resource types:
 
-- [Resource_policy](#resource_policy) [R]
 - [Policy_version](#policy_version) [R]
+- [Resource_policy](#resource_policy) [R]
 
 ---
 
 ## Resources
-
-
-### Resource_policy
-
-ResourcePolicy resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `policy_name` | String | <p>Name of the policy.</p> |
-| `resource_arn` | String | <p>Amazon Resource Name (ARN) for the resource.</p> |
-| `policy_version_arn` | String | <p>Amazon Resource Name (ARN) for the policy version.</p> |
-| `policy_document` | String | <p>Document that contains the contents for the policy.</p> |
-| `policy_type` | String | <p>The type of policy</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access resource_policy outputs
-resource_policy_id = resource_policy.id
-resource_policy_policy_name = resource_policy.policy_name
-resource_policy_resource_arn = resource_policy.resource_arn
-resource_policy_policy_version_arn = resource_policy.policy_version_arn
-resource_policy_policy_document = resource_policy.policy_document
-resource_policy_policy_type = resource_policy.policy_type
-```
-
----
 
 
 ### Policy_version
@@ -102,6 +56,52 @@ policy_version_policy_version = policy_version.policy_version
 ---
 
 
+### Resource_policy
+
+ResourcePolicy resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `policy_name` | String | <p>Name of the policy.</p> |
+| `policy_type` | String | <p>The type of policy</p> |
+| `policy_document` | String | <p>Document that contains the contents for the policy.</p> |
+| `resource_arn` | String | <p>Amazon Resource Name (ARN) for the resource.</p> |
+| `policy_version_arn` | String | <p>Amazon Resource Name (ARN) for the policy version.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access resource_policy outputs
+resource_policy_id = resource_policy.id
+resource_policy_policy_name = resource_policy.policy_name
+resource_policy_policy_type = resource_policy.policy_type
+resource_policy_policy_document = resource_policy.policy_document
+resource_policy_resource_arn = resource_policy.resource_arn
+resource_policy_policy_version_arn = resource_policy.policy_version_arn
+```
+
+---
+
+
 
 ## Common Operations
 
@@ -114,12 +114,12 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create multiple resource_policy resources
-resource_policy_0 = provider.mpa.Resource_policy {
+# Create multiple policy_version resources
+policy_version_0 = provider.mpa.Policy_version {
 }
-resource_policy_1 = provider.mpa.Resource_policy {
+policy_version_1 = provider.mpa.Policy_version {
 }
-resource_policy_2 = provider.mpa.Resource_policy {
+policy_version_2 = provider.mpa.Policy_version {
 }
 ```
 
@@ -128,7 +128,7 @@ resource_policy_2 = provider.mpa.Resource_policy {
 ```kcl
 # Only create in production
 if environment == "production":
-    resource_policy = provider.mpa.Resource_policy {
+    policy_version = provider.mpa.Policy_version {
     }
 ```
 

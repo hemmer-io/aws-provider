@@ -141,14 +141,14 @@ impl<'a> Lex_runtimeService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let bot_id = input.get_string("bot_id")?;
-            let locale_id = input.get_string("locale_id")?;
-            let messages = input.get_optional_string("messages")?;
-            let response_content_type = input.get_optional_string("response_content_type")?;
-            let bot_alias_id = input.get_string("bot_alias_id")?;
-            let session_id = input.get_string("session_id")?;
-            let session_state = input.get_string("session_state")?;
             let request_attributes = input.get_optional_string("request_attributes")?;
+            let bot_id = input.get_string("bot_id")?;
+            let session_state = input.get_string("session_state")?;
+            let locale_id = input.get_string("locale_id")?;
+            let session_id = input.get_string("session_id")?;
+            let response_content_type = input.get_optional_string("response_content_type")?;
+            let messages = input.get_optional_string("messages")?;
+            let bot_alias_id = input.get_string("bot_alias_id")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -163,14 +163,14 @@ impl<'a> Lex_runtimeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("bot_id", bot_id.unwrap_or_default())
-                .with_field("locale_id", locale_id.unwrap_or_default())
-                .with_field("messages", messages.unwrap_or_default())
-                .with_field("response_content_type", response_content_type.unwrap_or_default())
-                .with_field("bot_alias_id", bot_alias_id.unwrap_or_default())
-                .with_field("session_id", session_id.unwrap_or_default())
-                .with_field("session_state", session_state.unwrap_or_default())
                 .with_field("request_attributes", request_attributes.unwrap_or_default())
+                .with_field("bot_id", bot_id.unwrap_or_default())
+                .with_field("session_state", session_state.unwrap_or_default())
+                .with_field("locale_id", locale_id.unwrap_or_default())
+                .with_field("session_id", session_id.unwrap_or_default())
+                .with_field("response_content_type", response_content_type.unwrap_or_default())
+                .with_field("messages", messages.unwrap_or_default())
+                .with_field("bot_alias_id", bot_alias_id.unwrap_or_default())
             )
         })
     }
@@ -204,14 +204,14 @@ impl<'a> Lex_runtimeService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let bot_id = input.get_string("bot_id")?;
-            let locale_id = input.get_string("locale_id")?;
-            let messages = input.get_optional_string("messages")?;
-            let response_content_type = input.get_optional_string("response_content_type")?;
-            let bot_alias_id = input.get_string("bot_alias_id")?;
-            let session_id = input.get_string("session_id")?;
-            let session_state = input.get_string("session_state")?;
             let request_attributes = input.get_optional_string("request_attributes")?;
+            let bot_id = input.get_string("bot_id")?;
+            let session_state = input.get_string("session_state")?;
+            let locale_id = input.get_string("locale_id")?;
+            let session_id = input.get_string("session_id")?;
+            let response_content_type = input.get_optional_string("response_content_type")?;
+            let messages = input.get_optional_string("messages")?;
+            let bot_alias_id = input.get_string("bot_alias_id")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -227,14 +227,14 @@ impl<'a> Lex_runtimeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("bot_id", bot_id.unwrap_or_default())
-                .with_field("locale_id", locale_id.unwrap_or_default())
-                .with_field("messages", messages.unwrap_or_default())
-                .with_field("response_content_type", response_content_type.unwrap_or_default())
-                .with_field("bot_alias_id", bot_alias_id.unwrap_or_default())
-                .with_field("session_id", session_id.unwrap_or_default())
-                .with_field("session_state", session_state.unwrap_or_default())
                 .with_field("request_attributes", request_attributes.unwrap_or_default())
+                .with_field("bot_id", bot_id.unwrap_or_default())
+                .with_field("session_state", session_state.unwrap_or_default())
+                .with_field("locale_id", locale_id.unwrap_or_default())
+                .with_field("session_id", session_id.unwrap_or_default())
+                .with_field("response_content_type", response_content_type.unwrap_or_default())
+                .with_field("messages", messages.unwrap_or_default())
+                .with_field("bot_alias_id", bot_alias_id.unwrap_or_default())
             )
         })
     }

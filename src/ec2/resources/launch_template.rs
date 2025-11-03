@@ -21,7 +21,7 @@ impl<'a> Launch_template<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tag_specifications: Option<Vec<String>>, launch_template_name: String, version_description: Option<String>, launch_template_data: String, dry_run: Option<bool>, operator: Option<String>, client_token: Option<String>) -> Result<String> {
+    pub async fn create(&self, client_token: Option<String>, tag_specifications: Option<Vec<String>>, version_description: Option<String>, operator: Option<String>, dry_run: Option<bool>, launch_template_name: String, launch_template_data: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

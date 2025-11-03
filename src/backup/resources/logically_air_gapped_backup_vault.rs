@@ -21,7 +21,7 @@ impl<'a> Logically_air_gapped_backup_vault<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, backup_vault_tags: Option<HashMap<String, String>>, backup_vault_name: String, creator_request_id: Option<String>, min_retention_days: i64, max_retention_days: i64) -> Result<String> {
+    pub async fn create(&self, backup_vault_name: String, creator_request_id: Option<String>, backup_vault_tags: Option<HashMap<String, String>>, min_retention_days: i64, max_retention_days: i64) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

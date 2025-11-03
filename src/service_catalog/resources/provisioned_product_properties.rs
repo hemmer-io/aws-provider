@@ -24,7 +24,7 @@ impl<'a> Provisioned_product_properties<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, accept_language: Option<String>, provisioned_product_id: Option<String>, provisioned_product_properties: Option<HashMap<String, String>>, idempotency_token: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, provisioned_product_id: Option<String>, idempotency_token: Option<String>, provisioned_product_properties: Option<HashMap<String, String>>, accept_language: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

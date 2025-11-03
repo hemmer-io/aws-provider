@@ -21,7 +21,7 @@ impl<'a> Stack_refactor<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, stack_definitions: Vec<String>, description: Option<String>, resource_mappings: Option<Vec<String>>, enable_stack_creation: Option<bool>) -> Result<String> {
+    pub async fn create(&self, resource_mappings: Option<Vec<String>>, stack_definitions: Vec<String>, description: Option<String>, enable_stack_creation: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

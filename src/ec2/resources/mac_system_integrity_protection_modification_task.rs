@@ -21,7 +21,7 @@ impl<'a> Mac_system_integrity_protection_modification_task<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, mac_system_integrity_protection_configuration: Option<String>, instance_id: String, mac_credentials: Option<String>, client_token: Option<String>, mac_system_integrity_protection_status: String, dry_run: Option<bool>, tag_specifications: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, mac_system_integrity_protection_status: String, dry_run: Option<bool>, client_token: Option<String>, mac_credentials: Option<String>, tag_specifications: Option<Vec<String>>, mac_system_integrity_protection_configuration: Option<String>, instance_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

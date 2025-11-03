@@ -38,7 +38,7 @@ impl<'a> Preferences<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, management_account_rate_type_selections: Option<Vec<String>>, member_account_rate_type_selections: Option<Vec<String>>, standalone_account_rate_type_selections: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, member_account_rate_type_selections: Option<Vec<String>>, standalone_account_rate_type_selections: Option<Vec<String>>, management_account_rate_type_selections: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

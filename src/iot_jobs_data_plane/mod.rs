@@ -270,15 +270,15 @@ impl<'a> Iot_jobs_data_planeService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let step_timeout_in_minutes = input.get_optional_string("step_timeout_in_minutes")?;
-            let status = input.get_string("status")?;
-            let expected_version = input.get_optional_string("expected_version")?;
             let thing_name = input.get_string("thing_name")?;
-            let execution_number = input.get_optional_string("execution_number")?;
-            let include_job_execution_state = input.get_optional_string("include_job_execution_state")?;
+            let status = input.get_string("status")?;
             let job_id = input.get_string("job_id")?;
-            let status_details = input.get_optional_string("status_details")?;
+            let execution_number = input.get_optional_string("execution_number")?;
+            let expected_version = input.get_optional_string("expected_version")?;
+            let include_job_execution_state = input.get_optional_string("include_job_execution_state")?;
             let include_job_document = input.get_optional_string("include_job_document")?;
+            let step_timeout_in_minutes = input.get_optional_string("step_timeout_in_minutes")?;
+            let status_details = input.get_optional_string("status_details")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -293,15 +293,15 @@ impl<'a> Iot_jobs_data_planeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("step_timeout_in_minutes", step_timeout_in_minutes.unwrap_or_default())
-                .with_field("status", status.unwrap_or_default())
-                .with_field("expected_version", expected_version.unwrap_or_default())
                 .with_field("thing_name", thing_name.unwrap_or_default())
-                .with_field("execution_number", execution_number.unwrap_or_default())
-                .with_field("include_job_execution_state", include_job_execution_state.unwrap_or_default())
+                .with_field("status", status.unwrap_or_default())
                 .with_field("job_id", job_id.unwrap_or_default())
-                .with_field("status_details", status_details.unwrap_or_default())
+                .with_field("execution_number", execution_number.unwrap_or_default())
+                .with_field("expected_version", expected_version.unwrap_or_default())
+                .with_field("include_job_execution_state", include_job_execution_state.unwrap_or_default())
                 .with_field("include_job_document", include_job_document.unwrap_or_default())
+                .with_field("step_timeout_in_minutes", step_timeout_in_minutes.unwrap_or_default())
+                .with_field("status_details", status_details.unwrap_or_default())
             )
         })
     }
@@ -335,15 +335,15 @@ impl<'a> Iot_jobs_data_planeService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let step_timeout_in_minutes = input.get_optional_string("step_timeout_in_minutes")?;
-            let status = input.get_string("status")?;
-            let expected_version = input.get_optional_string("expected_version")?;
             let thing_name = input.get_string("thing_name")?;
-            let execution_number = input.get_optional_string("execution_number")?;
-            let include_job_execution_state = input.get_optional_string("include_job_execution_state")?;
+            let status = input.get_string("status")?;
             let job_id = input.get_string("job_id")?;
-            let status_details = input.get_optional_string("status_details")?;
+            let execution_number = input.get_optional_string("execution_number")?;
+            let expected_version = input.get_optional_string("expected_version")?;
+            let include_job_execution_state = input.get_optional_string("include_job_execution_state")?;
             let include_job_document = input.get_optional_string("include_job_document")?;
+            let step_timeout_in_minutes = input.get_optional_string("step_timeout_in_minutes")?;
+            let status_details = input.get_optional_string("status_details")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -359,15 +359,15 @@ impl<'a> Iot_jobs_data_planeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("step_timeout_in_minutes", step_timeout_in_minutes.unwrap_or_default())
-                .with_field("status", status.unwrap_or_default())
-                .with_field("expected_version", expected_version.unwrap_or_default())
                 .with_field("thing_name", thing_name.unwrap_or_default())
-                .with_field("execution_number", execution_number.unwrap_or_default())
-                .with_field("include_job_execution_state", include_job_execution_state.unwrap_or_default())
+                .with_field("status", status.unwrap_or_default())
                 .with_field("job_id", job_id.unwrap_or_default())
-                .with_field("status_details", status_details.unwrap_or_default())
+                .with_field("execution_number", execution_number.unwrap_or_default())
+                .with_field("expected_version", expected_version.unwrap_or_default())
+                .with_field("include_job_execution_state", include_job_execution_state.unwrap_or_default())
                 .with_field("include_job_document", include_job_document.unwrap_or_default())
+                .with_field("step_timeout_in_minutes", step_timeout_in_minutes.unwrap_or_default())
+                .with_field("status_details", status_details.unwrap_or_default())
             )
         })
     }

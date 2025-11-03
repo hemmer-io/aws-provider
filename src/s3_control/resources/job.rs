@@ -21,7 +21,7 @@ impl<'a> Job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, role_arn: String, confirmation_required: Option<bool>, manifest: Option<String>, tags: Option<Vec<String>>, manifest_generator: Option<String>, priority: i64, client_request_token: String, account_id: String, operation: String, report: String, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, confirmation_required: Option<bool>, role_arn: String, operation: String, report: String, client_request_token: String, manifest: Option<String>, account_id: String, description: Option<String>, priority: i64, manifest_generator: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Eks_anywhere_subscription<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, license_type: Option<String>, name: String, tags: Option<HashMap<String, String>>, client_request_token: Option<String>, term: String, auto_renew: Option<bool>, license_quantity: Option<i64>) -> Result<String> {
+    pub async fn create(&self, license_quantity: Option<i64>, client_request_token: Option<String>, tags: Option<HashMap<String, String>>, license_type: Option<String>, term: String, auto_renew: Option<bool>, name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Eks_anywhere_subscription<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, license_type: Option<String>, name: Option<String>, tags: Option<HashMap<String, String>>, client_request_token: Option<String>, term: Option<String>, auto_renew: Option<bool>, license_quantity: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, license_quantity: Option<i64>, client_request_token: Option<String>, tags: Option<HashMap<String, String>>, license_type: Option<String>, term: Option<String>, auto_renew: Option<bool>, name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

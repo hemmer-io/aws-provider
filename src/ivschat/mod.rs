@@ -24,14 +24,14 @@ impl<'a> IvschatService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "room" => {
-                self.plan_room(current_state, desired_input).await
-            }
             "logging_configuration" => {
                 self.plan_logging_configuration(current_state, desired_input).await
             }
             "message" => {
                 self.plan_message(current_state, desired_input).await
+            }
+            "room" => {
+                self.plan_room(current_state, desired_input).await
             }
             "chat_token" => {
                 self.plan_chat_token(current_state, desired_input).await
@@ -51,14 +51,14 @@ impl<'a> IvschatService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "room" => {
-                self.create_room(input).await
-            }
             "logging_configuration" => {
                 self.create_logging_configuration(input).await
             }
             "message" => {
                 self.create_message(input).await
+            }
+            "room" => {
+                self.create_room(input).await
             }
             "chat_token" => {
                 self.create_chat_token(input).await
@@ -78,14 +78,14 @@ impl<'a> IvschatService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "room" => {
-                self.read_room(id).await
-            }
             "logging_configuration" => {
                 self.read_logging_configuration(id).await
             }
             "message" => {
                 self.read_message(id).await
+            }
+            "room" => {
+                self.read_room(id).await
             }
             "chat_token" => {
                 self.read_chat_token(id).await
@@ -106,14 +106,14 @@ impl<'a> IvschatService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "room" => {
-                self.update_room(id, input).await
-            }
             "logging_configuration" => {
                 self.update_logging_configuration(id, input).await
             }
             "message" => {
                 self.update_message(id, input).await
+            }
+            "room" => {
+                self.update_room(id, input).await
             }
             "chat_token" => {
                 self.update_chat_token(id, input).await
@@ -133,14 +133,14 @@ impl<'a> IvschatService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "room" => {
-                self.delete_room(id).await
-            }
             "logging_configuration" => {
                 self.delete_logging_configuration(id).await
             }
             "message" => {
                 self.delete_message(id).await
+            }
+            "room" => {
+                self.delete_room(id).await
             }
             "chat_token" => {
                 self.delete_chat_token(id).await
@@ -156,144 +156,6 @@ impl<'a> IvschatService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
-
-
-    // ------------------------------------------------------------------------
-    // Room resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a room resource
-    async fn plan_room(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new room resource
-    async fn create_room(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let maximum_message_rate_per_second = input.get_optional_string("maximum_message_rate_per_second")?;
-            let name = input.get_optional_string("name")?;
-            let maximum_message_length = input.get_optional_string("maximum_message_length")?;
-            let tags = input.get_optional_string("tags")?;
-            let message_review_handler = input.get_optional_string("message_review_handler")?;
-            let logging_configuration_identifiers = input.get_optional_string("logging_configuration_identifiers")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.ivschat_client
-            //     .create_room()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("maximum_message_rate_per_second", maximum_message_rate_per_second.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("maximum_message_length", maximum_message_length.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("message_review_handler", message_review_handler.unwrap_or_default())
-                .with_field("logging_configuration_identifiers", logging_configuration_identifiers.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a room resource
-    async fn read_room(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.ivschat_client
-            //     .describe_room()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a room resource
-    async fn update_room(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let maximum_message_rate_per_second = input.get_optional_string("maximum_message_rate_per_second")?;
-            let name = input.get_optional_string("name")?;
-            let maximum_message_length = input.get_optional_string("maximum_message_length")?;
-            let tags = input.get_optional_string("tags")?;
-            let message_review_handler = input.get_optional_string("message_review_handler")?;
-            let logging_configuration_identifiers = input.get_optional_string("logging_configuration_identifiers")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.ivschat_client
-            //     .update_room()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("maximum_message_rate_per_second", maximum_message_rate_per_second.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("maximum_message_length", maximum_message_length.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("message_review_handler", message_review_handler.unwrap_or_default())
-                .with_field("logging_configuration_identifiers", logging_configuration_identifiers.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a room resource
-    async fn delete_room(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.ivschat_client
-            //     .delete_room()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
 
 
     // ------------------------------------------------------------------------
@@ -324,8 +186,8 @@ impl<'a> IvschatService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_optional_string("name")?;
             let destination_configuration = input.get_string("destination_configuration")?;
+            let name = input.get_optional_string("name")?;
             let tags = input.get_optional_string("tags")?;
 
 
@@ -341,8 +203,8 @@ impl<'a> IvschatService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("name", name.unwrap_or_default())
                 .with_field("destination_configuration", destination_configuration.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
             )
         })
@@ -377,8 +239,8 @@ impl<'a> IvschatService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_optional_string("name")?;
             let destination_configuration = input.get_string("destination_configuration")?;
+            let name = input.get_optional_string("name")?;
             let tags = input.get_optional_string("tags")?;
 
 
@@ -395,8 +257,8 @@ impl<'a> IvschatService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("name", name.unwrap_or_default())
                 .with_field("destination_configuration", destination_configuration.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
             )
         })
@@ -537,6 +399,144 @@ impl<'a> IvschatService<'a> {
 
 
     // ------------------------------------------------------------------------
+    // Room resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a room resource
+    async fn plan_room(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new room resource
+    async fn create_room(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let maximum_message_rate_per_second = input.get_optional_string("maximum_message_rate_per_second")?;
+            let name = input.get_optional_string("name")?;
+            let tags = input.get_optional_string("tags")?;
+            let maximum_message_length = input.get_optional_string("maximum_message_length")?;
+            let message_review_handler = input.get_optional_string("message_review_handler")?;
+            let logging_configuration_identifiers = input.get_optional_string("logging_configuration_identifiers")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.ivschat_client
+            //     .create_room()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("maximum_message_rate_per_second", maximum_message_rate_per_second.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("maximum_message_length", maximum_message_length.unwrap_or_default())
+                .with_field("message_review_handler", message_review_handler.unwrap_or_default())
+                .with_field("logging_configuration_identifiers", logging_configuration_identifiers.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a room resource
+    async fn read_room(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.ivschat_client
+            //     .describe_room()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a room resource
+    async fn update_room(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let maximum_message_rate_per_second = input.get_optional_string("maximum_message_rate_per_second")?;
+            let name = input.get_optional_string("name")?;
+            let tags = input.get_optional_string("tags")?;
+            let maximum_message_length = input.get_optional_string("maximum_message_length")?;
+            let message_review_handler = input.get_optional_string("message_review_handler")?;
+            let logging_configuration_identifiers = input.get_optional_string("logging_configuration_identifiers")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.ivschat_client
+            //     .update_room()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("maximum_message_rate_per_second", maximum_message_rate_per_second.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("maximum_message_length", maximum_message_length.unwrap_or_default())
+                .with_field("message_review_handler", message_review_handler.unwrap_or_default())
+                .with_field("logging_configuration_identifiers", logging_configuration_identifiers.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a room resource
+    async fn delete_room(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.ivschat_client
+            //     .delete_room()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
     // Chat_token resource operations
     // ------------------------------------------------------------------------
 
@@ -564,11 +564,11 @@ impl<'a> IvschatService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let capabilities = input.get_optional_string("capabilities")?;
-            let session_duration_in_minutes = input.get_optional_string("session_duration_in_minutes")?;
             let user_id = input.get_string("user_id")?;
-            let attributes = input.get_optional_string("attributes")?;
             let room_identifier = input.get_string("room_identifier")?;
+            let capabilities = input.get_optional_string("capabilities")?;
+            let attributes = input.get_optional_string("attributes")?;
+            let session_duration_in_minutes = input.get_optional_string("session_duration_in_minutes")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -583,11 +583,11 @@ impl<'a> IvschatService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("capabilities", capabilities.unwrap_or_default())
-                .with_field("session_duration_in_minutes", session_duration_in_minutes.unwrap_or_default())
                 .with_field("user_id", user_id.unwrap_or_default())
-                .with_field("attributes", attributes.unwrap_or_default())
                 .with_field("room_identifier", room_identifier.unwrap_or_default())
+                .with_field("capabilities", capabilities.unwrap_or_default())
+                .with_field("attributes", attributes.unwrap_or_default())
+                .with_field("session_duration_in_minutes", session_duration_in_minutes.unwrap_or_default())
             )
         })
     }
@@ -621,11 +621,11 @@ impl<'a> IvschatService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let capabilities = input.get_optional_string("capabilities")?;
-            let session_duration_in_minutes = input.get_optional_string("session_duration_in_minutes")?;
             let user_id = input.get_string("user_id")?;
-            let attributes = input.get_optional_string("attributes")?;
             let room_identifier = input.get_string("room_identifier")?;
+            let capabilities = input.get_optional_string("capabilities")?;
+            let attributes = input.get_optional_string("attributes")?;
+            let session_duration_in_minutes = input.get_optional_string("session_duration_in_minutes")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -641,11 +641,11 @@ impl<'a> IvschatService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("capabilities", capabilities.unwrap_or_default())
-                .with_field("session_duration_in_minutes", session_duration_in_minutes.unwrap_or_default())
                 .with_field("user_id", user_id.unwrap_or_default())
-                .with_field("attributes", attributes.unwrap_or_default())
                 .with_field("room_identifier", room_identifier.unwrap_or_default())
+                .with_field("capabilities", capabilities.unwrap_or_default())
+                .with_field("attributes", attributes.unwrap_or_default())
+                .with_field("session_duration_in_minutes", session_duration_in_minutes.unwrap_or_default())
             )
         })
     }

@@ -24,32 +24,32 @@ impl<'a> ShieldService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
+            "attack_statistics" => {
+                self.plan_attack_statistics(current_state, desired_input).await
+            }
             "protection_group" => {
                 self.plan_protection_group(current_state, desired_input).await
-            }
-            "subscription_state" => {
-                self.plan_subscription_state(current_state, desired_input).await
-            }
-            "drt_access" => {
-                self.plan_drt_access(current_state, desired_input).await
             }
             "attack" => {
                 self.plan_attack(current_state, desired_input).await
             }
-            "emergency_contact_settings" => {
-                self.plan_emergency_contact_settings(current_state, desired_input).await
+            "drt_access" => {
+                self.plan_drt_access(current_state, desired_input).await
             }
-            "application_layer_automatic_response" => {
-                self.plan_application_layer_automatic_response(current_state, desired_input).await
-            }
-            "subscription" => {
-                self.plan_subscription(current_state, desired_input).await
+            "subscription_state" => {
+                self.plan_subscription_state(current_state, desired_input).await
             }
             "protection" => {
                 self.plan_protection(current_state, desired_input).await
             }
-            "attack_statistics" => {
-                self.plan_attack_statistics(current_state, desired_input).await
+            "application_layer_automatic_response" => {
+                self.plan_application_layer_automatic_response(current_state, desired_input).await
+            }
+            "emergency_contact_settings" => {
+                self.plan_emergency_contact_settings(current_state, desired_input).await
+            }
+            "subscription" => {
+                self.plan_subscription(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -66,32 +66,32 @@ impl<'a> ShieldService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "attack_statistics" => {
+                self.create_attack_statistics(input).await
+            }
             "protection_group" => {
                 self.create_protection_group(input).await
-            }
-            "subscription_state" => {
-                self.create_subscription_state(input).await
-            }
-            "drt_access" => {
-                self.create_drt_access(input).await
             }
             "attack" => {
                 self.create_attack(input).await
             }
-            "emergency_contact_settings" => {
-                self.create_emergency_contact_settings(input).await
+            "drt_access" => {
+                self.create_drt_access(input).await
             }
-            "application_layer_automatic_response" => {
-                self.create_application_layer_automatic_response(input).await
-            }
-            "subscription" => {
-                self.create_subscription(input).await
+            "subscription_state" => {
+                self.create_subscription_state(input).await
             }
             "protection" => {
                 self.create_protection(input).await
             }
-            "attack_statistics" => {
-                self.create_attack_statistics(input).await
+            "application_layer_automatic_response" => {
+                self.create_application_layer_automatic_response(input).await
+            }
+            "emergency_contact_settings" => {
+                self.create_emergency_contact_settings(input).await
+            }
+            "subscription" => {
+                self.create_subscription(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -108,32 +108,32 @@ impl<'a> ShieldService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "attack_statistics" => {
+                self.read_attack_statistics(id).await
+            }
             "protection_group" => {
                 self.read_protection_group(id).await
-            }
-            "subscription_state" => {
-                self.read_subscription_state(id).await
-            }
-            "drt_access" => {
-                self.read_drt_access(id).await
             }
             "attack" => {
                 self.read_attack(id).await
             }
-            "emergency_contact_settings" => {
-                self.read_emergency_contact_settings(id).await
+            "drt_access" => {
+                self.read_drt_access(id).await
             }
-            "application_layer_automatic_response" => {
-                self.read_application_layer_automatic_response(id).await
-            }
-            "subscription" => {
-                self.read_subscription(id).await
+            "subscription_state" => {
+                self.read_subscription_state(id).await
             }
             "protection" => {
                 self.read_protection(id).await
             }
-            "attack_statistics" => {
-                self.read_attack_statistics(id).await
+            "application_layer_automatic_response" => {
+                self.read_application_layer_automatic_response(id).await
+            }
+            "emergency_contact_settings" => {
+                self.read_emergency_contact_settings(id).await
+            }
+            "subscription" => {
+                self.read_subscription(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -151,32 +151,32 @@ impl<'a> ShieldService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "attack_statistics" => {
+                self.update_attack_statistics(id, input).await
+            }
             "protection_group" => {
                 self.update_protection_group(id, input).await
-            }
-            "subscription_state" => {
-                self.update_subscription_state(id, input).await
-            }
-            "drt_access" => {
-                self.update_drt_access(id, input).await
             }
             "attack" => {
                 self.update_attack(id, input).await
             }
-            "emergency_contact_settings" => {
-                self.update_emergency_contact_settings(id, input).await
+            "drt_access" => {
+                self.update_drt_access(id, input).await
             }
-            "application_layer_automatic_response" => {
-                self.update_application_layer_automatic_response(id, input).await
-            }
-            "subscription" => {
-                self.update_subscription(id, input).await
+            "subscription_state" => {
+                self.update_subscription_state(id, input).await
             }
             "protection" => {
                 self.update_protection(id, input).await
             }
-            "attack_statistics" => {
-                self.update_attack_statistics(id, input).await
+            "application_layer_automatic_response" => {
+                self.update_application_layer_automatic_response(id, input).await
+            }
+            "emergency_contact_settings" => {
+                self.update_emergency_contact_settings(id, input).await
+            }
+            "subscription" => {
+                self.update_subscription(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -193,32 +193,32 @@ impl<'a> ShieldService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
+            "attack_statistics" => {
+                self.delete_attack_statistics(id).await
+            }
             "protection_group" => {
                 self.delete_protection_group(id).await
-            }
-            "subscription_state" => {
-                self.delete_subscription_state(id).await
-            }
-            "drt_access" => {
-                self.delete_drt_access(id).await
             }
             "attack" => {
                 self.delete_attack(id).await
             }
-            "emergency_contact_settings" => {
-                self.delete_emergency_contact_settings(id).await
+            "drt_access" => {
+                self.delete_drt_access(id).await
             }
-            "application_layer_automatic_response" => {
-                self.delete_application_layer_automatic_response(id).await
-            }
-            "subscription" => {
-                self.delete_subscription(id).await
+            "subscription_state" => {
+                self.delete_subscription_state(id).await
             }
             "protection" => {
                 self.delete_protection(id).await
             }
-            "attack_statistics" => {
-                self.delete_attack_statistics(id).await
+            "application_layer_automatic_response" => {
+                self.delete_application_layer_automatic_response(id).await
+            }
+            "emergency_contact_settings" => {
+                self.delete_emergency_contact_settings(id).await
+            }
+            "subscription" => {
+                self.delete_subscription(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -231,6 +231,120 @@ impl<'a> ShieldService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
+
+    // ------------------------------------------------------------------------
+    // Attack_statistics resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a attack_statistics resource
+    async fn plan_attack_statistics(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new attack_statistics resource
+    async fn create_attack_statistics(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.shield_client
+            //     .create_attack_statistics()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a attack_statistics resource
+    async fn read_attack_statistics(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.shield_client
+            //     .describe_attack_statistics()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a attack_statistics resource
+    async fn update_attack_statistics(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.shield_client
+            //     .update_attack_statistics()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a attack_statistics resource
+    async fn delete_attack_statistics(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.shield_client
+            //     .delete_attack_statistics()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
 
 
     // ------------------------------------------------------------------------
@@ -261,10 +375,10 @@ impl<'a> ShieldService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let pattern = input.get_string("pattern")?;
             let resource_type = input.get_optional_string("resource_type")?;
-            let tags = input.get_optional_string("tags")?;
+            let pattern = input.get_string("pattern")?;
             let protection_group_id = input.get_string("protection_group_id")?;
+            let tags = input.get_optional_string("tags")?;
             let members = input.get_optional_string("members")?;
             let aggregation = input.get_string("aggregation")?;
 
@@ -281,10 +395,10 @@ impl<'a> ShieldService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("pattern", pattern.unwrap_or_default())
                 .with_field("resource_type", resource_type.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
+                .with_field("pattern", pattern.unwrap_or_default())
                 .with_field("protection_group_id", protection_group_id.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
                 .with_field("members", members.unwrap_or_default())
                 .with_field("aggregation", aggregation.unwrap_or_default())
             )
@@ -320,10 +434,10 @@ impl<'a> ShieldService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let pattern = input.get_string("pattern")?;
             let resource_type = input.get_optional_string("resource_type")?;
-            let tags = input.get_optional_string("tags")?;
+            let pattern = input.get_string("pattern")?;
             let protection_group_id = input.get_string("protection_group_id")?;
+            let tags = input.get_optional_string("tags")?;
             let members = input.get_optional_string("members")?;
             let aggregation = input.get_string("aggregation")?;
 
@@ -341,10 +455,10 @@ impl<'a> ShieldService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("pattern", pattern.unwrap_or_default())
                 .with_field("resource_type", resource_type.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
+                .with_field("pattern", pattern.unwrap_or_default())
                 .with_field("protection_group_id", protection_group_id.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
                 .with_field("members", members.unwrap_or_default())
                 .with_field("aggregation", aggregation.unwrap_or_default())
             )
@@ -361,234 +475,6 @@ impl<'a> ShieldService<'a> {
             // Example:
             // self.provider.shield_client
             //     .delete_protection_group()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Subscription_state resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a subscription_state resource
-    async fn plan_subscription_state(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new subscription_state resource
-    async fn create_subscription_state(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.shield_client
-            //     .create_subscription_state()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a subscription_state resource
-    async fn read_subscription_state(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.shield_client
-            //     .describe_subscription_state()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a subscription_state resource
-    async fn update_subscription_state(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.shield_client
-            //     .update_subscription_state()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a subscription_state resource
-    async fn delete_subscription_state(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.shield_client
-            //     .delete_subscription_state()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Drt_access resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a drt_access resource
-    async fn plan_drt_access(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new drt_access resource
-    async fn create_drt_access(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.shield_client
-            //     .create_drt_access()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a drt_access resource
-    async fn read_drt_access(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.shield_client
-            //     .describe_drt_access()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a drt_access resource
-    async fn update_drt_access(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.shield_client
-            //     .update_drt_access()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a drt_access resource
-    async fn delete_drt_access(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.shield_client
-            //     .delete_drt_access()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -714,11 +600,11 @@ impl<'a> ShieldService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Emergency_contact_settings resource operations
+    // Drt_access resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a emergency_contact_settings resource
-    async fn plan_emergency_contact_settings(
+    /// Plan changes to a drt_access resource
+    async fn plan_drt_access(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -733,21 +619,20 @@ impl<'a> ShieldService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new emergency_contact_settings resource
-    async fn create_emergency_contact_settings(
+    /// Create a new drt_access resource
+    async fn create_drt_access(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let emergency_contact_list = input.get_optional_string("emergency_contact_list")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.shield_client
-            //     .create_emergency_contact_settings()
+            //     .create_drt_access()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -756,13 +641,12 @@ impl<'a> ShieldService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("emergency_contact_list", emergency_contact_list.unwrap_or_default())
             )
         })
     }
 
-    /// Read a emergency_contact_settings resource
-    async fn read_emergency_contact_settings(
+    /// Read a drt_access resource
+    async fn read_drt_access(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -770,7 +654,7 @@ impl<'a> ShieldService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.shield_client
-            //     .describe_emergency_contact_settings()
+            //     .describe_drt_access()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -782,21 +666,20 @@ impl<'a> ShieldService<'a> {
         })
     }
 
-    /// Update a emergency_contact_settings resource
-    async fn update_emergency_contact_settings(
+    /// Update a drt_access resource
+    async fn update_drt_access(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let emergency_contact_list = input.get_optional_string("emergency_contact_list")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.shield_client
-            //     .update_emergency_contact_settings()
+            //     .update_drt_access()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -806,13 +689,12 @@ impl<'a> ShieldService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("emergency_contact_list", emergency_contact_list.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a emergency_contact_settings resource
-    async fn delete_emergency_contact_settings(
+    /// Delete a drt_access resource
+    async fn delete_drt_access(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -820,7 +702,247 @@ impl<'a> ShieldService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.shield_client
-            //     .delete_emergency_contact_settings()
+            //     .delete_drt_access()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Subscription_state resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a subscription_state resource
+    async fn plan_subscription_state(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new subscription_state resource
+    async fn create_subscription_state(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.shield_client
+            //     .create_subscription_state()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a subscription_state resource
+    async fn read_subscription_state(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.shield_client
+            //     .describe_subscription_state()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a subscription_state resource
+    async fn update_subscription_state(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.shield_client
+            //     .update_subscription_state()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a subscription_state resource
+    async fn delete_subscription_state(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.shield_client
+            //     .delete_subscription_state()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Protection resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a protection resource
+    async fn plan_protection(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new protection resource
+    async fn create_protection(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let resource_arn = input.get_string("resource_arn")?;
+            let tags = input.get_optional_string("tags")?;
+            let name = input.get_string("name")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.shield_client
+            //     .create_protection()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("resource_arn", resource_arn.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a protection resource
+    async fn read_protection(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.shield_client
+            //     .describe_protection()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a protection resource
+    async fn update_protection(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let resource_arn = input.get_string("resource_arn")?;
+            let tags = input.get_optional_string("tags")?;
+            let name = input.get_string("name")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.shield_client
+            //     .update_protection()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("resource_arn", resource_arn.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a protection resource
+    async fn delete_protection(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.shield_client
+            //     .delete_protection()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -954,6 +1076,124 @@ impl<'a> ShieldService<'a> {
 
 
     // ------------------------------------------------------------------------
+    // Emergency_contact_settings resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a emergency_contact_settings resource
+    async fn plan_emergency_contact_settings(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new emergency_contact_settings resource
+    async fn create_emergency_contact_settings(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let emergency_contact_list = input.get_optional_string("emergency_contact_list")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.shield_client
+            //     .create_emergency_contact_settings()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("emergency_contact_list", emergency_contact_list.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a emergency_contact_settings resource
+    async fn read_emergency_contact_settings(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.shield_client
+            //     .describe_emergency_contact_settings()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a emergency_contact_settings resource
+    async fn update_emergency_contact_settings(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let emergency_contact_list = input.get_optional_string("emergency_contact_list")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.shield_client
+            //     .update_emergency_contact_settings()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("emergency_contact_list", emergency_contact_list.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a emergency_contact_settings resource
+    async fn delete_emergency_contact_settings(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.shield_client
+            //     .delete_emergency_contact_settings()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
     // Subscription resource operations
     // ------------------------------------------------------------------------
 
@@ -1057,246 +1297,6 @@ impl<'a> ShieldService<'a> {
             // Example:
             // self.provider.shield_client
             //     .delete_subscription()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Protection resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a protection resource
-    async fn plan_protection(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new protection resource
-    async fn create_protection(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let name = input.get_string("name")?;
-            let tags = input.get_optional_string("tags")?;
-            let resource_arn = input.get_string("resource_arn")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.shield_client
-            //     .create_protection()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("name", name.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("resource_arn", resource_arn.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a protection resource
-    async fn read_protection(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.shield_client
-            //     .describe_protection()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a protection resource
-    async fn update_protection(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let name = input.get_string("name")?;
-            let tags = input.get_optional_string("tags")?;
-            let resource_arn = input.get_string("resource_arn")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.shield_client
-            //     .update_protection()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("name", name.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("resource_arn", resource_arn.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a protection resource
-    async fn delete_protection(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.shield_client
-            //     .delete_protection()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Attack_statistics resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a attack_statistics resource
-    async fn plan_attack_statistics(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new attack_statistics resource
-    async fn create_attack_statistics(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.shield_client
-            //     .create_attack_statistics()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a attack_statistics resource
-    async fn read_attack_statistics(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.shield_client
-            //     .describe_attack_statistics()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a attack_statistics resource
-    async fn update_attack_statistics(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.shield_client
-            //     .update_attack_statistics()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a attack_statistics resource
-    async fn delete_attack_statistics(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.shield_client
-            //     .delete_attack_statistics()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

@@ -70,10 +70,10 @@ BillingView resource
 |-------|------|----------|-------------|
 | `description` | String |  | <p> The description of the billing view. </p> |
 | `source_views` | Vec<String> | ✅ | <p>A list of billing views used as the data source for the custom billing view.</p> |
-| `client_token` | String |  | <p>A unique, case-sensitive identifier you specify to ensure idempotency of the request. Idempotency ensures that an API request completes no more than one time. If the original request completes successfully, any subsequent retries complete successfully without performing any further actions with an idempotent request. </p> |
-| `name` | String | ✅ | <p> The name of the billing view. </p> |
 | `data_filter_expression` | String |  | <p> See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html">Expression</a>. Billing view only supports <code>LINKED_ACCOUNT</code> and <code>Tags</code>. </p> |
 | `resource_tags` | Vec<String> |  | <p>A list of key value map specifying tags associated to the billing view being created. </p> |
+| `client_token` | String |  | <p>A unique, case-sensitive identifier you specify to ensure idempotency of the request. Idempotency ensures that an API request completes no more than one time. If the original request completes successfully, any subsequent retries complete successfully without performing any further actions with an idempotent request. </p> |
+| `name` | String | ✅ | <p> The name of the billing view. </p> |
 
 
 #### Outputs

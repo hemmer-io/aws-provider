@@ -10,89 +10,15 @@
 
 The personalize_events service provides access to 5 resource types:
 
+- [Action_interactions](#action_interactions) [C]
 - [Actions](#actions) [C]
 - [Items](#items) [C]
-- [Action_interactions](#action_interactions) [C]
 - [Users](#users) [C]
 - [Events](#events) [C]
 
 ---
 
 ## Resources
-
-
-### Actions
-
-Actions resource
-
-**Operations**: ✅ Create
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `actions` | Vec<String> | ✅ | <p>A list of action data.</p> |
-| `dataset_arn` | String | ✅ | <p>The Amazon Resource Name (ARN) of the Actions dataset you are adding the action or actions to.</p> |
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create actions
-actions = provider.personalize_events.Actions {
-    actions = "value"  # <p>A list of action data.</p>
-    dataset_arn = "value"  # <p>The Amazon Resource Name (ARN) of the Actions dataset you are adding the action or actions to.</p>
-}
-
-```
-
----
-
-
-### Items
-
-Items resource
-
-**Operations**: ✅ Create
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `dataset_arn` | String | ✅ | <p>The Amazon Resource Name (ARN) of the Items dataset you are adding the item or items to.</p> |
-| `items` | Vec<String> | ✅ | <p>A list of item data.</p> |
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create items
-items = provider.personalize_events.Items {
-    dataset_arn = "value"  # <p>The Amazon Resource Name (ARN) of the Items dataset you are adding the item or items to.</p>
-    items = "value"  # <p>A list of item data.</p>
-}
-
-```
-
----
 
 
 ### Action_interactions
@@ -134,6 +60,80 @@ action_interactions = provider.personalize_events.Action_interactions {
 ---
 
 
+### Actions
+
+Actions resource
+
+**Operations**: ✅ Create
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `dataset_arn` | String | ✅ | <p>The Amazon Resource Name (ARN) of the Actions dataset you are adding the action or actions to.</p> |
+| `actions` | Vec<String> | ✅ | <p>A list of action data.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create actions
+actions = provider.personalize_events.Actions {
+    dataset_arn = "value"  # <p>The Amazon Resource Name (ARN) of the Actions dataset you are adding the action or actions to.</p>
+    actions = "value"  # <p>A list of action data.</p>
+}
+
+```
+
+---
+
+
+### Items
+
+Items resource
+
+**Operations**: ✅ Create
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `items` | Vec<String> | ✅ | <p>A list of item data.</p> |
+| `dataset_arn` | String | ✅ | <p>The Amazon Resource Name (ARN) of the Items dataset you are adding the item or items to.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create items
+items = provider.personalize_events.Items {
+    items = "value"  # <p>A list of item data.</p>
+    dataset_arn = "value"  # <p>The Amazon Resource Name (ARN) of the Items dataset you are adding the item or items to.</p>
+}
+
+```
+
+---
+
+
 ### Users
 
 Users resource
@@ -144,8 +144,8 @@ Users resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `dataset_arn` | String | ✅ | <p>The Amazon Resource Name (ARN) of the Users dataset you are adding the user or users to.</p> |
 | `users` | Vec<String> | ✅ | <p>A list of user data.</p> |
+| `dataset_arn` | String | ✅ | <p>The Amazon Resource Name (ARN) of the Users dataset you are adding the user or users to.</p> |
 
 
 
@@ -162,8 +162,8 @@ provider = aws.AwsProvider {
 
 # Create users
 users = provider.personalize_events.Users {
-    dataset_arn = "value"  # <p>The Amazon Resource Name (ARN) of the Users dataset you are adding the user or users to.</p>
     users = "value"  # <p>A list of user data.</p>
+    dataset_arn = "value"  # <p>The Amazon Resource Name (ARN) of the Users dataset you are adding the user or users to.</p>
 }
 
 ```
@@ -181,7 +181,6 @@ Events resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `user_id` | String |  | <p>The user associated with the event.</p> |
 | `session_id` | String | ✅ | <p>The session ID associated with the user's visit. Your application generates the sessionId when a user first visits your website or uses your application. 
       Amazon Personalize uses the sessionId to associate events with the user before they log in. For more information, see 
       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html">Recording item interaction events</a>.</p> |
@@ -189,6 +188,7 @@ Events resource
       The ID is generated by a call to the
       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a> API.</p> |
 | `event_list` | Vec<String> | ✅ | <p>A list of event data from the session.</p> |
+| `user_id` | String |  | <p>The user associated with the event.</p> |
 
 
 
@@ -231,18 +231,18 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create multiple actions resources
-actions_0 = provider.personalize_events.Actions {
-    actions = "value-0"
-    dataset_arn = "value-0"
+# Create multiple action_interactions resources
+action_interactions_0 = provider.personalize_events.Action_interactions {
+    action_interactions = "value-0"
+    tracking_id = "value-0"
 }
-actions_1 = provider.personalize_events.Actions {
-    actions = "value-1"
-    dataset_arn = "value-1"
+action_interactions_1 = provider.personalize_events.Action_interactions {
+    action_interactions = "value-1"
+    tracking_id = "value-1"
 }
-actions_2 = provider.personalize_events.Actions {
-    actions = "value-2"
-    dataset_arn = "value-2"
+action_interactions_2 = provider.personalize_events.Action_interactions {
+    action_interactions = "value-2"
+    tracking_id = "value-2"
 }
 ```
 
@@ -251,9 +251,9 @@ actions_2 = provider.personalize_events.Actions {
 ```kcl
 # Only create in production
 if environment == "production":
-    actions = provider.personalize_events.Actions {
-        actions = "production-value"
-        dataset_arn = "production-value"
+    action_interactions = provider.personalize_events.Action_interactions {
+        action_interactions = "production-value"
+        tracking_id = "production-value"
     }
 ```
 

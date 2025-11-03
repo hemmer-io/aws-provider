@@ -24,7 +24,7 @@ impl<'a> Monitoring<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, cluster_arn: Option<String>, logging_info: Option<String>, enhanced_monitoring: Option<String>, open_monitoring: Option<String>, current_version: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, enhanced_monitoring: Option<String>, open_monitoring: Option<String>, logging_info: Option<String>, current_version: Option<String>, cluster_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

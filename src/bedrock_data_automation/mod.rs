@@ -141,8 +141,8 @@ impl<'a> Bedrock_data_automationService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let blueprint_arn = input.get_string("blueprint_arn")?;
             let client_token = input.get_optional_string("client_token")?;
+            let blueprint_arn = input.get_string("blueprint_arn")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -157,8 +157,8 @@ impl<'a> Bedrock_data_automationService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("blueprint_arn", blueprint_arn.unwrap_or_default())
                 .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("blueprint_arn", blueprint_arn.unwrap_or_default())
             )
         })
     }
@@ -192,8 +192,8 @@ impl<'a> Bedrock_data_automationService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let blueprint_arn = input.get_string("blueprint_arn")?;
             let client_token = input.get_optional_string("client_token")?;
+            let blueprint_arn = input.get_string("blueprint_arn")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -209,8 +209,8 @@ impl<'a> Bedrock_data_automationService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("blueprint_arn", blueprint_arn.unwrap_or_default())
                 .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("blueprint_arn", blueprint_arn.unwrap_or_default())
             )
         })
     }

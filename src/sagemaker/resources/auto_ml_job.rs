@@ -21,7 +21,7 @@ impl<'a> Auto_ml_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, input_data_config: Vec<String>, role_arn: String, auto_ml_job_objective: Option<String>, auto_ml_job_name: String, generate_candidate_definitions_only: Option<bool>, tags: Option<Vec<String>>, model_deploy_config: Option<String>, problem_type: Option<String>, auto_ml_job_config: Option<String>, output_data_config: String) -> Result<String> {
+    pub async fn create(&self, auto_ml_job_name: String, problem_type: Option<String>, auto_ml_job_objective: Option<String>, role_arn: String, output_data_config: String, model_deploy_config: Option<String>, auto_ml_job_config: Option<String>, input_data_config: Vec<String>, tags: Option<Vec<String>>, generate_candidate_definitions_only: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -38,7 +38,7 @@ impl<'a> Backend_job<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, operation: Option<String>, job_id: Option<String>, status: Option<String>, app_id: Option<String>, backend_environment_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, app_id: Option<String>, backend_environment_name: Option<String>, status: Option<String>, job_id: Option<String>, operation: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

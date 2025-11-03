@@ -21,7 +21,7 @@ impl<'a> Volume<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: Option<String>, multi_attach_enabled: Option<bool>, dry_run: Option<bool>, volume_type: Option<String>, availability_zone_id: Option<String>, encrypted: Option<bool>, size: Option<i64>, kms_key_id: Option<String>, snapshot_id: Option<String>, volume_initialization_rate: Option<i64>, outpost_arn: Option<String>, iops: Option<i64>, operator: Option<String>, availability_zone: Option<String>, tag_specifications: Option<Vec<String>>, throughput: Option<i64>) -> Result<String> {
+    pub async fn create(&self, snapshot_id: Option<String>, tag_specifications: Option<Vec<String>>, client_token: Option<String>, availability_zone_id: Option<String>, volume_type: Option<String>, volume_initialization_rate: Option<i64>, multi_attach_enabled: Option<bool>, outpost_arn: Option<String>, iops: Option<i64>, size: Option<i64>, throughput: Option<i64>, encrypted: Option<bool>, operator: Option<String>, dry_run: Option<bool>, kms_key_id: Option<String>, availability_zone: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

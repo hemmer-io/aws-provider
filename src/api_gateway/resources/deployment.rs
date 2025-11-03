@@ -21,7 +21,7 @@ impl<'a> Deployment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, stage_description: Option<String>, tracing_enabled: Option<bool>, variables: Option<String>, rest_api_id: String, cache_cluster_size: Option<String>, cache_cluster_enabled: Option<bool>, stage_name: Option<String>, description: Option<String>, canary_settings: Option<String>) -> Result<String> {
+    pub async fn create(&self, cache_cluster_size: Option<String>, cache_cluster_enabled: Option<bool>, description: Option<String>, canary_settings: Option<String>, stage_name: Option<String>, variables: Option<String>, tracing_enabled: Option<bool>, rest_api_id: String, stage_description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Deployment<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, stage_description: Option<String>, tracing_enabled: Option<bool>, variables: Option<String>, rest_api_id: Option<String>, cache_cluster_size: Option<String>, cache_cluster_enabled: Option<bool>, stage_name: Option<String>, description: Option<String>, canary_settings: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, cache_cluster_size: Option<String>, cache_cluster_enabled: Option<bool>, description: Option<String>, canary_settings: Option<String>, stage_name: Option<String>, variables: Option<String>, tracing_enabled: Option<bool>, rest_api_id: Option<String>, stage_description: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

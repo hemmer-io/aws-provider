@@ -24,53 +24,53 @@ impl<'a> AuditmanagerService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
+            "control" => {
+                self.plan_control(current_state, desired_input).await
+            }
             "assessment_control" => {
                 self.plan_assessment_control(current_state, desired_input).await
             }
-            "assessment_report" => {
-                self.plan_assessment_report(current_state, desired_input).await
-            }
-            "assessment_control_set_status" => {
-                self.plan_assessment_control_set_status(current_state, desired_input).await
-            }
-            "organization_admin_account" => {
-                self.plan_organization_admin_account(current_state, desired_input).await
-            }
-            "assessment_status" => {
-                self.plan_assessment_status(current_state, desired_input).await
+            "assessment_framework_share" => {
+                self.plan_assessment_framework_share(current_state, desired_input).await
             }
             "evidence_file_upload_url" => {
                 self.plan_evidence_file_upload_url(current_state, desired_input).await
             }
-            "assessment" => {
-                self.plan_assessment(current_state, desired_input).await
+            "delegations" => {
+                self.plan_delegations(current_state, desired_input).await
+            }
+            "evidence_folders_by_assessment" => {
+                self.plan_evidence_folders_by_assessment(current_state, desired_input).await
+            }
+            "evidence_folders_by_assessment_control" => {
+                self.plan_evidence_folders_by_assessment_control(current_state, desired_input).await
+            }
+            "assessment_status" => {
+                self.plan_assessment_status(current_state, desired_input).await
+            }
+            "organization_admin_account" => {
+                self.plan_organization_admin_account(current_state, desired_input).await
             }
             "change_logs" => {
                 self.plan_change_logs(current_state, desired_input).await
             }
-            "insights_by_assessment" => {
-                self.plan_insights_by_assessment(current_state, desired_input).await
-            }
-            "evidence_by_evidence_folder" => {
-                self.plan_evidence_by_evidence_folder(current_state, desired_input).await
+            "services_in_scope" => {
+                self.plan_services_in_scope(current_state, desired_input).await
             }
             "assessment_framework" => {
                 self.plan_assessment_framework(current_state, desired_input).await
             }
-            "insights" => {
-                self.plan_insights(current_state, desired_input).await
+            "account_status" => {
+                self.plan_account_status(current_state, desired_input).await
             }
-            "control" => {
-                self.plan_control(current_state, desired_input).await
+            "assessment_control_set_status" => {
+                self.plan_assessment_control_set_status(current_state, desired_input).await
             }
-            "services_in_scope" => {
-                self.plan_services_in_scope(current_state, desired_input).await
+            "evidence_by_evidence_folder" => {
+                self.plan_evidence_by_evidence_folder(current_state, desired_input).await
             }
-            "evidence" => {
-                self.plan_evidence(current_state, desired_input).await
-            }
-            "assessment_framework_share" => {
-                self.plan_assessment_framework_share(current_state, desired_input).await
+            "assessment_report_url" => {
+                self.plan_assessment_report_url(current_state, desired_input).await
             }
             "evidence_folder" => {
                 self.plan_evidence_folder(current_state, desired_input).await
@@ -78,20 +78,20 @@ impl<'a> AuditmanagerService<'a> {
             "settings" => {
                 self.plan_settings(current_state, desired_input).await
             }
-            "evidence_folders_by_assessment" => {
-                self.plan_evidence_folders_by_assessment(current_state, desired_input).await
+            "assessment" => {
+                self.plan_assessment(current_state, desired_input).await
             }
-            "assessment_report_url" => {
-                self.plan_assessment_report_url(current_state, desired_input).await
+            "evidence" => {
+                self.plan_evidence(current_state, desired_input).await
             }
-            "account_status" => {
-                self.plan_account_status(current_state, desired_input).await
+            "insights" => {
+                self.plan_insights(current_state, desired_input).await
             }
-            "delegations" => {
-                self.plan_delegations(current_state, desired_input).await
+            "insights_by_assessment" => {
+                self.plan_insights_by_assessment(current_state, desired_input).await
             }
-            "evidence_folders_by_assessment_control" => {
-                self.plan_evidence_folders_by_assessment_control(current_state, desired_input).await
+            "assessment_report" => {
+                self.plan_assessment_report(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -108,53 +108,53 @@ impl<'a> AuditmanagerService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "control" => {
+                self.create_control(input).await
+            }
             "assessment_control" => {
                 self.create_assessment_control(input).await
             }
-            "assessment_report" => {
-                self.create_assessment_report(input).await
-            }
-            "assessment_control_set_status" => {
-                self.create_assessment_control_set_status(input).await
-            }
-            "organization_admin_account" => {
-                self.create_organization_admin_account(input).await
-            }
-            "assessment_status" => {
-                self.create_assessment_status(input).await
+            "assessment_framework_share" => {
+                self.create_assessment_framework_share(input).await
             }
             "evidence_file_upload_url" => {
                 self.create_evidence_file_upload_url(input).await
             }
-            "assessment" => {
-                self.create_assessment(input).await
+            "delegations" => {
+                self.create_delegations(input).await
+            }
+            "evidence_folders_by_assessment" => {
+                self.create_evidence_folders_by_assessment(input).await
+            }
+            "evidence_folders_by_assessment_control" => {
+                self.create_evidence_folders_by_assessment_control(input).await
+            }
+            "assessment_status" => {
+                self.create_assessment_status(input).await
+            }
+            "organization_admin_account" => {
+                self.create_organization_admin_account(input).await
             }
             "change_logs" => {
                 self.create_change_logs(input).await
             }
-            "insights_by_assessment" => {
-                self.create_insights_by_assessment(input).await
-            }
-            "evidence_by_evidence_folder" => {
-                self.create_evidence_by_evidence_folder(input).await
+            "services_in_scope" => {
+                self.create_services_in_scope(input).await
             }
             "assessment_framework" => {
                 self.create_assessment_framework(input).await
             }
-            "insights" => {
-                self.create_insights(input).await
+            "account_status" => {
+                self.create_account_status(input).await
             }
-            "control" => {
-                self.create_control(input).await
+            "assessment_control_set_status" => {
+                self.create_assessment_control_set_status(input).await
             }
-            "services_in_scope" => {
-                self.create_services_in_scope(input).await
+            "evidence_by_evidence_folder" => {
+                self.create_evidence_by_evidence_folder(input).await
             }
-            "evidence" => {
-                self.create_evidence(input).await
-            }
-            "assessment_framework_share" => {
-                self.create_assessment_framework_share(input).await
+            "assessment_report_url" => {
+                self.create_assessment_report_url(input).await
             }
             "evidence_folder" => {
                 self.create_evidence_folder(input).await
@@ -162,20 +162,20 @@ impl<'a> AuditmanagerService<'a> {
             "settings" => {
                 self.create_settings(input).await
             }
-            "evidence_folders_by_assessment" => {
-                self.create_evidence_folders_by_assessment(input).await
+            "assessment" => {
+                self.create_assessment(input).await
             }
-            "assessment_report_url" => {
-                self.create_assessment_report_url(input).await
+            "evidence" => {
+                self.create_evidence(input).await
             }
-            "account_status" => {
-                self.create_account_status(input).await
+            "insights" => {
+                self.create_insights(input).await
             }
-            "delegations" => {
-                self.create_delegations(input).await
+            "insights_by_assessment" => {
+                self.create_insights_by_assessment(input).await
             }
-            "evidence_folders_by_assessment_control" => {
-                self.create_evidence_folders_by_assessment_control(input).await
+            "assessment_report" => {
+                self.create_assessment_report(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -192,53 +192,53 @@ impl<'a> AuditmanagerService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "control" => {
+                self.read_control(id).await
+            }
             "assessment_control" => {
                 self.read_assessment_control(id).await
             }
-            "assessment_report" => {
-                self.read_assessment_report(id).await
-            }
-            "assessment_control_set_status" => {
-                self.read_assessment_control_set_status(id).await
-            }
-            "organization_admin_account" => {
-                self.read_organization_admin_account(id).await
-            }
-            "assessment_status" => {
-                self.read_assessment_status(id).await
+            "assessment_framework_share" => {
+                self.read_assessment_framework_share(id).await
             }
             "evidence_file_upload_url" => {
                 self.read_evidence_file_upload_url(id).await
             }
-            "assessment" => {
-                self.read_assessment(id).await
+            "delegations" => {
+                self.read_delegations(id).await
+            }
+            "evidence_folders_by_assessment" => {
+                self.read_evidence_folders_by_assessment(id).await
+            }
+            "evidence_folders_by_assessment_control" => {
+                self.read_evidence_folders_by_assessment_control(id).await
+            }
+            "assessment_status" => {
+                self.read_assessment_status(id).await
+            }
+            "organization_admin_account" => {
+                self.read_organization_admin_account(id).await
             }
             "change_logs" => {
                 self.read_change_logs(id).await
             }
-            "insights_by_assessment" => {
-                self.read_insights_by_assessment(id).await
-            }
-            "evidence_by_evidence_folder" => {
-                self.read_evidence_by_evidence_folder(id).await
+            "services_in_scope" => {
+                self.read_services_in_scope(id).await
             }
             "assessment_framework" => {
                 self.read_assessment_framework(id).await
             }
-            "insights" => {
-                self.read_insights(id).await
+            "account_status" => {
+                self.read_account_status(id).await
             }
-            "control" => {
-                self.read_control(id).await
+            "assessment_control_set_status" => {
+                self.read_assessment_control_set_status(id).await
             }
-            "services_in_scope" => {
-                self.read_services_in_scope(id).await
+            "evidence_by_evidence_folder" => {
+                self.read_evidence_by_evidence_folder(id).await
             }
-            "evidence" => {
-                self.read_evidence(id).await
-            }
-            "assessment_framework_share" => {
-                self.read_assessment_framework_share(id).await
+            "assessment_report_url" => {
+                self.read_assessment_report_url(id).await
             }
             "evidence_folder" => {
                 self.read_evidence_folder(id).await
@@ -246,20 +246,20 @@ impl<'a> AuditmanagerService<'a> {
             "settings" => {
                 self.read_settings(id).await
             }
-            "evidence_folders_by_assessment" => {
-                self.read_evidence_folders_by_assessment(id).await
+            "assessment" => {
+                self.read_assessment(id).await
             }
-            "assessment_report_url" => {
-                self.read_assessment_report_url(id).await
+            "evidence" => {
+                self.read_evidence(id).await
             }
-            "account_status" => {
-                self.read_account_status(id).await
+            "insights" => {
+                self.read_insights(id).await
             }
-            "delegations" => {
-                self.read_delegations(id).await
+            "insights_by_assessment" => {
+                self.read_insights_by_assessment(id).await
             }
-            "evidence_folders_by_assessment_control" => {
-                self.read_evidence_folders_by_assessment_control(id).await
+            "assessment_report" => {
+                self.read_assessment_report(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -277,53 +277,53 @@ impl<'a> AuditmanagerService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "control" => {
+                self.update_control(id, input).await
+            }
             "assessment_control" => {
                 self.update_assessment_control(id, input).await
             }
-            "assessment_report" => {
-                self.update_assessment_report(id, input).await
-            }
-            "assessment_control_set_status" => {
-                self.update_assessment_control_set_status(id, input).await
-            }
-            "organization_admin_account" => {
-                self.update_organization_admin_account(id, input).await
-            }
-            "assessment_status" => {
-                self.update_assessment_status(id, input).await
+            "assessment_framework_share" => {
+                self.update_assessment_framework_share(id, input).await
             }
             "evidence_file_upload_url" => {
                 self.update_evidence_file_upload_url(id, input).await
             }
-            "assessment" => {
-                self.update_assessment(id, input).await
+            "delegations" => {
+                self.update_delegations(id, input).await
+            }
+            "evidence_folders_by_assessment" => {
+                self.update_evidence_folders_by_assessment(id, input).await
+            }
+            "evidence_folders_by_assessment_control" => {
+                self.update_evidence_folders_by_assessment_control(id, input).await
+            }
+            "assessment_status" => {
+                self.update_assessment_status(id, input).await
+            }
+            "organization_admin_account" => {
+                self.update_organization_admin_account(id, input).await
             }
             "change_logs" => {
                 self.update_change_logs(id, input).await
             }
-            "insights_by_assessment" => {
-                self.update_insights_by_assessment(id, input).await
-            }
-            "evidence_by_evidence_folder" => {
-                self.update_evidence_by_evidence_folder(id, input).await
+            "services_in_scope" => {
+                self.update_services_in_scope(id, input).await
             }
             "assessment_framework" => {
                 self.update_assessment_framework(id, input).await
             }
-            "insights" => {
-                self.update_insights(id, input).await
+            "account_status" => {
+                self.update_account_status(id, input).await
             }
-            "control" => {
-                self.update_control(id, input).await
+            "assessment_control_set_status" => {
+                self.update_assessment_control_set_status(id, input).await
             }
-            "services_in_scope" => {
-                self.update_services_in_scope(id, input).await
+            "evidence_by_evidence_folder" => {
+                self.update_evidence_by_evidence_folder(id, input).await
             }
-            "evidence" => {
-                self.update_evidence(id, input).await
-            }
-            "assessment_framework_share" => {
-                self.update_assessment_framework_share(id, input).await
+            "assessment_report_url" => {
+                self.update_assessment_report_url(id, input).await
             }
             "evidence_folder" => {
                 self.update_evidence_folder(id, input).await
@@ -331,20 +331,20 @@ impl<'a> AuditmanagerService<'a> {
             "settings" => {
                 self.update_settings(id, input).await
             }
-            "evidence_folders_by_assessment" => {
-                self.update_evidence_folders_by_assessment(id, input).await
+            "assessment" => {
+                self.update_assessment(id, input).await
             }
-            "assessment_report_url" => {
-                self.update_assessment_report_url(id, input).await
+            "evidence" => {
+                self.update_evidence(id, input).await
             }
-            "account_status" => {
-                self.update_account_status(id, input).await
+            "insights" => {
+                self.update_insights(id, input).await
             }
-            "delegations" => {
-                self.update_delegations(id, input).await
+            "insights_by_assessment" => {
+                self.update_insights_by_assessment(id, input).await
             }
-            "evidence_folders_by_assessment_control" => {
-                self.update_evidence_folders_by_assessment_control(id, input).await
+            "assessment_report" => {
+                self.update_assessment_report(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -361,53 +361,53 @@ impl<'a> AuditmanagerService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
+            "control" => {
+                self.delete_control(id).await
+            }
             "assessment_control" => {
                 self.delete_assessment_control(id).await
             }
-            "assessment_report" => {
-                self.delete_assessment_report(id).await
-            }
-            "assessment_control_set_status" => {
-                self.delete_assessment_control_set_status(id).await
-            }
-            "organization_admin_account" => {
-                self.delete_organization_admin_account(id).await
-            }
-            "assessment_status" => {
-                self.delete_assessment_status(id).await
+            "assessment_framework_share" => {
+                self.delete_assessment_framework_share(id).await
             }
             "evidence_file_upload_url" => {
                 self.delete_evidence_file_upload_url(id).await
             }
-            "assessment" => {
-                self.delete_assessment(id).await
+            "delegations" => {
+                self.delete_delegations(id).await
+            }
+            "evidence_folders_by_assessment" => {
+                self.delete_evidence_folders_by_assessment(id).await
+            }
+            "evidence_folders_by_assessment_control" => {
+                self.delete_evidence_folders_by_assessment_control(id).await
+            }
+            "assessment_status" => {
+                self.delete_assessment_status(id).await
+            }
+            "organization_admin_account" => {
+                self.delete_organization_admin_account(id).await
             }
             "change_logs" => {
                 self.delete_change_logs(id).await
             }
-            "insights_by_assessment" => {
-                self.delete_insights_by_assessment(id).await
-            }
-            "evidence_by_evidence_folder" => {
-                self.delete_evidence_by_evidence_folder(id).await
+            "services_in_scope" => {
+                self.delete_services_in_scope(id).await
             }
             "assessment_framework" => {
                 self.delete_assessment_framework(id).await
             }
-            "insights" => {
-                self.delete_insights(id).await
+            "account_status" => {
+                self.delete_account_status(id).await
             }
-            "control" => {
-                self.delete_control(id).await
+            "assessment_control_set_status" => {
+                self.delete_assessment_control_set_status(id).await
             }
-            "services_in_scope" => {
-                self.delete_services_in_scope(id).await
+            "evidence_by_evidence_folder" => {
+                self.delete_evidence_by_evidence_folder(id).await
             }
-            "evidence" => {
-                self.delete_evidence(id).await
-            }
-            "assessment_framework_share" => {
-                self.delete_assessment_framework_share(id).await
+            "assessment_report_url" => {
+                self.delete_assessment_report_url(id).await
             }
             "evidence_folder" => {
                 self.delete_evidence_folder(id).await
@@ -415,20 +415,20 @@ impl<'a> AuditmanagerService<'a> {
             "settings" => {
                 self.delete_settings(id).await
             }
-            "evidence_folders_by_assessment" => {
-                self.delete_evidence_folders_by_assessment(id).await
+            "assessment" => {
+                self.delete_assessment(id).await
             }
-            "assessment_report_url" => {
-                self.delete_assessment_report_url(id).await
+            "evidence" => {
+                self.delete_evidence(id).await
             }
-            "account_status" => {
-                self.delete_account_status(id).await
+            "insights" => {
+                self.delete_insights(id).await
             }
-            "delegations" => {
-                self.delete_delegations(id).await
+            "insights_by_assessment" => {
+                self.delete_insights_by_assessment(id).await
             }
-            "evidence_folders_by_assessment_control" => {
-                self.delete_evidence_folders_by_assessment_control(id).await
+            "assessment_report" => {
+                self.delete_assessment_report(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -441,6 +441,148 @@ impl<'a> AuditmanagerService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
+
+    // ------------------------------------------------------------------------
+    // Control resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a control resource
+    async fn plan_control(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new control resource
+    async fn create_control(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let name = input.get_string("name")?;
+            let testing_information = input.get_optional_string("testing_information")?;
+            let control_mapping_sources = input.get_string("control_mapping_sources")?;
+            let tags = input.get_optional_string("tags")?;
+            let description = input.get_optional_string("description")?;
+            let action_plan_title = input.get_optional_string("action_plan_title")?;
+            let action_plan_instructions = input.get_optional_string("action_plan_instructions")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .create_control()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("name", name.unwrap_or_default())
+                .with_field("testing_information", testing_information.unwrap_or_default())
+                .with_field("control_mapping_sources", control_mapping_sources.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("action_plan_title", action_plan_title.unwrap_or_default())
+                .with_field("action_plan_instructions", action_plan_instructions.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a control resource
+    async fn read_control(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .describe_control()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a control resource
+    async fn update_control(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let name = input.get_string("name")?;
+            let testing_information = input.get_optional_string("testing_information")?;
+            let control_mapping_sources = input.get_string("control_mapping_sources")?;
+            let tags = input.get_optional_string("tags")?;
+            let description = input.get_optional_string("description")?;
+            let action_plan_title = input.get_optional_string("action_plan_title")?;
+            let action_plan_instructions = input.get_optional_string("action_plan_instructions")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .update_control()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("name", name.unwrap_or_default())
+                .with_field("testing_information", testing_information.unwrap_or_default())
+                .with_field("control_mapping_sources", control_mapping_sources.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("action_plan_title", action_plan_title.unwrap_or_default())
+                .with_field("action_plan_instructions", action_plan_instructions.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a control resource
+    async fn delete_control(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.auditmanager_client
+            //     .delete_control()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
 
 
     // ------------------------------------------------------------------------
@@ -471,11 +613,11 @@ impl<'a> AuditmanagerService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let control_set_id = input.get_string("control_set_id")?;
-            let comment_body = input.get_optional_string("comment_body")?;
             let assessment_id = input.get_string("assessment_id")?;
-            let control_id = input.get_string("control_id")?;
+            let control_set_id = input.get_string("control_set_id")?;
             let control_status = input.get_optional_string("control_status")?;
+            let comment_body = input.get_optional_string("comment_body")?;
+            let control_id = input.get_string("control_id")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -490,11 +632,11 @@ impl<'a> AuditmanagerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("control_set_id", control_set_id.unwrap_or_default())
-                .with_field("comment_body", comment_body.unwrap_or_default())
                 .with_field("assessment_id", assessment_id.unwrap_or_default())
-                .with_field("control_id", control_id.unwrap_or_default())
+                .with_field("control_set_id", control_set_id.unwrap_or_default())
                 .with_field("control_status", control_status.unwrap_or_default())
+                .with_field("comment_body", comment_body.unwrap_or_default())
+                .with_field("control_id", control_id.unwrap_or_default())
             )
         })
     }
@@ -528,11 +670,11 @@ impl<'a> AuditmanagerService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let control_set_id = input.get_string("control_set_id")?;
-            let comment_body = input.get_optional_string("comment_body")?;
             let assessment_id = input.get_string("assessment_id")?;
-            let control_id = input.get_string("control_id")?;
+            let control_set_id = input.get_string("control_set_id")?;
             let control_status = input.get_optional_string("control_status")?;
+            let comment_body = input.get_optional_string("comment_body")?;
+            let control_id = input.get_string("control_id")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -548,11 +690,11 @@ impl<'a> AuditmanagerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("control_set_id", control_set_id.unwrap_or_default())
-                .with_field("comment_body", comment_body.unwrap_or_default())
                 .with_field("assessment_id", assessment_id.unwrap_or_default())
-                .with_field("control_id", control_id.unwrap_or_default())
+                .with_field("control_set_id", control_set_id.unwrap_or_default())
                 .with_field("control_status", control_status.unwrap_or_default())
+                .with_field("comment_body", comment_body.unwrap_or_default())
+                .with_field("control_id", control_id.unwrap_or_default())
             )
         })
     }
@@ -578,11 +720,11 @@ impl<'a> AuditmanagerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Assessment_report resource operations
+    // Assessment_framework_share resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a assessment_report resource
-    async fn plan_assessment_report(
+    /// Plan changes to a assessment_framework_share resource
+    async fn plan_assessment_framework_share(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -597,24 +739,23 @@ impl<'a> AuditmanagerService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new assessment_report resource
-    async fn create_assessment_report(
+    /// Create a new assessment_framework_share resource
+    async fn create_assessment_framework_share(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let query_statement = input.get_optional_string("query_statement")?;
-            let description = input.get_optional_string("description")?;
-            let name = input.get_string("name")?;
-            let assessment_id = input.get_string("assessment_id")?;
+            let request_id = input.get_string("request_id")?;
+            let action = input.get_string("action")?;
+            let request_type = input.get_string("request_type")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .create_assessment_report()
+            //     .create_assessment_framework_share()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -623,16 +764,15 @@ impl<'a> AuditmanagerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("query_statement", query_statement.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("assessment_id", assessment_id.unwrap_or_default())
+                .with_field("request_id", request_id.unwrap_or_default())
+                .with_field("action", action.unwrap_or_default())
+                .with_field("request_type", request_type.unwrap_or_default())
             )
         })
     }
 
-    /// Read a assessment_report resource
-    async fn read_assessment_report(
+    /// Read a assessment_framework_share resource
+    async fn read_assessment_framework_share(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -640,7 +780,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .describe_assessment_report()
+            //     .describe_assessment_framework_share()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -652,24 +792,23 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Update a assessment_report resource
-    async fn update_assessment_report(
+    /// Update a assessment_framework_share resource
+    async fn update_assessment_framework_share(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let query_statement = input.get_optional_string("query_statement")?;
-            let description = input.get_optional_string("description")?;
-            let name = input.get_string("name")?;
-            let assessment_id = input.get_string("assessment_id")?;
+            let request_id = input.get_string("request_id")?;
+            let action = input.get_string("action")?;
+            let request_type = input.get_string("request_type")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .update_assessment_report()
+            //     .update_assessment_framework_share()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -679,16 +818,15 @@ impl<'a> AuditmanagerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("query_statement", query_statement.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("assessment_id", assessment_id.unwrap_or_default())
+                .with_field("request_id", request_id.unwrap_or_default())
+                .with_field("action", action.unwrap_or_default())
+                .with_field("request_type", request_type.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a assessment_report resource
-    async fn delete_assessment_report(
+    /// Delete a assessment_framework_share resource
+    async fn delete_assessment_framework_share(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -696,7 +834,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.auditmanager_client
-            //     .delete_assessment_report()
+            //     .delete_assessment_framework_share()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -708,11 +846,11 @@ impl<'a> AuditmanagerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Assessment_control_set_status resource operations
+    // Evidence_file_upload_url resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a assessment_control_set_status resource
-    async fn plan_assessment_control_set_status(
+    /// Plan changes to a evidence_file_upload_url resource
+    async fn plan_evidence_file_upload_url(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -727,24 +865,20 @@ impl<'a> AuditmanagerService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new assessment_control_set_status resource
-    async fn create_assessment_control_set_status(
+    /// Create a new evidence_file_upload_url resource
+    async fn create_evidence_file_upload_url(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let comment = input.get_string("comment")?;
-            let control_set_id = input.get_string("control_set_id")?;
-            let status = input.get_string("status")?;
-            let assessment_id = input.get_string("assessment_id")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .create_assessment_control_set_status()
+            //     .create_evidence_file_upload_url()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -753,16 +887,12 @@ impl<'a> AuditmanagerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("comment", comment.unwrap_or_default())
-                .with_field("control_set_id", control_set_id.unwrap_or_default())
-                .with_field("status", status.unwrap_or_default())
-                .with_field("assessment_id", assessment_id.unwrap_or_default())
             )
         })
     }
 
-    /// Read a assessment_control_set_status resource
-    async fn read_assessment_control_set_status(
+    /// Read a evidence_file_upload_url resource
+    async fn read_evidence_file_upload_url(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -770,7 +900,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .describe_assessment_control_set_status()
+            //     .describe_evidence_file_upload_url()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -782,24 +912,20 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Update a assessment_control_set_status resource
-    async fn update_assessment_control_set_status(
+    /// Update a evidence_file_upload_url resource
+    async fn update_evidence_file_upload_url(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let comment = input.get_string("comment")?;
-            let control_set_id = input.get_string("control_set_id")?;
-            let status = input.get_string("status")?;
-            let assessment_id = input.get_string("assessment_id")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .update_assessment_control_set_status()
+            //     .update_evidence_file_upload_url()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -809,16 +935,12 @@ impl<'a> AuditmanagerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("comment", comment.unwrap_or_default())
-                .with_field("control_set_id", control_set_id.unwrap_or_default())
-                .with_field("status", status.unwrap_or_default())
-                .with_field("assessment_id", assessment_id.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a assessment_control_set_status resource
-    async fn delete_assessment_control_set_status(
+    /// Delete a evidence_file_upload_url resource
+    async fn delete_evidence_file_upload_url(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -826,7 +948,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.auditmanager_client
-            //     .delete_assessment_control_set_status()
+            //     .delete_evidence_file_upload_url()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -838,11 +960,11 @@ impl<'a> AuditmanagerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Organization_admin_account resource operations
+    // Delegations resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a organization_admin_account resource
-    async fn plan_organization_admin_account(
+    /// Plan changes to a delegations resource
+    async fn plan_delegations(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -857,8 +979,8 @@ impl<'a> AuditmanagerService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new organization_admin_account resource
-    async fn create_organization_admin_account(
+    /// Create a new delegations resource
+    async fn create_delegations(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -870,7 +992,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .create_organization_admin_account()
+            //     .create_delegations()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -883,8 +1005,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Read a organization_admin_account resource
-    async fn read_organization_admin_account(
+    /// Read a delegations resource
+    async fn read_delegations(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -892,7 +1014,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .describe_organization_admin_account()
+            //     .describe_delegations()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -904,8 +1026,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Update a organization_admin_account resource
-    async fn update_organization_admin_account(
+    /// Update a delegations resource
+    async fn update_delegations(
         &self,
         id: &str,
         input: ResourceInput,
@@ -917,7 +1039,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .update_organization_admin_account()
+            //     .update_delegations()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -931,8 +1053,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Delete a organization_admin_account resource
-    async fn delete_organization_admin_account(
+    /// Delete a delegations resource
+    async fn delete_delegations(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -940,7 +1062,235 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.auditmanager_client
-            //     .delete_organization_admin_account()
+            //     .delete_delegations()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Evidence_folders_by_assessment resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a evidence_folders_by_assessment resource
+    async fn plan_evidence_folders_by_assessment(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new evidence_folders_by_assessment resource
+    async fn create_evidence_folders_by_assessment(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .create_evidence_folders_by_assessment()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a evidence_folders_by_assessment resource
+    async fn read_evidence_folders_by_assessment(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .describe_evidence_folders_by_assessment()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a evidence_folders_by_assessment resource
+    async fn update_evidence_folders_by_assessment(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .update_evidence_folders_by_assessment()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a evidence_folders_by_assessment resource
+    async fn delete_evidence_folders_by_assessment(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.auditmanager_client
+            //     .delete_evidence_folders_by_assessment()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Evidence_folders_by_assessment_control resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a evidence_folders_by_assessment_control resource
+    async fn plan_evidence_folders_by_assessment_control(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new evidence_folders_by_assessment_control resource
+    async fn create_evidence_folders_by_assessment_control(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .create_evidence_folders_by_assessment_control()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a evidence_folders_by_assessment_control resource
+    async fn read_evidence_folders_by_assessment_control(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .describe_evidence_folders_by_assessment_control()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a evidence_folders_by_assessment_control resource
+    async fn update_evidence_folders_by_assessment_control(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .update_evidence_folders_by_assessment_control()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a evidence_folders_by_assessment_control resource
+    async fn delete_evidence_folders_by_assessment_control(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.auditmanager_client
+            //     .delete_evidence_folders_by_assessment_control()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1074,11 +1424,11 @@ impl<'a> AuditmanagerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Evidence_file_upload_url resource operations
+    // Organization_admin_account resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a evidence_file_upload_url resource
-    async fn plan_evidence_file_upload_url(
+    /// Plan changes to a organization_admin_account resource
+    async fn plan_organization_admin_account(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1093,8 +1443,8 @@ impl<'a> AuditmanagerService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new evidence_file_upload_url resource
-    async fn create_evidence_file_upload_url(
+    /// Create a new organization_admin_account resource
+    async fn create_organization_admin_account(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -1106,7 +1456,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .create_evidence_file_upload_url()
+            //     .create_organization_admin_account()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1119,8 +1469,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Read a evidence_file_upload_url resource
-    async fn read_evidence_file_upload_url(
+    /// Read a organization_admin_account resource
+    async fn read_organization_admin_account(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1128,7 +1478,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .describe_evidence_file_upload_url()
+            //     .describe_organization_admin_account()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1140,8 +1490,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Update a evidence_file_upload_url resource
-    async fn update_evidence_file_upload_url(
+    /// Update a organization_admin_account resource
+    async fn update_organization_admin_account(
         &self,
         id: &str,
         input: ResourceInput,
@@ -1153,7 +1503,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .update_evidence_file_upload_url()
+            //     .update_organization_admin_account()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1167,8 +1517,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Delete a evidence_file_upload_url resource
-    async fn delete_evidence_file_upload_url(
+    /// Delete a organization_admin_account resource
+    async fn delete_organization_admin_account(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1176,149 +1526,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.auditmanager_client
-            //     .delete_evidence_file_upload_url()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Assessment resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a assessment resource
-    async fn plan_assessment(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new assessment resource
-    async fn create_assessment(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let assessment_reports_destination = input.get_string("assessment_reports_destination")?;
-            let tags = input.get_optional_string("tags")?;
-            let roles = input.get_string("roles")?;
-            let name = input.get_string("name")?;
-            let framework_id = input.get_string("framework_id")?;
-            let description = input.get_optional_string("description")?;
-            let scope = input.get_string("scope")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .create_assessment()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("assessment_reports_destination", assessment_reports_destination.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("roles", roles.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("framework_id", framework_id.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("scope", scope.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a assessment resource
-    async fn read_assessment(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .describe_assessment()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a assessment resource
-    async fn update_assessment(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let assessment_reports_destination = input.get_string("assessment_reports_destination")?;
-            let tags = input.get_optional_string("tags")?;
-            let roles = input.get_string("roles")?;
-            let name = input.get_string("name")?;
-            let framework_id = input.get_string("framework_id")?;
-            let description = input.get_optional_string("description")?;
-            let scope = input.get_string("scope")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .update_assessment()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("assessment_reports_destination", assessment_reports_destination.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("roles", roles.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("framework_id", framework_id.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("scope", scope.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a assessment resource
-    async fn delete_assessment(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.auditmanager_client
-            //     .delete_assessment()
+            //     .delete_organization_admin_account()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1444,11 +1652,11 @@ impl<'a> AuditmanagerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Insights_by_assessment resource operations
+    // Services_in_scope resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a insights_by_assessment resource
-    async fn plan_insights_by_assessment(
+    /// Plan changes to a services_in_scope resource
+    async fn plan_services_in_scope(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1463,8 +1671,8 @@ impl<'a> AuditmanagerService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new insights_by_assessment resource
-    async fn create_insights_by_assessment(
+    /// Create a new services_in_scope resource
+    async fn create_services_in_scope(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -1476,7 +1684,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .create_insights_by_assessment()
+            //     .create_services_in_scope()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1489,8 +1697,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Read a insights_by_assessment resource
-    async fn read_insights_by_assessment(
+    /// Read a services_in_scope resource
+    async fn read_services_in_scope(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1498,7 +1706,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .describe_insights_by_assessment()
+            //     .describe_services_in_scope()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1510,8 +1718,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Update a insights_by_assessment resource
-    async fn update_insights_by_assessment(
+    /// Update a services_in_scope resource
+    async fn update_services_in_scope(
         &self,
         id: &str,
         input: ResourceInput,
@@ -1523,7 +1731,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .update_insights_by_assessment()
+            //     .update_services_in_scope()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1537,8 +1745,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Delete a insights_by_assessment resource
-    async fn delete_insights_by_assessment(
+    /// Delete a services_in_scope resource
+    async fn delete_services_in_scope(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1546,7 +1754,385 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.auditmanager_client
-            //     .delete_insights_by_assessment()
+            //     .delete_services_in_scope()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Assessment_framework resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a assessment_framework resource
+    async fn plan_assessment_framework(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new assessment_framework resource
+    async fn create_assessment_framework(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let tags = input.get_optional_string("tags")?;
+            let name = input.get_string("name")?;
+            let compliance_type = input.get_optional_string("compliance_type")?;
+            let description = input.get_optional_string("description")?;
+            let control_sets = input.get_string("control_sets")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .create_assessment_framework()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("compliance_type", compliance_type.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("control_sets", control_sets.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a assessment_framework resource
+    async fn read_assessment_framework(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .describe_assessment_framework()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a assessment_framework resource
+    async fn update_assessment_framework(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let tags = input.get_optional_string("tags")?;
+            let name = input.get_string("name")?;
+            let compliance_type = input.get_optional_string("compliance_type")?;
+            let description = input.get_optional_string("description")?;
+            let control_sets = input.get_string("control_sets")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .update_assessment_framework()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("compliance_type", compliance_type.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("control_sets", control_sets.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a assessment_framework resource
+    async fn delete_assessment_framework(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.auditmanager_client
+            //     .delete_assessment_framework()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Account_status resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a account_status resource
+    async fn plan_account_status(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new account_status resource
+    async fn create_account_status(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .create_account_status()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a account_status resource
+    async fn read_account_status(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .describe_account_status()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a account_status resource
+    async fn update_account_status(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .update_account_status()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a account_status resource
+    async fn delete_account_status(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.auditmanager_client
+            //     .delete_account_status()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Assessment_control_set_status resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a assessment_control_set_status resource
+    async fn plan_assessment_control_set_status(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new assessment_control_set_status resource
+    async fn create_assessment_control_set_status(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let assessment_id = input.get_string("assessment_id")?;
+            let status = input.get_string("status")?;
+            let comment = input.get_string("comment")?;
+            let control_set_id = input.get_string("control_set_id")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .create_assessment_control_set_status()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("assessment_id", assessment_id.unwrap_or_default())
+                .with_field("status", status.unwrap_or_default())
+                .with_field("comment", comment.unwrap_or_default())
+                .with_field("control_set_id", control_set_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a assessment_control_set_status resource
+    async fn read_assessment_control_set_status(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .describe_assessment_control_set_status()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a assessment_control_set_status resource
+    async fn update_assessment_control_set_status(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let assessment_id = input.get_string("assessment_id")?;
+            let status = input.get_string("status")?;
+            let comment = input.get_string("comment")?;
+            let control_set_id = input.get_string("control_set_id")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.auditmanager_client
+            //     .update_assessment_control_set_status()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("assessment_id", assessment_id.unwrap_or_default())
+                .with_field("status", status.unwrap_or_default())
+                .with_field("comment", comment.unwrap_or_default())
+                .with_field("control_set_id", control_set_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a assessment_control_set_status resource
+    async fn delete_assessment_control_set_status(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.auditmanager_client
+            //     .delete_assessment_control_set_status()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1672,11 +2258,11 @@ impl<'a> AuditmanagerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Assessment_framework resource operations
+    // Assessment_report_url resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a assessment_framework resource
-    async fn plan_assessment_framework(
+    /// Plan changes to a assessment_report_url resource
+    async fn plan_assessment_report_url(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -1691,142 +2277,8 @@ impl<'a> AuditmanagerService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new assessment_framework resource
-    async fn create_assessment_framework(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let name = input.get_string("name")?;
-            let description = input.get_optional_string("description")?;
-            let compliance_type = input.get_optional_string("compliance_type")?;
-            let control_sets = input.get_string("control_sets")?;
-            let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .create_assessment_framework()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("name", name.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("compliance_type", compliance_type.unwrap_or_default())
-                .with_field("control_sets", control_sets.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a assessment_framework resource
-    async fn read_assessment_framework(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .describe_assessment_framework()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a assessment_framework resource
-    async fn update_assessment_framework(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let name = input.get_string("name")?;
-            let description = input.get_optional_string("description")?;
-            let compliance_type = input.get_optional_string("compliance_type")?;
-            let control_sets = input.get_string("control_sets")?;
-            let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .update_assessment_framework()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("name", name.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("compliance_type", compliance_type.unwrap_or_default())
-                .with_field("control_sets", control_sets.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a assessment_framework resource
-    async fn delete_assessment_framework(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.auditmanager_client
-            //     .delete_assessment_framework()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Insights resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a insights resource
-    async fn plan_insights(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new insights resource
-    async fn create_insights(
+    /// Create a new assessment_report_url resource
+    async fn create_assessment_report_url(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -1838,7 +2290,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .create_insights()
+            //     .create_assessment_report_url()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -1851,8 +2303,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Read a insights resource
-    async fn read_insights(
+    /// Read a assessment_report_url resource
+    async fn read_assessment_report_url(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -1860,7 +2312,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .describe_insights()
+            //     .describe_assessment_report_url()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1872,8 +2324,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Update a insights resource
-    async fn update_insights(
+    /// Update a assessment_report_url resource
+    async fn update_assessment_report_url(
         &self,
         id: &str,
         input: ResourceInput,
@@ -1885,7 +2337,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .update_insights()
+            //     .update_assessment_report_url()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1899,8 +2351,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Delete a insights resource
-    async fn delete_insights(
+    /// Delete a assessment_report_url resource
+    async fn delete_assessment_report_url(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1908,503 +2360,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.auditmanager_client
-            //     .delete_insights()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Control resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a control resource
-    async fn plan_control(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new control resource
-    async fn create_control(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let control_mapping_sources = input.get_string("control_mapping_sources")?;
-            let testing_information = input.get_optional_string("testing_information")?;
-            let name = input.get_string("name")?;
-            let description = input.get_optional_string("description")?;
-            let tags = input.get_optional_string("tags")?;
-            let action_plan_instructions = input.get_optional_string("action_plan_instructions")?;
-            let action_plan_title = input.get_optional_string("action_plan_title")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .create_control()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("control_mapping_sources", control_mapping_sources.unwrap_or_default())
-                .with_field("testing_information", testing_information.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("action_plan_instructions", action_plan_instructions.unwrap_or_default())
-                .with_field("action_plan_title", action_plan_title.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a control resource
-    async fn read_control(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .describe_control()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a control resource
-    async fn update_control(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let control_mapping_sources = input.get_string("control_mapping_sources")?;
-            let testing_information = input.get_optional_string("testing_information")?;
-            let name = input.get_string("name")?;
-            let description = input.get_optional_string("description")?;
-            let tags = input.get_optional_string("tags")?;
-            let action_plan_instructions = input.get_optional_string("action_plan_instructions")?;
-            let action_plan_title = input.get_optional_string("action_plan_title")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .update_control()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("control_mapping_sources", control_mapping_sources.unwrap_or_default())
-                .with_field("testing_information", testing_information.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("action_plan_instructions", action_plan_instructions.unwrap_or_default())
-                .with_field("action_plan_title", action_plan_title.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a control resource
-    async fn delete_control(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.auditmanager_client
-            //     .delete_control()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Services_in_scope resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a services_in_scope resource
-    async fn plan_services_in_scope(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new services_in_scope resource
-    async fn create_services_in_scope(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .create_services_in_scope()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a services_in_scope resource
-    async fn read_services_in_scope(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .describe_services_in_scope()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a services_in_scope resource
-    async fn update_services_in_scope(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .update_services_in_scope()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a services_in_scope resource
-    async fn delete_services_in_scope(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.auditmanager_client
-            //     .delete_services_in_scope()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Evidence resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a evidence resource
-    async fn plan_evidence(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new evidence resource
-    async fn create_evidence(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .create_evidence()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a evidence resource
-    async fn read_evidence(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .describe_evidence()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a evidence resource
-    async fn update_evidence(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .update_evidence()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a evidence resource
-    async fn delete_evidence(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.auditmanager_client
-            //     .delete_evidence()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Assessment_framework_share resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a assessment_framework_share resource
-    async fn plan_assessment_framework_share(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new assessment_framework_share resource
-    async fn create_assessment_framework_share(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let action = input.get_string("action")?;
-            let request_id = input.get_string("request_id")?;
-            let request_type = input.get_string("request_type")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .create_assessment_framework_share()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("action", action.unwrap_or_default())
-                .with_field("request_id", request_id.unwrap_or_default())
-                .with_field("request_type", request_type.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a assessment_framework_share resource
-    async fn read_assessment_framework_share(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .describe_assessment_framework_share()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a assessment_framework_share resource
-    async fn update_assessment_framework_share(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let action = input.get_string("action")?;
-            let request_id = input.get_string("request_id")?;
-            let request_type = input.get_string("request_type")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.auditmanager_client
-            //     .update_assessment_framework_share()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("action", action.unwrap_or_default())
-                .with_field("request_id", request_id.unwrap_or_default())
-                .with_field("request_type", request_type.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a assessment_framework_share resource
-    async fn delete_assessment_framework_share(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.auditmanager_client
-            //     .delete_assessment_framework_share()
+            //     .delete_assessment_report_url()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2557,13 +2513,13 @@ impl<'a> AuditmanagerService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let kms_key = input.get_optional_string("kms_key")?;
+            let default_export_destination = input.get_optional_string("default_export_destination")?;
             let sns_topic = input.get_optional_string("sns_topic")?;
             let evidence_finder_enabled = input.get_optional_string("evidence_finder_enabled")?;
             let deregistration_policy = input.get_optional_string("deregistration_policy")?;
             let default_assessment_reports_destination = input.get_optional_string("default_assessment_reports_destination")?;
-            let default_export_destination = input.get_optional_string("default_export_destination")?;
             let default_process_owners = input.get_optional_string("default_process_owners")?;
-            let kms_key = input.get_optional_string("kms_key")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -2578,13 +2534,13 @@ impl<'a> AuditmanagerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("kms_key", kms_key.unwrap_or_default())
+                .with_field("default_export_destination", default_export_destination.unwrap_or_default())
                 .with_field("sns_topic", sns_topic.unwrap_or_default())
                 .with_field("evidence_finder_enabled", evidence_finder_enabled.unwrap_or_default())
                 .with_field("deregistration_policy", deregistration_policy.unwrap_or_default())
                 .with_field("default_assessment_reports_destination", default_assessment_reports_destination.unwrap_or_default())
-                .with_field("default_export_destination", default_export_destination.unwrap_or_default())
                 .with_field("default_process_owners", default_process_owners.unwrap_or_default())
-                .with_field("kms_key", kms_key.unwrap_or_default())
             )
         })
     }
@@ -2618,13 +2574,13 @@ impl<'a> AuditmanagerService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let kms_key = input.get_optional_string("kms_key")?;
+            let default_export_destination = input.get_optional_string("default_export_destination")?;
             let sns_topic = input.get_optional_string("sns_topic")?;
             let evidence_finder_enabled = input.get_optional_string("evidence_finder_enabled")?;
             let deregistration_policy = input.get_optional_string("deregistration_policy")?;
             let default_assessment_reports_destination = input.get_optional_string("default_assessment_reports_destination")?;
-            let default_export_destination = input.get_optional_string("default_export_destination")?;
             let default_process_owners = input.get_optional_string("default_process_owners")?;
-            let kms_key = input.get_optional_string("kms_key")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -2640,13 +2596,13 @@ impl<'a> AuditmanagerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("kms_key", kms_key.unwrap_or_default())
+                .with_field("default_export_destination", default_export_destination.unwrap_or_default())
                 .with_field("sns_topic", sns_topic.unwrap_or_default())
                 .with_field("evidence_finder_enabled", evidence_finder_enabled.unwrap_or_default())
                 .with_field("deregistration_policy", deregistration_policy.unwrap_or_default())
                 .with_field("default_assessment_reports_destination", default_assessment_reports_destination.unwrap_or_default())
-                .with_field("default_export_destination", default_export_destination.unwrap_or_default())
                 .with_field("default_process_owners", default_process_owners.unwrap_or_default())
-                .with_field("kms_key", kms_key.unwrap_or_default())
             )
         })
     }
@@ -2672,11 +2628,11 @@ impl<'a> AuditmanagerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Evidence_folders_by_assessment resource operations
+    // Assessment resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a evidence_folders_by_assessment resource
-    async fn plan_evidence_folders_by_assessment(
+    /// Plan changes to a assessment resource
+    async fn plan_assessment(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -2691,20 +2647,27 @@ impl<'a> AuditmanagerService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new evidence_folders_by_assessment resource
-    async fn create_evidence_folders_by_assessment(
+    /// Create a new assessment resource
+    async fn create_assessment(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let description = input.get_optional_string("description")?;
+            let assessment_reports_destination = input.get_string("assessment_reports_destination")?;
+            let name = input.get_string("name")?;
+            let framework_id = input.get_string("framework_id")?;
+            let roles = input.get_string("roles")?;
+            let scope = input.get_string("scope")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .create_evidence_folders_by_assessment()
+            //     .create_assessment()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -2713,12 +2676,19 @@ impl<'a> AuditmanagerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("description", description.unwrap_or_default())
+                .with_field("assessment_reports_destination", assessment_reports_destination.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("framework_id", framework_id.unwrap_or_default())
+                .with_field("roles", roles.unwrap_or_default())
+                .with_field("scope", scope.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
 
-    /// Read a evidence_folders_by_assessment resource
-    async fn read_evidence_folders_by_assessment(
+    /// Read a assessment resource
+    async fn read_assessment(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -2726,7 +2696,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .describe_evidence_folders_by_assessment()
+            //     .describe_assessment()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2738,20 +2708,27 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Update a evidence_folders_by_assessment resource
-    async fn update_evidence_folders_by_assessment(
+    /// Update a assessment resource
+    async fn update_assessment(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let description = input.get_optional_string("description")?;
+            let assessment_reports_destination = input.get_string("assessment_reports_destination")?;
+            let name = input.get_string("name")?;
+            let framework_id = input.get_string("framework_id")?;
+            let roles = input.get_string("roles")?;
+            let scope = input.get_string("scope")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .update_evidence_folders_by_assessment()
+            //     .update_assessment()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -2761,12 +2738,19 @@ impl<'a> AuditmanagerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("description", description.unwrap_or_default())
+                .with_field("assessment_reports_destination", assessment_reports_destination.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("framework_id", framework_id.unwrap_or_default())
+                .with_field("roles", roles.unwrap_or_default())
+                .with_field("scope", scope.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a evidence_folders_by_assessment resource
-    async fn delete_evidence_folders_by_assessment(
+    /// Delete a assessment resource
+    async fn delete_assessment(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -2774,7 +2758,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.auditmanager_client
-            //     .delete_evidence_folders_by_assessment()
+            //     .delete_assessment()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2786,11 +2770,11 @@ impl<'a> AuditmanagerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Assessment_report_url resource operations
+    // Evidence resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a assessment_report_url resource
-    async fn plan_assessment_report_url(
+    /// Plan changes to a evidence resource
+    async fn plan_evidence(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -2805,8 +2789,8 @@ impl<'a> AuditmanagerService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new assessment_report_url resource
-    async fn create_assessment_report_url(
+    /// Create a new evidence resource
+    async fn create_evidence(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -2818,7 +2802,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .create_assessment_report_url()
+            //     .create_evidence()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -2831,8 +2815,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Read a assessment_report_url resource
-    async fn read_assessment_report_url(
+    /// Read a evidence resource
+    async fn read_evidence(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -2840,7 +2824,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .describe_assessment_report_url()
+            //     .describe_evidence()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2852,8 +2836,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Update a assessment_report_url resource
-    async fn update_assessment_report_url(
+    /// Update a evidence resource
+    async fn update_evidence(
         &self,
         id: &str,
         input: ResourceInput,
@@ -2865,7 +2849,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .update_assessment_report_url()
+            //     .update_evidence()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -2879,8 +2863,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Delete a assessment_report_url resource
-    async fn delete_assessment_report_url(
+    /// Delete a evidence resource
+    async fn delete_evidence(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -2888,7 +2872,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.auditmanager_client
-            //     .delete_assessment_report_url()
+            //     .delete_evidence()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2900,11 +2884,11 @@ impl<'a> AuditmanagerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Account_status resource operations
+    // Insights resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a account_status resource
-    async fn plan_account_status(
+    /// Plan changes to a insights resource
+    async fn plan_insights(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -2919,8 +2903,8 @@ impl<'a> AuditmanagerService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new account_status resource
-    async fn create_account_status(
+    /// Create a new insights resource
+    async fn create_insights(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -2932,7 +2916,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .create_account_status()
+            //     .create_insights()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -2945,8 +2929,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Read a account_status resource
-    async fn read_account_status(
+    /// Read a insights resource
+    async fn read_insights(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -2954,7 +2938,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .describe_account_status()
+            //     .describe_insights()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2966,8 +2950,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Update a account_status resource
-    async fn update_account_status(
+    /// Update a insights resource
+    async fn update_insights(
         &self,
         id: &str,
         input: ResourceInput,
@@ -2979,7 +2963,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .update_account_status()
+            //     .update_insights()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -2993,8 +2977,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Delete a account_status resource
-    async fn delete_account_status(
+    /// Delete a insights resource
+    async fn delete_insights(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -3002,7 +2986,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.auditmanager_client
-            //     .delete_account_status()
+            //     .delete_insights()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -3014,11 +2998,11 @@ impl<'a> AuditmanagerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Delegations resource operations
+    // Insights_by_assessment resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a delegations resource
-    async fn plan_delegations(
+    /// Plan changes to a insights_by_assessment resource
+    async fn plan_insights_by_assessment(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -3033,8 +3017,8 @@ impl<'a> AuditmanagerService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new delegations resource
-    async fn create_delegations(
+    /// Create a new insights_by_assessment resource
+    async fn create_insights_by_assessment(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -3046,7 +3030,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .create_delegations()
+            //     .create_insights_by_assessment()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -3059,8 +3043,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Read a delegations resource
-    async fn read_delegations(
+    /// Read a insights_by_assessment resource
+    async fn read_insights_by_assessment(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -3068,7 +3052,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .describe_delegations()
+            //     .describe_insights_by_assessment()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -3080,8 +3064,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Update a delegations resource
-    async fn update_delegations(
+    /// Update a insights_by_assessment resource
+    async fn update_insights_by_assessment(
         &self,
         id: &str,
         input: ResourceInput,
@@ -3093,7 +3077,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .update_delegations()
+            //     .update_insights_by_assessment()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -3107,8 +3091,8 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Delete a delegations resource
-    async fn delete_delegations(
+    /// Delete a insights_by_assessment resource
+    async fn delete_insights_by_assessment(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -3116,7 +3100,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.auditmanager_client
-            //     .delete_delegations()
+            //     .delete_insights_by_assessment()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -3128,11 +3112,11 @@ impl<'a> AuditmanagerService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Evidence_folders_by_assessment_control resource operations
+    // Assessment_report resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a evidence_folders_by_assessment_control resource
-    async fn plan_evidence_folders_by_assessment_control(
+    /// Plan changes to a assessment_report resource
+    async fn plan_assessment_report(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -3147,20 +3131,24 @@ impl<'a> AuditmanagerService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new evidence_folders_by_assessment_control resource
-    async fn create_evidence_folders_by_assessment_control(
+    /// Create a new assessment_report resource
+    async fn create_assessment_report(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let name = input.get_string("name")?;
+            let query_statement = input.get_optional_string("query_statement")?;
+            let description = input.get_optional_string("description")?;
+            let assessment_id = input.get_string("assessment_id")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .create_evidence_folders_by_assessment_control()
+            //     .create_assessment_report()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -3169,12 +3157,16 @@ impl<'a> AuditmanagerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("name", name.unwrap_or_default())
+                .with_field("query_statement", query_statement.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("assessment_id", assessment_id.unwrap_or_default())
             )
         })
     }
 
-    /// Read a evidence_folders_by_assessment_control resource
-    async fn read_evidence_folders_by_assessment_control(
+    /// Read a assessment_report resource
+    async fn read_assessment_report(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -3182,7 +3174,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .describe_evidence_folders_by_assessment_control()
+            //     .describe_assessment_report()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -3194,20 +3186,24 @@ impl<'a> AuditmanagerService<'a> {
         })
     }
 
-    /// Update a evidence_folders_by_assessment_control resource
-    async fn update_evidence_folders_by_assessment_control(
+    /// Update a assessment_report resource
+    async fn update_assessment_report(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let name = input.get_string("name")?;
+            let query_statement = input.get_optional_string("query_statement")?;
+            let description = input.get_optional_string("description")?;
+            let assessment_id = input.get_string("assessment_id")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.auditmanager_client
-            //     .update_evidence_folders_by_assessment_control()
+            //     .update_assessment_report()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -3217,12 +3213,16 @@ impl<'a> AuditmanagerService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("name", name.unwrap_or_default())
+                .with_field("query_statement", query_statement.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("assessment_id", assessment_id.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a evidence_folders_by_assessment_control resource
-    async fn delete_evidence_folders_by_assessment_control(
+    /// Delete a assessment_report resource
+    async fn delete_assessment_report(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -3230,7 +3230,7 @@ impl<'a> AuditmanagerService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.auditmanager_client
-            //     .delete_evidence_folders_by_assessment_control()
+            //     .delete_assessment_report()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

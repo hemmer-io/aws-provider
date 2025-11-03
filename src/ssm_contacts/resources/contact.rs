@@ -21,7 +21,7 @@ impl<'a> Contact<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, idempotency_token: Option<String>, plan: String, tags: Option<Vec<String>>, type: String, alias: String, display_name: Option<String>) -> Result<String> {
+    pub async fn create(&self, display_name: Option<String>, plan: String, tags: Option<Vec<String>>, idempotency_token: Option<String>, alias: String, type: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Contact<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, idempotency_token: Option<String>, plan: Option<String>, tags: Option<Vec<String>>, type: Option<String>, alias: Option<String>, display_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, display_name: Option<String>, plan: Option<String>, tags: Option<Vec<String>>, idempotency_token: Option<String>, alias: Option<String>, type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

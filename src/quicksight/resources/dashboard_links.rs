@@ -24,7 +24,7 @@ impl<'a> Dashboard_links<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, aws_account_id: Option<String>, dashboard_id: Option<String>, link_entities: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, link_entities: Option<Vec<String>>, aws_account_id: Option<String>, dashboard_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

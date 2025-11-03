@@ -141,9 +141,9 @@ impl<'a> Bcm_pricing_calculatorService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let management_account_rate_type_selections = input.get_optional_string("management_account_rate_type_selections")?;
             let member_account_rate_type_selections = input.get_optional_string("member_account_rate_type_selections")?;
             let standalone_account_rate_type_selections = input.get_optional_string("standalone_account_rate_type_selections")?;
+            let management_account_rate_type_selections = input.get_optional_string("management_account_rate_type_selections")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -158,9 +158,9 @@ impl<'a> Bcm_pricing_calculatorService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("management_account_rate_type_selections", management_account_rate_type_selections.unwrap_or_default())
                 .with_field("member_account_rate_type_selections", member_account_rate_type_selections.unwrap_or_default())
                 .with_field("standalone_account_rate_type_selections", standalone_account_rate_type_selections.unwrap_or_default())
+                .with_field("management_account_rate_type_selections", management_account_rate_type_selections.unwrap_or_default())
             )
         })
     }
@@ -194,9 +194,9 @@ impl<'a> Bcm_pricing_calculatorService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let management_account_rate_type_selections = input.get_optional_string("management_account_rate_type_selections")?;
             let member_account_rate_type_selections = input.get_optional_string("member_account_rate_type_selections")?;
             let standalone_account_rate_type_selections = input.get_optional_string("standalone_account_rate_type_selections")?;
+            let management_account_rate_type_selections = input.get_optional_string("management_account_rate_type_selections")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -212,9 +212,9 @@ impl<'a> Bcm_pricing_calculatorService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("management_account_rate_type_selections", management_account_rate_type_selections.unwrap_or_default())
                 .with_field("member_account_rate_type_selections", member_account_rate_type_selections.unwrap_or_default())
                 .with_field("standalone_account_rate_type_selections", standalone_account_rate_type_selections.unwrap_or_default())
+                .with_field("management_account_rate_type_selections", management_account_rate_type_selections.unwrap_or_default())
             )
         })
     }

@@ -21,7 +21,7 @@ impl<'a> Backend_environment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, deployment_artifacts: Option<String>, environment_name: String, stack_name: Option<String>, app_id: String) -> Result<String> {
+    pub async fn create(&self, environment_name: String, app_id: String, stack_name: Option<String>, deployment_artifacts: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

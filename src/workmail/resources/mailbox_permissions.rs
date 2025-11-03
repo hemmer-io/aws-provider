@@ -21,7 +21,7 @@ impl<'a> Mailbox_permissions<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, permission_values: Vec<String>, entity_id: String, organization_id: String, grantee_id: String) -> Result<String> {
+    pub async fn create(&self, grantee_id: String, organization_id: String, permission_values: Vec<String>, entity_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Pool<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, iso_country_code: String, client_token: Option<String>, message_type: String, origination_identity: String, deletion_protection_enabled: Option<bool>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, message_type: String, deletion_protection_enabled: Option<bool>, iso_country_code: String, tags: Option<Vec<String>>, client_token: Option<String>, origination_identity: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Pool<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, iso_country_code: Option<String>, client_token: Option<String>, message_type: Option<String>, origination_identity: Option<String>, deletion_protection_enabled: Option<bool>, tags: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, message_type: Option<String>, deletion_protection_enabled: Option<bool>, iso_country_code: Option<String>, tags: Option<Vec<String>>, client_token: Option<String>, origination_identity: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

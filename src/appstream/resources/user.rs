@@ -21,7 +21,7 @@ impl<'a> User<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, user_name: String, message_action: Option<String>, authentication_type: String, last_name: Option<String>, first_name: Option<String>) -> Result<String> {
+    pub async fn create(&self, authentication_type: String, first_name: Option<String>, user_name: String, last_name: Option<String>, message_action: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

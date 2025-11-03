@@ -21,7 +21,7 @@ impl<'a> Queue<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, status: Option<String>, reservation_plan_settings: Option<String>, name: String, pricing_plan: Option<String>, tags: Option<HashMap<String, String>>, description: Option<String>, concurrent_jobs: Option<i64>) -> Result<String> {
+    pub async fn create(&self, reservation_plan_settings: Option<String>, description: Option<String>, pricing_plan: Option<String>, name: String, status: Option<String>, concurrent_jobs: Option<i64>, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Queue<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, status: Option<String>, reservation_plan_settings: Option<String>, name: Option<String>, pricing_plan: Option<String>, tags: Option<HashMap<String, String>>, description: Option<String>, concurrent_jobs: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, reservation_plan_settings: Option<String>, description: Option<String>, pricing_plan: Option<String>, name: Option<String>, status: Option<String>, concurrent_jobs: Option<i64>, tags: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

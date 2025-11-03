@@ -141,12 +141,12 @@ impl<'a> RumService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let app_monitor_details = input.get_string("app_monitor_details")?;
             let user_details = input.get_string("user_details")?;
-            let rum_events = input.get_string("rum_events")?;
             let id = input.get_string("id")?;
             let batch_id = input.get_string("batch_id")?;
-            let app_monitor_details = input.get_string("app_monitor_details")?;
             let alias = input.get_optional_string("alias")?;
+            let rum_events = input.get_string("rum_events")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -161,12 +161,12 @@ impl<'a> RumService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("app_monitor_details", app_monitor_details.unwrap_or_default())
                 .with_field("user_details", user_details.unwrap_or_default())
-                .with_field("rum_events", rum_events.unwrap_or_default())
                 .with_field("id", id.unwrap_or_default())
                 .with_field("batch_id", batch_id.unwrap_or_default())
-                .with_field("app_monitor_details", app_monitor_details.unwrap_or_default())
                 .with_field("alias", alias.unwrap_or_default())
+                .with_field("rum_events", rum_events.unwrap_or_default())
             )
         })
     }
@@ -200,12 +200,12 @@ impl<'a> RumService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let app_monitor_details = input.get_string("app_monitor_details")?;
             let user_details = input.get_string("user_details")?;
-            let rum_events = input.get_string("rum_events")?;
             let id = input.get_string("id")?;
             let batch_id = input.get_string("batch_id")?;
-            let app_monitor_details = input.get_string("app_monitor_details")?;
             let alias = input.get_optional_string("alias")?;
+            let rum_events = input.get_string("rum_events")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -221,12 +221,12 @@ impl<'a> RumService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("app_monitor_details", app_monitor_details.unwrap_or_default())
                 .with_field("user_details", user_details.unwrap_or_default())
-                .with_field("rum_events", rum_events.unwrap_or_default())
                 .with_field("id", id.unwrap_or_default())
                 .with_field("batch_id", batch_id.unwrap_or_default())
-                .with_field("app_monitor_details", app_monitor_details.unwrap_or_default())
                 .with_field("alias", alias.unwrap_or_default())
+                .with_field("rum_events", rum_events.unwrap_or_default())
             )
         })
     }

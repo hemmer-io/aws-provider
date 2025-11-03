@@ -21,7 +21,7 @@ impl<'a> Channel<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, encoder_settings: Option<String>, input_specification: Option<String>, role_arn: Option<String>, vpc: Option<String>, destinations: Option<Vec<String>>, dry_run: Option<bool>, log_level: Option<String>, maintenance: Option<String>, request_id: Option<String>, anywhere_settings: Option<String>, channel_class: Option<String>, input_attachments: Option<Vec<String>>, reserved: Option<String>, name: Option<String>, cdi_input_specification: Option<String>, tags: Option<HashMap<String, String>>, channel_engine_version: Option<String>) -> Result<String> {
+    pub async fn create(&self, destinations: Option<Vec<String>>, anywhere_settings: Option<String>, log_level: Option<String>, input_attachments: Option<Vec<String>>, maintenance: Option<String>, tags: Option<HashMap<String, String>>, name: Option<String>, cdi_input_specification: Option<String>, input_specification: Option<String>, request_id: Option<String>, role_arn: Option<String>, encoder_settings: Option<String>, reserved: Option<String>, channel_class: Option<String>, dry_run: Option<bool>, vpc: Option<String>, channel_engine_version: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Channel<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, encoder_settings: Option<String>, input_specification: Option<String>, role_arn: Option<String>, vpc: Option<String>, destinations: Option<Vec<String>>, dry_run: Option<bool>, log_level: Option<String>, maintenance: Option<String>, request_id: Option<String>, anywhere_settings: Option<String>, channel_class: Option<String>, input_attachments: Option<Vec<String>>, reserved: Option<String>, name: Option<String>, cdi_input_specification: Option<String>, tags: Option<HashMap<String, String>>, channel_engine_version: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, destinations: Option<Vec<String>>, anywhere_settings: Option<String>, log_level: Option<String>, input_attachments: Option<Vec<String>>, maintenance: Option<String>, tags: Option<HashMap<String, String>>, name: Option<String>, cdi_input_specification: Option<String>, input_specification: Option<String>, request_id: Option<String>, role_arn: Option<String>, encoder_settings: Option<String>, reserved: Option<String>, channel_class: Option<String>, dry_run: Option<bool>, vpc: Option<String>, channel_engine_version: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

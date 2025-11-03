@@ -21,7 +21,7 @@ impl<'a> Item<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, return_values_on_condition_check_failure: Option<String>, return_item_collection_metrics: Option<String>, item: HashMap<String, String>, return_values: Option<String>, conditional_operator: Option<String>, expected: Option<HashMap<String, String>>, condition_expression: Option<String>, table_name: String, expression_attribute_names: Option<HashMap<String, String>>, expression_attribute_values: Option<HashMap<String, String>>, return_consumed_capacity: Option<String>) -> Result<String> {
+    pub async fn create(&self, return_values: Option<String>, table_name: String, item: HashMap<String, String>, condition_expression: Option<String>, expression_attribute_names: Option<HashMap<String, String>>, expression_attribute_values: Option<HashMap<String, String>>, return_values_on_condition_check_failure: Option<String>, expected: Option<HashMap<String, String>>, return_consumed_capacity: Option<String>, return_item_collection_metrics: Option<String>, conditional_operator: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Item<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, return_values_on_condition_check_failure: Option<String>, return_item_collection_metrics: Option<String>, item: Option<HashMap<String, String>>, return_values: Option<String>, conditional_operator: Option<String>, expected: Option<HashMap<String, String>>, condition_expression: Option<String>, table_name: Option<String>, expression_attribute_names: Option<HashMap<String, String>>, expression_attribute_values: Option<HashMap<String, String>>, return_consumed_capacity: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, return_values: Option<String>, table_name: Option<String>, item: Option<HashMap<String, String>>, condition_expression: Option<String>, expression_attribute_names: Option<HashMap<String, String>>, expression_attribute_values: Option<HashMap<String, String>>, return_values_on_condition_check_failure: Option<String>, expected: Option<HashMap<String, String>>, return_consumed_capacity: Option<String>, return_item_collection_metrics: Option<String>, conditional_operator: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

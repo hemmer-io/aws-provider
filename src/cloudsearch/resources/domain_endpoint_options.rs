@@ -38,7 +38,7 @@ impl<'a> Domain_endpoint_options<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, domain_endpoint_options: Option<String>, domain_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, domain_name: Option<String>, domain_endpoint_options: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

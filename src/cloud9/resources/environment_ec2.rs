@@ -21,7 +21,7 @@ impl<'a> Environment_ec2<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, instance_type: String, connection_type: Option<String>, dry_run: Option<bool>, automatic_stop_time_minutes: Option<i64>, client_request_token: Option<String>, description: Option<String>, name: String, subnet_id: Option<String>, owner_arn: Option<String>, tags: Option<Vec<String>>, image_id: String) -> Result<String> {
+    pub async fn create(&self, image_id: String, automatic_stop_time_minutes: Option<i64>, tags: Option<Vec<String>>, connection_type: Option<String>, owner_arn: Option<String>, name: String, client_request_token: Option<String>, instance_type: String, subnet_id: Option<String>, dry_run: Option<bool>, description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

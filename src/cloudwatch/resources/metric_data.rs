@@ -21,7 +21,7 @@ impl<'a> Metric_data<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, entity_metric_data: Option<Vec<String>>, strict_entity_validation: Option<bool>, metric_data: Option<Vec<String>>, namespace: String) -> Result<String> {
+    pub async fn create(&self, namespace: String, strict_entity_validation: Option<bool>, entity_metric_data: Option<Vec<String>>, metric_data: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

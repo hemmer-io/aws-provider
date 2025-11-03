@@ -21,7 +21,7 @@ impl<'a> Sip_media_application_call<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, sip_headers: Option<HashMap<String, String>>, from_phone_number: String, arguments_map: Option<HashMap<String, String>>, to_phone_number: String, sip_media_application_id: String) -> Result<String> {
+    pub async fn create(&self, from_phone_number: String, arguments_map: Option<HashMap<String, String>>, to_phone_number: String, sip_headers: Option<HashMap<String, String>>, sip_media_application_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Sip_media_application_call<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, sip_headers: Option<HashMap<String, String>>, from_phone_number: Option<String>, arguments_map: Option<HashMap<String, String>>, to_phone_number: Option<String>, sip_media_application_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, from_phone_number: Option<String>, arguments_map: Option<HashMap<String, String>>, to_phone_number: Option<String>, sip_headers: Option<HashMap<String, String>>, sip_media_application_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

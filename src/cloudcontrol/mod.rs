@@ -270,11 +270,11 @@ impl<'a> CloudcontrolService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let role_arn = input.get_optional_string("role_arn")?;
+            let type_version_id = input.get_optional_string("type_version_id")?;
             let client_token = input.get_optional_string("client_token")?;
             let desired_state = input.get_string("desired_state")?;
             let type_name = input.get_string("type_name")?;
-            let type_version_id = input.get_optional_string("type_version_id")?;
-            let role_arn = input.get_optional_string("role_arn")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -289,11 +289,11 @@ impl<'a> CloudcontrolService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("role_arn", role_arn.unwrap_or_default())
+                .with_field("type_version_id", type_version_id.unwrap_or_default())
                 .with_field("client_token", client_token.unwrap_or_default())
                 .with_field("desired_state", desired_state.unwrap_or_default())
                 .with_field("type_name", type_name.unwrap_or_default())
-                .with_field("type_version_id", type_version_id.unwrap_or_default())
-                .with_field("role_arn", role_arn.unwrap_or_default())
             )
         })
     }
@@ -327,11 +327,11 @@ impl<'a> CloudcontrolService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let role_arn = input.get_optional_string("role_arn")?;
+            let type_version_id = input.get_optional_string("type_version_id")?;
             let client_token = input.get_optional_string("client_token")?;
             let desired_state = input.get_string("desired_state")?;
             let type_name = input.get_string("type_name")?;
-            let type_version_id = input.get_optional_string("type_version_id")?;
-            let role_arn = input.get_optional_string("role_arn")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -347,11 +347,11 @@ impl<'a> CloudcontrolService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("role_arn", role_arn.unwrap_or_default())
+                .with_field("type_version_id", type_version_id.unwrap_or_default())
                 .with_field("client_token", client_token.unwrap_or_default())
                 .with_field("desired_state", desired_state.unwrap_or_default())
                 .with_field("type_name", type_name.unwrap_or_default())
-                .with_field("type_version_id", type_version_id.unwrap_or_default())
-                .with_field("role_arn", role_arn.unwrap_or_default())
             )
         })
     }

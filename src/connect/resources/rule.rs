@@ -21,7 +21,7 @@ impl<'a> Rule<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, instance_id: String, client_token: Option<String>, name: String, trigger_event_source: String, actions: Vec<String>, function: String, publish_status: String) -> Result<String> {
+    pub async fn create(&self, function: String, instance_id: String, trigger_event_source: String, name: String, actions: Vec<String>, publish_status: String, client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Rule<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, instance_id: Option<String>, client_token: Option<String>, name: Option<String>, trigger_event_source: Option<String>, actions: Option<Vec<String>>, function: Option<String>, publish_status: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, function: Option<String>, instance_id: Option<String>, trigger_event_source: Option<String>, name: Option<String>, actions: Option<Vec<String>>, publish_status: Option<String>, client_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

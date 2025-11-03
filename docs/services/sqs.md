@@ -10,15 +10,73 @@
 
 The sqs service provides access to 5 resource types:
 
-- [Queue_url](#queue_url) [R]
 - [Message](#message) [D]
+- [Message_batch](#message_batch) [D]
+- [Queue_url](#queue_url) [R]
 - [Queue_attributes](#queue_attributes) [R]
 - [Queue](#queue) [CD]
-- [Message_batch](#message_batch) [D]
 
 ---
 
 ## Resources
+
+
+### Message
+
+Message resource
+
+**Operations**: ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+```
+
+---
+
+
+### Message_batch
+
+MessageBatch resource
+
+**Operations**: ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+```
+
+---
 
 
 ### Queue_url
@@ -54,35 +112,6 @@ provider = aws.AwsProvider {
 # Access queue_url outputs
 queue_url_id = queue_url.id
 queue_url_queue_url = queue_url.queue_url
-```
-
----
-
-
-### Message
-
-Message resource
-
-**Operations**: ✅ Delete
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
 ```
 
 ---
@@ -136,6 +165,33 @@ Queue resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
+| `tags` | HashMap<String, String> |  | <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging 
+Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+         <p>When you use queue tags, keep the following guidelines in mind:</p>
+         <ul>
+            <li>
+               <p>Adding more than 50 tags to a queue isn't recommended.</p>
+            </li>
+            <li>
+               <p>Tags don't have any semantic meaning. Amazon SQS interprets tags as character strings.</p>
+            </li>
+            <li>
+               <p>Tags are case-sensitive.</p>
+            </li>
+            <li>
+               <p>A new tag with a key identical to that of an existing tag overwrites the existing tag.</p>
+            </li>
+         </ul>
+         <p>For a full list of tag restrictions, see 
+<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues">Quotas related to queues</a> 
+in the <i>Amazon SQS Developer Guide</i>.</p>
+         <note>
+            <p>To be able to tag a queue on creation, you must have the
+                    <code>sqs:CreateQueue</code> and <code>sqs:TagQueue</code> permissions.</p>
+            <p>Cross-account permissions don't apply to this action. For more information, 
+see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant 
+cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+         </note> |
 | `queue_name` | String | ✅ | <p>The name of the new queue. The following limits apply to this name:</p>
          <ul>
             <li>
@@ -390,33 +446,6 @@ for FIFO queues</a>:</p>
          <p>For information on throughput quotas, 
   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> 
   in the <i>Amazon SQS Developer Guide</i>.</p> |
-| `tags` | HashMap<String, String> |  | <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging 
-Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-         <p>When you use queue tags, keep the following guidelines in mind:</p>
-         <ul>
-            <li>
-               <p>Adding more than 50 tags to a queue isn't recommended.</p>
-            </li>
-            <li>
-               <p>Tags don't have any semantic meaning. Amazon SQS interprets tags as character strings.</p>
-            </li>
-            <li>
-               <p>Tags are case-sensitive.</p>
-            </li>
-            <li>
-               <p>A new tag with a key identical to that of an existing tag overwrites the existing tag.</p>
-            </li>
-         </ul>
-         <p>For a full list of tag restrictions, see 
-<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues">Quotas related to queues</a> 
-in the <i>Amazon SQS Developer Guide</i>.</p>
-         <note>
-            <p>To be able to tag a queue on creation, you must have the
-                    <code>sqs:CreateQueue</code> and <code>sqs:TagQueue</code> permissions.</p>
-            <p>Cross-account permissions don't apply to this action. For more information, 
-see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant 
-cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-         </note> |
 
 
 
@@ -454,35 +483,6 @@ queue = provider.sqs.Queue {
 ---
 
 
-### Message_batch
-
-MessageBatch resource
-
-**Operations**: ✅ Delete
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-```
-
----
-
-
 
 ## Common Operations
 
@@ -495,12 +495,12 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create multiple queue_url resources
-queue_url_0 = provider.sqs.Queue_url {
+# Create multiple message resources
+message_0 = provider.sqs.Message {
 }
-queue_url_1 = provider.sqs.Queue_url {
+message_1 = provider.sqs.Message {
 }
-queue_url_2 = provider.sqs.Queue_url {
+message_2 = provider.sqs.Message {
 }
 ```
 
@@ -509,7 +509,7 @@ queue_url_2 = provider.sqs.Queue_url {
 ```kcl
 # Only create in production
 if environment == "production":
-    queue_url = provider.sqs.Queue_url {
+    message = provider.sqs.Message {
     }
 ```
 

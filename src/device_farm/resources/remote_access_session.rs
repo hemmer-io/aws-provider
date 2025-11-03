@@ -21,7 +21,7 @@ impl<'a> Remote_access_session<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, device_arn: String, name: Option<String>, remote_record_enabled: Option<bool>, app_arn: Option<String>, project_arn: String, instance_arn: Option<String>, remote_record_app_arn: Option<String>, ssh_public_key: Option<String>, remote_debug_enabled: Option<bool>, client_id: Option<String>, configuration: Option<String>, interaction_mode: Option<String>, skip_app_resign: Option<bool>) -> Result<String> {
+    pub async fn create(&self, skip_app_resign: Option<bool>, remote_record_app_arn: Option<String>, configuration: Option<String>, device_arn: String, app_arn: Option<String>, project_arn: String, instance_arn: Option<String>, ssh_public_key: Option<String>, name: Option<String>, remote_record_enabled: Option<bool>, client_id: Option<String>, interaction_mode: Option<String>, remote_debug_enabled: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

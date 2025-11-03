@@ -21,7 +21,7 @@ impl<'a> Data_source<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, credentials: Option<String>, permissions: Option<Vec<String>>, ssl_properties: Option<String>, tags: Option<Vec<String>>, vpc_connection_properties: Option<String>, aws_account_id: String, folder_arns: Option<Vec<String>>, type: String, data_source_parameters: Option<String>, name: String, data_source_id: String) -> Result<String> {
+    pub async fn create(&self, credentials: Option<String>, name: String, data_source_id: String, data_source_parameters: Option<String>, permissions: Option<Vec<String>>, tags: Option<Vec<String>>, vpc_connection_properties: Option<String>, type: String, ssl_properties: Option<String>, aws_account_id: String, folder_arns: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Data_source<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, credentials: Option<String>, permissions: Option<Vec<String>>, ssl_properties: Option<String>, tags: Option<Vec<String>>, vpc_connection_properties: Option<String>, aws_account_id: Option<String>, folder_arns: Option<Vec<String>>, type: Option<String>, data_source_parameters: Option<String>, name: Option<String>, data_source_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, credentials: Option<String>, name: Option<String>, data_source_id: Option<String>, data_source_parameters: Option<String>, permissions: Option<Vec<String>>, tags: Option<Vec<String>>, vpc_connection_properties: Option<String>, type: Option<String>, ssl_properties: Option<String>, aws_account_id: Option<String>, folder_arns: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Profile_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, job_sample: Option<String>, name: String, encryption_mode: Option<String>, tags: Option<HashMap<String, String>>, configuration: Option<String>, validation_configurations: Option<Vec<String>>, dataset_name: String, max_capacity: Option<i64>, timeout: Option<i64>, log_subscription: Option<String>, max_retries: Option<i64>, output_location: String, encryption_key_arn: Option<String>, role_arn: String) -> Result<String> {
+    pub async fn create(&self, max_retries: Option<i64>, job_sample: Option<String>, name: String, encryption_mode: Option<String>, log_subscription: Option<String>, validation_configurations: Option<Vec<String>>, output_location: String, role_arn: String, dataset_name: String, encryption_key_arn: Option<String>, timeout: Option<i64>, tags: Option<HashMap<String, String>>, max_capacity: Option<i64>, configuration: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Profile_job<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, job_sample: Option<String>, name: Option<String>, encryption_mode: Option<String>, tags: Option<HashMap<String, String>>, configuration: Option<String>, validation_configurations: Option<Vec<String>>, dataset_name: Option<String>, max_capacity: Option<i64>, timeout: Option<i64>, log_subscription: Option<String>, max_retries: Option<i64>, output_location: Option<String>, encryption_key_arn: Option<String>, role_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, max_retries: Option<i64>, job_sample: Option<String>, name: Option<String>, encryption_mode: Option<String>, log_subscription: Option<String>, validation_configurations: Option<Vec<String>>, output_location: Option<String>, role_arn: Option<String>, dataset_name: Option<String>, encryption_key_arn: Option<String>, timeout: Option<i64>, tags: Option<HashMap<String, String>>, max_capacity: Option<i64>, configuration: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

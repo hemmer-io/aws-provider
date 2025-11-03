@@ -21,7 +21,7 @@ impl<'a> Vpce_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, vpce_configuration_name: String, service_dns_name: String, vpce_service_name: String, vpce_configuration_description: Option<String>) -> Result<String> {
+    pub async fn create(&self, vpce_configuration_name: String, vpce_service_name: String, vpce_configuration_description: Option<String>, service_dns_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Vpce_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, vpce_configuration_name: Option<String>, service_dns_name: Option<String>, vpce_service_name: Option<String>, vpce_configuration_description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, vpce_configuration_name: Option<String>, vpce_service_name: Option<String>, vpce_configuration_description: Option<String>, service_dns_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

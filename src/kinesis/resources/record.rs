@@ -21,7 +21,7 @@ impl<'a> Record<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, explicit_hash_key: Option<String>, stream_name: Option<String>, partition_key: String, sequence_number_for_ordering: Option<String>, stream_arn: Option<String>, data: String) -> Result<String> {
+    pub async fn create(&self, sequence_number_for_ordering: Option<String>, explicit_hash_key: Option<String>, stream_arn: Option<String>, stream_name: Option<String>, data: String, partition_key: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

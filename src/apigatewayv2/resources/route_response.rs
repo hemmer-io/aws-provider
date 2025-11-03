@@ -21,7 +21,7 @@ impl<'a> Route_response<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, model_selection_expression: Option<String>, api_id: String, response_models: Option<HashMap<String, String>>, response_parameters: Option<HashMap<String, String>>, route_id: String, route_response_key: String) -> Result<String> {
+    pub async fn create(&self, route_id: String, api_id: String, response_parameters: Option<HashMap<String, String>>, model_selection_expression: Option<String>, route_response_key: String, response_models: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Route_response<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, model_selection_expression: Option<String>, api_id: Option<String>, response_models: Option<HashMap<String, String>>, response_parameters: Option<HashMap<String, String>>, route_id: Option<String>, route_response_key: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, route_id: Option<String>, api_id: Option<String>, response_parameters: Option<HashMap<String, String>>, model_selection_expression: Option<String>, route_response_key: Option<String>, response_models: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

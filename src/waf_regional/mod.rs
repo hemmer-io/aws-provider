@@ -24,65 +24,65 @@ impl<'a> Waf_regionalService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
+            "size_constraint_set" => {
+                self.plan_size_constraint_set(current_state, desired_input).await
+            }
+            "regex_match_set" => {
+                self.plan_regex_match_set(current_state, desired_input).await
+            }
+            "change_token_status" => {
+                self.plan_change_token_status(current_state, desired_input).await
+            }
+            "sampled_requests" => {
+                self.plan_sampled_requests(current_state, desired_input).await
+            }
+            "change_token" => {
+                self.plan_change_token(current_state, desired_input).await
+            }
+            "byte_match_set" => {
+                self.plan_byte_match_set(current_state, desired_input).await
+            }
+            "regex_pattern_set" => {
+                self.plan_regex_pattern_set(current_state, desired_input).await
+            }
+            "permission_policy" => {
+                self.plan_permission_policy(current_state, desired_input).await
+            }
+            "rate_based_rule_managed_keys" => {
+                self.plan_rate_based_rule_managed_keys(current_state, desired_input).await
+            }
+            "sql_injection_match_set" => {
+                self.plan_sql_injection_match_set(current_state, desired_input).await
+            }
+            "web_acl_for_resource" => {
+                self.plan_web_acl_for_resource(current_state, desired_input).await
+            }
+            "rule_group" => {
+                self.plan_rule_group(current_state, desired_input).await
+            }
+            "web_acl" => {
+                self.plan_web_acl(current_state, desired_input).await
+            }
+            "ip_set" => {
+                self.plan_ip_set(current_state, desired_input).await
+            }
+            "logging_configuration" => {
+                self.plan_logging_configuration(current_state, desired_input).await
+            }
+            "rate_based_rule" => {
+                self.plan_rate_based_rule(current_state, desired_input).await
+            }
+            "xss_match_set" => {
+                self.plan_xss_match_set(current_state, desired_input).await
+            }
             "geo_match_set" => {
                 self.plan_geo_match_set(current_state, desired_input).await
             }
             "web_acl_migration_stack" => {
                 self.plan_web_acl_migration_stack(current_state, desired_input).await
             }
-            "regex_pattern_set" => {
-                self.plan_regex_pattern_set(current_state, desired_input).await
-            }
-            "web_acl_for_resource" => {
-                self.plan_web_acl_for_resource(current_state, desired_input).await
-            }
-            "byte_match_set" => {
-                self.plan_byte_match_set(current_state, desired_input).await
-            }
-            "rate_based_rule" => {
-                self.plan_rate_based_rule(current_state, desired_input).await
-            }
             "rule" => {
                 self.plan_rule(current_state, desired_input).await
-            }
-            "logging_configuration" => {
-                self.plan_logging_configuration(current_state, desired_input).await
-            }
-            "sql_injection_match_set" => {
-                self.plan_sql_injection_match_set(current_state, desired_input).await
-            }
-            "change_token" => {
-                self.plan_change_token(current_state, desired_input).await
-            }
-            "permission_policy" => {
-                self.plan_permission_policy(current_state, desired_input).await
-            }
-            "change_token_status" => {
-                self.plan_change_token_status(current_state, desired_input).await
-            }
-            "rate_based_rule_managed_keys" => {
-                self.plan_rate_based_rule_managed_keys(current_state, desired_input).await
-            }
-            "rule_group" => {
-                self.plan_rule_group(current_state, desired_input).await
-            }
-            "ip_set" => {
-                self.plan_ip_set(current_state, desired_input).await
-            }
-            "size_constraint_set" => {
-                self.plan_size_constraint_set(current_state, desired_input).await
-            }
-            "web_acl" => {
-                self.plan_web_acl(current_state, desired_input).await
-            }
-            "regex_match_set" => {
-                self.plan_regex_match_set(current_state, desired_input).await
-            }
-            "xss_match_set" => {
-                self.plan_xss_match_set(current_state, desired_input).await
-            }
-            "sampled_requests" => {
-                self.plan_sampled_requests(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -99,65 +99,65 @@ impl<'a> Waf_regionalService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "size_constraint_set" => {
+                self.create_size_constraint_set(input).await
+            }
+            "regex_match_set" => {
+                self.create_regex_match_set(input).await
+            }
+            "change_token_status" => {
+                self.create_change_token_status(input).await
+            }
+            "sampled_requests" => {
+                self.create_sampled_requests(input).await
+            }
+            "change_token" => {
+                self.create_change_token(input).await
+            }
+            "byte_match_set" => {
+                self.create_byte_match_set(input).await
+            }
+            "regex_pattern_set" => {
+                self.create_regex_pattern_set(input).await
+            }
+            "permission_policy" => {
+                self.create_permission_policy(input).await
+            }
+            "rate_based_rule_managed_keys" => {
+                self.create_rate_based_rule_managed_keys(input).await
+            }
+            "sql_injection_match_set" => {
+                self.create_sql_injection_match_set(input).await
+            }
+            "web_acl_for_resource" => {
+                self.create_web_acl_for_resource(input).await
+            }
+            "rule_group" => {
+                self.create_rule_group(input).await
+            }
+            "web_acl" => {
+                self.create_web_acl(input).await
+            }
+            "ip_set" => {
+                self.create_ip_set(input).await
+            }
+            "logging_configuration" => {
+                self.create_logging_configuration(input).await
+            }
+            "rate_based_rule" => {
+                self.create_rate_based_rule(input).await
+            }
+            "xss_match_set" => {
+                self.create_xss_match_set(input).await
+            }
             "geo_match_set" => {
                 self.create_geo_match_set(input).await
             }
             "web_acl_migration_stack" => {
                 self.create_web_acl_migration_stack(input).await
             }
-            "regex_pattern_set" => {
-                self.create_regex_pattern_set(input).await
-            }
-            "web_acl_for_resource" => {
-                self.create_web_acl_for_resource(input).await
-            }
-            "byte_match_set" => {
-                self.create_byte_match_set(input).await
-            }
-            "rate_based_rule" => {
-                self.create_rate_based_rule(input).await
-            }
             "rule" => {
                 self.create_rule(input).await
-            }
-            "logging_configuration" => {
-                self.create_logging_configuration(input).await
-            }
-            "sql_injection_match_set" => {
-                self.create_sql_injection_match_set(input).await
-            }
-            "change_token" => {
-                self.create_change_token(input).await
-            }
-            "permission_policy" => {
-                self.create_permission_policy(input).await
-            }
-            "change_token_status" => {
-                self.create_change_token_status(input).await
-            }
-            "rate_based_rule_managed_keys" => {
-                self.create_rate_based_rule_managed_keys(input).await
-            }
-            "rule_group" => {
-                self.create_rule_group(input).await
-            }
-            "ip_set" => {
-                self.create_ip_set(input).await
-            }
-            "size_constraint_set" => {
-                self.create_size_constraint_set(input).await
-            }
-            "web_acl" => {
-                self.create_web_acl(input).await
-            }
-            "regex_match_set" => {
-                self.create_regex_match_set(input).await
-            }
-            "xss_match_set" => {
-                self.create_xss_match_set(input).await
-            }
-            "sampled_requests" => {
-                self.create_sampled_requests(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -174,65 +174,65 @@ impl<'a> Waf_regionalService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "size_constraint_set" => {
+                self.read_size_constraint_set(id).await
+            }
+            "regex_match_set" => {
+                self.read_regex_match_set(id).await
+            }
+            "change_token_status" => {
+                self.read_change_token_status(id).await
+            }
+            "sampled_requests" => {
+                self.read_sampled_requests(id).await
+            }
+            "change_token" => {
+                self.read_change_token(id).await
+            }
+            "byte_match_set" => {
+                self.read_byte_match_set(id).await
+            }
+            "regex_pattern_set" => {
+                self.read_regex_pattern_set(id).await
+            }
+            "permission_policy" => {
+                self.read_permission_policy(id).await
+            }
+            "rate_based_rule_managed_keys" => {
+                self.read_rate_based_rule_managed_keys(id).await
+            }
+            "sql_injection_match_set" => {
+                self.read_sql_injection_match_set(id).await
+            }
+            "web_acl_for_resource" => {
+                self.read_web_acl_for_resource(id).await
+            }
+            "rule_group" => {
+                self.read_rule_group(id).await
+            }
+            "web_acl" => {
+                self.read_web_acl(id).await
+            }
+            "ip_set" => {
+                self.read_ip_set(id).await
+            }
+            "logging_configuration" => {
+                self.read_logging_configuration(id).await
+            }
+            "rate_based_rule" => {
+                self.read_rate_based_rule(id).await
+            }
+            "xss_match_set" => {
+                self.read_xss_match_set(id).await
+            }
             "geo_match_set" => {
                 self.read_geo_match_set(id).await
             }
             "web_acl_migration_stack" => {
                 self.read_web_acl_migration_stack(id).await
             }
-            "regex_pattern_set" => {
-                self.read_regex_pattern_set(id).await
-            }
-            "web_acl_for_resource" => {
-                self.read_web_acl_for_resource(id).await
-            }
-            "byte_match_set" => {
-                self.read_byte_match_set(id).await
-            }
-            "rate_based_rule" => {
-                self.read_rate_based_rule(id).await
-            }
             "rule" => {
                 self.read_rule(id).await
-            }
-            "logging_configuration" => {
-                self.read_logging_configuration(id).await
-            }
-            "sql_injection_match_set" => {
-                self.read_sql_injection_match_set(id).await
-            }
-            "change_token" => {
-                self.read_change_token(id).await
-            }
-            "permission_policy" => {
-                self.read_permission_policy(id).await
-            }
-            "change_token_status" => {
-                self.read_change_token_status(id).await
-            }
-            "rate_based_rule_managed_keys" => {
-                self.read_rate_based_rule_managed_keys(id).await
-            }
-            "rule_group" => {
-                self.read_rule_group(id).await
-            }
-            "ip_set" => {
-                self.read_ip_set(id).await
-            }
-            "size_constraint_set" => {
-                self.read_size_constraint_set(id).await
-            }
-            "web_acl" => {
-                self.read_web_acl(id).await
-            }
-            "regex_match_set" => {
-                self.read_regex_match_set(id).await
-            }
-            "xss_match_set" => {
-                self.read_xss_match_set(id).await
-            }
-            "sampled_requests" => {
-                self.read_sampled_requests(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -250,65 +250,65 @@ impl<'a> Waf_regionalService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "size_constraint_set" => {
+                self.update_size_constraint_set(id, input).await
+            }
+            "regex_match_set" => {
+                self.update_regex_match_set(id, input).await
+            }
+            "change_token_status" => {
+                self.update_change_token_status(id, input).await
+            }
+            "sampled_requests" => {
+                self.update_sampled_requests(id, input).await
+            }
+            "change_token" => {
+                self.update_change_token(id, input).await
+            }
+            "byte_match_set" => {
+                self.update_byte_match_set(id, input).await
+            }
+            "regex_pattern_set" => {
+                self.update_regex_pattern_set(id, input).await
+            }
+            "permission_policy" => {
+                self.update_permission_policy(id, input).await
+            }
+            "rate_based_rule_managed_keys" => {
+                self.update_rate_based_rule_managed_keys(id, input).await
+            }
+            "sql_injection_match_set" => {
+                self.update_sql_injection_match_set(id, input).await
+            }
+            "web_acl_for_resource" => {
+                self.update_web_acl_for_resource(id, input).await
+            }
+            "rule_group" => {
+                self.update_rule_group(id, input).await
+            }
+            "web_acl" => {
+                self.update_web_acl(id, input).await
+            }
+            "ip_set" => {
+                self.update_ip_set(id, input).await
+            }
+            "logging_configuration" => {
+                self.update_logging_configuration(id, input).await
+            }
+            "rate_based_rule" => {
+                self.update_rate_based_rule(id, input).await
+            }
+            "xss_match_set" => {
+                self.update_xss_match_set(id, input).await
+            }
             "geo_match_set" => {
                 self.update_geo_match_set(id, input).await
             }
             "web_acl_migration_stack" => {
                 self.update_web_acl_migration_stack(id, input).await
             }
-            "regex_pattern_set" => {
-                self.update_regex_pattern_set(id, input).await
-            }
-            "web_acl_for_resource" => {
-                self.update_web_acl_for_resource(id, input).await
-            }
-            "byte_match_set" => {
-                self.update_byte_match_set(id, input).await
-            }
-            "rate_based_rule" => {
-                self.update_rate_based_rule(id, input).await
-            }
             "rule" => {
                 self.update_rule(id, input).await
-            }
-            "logging_configuration" => {
-                self.update_logging_configuration(id, input).await
-            }
-            "sql_injection_match_set" => {
-                self.update_sql_injection_match_set(id, input).await
-            }
-            "change_token" => {
-                self.update_change_token(id, input).await
-            }
-            "permission_policy" => {
-                self.update_permission_policy(id, input).await
-            }
-            "change_token_status" => {
-                self.update_change_token_status(id, input).await
-            }
-            "rate_based_rule_managed_keys" => {
-                self.update_rate_based_rule_managed_keys(id, input).await
-            }
-            "rule_group" => {
-                self.update_rule_group(id, input).await
-            }
-            "ip_set" => {
-                self.update_ip_set(id, input).await
-            }
-            "size_constraint_set" => {
-                self.update_size_constraint_set(id, input).await
-            }
-            "web_acl" => {
-                self.update_web_acl(id, input).await
-            }
-            "regex_match_set" => {
-                self.update_regex_match_set(id, input).await
-            }
-            "xss_match_set" => {
-                self.update_xss_match_set(id, input).await
-            }
-            "sampled_requests" => {
-                self.update_sampled_requests(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -325,65 +325,65 @@ impl<'a> Waf_regionalService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
+            "size_constraint_set" => {
+                self.delete_size_constraint_set(id).await
+            }
+            "regex_match_set" => {
+                self.delete_regex_match_set(id).await
+            }
+            "change_token_status" => {
+                self.delete_change_token_status(id).await
+            }
+            "sampled_requests" => {
+                self.delete_sampled_requests(id).await
+            }
+            "change_token" => {
+                self.delete_change_token(id).await
+            }
+            "byte_match_set" => {
+                self.delete_byte_match_set(id).await
+            }
+            "regex_pattern_set" => {
+                self.delete_regex_pattern_set(id).await
+            }
+            "permission_policy" => {
+                self.delete_permission_policy(id).await
+            }
+            "rate_based_rule_managed_keys" => {
+                self.delete_rate_based_rule_managed_keys(id).await
+            }
+            "sql_injection_match_set" => {
+                self.delete_sql_injection_match_set(id).await
+            }
+            "web_acl_for_resource" => {
+                self.delete_web_acl_for_resource(id).await
+            }
+            "rule_group" => {
+                self.delete_rule_group(id).await
+            }
+            "web_acl" => {
+                self.delete_web_acl(id).await
+            }
+            "ip_set" => {
+                self.delete_ip_set(id).await
+            }
+            "logging_configuration" => {
+                self.delete_logging_configuration(id).await
+            }
+            "rate_based_rule" => {
+                self.delete_rate_based_rule(id).await
+            }
+            "xss_match_set" => {
+                self.delete_xss_match_set(id).await
+            }
             "geo_match_set" => {
                 self.delete_geo_match_set(id).await
             }
             "web_acl_migration_stack" => {
                 self.delete_web_acl_migration_stack(id).await
             }
-            "regex_pattern_set" => {
-                self.delete_regex_pattern_set(id).await
-            }
-            "web_acl_for_resource" => {
-                self.delete_web_acl_for_resource(id).await
-            }
-            "byte_match_set" => {
-                self.delete_byte_match_set(id).await
-            }
-            "rate_based_rule" => {
-                self.delete_rate_based_rule(id).await
-            }
             "rule" => {
                 self.delete_rule(id).await
-            }
-            "logging_configuration" => {
-                self.delete_logging_configuration(id).await
-            }
-            "sql_injection_match_set" => {
-                self.delete_sql_injection_match_set(id).await
-            }
-            "change_token" => {
-                self.delete_change_token(id).await
-            }
-            "permission_policy" => {
-                self.delete_permission_policy(id).await
-            }
-            "change_token_status" => {
-                self.delete_change_token_status(id).await
-            }
-            "rate_based_rule_managed_keys" => {
-                self.delete_rate_based_rule_managed_keys(id).await
-            }
-            "rule_group" => {
-                self.delete_rule_group(id).await
-            }
-            "ip_set" => {
-                self.delete_ip_set(id).await
-            }
-            "size_constraint_set" => {
-                self.delete_size_constraint_set(id).await
-            }
-            "web_acl" => {
-                self.delete_web_acl(id).await
-            }
-            "regex_match_set" => {
-                self.delete_regex_match_set(id).await
-            }
-            "xss_match_set" => {
-                self.delete_xss_match_set(id).await
-            }
-            "sampled_requests" => {
-                self.delete_sampled_requests(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -399,11 +399,11 @@ impl<'a> Waf_regionalService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Geo_match_set resource operations
+    // Size_constraint_set resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a geo_match_set resource
-    async fn plan_geo_match_set(
+    /// Plan changes to a size_constraint_set resource
+    async fn plan_size_constraint_set(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -418,22 +418,22 @@ impl<'a> Waf_regionalService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new geo_match_set resource
-    async fn create_geo_match_set(
+    /// Create a new size_constraint_set resource
+    async fn create_size_constraint_set(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_string("name")?;
             let change_token = input.get_string("change_token")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .create_geo_match_set()
+            //     .create_size_constraint_set()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -442,14 +442,14 @@ impl<'a> Waf_regionalService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("name", name.unwrap_or_default())
                 .with_field("change_token", change_token.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }
 
-    /// Read a geo_match_set resource
-    async fn read_geo_match_set(
+    /// Read a size_constraint_set resource
+    async fn read_size_constraint_set(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -457,7 +457,7 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .describe_geo_match_set()
+            //     .describe_size_constraint_set()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -469,22 +469,22 @@ impl<'a> Waf_regionalService<'a> {
         })
     }
 
-    /// Update a geo_match_set resource
-    async fn update_geo_match_set(
+    /// Update a size_constraint_set resource
+    async fn update_size_constraint_set(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_string("name")?;
             let change_token = input.get_string("change_token")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .update_geo_match_set()
+            //     .update_size_constraint_set()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -494,14 +494,14 @@ impl<'a> Waf_regionalService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("name", name.unwrap_or_default())
                 .with_field("change_token", change_token.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a geo_match_set resource
-    async fn delete_geo_match_set(
+    /// Delete a size_constraint_set resource
+    async fn delete_size_constraint_set(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -509,7 +509,7 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.waf_regional_client
-            //     .delete_geo_match_set()
+            //     .delete_size_constraint_set()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -521,11 +521,11 @@ impl<'a> Waf_regionalService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Web_acl_migration_stack resource operations
+    // Regex_match_set resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a web_acl_migration_stack resource
-    async fn plan_web_acl_migration_stack(
+    /// Plan changes to a regex_match_set resource
+    async fn plan_regex_match_set(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -540,23 +540,22 @@ impl<'a> Waf_regionalService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new web_acl_migration_stack resource
-    async fn create_web_acl_migration_stack(
+    /// Create a new regex_match_set resource
+    async fn create_regex_match_set(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let web_acl_id = input.get_string("web_acl_id")?;
-            let s3_bucket_name = input.get_string("s3_bucket_name")?;
-            let ignore_unsupported_type = input.get_string("ignore_unsupported_type")?;
+            let change_token = input.get_string("change_token")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .create_web_acl_migration_stack()
+            //     .create_regex_match_set()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -565,15 +564,14 @@ impl<'a> Waf_regionalService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("web_acl_id", web_acl_id.unwrap_or_default())
-                .with_field("s3_bucket_name", s3_bucket_name.unwrap_or_default())
-                .with_field("ignore_unsupported_type", ignore_unsupported_type.unwrap_or_default())
+                .with_field("change_token", change_token.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }
 
-    /// Read a web_acl_migration_stack resource
-    async fn read_web_acl_migration_stack(
+    /// Read a regex_match_set resource
+    async fn read_regex_match_set(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -581,7 +579,7 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .describe_web_acl_migration_stack()
+            //     .describe_regex_match_set()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -593,23 +591,22 @@ impl<'a> Waf_regionalService<'a> {
         })
     }
 
-    /// Update a web_acl_migration_stack resource
-    async fn update_web_acl_migration_stack(
+    /// Update a regex_match_set resource
+    async fn update_regex_match_set(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let web_acl_id = input.get_string("web_acl_id")?;
-            let s3_bucket_name = input.get_string("s3_bucket_name")?;
-            let ignore_unsupported_type = input.get_string("ignore_unsupported_type")?;
+            let change_token = input.get_string("change_token")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .update_web_acl_migration_stack()
+            //     .update_regex_match_set()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -619,15 +616,14 @@ impl<'a> Waf_regionalService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("web_acl_id", web_acl_id.unwrap_or_default())
-                .with_field("s3_bucket_name", s3_bucket_name.unwrap_or_default())
-                .with_field("ignore_unsupported_type", ignore_unsupported_type.unwrap_or_default())
+                .with_field("change_token", change_token.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a web_acl_migration_stack resource
-    async fn delete_web_acl_migration_stack(
+    /// Delete a regex_match_set resource
+    async fn delete_regex_match_set(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -635,7 +631,7 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.waf_regional_client
-            //     .delete_web_acl_migration_stack()
+            //     .delete_regex_match_set()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -647,11 +643,11 @@ impl<'a> Waf_regionalService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Regex_pattern_set resource operations
+    // Change_token_status resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a regex_pattern_set resource
-    async fn plan_regex_pattern_set(
+    /// Plan changes to a change_token_status resource
+    async fn plan_change_token_status(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -666,22 +662,20 @@ impl<'a> Waf_regionalService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new regex_pattern_set resource
-    async fn create_regex_pattern_set(
+    /// Create a new change_token_status resource
+    async fn create_change_token_status(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let change_token = input.get_string("change_token")?;
-            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .create_regex_pattern_set()
+            //     .create_change_token_status()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -690,14 +684,12 @@ impl<'a> Waf_regionalService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("change_token", change_token.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
             )
         })
     }
 
-    /// Read a regex_pattern_set resource
-    async fn read_regex_pattern_set(
+    /// Read a change_token_status resource
+    async fn read_change_token_status(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -705,7 +697,7 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .describe_regex_pattern_set()
+            //     .describe_change_token_status()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -717,22 +709,20 @@ impl<'a> Waf_regionalService<'a> {
         })
     }
 
-    /// Update a regex_pattern_set resource
-    async fn update_regex_pattern_set(
+    /// Update a change_token_status resource
+    async fn update_change_token_status(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let change_token = input.get_string("change_token")?;
-            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .update_regex_pattern_set()
+            //     .update_change_token_status()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -742,14 +732,12 @@ impl<'a> Waf_regionalService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("change_token", change_token.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a regex_pattern_set resource
-    async fn delete_regex_pattern_set(
+    /// Delete a change_token_status resource
+    async fn delete_change_token_status(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -757,7 +745,7 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.waf_regional_client
-            //     .delete_regex_pattern_set()
+            //     .delete_change_token_status()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -769,11 +757,11 @@ impl<'a> Waf_regionalService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Web_acl_for_resource resource operations
+    // Sampled_requests resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a web_acl_for_resource resource
-    async fn plan_web_acl_for_resource(
+    /// Plan changes to a sampled_requests resource
+    async fn plan_sampled_requests(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -788,8 +776,8 @@ impl<'a> Waf_regionalService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new web_acl_for_resource resource
-    async fn create_web_acl_for_resource(
+    /// Create a new sampled_requests resource
+    async fn create_sampled_requests(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -801,7 +789,7 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .create_web_acl_for_resource()
+            //     .create_sampled_requests()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -814,8 +802,8 @@ impl<'a> Waf_regionalService<'a> {
         })
     }
 
-    /// Read a web_acl_for_resource resource
-    async fn read_web_acl_for_resource(
+    /// Read a sampled_requests resource
+    async fn read_sampled_requests(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -823,7 +811,7 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .describe_web_acl_for_resource()
+            //     .describe_sampled_requests()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -835,8 +823,8 @@ impl<'a> Waf_regionalService<'a> {
         })
     }
 
-    /// Update a web_acl_for_resource resource
-    async fn update_web_acl_for_resource(
+    /// Update a sampled_requests resource
+    async fn update_sampled_requests(
         &self,
         id: &str,
         input: ResourceInput,
@@ -848,7 +836,7 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .update_web_acl_for_resource()
+            //     .update_sampled_requests()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -862,8 +850,8 @@ impl<'a> Waf_regionalService<'a> {
         })
     }
 
-    /// Delete a web_acl_for_resource resource
-    async fn delete_web_acl_for_resource(
+    /// Delete a sampled_requests resource
+    async fn delete_sampled_requests(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -871,637 +859,7 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.waf_regional_client
-            //     .delete_web_acl_for_resource()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Byte_match_set resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a byte_match_set resource
-    async fn plan_byte_match_set(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new byte_match_set resource
-    async fn create_byte_match_set(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let change_token = input.get_string("change_token")?;
-            let name = input.get_string("name")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .create_byte_match_set()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("change_token", change_token.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a byte_match_set resource
-    async fn read_byte_match_set(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .describe_byte_match_set()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a byte_match_set resource
-    async fn update_byte_match_set(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let change_token = input.get_string("change_token")?;
-            let name = input.get_string("name")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .update_byte_match_set()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("change_token", change_token.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a byte_match_set resource
-    async fn delete_byte_match_set(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.waf_regional_client
-            //     .delete_byte_match_set()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Rate_based_rule resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a rate_based_rule resource
-    async fn plan_rate_based_rule(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new rate_based_rule resource
-    async fn create_rate_based_rule(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let rate_limit = input.get_string("rate_limit")?;
-            let change_token = input.get_string("change_token")?;
-            let rate_key = input.get_string("rate_key")?;
-            let name = input.get_string("name")?;
-            let metric_name = input.get_string("metric_name")?;
-            let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .create_rate_based_rule()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("rate_limit", rate_limit.unwrap_or_default())
-                .with_field("change_token", change_token.unwrap_or_default())
-                .with_field("rate_key", rate_key.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("metric_name", metric_name.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a rate_based_rule resource
-    async fn read_rate_based_rule(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .describe_rate_based_rule()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a rate_based_rule resource
-    async fn update_rate_based_rule(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let rate_limit = input.get_string("rate_limit")?;
-            let change_token = input.get_string("change_token")?;
-            let rate_key = input.get_string("rate_key")?;
-            let name = input.get_string("name")?;
-            let metric_name = input.get_string("metric_name")?;
-            let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .update_rate_based_rule()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("rate_limit", rate_limit.unwrap_or_default())
-                .with_field("change_token", change_token.unwrap_or_default())
-                .with_field("rate_key", rate_key.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("metric_name", metric_name.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a rate_based_rule resource
-    async fn delete_rate_based_rule(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.waf_regional_client
-            //     .delete_rate_based_rule()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Rule resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a rule resource
-    async fn plan_rule(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new rule resource
-    async fn create_rule(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let metric_name = input.get_string("metric_name")?;
-            let name = input.get_string("name")?;
-            let change_token = input.get_string("change_token")?;
-            let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .create_rule()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("metric_name", metric_name.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("change_token", change_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a rule resource
-    async fn read_rule(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .describe_rule()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a rule resource
-    async fn update_rule(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let metric_name = input.get_string("metric_name")?;
-            let name = input.get_string("name")?;
-            let change_token = input.get_string("change_token")?;
-            let tags = input.get_optional_string("tags")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .update_rule()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("metric_name", metric_name.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("change_token", change_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a rule resource
-    async fn delete_rule(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.waf_regional_client
-            //     .delete_rule()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Logging_configuration resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a logging_configuration resource
-    async fn plan_logging_configuration(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new logging_configuration resource
-    async fn create_logging_configuration(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let logging_configuration = input.get_string("logging_configuration")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .create_logging_configuration()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("logging_configuration", logging_configuration.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a logging_configuration resource
-    async fn read_logging_configuration(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .describe_logging_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a logging_configuration resource
-    async fn update_logging_configuration(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let logging_configuration = input.get_string("logging_configuration")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .update_logging_configuration()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("logging_configuration", logging_configuration.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a logging_configuration resource
-    async fn delete_logging_configuration(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.waf_regional_client
-            //     .delete_logging_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Sql_injection_match_set resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a sql_injection_match_set resource
-    async fn plan_sql_injection_match_set(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new sql_injection_match_set resource
-    async fn create_sql_injection_match_set(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let change_token = input.get_string("change_token")?;
-            let name = input.get_string("name")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .create_sql_injection_match_set()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("change_token", change_token.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a sql_injection_match_set resource
-    async fn read_sql_injection_match_set(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .describe_sql_injection_match_set()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a sql_injection_match_set resource
-    async fn update_sql_injection_match_set(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let change_token = input.get_string("change_token")?;
-            let name = input.get_string("name")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .update_sql_injection_match_set()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("change_token", change_token.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a sql_injection_match_set resource
-    async fn delete_sql_injection_match_set(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.waf_regional_client
-            //     .delete_sql_injection_match_set()
+            //     .delete_sampled_requests()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1616,6 +974,250 @@ impl<'a> Waf_regionalService<'a> {
             // Example:
             // self.provider.waf_regional_client
             //     .delete_change_token()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Byte_match_set resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a byte_match_set resource
+    async fn plan_byte_match_set(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new byte_match_set resource
+    async fn create_byte_match_set(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let name = input.get_string("name")?;
+            let change_token = input.get_string("change_token")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .create_byte_match_set()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("name", name.unwrap_or_default())
+                .with_field("change_token", change_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a byte_match_set resource
+    async fn read_byte_match_set(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .describe_byte_match_set()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a byte_match_set resource
+    async fn update_byte_match_set(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let name = input.get_string("name")?;
+            let change_token = input.get_string("change_token")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .update_byte_match_set()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("name", name.unwrap_or_default())
+                .with_field("change_token", change_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a byte_match_set resource
+    async fn delete_byte_match_set(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.waf_regional_client
+            //     .delete_byte_match_set()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Regex_pattern_set resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a regex_pattern_set resource
+    async fn plan_regex_pattern_set(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new regex_pattern_set resource
+    async fn create_regex_pattern_set(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let name = input.get_string("name")?;
+            let change_token = input.get_string("change_token")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .create_regex_pattern_set()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("name", name.unwrap_or_default())
+                .with_field("change_token", change_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a regex_pattern_set resource
+    async fn read_regex_pattern_set(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .describe_regex_pattern_set()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a regex_pattern_set resource
+    async fn update_regex_pattern_set(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let name = input.get_string("name")?;
+            let change_token = input.get_string("change_token")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .update_regex_pattern_set()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("name", name.unwrap_or_default())
+                .with_field("change_token", change_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a regex_pattern_set resource
+    async fn delete_regex_pattern_set(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.waf_regional_client
+            //     .delete_regex_pattern_set()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1749,120 +1351,6 @@ impl<'a> Waf_regionalService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Change_token_status resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a change_token_status resource
-    async fn plan_change_token_status(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new change_token_status resource
-    async fn create_change_token_status(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .create_change_token_status()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a change_token_status resource
-    async fn read_change_token_status(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .describe_change_token_status()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a change_token_status resource
-    async fn update_change_token_status(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .update_change_token_status()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a change_token_status resource
-    async fn delete_change_token_status(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.waf_regional_client
-            //     .delete_change_token_status()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
     // Rate_based_rule_managed_keys resource operations
     // ------------------------------------------------------------------------
 
@@ -1977,6 +1465,242 @@ impl<'a> Waf_regionalService<'a> {
 
 
     // ------------------------------------------------------------------------
+    // Sql_injection_match_set resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a sql_injection_match_set resource
+    async fn plan_sql_injection_match_set(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new sql_injection_match_set resource
+    async fn create_sql_injection_match_set(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let name = input.get_string("name")?;
+            let change_token = input.get_string("change_token")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .create_sql_injection_match_set()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("name", name.unwrap_or_default())
+                .with_field("change_token", change_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a sql_injection_match_set resource
+    async fn read_sql_injection_match_set(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .describe_sql_injection_match_set()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a sql_injection_match_set resource
+    async fn update_sql_injection_match_set(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let name = input.get_string("name")?;
+            let change_token = input.get_string("change_token")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .update_sql_injection_match_set()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("name", name.unwrap_or_default())
+                .with_field("change_token", change_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a sql_injection_match_set resource
+    async fn delete_sql_injection_match_set(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.waf_regional_client
+            //     .delete_sql_injection_match_set()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Web_acl_for_resource resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a web_acl_for_resource resource
+    async fn plan_web_acl_for_resource(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new web_acl_for_resource resource
+    async fn create_web_acl_for_resource(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .create_web_acl_for_resource()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a web_acl_for_resource resource
+    async fn read_web_acl_for_resource(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .describe_web_acl_for_resource()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a web_acl_for_resource resource
+    async fn update_web_acl_for_resource(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .update_web_acl_for_resource()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a web_acl_for_resource resource
+    async fn delete_web_acl_for_resource(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.waf_regional_client
+            //     .delete_web_acl_for_resource()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
     // Rule_group resource operations
     // ------------------------------------------------------------------------
 
@@ -2004,10 +1728,10 @@ impl<'a> Waf_regionalService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_string("name")?;
+            let tags = input.get_optional_string("tags")?;
             let metric_name = input.get_string("metric_name")?;
             let change_token = input.get_string("change_token")?;
-            let tags = input.get_optional_string("tags")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -2022,10 +1746,10 @@ impl<'a> Waf_regionalService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
                 .with_field("metric_name", metric_name.unwrap_or_default())
                 .with_field("change_token", change_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }
@@ -2059,10 +1783,10 @@ impl<'a> Waf_regionalService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_string("name")?;
+            let tags = input.get_optional_string("tags")?;
             let metric_name = input.get_string("metric_name")?;
             let change_token = input.get_string("change_token")?;
-            let tags = input.get_optional_string("tags")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -2078,10 +1802,10 @@ impl<'a> Waf_regionalService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
                 .with_field("metric_name", metric_name.unwrap_or_default())
                 .with_field("change_token", change_token.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }
@@ -2096,6 +1820,140 @@ impl<'a> Waf_regionalService<'a> {
             // Example:
             // self.provider.waf_regional_client
             //     .delete_rule_group()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Web_acl resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a web_acl resource
+    async fn plan_web_acl(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new web_acl resource
+    async fn create_web_acl(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let change_token = input.get_string("change_token")?;
+            let metric_name = input.get_string("metric_name")?;
+            let name = input.get_string("name")?;
+            let default_action = input.get_string("default_action")?;
+            let tags = input.get_optional_string("tags")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .create_web_acl()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("change_token", change_token.unwrap_or_default())
+                .with_field("metric_name", metric_name.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("default_action", default_action.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a web_acl resource
+    async fn read_web_acl(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .describe_web_acl()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a web_acl resource
+    async fn update_web_acl(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let change_token = input.get_string("change_token")?;
+            let metric_name = input.get_string("metric_name")?;
+            let name = input.get_string("name")?;
+            let default_action = input.get_string("default_action")?;
+            let tags = input.get_optional_string("tags")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .update_web_acl()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("change_token", change_token.unwrap_or_default())
+                .with_field("metric_name", metric_name.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("default_action", default_action.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a web_acl resource
+    async fn delete_web_acl(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.waf_regional_client
+            //     .delete_web_acl()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2229,11 +2087,11 @@ impl<'a> Waf_regionalService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Size_constraint_set resource operations
+    // Logging_configuration resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a size_constraint_set resource
-    async fn plan_size_constraint_set(
+    /// Plan changes to a logging_configuration resource
+    async fn plan_logging_configuration(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -2248,22 +2106,21 @@ impl<'a> Waf_regionalService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new size_constraint_set resource
-    async fn create_size_constraint_set(
+    /// Create a new logging_configuration resource
+    async fn create_logging_configuration(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_string("name")?;
-            let change_token = input.get_string("change_token")?;
+            let logging_configuration = input.get_string("logging_configuration")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .create_size_constraint_set()
+            //     .create_logging_configuration()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -2272,14 +2129,13 @@ impl<'a> Waf_regionalService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("name", name.unwrap_or_default())
-                .with_field("change_token", change_token.unwrap_or_default())
+                .with_field("logging_configuration", logging_configuration.unwrap_or_default())
             )
         })
     }
 
-    /// Read a size_constraint_set resource
-    async fn read_size_constraint_set(
+    /// Read a logging_configuration resource
+    async fn read_logging_configuration(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -2287,7 +2143,7 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .describe_size_constraint_set()
+            //     .describe_logging_configuration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2299,22 +2155,21 @@ impl<'a> Waf_regionalService<'a> {
         })
     }
 
-    /// Update a size_constraint_set resource
-    async fn update_size_constraint_set(
+    /// Update a logging_configuration resource
+    async fn update_logging_configuration(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_string("name")?;
-            let change_token = input.get_string("change_token")?;
+            let logging_configuration = input.get_string("logging_configuration")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .update_size_constraint_set()
+            //     .update_logging_configuration()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -2324,14 +2179,13 @@ impl<'a> Waf_regionalService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("name", name.unwrap_or_default())
-                .with_field("change_token", change_token.unwrap_or_default())
+                .with_field("logging_configuration", logging_configuration.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a size_constraint_set resource
-    async fn delete_size_constraint_set(
+    /// Delete a logging_configuration resource
+    async fn delete_logging_configuration(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -2339,7 +2193,7 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.waf_regional_client
-            //     .delete_size_constraint_set()
+            //     .delete_logging_configuration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2351,11 +2205,11 @@ impl<'a> Waf_regionalService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Web_acl resource operations
+    // Rate_based_rule resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a web_acl resource
-    async fn plan_web_acl(
+    /// Plan changes to a rate_based_rule resource
+    async fn plan_rate_based_rule(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -2370,25 +2224,26 @@ impl<'a> Waf_regionalService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new web_acl resource
-    async fn create_web_acl(
+    /// Create a new rate_based_rule resource
+    async fn create_rate_based_rule(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let metric_name = input.get_string("metric_name")?;
-            let default_action = input.get_string("default_action")?;
-            let name = input.get_string("name")?;
-            let change_token = input.get_string("change_token")?;
             let tags = input.get_optional_string("tags")?;
+            let rate_key = input.get_string("rate_key")?;
+            let metric_name = input.get_string("metric_name")?;
+            let name = input.get_string("name")?;
+            let rate_limit = input.get_string("rate_limit")?;
+            let change_token = input.get_string("change_token")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .create_web_acl()
+            //     .create_rate_based_rule()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -2397,17 +2252,18 @@ impl<'a> Waf_regionalService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("metric_name", metric_name.unwrap_or_default())
-                .with_field("default_action", default_action.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("change_token", change_token.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
+                .with_field("rate_key", rate_key.unwrap_or_default())
+                .with_field("metric_name", metric_name.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("rate_limit", rate_limit.unwrap_or_default())
+                .with_field("change_token", change_token.unwrap_or_default())
             )
         })
     }
 
-    /// Read a web_acl resource
-    async fn read_web_acl(
+    /// Read a rate_based_rule resource
+    async fn read_rate_based_rule(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -2415,7 +2271,7 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .describe_web_acl()
+            //     .describe_rate_based_rule()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2427,25 +2283,26 @@ impl<'a> Waf_regionalService<'a> {
         })
     }
 
-    /// Update a web_acl resource
-    async fn update_web_acl(
+    /// Update a rate_based_rule resource
+    async fn update_rate_based_rule(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let metric_name = input.get_string("metric_name")?;
-            let default_action = input.get_string("default_action")?;
-            let name = input.get_string("name")?;
-            let change_token = input.get_string("change_token")?;
             let tags = input.get_optional_string("tags")?;
+            let rate_key = input.get_string("rate_key")?;
+            let metric_name = input.get_string("metric_name")?;
+            let name = input.get_string("name")?;
+            let rate_limit = input.get_string("rate_limit")?;
+            let change_token = input.get_string("change_token")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .update_web_acl()
+            //     .update_rate_based_rule()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -2455,17 +2312,18 @@ impl<'a> Waf_regionalService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("metric_name", metric_name.unwrap_or_default())
-                .with_field("default_action", default_action.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("change_token", change_token.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
+                .with_field("rate_key", rate_key.unwrap_or_default())
+                .with_field("metric_name", metric_name.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("rate_limit", rate_limit.unwrap_or_default())
+                .with_field("change_token", change_token.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a web_acl resource
-    async fn delete_web_acl(
+    /// Delete a rate_based_rule resource
+    async fn delete_rate_based_rule(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -2473,129 +2331,7 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.waf_regional_client
-            //     .delete_web_acl()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Regex_match_set resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a regex_match_set resource
-    async fn plan_regex_match_set(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new regex_match_set resource
-    async fn create_regex_match_set(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let name = input.get_string("name")?;
-            let change_token = input.get_string("change_token")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .create_regex_match_set()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("name", name.unwrap_or_default())
-                .with_field("change_token", change_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a regex_match_set resource
-    async fn read_regex_match_set(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .describe_regex_match_set()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a regex_match_set resource
-    async fn update_regex_match_set(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let name = input.get_string("name")?;
-            let change_token = input.get_string("change_token")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.waf_regional_client
-            //     .update_regex_match_set()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("name", name.unwrap_or_default())
-                .with_field("change_token", change_token.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a regex_match_set resource
-    async fn delete_regex_match_set(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.waf_regional_client
-            //     .delete_regex_match_set()
+            //     .delete_rate_based_rule()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2729,11 +2465,11 @@ impl<'a> Waf_regionalService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Sampled_requests resource operations
+    // Geo_match_set resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a sampled_requests resource
-    async fn plan_sampled_requests(
+    /// Plan changes to a geo_match_set resource
+    async fn plan_geo_match_set(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -2748,20 +2484,22 @@ impl<'a> Waf_regionalService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new sampled_requests resource
-    async fn create_sampled_requests(
+    /// Create a new geo_match_set resource
+    async fn create_geo_match_set(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let change_token = input.get_string("change_token")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .create_sampled_requests()
+            //     .create_geo_match_set()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -2770,12 +2508,14 @@ impl<'a> Waf_regionalService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("change_token", change_token.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }
 
-    /// Read a sampled_requests resource
-    async fn read_sampled_requests(
+    /// Read a geo_match_set resource
+    async fn read_geo_match_set(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -2783,7 +2523,7 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .describe_sampled_requests()
+            //     .describe_geo_match_set()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -2795,20 +2535,22 @@ impl<'a> Waf_regionalService<'a> {
         })
     }
 
-    /// Update a sampled_requests resource
-    async fn update_sampled_requests(
+    /// Update a geo_match_set resource
+    async fn update_geo_match_set(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let change_token = input.get_string("change_token")?;
+            let name = input.get_string("name")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.waf_regional_client
-            //     .update_sampled_requests()
+            //     .update_geo_match_set()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -2818,12 +2560,14 @@ impl<'a> Waf_regionalService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("change_token", change_token.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a sampled_requests resource
-    async fn delete_sampled_requests(
+    /// Delete a geo_match_set resource
+    async fn delete_geo_match_set(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -2831,7 +2575,263 @@ impl<'a> Waf_regionalService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.waf_regional_client
-            //     .delete_sampled_requests()
+            //     .delete_geo_match_set()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Web_acl_migration_stack resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a web_acl_migration_stack resource
+    async fn plan_web_acl_migration_stack(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new web_acl_migration_stack resource
+    async fn create_web_acl_migration_stack(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let web_acl_id = input.get_string("web_acl_id")?;
+            let ignore_unsupported_type = input.get_string("ignore_unsupported_type")?;
+            let s3_bucket_name = input.get_string("s3_bucket_name")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .create_web_acl_migration_stack()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("web_acl_id", web_acl_id.unwrap_or_default())
+                .with_field("ignore_unsupported_type", ignore_unsupported_type.unwrap_or_default())
+                .with_field("s3_bucket_name", s3_bucket_name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a web_acl_migration_stack resource
+    async fn read_web_acl_migration_stack(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .describe_web_acl_migration_stack()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a web_acl_migration_stack resource
+    async fn update_web_acl_migration_stack(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let web_acl_id = input.get_string("web_acl_id")?;
+            let ignore_unsupported_type = input.get_string("ignore_unsupported_type")?;
+            let s3_bucket_name = input.get_string("s3_bucket_name")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .update_web_acl_migration_stack()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("web_acl_id", web_acl_id.unwrap_or_default())
+                .with_field("ignore_unsupported_type", ignore_unsupported_type.unwrap_or_default())
+                .with_field("s3_bucket_name", s3_bucket_name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a web_acl_migration_stack resource
+    async fn delete_web_acl_migration_stack(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.waf_regional_client
+            //     .delete_web_acl_migration_stack()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Rule resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a rule resource
+    async fn plan_rule(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new rule resource
+    async fn create_rule(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let name = input.get_string("name")?;
+            let tags = input.get_optional_string("tags")?;
+            let metric_name = input.get_string("metric_name")?;
+            let change_token = input.get_string("change_token")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .create_rule()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("metric_name", metric_name.unwrap_or_default())
+                .with_field("change_token", change_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a rule resource
+    async fn read_rule(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .describe_rule()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a rule resource
+    async fn update_rule(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let name = input.get_string("name")?;
+            let tags = input.get_optional_string("tags")?;
+            let metric_name = input.get_string("metric_name")?;
+            let change_token = input.get_string("change_token")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.waf_regional_client
+            //     .update_rule()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("name", name.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("metric_name", metric_name.unwrap_or_default())
+                .with_field("change_token", change_token.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a rule resource
+    async fn delete_rule(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.waf_regional_client
+            //     .delete_rule()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

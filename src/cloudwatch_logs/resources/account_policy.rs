@@ -21,7 +21,7 @@ impl<'a> Account_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, policy_document: String, selection_criteria: Option<String>, policy_type: String, scope: Option<String>, policy_name: String) -> Result<String> {
+    pub async fn create(&self, policy_document: String, scope: Option<String>, policy_name: String, policy_type: String, selection_criteria: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

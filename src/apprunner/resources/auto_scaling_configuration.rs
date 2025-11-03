@@ -21,7 +21,7 @@ impl<'a> Auto_scaling_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, min_size: Option<i64>, max_concurrency: Option<i64>, tags: Option<Vec<String>>, max_size: Option<i64>, auto_scaling_configuration_name: String) -> Result<String> {
+    pub async fn create(&self, min_size: Option<i64>, tags: Option<Vec<String>>, max_size: Option<i64>, max_concurrency: Option<i64>, auto_scaling_configuration_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

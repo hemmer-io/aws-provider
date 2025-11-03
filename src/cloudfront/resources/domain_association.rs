@@ -24,7 +24,7 @@ impl<'a> Domain_association<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, target_resource: Option<String>, domain: Option<String>, if_match: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, if_match: Option<String>, domain: Option<String>, target_resource: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

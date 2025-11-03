@@ -11,17 +11,17 @@
 The sns service provides access to 12 resource types:
 
 - [Sms_sandbox_phone_number](#sms_sandbox_phone_number) [CD]
-- [Sms_attributes](#sms_attributes) [R]
 - [Endpoint_attributes](#endpoint_attributes) [R]
-- [Topic](#topic) [CD]
 - [Topic_attributes](#topic_attributes) [R]
-- [Data_protection_policy](#data_protection_policy) [CR]
-- [Subscription_attributes](#subscription_attributes) [R]
 - [Platform_endpoint](#platform_endpoint) [C]
-- [Platform_application_attributes](#platform_application_attributes) [R]
+- [Subscription_attributes](#subscription_attributes) [R]
 - [Endpoint](#endpoint) [D]
-- [Sms_sandbox_account_status](#sms_sandbox_account_status) [R]
 - [Platform_application](#platform_application) [CD]
+- [Sms_sandbox_account_status](#sms_sandbox_account_status) [R]
+- [Data_protection_policy](#data_protection_policy) [CR]
+- [Platform_application_attributes](#platform_application_attributes) [R]
+- [Topic](#topic) [CD]
+- [Sms_attributes](#sms_attributes) [R]
 
 ---
 
@@ -62,44 +62,6 @@ sms_sandbox_phone_number = provider.sns.Sms_sandbox_phone_number {
             to the list of verified phone numbers that you can send SMS messages to.</p>
 }
 
-```
-
----
-
-
-### Sms_attributes
-
-SMSAttributes resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `attributes` | String | <p>The SMS attribute names and their values.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access sms_attributes outputs
-sms_attributes_id = sms_attributes.id
-sms_attributes_attributes = sms_attributes.attributes
 ```
 
 ---
@@ -168,6 +130,619 @@ endpoint_attributes_attributes = endpoint_attributes.attributes
 ---
 
 
+### Topic_attributes
+
+TopicAttributes resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `attributes` | HashMap<String, String> | <p>A map of the topic's attributes. Attributes in this map include the following:</p>
+         <ul>
+            <li>
+               <p>
+                  <code>DeliveryPolicy</code> – The JSON serialization of the topic's
+                    delivery policy.</p>
+            </li>
+            <li>
+               <p>
+                  <code>DisplayName</code> – The human-readable name used in the
+                        <code>From</code> field for notifications to <code>email</code> and
+                        <code>email-json</code> endpoints.</p>
+            </li>
+            <li>
+               <p>
+                  <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the
+                    effective delivery policy, taking system defaults into account.</p>
+            </li>
+            <li>
+               <p>
+                  <code>Owner</code> – The Amazon Web Services account ID of the topic's owner.</p>
+            </li>
+            <li>
+               <p>
+                  <code>Policy</code> – The JSON serialization of the topic's access
+                    control policy.</p>
+            </li>
+            <li>
+               <p>
+                  <code>SignatureVersion</code> – The signature version corresponds to
+                    the hashing algorithm used while creating the signature of the notifications,
+                    subscription confirmations, or unsubscribe confirmation messages sent by
+                    Amazon SNS.</p>
+               <ul>
+                  <li>
+                     <p>By default, <code>SignatureVersion</code> is set to <b>1</b>. The signature is a Base64-encoded
+                                <b>SHA1withRSA</b> signature.</p>
+                  </li>
+                  <li>
+                     <p>When you set <code>SignatureVersion</code> to <b>2</b>. Amazon SNS uses a Base64-encoded <b>SHA256withRSA</b> signature. </p>
+                     <note>
+                        <p>If the API response does not include the
+                                    <code>SignatureVersion</code> attribute, it means that the
+                                    <code>SignatureVersion</code> for the topic has value <b>1</b>.</p>
+                     </note>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <p>
+                  <code>SubscriptionsConfirmed</code> – The number of confirmed
+                    subscriptions for the topic.</p>
+            </li>
+            <li>
+               <p>
+                  <code>SubscriptionsDeleted</code> – The number of deleted subscriptions
+                    for the topic.</p>
+            </li>
+            <li>
+               <p>
+                  <code>SubscriptionsPending</code> – The number of subscriptions pending
+                    confirmation for the topic.</p>
+            </li>
+            <li>
+               <p>
+                  <code>TopicArn</code> – The topic's ARN.</p>
+            </li>
+            <li>
+               <p>
+                  <code>TracingConfig</code> – Tracing mode of an Amazon SNS topic. By default
+                        <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic
+                    passes through the tracing header it receives from an Amazon SNS publisher to its
+                    subscriptions. If set to <code>Active</code>, Amazon SNS will vend X-Ray segment data
+                    to topic owner account if the sampled flag in the tracing header is true. This
+                    is only supported on standard topics.</p>
+            </li>
+         </ul>
+         <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p>
+         <ul>
+            <li>
+               <p>
+                  <code>KmsMasterKeyId</code> - The ID of an Amazon Web Services managed customer master key
+                    (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
+                        Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API Reference</i>.</p>
+            </li>
+         </ul>
+         <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p>
+         <ul>
+            <li>
+               <p>
+                  <code>ArchivePolicy</code> – The policy that sets the retention period
+                    for messages stored in the message archive of an Amazon SNS FIFO
+                    topic.</p>
+            </li>
+            <li>
+               <p>
+                  <code>BeginningArchiveTime</code> – The earliest starting point at
+                    which a message in the topic’s archive can be replayed from. This point in time
+                    is based on the configured message retention period set by the topic’s message
+                    archiving policy.</p>
+            </li>
+            <li>
+               <p>
+                  <code>ContentBasedDeduplication</code> – Enables content-based
+                    deduplication for FIFO topics.</p>
+               <ul>
+                  <li>
+                     <p>By default, <code>ContentBasedDeduplication</code> is set to
+                                <code>false</code>. If you create a FIFO topic and this attribute is
+                                <code>false</code>, you must specify a value for the
+                                <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p>
+                  </li>
+                  <li>
+                     <p>When you set <code>ContentBasedDeduplication</code> to
+                                <code>true</code>, Amazon SNS uses a SHA-256 hash to
+                            generate the <code>MessageDeduplicationId</code> using the body of the
+                            message (but not the attributes of the message).</p>
+                     <p>(Optional) To override the generated value, you can specify a value
+                            for the <code>MessageDeduplicationId</code> parameter for the
+                                <code>Publish</code> action.</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <p>
+                  <code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO
+                topic is created.</p>
+            </li>
+         </ul> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access topic_attributes outputs
+topic_attributes_id = topic_attributes.id
+topic_attributes_attributes = topic_attributes.attributes
+```
+
+---
+
+
+### Platform_endpoint
+
+PlatformEndpoint resource
+
+**Operations**: ✅ Create
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `platform_application_arn` | String | ✅ | <p>
+            <code>PlatformApplicationArn</code> returned from CreatePlatformApplication is used to
+            create a an endpoint.</p> |
+| `token` | String | ✅ | <p>Unique identifier created by the notification service for an app on a device. The
+            specific name for Token will vary, depending on which notification service is being
+            used. For example, when using APNS as the notification service, you need the device
+            token. Alternatively, when using GCM (Firebase Cloud Messaging) or ADM, the device token
+            equivalent is called the registration ID.</p> |
+| `attributes` | String |  | <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">
+               <code>SetEndpointAttributes</code>
+            </a>.</p> |
+| `custom_user_data` | String |  | <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The
+            data must be in UTF-8 format and less than 2KB.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create platform_endpoint
+platform_endpoint = provider.sns.Platform_endpoint {
+    platform_application_arn = "value"  # <p>
+            <code>PlatformApplicationArn</code> returned from CreatePlatformApplication is used to
+            create a an endpoint.</p>
+    token = "value"  # <p>Unique identifier created by the notification service for an app on a device. The
+            specific name for Token will vary, depending on which notification service is being
+            used. For example, when using APNS as the notification service, you need the device
+            token. Alternatively, when using GCM (Firebase Cloud Messaging) or ADM, the device token
+            equivalent is called the registration ID.</p>
+}
+
+```
+
+---
+
+
+### Subscription_attributes
+
+SubscriptionAttributes resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `attributes` | HashMap<String, String> | <p>A map of the subscription's attributes. Attributes in this map include the
+            following:</p>
+         <ul>
+            <li>
+               <p>
+                  <code>ConfirmationWasAuthenticated</code> – <code>true</code> if the
+                    subscription confirmation request was authenticated.</p>
+            </li>
+            <li>
+               <p>
+                  <code>DeliveryPolicy</code> – The JSON serialization of the
+                    subscription's delivery policy.</p>
+            </li>
+            <li>
+               <p>
+                  <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the
+                    effective delivery policy that takes into account the topic delivery policy and
+                    account system defaults.</p>
+            </li>
+            <li>
+               <p>
+                  <code>FilterPolicy</code> – The filter policy JSON that is assigned to
+                    the subscription. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html">Amazon SNS Message
+                        Filtering</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+            </li>
+            <li>
+               <p>
+                  <code>FilterPolicyScope</code> – This attribute lets you choose the
+                    filtering scope by using one of the following string value types:</p>
+               <ul>
+                  <li>
+                     <p>
+                        <code>MessageAttributes</code> (default) – The filter is
+                            applied on the message attributes.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <code>MessageBody</code> – The filter is applied on the message
+                            body.</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <p>
+                  <code>Owner</code> – The Amazon Web Services account ID of the subscription's
+                    owner.</p>
+            </li>
+            <li>
+               <p>
+                  <code>PendingConfirmation</code> – <code>true</code> if the subscription
+                    hasn't been confirmed. To confirm a pending subscription, call the
+                        <code>ConfirmSubscription</code> action with a confirmation token.</p>
+            </li>
+            <li>
+               <p>
+                  <code>RawMessageDelivery</code> – <code>true</code> if raw message
+                    delivery is enabled for the subscription. Raw messages are free of JSON
+                    formatting and can be sent to HTTP/S and Amazon SQS endpoints.</p>
+            </li>
+            <li>
+               <p>
+                  <code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. 
+    Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable)
+    or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held 
+    in the dead-letter queue for further analysis or reprocessing.</p>
+            </li>
+            <li>
+               <p>
+                  <code>SubscriptionArn</code> – The subscription's ARN.</p>
+            </li>
+            <li>
+               <p>
+                  <code>TopicArn</code> – The topic ARN that the subscription is associated
+                    with.</p>
+            </li>
+         </ul>
+         <p>The following attribute applies only to Amazon Data Firehose delivery stream subscriptions:</p>
+         <ul>
+            <li>
+               <p>
+                  <code>SubscriptionRoleArn</code> – The ARN of the IAM role that has the following:</p>
+               <ul>
+                  <li>
+                     <p>Permission to write to the Firehose delivery stream</p>
+                  </li>
+                  <li>
+                     <p>Amazon SNS listed as a trusted entity</p>
+                  </li>
+               </ul>
+               <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. 
+                For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout 
+                    to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+            </li>
+         </ul> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access subscription_attributes outputs
+subscription_attributes_id = subscription_attributes.id
+subscription_attributes_attributes = subscription_attributes.attributes
+```
+
+---
+
+
+### Endpoint
+
+Endpoint resource
+
+**Operations**: ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+```
+
+---
+
+
+### Platform_application
+
+PlatformApplication resource
+
+**Operations**: ✅ Create ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `platform` | String | ✅ | <p>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push
+            Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).</p> |
+| `attributes` | String | ✅ | <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">
+               <code>SetPlatformApplicationAttributes</code>
+            </a>.</p> |
+| `name` | String | ✅ | <p>Application names must be made up of only uppercase and lowercase ASCII letters,
+            numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters
+            long.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create platform_application
+platform_application = provider.sns.Platform_application {
+    platform = "value"  # <p>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push
+            Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).</p>
+    attributes = "value"  # <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">
+               <code>SetPlatformApplicationAttributes</code>
+            </a>.</p>
+    name = "value"  # <p>Application names must be made up of only uppercase and lowercase ASCII letters,
+            numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters
+            long.</p>
+}
+
+```
+
+---
+
+
+### Sms_sandbox_account_status
+
+SMSSandboxAccountStatus resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `is_in_sandbox` | bool | <p>Indicates whether the calling Amazon Web Services account is in the SMS sandbox.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access sms_sandbox_account_status outputs
+sms_sandbox_account_status_id = sms_sandbox_account_status.id
+sms_sandbox_account_status_is_in_sandbox = sms_sandbox_account_status.is_in_sandbox
+```
+
+---
+
+
+### Data_protection_policy
+
+DataProtectionPolicy resource
+
+**Operations**: ✅ Create ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `resource_arn` | String | ✅ | <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to add or
+            update.</p>
+         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
+                (ARNs)</a> in the Amazon Web Services General Reference.</p> |
+| `data_protection_policy` | String | ✅ | <p>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</p>
+         <p>The <code>DataProtectionPolicy</code> must be in JSON string format.</p>
+         <p>Length Constraints: Maximum length of 30,720.</p> |
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `data_protection_policy` | String | <p>Retrieves the <code>DataProtectionPolicy</code> in JSON string format.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create data_protection_policy
+data_protection_policy = provider.sns.Data_protection_policy {
+    resource_arn = "value"  # <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to add or
+            update.</p>
+         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
+                (ARNs)</a> in the Amazon Web Services General Reference.</p>
+    data_protection_policy = "value"  # <p>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</p>
+         <p>The <code>DataProtectionPolicy</code> must be in JSON string format.</p>
+         <p>Length Constraints: Maximum length of 30,720.</p>
+}
+
+# Access data_protection_policy outputs
+data_protection_policy_id = data_protection_policy.id
+data_protection_policy_data_protection_policy = data_protection_policy.data_protection_policy
+```
+
+---
+
+
+### Platform_application_attributes
+
+PlatformApplicationAttributes resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `attributes` | String | <p>Attributes include the following:</p>
+         <ul>
+            <li>
+               <p>
+                  <code>AppleCertificateExpiryDate</code> – The expiry date of the SSL
+                    certificate used to configure certificate-based authentication.</p>
+            </li>
+            <li>
+               <p>
+                  <code>ApplePlatformTeamID</code> – The Apple developer account ID used to
+                    configure token-based authentication.</p>
+            </li>
+            <li>
+               <p>
+                  <code>ApplePlatformBundleID</code> – The app identifier used to configure
+                    token-based authentication.</p>
+            </li>
+            <li>
+               <p>
+                  <code>AuthenticationMethod</code> – Returns the credential type used when
+                    sending push notifications from application to APNS/APNS_Sandbox, or application
+                    to GCM.</p>
+               <ul>
+                  <li>
+                     <p>APNS – Returns the token or certificate.</p>
+                  </li>
+                  <li>
+                     <p>GCM – Returns the token or key.</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <p>
+                  <code>EventEndpointCreated</code> – Topic ARN to which EndpointCreated
+                    event notifications should be sent.</p>
+            </li>
+            <li>
+               <p>
+                  <code>EventEndpointDeleted</code> – Topic ARN to which EndpointDeleted
+                    event notifications should be sent.</p>
+            </li>
+            <li>
+               <p>
+                  <code>EventEndpointUpdated</code> – Topic ARN to which EndpointUpdate
+                    event notifications should be sent.</p>
+            </li>
+            <li>
+               <p>
+                  <code>EventDeliveryFailure</code> – Topic ARN to which DeliveryFailure
+                    event notifications should be sent upon Direct Publish delivery failure
+                    (permanent) to one of the application's endpoints.</p>
+            </li>
+         </ul> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access platform_application_attributes outputs
+platform_application_attributes_id = platform_application_attributes.id
+platform_application_attributes_attributes = platform_application_attributes.attributes
+```
+
+---
+
+
 ### Topic
 
 Topic resource
@@ -182,12 +757,6 @@ Topic resource
          <p>You can only add one policy per topic.</p>
          <p>The policy must be in JSON string format.</p>
          <p>Length Constraints: Maximum length of 30,720.</p> |
-| `tags` | Vec<String> |  | <p>The list of tags to add to a new topic.</p>
-         <note>
-            <p>To be able to tag a topic on creation, you must have the
-                    <code>sns:CreateTopic</code> and <code>sns:TagResource</code>
-                permissions.</p>
-         </note> |
 | `attributes` | HashMap<String, String> |  | <p>A map of attributes with their corresponding values.</p>
          <p>The following lists names, descriptions, and values of the special request parameters
             that the <code>CreateTopic</code> action uses:</p>
@@ -413,6 +982,12 @@ Topic resource
             long.</p>
          <p>For a FIFO (first-in-first-out) topic, the name must end with the <code>.fifo</code>
             suffix. </p> |
+| `tags` | Vec<String> |  | <p>The list of tags to add to a new topic.</p>
+         <note>
+            <p>To be able to tag a topic on creation, you must have the
+                    <code>sns:CreateTopic</code> and <code>sns:TagResource</code>
+                permissions.</p>
+         </note> |
 
 
 
@@ -442,231 +1017,9 @@ topic = provider.sns.Topic {
 ---
 
 
-### Topic_attributes
+### Sms_attributes
 
-TopicAttributes resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `attributes` | HashMap<String, String> | <p>A map of the topic's attributes. Attributes in this map include the following:</p>
-         <ul>
-            <li>
-               <p>
-                  <code>DeliveryPolicy</code> – The JSON serialization of the topic's
-                    delivery policy.</p>
-            </li>
-            <li>
-               <p>
-                  <code>DisplayName</code> – The human-readable name used in the
-                        <code>From</code> field for notifications to <code>email</code> and
-                        <code>email-json</code> endpoints.</p>
-            </li>
-            <li>
-               <p>
-                  <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the
-                    effective delivery policy, taking system defaults into account.</p>
-            </li>
-            <li>
-               <p>
-                  <code>Owner</code> – The Amazon Web Services account ID of the topic's owner.</p>
-            </li>
-            <li>
-               <p>
-                  <code>Policy</code> – The JSON serialization of the topic's access
-                    control policy.</p>
-            </li>
-            <li>
-               <p>
-                  <code>SignatureVersion</code> – The signature version corresponds to
-                    the hashing algorithm used while creating the signature of the notifications,
-                    subscription confirmations, or unsubscribe confirmation messages sent by
-                    Amazon SNS.</p>
-               <ul>
-                  <li>
-                     <p>By default, <code>SignatureVersion</code> is set to <b>1</b>. The signature is a Base64-encoded
-                                <b>SHA1withRSA</b> signature.</p>
-                  </li>
-                  <li>
-                     <p>When you set <code>SignatureVersion</code> to <b>2</b>. Amazon SNS uses a Base64-encoded <b>SHA256withRSA</b> signature. </p>
-                     <note>
-                        <p>If the API response does not include the
-                                    <code>SignatureVersion</code> attribute, it means that the
-                                    <code>SignatureVersion</code> for the topic has value <b>1</b>.</p>
-                     </note>
-                  </li>
-               </ul>
-            </li>
-            <li>
-               <p>
-                  <code>SubscriptionsConfirmed</code> – The number of confirmed
-                    subscriptions for the topic.</p>
-            </li>
-            <li>
-               <p>
-                  <code>SubscriptionsDeleted</code> – The number of deleted subscriptions
-                    for the topic.</p>
-            </li>
-            <li>
-               <p>
-                  <code>SubscriptionsPending</code> – The number of subscriptions pending
-                    confirmation for the topic.</p>
-            </li>
-            <li>
-               <p>
-                  <code>TopicArn</code> – The topic's ARN.</p>
-            </li>
-            <li>
-               <p>
-                  <code>TracingConfig</code> – Tracing mode of an Amazon SNS topic. By default
-                        <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic
-                    passes through the tracing header it receives from an Amazon SNS publisher to its
-                    subscriptions. If set to <code>Active</code>, Amazon SNS will vend X-Ray segment data
-                    to topic owner account if the sampled flag in the tracing header is true. This
-                    is only supported on standard topics.</p>
-            </li>
-         </ul>
-         <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p>
-         <ul>
-            <li>
-               <p>
-                  <code>KmsMasterKeyId</code> - The ID of an Amazon Web Services managed customer master key
-                    (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
-                        Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>Key Management Service API Reference</i>.</p>
-            </li>
-         </ul>
-         <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p>
-         <ul>
-            <li>
-               <p>
-                  <code>ArchivePolicy</code> – The policy that sets the retention period
-                    for messages stored in the message archive of an Amazon SNS FIFO
-                    topic.</p>
-            </li>
-            <li>
-               <p>
-                  <code>BeginningArchiveTime</code> – The earliest starting point at
-                    which a message in the topic’s archive can be replayed from. This point in time
-                    is based on the configured message retention period set by the topic’s message
-                    archiving policy.</p>
-            </li>
-            <li>
-               <p>
-                  <code>ContentBasedDeduplication</code> – Enables content-based
-                    deduplication for FIFO topics.</p>
-               <ul>
-                  <li>
-                     <p>By default, <code>ContentBasedDeduplication</code> is set to
-                                <code>false</code>. If you create a FIFO topic and this attribute is
-                                <code>false</code>, you must specify a value for the
-                                <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p>
-                  </li>
-                  <li>
-                     <p>When you set <code>ContentBasedDeduplication</code> to
-                                <code>true</code>, Amazon SNS uses a SHA-256 hash to
-                            generate the <code>MessageDeduplicationId</code> using the body of the
-                            message (but not the attributes of the message).</p>
-                     <p>(Optional) To override the generated value, you can specify a value
-                            for the <code>MessageDeduplicationId</code> parameter for the
-                                <code>Publish</code> action.</p>
-                  </li>
-               </ul>
-            </li>
-            <li>
-               <p>
-                  <code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO
-                topic is created.</p>
-            </li>
-         </ul> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access topic_attributes outputs
-topic_attributes_id = topic_attributes.id
-topic_attributes_attributes = topic_attributes.attributes
-```
-
----
-
-
-### Data_protection_policy
-
-DataProtectionPolicy resource
-
-**Operations**: ✅ Create ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `resource_arn` | String | ✅ | <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to add or
-            update.</p>
-         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
-                (ARNs)</a> in the Amazon Web Services General Reference.</p> |
-| `data_protection_policy` | String | ✅ | <p>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</p>
-         <p>The <code>DataProtectionPolicy</code> must be in JSON string format.</p>
-         <p>Length Constraints: Maximum length of 30,720.</p> |
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `data_protection_policy` | String | <p>Retrieves the <code>DataProtectionPolicy</code> in JSON string format.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create data_protection_policy
-data_protection_policy = provider.sns.Data_protection_policy {
-    resource_arn = "value"  # <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to add or
-            update.</p>
-         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
-                (ARNs)</a> in the Amazon Web Services General Reference.</p>
-    data_protection_policy = "value"  # <p>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</p>
-         <p>The <code>DataProtectionPolicy</code> must be in JSON string format.</p>
-         <p>Length Constraints: Maximum length of 30,720.</p>
-}
-
-# Access data_protection_policy outputs
-data_protection_policy_id = data_protection_policy.id
-data_protection_policy_data_protection_policy = data_protection_policy.data_protection_policy
-```
-
----
-
-
-### Subscription_attributes
-
-SubscriptionAttributes resource
+SMSAttributes resource
 
 **Operations**: ✅ Read
 
@@ -680,100 +1033,7 @@ SubscriptionAttributes resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `attributes` | HashMap<String, String> | <p>A map of the subscription's attributes. Attributes in this map include the
-            following:</p>
-         <ul>
-            <li>
-               <p>
-                  <code>ConfirmationWasAuthenticated</code> – <code>true</code> if the
-                    subscription confirmation request was authenticated.</p>
-            </li>
-            <li>
-               <p>
-                  <code>DeliveryPolicy</code> – The JSON serialization of the
-                    subscription's delivery policy.</p>
-            </li>
-            <li>
-               <p>
-                  <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the
-                    effective delivery policy that takes into account the topic delivery policy and
-                    account system defaults.</p>
-            </li>
-            <li>
-               <p>
-                  <code>FilterPolicy</code> – The filter policy JSON that is assigned to
-                    the subscription. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html">Amazon SNS Message
-                        Filtering</a> in the <i>Amazon SNS Developer Guide</i>.</p>
-            </li>
-            <li>
-               <p>
-                  <code>FilterPolicyScope</code> – This attribute lets you choose the
-                    filtering scope by using one of the following string value types:</p>
-               <ul>
-                  <li>
-                     <p>
-                        <code>MessageAttributes</code> (default) – The filter is
-                            applied on the message attributes.</p>
-                  </li>
-                  <li>
-                     <p>
-                        <code>MessageBody</code> – The filter is applied on the message
-                            body.</p>
-                  </li>
-               </ul>
-            </li>
-            <li>
-               <p>
-                  <code>Owner</code> – The Amazon Web Services account ID of the subscription's
-                    owner.</p>
-            </li>
-            <li>
-               <p>
-                  <code>PendingConfirmation</code> – <code>true</code> if the subscription
-                    hasn't been confirmed. To confirm a pending subscription, call the
-                        <code>ConfirmSubscription</code> action with a confirmation token.</p>
-            </li>
-            <li>
-               <p>
-                  <code>RawMessageDelivery</code> – <code>true</code> if raw message
-                    delivery is enabled for the subscription. Raw messages are free of JSON
-                    formatting and can be sent to HTTP/S and Amazon SQS endpoints.</p>
-            </li>
-            <li>
-               <p>
-                  <code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. 
-    Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable)
-    or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held 
-    in the dead-letter queue for further analysis or reprocessing.</p>
-            </li>
-            <li>
-               <p>
-                  <code>SubscriptionArn</code> – The subscription's ARN.</p>
-            </li>
-            <li>
-               <p>
-                  <code>TopicArn</code> – The topic ARN that the subscription is associated
-                    with.</p>
-            </li>
-         </ul>
-         <p>The following attribute applies only to Amazon Data Firehose delivery stream subscriptions:</p>
-         <ul>
-            <li>
-               <p>
-                  <code>SubscriptionRoleArn</code> – The ARN of the IAM role that has the following:</p>
-               <ul>
-                  <li>
-                     <p>Permission to write to the Firehose delivery stream</p>
-                  </li>
-                  <li>
-                     <p>Amazon SNS listed as a trusted entity</p>
-                  </li>
-               </ul>
-               <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. 
-                For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout 
-                    to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p>
-            </li>
-         </ul> |
+| `attributes` | String | <p>The SMS attribute names and their values.</p> |
 
 
 #### Usage Example
@@ -787,269 +1047,9 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Access subscription_attributes outputs
-subscription_attributes_id = subscription_attributes.id
-subscription_attributes_attributes = subscription_attributes.attributes
-```
-
----
-
-
-### Platform_endpoint
-
-PlatformEndpoint resource
-
-**Operations**: ✅ Create
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `attributes` | String |  | <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">
-               <code>SetEndpointAttributes</code>
-            </a>.</p> |
-| `custom_user_data` | String |  | <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The
-            data must be in UTF-8 format and less than 2KB.</p> |
-| `token` | String | ✅ | <p>Unique identifier created by the notification service for an app on a device. The
-            specific name for Token will vary, depending on which notification service is being
-            used. For example, when using APNS as the notification service, you need the device
-            token. Alternatively, when using GCM (Firebase Cloud Messaging) or ADM, the device token
-            equivalent is called the registration ID.</p> |
-| `platform_application_arn` | String | ✅ | <p>
-            <code>PlatformApplicationArn</code> returned from CreatePlatformApplication is used to
-            create a an endpoint.</p> |
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create platform_endpoint
-platform_endpoint = provider.sns.Platform_endpoint {
-    token = "value"  # <p>Unique identifier created by the notification service for an app on a device. The
-            specific name for Token will vary, depending on which notification service is being
-            used. For example, when using APNS as the notification service, you need the device
-            token. Alternatively, when using GCM (Firebase Cloud Messaging) or ADM, the device token
-            equivalent is called the registration ID.</p>
-    platform_application_arn = "value"  # <p>
-            <code>PlatformApplicationArn</code> returned from CreatePlatformApplication is used to
-            create a an endpoint.</p>
-}
-
-```
-
----
-
-
-### Platform_application_attributes
-
-PlatformApplicationAttributes resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `attributes` | String | <p>Attributes include the following:</p>
-         <ul>
-            <li>
-               <p>
-                  <code>AppleCertificateExpiryDate</code> – The expiry date of the SSL
-                    certificate used to configure certificate-based authentication.</p>
-            </li>
-            <li>
-               <p>
-                  <code>ApplePlatformTeamID</code> – The Apple developer account ID used to
-                    configure token-based authentication.</p>
-            </li>
-            <li>
-               <p>
-                  <code>ApplePlatformBundleID</code> – The app identifier used to configure
-                    token-based authentication.</p>
-            </li>
-            <li>
-               <p>
-                  <code>AuthenticationMethod</code> – Returns the credential type used when
-                    sending push notifications from application to APNS/APNS_Sandbox, or application
-                    to GCM.</p>
-               <ul>
-                  <li>
-                     <p>APNS – Returns the token or certificate.</p>
-                  </li>
-                  <li>
-                     <p>GCM – Returns the token or key.</p>
-                  </li>
-               </ul>
-            </li>
-            <li>
-               <p>
-                  <code>EventEndpointCreated</code> – Topic ARN to which EndpointCreated
-                    event notifications should be sent.</p>
-            </li>
-            <li>
-               <p>
-                  <code>EventEndpointDeleted</code> – Topic ARN to which EndpointDeleted
-                    event notifications should be sent.</p>
-            </li>
-            <li>
-               <p>
-                  <code>EventEndpointUpdated</code> – Topic ARN to which EndpointUpdate
-                    event notifications should be sent.</p>
-            </li>
-            <li>
-               <p>
-                  <code>EventDeliveryFailure</code> – Topic ARN to which DeliveryFailure
-                    event notifications should be sent upon Direct Publish delivery failure
-                    (permanent) to one of the application's endpoints.</p>
-            </li>
-         </ul> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access platform_application_attributes outputs
-platform_application_attributes_id = platform_application_attributes.id
-platform_application_attributes_attributes = platform_application_attributes.attributes
-```
-
----
-
-
-### Endpoint
-
-Endpoint resource
-
-**Operations**: ✅ Delete
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-```
-
----
-
-
-### Sms_sandbox_account_status
-
-SMSSandboxAccountStatus resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `is_in_sandbox` | bool | <p>Indicates whether the calling Amazon Web Services account is in the SMS sandbox.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access sms_sandbox_account_status outputs
-sms_sandbox_account_status_id = sms_sandbox_account_status.id
-sms_sandbox_account_status_is_in_sandbox = sms_sandbox_account_status.is_in_sandbox
-```
-
----
-
-
-### Platform_application
-
-PlatformApplication resource
-
-**Operations**: ✅ Create ✅ Delete
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `name` | String | ✅ | <p>Application names must be made up of only uppercase and lowercase ASCII letters,
-            numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters
-            long.</p> |
-| `platform` | String | ✅ | <p>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push
-            Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).</p> |
-| `attributes` | String | ✅ | <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">
-               <code>SetPlatformApplicationAttributes</code>
-            </a>.</p> |
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create platform_application
-platform_application = provider.sns.Platform_application {
-    name = "value"  # <p>Application names must be made up of only uppercase and lowercase ASCII letters,
-            numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters
-            long.</p>
-    platform = "value"  # <p>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push
-            Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).</p>
-    attributes = "value"  # <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">
-               <code>SetPlatformApplicationAttributes</code>
-            </a>.</p>
-}
-
+# Access sms_attributes outputs
+sms_attributes_id = sms_attributes.id
+sms_attributes_attributes = sms_attributes.attributes
 ```
 
 ---

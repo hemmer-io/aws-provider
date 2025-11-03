@@ -21,7 +21,7 @@ impl<'a> Bot_alias<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, conversation_log_settings: Option<String>, tags: Option<HashMap<String, String>>, description: Option<String>, bot_version: Option<String>, sentiment_analysis_settings: Option<String>, bot_id: String, bot_alias_locale_settings: Option<HashMap<String, String>>, bot_alias_name: String) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, bot_version: Option<String>, bot_id: String, bot_alias_locale_settings: Option<HashMap<String, String>>, bot_alias_name: String, conversation_log_settings: Option<String>, sentiment_analysis_settings: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Bot_alias<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, conversation_log_settings: Option<String>, tags: Option<HashMap<String, String>>, description: Option<String>, bot_version: Option<String>, sentiment_analysis_settings: Option<String>, bot_id: Option<String>, bot_alias_locale_settings: Option<HashMap<String, String>>, bot_alias_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, bot_version: Option<String>, bot_id: Option<String>, bot_alias_locale_settings: Option<HashMap<String, String>>, bot_alias_name: Option<String>, conversation_log_settings: Option<String>, sentiment_analysis_settings: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

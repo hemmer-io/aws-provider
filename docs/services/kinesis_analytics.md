@@ -10,31 +10,102 @@
 
 The kinesis_analytics service provides access to 16 resource types:
 
-- [Application_vpc_configuration](#application_vpc_configuration) [D]
-- [Application_reference_data_source](#application_reference_data_source) [D]
+- [Application_maintenance_configuration](#application_maintenance_configuration) [U]
+- [Application_presigned_url](#application_presigned_url) [C]
+- [Application_output](#application_output) [D]
+- [Application_version](#application_version) [R]
 - [Application_operation](#application_operation) [R]
 - [Application_cloud_watch_logging_option](#application_cloud_watch_logging_option) [D]
-- [Application_maintenance_configuration](#application_maintenance_configuration) [U]
-- [Application_output](#application_output) [D]
-- [Application_snapshot](#application_snapshot) [CRD]
-- [Application_presigned_url](#application_presigned_url) [C]
-- [Application_input_processing_configuration](#application_input_processing_configuration) [D]
-- [Application_version](#application_version) [R]
-- [Application](#application) [CRUD]
-- [Application_cloud_watch_logging_option](#application_cloud_watch_logging_option) [D]
-- [Application_output](#application_output) [D]
 - [Application_reference_data_source](#application_reference_data_source) [D]
 - [Application_input_processing_configuration](#application_input_processing_configuration) [D]
+- [Application_snapshot](#application_snapshot) [CRD]
+- [Application_vpc_configuration](#application_vpc_configuration) [D]
 - [Application](#application) [CRUD]
+- [Application_output](#application_output) [D]
+- [Application_reference_data_source](#application_reference_data_source) [D]
+- [Application](#application) [CRUD]
+- [Application_cloud_watch_logging_option](#application_cloud_watch_logging_option) [D]
+- [Application_input_processing_configuration](#application_input_processing_configuration) [D]
 
 ---
 
 ## Resources
 
 
-### Application_vpc_configuration
+### Application_maintenance_configuration
 
-ApplicationVpcConfiguration resource
+ApplicationMaintenanceConfiguration resource
+
+**Operations**: ✅ Update
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `application_name` | String | ✅ | <p>The name of the application for which you want to update the maintenance configuration.</p> |
+| `application_maintenance_configuration_update` | String | ✅ | <p>Describes the application maintenance configuration update.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+```
+
+---
+
+
+### Application_presigned_url
+
+ApplicationPresignedUrl resource
+
+**Operations**: ✅ Create
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `application_name` | String | ✅ | <p>The name of the application.</p> |
+| `url_type` | String | ✅ | <p>The type of the extension for which to create and return a URL. Currently, the only valid
+            extension URL type is <code>FLINK_DASHBOARD_URL</code>. </p> |
+| `session_expiration_duration_in_seconds` | i64 |  | <p>The duration in seconds for which the returned URL will be valid.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create application_presigned_url
+application_presigned_url = provider.kinesis_analytics.Application_presigned_url {
+    application_name = "value"  # <p>The name of the application.</p>
+    url_type = "value"  # <p>The type of the extension for which to create and return a URL. Currently, the only valid
+            extension URL type is <code>FLINK_DASHBOARD_URL</code>. </p>
+}
+
+```
+
+---
+
+
+### Application_output
+
+ApplicationOutput resource
 
 **Operations**: ✅ Delete
 
@@ -61,17 +132,23 @@ provider = aws.AwsProvider {
 ---
 
 
-### Application_reference_data_source
+### Application_version
 
-ApplicationReferenceDataSource resource
+ApplicationVersion resource
 
-**Operations**: ✅ Delete
+**Operations**: ✅ Read
 
 #### Fields
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `application_version_detail` | String |  |
 
 
 #### Usage Example
@@ -85,6 +162,9 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
+# Access application_version outputs
+application_version_id = application_version.id
+application_version_application_version_detail = application_version.application_version_detail
 ```
 
 ---
@@ -157,18 +237,16 @@ provider = aws.AwsProvider {
 ---
 
 
-### Application_maintenance_configuration
+### Application_reference_data_source
 
-ApplicationMaintenanceConfiguration resource
+ApplicationReferenceDataSource resource
 
-**Operations**: ✅ Update
+**Operations**: ✅ Delete
 
 #### Fields
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `application_maintenance_configuration_update` | String | ✅ | <p>Describes the application maintenance configuration update.</p> |
-| `application_name` | String | ✅ | <p>The name of the application for which you want to update the maintenance configuration.</p> |
 
 
 
@@ -188,9 +266,9 @@ provider = aws.AwsProvider {
 ---
 
 
-### Application_output
+### Application_input_processing_configuration
 
-ApplicationOutput resource
+ApplicationInputProcessingConfiguration resource
 
 **Operations**: ✅ Delete
 
@@ -263,49 +341,9 @@ application_snapshot_snapshot_details = application_snapshot.snapshot_details
 ---
 
 
-### Application_presigned_url
+### Application_vpc_configuration
 
-ApplicationPresignedUrl resource
-
-**Operations**: ✅ Create
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `session_expiration_duration_in_seconds` | i64 |  | <p>The duration in seconds for which the returned URL will be valid.</p> |
-| `url_type` | String | ✅ | <p>The type of the extension for which to create and return a URL. Currently, the only valid
-            extension URL type is <code>FLINK_DASHBOARD_URL</code>. </p> |
-| `application_name` | String | ✅ | <p>The name of the application.</p> |
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create application_presigned_url
-application_presigned_url = provider.kinesis_analytics.Application_presigned_url {
-    url_type = "value"  # <p>The type of the extension for which to create and return a URL. Currently, the only valid
-            extension URL type is <code>FLINK_DASHBOARD_URL</code>. </p>
-    application_name = "value"  # <p>The name of the application.</p>
-}
-
-```
-
----
-
-
-### Application_input_processing_configuration
-
-ApplicationInputProcessingConfiguration resource
+ApplicationVpcConfiguration resource
 
 **Operations**: ✅ Delete
 
@@ -332,44 +370,6 @@ provider = aws.AwsProvider {
 ---
 
 
-### Application_version
-
-ApplicationVersion resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `application_version_detail` | String |  |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access application_version outputs
-application_version_id = application_version.id
-application_version_application_version_detail = application_version.application_version_detail
-```
-
----
-
-
 ### Application
 
 Application resource
@@ -380,20 +380,20 @@ Application resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `application_mode` | String |  | <p>Use the <code>STREAMING</code> mode to create a Managed Service for Apache Flink application. To create a Managed Service for Apache Flink Studio notebook, use the 
-    <code>INTERACTIVE</code> mode.</p> |
 | `runtime_environment` | String | ✅ | <p>The runtime environment for the application.</p> |
-| `cloud_watch_logging_options` | Vec<String> |  | <p>Use this parameter to configure an Amazon CloudWatch log stream to monitor application
-      configuration errors.
-      </p> |
-| `application_name` | String | ✅ | <p>The name of your application (for example, <code>sample-app</code>).</p> |
+| `application_configuration` | String |  | <p>Use this parameter to configure the application.</p> |
 | `tags` | Vec<String> |  | <p>A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an 
         application. Note that the maximum number of application tags includes system tags. The maximum number of 
         user-defined application tags is 50.
         For more information, see 
         <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.</p> |
+| `application_mode` | String |  | <p>Use the <code>STREAMING</code> mode to create a Managed Service for Apache Flink application. To create a Managed Service for Apache Flink Studio notebook, use the 
+    <code>INTERACTIVE</code> mode.</p> |
+| `cloud_watch_logging_options` | Vec<String> |  | <p>Use this parameter to configure an Amazon CloudWatch log stream to monitor application
+      configuration errors.
+      </p> |
 | `application_description` | String |  | <p>A summary description of the application.</p> |
-| `application_configuration` | String |  | <p>Use this parameter to configure the application.</p> |
+| `application_name` | String | ✅ | <p>The name of your application (for example, <code>sample-app</code>).</p> |
 | `service_execution_role` | String | ✅ | <p>The IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose
       delivery streams, Amazon S3 objects, and other external resources.</p> |
 
@@ -428,35 +428,6 @@ application = provider.kinesis_analytics.Application {
 # Access application outputs
 application_id = application.id
 application_application_detail = application.application_detail
-```
-
----
-
-
-### Application_cloud_watch_logging_option
-
-ApplicationCloudWatchLoggingOption resource
-
-**Operations**: ✅ Delete
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
 ```
 
 ---
@@ -520,35 +491,6 @@ provider = aws.AwsProvider {
 ---
 
 
-### Application_input_processing_configuration
-
-ApplicationInputProcessingConfiguration resource
-
-**Operations**: ✅ Delete
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-```
-
----
-
-
 ### Application
 
 Application resource
@@ -559,13 +501,10 @@ Application resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `application_description` | String |  | <p>Summary description of the application.</p> |
-| `inputs` | Vec<String> |  | <p>Use this parameter to configure the application input.</p>
-        <p>You can configure your application to receive input from a single streaming source. In this configuration, you map this streaming source to an in-application stream that is created. Your application code can then query the in-application stream like a table (you can think of it as a constantly updating table).</p>
-        <p>For the streaming source, you provide its Amazon Resource Name (ARN) and format of
-            data on the stream (for example, JSON, CSV, etc.). You also must provide an IAM role
-            that Amazon Kinesis Analytics can assume to read this stream on your behalf.</p>
-        <p>To create the in-application stream, you need to specify a schema to transform your data into a schematized version used in SQL. In the schema, you provide the necessary mapping of the data elements in the streaming source to record columns in the in-app stream.</p> |
+| `cloud_watch_logging_options` | Vec<String> |  | <p>Use this parameter to configure a CloudWatch log stream to monitor application
+            configuration errors. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working with Amazon
+                CloudWatch Logs</a>.</p> |
+| `application_name` | String | ✅ | <p>Name of your Amazon Kinesis Analytics application (for example, <code>sample-app</code>).</p> |
 | `outputs` | Vec<String> |  | <p>You can configure application output to write data from any of the in-application streams to up to three destinations.</p>
         <p>These destinations can be Amazon Kinesis streams, Amazon Kinesis Firehose delivery
             streams, AWS Lambda destinations, or any combination of the three.</p>
@@ -574,9 +513,13 @@ Application resource
         <p>In the output configuration, you also provide the output stream or Lambda function ARN. For stream destinations, you provide the format
             of data in the stream (for example, JSON, CSV). You also must provide an IAM role that
             Amazon Kinesis Analytics can assume to write to the stream or Lambda function on your behalf.</p> |
-| `cloud_watch_logging_options` | Vec<String> |  | <p>Use this parameter to configure a CloudWatch log stream to monitor application
-            configuration errors. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working with Amazon
-                CloudWatch Logs</a>.</p> |
+| `application_description` | String |  | <p>Summary description of the application.</p> |
+| `inputs` | Vec<String> |  | <p>Use this parameter to configure the application input.</p>
+        <p>You can configure your application to receive input from a single streaming source. In this configuration, you map this streaming source to an in-application stream that is created. Your application code can then query the in-application stream like a table (you can think of it as a constantly updating table).</p>
+        <p>For the streaming source, you provide its Amazon Resource Name (ARN) and format of
+            data on the stream (for example, JSON, CSV, etc.). You also must provide an IAM role
+            that Amazon Kinesis Analytics can assume to read this stream on your behalf.</p>
+        <p>To create the in-application stream, you need to specify a schema to transform your data into a schematized version used in SQL. In the schema, you provide the necessary mapping of the data elements in the streaming source to record columns in the in-app stream.</p> |
 | `application_code` | String |  | <p>One or more SQL statements that read input data, transform it, and generate output.
             For example, you can write a SQL statement that reads data from one in-application
             stream, generates a running average of the number of advertisement clicks by vendor, and
@@ -596,7 +539,6 @@ Application resource
             then your application code must create these streams. </p> |
 | `tags` | Vec<String> |  | <p>A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
         For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p> |
-| `application_name` | String | ✅ | <p>Name of your Amazon Kinesis Analytics application (for example, <code>sample-app</code>).</p> |
 
 
 #### Outputs
@@ -630,6 +572,64 @@ application_application_detail = application.application_detail
 ---
 
 
+### Application_cloud_watch_logging_option
+
+ApplicationCloudWatchLoggingOption resource
+
+**Operations**: ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+```
+
+---
+
+
+### Application_input_processing_configuration
+
+ApplicationInputProcessingConfiguration resource
+
+**Operations**: ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+```
+
+---
+
+
 
 ## Common Operations
 
@@ -642,12 +642,18 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create multiple application_vpc_configuration resources
-application_vpc_configuration_0 = provider.kinesis_analytics.Application_vpc_configuration {
+# Create multiple application_maintenance_configuration resources
+application_maintenance_configuration_0 = provider.kinesis_analytics.Application_maintenance_configuration {
+    application_name = "value-0"
+    application_maintenance_configuration_update = "value-0"
 }
-application_vpc_configuration_1 = provider.kinesis_analytics.Application_vpc_configuration {
+application_maintenance_configuration_1 = provider.kinesis_analytics.Application_maintenance_configuration {
+    application_name = "value-1"
+    application_maintenance_configuration_update = "value-1"
 }
-application_vpc_configuration_2 = provider.kinesis_analytics.Application_vpc_configuration {
+application_maintenance_configuration_2 = provider.kinesis_analytics.Application_maintenance_configuration {
+    application_name = "value-2"
+    application_maintenance_configuration_update = "value-2"
 }
 ```
 
@@ -656,7 +662,9 @@ application_vpc_configuration_2 = provider.kinesis_analytics.Application_vpc_con
 ```kcl
 # Only create in production
 if environment == "production":
-    application_vpc_configuration = provider.kinesis_analytics.Application_vpc_configuration {
+    application_maintenance_configuration = provider.kinesis_analytics.Application_maintenance_configuration {
+        application_name = "production-value"
+        application_maintenance_configuration_update = "production-value"
     }
 ```
 

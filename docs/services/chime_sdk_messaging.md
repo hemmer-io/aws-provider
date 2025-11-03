@@ -10,17 +10,17 @@
 
 The chime_sdk_messaging service provides access to 14 resource types:
 
-- [Channel_message](#channel_message) [RUD]
-- [Channel_message_status](#channel_message_status) [R]
-- [Channel_expiration_settings](#channel_expiration_settings) [C]
-- [Channel_membership_preferences](#channel_membership_preferences) [CR]
-- [Messaging_session_endpoint](#messaging_session_endpoint) [R]
-- [Channel_read_marker](#channel_read_marker) [U]
-- [Channel_moderated_by_app_instance_user](#channel_moderated_by_app_instance_user) [R]
-- [Messaging_streaming_configurations](#messaging_streaming_configurations) [CRD]
-- [Channel](#channel) [CRUD]
-- [Channel_moderator](#channel_moderator) [CRD]
 - [Channel_ban](#channel_ban) [CRD]
+- [Channel_message](#channel_message) [RUD]
+- [Channel_moderated_by_app_instance_user](#channel_moderated_by_app_instance_user) [R]
+- [Channel_read_marker](#channel_read_marker) [U]
+- [Channel_expiration_settings](#channel_expiration_settings) [C]
+- [Messaging_streaming_configurations](#messaging_streaming_configurations) [CRD]
+- [Channel_moderator](#channel_moderator) [CRD]
+- [Channel_membership_preferences](#channel_membership_preferences) [CR]
+- [Channel_message_status](#channel_message_status) [R]
+- [Messaging_session_endpoint](#messaging_session_endpoint) [R]
+- [Channel](#channel) [CRUD]
 - [Channel_flow](#channel_flow) [CRUD]
 - [Channel_membership](#channel_membership) [CRD]
 - [Channel_membership_for_app_instance_user](#channel_membership_for_app_instance_user) [R]
@@ -28,6 +28,54 @@ The chime_sdk_messaging service provides access to 14 resource types:
 ---
 
 ## Resources
+
+
+### Channel_ban
+
+ChannelBan resource
+
+**Operations**: ✅ Create ✅ Read ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `member_arn` | String | ✅ | <p>The <code>AppInstanceUserArn</code> of the member being banned.</p> |
+| `chime_bearer` | String | ✅ | <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p> |
+| `channel_arn` | String | ✅ | <p>The ARN of the ban request.</p> |
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `channel_ban` | String | <p>The details of the ban.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create channel_ban
+channel_ban = provider.chime_sdk_messaging.Channel_ban {
+    member_arn = "value"  # <p>The <code>AppInstanceUserArn</code> of the member being banned.</p>
+    chime_bearer = "value"  # <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
+    channel_arn = "value"  # <p>The ARN of the ban request.</p>
+}
+
+# Access channel_ban outputs
+channel_ban_id = channel_ban.id
+channel_ban_channel_ban = channel_ban.channel_ban
+```
+
+---
 
 
 ### Channel_message
@@ -41,16 +89,16 @@ ChannelMessage resource
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `message_id` | String | ✅ | <p>The ID string of the message being updated.</p> |
-| `content_type` | String |  | <p>The content type of the channel message.</p> |
-| `channel_arn` | String | ✅ | <p>The ARN of the channel.</p> |
-| `content` | String | ✅ | <p>The content of the channel message. </p> |
-| `metadata` | String |  | <p>The metadata of the message being updated.</p> |
-| `chime_bearer` | String | ✅ | <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.</p> |
 | `sub_channel_id` | String |  | <p>The ID of the SubChannel in the request.</p>
          <note>
             <p>Only required when updating messages in a SubChannel that the user belongs to.</p>
          </note> |
+| `content_type` | String |  | <p>The content type of the channel message.</p> |
+| `metadata` | String |  | <p>The metadata of the message being updated.</p> |
+| `chime_bearer` | String | ✅ | <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.</p> |
+| `content` | String | ✅ | <p>The content of the channel message. </p> |
+| `channel_arn` | String | ✅ | <p>The ARN of the channel.</p> |
 
 
 #### Outputs
@@ -74,205 +122,6 @@ provider = aws.AwsProvider {
 # Access channel_message outputs
 channel_message_id = channel_message.id
 channel_message_channel_message = channel_message.channel_message
-```
-
----
-
-
-### Channel_message_status
-
-ChannelMessageStatus resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `status` | String | <p>The message status and details.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access channel_message_status outputs
-channel_message_status_id = channel_message_status.id
-channel_message_status_status = channel_message_status.status
-```
-
----
-
-
-### Channel_expiration_settings
-
-ChannelExpirationSettings resource
-
-**Operations**: ✅ Create
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `chime_bearer` | String |  | <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p> |
-| `channel_arn` | String | ✅ | <p>The ARN of the channel.</p> |
-| `expiration_settings` | String |  | <p>Settings that control the interval after which a channel is deleted.</p> |
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create channel_expiration_settings
-channel_expiration_settings = provider.chime_sdk_messaging.Channel_expiration_settings {
-    channel_arn = "value"  # <p>The ARN of the channel.</p>
-}
-
-```
-
----
-
-
-### Channel_membership_preferences
-
-ChannelMembershipPreferences resource
-
-**Operations**: ✅ Create ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `channel_arn` | String | ✅ | <p>The ARN of the channel.</p> |
-| `member_arn` | String | ✅ | <p>The ARN of the member setting the preferences.</p> |
-| `chime_bearer` | String | ✅ | <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p> |
-| `preferences` | String | ✅ | <p>The channel membership preferences of an <code>AppInstanceUser</code> .</p> |
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `member` | String | <p>The details of a user.</p> |
-| `channel_arn` | String | <p>The ARN of the channel.</p> |
-| `preferences` | String | <p>The channel membership preferences for an <code>AppInstanceUser</code> .</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create channel_membership_preferences
-channel_membership_preferences = provider.chime_sdk_messaging.Channel_membership_preferences {
-    channel_arn = "value"  # <p>The ARN of the channel.</p>
-    member_arn = "value"  # <p>The ARN of the member setting the preferences.</p>
-    chime_bearer = "value"  # <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
-    preferences = "value"  # <p>The channel membership preferences of an <code>AppInstanceUser</code> .</p>
-}
-
-# Access channel_membership_preferences outputs
-channel_membership_preferences_id = channel_membership_preferences.id
-channel_membership_preferences_member = channel_membership_preferences.member
-channel_membership_preferences_channel_arn = channel_membership_preferences.channel_arn
-channel_membership_preferences_preferences = channel_membership_preferences.preferences
-```
-
----
-
-
-### Messaging_session_endpoint
-
-MessagingSessionEndpoint resource
-
-**Operations**: ✅ Read
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `endpoint` | String | <p>The endpoint returned in the response.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access messaging_session_endpoint outputs
-messaging_session_endpoint_id = messaging_session_endpoint.id
-messaging_session_endpoint_endpoint = messaging_session_endpoint.endpoint
-```
-
----
-
-
-### Channel_read_marker
-
-ChannelReadMarker resource
-
-**Operations**: ✅ Update
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `chime_bearer` | String | ✅ | <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.</p> |
-| `channel_arn` | String | ✅ | <p>The ARN of the channel.</p> |
-
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
 ```
 
 ---
@@ -316,6 +165,75 @@ channel_moderated_by_app_instance_user_channel = channel_moderated_by_app_instan
 ---
 
 
+### Channel_read_marker
+
+ChannelReadMarker resource
+
+**Operations**: ✅ Update
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `chime_bearer` | String | ✅ | <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.</p> |
+| `channel_arn` | String | ✅ | <p>The ARN of the channel.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+```
+
+---
+
+
+### Channel_expiration_settings
+
+ChannelExpirationSettings resource
+
+**Operations**: ✅ Create
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `chime_bearer` | String |  | <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p> |
+| `channel_arn` | String | ✅ | <p>The ARN of the channel.</p> |
+| `expiration_settings` | String |  | <p>Settings that control the interval after which a channel is deleted.</p> |
+
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create channel_expiration_settings
+channel_expiration_settings = provider.chime_sdk_messaging.Channel_expiration_settings {
+    channel_arn = "value"  # <p>The ARN of the channel.</p>
+}
+
+```
+
+---
+
+
 ### Messaging_streaming_configurations
 
 MessagingStreamingConfigurations resource
@@ -326,8 +244,8 @@ MessagingStreamingConfigurations resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `streaming_configurations` | Vec<String> | ✅ | <p>The streaming configurations.</p> |
 | `app_instance_arn` | String | ✅ | <p>The ARN of the streaming configuration.</p> |
+| `streaming_configurations` | Vec<String> | ✅ | <p>The streaming configurations.</p> |
 
 
 #### Outputs
@@ -350,76 +268,13 @@ provider = aws.AwsProvider {
 
 # Create messaging_streaming_configurations
 messaging_streaming_configurations = provider.chime_sdk_messaging.Messaging_streaming_configurations {
-    streaming_configurations = "value"  # <p>The streaming configurations.</p>
     app_instance_arn = "value"  # <p>The ARN of the streaming configuration.</p>
+    streaming_configurations = "value"  # <p>The streaming configurations.</p>
 }
 
 # Access messaging_streaming_configurations outputs
 messaging_streaming_configurations_id = messaging_streaming_configurations.id
 messaging_streaming_configurations_streaming_configurations = messaging_streaming_configurations.streaming_configurations
-```
-
----
-
-
-### Channel
-
-Channel resource
-
-**Operations**: ✅ Create ✅ Read ✅ Update ✅ Delete
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `tags` | Vec<String> |  | <p>The tags for the creation request.</p> |
-| `channel_id` | String |  | <p>An ID for the channel being created. If you do not specify an ID, a UUID will be created for the channel.</p> |
-| `elastic_channel_configuration` | String |  | <p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million users, excluding moderators.</p> |
-| `name` | String | ✅ | <p>The name of the channel.</p> |
-| `privacy` | String |  | <p>The channel's privacy level: <code>PUBLIC</code> or <code>PRIVATE</code>. Private
-         channels aren't discoverable by users outside the channel. Public channels are discoverable
-         by anyone in the <code>AppInstance</code>.</p> |
-| `mode` | String |  | <p>The channel mode: <code>UNRESTRICTED</code> or <code>RESTRICTED</code>. Administrators,
-         moderators, and channel members can add themselves and other members to unrestricted
-         channels. Only administrators and moderators can add members to restricted channels.</p> |
-| `chime_bearer` | String | ✅ | <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p> |
-| `member_arns` | Vec<String> |  | <p>The ARNs of the channel members in the request.</p> |
-| `moderator_arns` | Vec<String> |  | <p>The ARNs of the channel moderators in the request.</p> |
-| `expiration_settings` | String |  | <p>Settings that control the interval after which the channel is automatically deleted.</p> |
-| `app_instance_arn` | String | ✅ | <p>The ARN of the channel request.</p> |
-| `client_request_token` | String | ✅ | <p>The client token for the request. An <code>Idempotency</code> token.</p> |
-| `metadata` | String |  | <p>The metadata of the creation request. Limited to 1KB and UTF-8.</p> |
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `channel` | String | <p>The channel details.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create channel
-channel = provider.chime_sdk_messaging.Channel {
-    name = "value"  # <p>The name of the channel.</p>
-    chime_bearer = "value"  # <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
-    app_instance_arn = "value"  # <p>The ARN of the channel request.</p>
-    client_request_token = "value"  # <p>The client token for the request. An <code>Idempotency</code> token.</p>
-}
-
-# Access channel outputs
-channel_id = channel.id
-channel_channel = channel.channel
 ```
 
 ---
@@ -435,10 +290,10 @@ ChannelModerator resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `chime_bearer` | String | ✅ | <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.</p> |
 | `channel_arn` | String | ✅ | <p>The ARN of the channel.</p> |
 | `channel_moderator_arn` | String | ✅ | <p>The <code>AppInstanceUserArn</code> of the moderator.</p> |
+| `chime_bearer` | String | ✅ | <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.</p> |
 
 
 #### Outputs
@@ -461,10 +316,10 @@ provider = aws.AwsProvider {
 
 # Create channel_moderator
 channel_moderator = provider.chime_sdk_messaging.Channel_moderator {
-    chime_bearer = "value"  # <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
-         that makes the API call.</p>
     channel_arn = "value"  # <p>The ARN of the channel.</p>
     channel_moderator_arn = "value"  # <p>The <code>AppInstanceUserArn</code> of the moderator.</p>
+    chime_bearer = "value"  # <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
+         that makes the API call.</p>
 }
 
 # Access channel_moderator outputs
@@ -475,18 +330,19 @@ channel_moderator_channel_moderator = channel_moderator.channel_moderator
 ---
 
 
-### Channel_ban
+### Channel_membership_preferences
 
-ChannelBan resource
+ChannelMembershipPreferences resource
 
-**Operations**: ✅ Create ✅ Read ✅ Delete
+**Operations**: ✅ Create ✅ Read
 
 #### Fields
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `member_arn` | String | ✅ | <p>The <code>AppInstanceUserArn</code> of the member being banned.</p> |
-| `channel_arn` | String | ✅ | <p>The ARN of the ban request.</p> |
+| `member_arn` | String | ✅ | <p>The ARN of the member setting the preferences.</p> |
+| `channel_arn` | String | ✅ | <p>The ARN of the channel.</p> |
+| `preferences` | String | ✅ | <p>The channel membership preferences of an <code>AppInstanceUser</code> .</p> |
 | `chime_bearer` | String | ✅ | <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p> |
 
 
@@ -494,7 +350,9 @@ ChannelBan resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `channel_ban` | String | <p>The details of the ban.</p> |
+| `channel_arn` | String | <p>The ARN of the channel.</p> |
+| `member` | String | <p>The details of a user.</p> |
+| `preferences` | String | <p>The channel membership preferences for an <code>AppInstanceUser</code> .</p> |
 
 
 #### Usage Example
@@ -508,16 +366,158 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create channel_ban
-channel_ban = provider.chime_sdk_messaging.Channel_ban {
-    member_arn = "value"  # <p>The <code>AppInstanceUserArn</code> of the member being banned.</p>
-    channel_arn = "value"  # <p>The ARN of the ban request.</p>
+# Create channel_membership_preferences
+channel_membership_preferences = provider.chime_sdk_messaging.Channel_membership_preferences {
+    member_arn = "value"  # <p>The ARN of the member setting the preferences.</p>
+    channel_arn = "value"  # <p>The ARN of the channel.</p>
+    preferences = "value"  # <p>The channel membership preferences of an <code>AppInstanceUser</code> .</p>
     chime_bearer = "value"  # <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
 }
 
-# Access channel_ban outputs
-channel_ban_id = channel_ban.id
-channel_ban_channel_ban = channel_ban.channel_ban
+# Access channel_membership_preferences outputs
+channel_membership_preferences_id = channel_membership_preferences.id
+channel_membership_preferences_channel_arn = channel_membership_preferences.channel_arn
+channel_membership_preferences_member = channel_membership_preferences.member
+channel_membership_preferences_preferences = channel_membership_preferences.preferences
+```
+
+---
+
+
+### Channel_message_status
+
+ChannelMessageStatus resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `status` | String | <p>The message status and details.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access channel_message_status outputs
+channel_message_status_id = channel_message_status.id
+channel_message_status_status = channel_message_status.status
+```
+
+---
+
+
+### Messaging_session_endpoint
+
+MessagingSessionEndpoint resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `endpoint` | String | <p>The endpoint returned in the response.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access messaging_session_endpoint outputs
+messaging_session_endpoint_id = messaging_session_endpoint.id
+messaging_session_endpoint_endpoint = messaging_session_endpoint.endpoint
+```
+
+---
+
+
+### Channel
+
+Channel resource
+
+**Operations**: ✅ Create ✅ Read ✅ Update ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `privacy` | String |  | <p>The channel's privacy level: <code>PUBLIC</code> or <code>PRIVATE</code>. Private
+         channels aren't discoverable by users outside the channel. Public channels are discoverable
+         by anyone in the <code>AppInstance</code>.</p> |
+| `app_instance_arn` | String | ✅ | <p>The ARN of the channel request.</p> |
+| `channel_id` | String |  | <p>An ID for the channel being created. If you do not specify an ID, a UUID will be created for the channel.</p> |
+| `moderator_arns` | Vec<String> |  | <p>The ARNs of the channel moderators in the request.</p> |
+| `tags` | Vec<String> |  | <p>The tags for the creation request.</p> |
+| `name` | String | ✅ | <p>The name of the channel.</p> |
+| `chime_bearer` | String | ✅ | <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p> |
+| `expiration_settings` | String |  | <p>Settings that control the interval after which the channel is automatically deleted.</p> |
+| `mode` | String |  | <p>The channel mode: <code>UNRESTRICTED</code> or <code>RESTRICTED</code>. Administrators,
+         moderators, and channel members can add themselves and other members to unrestricted
+         channels. Only administrators and moderators can add members to restricted channels.</p> |
+| `metadata` | String |  | <p>The metadata of the creation request. Limited to 1KB and UTF-8.</p> |
+| `client_request_token` | String | ✅ | <p>The client token for the request. An <code>Idempotency</code> token.</p> |
+| `member_arns` | Vec<String> |  | <p>The ARNs of the channel members in the request.</p> |
+| `elastic_channel_configuration` | String |  | <p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million users, excluding moderators.</p> |
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `channel` | String | <p>The channel details.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create channel
+channel = provider.chime_sdk_messaging.Channel {
+    app_instance_arn = "value"  # <p>The ARN of the channel request.</p>
+    name = "value"  # <p>The name of the channel.</p>
+    chime_bearer = "value"  # <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call.</p>
+    client_request_token = "value"  # <p>The client token for the request. An <code>Idempotency</code> token.</p>
+}
+
+# Access channel outputs
+channel_id = channel.id
+channel_channel = channel.channel
 ```
 
 ---
@@ -533,11 +533,11 @@ ChannelFlow resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
+| `app_instance_arn` | String | ✅ | <p>The ARN of the channel flow request.</p> |
+| `tags` | Vec<String> |  | <p>The tags for the creation request.</p> |
+| `name` | String | ✅ | <p>The name of the channel flow.</p> |
 | `client_request_token` | String | ✅ | <p>The client token for the request. An Idempotency token.</p> |
 | `processors` | Vec<String> | ✅ | <p>Information about the processor Lambda functions.</p> |
-| `name` | String | ✅ | <p>The name of the channel flow.</p> |
-| `tags` | Vec<String> |  | <p>The tags for the creation request.</p> |
-| `app_instance_arn` | String | ✅ | <p>The ARN of the channel flow request.</p> |
 
 
 #### Outputs
@@ -560,10 +560,10 @@ provider = aws.AwsProvider {
 
 # Create channel_flow
 channel_flow = provider.chime_sdk_messaging.Channel_flow {
+    app_instance_arn = "value"  # <p>The ARN of the channel flow request.</p>
+    name = "value"  # <p>The name of the channel flow.</p>
     client_request_token = "value"  # <p>The client token for the request. An Idempotency token.</p>
     processors = "value"  # <p>Information about the processor Lambda functions.</p>
-    name = "value"  # <p>The name of the channel flow.</p>
-    app_instance_arn = "value"  # <p>The ARN of the channel flow request.</p>
 }
 
 # Access channel_flow outputs
@@ -584,19 +584,19 @@ ChannelMembership resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `channel_arn` | String | ✅ | <p>The ARN of the channel to which you're adding users.</p> |
 | `chime_bearer` | String | ✅ | <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
          that makes the API call.</p> |
 | `sub_channel_id` | String |  | <p>The ID of the SubChannel in the request.</p>
          <note>
             <p>Only required when creating membership in a SubChannel for a moderator in an elastic channel.</p>
          </note> |
+| `member_arn` | String | ✅ | <p>The <code>AppInstanceUserArn</code> of the member you want to add to the channel.</p> |
+| `channel_arn` | String | ✅ | <p>The ARN of the channel to which you're adding users.</p> |
 | `type` | String | ✅ | <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default
          members are always returned as part of <code>ListChannelMemberships</code>. Hidden members
          are only returned if the type filter in <code>ListChannelMemberships</code> equals
             <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported
          by moderators.</p> |
-| `member_arn` | String | ✅ | <p>The <code>AppInstanceUserArn</code> of the member you want to add to the channel.</p> |
 
 
 #### Outputs
@@ -619,15 +619,15 @@ provider = aws.AwsProvider {
 
 # Create channel_membership
 channel_membership = provider.chime_sdk_messaging.Channel_membership {
-    channel_arn = "value"  # <p>The ARN of the channel to which you're adding users.</p>
     chime_bearer = "value"  # <p>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> 
          that makes the API call.</p>
+    member_arn = "value"  # <p>The <code>AppInstanceUserArn</code> of the member you want to add to the channel.</p>
+    channel_arn = "value"  # <p>The ARN of the channel to which you're adding users.</p>
     type = "value"  # <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default
          members are always returned as part of <code>ListChannelMemberships</code>. Hidden members
          are only returned if the type filter in <code>ListChannelMemberships</code> equals
             <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported
          by moderators.</p>
-    member_arn = "value"  # <p>The <code>AppInstanceUserArn</code> of the member you want to add to the channel.</p>
 }
 
 # Access channel_membership outputs
@@ -688,24 +688,21 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create multiple channel_message resources
-channel_message_0 = provider.chime_sdk_messaging.Channel_message {
-    message_id = "value-0"
-    channel_arn = "value-0"
-    content = "value-0"
+# Create multiple channel_ban resources
+channel_ban_0 = provider.chime_sdk_messaging.Channel_ban {
+    member_arn = "value-0"
     chime_bearer = "value-0"
+    channel_arn = "value-0"
 }
-channel_message_1 = provider.chime_sdk_messaging.Channel_message {
-    message_id = "value-1"
-    channel_arn = "value-1"
-    content = "value-1"
+channel_ban_1 = provider.chime_sdk_messaging.Channel_ban {
+    member_arn = "value-1"
     chime_bearer = "value-1"
+    channel_arn = "value-1"
 }
-channel_message_2 = provider.chime_sdk_messaging.Channel_message {
-    message_id = "value-2"
-    channel_arn = "value-2"
-    content = "value-2"
+channel_ban_2 = provider.chime_sdk_messaging.Channel_ban {
+    member_arn = "value-2"
     chime_bearer = "value-2"
+    channel_arn = "value-2"
 }
 ```
 
@@ -714,11 +711,10 @@ channel_message_2 = provider.chime_sdk_messaging.Channel_message {
 ```kcl
 # Only create in production
 if environment == "production":
-    channel_message = provider.chime_sdk_messaging.Channel_message {
-        message_id = "production-value"
-        channel_arn = "production-value"
-        content = "production-value"
+    channel_ban = provider.chime_sdk_messaging.Channel_ban {
+        member_arn = "production-value"
         chime_bearer = "production-value"
+        channel_arn = "production-value"
     }
 ```
 

@@ -21,7 +21,7 @@ impl<'a> Budget_action<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, action_type: String, approval_model: String, notification_type: String, definition: String, budget_name: String, resource_tags: Option<Vec<String>>, action_threshold: String, execution_role_arn: String, subscribers: Vec<String>, account_id: String) -> Result<String> {
+    pub async fn create(&self, notification_type: String, account_id: String, definition: String, approval_model: String, budget_name: String, subscribers: Vec<String>, action_threshold: String, execution_role_arn: String, resource_tags: Option<Vec<String>>, action_type: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Budget_action<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, action_type: Option<String>, approval_model: Option<String>, notification_type: Option<String>, definition: Option<String>, budget_name: Option<String>, resource_tags: Option<Vec<String>>, action_threshold: Option<String>, execution_role_arn: Option<String>, subscribers: Option<Vec<String>>, account_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, notification_type: Option<String>, account_id: Option<String>, definition: Option<String>, approval_model: Option<String>, budget_name: Option<String>, subscribers: Option<Vec<String>>, action_threshold: Option<String>, execution_role_arn: Option<String>, resource_tags: Option<Vec<String>>, action_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

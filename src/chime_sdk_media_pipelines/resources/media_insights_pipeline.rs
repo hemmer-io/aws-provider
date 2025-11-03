@@ -21,7 +21,7 @@ impl<'a> Media_insights_pipeline<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_request_token: Option<String>, media_insights_runtime_metadata: Option<HashMap<String, String>>, media_insights_pipeline_configuration_arn: String, kinesis_video_stream_recording_source_runtime_configuration: Option<String>, kinesis_video_stream_source_runtime_configuration: Option<String>, s3_recording_sink_runtime_configuration: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, client_request_token: Option<String>, media_insights_pipeline_configuration_arn: String, kinesis_video_stream_source_runtime_configuration: Option<String>, media_insights_runtime_metadata: Option<HashMap<String, String>>, kinesis_video_stream_recording_source_runtime_configuration: Option<String>, s3_recording_sink_runtime_configuration: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

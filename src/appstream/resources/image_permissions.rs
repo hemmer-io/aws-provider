@@ -38,7 +38,7 @@ impl<'a> Image_permissions<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, shared_account_id: Option<String>, name: Option<String>, image_permissions: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, image_permissions: Option<String>, shared_account_id: Option<String>, name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

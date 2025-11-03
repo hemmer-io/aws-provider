@@ -38,7 +38,7 @@ impl<'a> Pricing_plan<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, pricing_mode: Option<String>, bundle_names: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, bundle_names: Option<Vec<String>>, pricing_mode: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

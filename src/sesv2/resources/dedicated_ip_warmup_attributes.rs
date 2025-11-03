@@ -21,7 +21,7 @@ impl<'a> Dedicated_ip_warmup_attributes<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, ip: String, warmup_percentage: i64) -> Result<String> {
+    pub async fn create(&self, warmup_percentage: i64, ip: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

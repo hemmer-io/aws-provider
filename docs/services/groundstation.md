@@ -34,10 +34,10 @@ MinuteUsage resource
 | Output | Type | Description |
 |--------|------|-------------|
 | `total_reserved_minute_allocation` | i64 | <p>Total number of reserved minutes allocated, specific to the month being requested.</p> |
-| `estimated_minutes_remaining` | i64 | <p>Estimated number of minutes remaining for an account, specific to the month being requested.</p> |
-| `upcoming_minutes_scheduled` | i64 | <p>Upcoming minutes scheduled for an account, specific to the month being requested.</p> |
-| `total_scheduled_minutes` | i64 | <p>Total scheduled minutes for an account, specific to the month being requested.</p> |
 | `is_reserved_minutes_customer` | bool | <p>Returns whether or not an account has signed up for the reserved minutes pricing plan, specific to the month being requested.</p> |
+| `upcoming_minutes_scheduled` | i64 | <p>Upcoming minutes scheduled for an account, specific to the month being requested.</p> |
+| `estimated_minutes_remaining` | i64 | <p>Estimated number of minutes remaining for an account, specific to the month being requested.</p> |
+| `total_scheduled_minutes` | i64 | <p>Total scheduled minutes for an account, specific to the month being requested.</p> |
 
 
 #### Usage Example
@@ -54,10 +54,10 @@ provider = aws.AwsProvider {
 # Access minute_usage outputs
 minute_usage_id = minute_usage.id
 minute_usage_total_reserved_minute_allocation = minute_usage.total_reserved_minute_allocation
-minute_usage_estimated_minutes_remaining = minute_usage.estimated_minutes_remaining
-minute_usage_upcoming_minutes_scheduled = minute_usage.upcoming_minutes_scheduled
-minute_usage_total_scheduled_minutes = minute_usage.total_scheduled_minutes
 minute_usage_is_reserved_minutes_customer = minute_usage.is_reserved_minutes_customer
+minute_usage_upcoming_minutes_scheduled = minute_usage.upcoming_minutes_scheduled
+minute_usage_estimated_minutes_remaining = minute_usage.estimated_minutes_remaining
+minute_usage_total_scheduled_minutes = minute_usage.total_scheduled_minutes
 ```
 
 ---

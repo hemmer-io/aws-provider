@@ -21,7 +21,7 @@ impl<'a> Profile_object<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, object_type_name: String, object: String, domain_name: String) -> Result<String> {
+    pub async fn create(&self, domain_name: String, object: String, object_type_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

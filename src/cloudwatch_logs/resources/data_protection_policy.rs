@@ -21,7 +21,7 @@ impl<'a> Data_protection_policy<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, log_group_identifier: String, policy_document: String) -> Result<String> {
+    pub async fn create(&self, policy_document: String, log_group_identifier: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -38,7 +38,7 @@ impl<'a> Incident_record<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, summary: Option<String>, status: Option<String>, client_token: Option<String>, arn: Option<String>, chat_channel: Option<String>, notification_targets: Option<Vec<String>>, title: Option<String>, impact: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, arn: Option<String>, title: Option<String>, notification_targets: Option<Vec<String>>, impact: Option<i64>, summary: Option<String>, status: Option<String>, client_token: Option<String>, chat_channel: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

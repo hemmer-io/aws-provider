@@ -24,7 +24,7 @@ impl<'a> Workspace_image_permission<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, allow_copy_image: Option<bool>, shared_account_id: Option<String>, image_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, shared_account_id: Option<String>, image_id: Option<String>, allow_copy_image: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

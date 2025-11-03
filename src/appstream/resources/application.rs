@@ -21,7 +21,7 @@ impl<'a> Application<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, instance_families: String, app_block_arn: String, launch_path: String, description: Option<String>, icon_s3_location: String, name: String, platforms: Vec<String>, tags: Option<HashMap<String, String>>, working_directory: Option<String>, launch_parameters: Option<String>, display_name: Option<String>) -> Result<String> {
+    pub async fn create(&self, icon_s3_location: String, launch_path: String, platforms: Vec<String>, display_name: Option<String>, launch_parameters: Option<String>, instance_families: String, name: String, tags: Option<HashMap<String, String>>, working_directory: Option<String>, app_block_arn: String, description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Application<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, instance_families: Option<String>, app_block_arn: Option<String>, launch_path: Option<String>, description: Option<String>, icon_s3_location: Option<String>, name: Option<String>, platforms: Option<Vec<String>>, tags: Option<HashMap<String, String>>, working_directory: Option<String>, launch_parameters: Option<String>, display_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, icon_s3_location: Option<String>, launch_path: Option<String>, platforms: Option<Vec<String>>, display_name: Option<String>, launch_parameters: Option<String>, instance_families: Option<String>, name: Option<String>, tags: Option<HashMap<String, String>>, working_directory: Option<String>, app_block_arn: Option<String>, description: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

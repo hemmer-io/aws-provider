@@ -27,13 +27,8 @@ Record resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `feature_group_name` | String | ✅ | <p>The name or Amazon Resource Name (ARN) of the feature group that you want to insert the
-         record into.</p> |
 | `target_stores` | Vec<String> |  | <p>A list of stores to which you're adding the record. By default, Feature Store adds the
          record to all of the stores that you're using for the <code>FeatureGroup</code>.</p> |
-| `ttl_duration` | String |  | <p>Time to live duration, where the record is hard deleted after the expiration time is
-         reached; <code>ExpiresAt</code> = <code>EventTime</code> + <code>TtlDuration</code>. For
-         information on HardDelete, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> API in the Amazon SageMaker API Reference guide.</p> |
 | `record` | Vec<String> | ✅ | <p>List of FeatureValues to be inserted. This will be a full over-write. If you only want
          to update few of the feature values, do the following:</p>
          <ul>
@@ -47,6 +42,11 @@ Record resource
                <p>Use <code>PutRecord</code> to update feature values.</p>
             </li>
          </ul> |
+| `ttl_duration` | String |  | <p>Time to live duration, where the record is hard deleted after the expiration time is
+         reached; <code>ExpiresAt</code> = <code>EventTime</code> + <code>TtlDuration</code>. For
+         information on HardDelete, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> API in the Amazon SageMaker API Reference guide.</p> |
+| `feature_group_name` | String | ✅ | <p>The name or Amazon Resource Name (ARN) of the feature group that you want to insert the
+         record into.</p> |
 
 
 #### Outputs
@@ -70,8 +70,6 @@ provider = aws.AwsProvider {
 
 # Create record
 record = provider.sagemaker_featurestore_runtime.Record {
-    feature_group_name = "value"  # <p>The name or Amazon Resource Name (ARN) of the feature group that you want to insert the
-         record into.</p>
     record = "value"  # <p>List of FeatureValues to be inserted. This will be a full over-write. If you only want
          to update few of the feature values, do the following:</p>
          <ul>
@@ -85,6 +83,8 @@ record = provider.sagemaker_featurestore_runtime.Record {
                <p>Use <code>PutRecord</code> to update feature values.</p>
             </li>
          </ul>
+    feature_group_name = "value"  # <p>The name or Amazon Resource Name (ARN) of the feature group that you want to insert the
+         record into.</p>
 }
 
 # Access record outputs
@@ -110,16 +110,16 @@ provider = aws.AwsProvider {
 
 # Create multiple record resources
 record_0 = provider.sagemaker_featurestore_runtime.Record {
-    feature_group_name = "value-0"
     record = "value-0"
+    feature_group_name = "value-0"
 }
 record_1 = provider.sagemaker_featurestore_runtime.Record {
-    feature_group_name = "value-1"
     record = "value-1"
+    feature_group_name = "value-1"
 }
 record_2 = provider.sagemaker_featurestore_runtime.Record {
-    feature_group_name = "value-2"
     record = "value-2"
+    feature_group_name = "value-2"
 }
 ```
 
@@ -129,8 +129,8 @@ record_2 = provider.sagemaker_featurestore_runtime.Record {
 # Only create in production
 if environment == "production":
     record = provider.sagemaker_featurestore_runtime.Record {
-        feature_group_name = "production-value"
         record = "production-value"
+        feature_group_name = "production-value"
     }
 ```
 

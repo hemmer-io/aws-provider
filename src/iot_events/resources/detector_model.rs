@@ -21,7 +21,7 @@ impl<'a> Detector_model<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, role_arn: String, tags: Option<Vec<String>>, detector_model_name: String, detector_model_definition: String, detector_model_description: Option<String>, key: Option<String>, evaluation_method: Option<String>) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, evaluation_method: Option<String>, detector_model_definition: String, key: Option<String>, detector_model_name: String, detector_model_description: Option<String>, role_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Detector_model<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, role_arn: Option<String>, tags: Option<Vec<String>>, detector_model_name: Option<String>, detector_model_definition: Option<String>, detector_model_description: Option<String>, key: Option<String>, evaluation_method: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, evaluation_method: Option<String>, detector_model_definition: Option<String>, key: Option<String>, detector_model_name: Option<String>, detector_model_description: Option<String>, role_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

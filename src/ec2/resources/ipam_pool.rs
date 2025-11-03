@@ -21,7 +21,7 @@ impl<'a> Ipam_pool<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, allocation_default_netmask_length: Option<i64>, tag_specifications: Option<Vec<String>>, description: Option<String>, client_token: Option<String>, aws_service: Option<String>, source_ipam_pool_id: Option<String>, allocation_resource_tags: Option<Vec<String>>, auto_import: Option<bool>, locale: Option<String>, dry_run: Option<bool>, allocation_max_netmask_length: Option<i64>, allocation_min_netmask_length: Option<i64>, public_ip_source: Option<String>, publicly_advertisable: Option<bool>, ipam_scope_id: String, source_resource: Option<String>, address_family: String) -> Result<String> {
+    pub async fn create(&self, allocation_resource_tags: Option<Vec<String>>, ipam_scope_id: String, allocation_default_netmask_length: Option<i64>, source_ipam_pool_id: Option<String>, client_token: Option<String>, description: Option<String>, source_resource: Option<String>, dry_run: Option<bool>, auto_import: Option<bool>, allocation_max_netmask_length: Option<i64>, aws_service: Option<String>, public_ip_source: Option<String>, address_family: String, locale: Option<String>, allocation_min_netmask_length: Option<i64>, tag_specifications: Option<Vec<String>>, publicly_advertisable: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

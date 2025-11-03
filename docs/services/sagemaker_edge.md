@@ -72,8 +72,8 @@ DeviceRegistration resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `device_registration` | String | <p>Describes if the device is currently registered with SageMaker Edge Manager.</p> |
 | `cache_ttl` | String | <p>The amount of time, in seconds, that the registration status is stored on the device’s cache before it is refreshed.</p> |
+| `device_registration` | String | <p>Describes if the device is currently registered with SageMaker Edge Manager.</p> |
 
 
 #### Usage Example
@@ -89,8 +89,8 @@ provider = aws.AwsProvider {
 
 # Access device_registration outputs
 device_registration_id = device_registration.id
-device_registration_device_registration = device_registration.device_registration
 device_registration_cache_ttl = device_registration.cache_ttl
+device_registration_device_registration = device_registration.device_registration
 ```
 
 ---

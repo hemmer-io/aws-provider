@@ -21,7 +21,7 @@ impl<'a> Db_cluster_endpoint<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, db_cluster_identifier: String, static_members: Option<String>, db_cluster_endpoint_identifier: String, endpoint_type: String, tags: Option<Vec<String>>, excluded_members: Option<String>) -> Result<String> {
+    pub async fn create(&self, static_members: Option<String>, excluded_members: Option<String>, db_cluster_endpoint_identifier: String, db_cluster_identifier: String, endpoint_type: String, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

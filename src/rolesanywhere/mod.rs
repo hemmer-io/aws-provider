@@ -141,8 +141,8 @@ impl<'a> RolesanywhereService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let trust_anchor_id = input.get_string("trust_anchor_id")?;
             let notification_settings = input.get_string("notification_settings")?;
+            let trust_anchor_id = input.get_string("trust_anchor_id")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -157,8 +157,8 @@ impl<'a> RolesanywhereService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("trust_anchor_id", trust_anchor_id.unwrap_or_default())
                 .with_field("notification_settings", notification_settings.unwrap_or_default())
+                .with_field("trust_anchor_id", trust_anchor_id.unwrap_or_default())
             )
         })
     }
@@ -192,8 +192,8 @@ impl<'a> RolesanywhereService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let trust_anchor_id = input.get_string("trust_anchor_id")?;
             let notification_settings = input.get_string("notification_settings")?;
+            let trust_anchor_id = input.get_string("trust_anchor_id")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -209,8 +209,8 @@ impl<'a> RolesanywhereService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("trust_anchor_id", trust_anchor_id.unwrap_or_default())
                 .with_field("notification_settings", notification_settings.unwrap_or_default())
+                .with_field("trust_anchor_id", trust_anchor_id.unwrap_or_default())
             )
         })
     }

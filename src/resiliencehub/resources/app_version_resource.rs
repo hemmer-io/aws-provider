@@ -21,7 +21,7 @@ impl<'a> App_version_resource<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, aws_account_id: Option<String>, resource_type: String, physical_resource_id: String, aws_region: Option<String>, resource_name: Option<String>, additional_info: Option<HashMap<String, Vec<String>>>, client_token: Option<String>, app_components: Vec<String>, logical_resource_id: String, app_arn: String) -> Result<String> {
+    pub async fn create(&self, app_components: Vec<String>, resource_name: Option<String>, resource_type: String, aws_region: Option<String>, app_arn: String, additional_info: Option<HashMap<String, Vec<String>>>, aws_account_id: Option<String>, client_token: Option<String>, physical_resource_id: String, logical_resource_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> App_version_resource<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, aws_account_id: Option<String>, resource_type: Option<String>, physical_resource_id: Option<String>, aws_region: Option<String>, resource_name: Option<String>, additional_info: Option<HashMap<String, Vec<String>>>, client_token: Option<String>, app_components: Option<Vec<String>>, logical_resource_id: Option<String>, app_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, app_components: Option<Vec<String>>, resource_name: Option<String>, resource_type: Option<String>, aws_region: Option<String>, app_arn: Option<String>, additional_info: Option<HashMap<String, Vec<String>>>, aws_account_id: Option<String>, client_token: Option<String>, physical_resource_id: Option<String>, logical_resource_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

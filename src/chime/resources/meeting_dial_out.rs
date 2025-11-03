@@ -21,7 +21,7 @@ impl<'a> Meeting_dial_out<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, from_phone_number: String, meeting_id: String, to_phone_number: String, join_token: String) -> Result<String> {
+    pub async fn create(&self, from_phone_number: String, to_phone_number: String, join_token: String, meeting_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

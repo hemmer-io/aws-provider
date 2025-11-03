@@ -21,7 +21,7 @@ impl<'a> Parameter<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, data_type: Option<String>, description: Option<String>, value: String, name: String, type: Option<String>, allowed_pattern: Option<String>, tags: Option<Vec<String>>, key_id: Option<String>, overwrite: Option<bool>, tier: Option<String>, policies: Option<String>) -> Result<String> {
+    pub async fn create(&self, tier: Option<String>, policies: Option<String>, name: String, description: Option<String>, value: String, data_type: Option<String>, key_id: Option<String>, overwrite: Option<bool>, allowed_pattern: Option<String>, tags: Option<Vec<String>>, type: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

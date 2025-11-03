@@ -24,15 +24,6 @@ impl<'a> GlacierService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "vault" => {
-                self.plan_vault(current_state, desired_input).await
-            }
-            "vault_access_policy" => {
-                self.plan_vault_access_policy(current_state, desired_input).await
-            }
-            "archive" => {
-                self.plan_archive(current_state, desired_input).await
-            }
             "data_retrieval_policy" => {
                 self.plan_data_retrieval_policy(current_state, desired_input).await
             }
@@ -42,11 +33,20 @@ impl<'a> GlacierService<'a> {
             "job_output" => {
                 self.plan_job_output(current_state, desired_input).await
             }
-            "vault_notifications" => {
-                self.plan_vault_notifications(current_state, desired_input).await
+            "archive" => {
+                self.plan_archive(current_state, desired_input).await
             }
             "vault_lock" => {
                 self.plan_vault_lock(current_state, desired_input).await
+            }
+            "vault" => {
+                self.plan_vault(current_state, desired_input).await
+            }
+            "vault_notifications" => {
+                self.plan_vault_notifications(current_state, desired_input).await
+            }
+            "vault_access_policy" => {
+                self.plan_vault_access_policy(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -63,15 +63,6 @@ impl<'a> GlacierService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "vault" => {
-                self.create_vault(input).await
-            }
-            "vault_access_policy" => {
-                self.create_vault_access_policy(input).await
-            }
-            "archive" => {
-                self.create_archive(input).await
-            }
             "data_retrieval_policy" => {
                 self.create_data_retrieval_policy(input).await
             }
@@ -81,11 +72,20 @@ impl<'a> GlacierService<'a> {
             "job_output" => {
                 self.create_job_output(input).await
             }
-            "vault_notifications" => {
-                self.create_vault_notifications(input).await
+            "archive" => {
+                self.create_archive(input).await
             }
             "vault_lock" => {
                 self.create_vault_lock(input).await
+            }
+            "vault" => {
+                self.create_vault(input).await
+            }
+            "vault_notifications" => {
+                self.create_vault_notifications(input).await
+            }
+            "vault_access_policy" => {
+                self.create_vault_access_policy(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -102,15 +102,6 @@ impl<'a> GlacierService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "vault" => {
-                self.read_vault(id).await
-            }
-            "vault_access_policy" => {
-                self.read_vault_access_policy(id).await
-            }
-            "archive" => {
-                self.read_archive(id).await
-            }
             "data_retrieval_policy" => {
                 self.read_data_retrieval_policy(id).await
             }
@@ -120,11 +111,20 @@ impl<'a> GlacierService<'a> {
             "job_output" => {
                 self.read_job_output(id).await
             }
-            "vault_notifications" => {
-                self.read_vault_notifications(id).await
+            "archive" => {
+                self.read_archive(id).await
             }
             "vault_lock" => {
                 self.read_vault_lock(id).await
+            }
+            "vault" => {
+                self.read_vault(id).await
+            }
+            "vault_notifications" => {
+                self.read_vault_notifications(id).await
+            }
+            "vault_access_policy" => {
+                self.read_vault_access_policy(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -142,15 +142,6 @@ impl<'a> GlacierService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "vault" => {
-                self.update_vault(id, input).await
-            }
-            "vault_access_policy" => {
-                self.update_vault_access_policy(id, input).await
-            }
-            "archive" => {
-                self.update_archive(id, input).await
-            }
             "data_retrieval_policy" => {
                 self.update_data_retrieval_policy(id, input).await
             }
@@ -160,11 +151,20 @@ impl<'a> GlacierService<'a> {
             "job_output" => {
                 self.update_job_output(id, input).await
             }
-            "vault_notifications" => {
-                self.update_vault_notifications(id, input).await
+            "archive" => {
+                self.update_archive(id, input).await
             }
             "vault_lock" => {
                 self.update_vault_lock(id, input).await
+            }
+            "vault" => {
+                self.update_vault(id, input).await
+            }
+            "vault_notifications" => {
+                self.update_vault_notifications(id, input).await
+            }
+            "vault_access_policy" => {
+                self.update_vault_access_policy(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -181,15 +181,6 @@ impl<'a> GlacierService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "vault" => {
-                self.delete_vault(id).await
-            }
-            "vault_access_policy" => {
-                self.delete_vault_access_policy(id).await
-            }
-            "archive" => {
-                self.delete_archive(id).await
-            }
             "data_retrieval_policy" => {
                 self.delete_data_retrieval_policy(id).await
             }
@@ -199,11 +190,20 @@ impl<'a> GlacierService<'a> {
             "job_output" => {
                 self.delete_job_output(id).await
             }
-            "vault_notifications" => {
-                self.delete_vault_notifications(id).await
+            "archive" => {
+                self.delete_archive(id).await
             }
             "vault_lock" => {
                 self.delete_vault_lock(id).await
+            }
+            "vault" => {
+                self.delete_vault(id).await
+            }
+            "vault_notifications" => {
+                self.delete_vault_notifications(id).await
+            }
+            "vault_access_policy" => {
+                self.delete_vault_access_policy(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -216,356 +216,6 @@ impl<'a> GlacierService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
-
-
-    // ------------------------------------------------------------------------
-    // Vault resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a vault resource
-    async fn plan_vault(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new vault resource
-    async fn create_vault(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let vault_name = input.get_string("vault_name")?;
-            let account_id = input.get_string("account_id")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.glacier_client
-            //     .create_vault()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("vault_name", vault_name.unwrap_or_default())
-                .with_field("account_id", account_id.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a vault resource
-    async fn read_vault(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.glacier_client
-            //     .describe_vault()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a vault resource
-    async fn update_vault(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let vault_name = input.get_string("vault_name")?;
-            let account_id = input.get_string("account_id")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.glacier_client
-            //     .update_vault()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("vault_name", vault_name.unwrap_or_default())
-                .with_field("account_id", account_id.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a vault resource
-    async fn delete_vault(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.glacier_client
-            //     .delete_vault()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Vault_access_policy resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a vault_access_policy resource
-    async fn plan_vault_access_policy(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new vault_access_policy resource
-    async fn create_vault_access_policy(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.glacier_client
-            //     .create_vault_access_policy()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a vault_access_policy resource
-    async fn read_vault_access_policy(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.glacier_client
-            //     .describe_vault_access_policy()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a vault_access_policy resource
-    async fn update_vault_access_policy(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.glacier_client
-            //     .update_vault_access_policy()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a vault_access_policy resource
-    async fn delete_vault_access_policy(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.glacier_client
-            //     .delete_vault_access_policy()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Archive resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a archive resource
-    async fn plan_archive(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new archive resource
-    async fn create_archive(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.glacier_client
-            //     .create_archive()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a archive resource
-    async fn read_archive(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.glacier_client
-            //     .describe_archive()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a archive resource
-    async fn update_archive(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.glacier_client
-            //     .update_archive()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a archive resource
-    async fn delete_archive(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.glacier_client
-            //     .delete_archive()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
 
 
     // ------------------------------------------------------------------------
@@ -911,11 +561,11 @@ impl<'a> GlacierService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Vault_notifications resource operations
+    // Archive resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a vault_notifications resource
-    async fn plan_vault_notifications(
+    /// Plan changes to a archive resource
+    async fn plan_archive(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -930,8 +580,8 @@ impl<'a> GlacierService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new vault_notifications resource
-    async fn create_vault_notifications(
+    /// Create a new archive resource
+    async fn create_archive(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
@@ -943,7 +593,7 @@ impl<'a> GlacierService<'a> {
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.glacier_client
-            //     .create_vault_notifications()
+            //     .create_archive()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -956,8 +606,8 @@ impl<'a> GlacierService<'a> {
         })
     }
 
-    /// Read a vault_notifications resource
-    async fn read_vault_notifications(
+    /// Read a archive resource
+    async fn read_archive(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -965,7 +615,7 @@ impl<'a> GlacierService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.glacier_client
-            //     .describe_vault_notifications()
+            //     .describe_archive()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -977,8 +627,8 @@ impl<'a> GlacierService<'a> {
         })
     }
 
-    /// Update a vault_notifications resource
-    async fn update_vault_notifications(
+    /// Update a archive resource
+    async fn update_archive(
         &self,
         id: &str,
         input: ResourceInput,
@@ -990,7 +640,7 @@ impl<'a> GlacierService<'a> {
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.glacier_client
-            //     .update_vault_notifications()
+            //     .update_archive()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -1004,8 +654,8 @@ impl<'a> GlacierService<'a> {
         })
     }
 
-    /// Delete a vault_notifications resource
-    async fn delete_vault_notifications(
+    /// Delete a archive resource
+    async fn delete_archive(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -1013,7 +663,7 @@ impl<'a> GlacierService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.glacier_client
-            //     .delete_vault_notifications()
+            //     .delete_archive()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -1128,6 +778,356 @@ impl<'a> GlacierService<'a> {
             // Example:
             // self.provider.glacier_client
             //     .delete_vault_lock()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Vault resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a vault resource
+    async fn plan_vault(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new vault resource
+    async fn create_vault(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let vault_name = input.get_string("vault_name")?;
+            let account_id = input.get_string("account_id")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.glacier_client
+            //     .create_vault()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("vault_name", vault_name.unwrap_or_default())
+                .with_field("account_id", account_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a vault resource
+    async fn read_vault(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.glacier_client
+            //     .describe_vault()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a vault resource
+    async fn update_vault(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let vault_name = input.get_string("vault_name")?;
+            let account_id = input.get_string("account_id")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.glacier_client
+            //     .update_vault()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("vault_name", vault_name.unwrap_or_default())
+                .with_field("account_id", account_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a vault resource
+    async fn delete_vault(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.glacier_client
+            //     .delete_vault()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Vault_notifications resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a vault_notifications resource
+    async fn plan_vault_notifications(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new vault_notifications resource
+    async fn create_vault_notifications(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.glacier_client
+            //     .create_vault_notifications()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a vault_notifications resource
+    async fn read_vault_notifications(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.glacier_client
+            //     .describe_vault_notifications()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a vault_notifications resource
+    async fn update_vault_notifications(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.glacier_client
+            //     .update_vault_notifications()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a vault_notifications resource
+    async fn delete_vault_notifications(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.glacier_client
+            //     .delete_vault_notifications()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Vault_access_policy resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a vault_access_policy resource
+    async fn plan_vault_access_policy(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new vault_access_policy resource
+    async fn create_vault_access_policy(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.glacier_client
+            //     .create_vault_access_policy()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a vault_access_policy resource
+    async fn read_vault_access_policy(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.glacier_client
+            //     .describe_vault_access_policy()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a vault_access_policy resource
+    async fn update_vault_access_policy(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.glacier_client
+            //     .update_vault_access_policy()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a vault_access_policy resource
+    async fn delete_vault_access_policy(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.glacier_client
+            //     .delete_vault_access_policy()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

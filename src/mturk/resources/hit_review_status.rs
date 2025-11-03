@@ -24,7 +24,7 @@ impl<'a> Hit_review_status<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, revert: Option<bool>, hit_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, hit_id: Option<String>, revert: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

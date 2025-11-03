@@ -21,7 +21,7 @@ impl<'a> Mlflow_tracking_server<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tracking_server_size: Option<String>, artifact_store_uri: String, tracking_server_name: String, automatic_model_registration: Option<bool>, weekly_maintenance_window_start: Option<String>, role_arn: String, tags: Option<Vec<String>>, mlflow_version: Option<String>) -> Result<String> {
+    pub async fn create(&self, mlflow_version: Option<String>, role_arn: String, tracking_server_size: Option<String>, automatic_model_registration: Option<bool>, artifact_store_uri: String, tags: Option<Vec<String>>, weekly_maintenance_window_start: Option<String>, tracking_server_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Mlflow_tracking_server<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tracking_server_size: Option<String>, artifact_store_uri: Option<String>, tracking_server_name: Option<String>, automatic_model_registration: Option<bool>, weekly_maintenance_window_start: Option<String>, role_arn: Option<String>, tags: Option<Vec<String>>, mlflow_version: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, mlflow_version: Option<String>, role_arn: Option<String>, tracking_server_size: Option<String>, automatic_model_registration: Option<bool>, artifact_store_uri: Option<String>, tags: Option<Vec<String>>, weekly_maintenance_window_start: Option<String>, tracking_server_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -24,7 +24,7 @@ impl<'a> Plan_execution_step<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, action_to_take: Option<String>, step_name: Option<String>, execution_id: Option<String>, comment: Option<String>, plan_arn: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, action_to_take: Option<String>, plan_arn: Option<String>, execution_id: Option<String>, comment: Option<String>, step_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

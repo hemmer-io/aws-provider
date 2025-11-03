@@ -21,7 +21,7 @@ impl<'a> Iam_policy_assignment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, namespace: String, assignment_status: String, identities: Option<HashMap<String, Vec<String>>>, policy_arn: Option<String>, aws_account_id: String, assignment_name: String) -> Result<String> {
+    pub async fn create(&self, identities: Option<HashMap<String, Vec<String>>>, namespace: String, policy_arn: Option<String>, aws_account_id: String, assignment_name: String, assignment_status: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Iam_policy_assignment<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, namespace: Option<String>, assignment_status: Option<String>, identities: Option<HashMap<String, Vec<String>>>, policy_arn: Option<String>, aws_account_id: Option<String>, assignment_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, identities: Option<HashMap<String, Vec<String>>>, namespace: Option<String>, policy_arn: Option<String>, aws_account_id: Option<String>, assignment_name: Option<String>, assignment_status: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

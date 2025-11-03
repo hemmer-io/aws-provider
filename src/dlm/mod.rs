@@ -156,18 +156,18 @@ impl<'a> DlmService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let retain_interval = input.get_optional_string("retain_interval")?;
-            let copy_tags = input.get_optional_string("copy_tags")?;
+            let tags = input.get_optional_string("tags")?;
+            let exclusions = input.get_optional_string("exclusions")?;
+            let description = input.get_string("description")?;
             let state = input.get_string("state")?;
             let execution_role_arn = input.get_string("execution_role_arn")?;
             let default_policy = input.get_optional_string("default_policy")?;
-            let cross_region_copy_targets = input.get_optional_string("cross_region_copy_targets")?;
-            let exclusions = input.get_optional_string("exclusions")?;
             let policy_details = input.get_optional_string("policy_details")?;
-            let tags = input.get_optional_string("tags")?;
-            let extend_deletion = input.get_optional_string("extend_deletion")?;
-            let description = input.get_string("description")?;
             let create_interval = input.get_optional_string("create_interval")?;
+            let cross_region_copy_targets = input.get_optional_string("cross_region_copy_targets")?;
+            let retain_interval = input.get_optional_string("retain_interval")?;
+            let copy_tags = input.get_optional_string("copy_tags")?;
+            let extend_deletion = input.get_optional_string("extend_deletion")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -182,18 +182,18 @@ impl<'a> DlmService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("retain_interval", retain_interval.unwrap_or_default())
-                .with_field("copy_tags", copy_tags.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("exclusions", exclusions.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
                 .with_field("state", state.unwrap_or_default())
                 .with_field("execution_role_arn", execution_role_arn.unwrap_or_default())
                 .with_field("default_policy", default_policy.unwrap_or_default())
-                .with_field("cross_region_copy_targets", cross_region_copy_targets.unwrap_or_default())
-                .with_field("exclusions", exclusions.unwrap_or_default())
                 .with_field("policy_details", policy_details.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("extend_deletion", extend_deletion.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
                 .with_field("create_interval", create_interval.unwrap_or_default())
+                .with_field("cross_region_copy_targets", cross_region_copy_targets.unwrap_or_default())
+                .with_field("retain_interval", retain_interval.unwrap_or_default())
+                .with_field("copy_tags", copy_tags.unwrap_or_default())
+                .with_field("extend_deletion", extend_deletion.unwrap_or_default())
             )
         })
     }
@@ -227,18 +227,18 @@ impl<'a> DlmService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let retain_interval = input.get_optional_string("retain_interval")?;
-            let copy_tags = input.get_optional_string("copy_tags")?;
+            let tags = input.get_optional_string("tags")?;
+            let exclusions = input.get_optional_string("exclusions")?;
+            let description = input.get_string("description")?;
             let state = input.get_string("state")?;
             let execution_role_arn = input.get_string("execution_role_arn")?;
             let default_policy = input.get_optional_string("default_policy")?;
-            let cross_region_copy_targets = input.get_optional_string("cross_region_copy_targets")?;
-            let exclusions = input.get_optional_string("exclusions")?;
             let policy_details = input.get_optional_string("policy_details")?;
-            let tags = input.get_optional_string("tags")?;
-            let extend_deletion = input.get_optional_string("extend_deletion")?;
-            let description = input.get_string("description")?;
             let create_interval = input.get_optional_string("create_interval")?;
+            let cross_region_copy_targets = input.get_optional_string("cross_region_copy_targets")?;
+            let retain_interval = input.get_optional_string("retain_interval")?;
+            let copy_tags = input.get_optional_string("copy_tags")?;
+            let extend_deletion = input.get_optional_string("extend_deletion")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -254,18 +254,18 @@ impl<'a> DlmService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("retain_interval", retain_interval.unwrap_or_default())
-                .with_field("copy_tags", copy_tags.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("exclusions", exclusions.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
                 .with_field("state", state.unwrap_or_default())
                 .with_field("execution_role_arn", execution_role_arn.unwrap_or_default())
                 .with_field("default_policy", default_policy.unwrap_or_default())
-                .with_field("cross_region_copy_targets", cross_region_copy_targets.unwrap_or_default())
-                .with_field("exclusions", exclusions.unwrap_or_default())
                 .with_field("policy_details", policy_details.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("extend_deletion", extend_deletion.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
                 .with_field("create_interval", create_interval.unwrap_or_default())
+                .with_field("cross_region_copy_targets", cross_region_copy_targets.unwrap_or_default())
+                .with_field("retain_interval", retain_interval.unwrap_or_default())
+                .with_field("copy_tags", copy_tags.unwrap_or_default())
+                .with_field("extend_deletion", extend_deletion.unwrap_or_default())
             )
         })
     }

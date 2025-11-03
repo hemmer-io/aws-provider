@@ -38,7 +38,7 @@ impl<'a> Input_device<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, uhd_device_settings: Option<String>, hd_device_settings: Option<String>, name: Option<String>, availability_zone: Option<String>, input_device_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, uhd_device_settings: Option<String>, input_device_id: Option<String>, name: Option<String>, hd_device_settings: Option<String>, availability_zone: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

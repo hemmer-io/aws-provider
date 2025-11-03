@@ -21,7 +21,7 @@ impl<'a> Dataset<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, encryption_config: Option<String>, data_frequency: Option<String>, dataset_name: String, domain: String, tags: Option<Vec<String>>, dataset_type: String, schema: String) -> Result<String> {
+    pub async fn create(&self, data_frequency: Option<String>, domain: String, encryption_config: Option<String>, tags: Option<Vec<String>>, schema: String, dataset_name: String, dataset_type: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

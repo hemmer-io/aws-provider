@@ -21,7 +21,7 @@ impl<'a> Object<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, path: String, upload_availability: Option<String>, cache_control: Option<String>, storage_class: Option<String>, content_type: Option<String>, body: String) -> Result<String> {
+    pub async fn create(&self, content_type: Option<String>, path: String, storage_class: Option<String>, upload_availability: Option<String>, body: String, cache_control: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

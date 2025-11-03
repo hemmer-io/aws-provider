@@ -38,7 +38,7 @@ impl<'a> Direct_query_data_source<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, data_source_name: Option<String>, data_source_type: Option<String>, open_search_arns: Option<Vec<String>>, description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, data_source_type: Option<String>, description: Option<String>, open_search_arns: Option<Vec<String>>, data_source_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Ml_endpoint<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, model_name: Option<String>, ml_model_training_job_id: Option<String>, ml_model_transform_job_id: Option<String>, volume_encryption_kms_key: Option<String>, id: Option<String>, instance_type: Option<String>, instance_count: Option<i64>, neptune_iam_role_arn: Option<String>, update: Option<bool>) -> Result<String> {
+    pub async fn create(&self, instance_type: Option<String>, update: Option<bool>, neptune_iam_role_arn: Option<String>, volume_encryption_kms_key: Option<String>, ml_model_transform_job_id: Option<String>, instance_count: Option<i64>, id: Option<String>, model_name: Option<String>, ml_model_training_job_id: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

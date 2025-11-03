@@ -21,7 +21,7 @@ impl<'a> Processing_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, experiment_config: Option<String>, processing_inputs: Option<Vec<String>>, role_arn: String, processing_output_config: Option<String>, processing_job_name: String, stopping_condition: Option<String>, app_specification: String, tags: Option<Vec<String>>, processing_resources: String, environment: Option<HashMap<String, String>>, network_config: Option<String>) -> Result<String> {
+    pub async fn create(&self, processing_job_name: String, processing_resources: String, stopping_condition: Option<String>, environment: Option<HashMap<String, String>>, network_config: Option<String>, tags: Option<Vec<String>>, processing_output_config: Option<String>, role_arn: String, experiment_config: Option<String>, processing_inputs: Option<Vec<String>>, app_specification: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

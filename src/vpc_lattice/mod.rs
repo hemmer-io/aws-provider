@@ -156,8 +156,8 @@ impl<'a> Vpc_latticeService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let resource_identifier = input.get_string("resource_identifier")?;
             let policy = input.get_string("policy")?;
+            let resource_identifier = input.get_string("resource_identifier")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -172,8 +172,8 @@ impl<'a> Vpc_latticeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("resource_identifier", resource_identifier.unwrap_or_default())
                 .with_field("policy", policy.unwrap_or_default())
+                .with_field("resource_identifier", resource_identifier.unwrap_or_default())
             )
         })
     }
@@ -207,8 +207,8 @@ impl<'a> Vpc_latticeService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let resource_identifier = input.get_string("resource_identifier")?;
             let policy = input.get_string("policy")?;
+            let resource_identifier = input.get_string("resource_identifier")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -224,8 +224,8 @@ impl<'a> Vpc_latticeService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("resource_identifier", resource_identifier.unwrap_or_default())
                 .with_field("policy", policy.unwrap_or_default())
+                .with_field("resource_identifier", resource_identifier.unwrap_or_default())
             )
         })
     }

@@ -21,7 +21,7 @@ impl<'a> Job_queue<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, scheduling_policy_arn: Option<String>, state: Option<String>, service_environment_order: Option<Vec<String>>, job_queue_type: Option<String>, job_state_time_limit_actions: Option<Vec<String>>, priority: i64, job_queue_name: String, compute_environment_order: Option<Vec<String>>, tags: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, job_state_time_limit_actions: Option<Vec<String>>, service_environment_order: Option<Vec<String>>, scheduling_policy_arn: Option<String>, compute_environment_order: Option<Vec<String>>, priority: i64, job_queue_type: Option<String>, state: Option<String>, job_queue_name: String, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Job_queue<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, scheduling_policy_arn: Option<String>, state: Option<String>, service_environment_order: Option<Vec<String>>, job_queue_type: Option<String>, job_state_time_limit_actions: Option<Vec<String>>, priority: Option<i64>, job_queue_name: Option<String>, compute_environment_order: Option<Vec<String>>, tags: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, job_state_time_limit_actions: Option<Vec<String>>, service_environment_order: Option<Vec<String>>, scheduling_policy_arn: Option<String>, compute_environment_order: Option<Vec<String>>, priority: Option<i64>, job_queue_type: Option<String>, state: Option<String>, job_queue_name: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

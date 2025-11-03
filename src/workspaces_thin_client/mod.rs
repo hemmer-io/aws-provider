@@ -24,14 +24,14 @@ impl<'a> Workspaces_thin_clientService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "software_set" => {
-                self.plan_software_set(current_state, desired_input).await
+            "environment" => {
+                self.plan_environment(current_state, desired_input).await
             }
             "device" => {
                 self.plan_device(current_state, desired_input).await
             }
-            "environment" => {
-                self.plan_environment(current_state, desired_input).await
+            "software_set" => {
+                self.plan_software_set(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -48,14 +48,14 @@ impl<'a> Workspaces_thin_clientService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "software_set" => {
-                self.create_software_set(input).await
+            "environment" => {
+                self.create_environment(input).await
             }
             "device" => {
                 self.create_device(input).await
             }
-            "environment" => {
-                self.create_environment(input).await
+            "software_set" => {
+                self.create_software_set(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -72,14 +72,14 @@ impl<'a> Workspaces_thin_clientService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "software_set" => {
-                self.read_software_set(id).await
+            "environment" => {
+                self.read_environment(id).await
             }
             "device" => {
                 self.read_device(id).await
             }
-            "environment" => {
-                self.read_environment(id).await
+            "software_set" => {
+                self.read_software_set(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -97,14 +97,14 @@ impl<'a> Workspaces_thin_clientService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "software_set" => {
-                self.update_software_set(id, input).await
+            "environment" => {
+                self.update_environment(id, input).await
             }
             "device" => {
                 self.update_device(id, input).await
             }
-            "environment" => {
-                self.update_environment(id, input).await
+            "software_set" => {
+                self.update_software_set(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -121,14 +121,14 @@ impl<'a> Workspaces_thin_clientService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "software_set" => {
-                self.delete_software_set(id).await
+            "environment" => {
+                self.delete_environment(id).await
             }
             "device" => {
                 self.delete_device(id).await
             }
-            "environment" => {
-                self.delete_environment(id).await
+            "software_set" => {
+                self.delete_software_set(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -144,11 +144,11 @@ impl<'a> Workspaces_thin_clientService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Software_set resource operations
+    // Environment resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a software_set resource
-    async fn plan_software_set(
+    /// Plan changes to a environment resource
+    async fn plan_environment(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -163,22 +163,31 @@ impl<'a> Workspaces_thin_clientService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new software_set resource
-    async fn create_software_set(
+    /// Create a new environment resource
+    async fn create_environment(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let id = input.get_string("id")?;
-            let validation_status = input.get_string("validation_status")?;
+            let desired_software_set_id = input.get_optional_string("desired_software_set_id")?;
+            let device_creation_tags = input.get_optional_string("device_creation_tags")?;
+            let software_set_update_schedule = input.get_optional_string("software_set_update_schedule")?;
+            let maintenance_window = input.get_optional_string("maintenance_window")?;
+            let name = input.get_optional_string("name")?;
+            let desktop_arn = input.get_string("desktop_arn")?;
+            let software_set_update_mode = input.get_optional_string("software_set_update_mode")?;
+            let desktop_endpoint = input.get_optional_string("desktop_endpoint")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let kms_key_arn = input.get_optional_string("kms_key_arn")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.workspaces_thin_client_client
-            //     .create_software_set()
+            //     .create_environment()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -187,14 +196,23 @@ impl<'a> Workspaces_thin_clientService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("id", id.unwrap_or_default())
-                .with_field("validation_status", validation_status.unwrap_or_default())
+                .with_field("desired_software_set_id", desired_software_set_id.unwrap_or_default())
+                .with_field("device_creation_tags", device_creation_tags.unwrap_or_default())
+                .with_field("software_set_update_schedule", software_set_update_schedule.unwrap_or_default())
+                .with_field("maintenance_window", maintenance_window.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("desktop_arn", desktop_arn.unwrap_or_default())
+                .with_field("software_set_update_mode", software_set_update_mode.unwrap_or_default())
+                .with_field("desktop_endpoint", desktop_endpoint.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("kms_key_arn", kms_key_arn.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
 
-    /// Read a software_set resource
-    async fn read_software_set(
+    /// Read a environment resource
+    async fn read_environment(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -202,7 +220,7 @@ impl<'a> Workspaces_thin_clientService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.workspaces_thin_client_client
-            //     .describe_software_set()
+            //     .describe_environment()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -214,22 +232,31 @@ impl<'a> Workspaces_thin_clientService<'a> {
         })
     }
 
-    /// Update a software_set resource
-    async fn update_software_set(
+    /// Update a environment resource
+    async fn update_environment(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let id = input.get_string("id")?;
-            let validation_status = input.get_string("validation_status")?;
+            let desired_software_set_id = input.get_optional_string("desired_software_set_id")?;
+            let device_creation_tags = input.get_optional_string("device_creation_tags")?;
+            let software_set_update_schedule = input.get_optional_string("software_set_update_schedule")?;
+            let maintenance_window = input.get_optional_string("maintenance_window")?;
+            let name = input.get_optional_string("name")?;
+            let desktop_arn = input.get_string("desktop_arn")?;
+            let software_set_update_mode = input.get_optional_string("software_set_update_mode")?;
+            let desktop_endpoint = input.get_optional_string("desktop_endpoint")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let kms_key_arn = input.get_optional_string("kms_key_arn")?;
+            let tags = input.get_optional_string("tags")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.workspaces_thin_client_client
-            //     .update_software_set()
+            //     .update_environment()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -239,14 +266,23 @@ impl<'a> Workspaces_thin_clientService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("id", id.unwrap_or_default())
-                .with_field("validation_status", validation_status.unwrap_or_default())
+                .with_field("desired_software_set_id", desired_software_set_id.unwrap_or_default())
+                .with_field("device_creation_tags", device_creation_tags.unwrap_or_default())
+                .with_field("software_set_update_schedule", software_set_update_schedule.unwrap_or_default())
+                .with_field("maintenance_window", maintenance_window.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+                .with_field("desktop_arn", desktop_arn.unwrap_or_default())
+                .with_field("software_set_update_mode", software_set_update_mode.unwrap_or_default())
+                .with_field("desktop_endpoint", desktop_endpoint.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("kms_key_arn", kms_key_arn.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a software_set resource
-    async fn delete_software_set(
+    /// Delete a environment resource
+    async fn delete_environment(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -254,7 +290,7 @@ impl<'a> Workspaces_thin_clientService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.workspaces_thin_client_client
-            //     .delete_software_set()
+            //     .delete_environment()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -293,9 +329,9 @@ impl<'a> Workspaces_thin_clientService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let software_set_update_schedule = input.get_optional_string("software_set_update_schedule")?;
             let name = input.get_optional_string("name")?;
             let desired_software_set_id = input.get_optional_string("desired_software_set_id")?;
-            let software_set_update_schedule = input.get_optional_string("software_set_update_schedule")?;
             let id = input.get_string("id")?;
 
 
@@ -311,9 +347,9 @@ impl<'a> Workspaces_thin_clientService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("software_set_update_schedule", software_set_update_schedule.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
                 .with_field("desired_software_set_id", desired_software_set_id.unwrap_or_default())
-                .with_field("software_set_update_schedule", software_set_update_schedule.unwrap_or_default())
                 .with_field("id", id.unwrap_or_default())
             )
         })
@@ -348,9 +384,9 @@ impl<'a> Workspaces_thin_clientService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let software_set_update_schedule = input.get_optional_string("software_set_update_schedule")?;
             let name = input.get_optional_string("name")?;
             let desired_software_set_id = input.get_optional_string("desired_software_set_id")?;
-            let software_set_update_schedule = input.get_optional_string("software_set_update_schedule")?;
             let id = input.get_string("id")?;
 
 
@@ -367,9 +403,9 @@ impl<'a> Workspaces_thin_clientService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("software_set_update_schedule", software_set_update_schedule.unwrap_or_default())
                 .with_field("name", name.unwrap_or_default())
                 .with_field("desired_software_set_id", desired_software_set_id.unwrap_or_default())
-                .with_field("software_set_update_schedule", software_set_update_schedule.unwrap_or_default())
                 .with_field("id", id.unwrap_or_default())
             )
         })
@@ -396,11 +432,11 @@ impl<'a> Workspaces_thin_clientService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Environment resource operations
+    // Software_set resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a environment resource
-    async fn plan_environment(
+    /// Plan changes to a software_set resource
+    async fn plan_software_set(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -415,31 +451,22 @@ impl<'a> Workspaces_thin_clientService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new environment resource
-    async fn create_environment(
+    /// Create a new software_set resource
+    async fn create_software_set(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let maintenance_window = input.get_optional_string("maintenance_window")?;
-            let software_set_update_mode = input.get_optional_string("software_set_update_mode")?;
-            let desktop_arn = input.get_string("desktop_arn")?;
-            let desktop_endpoint = input.get_optional_string("desktop_endpoint")?;
-            let desired_software_set_id = input.get_optional_string("desired_software_set_id")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let device_creation_tags = input.get_optional_string("device_creation_tags")?;
-            let tags = input.get_optional_string("tags")?;
-            let kms_key_arn = input.get_optional_string("kms_key_arn")?;
-            let name = input.get_optional_string("name")?;
-            let software_set_update_schedule = input.get_optional_string("software_set_update_schedule")?;
+            let validation_status = input.get_string("validation_status")?;
+            let id = input.get_string("id")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.workspaces_thin_client_client
-            //     .create_environment()
+            //     .create_software_set()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -448,23 +475,14 @@ impl<'a> Workspaces_thin_clientService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("maintenance_window", maintenance_window.unwrap_or_default())
-                .with_field("software_set_update_mode", software_set_update_mode.unwrap_or_default())
-                .with_field("desktop_arn", desktop_arn.unwrap_or_default())
-                .with_field("desktop_endpoint", desktop_endpoint.unwrap_or_default())
-                .with_field("desired_software_set_id", desired_software_set_id.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("device_creation_tags", device_creation_tags.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("kms_key_arn", kms_key_arn.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("software_set_update_schedule", software_set_update_schedule.unwrap_or_default())
+                .with_field("validation_status", validation_status.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
             )
         })
     }
 
-    /// Read a environment resource
-    async fn read_environment(
+    /// Read a software_set resource
+    async fn read_software_set(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -472,7 +490,7 @@ impl<'a> Workspaces_thin_clientService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.workspaces_thin_client_client
-            //     .describe_environment()
+            //     .describe_software_set()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -484,31 +502,22 @@ impl<'a> Workspaces_thin_clientService<'a> {
         })
     }
 
-    /// Update a environment resource
-    async fn update_environment(
+    /// Update a software_set resource
+    async fn update_software_set(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let maintenance_window = input.get_optional_string("maintenance_window")?;
-            let software_set_update_mode = input.get_optional_string("software_set_update_mode")?;
-            let desktop_arn = input.get_string("desktop_arn")?;
-            let desktop_endpoint = input.get_optional_string("desktop_endpoint")?;
-            let desired_software_set_id = input.get_optional_string("desired_software_set_id")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let device_creation_tags = input.get_optional_string("device_creation_tags")?;
-            let tags = input.get_optional_string("tags")?;
-            let kms_key_arn = input.get_optional_string("kms_key_arn")?;
-            let name = input.get_optional_string("name")?;
-            let software_set_update_schedule = input.get_optional_string("software_set_update_schedule")?;
+            let validation_status = input.get_string("validation_status")?;
+            let id = input.get_string("id")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.workspaces_thin_client_client
-            //     .update_environment()
+            //     .update_software_set()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -518,23 +527,14 @@ impl<'a> Workspaces_thin_clientService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("maintenance_window", maintenance_window.unwrap_or_default())
-                .with_field("software_set_update_mode", software_set_update_mode.unwrap_or_default())
-                .with_field("desktop_arn", desktop_arn.unwrap_or_default())
-                .with_field("desktop_endpoint", desktop_endpoint.unwrap_or_default())
-                .with_field("desired_software_set_id", desired_software_set_id.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("device_creation_tags", device_creation_tags.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("kms_key_arn", kms_key_arn.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-                .with_field("software_set_update_schedule", software_set_update_schedule.unwrap_or_default())
+                .with_field("validation_status", validation_status.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a environment resource
-    async fn delete_environment(
+    /// Delete a software_set resource
+    async fn delete_software_set(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -542,7 +542,7 @@ impl<'a> Workspaces_thin_clientService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.workspaces_thin_client_client
-            //     .delete_environment()
+            //     .delete_software_set()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

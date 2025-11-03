@@ -24,7 +24,7 @@ impl<'a> Nodegroup_version<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, launch_template: Option<String>, client_request_token: Option<String>, cluster_name: Option<String>, version: Option<String>, release_version: Option<String>, force: Option<bool>, nodegroup_name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, nodegroup_name: Option<String>, version: Option<String>, release_version: Option<String>, launch_template: Option<String>, cluster_name: Option<String>, force: Option<bool>, client_request_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

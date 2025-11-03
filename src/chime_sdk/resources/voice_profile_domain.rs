@@ -21,7 +21,7 @@ impl<'a> Voice_profile_domain<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, client_request_token: Option<String>, server_side_encryption_configuration: String, tags: Option<Vec<String>>, name: String) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, name: String, server_side_encryption_configuration: String, description: Option<String>, client_request_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Voice_profile_domain<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, client_request_token: Option<String>, server_side_encryption_configuration: Option<String>, tags: Option<Vec<String>>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, name: Option<String>, server_side_encryption_configuration: Option<String>, description: Option<String>, client_request_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

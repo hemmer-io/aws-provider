@@ -21,7 +21,7 @@ impl<'a> Launch_action<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, parameters: Option<HashMap<String, String>>, action_version: String, optional: bool, resource_id: String, order: i64, active: bool, description: String, action_id: String, category: String, action_code: String, name: String) -> Result<String> {
+    pub async fn create(&self, name: String, order: i64, description: String, category: String, action_id: String, action_code: String, active: bool, resource_id: String, parameters: Option<HashMap<String, String>>, optional: bool, action_version: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

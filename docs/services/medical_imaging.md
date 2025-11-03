@@ -10,33 +10,40 @@
 
 The medical_imaging service provides access to 4 resource types:
 
-- [Dicom_import_job](#dicom_import_job) [R]
-- [Image_set](#image_set) [RD]
 - [Image_set_metadata](#image_set_metadata) [RU]
+- [Image_set](#image_set) [RD]
 - [Image_frame](#image_frame) [R]
+- [Dicom_import_job](#dicom_import_job) [R]
 
 ---
 
 ## Resources
 
 
-### Dicom_import_job
+### Image_set_metadata
 
-DICOMImportJob resource
+ImageSetMetadata resource
 
-**Operations**: ✅ Read
+**Operations**: ✅ Read ✅ Update
 
 #### Fields
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
+| `update_image_set_metadata_updates` | String | ✅ | <p>Update image set metadata updates.</p> |
+| `datastore_id` | String | ✅ | <p>The data store identifier.</p> |
+| `force` | bool |  | <p>Setting this flag will force the <code>UpdateImageSetMetadata</code> operation for the following attributes:</p> <ul> <li> <p> <code>Tag.StudyInstanceUID</code>, <code>Tag.SeriesInstanceUID</code>, <code>Tag.SOPInstanceUID</code>, and <code>Tag.StudyID</code> </p> </li> <li> <p>Adding, removing, or updating private tags for an individual SOP Instance</p> </li> </ul> |
+| `image_set_id` | String | ✅ | <p>The image set identifier.</p> |
+| `latest_version_id` | String | ✅ | <p>The latest image set version identifier.</p> |
 
 
 #### Outputs
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `job_properties` | String | <p>The properties of the import job.</p> |
+| `content_encoding` | String | <p>The compression format in which image set metadata attributes are returned.</p> |
+| `image_set_metadata_blob` | String | <p>The blob containing the aggregated metadata information for the image set.</p> |
+| `content_type` | String | <p>The format in which the study metadata is returned to the customer. Default is <code>text/plain</code>.</p> |
 
 
 #### Usage Example
@@ -50,9 +57,11 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Access dicom_import_job outputs
-dicom_import_job_id = dicom_import_job.id
-dicom_import_job_job_properties = dicom_import_job.job_properties
+# Access image_set_metadata outputs
+image_set_metadata_id = image_set_metadata.id
+image_set_metadata_content_encoding = image_set_metadata.content_encoding
+image_set_metadata_image_set_metadata_blob = image_set_metadata.image_set_metadata_blob
+image_set_metadata_content_type = image_set_metadata.content_type
 ```
 
 ---
@@ -74,18 +83,18 @@ ImageSet resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `image_set_state` | String | <p>The image set state.</p> |
-| `overrides` | String | <p>This object contains the details of any overrides used while creating a specific image set version. If an image set was copied or updated using the <code>force</code> flag, this object will contain the <code>forced</code> flag.</p> |
-| `created_at` | String | <p>The timestamp when image set properties were created.</p> |
-| `deleted_at` | String | <p>The timestamp when the image set properties were deleted.</p> |
 | `message` | String | <p>The error message thrown if an image set action fails.</p> |
-| `updated_at` | String | <p>The timestamp when image set properties were updated.</p> |
-| `version_id` | String | <p>The image set version identifier.</p> |
+| `image_set_id` | String | <p>The image set identifier.</p> |
 | `datastore_id` | String | <p>The data store identifier.</p> |
 | `image_set_workflow_status` | String | <p>The image set workflow status.</p> |
-| `image_set_arn` | String | <p>The Amazon Resource Name (ARN) assigned to the image set.</p> |
 | `is_primary` | bool | <p>The flag to determine whether the image set is primary or not.</p> |
-| `image_set_id` | String | <p>The image set identifier.</p> |
+| `created_at` | String | <p>The timestamp when image set properties were created.</p> |
+| `image_set_state` | String | <p>The image set state.</p> |
+| `image_set_arn` | String | <p>The Amazon Resource Name (ARN) assigned to the image set.</p> |
+| `updated_at` | String | <p>The timestamp when image set properties were updated.</p> |
+| `overrides` | String | <p>This object contains the details of any overrides used while creating a specific image set version. If an image set was copied or updated using the <code>force</code> flag, this object will contain the <code>forced</code> flag.</p> |
+| `deleted_at` | String | <p>The timestamp when the image set properties were deleted.</p> |
+| `version_id` | String | <p>The image set version identifier.</p> |
 
 
 #### Usage Example
@@ -101,65 +110,18 @@ provider = aws.AwsProvider {
 
 # Access image_set outputs
 image_set_id = image_set.id
-image_set_image_set_state = image_set.image_set_state
-image_set_overrides = image_set.overrides
-image_set_created_at = image_set.created_at
-image_set_deleted_at = image_set.deleted_at
 image_set_message = image_set.message
-image_set_updated_at = image_set.updated_at
-image_set_version_id = image_set.version_id
+image_set_image_set_id = image_set.image_set_id
 image_set_datastore_id = image_set.datastore_id
 image_set_image_set_workflow_status = image_set.image_set_workflow_status
-image_set_image_set_arn = image_set.image_set_arn
 image_set_is_primary = image_set.is_primary
-image_set_image_set_id = image_set.image_set_id
-```
-
----
-
-
-### Image_set_metadata
-
-ImageSetMetadata resource
-
-**Operations**: ✅ Read ✅ Update
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `force` | bool |  | <p>Setting this flag will force the <code>UpdateImageSetMetadata</code> operation for the following attributes:</p> <ul> <li> <p> <code>Tag.StudyInstanceUID</code>, <code>Tag.SeriesInstanceUID</code>, <code>Tag.SOPInstanceUID</code>, and <code>Tag.StudyID</code> </p> </li> <li> <p>Adding, removing, or updating private tags for an individual SOP Instance</p> </li> </ul> |
-| `latest_version_id` | String | ✅ | <p>The latest image set version identifier.</p> |
-| `update_image_set_metadata_updates` | String | ✅ | <p>Update image set metadata updates.</p> |
-| `datastore_id` | String | ✅ | <p>The data store identifier.</p> |
-| `image_set_id` | String | ✅ | <p>The image set identifier.</p> |
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `image_set_metadata_blob` | String | <p>The blob containing the aggregated metadata information for the image set.</p> |
-| `content_encoding` | String | <p>The compression format in which image set metadata attributes are returned.</p> |
-| `content_type` | String | <p>The format in which the study metadata is returned to the customer. Default is <code>text/plain</code>.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access image_set_metadata outputs
-image_set_metadata_id = image_set_metadata.id
-image_set_metadata_image_set_metadata_blob = image_set_metadata.image_set_metadata_blob
-image_set_metadata_content_encoding = image_set_metadata.content_encoding
-image_set_metadata_content_type = image_set_metadata.content_type
+image_set_created_at = image_set.created_at
+image_set_image_set_state = image_set.image_set_state
+image_set_image_set_arn = image_set.image_set_arn
+image_set_updated_at = image_set.updated_at
+image_set_overrides = image_set.overrides
+image_set_deleted_at = image_set.deleted_at
+image_set_version_id = image_set.version_id
 ```
 
 ---
@@ -205,6 +167,44 @@ image_frame_content_type = image_frame.content_type
 ---
 
 
+### Dicom_import_job
+
+DICOMImportJob resource
+
+**Operations**: ✅ Read
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `job_properties` | String | <p>The properties of the import job.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access dicom_import_job outputs
+dicom_import_job_id = dicom_import_job.id
+dicom_import_job_job_properties = dicom_import_job.job_properties
+```
+
+---
+
+
 
 ## Common Operations
 
@@ -217,12 +217,24 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create multiple dicom_import_job resources
-dicom_import_job_0 = provider.medical_imaging.Dicom_import_job {
+# Create multiple image_set_metadata resources
+image_set_metadata_0 = provider.medical_imaging.Image_set_metadata {
+    update_image_set_metadata_updates = "value-0"
+    datastore_id = "value-0"
+    image_set_id = "value-0"
+    latest_version_id = "value-0"
 }
-dicom_import_job_1 = provider.medical_imaging.Dicom_import_job {
+image_set_metadata_1 = provider.medical_imaging.Image_set_metadata {
+    update_image_set_metadata_updates = "value-1"
+    datastore_id = "value-1"
+    image_set_id = "value-1"
+    latest_version_id = "value-1"
 }
-dicom_import_job_2 = provider.medical_imaging.Dicom_import_job {
+image_set_metadata_2 = provider.medical_imaging.Image_set_metadata {
+    update_image_set_metadata_updates = "value-2"
+    datastore_id = "value-2"
+    image_set_id = "value-2"
+    latest_version_id = "value-2"
 }
 ```
 
@@ -231,7 +243,11 @@ dicom_import_job_2 = provider.medical_imaging.Dicom_import_job {
 ```kcl
 # Only create in production
 if environment == "production":
-    dicom_import_job = provider.medical_imaging.Dicom_import_job {
+    image_set_metadata = provider.medical_imaging.Image_set_metadata {
+        update_image_set_metadata_updates = "production-value"
+        datastore_id = "production-value"
+        image_set_id = "production-value"
+        latest_version_id = "production-value"
     }
 ```
 

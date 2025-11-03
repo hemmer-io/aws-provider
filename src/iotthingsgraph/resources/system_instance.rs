@@ -21,7 +21,7 @@ impl<'a> System_instance<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, greengrass_group_name: Option<String>, target: String, s3_bucket_name: Option<String>, metrics_configuration: Option<String>, tags: Option<Vec<String>>, flow_actions_role_arn: Option<String>, definition: String) -> Result<String> {
+    pub async fn create(&self, target: String, definition: String, greengrass_group_name: Option<String>, s3_bucket_name: Option<String>, flow_actions_role_arn: Option<String>, metrics_configuration: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

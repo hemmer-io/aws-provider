@@ -21,7 +21,7 @@ impl<'a> Detector<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<HashMap<String, String>>, features: Option<Vec<String>>, client_token: Option<String>, data_sources: Option<String>, finding_publishing_frequency: Option<String>, enable: bool) -> Result<String> {
+    pub async fn create(&self, client_token: Option<String>, enable: bool, features: Option<Vec<String>>, finding_publishing_frequency: Option<String>, data_sources: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Detector<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, features: Option<Vec<String>>, client_token: Option<String>, data_sources: Option<String>, finding_publishing_frequency: Option<String>, enable: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, client_token: Option<String>, enable: Option<bool>, features: Option<Vec<String>>, finding_publishing_frequency: Option<String>, data_sources: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

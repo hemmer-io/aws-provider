@@ -38,7 +38,7 @@ impl<'a> Instance_attribute<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, value: Option<String>, instance_id: Option<String>, client_token: Option<String>, attribute_type: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, value: Option<String>, attribute_type: Option<String>, instance_id: Option<String>, client_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

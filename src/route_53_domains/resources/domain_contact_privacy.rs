@@ -24,7 +24,7 @@ impl<'a> Domain_contact_privacy<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, registrant_privacy: Option<bool>, tech_privacy: Option<bool>, admin_privacy: Option<bool>, domain_name: Option<String>, billing_privacy: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, domain_name: Option<String>, tech_privacy: Option<bool>, admin_privacy: Option<bool>, billing_privacy: Option<bool>, registrant_privacy: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

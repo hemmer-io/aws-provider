@@ -21,7 +21,7 @@ impl<'a> Subscription_target<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, name: String, type: String, environment_identifier: String, subscription_target_config: Vec<String>, manage_access_role: String, provider: Option<String>, client_token: Option<String>, domain_identifier: String, applicable_asset_types: Vec<String>, authorized_principals: Vec<String>) -> Result<String> {
+    pub async fn create(&self, manage_access_role: String, type: String, applicable_asset_types: Vec<String>, environment_identifier: String, name: String, domain_identifier: String, authorized_principals: Vec<String>, provider: Option<String>, subscription_target_config: Vec<String>, client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Subscription_target<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, name: Option<String>, type: Option<String>, environment_identifier: Option<String>, subscription_target_config: Option<Vec<String>>, manage_access_role: Option<String>, provider: Option<String>, client_token: Option<String>, domain_identifier: Option<String>, applicable_asset_types: Option<Vec<String>>, authorized_principals: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, manage_access_role: Option<String>, type: Option<String>, applicable_asset_types: Option<Vec<String>>, environment_identifier: Option<String>, name: Option<String>, domain_identifier: Option<String>, authorized_principals: Option<Vec<String>>, provider: Option<String>, subscription_target_config: Option<Vec<String>>, client_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

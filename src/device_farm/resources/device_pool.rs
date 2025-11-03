@@ -21,7 +21,7 @@ impl<'a> Device_pool<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, max_devices: Option<i64>, description: Option<String>, project_arn: String, name: String, rules: Vec<String>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, name: String, project_arn: String, max_devices: Option<i64>, rules: Vec<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Device_pool<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, max_devices: Option<i64>, description: Option<String>, project_arn: Option<String>, name: Option<String>, rules: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, name: Option<String>, project_arn: Option<String>, max_devices: Option<i64>, rules: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

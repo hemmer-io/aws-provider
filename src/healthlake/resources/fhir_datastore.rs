@@ -21,7 +21,7 @@ impl<'a> Fhir_datastore<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, preload_data_config: Option<String>, client_token: Option<String>, tags: Option<Vec<String>>, identity_provider_configuration: Option<String>, sse_configuration: Option<String>, datastore_name: Option<String>, datastore_type_version: String) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, identity_provider_configuration: Option<String>, preload_data_config: Option<String>, sse_configuration: Option<String>, datastore_name: Option<String>, client_token: Option<String>, datastore_type_version: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

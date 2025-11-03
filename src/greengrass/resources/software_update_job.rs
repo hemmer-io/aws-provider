@@ -21,7 +21,7 @@ impl<'a> Software_update_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, amzn_client_token: Option<String>, update_targets_architecture: String, s3_url_signer_role: String, update_agent_log_level: Option<String>, software_to_update: String, update_targets_operating_system: String, update_targets: Vec<String>) -> Result<String> {
+    pub async fn create(&self, update_agent_log_level: Option<String>, update_targets_operating_system: String, software_to_update: String, s3_url_signer_role: String, update_targets: Vec<String>, update_targets_architecture: String, amzn_client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

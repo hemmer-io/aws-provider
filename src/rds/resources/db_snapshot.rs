@@ -21,7 +21,7 @@ impl<'a> Db_snapshot<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, db_instance_identifier: String, db_snapshot_identifier: String, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, tags: Option<Vec<String>>, db_snapshot_identifier: String, db_instance_identifier: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

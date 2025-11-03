@@ -21,7 +21,7 @@ impl<'a> Hsm_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, hsm_configuration_identifier: String, hsm_ip_address: String, hsm_partition_password: String, description: String, hsm_partition_name: String, hsm_server_public_certificate: String) -> Result<String> {
+    pub async fn create(&self, hsm_ip_address: String, hsm_partition_name: String, hsm_server_public_certificate: String, hsm_configuration_identifier: String, tags: Option<Vec<String>>, hsm_partition_password: String, description: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

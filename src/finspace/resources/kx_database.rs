@@ -21,7 +21,7 @@ impl<'a> Kx_database<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: String, database_name: String, tags: Option<HashMap<String, String>>, environment_id: String, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, description: Option<String>, tags: Option<HashMap<String, String>>, client_token: String, environment_id: String, database_name: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Kx_database<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, client_token: Option<String>, database_name: Option<String>, tags: Option<HashMap<String, String>>, environment_id: Option<String>, description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, description: Option<String>, tags: Option<HashMap<String, String>>, client_token: Option<String>, environment_id: Option<String>, database_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -24,7 +24,7 @@ impl<'a> Configuration_definition<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, manager_arn: Option<String>, local_deployment_administration_role_arn: Option<String>, local_deployment_execution_role_name: Option<String>, type_version: Option<String>, id: Option<String>, parameters: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, manager_arn: Option<String>, id: Option<String>, type_version: Option<String>, parameters: Option<HashMap<String, String>>, local_deployment_execution_role_name: Option<String>, local_deployment_administration_role_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

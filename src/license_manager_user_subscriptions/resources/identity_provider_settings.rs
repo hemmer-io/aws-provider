@@ -24,7 +24,7 @@ impl<'a> Identity_provider_settings<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, product: Option<String>, identity_provider_arn: Option<String>, update_settings: Option<String>, identity_provider: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, update_settings: Option<String>, identity_provider: Option<String>, identity_provider_arn: Option<String>, product: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

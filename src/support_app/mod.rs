@@ -24,11 +24,11 @@ impl<'a> Support_appService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "slack_channel_configuration" => {
-                self.plan_slack_channel_configuration(current_state, desired_input).await
-            }
             "account_alias" => {
                 self.plan_account_alias(current_state, desired_input).await
+            }
+            "slack_channel_configuration" => {
+                self.plan_slack_channel_configuration(current_state, desired_input).await
             }
             "slack_workspace_configuration" => {
                 self.plan_slack_workspace_configuration(current_state, desired_input).await
@@ -48,11 +48,11 @@ impl<'a> Support_appService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "slack_channel_configuration" => {
-                self.create_slack_channel_configuration(input).await
-            }
             "account_alias" => {
                 self.create_account_alias(input).await
+            }
+            "slack_channel_configuration" => {
+                self.create_slack_channel_configuration(input).await
             }
             "slack_workspace_configuration" => {
                 self.create_slack_workspace_configuration(input).await
@@ -72,11 +72,11 @@ impl<'a> Support_appService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "slack_channel_configuration" => {
-                self.read_slack_channel_configuration(id).await
-            }
             "account_alias" => {
                 self.read_account_alias(id).await
+            }
+            "slack_channel_configuration" => {
+                self.read_slack_channel_configuration(id).await
             }
             "slack_workspace_configuration" => {
                 self.read_slack_workspace_configuration(id).await
@@ -97,11 +97,11 @@ impl<'a> Support_appService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "slack_channel_configuration" => {
-                self.update_slack_channel_configuration(id, input).await
-            }
             "account_alias" => {
                 self.update_account_alias(id, input).await
+            }
+            "slack_channel_configuration" => {
+                self.update_slack_channel_configuration(id, input).await
             }
             "slack_workspace_configuration" => {
                 self.update_slack_workspace_configuration(id, input).await
@@ -121,11 +121,11 @@ impl<'a> Support_appService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "slack_channel_configuration" => {
-                self.delete_slack_channel_configuration(id).await
-            }
             "account_alias" => {
                 self.delete_account_alias(id).await
+            }
+            "slack_channel_configuration" => {
+                self.delete_slack_channel_configuration(id).await
             }
             "slack_workspace_configuration" => {
                 self.delete_slack_workspace_configuration(id).await
@@ -141,152 +141,6 @@ impl<'a> Support_appService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
-
-
-    // ------------------------------------------------------------------------
-    // Slack_channel_configuration resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a slack_channel_configuration resource
-    async fn plan_slack_channel_configuration(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new slack_channel_configuration resource
-    async fn create_slack_channel_configuration(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let notify_on_create_or_reopen_case = input.get_optional_string("notify_on_create_or_reopen_case")?;
-            let channel_role_arn = input.get_string("channel_role_arn")?;
-            let team_id = input.get_string("team_id")?;
-            let notify_on_add_correspondence_to_case = input.get_optional_string("notify_on_add_correspondence_to_case")?;
-            let channel_name = input.get_optional_string("channel_name")?;
-            let channel_id = input.get_string("channel_id")?;
-            let notify_on_case_severity = input.get_string("notify_on_case_severity")?;
-            let notify_on_resolve_case = input.get_optional_string("notify_on_resolve_case")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.support_app_client
-            //     .create_slack_channel_configuration()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("notify_on_create_or_reopen_case", notify_on_create_or_reopen_case.unwrap_or_default())
-                .with_field("channel_role_arn", channel_role_arn.unwrap_or_default())
-                .with_field("team_id", team_id.unwrap_or_default())
-                .with_field("notify_on_add_correspondence_to_case", notify_on_add_correspondence_to_case.unwrap_or_default())
-                .with_field("channel_name", channel_name.unwrap_or_default())
-                .with_field("channel_id", channel_id.unwrap_or_default())
-                .with_field("notify_on_case_severity", notify_on_case_severity.unwrap_or_default())
-                .with_field("notify_on_resolve_case", notify_on_resolve_case.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a slack_channel_configuration resource
-    async fn read_slack_channel_configuration(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.support_app_client
-            //     .describe_slack_channel_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a slack_channel_configuration resource
-    async fn update_slack_channel_configuration(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let notify_on_create_or_reopen_case = input.get_optional_string("notify_on_create_or_reopen_case")?;
-            let channel_role_arn = input.get_string("channel_role_arn")?;
-            let team_id = input.get_string("team_id")?;
-            let notify_on_add_correspondence_to_case = input.get_optional_string("notify_on_add_correspondence_to_case")?;
-            let channel_name = input.get_optional_string("channel_name")?;
-            let channel_id = input.get_string("channel_id")?;
-            let notify_on_case_severity = input.get_string("notify_on_case_severity")?;
-            let notify_on_resolve_case = input.get_optional_string("notify_on_resolve_case")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.support_app_client
-            //     .update_slack_channel_configuration()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("notify_on_create_or_reopen_case", notify_on_create_or_reopen_case.unwrap_or_default())
-                .with_field("channel_role_arn", channel_role_arn.unwrap_or_default())
-                .with_field("team_id", team_id.unwrap_or_default())
-                .with_field("notify_on_add_correspondence_to_case", notify_on_add_correspondence_to_case.unwrap_or_default())
-                .with_field("channel_name", channel_name.unwrap_or_default())
-                .with_field("channel_id", channel_id.unwrap_or_default())
-                .with_field("notify_on_case_severity", notify_on_case_severity.unwrap_or_default())
-                .with_field("notify_on_resolve_case", notify_on_resolve_case.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a slack_channel_configuration resource
-    async fn delete_slack_channel_configuration(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.support_app_client
-            //     .delete_slack_channel_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
 
 
     // ------------------------------------------------------------------------
@@ -397,6 +251,152 @@ impl<'a> Support_appService<'a> {
             // Example:
             // self.provider.support_app_client
             //     .delete_account_alias()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Slack_channel_configuration resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a slack_channel_configuration resource
+    async fn plan_slack_channel_configuration(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new slack_channel_configuration resource
+    async fn create_slack_channel_configuration(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let channel_id = input.get_string("channel_id")?;
+            let notify_on_case_severity = input.get_string("notify_on_case_severity")?;
+            let channel_name = input.get_optional_string("channel_name")?;
+            let team_id = input.get_string("team_id")?;
+            let notify_on_resolve_case = input.get_optional_string("notify_on_resolve_case")?;
+            let notify_on_create_or_reopen_case = input.get_optional_string("notify_on_create_or_reopen_case")?;
+            let channel_role_arn = input.get_string("channel_role_arn")?;
+            let notify_on_add_correspondence_to_case = input.get_optional_string("notify_on_add_correspondence_to_case")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.support_app_client
+            //     .create_slack_channel_configuration()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("channel_id", channel_id.unwrap_or_default())
+                .with_field("notify_on_case_severity", notify_on_case_severity.unwrap_or_default())
+                .with_field("channel_name", channel_name.unwrap_or_default())
+                .with_field("team_id", team_id.unwrap_or_default())
+                .with_field("notify_on_resolve_case", notify_on_resolve_case.unwrap_or_default())
+                .with_field("notify_on_create_or_reopen_case", notify_on_create_or_reopen_case.unwrap_or_default())
+                .with_field("channel_role_arn", channel_role_arn.unwrap_or_default())
+                .with_field("notify_on_add_correspondence_to_case", notify_on_add_correspondence_to_case.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a slack_channel_configuration resource
+    async fn read_slack_channel_configuration(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.support_app_client
+            //     .describe_slack_channel_configuration()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a slack_channel_configuration resource
+    async fn update_slack_channel_configuration(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let channel_id = input.get_string("channel_id")?;
+            let notify_on_case_severity = input.get_string("notify_on_case_severity")?;
+            let channel_name = input.get_optional_string("channel_name")?;
+            let team_id = input.get_string("team_id")?;
+            let notify_on_resolve_case = input.get_optional_string("notify_on_resolve_case")?;
+            let notify_on_create_or_reopen_case = input.get_optional_string("notify_on_create_or_reopen_case")?;
+            let channel_role_arn = input.get_string("channel_role_arn")?;
+            let notify_on_add_correspondence_to_case = input.get_optional_string("notify_on_add_correspondence_to_case")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.support_app_client
+            //     .update_slack_channel_configuration()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("channel_id", channel_id.unwrap_or_default())
+                .with_field("notify_on_case_severity", notify_on_case_severity.unwrap_or_default())
+                .with_field("channel_name", channel_name.unwrap_or_default())
+                .with_field("team_id", team_id.unwrap_or_default())
+                .with_field("notify_on_resolve_case", notify_on_resolve_case.unwrap_or_default())
+                .with_field("notify_on_create_or_reopen_case", notify_on_create_or_reopen_case.unwrap_or_default())
+                .with_field("channel_role_arn", channel_role_arn.unwrap_or_default())
+                .with_field("notify_on_add_correspondence_to_case", notify_on_add_correspondence_to_case.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a slack_channel_configuration resource
+    async fn delete_slack_channel_configuration(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.support_app_client
+            //     .delete_slack_channel_configuration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

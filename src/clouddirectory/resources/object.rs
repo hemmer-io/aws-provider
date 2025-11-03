@@ -21,7 +21,7 @@ impl<'a> Object<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, parent_reference: Option<String>, directory_arn: String, object_attribute_list: Option<Vec<String>>, schema_facets: Vec<String>, link_name: Option<String>) -> Result<String> {
+    pub async fn create(&self, schema_facets: Vec<String>, object_attribute_list: Option<Vec<String>>, parent_reference: Option<String>, directory_arn: String, link_name: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

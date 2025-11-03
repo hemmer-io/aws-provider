@@ -21,7 +21,7 @@ impl<'a> User<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, password: Option<String>, identity_info: Option<String>, phone_config: String, security_profile_ids: Vec<String>, instance_id: String, tags: Option<HashMap<String, String>>, directory_user_id: Option<String>, username: String, routing_profile_id: String, hierarchy_group_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, instance_id: String, routing_profile_id: String, tags: Option<HashMap<String, String>>, directory_user_id: Option<String>, security_profile_ids: Vec<String>, username: String, identity_info: Option<String>, password: Option<String>, hierarchy_group_id: Option<String>, phone_config: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

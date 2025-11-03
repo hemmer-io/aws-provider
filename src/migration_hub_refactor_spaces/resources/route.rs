@@ -21,7 +21,7 @@ impl<'a> Route<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, application_identifier: String, service_identifier: String, uri_path_route: Option<String>, client_token: Option<String>, route_type: String, default_route: Option<String>, tags: Option<HashMap<String, String>>, environment_identifier: String) -> Result<String> {
+    pub async fn create(&self, tags: Option<HashMap<String, String>>, default_route: Option<String>, environment_identifier: String, application_identifier: String, route_type: String, client_token: Option<String>, service_identifier: String, uri_path_route: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Route<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, application_identifier: Option<String>, service_identifier: Option<String>, uri_path_route: Option<String>, client_token: Option<String>, route_type: Option<String>, default_route: Option<String>, tags: Option<HashMap<String, String>>, environment_identifier: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, tags: Option<HashMap<String, String>>, default_route: Option<String>, environment_identifier: Option<String>, application_identifier: Option<String>, route_type: Option<String>, client_token: Option<String>, service_identifier: Option<String>, uri_path_route: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Microsoft_teams_channel_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, logging_level: Option<String>, channel_name: Option<String>, sns_topic_arns: Option<Vec<String>>, guardrail_policy_arns: Option<Vec<String>>, iam_role_arn: String, tenant_id: String, configuration_name: String, tags: Option<Vec<String>>, channel_id: String, team_id: String, team_name: Option<String>, user_authorization_required: Option<bool>) -> Result<String> {
+    pub async fn create(&self, team_name: Option<String>, tenant_id: String, guardrail_policy_arns: Option<Vec<String>>, iam_role_arn: String, user_authorization_required: Option<bool>, tags: Option<Vec<String>>, team_id: String, channel_id: String, configuration_name: String, sns_topic_arns: Option<Vec<String>>, logging_level: Option<String>, channel_name: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Microsoft_teams_channel_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, logging_level: Option<String>, channel_name: Option<String>, sns_topic_arns: Option<Vec<String>>, guardrail_policy_arns: Option<Vec<String>>, iam_role_arn: Option<String>, tenant_id: Option<String>, configuration_name: Option<String>, tags: Option<Vec<String>>, channel_id: Option<String>, team_id: Option<String>, team_name: Option<String>, user_authorization_required: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, team_name: Option<String>, tenant_id: Option<String>, guardrail_policy_arns: Option<Vec<String>>, iam_role_arn: Option<String>, user_authorization_required: Option<bool>, tags: Option<Vec<String>>, team_id: Option<String>, channel_id: Option<String>, configuration_name: Option<String>, sns_topic_arns: Option<Vec<String>>, logging_level: Option<String>, channel_name: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Traffic_policy_instance<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, ttl: i64, hosted_zone_id: String, name: String, traffic_policy_id: String, traffic_policy_version: i64) -> Result<String> {
+    pub async fn create(&self, name: String, hosted_zone_id: String, traffic_policy_version: i64, traffic_policy_id: String, ttl: i64) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Traffic_policy_instance<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, ttl: Option<i64>, hosted_zone_id: Option<String>, name: Option<String>, traffic_policy_id: Option<String>, traffic_policy_version: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, name: Option<String>, hosted_zone_id: Option<String>, traffic_policy_version: Option<i64>, traffic_policy_id: Option<String>, ttl: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

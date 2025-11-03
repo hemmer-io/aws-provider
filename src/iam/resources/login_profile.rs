@@ -21,7 +21,7 @@ impl<'a> Login_profile<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, user_name: Option<String>, password: Option<String>, password_reset_required: Option<bool>) -> Result<String> {
+    pub async fn create(&self, password: Option<String>, user_name: Option<String>, password_reset_required: Option<bool>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Login_profile<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, user_name: Option<String>, password: Option<String>, password_reset_required: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, password: Option<String>, user_name: Option<String>, password_reset_required: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

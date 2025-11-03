@@ -282,8 +282,8 @@ impl<'a> Route53_recovery_clusterService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let update_routing_control_state_entries = input.get_string("update_routing_control_state_entries")?;
             let safety_rules_to_override = input.get_optional_string("safety_rules_to_override")?;
+            let update_routing_control_state_entries = input.get_string("update_routing_control_state_entries")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -298,8 +298,8 @@ impl<'a> Route53_recovery_clusterService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("update_routing_control_state_entries", update_routing_control_state_entries.unwrap_or_default())
                 .with_field("safety_rules_to_override", safety_rules_to_override.unwrap_or_default())
+                .with_field("update_routing_control_state_entries", update_routing_control_state_entries.unwrap_or_default())
             )
         })
     }
@@ -333,8 +333,8 @@ impl<'a> Route53_recovery_clusterService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let update_routing_control_state_entries = input.get_string("update_routing_control_state_entries")?;
             let safety_rules_to_override = input.get_optional_string("safety_rules_to_override")?;
+            let update_routing_control_state_entries = input.get_string("update_routing_control_state_entries")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -350,8 +350,8 @@ impl<'a> Route53_recovery_clusterService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("update_routing_control_state_entries", update_routing_control_state_entries.unwrap_or_default())
                 .with_field("safety_rules_to_override", safety_rules_to_override.unwrap_or_default())
+                .with_field("update_routing_control_state_entries", update_routing_control_state_entries.unwrap_or_default())
             )
         })
     }

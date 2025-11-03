@@ -21,7 +21,7 @@ impl<'a> Subnet_group<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, subnet_ids: Vec<String>, subnet_group_name: String, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, subnet_group_name: String, description: Option<String>, subnet_ids: Vec<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Subnet_group<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, subnet_ids: Option<Vec<String>>, subnet_group_name: Option<String>, description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, subnet_group_name: Option<String>, description: Option<String>, subnet_ids: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

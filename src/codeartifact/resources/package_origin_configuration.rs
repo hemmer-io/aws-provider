@@ -21,7 +21,7 @@ impl<'a> Package_origin_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, repository: String, namespace: Option<String>, package: String, restrictions: String, format: String, domain: String, domain_owner: Option<String>) -> Result<String> {
+    pub async fn create(&self, domain: String, repository: String, namespace: Option<String>, format: String, domain_owner: Option<String>, package: String, restrictions: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

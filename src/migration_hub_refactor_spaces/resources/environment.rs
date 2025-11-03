@@ -21,7 +21,7 @@ impl<'a> Environment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<HashMap<String, String>>, description: Option<String>, name: String, network_fabric_type: String, client_token: Option<String>) -> Result<String> {
+    pub async fn create(&self, client_token: Option<String>, network_fabric_type: String, description: Option<String>, name: String, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -24,7 +24,7 @@ impl<'a> Auto_management<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, notification_arn: Option<String>, exclusion_list: Option<HashMap<String, Vec<String>>>, opt_in_type: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, exclusion_list: Option<HashMap<String, Vec<String>>>, notification_arn: Option<String>, opt_in_type: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

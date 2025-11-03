@@ -21,7 +21,7 @@ impl<'a> Replication_task<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, target_endpoint_arn: String, cdc_start_time: Option<String>, replication_task_settings: Option<String>, cdc_start_position: Option<String>, cdc_stop_position: Option<String>, task_data: Option<String>, replication_task_identifier: String, replication_instance_arn: String, source_endpoint_arn: String, table_mappings: String, tags: Option<Vec<String>>, resource_identifier: Option<String>, migration_type: String) -> Result<String> {
+    pub async fn create(&self, cdc_start_time: Option<String>, migration_type: String, tags: Option<Vec<String>>, replication_task_identifier: String, task_data: Option<String>, cdc_stop_position: Option<String>, target_endpoint_arn: String, table_mappings: String, resource_identifier: Option<String>, replication_task_settings: Option<String>, cdc_start_position: Option<String>, source_endpoint_arn: String, replication_instance_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

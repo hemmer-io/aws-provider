@@ -21,7 +21,7 @@ impl<'a> Hours_of_operation_override<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, config: Vec<String>, effective_till: String, hours_of_operation_id: String, effective_from: String, name: String, instance_id: String, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, effective_till: String, name: String, config: Vec<String>, effective_from: String, hours_of_operation_id: String, description: Option<String>, instance_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Hours_of_operation_override<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, config: Option<Vec<String>>, effective_till: Option<String>, hours_of_operation_id: Option<String>, effective_from: Option<String>, name: Option<String>, instance_id: Option<String>, description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, effective_till: Option<String>, name: Option<String>, config: Option<Vec<String>>, effective_from: Option<String>, hours_of_operation_id: Option<String>, description: Option<String>, instance_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

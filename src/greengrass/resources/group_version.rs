@@ -21,7 +21,7 @@ impl<'a> Group_version<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, logger_definition_version_arn: Option<String>, core_definition_version_arn: Option<String>, device_definition_version_arn: Option<String>, resource_definition_version_arn: Option<String>, amzn_client_token: Option<String>, subscription_definition_version_arn: Option<String>, connector_definition_version_arn: Option<String>, function_definition_version_arn: Option<String>, group_id: String) -> Result<String> {
+    pub async fn create(&self, device_definition_version_arn: Option<String>, group_id: String, amzn_client_token: Option<String>, function_definition_version_arn: Option<String>, core_definition_version_arn: Option<String>, connector_definition_version_arn: Option<String>, resource_definition_version_arn: Option<String>, subscription_definition_version_arn: Option<String>, logger_definition_version_arn: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

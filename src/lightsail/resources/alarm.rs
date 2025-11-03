@@ -21,7 +21,7 @@ impl<'a> Alarm<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, notification_triggers: Option<Vec<String>>, comparison_operator: String, metric_name: String, datapoints_to_alarm: Option<i64>, alarm_name: String, contact_protocols: Option<Vec<String>>, threshold: f64, monitored_resource_name: String, notification_enabled: Option<bool>, treat_missing_data: Option<String>, evaluation_periods: i64) -> Result<String> {
+    pub async fn create(&self, alarm_name: String, metric_name: String, comparison_operator: String, notification_triggers: Option<Vec<String>>, monitored_resource_name: String, evaluation_periods: i64, contact_protocols: Option<Vec<String>>, notification_enabled: Option<bool>, threshold: f64, datapoints_to_alarm: Option<i64>, treat_missing_data: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

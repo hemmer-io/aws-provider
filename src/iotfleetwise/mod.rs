@@ -30,11 +30,11 @@ impl<'a> IotfleetwiseService<'a> {
             "register_account_status" => {
                 self.plan_register_account_status(current_state, desired_input).await
             }
-            "encryption_configuration" => {
-                self.plan_encryption_configuration(current_state, desired_input).await
-            }
             "vehicle_status" => {
                 self.plan_vehicle_status(current_state, desired_input).await
+            }
+            "encryption_configuration" => {
+                self.plan_encryption_configuration(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -57,11 +57,11 @@ impl<'a> IotfleetwiseService<'a> {
             "register_account_status" => {
                 self.create_register_account_status(input).await
             }
-            "encryption_configuration" => {
-                self.create_encryption_configuration(input).await
-            }
             "vehicle_status" => {
                 self.create_vehicle_status(input).await
+            }
+            "encryption_configuration" => {
+                self.create_encryption_configuration(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -84,11 +84,11 @@ impl<'a> IotfleetwiseService<'a> {
             "register_account_status" => {
                 self.read_register_account_status(id).await
             }
-            "encryption_configuration" => {
-                self.read_encryption_configuration(id).await
-            }
             "vehicle_status" => {
                 self.read_vehicle_status(id).await
+            }
+            "encryption_configuration" => {
+                self.read_encryption_configuration(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -112,11 +112,11 @@ impl<'a> IotfleetwiseService<'a> {
             "register_account_status" => {
                 self.update_register_account_status(id, input).await
             }
-            "encryption_configuration" => {
-                self.update_encryption_configuration(id, input).await
-            }
             "vehicle_status" => {
                 self.update_vehicle_status(id, input).await
+            }
+            "encryption_configuration" => {
+                self.update_encryption_configuration(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -139,11 +139,11 @@ impl<'a> IotfleetwiseService<'a> {
             "register_account_status" => {
                 self.delete_register_account_status(id).await
             }
-            "encryption_configuration" => {
-                self.delete_encryption_configuration(id).await
-            }
             "vehicle_status" => {
                 self.delete_vehicle_status(id).await
+            }
+            "encryption_configuration" => {
+                self.delete_encryption_configuration(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -391,6 +391,120 @@ impl<'a> IotfleetwiseService<'a> {
 
 
     // ------------------------------------------------------------------------
+    // Vehicle_status resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a vehicle_status resource
+    async fn plan_vehicle_status(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new vehicle_status resource
+    async fn create_vehicle_status(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.iotfleetwise_client
+            //     .create_vehicle_status()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+            )
+        })
+    }
+
+    /// Read a vehicle_status resource
+    async fn read_vehicle_status(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.iotfleetwise_client
+            //     .describe_vehicle_status()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a vehicle_status resource
+    async fn update_vehicle_status(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.iotfleetwise_client
+            //     .update_vehicle_status()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+            )
+        })
+    }
+
+    /// Delete a vehicle_status resource
+    async fn delete_vehicle_status(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.iotfleetwise_client
+            //     .delete_vehicle_status()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
     // Encryption_configuration resource operations
     // ------------------------------------------------------------------------
 
@@ -502,120 +616,6 @@ impl<'a> IotfleetwiseService<'a> {
             // Example:
             // self.provider.iotfleetwise_client
             //     .delete_encryption_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Vehicle_status resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a vehicle_status resource
-    async fn plan_vehicle_status(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new vehicle_status resource
-    async fn create_vehicle_status(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.iotfleetwise_client
-            //     .create_vehicle_status()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-            )
-        })
-    }
-
-    /// Read a vehicle_status resource
-    async fn read_vehicle_status(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.iotfleetwise_client
-            //     .describe_vehicle_status()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a vehicle_status resource
-    async fn update_vehicle_status(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.iotfleetwise_client
-            //     .update_vehicle_status()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-            )
-        })
-    }
-
-    /// Delete a vehicle_status resource
-    async fn delete_vehicle_status(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.iotfleetwise_client
-            //     .delete_vehicle_status()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

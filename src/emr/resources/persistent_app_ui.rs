@@ -21,7 +21,7 @@ impl<'a> Persistent_app_ui<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, target_resource_arn: String, emr_containers_config: Option<String>, tags: Option<Vec<String>>, x_referer: Option<String>, profiler_type: Option<String>) -> Result<String> {
+    pub async fn create(&self, x_referer: Option<String>, target_resource_arn: String, emr_containers_config: Option<String>, tags: Option<Vec<String>>, profiler_type: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

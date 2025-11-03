@@ -21,7 +21,7 @@ impl<'a> Media_stream_pipeline<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, sinks: Vec<String>, client_request_token: Option<String>, tags: Option<Vec<String>>, sources: Vec<String>) -> Result<String> {
+    pub async fn create(&self, client_request_token: Option<String>, sinks: Vec<String>, sources: Vec<String>, tags: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

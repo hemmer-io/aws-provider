@@ -33,15 +33,15 @@ FindingsReportAccountSummary resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `next_token` | String | <p>The <code>nextToken</code> value to include in a future <code>GetFindingsReportAccountSummary</code> request.
-         When the results of a <code>GetFindingsReportAccountSummary</code> request exceed <code>maxResults</code>, this
-         value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more
-         results to return.</p> |
 | `report_summaries` | Vec<String> | <p>The return list of 
             <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_FindingsReportSummary.html">
                <code>FindingsReportSummary</code>
             </a> 
             objects taht contain summaries of analysis results for all profiling groups in your AWS account.</p> |
+| `next_token` | String | <p>The <code>nextToken</code> value to include in a future <code>GetFindingsReportAccountSummary</code> request.
+         When the results of a <code>GetFindingsReportAccountSummary</code> request exceed <code>maxResults</code>, this
+         value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more
+         results to return.</p> |
 
 
 #### Usage Example
@@ -57,8 +57,8 @@ provider = aws.AwsProvider {
 
 # Access findings_report_account_summary outputs
 findings_report_account_summary_id = findings_report_account_summary.id
-findings_report_account_summary_next_token = findings_report_account_summary.next_token
 findings_report_account_summary_report_summaries = findings_report_account_summary.report_summaries
+findings_report_account_summary_next_token = findings_report_account_summary.next_token
 ```
 
 ---

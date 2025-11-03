@@ -21,7 +21,7 @@ impl<'a> Rum_events<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, user_details: String, rum_events: Vec<String>, id: String, batch_id: String, app_monitor_details: String, alias: Option<String>) -> Result<String> {
+    pub async fn create(&self, app_monitor_details: String, user_details: String, id: String, batch_id: String, alias: Option<String>, rum_events: Vec<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

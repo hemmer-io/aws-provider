@@ -30,11 +30,11 @@ impl<'a> Voice_idService<'a> {
             "fraudster" => {
                 self.plan_fraudster(current_state, desired_input).await
             }
-            "watchlist" => {
-                self.plan_watchlist(current_state, desired_input).await
-            }
             "speaker_enrollment_job" => {
                 self.plan_speaker_enrollment_job(current_state, desired_input).await
+            }
+            "watchlist" => {
+                self.plan_watchlist(current_state, desired_input).await
             }
             "speaker" => {
                 self.plan_speaker(current_state, desired_input).await
@@ -60,11 +60,11 @@ impl<'a> Voice_idService<'a> {
             "fraudster" => {
                 self.create_fraudster(input).await
             }
-            "watchlist" => {
-                self.create_watchlist(input).await
-            }
             "speaker_enrollment_job" => {
                 self.create_speaker_enrollment_job(input).await
+            }
+            "watchlist" => {
+                self.create_watchlist(input).await
             }
             "speaker" => {
                 self.create_speaker(input).await
@@ -90,11 +90,11 @@ impl<'a> Voice_idService<'a> {
             "fraudster" => {
                 self.read_fraudster(id).await
             }
-            "watchlist" => {
-                self.read_watchlist(id).await
-            }
             "speaker_enrollment_job" => {
                 self.read_speaker_enrollment_job(id).await
+            }
+            "watchlist" => {
+                self.read_watchlist(id).await
             }
             "speaker" => {
                 self.read_speaker(id).await
@@ -121,11 +121,11 @@ impl<'a> Voice_idService<'a> {
             "fraudster" => {
                 self.update_fraudster(id, input).await
             }
-            "watchlist" => {
-                self.update_watchlist(id, input).await
-            }
             "speaker_enrollment_job" => {
                 self.update_speaker_enrollment_job(id, input).await
+            }
+            "watchlist" => {
+                self.update_watchlist(id, input).await
             }
             "speaker" => {
                 self.update_speaker(id, input).await
@@ -151,11 +151,11 @@ impl<'a> Voice_idService<'a> {
             "fraudster" => {
                 self.delete_fraudster(id).await
             }
-            "watchlist" => {
-                self.delete_watchlist(id).await
-            }
             "speaker_enrollment_job" => {
                 self.delete_speaker_enrollment_job(id).await
+            }
+            "watchlist" => {
+                self.delete_watchlist(id).await
             }
             "speaker" => {
                 self.delete_speaker(id).await
@@ -402,136 +402,6 @@ impl<'a> Voice_idService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Watchlist resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a watchlist resource
-    async fn plan_watchlist(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new watchlist resource
-    async fn create_watchlist(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let client_token = input.get_optional_string("client_token")?;
-            let description = input.get_optional_string("description")?;
-            let domain_id = input.get_string("domain_id")?;
-            let name = input.get_string("name")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.voice_id_client
-            //     .create_watchlist()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("domain_id", domain_id.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a watchlist resource
-    async fn read_watchlist(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.voice_id_client
-            //     .describe_watchlist()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a watchlist resource
-    async fn update_watchlist(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let client_token = input.get_optional_string("client_token")?;
-            let description = input.get_optional_string("description")?;
-            let domain_id = input.get_string("domain_id")?;
-            let name = input.get_string("name")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.voice_id_client
-            //     .update_watchlist()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("domain_id", domain_id.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a watchlist resource
-    async fn delete_watchlist(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.voice_id_client
-            //     .delete_watchlist()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
     // Speaker_enrollment_job resource operations
     // ------------------------------------------------------------------------
 
@@ -635,6 +505,136 @@ impl<'a> Voice_idService<'a> {
             // Example:
             // self.provider.voice_id_client
             //     .delete_speaker_enrollment_job()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Watchlist resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a watchlist resource
+    async fn plan_watchlist(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new watchlist resource
+    async fn create_watchlist(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let name = input.get_string("name")?;
+            let description = input.get_optional_string("description")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let domain_id = input.get_string("domain_id")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.voice_id_client
+            //     .create_watchlist()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("name", name.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("domain_id", domain_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a watchlist resource
+    async fn read_watchlist(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.voice_id_client
+            //     .describe_watchlist()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a watchlist resource
+    async fn update_watchlist(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let name = input.get_string("name")?;
+            let description = input.get_optional_string("description")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let domain_id = input.get_string("domain_id")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.voice_id_client
+            //     .update_watchlist()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("name", name.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("domain_id", domain_id.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a watchlist resource
+    async fn delete_watchlist(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.voice_id_client
+            //     .delete_watchlist()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

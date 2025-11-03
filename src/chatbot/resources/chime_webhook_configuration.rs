@@ -21,7 +21,7 @@ impl<'a> Chime_webhook_configuration<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, sns_topic_arns: Vec<String>, iam_role_arn: String, webhook_url: String, configuration_name: String, logging_level: Option<String>, tags: Option<Vec<String>>, webhook_description: String) -> Result<String> {
+    pub async fn create(&self, iam_role_arn: String, configuration_name: String, tags: Option<Vec<String>>, webhook_description: String, sns_topic_arns: Vec<String>, logging_level: Option<String>, webhook_url: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> Chime_webhook_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, sns_topic_arns: Option<Vec<String>>, iam_role_arn: Option<String>, webhook_url: Option<String>, configuration_name: Option<String>, logging_level: Option<String>, tags: Option<Vec<String>>, webhook_description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, iam_role_arn: Option<String>, configuration_name: Option<String>, tags: Option<Vec<String>>, webhook_description: Option<String>, sns_topic_arns: Option<Vec<String>>, logging_level: Option<String>, webhook_url: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

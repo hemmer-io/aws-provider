@@ -21,7 +21,7 @@ impl<'a> User<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, password: String, groups: Option<Vec<String>>, username: String, broker_id: String, replication_user: Option<bool>, console_access: Option<bool>) -> Result<String> {
+    pub async fn create(&self, groups: Option<Vec<String>>, password: String, replication_user: Option<bool>, username: String, console_access: Option<bool>, broker_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> User<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, password: Option<String>, groups: Option<Vec<String>>, username: Option<String>, broker_id: Option<String>, replication_user: Option<bool>, console_access: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, groups: Option<Vec<String>>, password: Option<String>, replication_user: Option<bool>, username: Option<String>, console_access: Option<bool>, broker_id: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

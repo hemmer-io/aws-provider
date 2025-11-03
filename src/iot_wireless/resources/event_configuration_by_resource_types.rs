@@ -38,7 +38,7 @@ impl<'a> Event_configuration_by_resource_types<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, device_registration_state: Option<String>, message_delivery_status: Option<String>, join: Option<String>, connection_status: Option<String>, proximity: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, proximity: Option<String>, message_delivery_status: Option<String>, device_registration_state: Option<String>, connection_status: Option<String>, join: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

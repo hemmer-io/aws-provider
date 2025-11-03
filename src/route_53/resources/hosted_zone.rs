@@ -21,7 +21,7 @@ impl<'a> Hosted_zone<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, caller_reference: String, hosted_zone_config: Option<String>, vpc: Option<String>, name: String, delegation_set_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, delegation_set_id: Option<String>, hosted_zone_config: Option<String>, caller_reference: String, name: String, vpc: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

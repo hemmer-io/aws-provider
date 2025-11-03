@@ -21,7 +21,7 @@ impl<'a> Rule_group<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, visibility_config: String, custom_response_bodies: Option<HashMap<String, String>>, capacity: i64, description: Option<String>, rules: Option<Vec<String>>, scope: String, name: String) -> Result<String> {
+    pub async fn create(&self, custom_response_bodies: Option<HashMap<String, String>>, rules: Option<Vec<String>>, tags: Option<Vec<String>>, scope: String, visibility_config: String, description: Option<String>, name: String, capacity: i64) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Rule_group<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, tags: Option<Vec<String>>, visibility_config: Option<String>, custom_response_bodies: Option<HashMap<String, String>>, capacity: Option<i64>, description: Option<String>, rules: Option<Vec<String>>, scope: Option<String>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, custom_response_bodies: Option<HashMap<String, String>>, rules: Option<Vec<String>>, tags: Option<Vec<String>>, scope: Option<String>, visibility_config: Option<String>, description: Option<String>, name: Option<String>, capacity: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

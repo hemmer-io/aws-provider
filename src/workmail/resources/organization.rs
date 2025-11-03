@@ -21,7 +21,7 @@ impl<'a> Organization<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, alias: String, client_token: Option<String>, kms_key_arn: Option<String>, enable_interoperability: Option<bool>, domains: Option<Vec<String>>, directory_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, alias: String, enable_interoperability: Option<bool>, kms_key_arn: Option<String>, directory_id: Option<String>, client_token: Option<String>, domains: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Dataset<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: String, tags: Option<Vec<String>>, dataset_name: String, server_side_kms_key_id: Option<String>, dataset_schema: Option<String>) -> Result<String> {
+    pub async fn create(&self, server_side_kms_key_id: Option<String>, client_token: String, dataset_name: String, tags: Option<Vec<String>>, dataset_schema: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

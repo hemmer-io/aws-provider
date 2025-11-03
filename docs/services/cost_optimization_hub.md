@@ -10,58 +10,13 @@
 
 The cost_optimization_hub service provides access to 3 resource types:
 
-- [Preferences](#preferences) [RU]
 - [Recommendation](#recommendation) [R]
 - [Enrollment_status](#enrollment_status) [U]
+- [Preferences](#preferences) [RU]
 
 ---
 
 ## Resources
-
-
-### Preferences
-
-Preferences resource
-
-**Operations**: ✅ Read ✅ Update
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `preferred_commitment` | String |  | <p>Sets the preferences for how Reserved Instances and Savings Plans cost-saving opportunities are prioritized in terms of payment option and term length.</p> |
-| `member_account_discount_visibility` | String |  | <p>Sets the "member account discount visibility" preference.</p> |
-| `savings_estimation_mode` | String |  | <p>Sets the "savings estimation mode" preference.</p> |
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `preferred_commitment` | String | <p>Retrieves the current preferences for how Reserved Instances and Savings Plans cost-saving opportunities are prioritized in terms of payment option and term length.</p> |
-| `savings_estimation_mode` | String | <p>Retrieves the status of the "savings estimation mode" preference.</p> |
-| `member_account_discount_visibility` | String | <p>Retrieves the status of the "member account discount visibility" preference.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Access preferences outputs
-preferences_id = preferences.id
-preferences_preferred_commitment = preferences.preferred_commitment
-preferences_savings_estimation_mode = preferences.savings_estimation_mode
-preferences_member_account_discount_visibility = preferences.member_account_discount_visibility
-```
-
----
 
 
 ### Recommendation
@@ -80,29 +35,29 @@ Recommendation resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `estimated_savings_percentage` | f64 | <p>The estimated savings percentage relative to the total cost over the cost calculation lookback period.</p> |
-| `estimated_monthly_cost` | f64 | <p>The estimated monthly cost of the current resource. For Reserved Instances and Savings Plans, it refers to the cost for eligible usage.</p> |
-| `region` | String | <p>The Amazon Web Services Region of the resource.</p> |
-| `action_type` | String | <p>The type of action you can take by adopting the recommendation.</p> |
-| `estimated_savings_over_cost_calculation_lookback_period` | f64 | <p>The estimated savings amount over the lookback period used to calculate cost impact for a recommendation.</p> |
-| `account_id` | String | <p>The account to which the recommendation applies.</p> |
-| `restart_needed` | bool | <p>Whether or not implementing the recommendation requires a restart.</p> |
 | `current_resource_details` | String | <p>The details for the resource.</p> |
-| `cost_calculation_lookback_period_in_days` | i64 | <p>The lookback period used to calculate cost impact for a recommendation.</p> |
+| `account_id` | String | <p>The account to which the recommendation applies.</p> |
 | `resource_arn` | String | <p>The Amazon Resource Name (ARN) of the resource.</p> |
-| `source` | String | <p>The source of the recommendation.</p> |
-| `estimated_monthly_savings` | f64 | <p>The estimated monthly savings amount for the recommendation.</p> |
+| `currency_code` | String | <p>The currency code used for the recommendation.</p> |
+| `cost_calculation_lookback_period_in_days` | i64 | <p>The lookback period used to calculate cost impact for a recommendation.</p> |
 | `rollback_possible` | bool | <p>Whether or not implementing the recommendation can be rolled back.</p> |
-| `tags` | Vec<String> | <p>A list of tags associated with the resource for which the recommendation exists.</p> |
-| `resource_id` | String | <p>The unique identifier for the resource. This is the same as the Amazon Resource Name (ARN), if available.</p> |
 | `recommendation_lookback_period_in_days` | i64 | <p>The lookback period that's used to generate the recommendation.</p> |
-| `implementation_effort` | String | <p>The effort required to implement the recommendation.</p> |
+| `tags` | Vec<String> | <p>A list of tags associated with the resource for which the recommendation exists.</p> |
 | `last_refresh_timestamp` | String | <p>The time when the recommendation was last generated.</p> |
-| `current_resource_type` | String | <p>The type of resource.</p> |
+| `region` | String | <p>The Amazon Web Services Region of the resource.</p> |
+| `recommended_resource_type` | String | <p>The resource type of the recommendation.</p> |
+| `restart_needed` | bool | <p>Whether or not implementing the recommendation requires a restart.</p> |
 | `recommended_resource_details` | String | <p>The details about the recommended resource.</p> |
 | `recommendation_id` | String | <p>The ID for the recommendation.</p> |
-| `currency_code` | String | <p>The currency code used for the recommendation.</p> |
-| `recommended_resource_type` | String | <p>The resource type of the recommendation.</p> |
+| `current_resource_type` | String | <p>The type of resource.</p> |
+| `estimated_monthly_cost` | f64 | <p>The estimated monthly cost of the current resource. For Reserved Instances and Savings Plans, it refers to the cost for eligible usage.</p> |
+| `estimated_savings_percentage` | f64 | <p>The estimated savings percentage relative to the total cost over the cost calculation lookback period.</p> |
+| `resource_id` | String | <p>The unique identifier for the resource. This is the same as the Amazon Resource Name (ARN), if available.</p> |
+| `implementation_effort` | String | <p>The effort required to implement the recommendation.</p> |
+| `action_type` | String | <p>The type of action you can take by adopting the recommendation.</p> |
+| `source` | String | <p>The source of the recommendation.</p> |
+| `estimated_savings_over_cost_calculation_lookback_period` | f64 | <p>The estimated savings amount over the lookback period used to calculate cost impact for a recommendation.</p> |
+| `estimated_monthly_savings` | f64 | <p>The estimated monthly savings amount for the recommendation.</p> |
 
 
 #### Usage Example
@@ -118,29 +73,29 @@ provider = aws.AwsProvider {
 
 # Access recommendation outputs
 recommendation_id = recommendation.id
-recommendation_estimated_savings_percentage = recommendation.estimated_savings_percentage
-recommendation_estimated_monthly_cost = recommendation.estimated_monthly_cost
-recommendation_region = recommendation.region
-recommendation_action_type = recommendation.action_type
-recommendation_estimated_savings_over_cost_calculation_lookback_period = recommendation.estimated_savings_over_cost_calculation_lookback_period
-recommendation_account_id = recommendation.account_id
-recommendation_restart_needed = recommendation.restart_needed
 recommendation_current_resource_details = recommendation.current_resource_details
-recommendation_cost_calculation_lookback_period_in_days = recommendation.cost_calculation_lookback_period_in_days
+recommendation_account_id = recommendation.account_id
 recommendation_resource_arn = recommendation.resource_arn
-recommendation_source = recommendation.source
-recommendation_estimated_monthly_savings = recommendation.estimated_monthly_savings
+recommendation_currency_code = recommendation.currency_code
+recommendation_cost_calculation_lookback_period_in_days = recommendation.cost_calculation_lookback_period_in_days
 recommendation_rollback_possible = recommendation.rollback_possible
-recommendation_tags = recommendation.tags
-recommendation_resource_id = recommendation.resource_id
 recommendation_recommendation_lookback_period_in_days = recommendation.recommendation_lookback_period_in_days
-recommendation_implementation_effort = recommendation.implementation_effort
+recommendation_tags = recommendation.tags
 recommendation_last_refresh_timestamp = recommendation.last_refresh_timestamp
-recommendation_current_resource_type = recommendation.current_resource_type
+recommendation_region = recommendation.region
+recommendation_recommended_resource_type = recommendation.recommended_resource_type
+recommendation_restart_needed = recommendation.restart_needed
 recommendation_recommended_resource_details = recommendation.recommended_resource_details
 recommendation_recommendation_id = recommendation.recommendation_id
-recommendation_currency_code = recommendation.currency_code
-recommendation_recommended_resource_type = recommendation.recommended_resource_type
+recommendation_current_resource_type = recommendation.current_resource_type
+recommendation_estimated_monthly_cost = recommendation.estimated_monthly_cost
+recommendation_estimated_savings_percentage = recommendation.estimated_savings_percentage
+recommendation_resource_id = recommendation.resource_id
+recommendation_implementation_effort = recommendation.implementation_effort
+recommendation_action_type = recommendation.action_type
+recommendation_source = recommendation.source
+recommendation_estimated_savings_over_cost_calculation_lookback_period = recommendation.estimated_savings_over_cost_calculation_lookback_period
+recommendation_estimated_monthly_savings = recommendation.estimated_monthly_savings
 ```
 
 ---
@@ -177,6 +132,51 @@ provider = aws.AwsProvider {
 ---
 
 
+### Preferences
+
+Preferences resource
+
+**Operations**: ✅ Read ✅ Update
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `member_account_discount_visibility` | String |  | <p>Sets the "member account discount visibility" preference.</p> |
+| `preferred_commitment` | String |  | <p>Sets the preferences for how Reserved Instances and Savings Plans cost-saving opportunities are prioritized in terms of payment option and term length.</p> |
+| `savings_estimation_mode` | String |  | <p>Sets the "savings estimation mode" preference.</p> |
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `savings_estimation_mode` | String | <p>Retrieves the status of the "savings estimation mode" preference.</p> |
+| `member_account_discount_visibility` | String | <p>Retrieves the status of the "member account discount visibility" preference.</p> |
+| `preferred_commitment` | String | <p>Retrieves the current preferences for how Reserved Instances and Savings Plans cost-saving opportunities are prioritized in terms of payment option and term length.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Access preferences outputs
+preferences_id = preferences.id
+preferences_savings_estimation_mode = preferences.savings_estimation_mode
+preferences_member_account_discount_visibility = preferences.member_account_discount_visibility
+preferences_preferred_commitment = preferences.preferred_commitment
+```
+
+---
+
+
 
 ## Common Operations
 
@@ -189,12 +189,12 @@ provider = aws.AwsProvider {
     region = "us-east-1"
 }
 
-# Create multiple preferences resources
-preferences_0 = provider.cost_optimization_hub.Preferences {
+# Create multiple recommendation resources
+recommendation_0 = provider.cost_optimization_hub.Recommendation {
 }
-preferences_1 = provider.cost_optimization_hub.Preferences {
+recommendation_1 = provider.cost_optimization_hub.Recommendation {
 }
-preferences_2 = provider.cost_optimization_hub.Preferences {
+recommendation_2 = provider.cost_optimization_hub.Recommendation {
 }
 ```
 
@@ -203,7 +203,7 @@ preferences_2 = provider.cost_optimization_hub.Preferences {
 ```kcl
 # Only create in production
 if environment == "production":
-    preferences = provider.cost_optimization_hub.Preferences {
+    recommendation = provider.cost_optimization_hub.Recommendation {
     }
 ```
 

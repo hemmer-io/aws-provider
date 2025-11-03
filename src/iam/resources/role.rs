@@ -21,7 +21,7 @@ impl<'a> Role<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, role_name: String, tags: Option<Vec<String>>, assume_role_policy_document: String, max_session_duration: Option<i64>, permissions_boundary: Option<String>, path: Option<String>) -> Result<String> {
+    pub async fn create(&self, role_name: String, assume_role_policy_document: String, max_session_duration: Option<i64>, tags: Option<Vec<String>>, path: Option<String>, permissions_boundary: Option<String>, description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Role<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, role_name: Option<String>, tags: Option<Vec<String>>, assume_role_policy_document: Option<String>, max_session_duration: Option<i64>, permissions_boundary: Option<String>, path: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, role_name: Option<String>, assume_role_policy_document: Option<String>, max_session_duration: Option<i64>, tags: Option<Vec<String>>, path: Option<String>, permissions_boundary: Option<String>, description: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

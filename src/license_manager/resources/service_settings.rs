@@ -38,7 +38,7 @@ impl<'a> Service_settings<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, enable_cross_accounts_discovery: Option<bool>, sns_topic_arn: Option<String>, s3_bucket_arn: Option<String>, organization_configuration: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, sns_topic_arn: Option<String>, s3_bucket_arn: Option<String>, organization_configuration: Option<String>, enable_cross_accounts_discovery: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

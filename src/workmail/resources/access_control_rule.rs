@@ -21,7 +21,7 @@ impl<'a> Access_control_rule<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, actions: Option<Vec<String>>, ip_ranges: Option<Vec<String>>, name: String, not_actions: Option<Vec<String>>, impersonation_role_ids: Option<Vec<String>>, not_ip_ranges: Option<Vec<String>>, user_ids: Option<Vec<String>>, not_impersonation_role_ids: Option<Vec<String>>, effect: String, description: String, not_user_ids: Option<Vec<String>>, organization_id: String) -> Result<String> {
+    pub async fn create(&self, not_ip_ranges: Option<Vec<String>>, not_user_ids: Option<Vec<String>>, user_ids: Option<Vec<String>>, description: String, impersonation_role_ids: Option<Vec<String>>, name: String, effect: String, actions: Option<Vec<String>>, not_actions: Option<Vec<String>>, organization_id: String, ip_ranges: Option<Vec<String>>, not_impersonation_role_ids: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

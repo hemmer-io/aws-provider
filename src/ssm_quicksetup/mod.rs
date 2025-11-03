@@ -24,17 +24,17 @@ impl<'a> Ssm_quicksetupService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "configuration_definition" => {
-                self.plan_configuration_definition(current_state, desired_input).await
-            }
-            "configuration_manager" => {
-                self.plan_configuration_manager(current_state, desired_input).await
-            }
             "service_settings" => {
                 self.plan_service_settings(current_state, desired_input).await
             }
             "configuration" => {
                 self.plan_configuration(current_state, desired_input).await
+            }
+            "configuration_definition" => {
+                self.plan_configuration_definition(current_state, desired_input).await
+            }
+            "configuration_manager" => {
+                self.plan_configuration_manager(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -51,17 +51,17 @@ impl<'a> Ssm_quicksetupService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "configuration_definition" => {
-                self.create_configuration_definition(input).await
-            }
-            "configuration_manager" => {
-                self.create_configuration_manager(input).await
-            }
             "service_settings" => {
                 self.create_service_settings(input).await
             }
             "configuration" => {
                 self.create_configuration(input).await
+            }
+            "configuration_definition" => {
+                self.create_configuration_definition(input).await
+            }
+            "configuration_manager" => {
+                self.create_configuration_manager(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -78,17 +78,17 @@ impl<'a> Ssm_quicksetupService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "configuration_definition" => {
-                self.read_configuration_definition(id).await
-            }
-            "configuration_manager" => {
-                self.read_configuration_manager(id).await
-            }
             "service_settings" => {
                 self.read_service_settings(id).await
             }
             "configuration" => {
                 self.read_configuration(id).await
+            }
+            "configuration_definition" => {
+                self.read_configuration_definition(id).await
+            }
+            "configuration_manager" => {
+                self.read_configuration_manager(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -106,17 +106,17 @@ impl<'a> Ssm_quicksetupService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "configuration_definition" => {
-                self.update_configuration_definition(id, input).await
-            }
-            "configuration_manager" => {
-                self.update_configuration_manager(id, input).await
-            }
             "service_settings" => {
                 self.update_service_settings(id, input).await
             }
             "configuration" => {
                 self.update_configuration(id, input).await
+            }
+            "configuration_definition" => {
+                self.update_configuration_definition(id, input).await
+            }
+            "configuration_manager" => {
+                self.update_configuration_manager(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -133,17 +133,17 @@ impl<'a> Ssm_quicksetupService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "configuration_definition" => {
-                self.delete_configuration_definition(id).await
-            }
-            "configuration_manager" => {
-                self.delete_configuration_manager(id).await
-            }
             "service_settings" => {
                 self.delete_service_settings(id).await
             }
             "configuration" => {
                 self.delete_configuration(id).await
+            }
+            "configuration_definition" => {
+                self.delete_configuration_definition(id).await
+            }
+            "configuration_manager" => {
+                self.delete_configuration_manager(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -156,274 +156,6 @@ impl<'a> Ssm_quicksetupService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
-
-
-    // ------------------------------------------------------------------------
-    // Configuration_definition resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a configuration_definition resource
-    async fn plan_configuration_definition(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new configuration_definition resource
-    async fn create_configuration_definition(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let manager_arn = input.get_string("manager_arn")?;
-            let local_deployment_administration_role_arn = input.get_optional_string("local_deployment_administration_role_arn")?;
-            let local_deployment_execution_role_name = input.get_optional_string("local_deployment_execution_role_name")?;
-            let type_version = input.get_optional_string("type_version")?;
-            let id = input.get_string("id")?;
-            let parameters = input.get_optional_string("parameters")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.ssm_quicksetup_client
-            //     .create_configuration_definition()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("manager_arn", manager_arn.unwrap_or_default())
-                .with_field("local_deployment_administration_role_arn", local_deployment_administration_role_arn.unwrap_or_default())
-                .with_field("local_deployment_execution_role_name", local_deployment_execution_role_name.unwrap_or_default())
-                .with_field("type_version", type_version.unwrap_or_default())
-                .with_field("id", id.unwrap_or_default())
-                .with_field("parameters", parameters.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a configuration_definition resource
-    async fn read_configuration_definition(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.ssm_quicksetup_client
-            //     .describe_configuration_definition()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a configuration_definition resource
-    async fn update_configuration_definition(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let manager_arn = input.get_string("manager_arn")?;
-            let local_deployment_administration_role_arn = input.get_optional_string("local_deployment_administration_role_arn")?;
-            let local_deployment_execution_role_name = input.get_optional_string("local_deployment_execution_role_name")?;
-            let type_version = input.get_optional_string("type_version")?;
-            let id = input.get_string("id")?;
-            let parameters = input.get_optional_string("parameters")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.ssm_quicksetup_client
-            //     .update_configuration_definition()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("manager_arn", manager_arn.unwrap_or_default())
-                .with_field("local_deployment_administration_role_arn", local_deployment_administration_role_arn.unwrap_or_default())
-                .with_field("local_deployment_execution_role_name", local_deployment_execution_role_name.unwrap_or_default())
-                .with_field("type_version", type_version.unwrap_or_default())
-                .with_field("id", id.unwrap_or_default())
-                .with_field("parameters", parameters.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a configuration_definition resource
-    async fn delete_configuration_definition(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.ssm_quicksetup_client
-            //     .delete_configuration_definition()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Configuration_manager resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a configuration_manager resource
-    async fn plan_configuration_manager(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new configuration_manager resource
-    async fn create_configuration_manager(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let tags = input.get_optional_string("tags")?;
-            let description = input.get_optional_string("description")?;
-            let configuration_definitions = input.get_string("configuration_definitions")?;
-            let name = input.get_optional_string("name")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.ssm_quicksetup_client
-            //     .create_configuration_manager()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("configuration_definitions", configuration_definitions.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a configuration_manager resource
-    async fn read_configuration_manager(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.ssm_quicksetup_client
-            //     .describe_configuration_manager()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a configuration_manager resource
-    async fn update_configuration_manager(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let tags = input.get_optional_string("tags")?;
-            let description = input.get_optional_string("description")?;
-            let configuration_definitions = input.get_string("configuration_definitions")?;
-            let name = input.get_optional_string("name")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.ssm_quicksetup_client
-            //     .update_configuration_manager()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
-                .with_field("configuration_definitions", configuration_definitions.unwrap_or_default())
-                .with_field("name", name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a configuration_manager resource
-    async fn delete_configuration_manager(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.ssm_quicksetup_client
-            //     .delete_configuration_manager()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
 
 
     // ------------------------------------------------------------------------
@@ -648,6 +380,274 @@ impl<'a> Ssm_quicksetupService<'a> {
             // Example:
             // self.provider.ssm_quicksetup_client
             //     .delete_configuration()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Configuration_definition resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a configuration_definition resource
+    async fn plan_configuration_definition(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new configuration_definition resource
+    async fn create_configuration_definition(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let manager_arn = input.get_string("manager_arn")?;
+            let id = input.get_string("id")?;
+            let type_version = input.get_optional_string("type_version")?;
+            let parameters = input.get_optional_string("parameters")?;
+            let local_deployment_execution_role_name = input.get_optional_string("local_deployment_execution_role_name")?;
+            let local_deployment_administration_role_arn = input.get_optional_string("local_deployment_administration_role_arn")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.ssm_quicksetup_client
+            //     .create_configuration_definition()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("manager_arn", manager_arn.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
+                .with_field("type_version", type_version.unwrap_or_default())
+                .with_field("parameters", parameters.unwrap_or_default())
+                .with_field("local_deployment_execution_role_name", local_deployment_execution_role_name.unwrap_or_default())
+                .with_field("local_deployment_administration_role_arn", local_deployment_administration_role_arn.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a configuration_definition resource
+    async fn read_configuration_definition(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.ssm_quicksetup_client
+            //     .describe_configuration_definition()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a configuration_definition resource
+    async fn update_configuration_definition(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let manager_arn = input.get_string("manager_arn")?;
+            let id = input.get_string("id")?;
+            let type_version = input.get_optional_string("type_version")?;
+            let parameters = input.get_optional_string("parameters")?;
+            let local_deployment_execution_role_name = input.get_optional_string("local_deployment_execution_role_name")?;
+            let local_deployment_administration_role_arn = input.get_optional_string("local_deployment_administration_role_arn")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.ssm_quicksetup_client
+            //     .update_configuration_definition()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("manager_arn", manager_arn.unwrap_or_default())
+                .with_field("id", id.unwrap_or_default())
+                .with_field("type_version", type_version.unwrap_or_default())
+                .with_field("parameters", parameters.unwrap_or_default())
+                .with_field("local_deployment_execution_role_name", local_deployment_execution_role_name.unwrap_or_default())
+                .with_field("local_deployment_administration_role_arn", local_deployment_administration_role_arn.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a configuration_definition resource
+    async fn delete_configuration_definition(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.ssm_quicksetup_client
+            //     .delete_configuration_definition()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Configuration_manager resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a configuration_manager resource
+    async fn plan_configuration_manager(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new configuration_manager resource
+    async fn create_configuration_manager(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let configuration_definitions = input.get_string("configuration_definitions")?;
+            let tags = input.get_optional_string("tags")?;
+            let description = input.get_optional_string("description")?;
+            let name = input.get_optional_string("name")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.ssm_quicksetup_client
+            //     .create_configuration_manager()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("configuration_definitions", configuration_definitions.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a configuration_manager resource
+    async fn read_configuration_manager(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.ssm_quicksetup_client
+            //     .describe_configuration_manager()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a configuration_manager resource
+    async fn update_configuration_manager(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let configuration_definitions = input.get_string("configuration_definitions")?;
+            let tags = input.get_optional_string("tags")?;
+            let description = input.get_optional_string("description")?;
+            let name = input.get_optional_string("name")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.ssm_quicksetup_client
+            //     .update_configuration_manager()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("configuration_definitions", configuration_definitions.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a configuration_manager resource
+    async fn delete_configuration_manager(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.ssm_quicksetup_client
+            //     .delete_configuration_manager()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

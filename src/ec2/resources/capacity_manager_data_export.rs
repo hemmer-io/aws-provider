@@ -21,7 +21,7 @@ impl<'a> Capacity_manager_data_export<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, output_format: String, dry_run: Option<bool>, client_token: Option<String>, s3_bucket_name: String, tag_specifications: Option<Vec<String>>, s3_bucket_prefix: Option<String>, schedule: String) -> Result<String> {
+    pub async fn create(&self, dry_run: Option<bool>, output_format: String, client_token: Option<String>, tag_specifications: Option<Vec<String>>, s3_bucket_name: String, s3_bucket_prefix: Option<String>, schedule: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

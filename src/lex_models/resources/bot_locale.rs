@@ -21,7 +21,7 @@ impl<'a> Bot_locale<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, generative_ai_settings: Option<String>, bot_id: String, locale_id: String, nlu_intent_confidence_threshold: f64, description: Option<String>, bot_version: String, voice_settings: Option<String>) -> Result<String> {
+    pub async fn create(&self, bot_version: String, description: Option<String>, bot_id: String, locale_id: String, generative_ai_settings: Option<String>, voice_settings: Option<String>, nlu_intent_confidence_threshold: f64) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Bot_locale<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, generative_ai_settings: Option<String>, bot_id: Option<String>, locale_id: Option<String>, nlu_intent_confidence_threshold: Option<f64>, description: Option<String>, bot_version: Option<String>, voice_settings: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, bot_version: Option<String>, description: Option<String>, bot_id: Option<String>, locale_id: Option<String>, generative_ai_settings: Option<String>, voice_settings: Option<String>, nlu_intent_confidence_threshold: Option<f64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -21,7 +21,7 @@ impl<'a> Preset<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, container: String, video: Option<String>, audio: Option<String>, description: Option<String>, thumbnails: Option<String>, name: String) -> Result<String> {
+    pub async fn create(&self, name: String, description: Option<String>, container: String, video: Option<String>, audio: Option<String>, thumbnails: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

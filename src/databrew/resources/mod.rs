@@ -1,5 +1,9 @@
 //! Resource modules
 
+pub mod schedule;
+pub use schedule::Schedule;
+pub mod profile_job;
+pub use profile_job::Profile_job;
 pub mod project;
 pub use project::Project;
 pub mod job_run;
@@ -8,16 +12,12 @@ pub mod job;
 pub use job::Job;
 pub mod recipe_version;
 pub use recipe_version::Recipe_version;
-pub mod schedule;
-pub use schedule::Schedule;
-pub mod profile_job;
-pub use profile_job::Profile_job;
-pub mod dataset;
-pub use dataset::Dataset;
-pub mod recipe;
-pub use recipe::Recipe;
 pub mod recipe_job;
 pub use recipe_job::Recipe_job;
 pub mod ruleset;
 pub use ruleset::Ruleset;
+pub mod recipe;
+pub use recipe::Recipe;
+pub mod dataset;
+pub use dataset::Dataset;
 

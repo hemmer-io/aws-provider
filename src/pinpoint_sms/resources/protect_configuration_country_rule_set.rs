@@ -38,7 +38,7 @@ impl<'a> Protect_configuration_country_rule_set<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, protect_configuration_id: Option<String>, number_capability: Option<String>, country_rule_set_updates: Option<HashMap<String, String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, country_rule_set_updates: Option<HashMap<String, String>>, protect_configuration_id: Option<String>, number_capability: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -141,11 +141,11 @@ impl<'a> Kendra_rankingService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_string("name")?;
-            let client_token = input.get_optional_string("client_token")?;
             let description = input.get_optional_string("description")?;
-            let capacity_units = input.get_optional_string("capacity_units")?;
+            let name = input.get_string("name")?;
             let tags = input.get_optional_string("tags")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let capacity_units = input.get_optional_string("capacity_units")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -160,11 +160,11 @@ impl<'a> Kendra_rankingService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("name", name.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
-                .with_field("capacity_units", capacity_units.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("capacity_units", capacity_units.unwrap_or_default())
             )
         })
     }
@@ -198,11 +198,11 @@ impl<'a> Kendra_rankingService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let name = input.get_string("name")?;
-            let client_token = input.get_optional_string("client_token")?;
             let description = input.get_optional_string("description")?;
-            let capacity_units = input.get_optional_string("capacity_units")?;
+            let name = input.get_string("name")?;
             let tags = input.get_optional_string("tags")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let capacity_units = input.get_optional_string("capacity_units")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -218,11 +218,11 @@ impl<'a> Kendra_rankingService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("name", name.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
                 .with_field("description", description.unwrap_or_default())
-                .with_field("capacity_units", capacity_units.unwrap_or_default())
+                .with_field("name", name.unwrap_or_default())
                 .with_field("tags", tags.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("capacity_units", capacity_units.unwrap_or_default())
             )
         })
     }

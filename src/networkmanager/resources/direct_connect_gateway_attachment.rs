@@ -21,7 +21,7 @@ impl<'a> Direct_connect_gateway_attachment<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, edge_locations: Vec<String>, core_network_id: String, direct_connect_gateway_arn: String, client_token: Option<String>, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, direct_connect_gateway_arn: String, edge_locations: Vec<String>, core_network_id: String, tags: Option<Vec<String>>, client_token: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Direct_connect_gateway_attachment<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, edge_locations: Option<Vec<String>>, core_network_id: Option<String>, direct_connect_gateway_arn: Option<String>, client_token: Option<String>, tags: Option<Vec<String>>) -> Result<()> {
+    pub async fn update(&self, id: &str, direct_connect_gateway_arn: Option<String>, edge_locations: Option<Vec<String>>, core_network_id: Option<String>, tags: Option<Vec<String>>, client_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

@@ -141,12 +141,12 @@ impl<'a> RbinService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let retention_period = input.get_string("retention_period")?;
-            let tags = input.get_optional_string("tags")?;
-            let resource_type = input.get_string("resource_type")?;
             let exclude_resource_tags = input.get_optional_string("exclude_resource_tags")?;
-            let description = input.get_optional_string("description")?;
             let resource_tags = input.get_optional_string("resource_tags")?;
+            let retention_period = input.get_string("retention_period")?;
+            let description = input.get_optional_string("description")?;
+            let resource_type = input.get_string("resource_type")?;
+            let tags = input.get_optional_string("tags")?;
             let lock_configuration = input.get_optional_string("lock_configuration")?;
 
 
@@ -162,12 +162,12 @@ impl<'a> RbinService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("retention_period", retention_period.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("resource_type", resource_type.unwrap_or_default())
                 .with_field("exclude_resource_tags", exclude_resource_tags.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
                 .with_field("resource_tags", resource_tags.unwrap_or_default())
+                .with_field("retention_period", retention_period.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("resource_type", resource_type.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
                 .with_field("lock_configuration", lock_configuration.unwrap_or_default())
             )
         })
@@ -202,12 +202,12 @@ impl<'a> RbinService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let retention_period = input.get_string("retention_period")?;
-            let tags = input.get_optional_string("tags")?;
-            let resource_type = input.get_string("resource_type")?;
             let exclude_resource_tags = input.get_optional_string("exclude_resource_tags")?;
-            let description = input.get_optional_string("description")?;
             let resource_tags = input.get_optional_string("resource_tags")?;
+            let retention_period = input.get_string("retention_period")?;
+            let description = input.get_optional_string("description")?;
+            let resource_type = input.get_string("resource_type")?;
+            let tags = input.get_optional_string("tags")?;
             let lock_configuration = input.get_optional_string("lock_configuration")?;
 
 
@@ -224,12 +224,12 @@ impl<'a> RbinService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("retention_period", retention_period.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
-                .with_field("resource_type", resource_type.unwrap_or_default())
                 .with_field("exclude_resource_tags", exclude_resource_tags.unwrap_or_default())
-                .with_field("description", description.unwrap_or_default())
                 .with_field("resource_tags", resource_tags.unwrap_or_default())
+                .with_field("retention_period", retention_period.unwrap_or_default())
+                .with_field("description", description.unwrap_or_default())
+                .with_field("resource_type", resource_type.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
                 .with_field("lock_configuration", lock_configuration.unwrap_or_default())
             )
         })

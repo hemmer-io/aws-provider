@@ -38,7 +38,7 @@ impl<'a> Snapshot_schedule<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, description: Option<String>, recurrence_in_hours: Option<i64>, volume_arn: Option<String>, tags: Option<Vec<String>>, start_at: Option<i64>) -> Result<()> {
+    pub async fn update(&self, id: &str, volume_arn: Option<String>, start_at: Option<i64>, description: Option<String>, tags: Option<Vec<String>>, recurrence_in_hours: Option<i64>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

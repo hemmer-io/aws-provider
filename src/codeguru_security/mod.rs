@@ -24,6 +24,12 @@ impl<'a> Codeguru_securityService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
+            "upload_url" => {
+                self.plan_upload_url(current_state, desired_input).await
+            }
+            "account_configuration" => {
+                self.plan_account_configuration(current_state, desired_input).await
+            }
             "scan" => {
                 self.plan_scan(current_state, desired_input).await
             }
@@ -32,12 +38,6 @@ impl<'a> Codeguru_securityService<'a> {
             }
             "metrics_summary" => {
                 self.plan_metrics_summary(current_state, desired_input).await
-            }
-            "upload_url" => {
-                self.plan_upload_url(current_state, desired_input).await
-            }
-            "account_configuration" => {
-                self.plan_account_configuration(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -54,6 +54,12 @@ impl<'a> Codeguru_securityService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "upload_url" => {
+                self.create_upload_url(input).await
+            }
+            "account_configuration" => {
+                self.create_account_configuration(input).await
+            }
             "scan" => {
                 self.create_scan(input).await
             }
@@ -62,12 +68,6 @@ impl<'a> Codeguru_securityService<'a> {
             }
             "metrics_summary" => {
                 self.create_metrics_summary(input).await
-            }
-            "upload_url" => {
-                self.create_upload_url(input).await
-            }
-            "account_configuration" => {
-                self.create_account_configuration(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -84,6 +84,12 @@ impl<'a> Codeguru_securityService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "upload_url" => {
+                self.read_upload_url(id).await
+            }
+            "account_configuration" => {
+                self.read_account_configuration(id).await
+            }
             "scan" => {
                 self.read_scan(id).await
             }
@@ -92,12 +98,6 @@ impl<'a> Codeguru_securityService<'a> {
             }
             "metrics_summary" => {
                 self.read_metrics_summary(id).await
-            }
-            "upload_url" => {
-                self.read_upload_url(id).await
-            }
-            "account_configuration" => {
-                self.read_account_configuration(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -115,6 +115,12 @@ impl<'a> Codeguru_securityService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
+            "upload_url" => {
+                self.update_upload_url(id, input).await
+            }
+            "account_configuration" => {
+                self.update_account_configuration(id, input).await
+            }
             "scan" => {
                 self.update_scan(id, input).await
             }
@@ -123,12 +129,6 @@ impl<'a> Codeguru_securityService<'a> {
             }
             "metrics_summary" => {
                 self.update_metrics_summary(id, input).await
-            }
-            "upload_url" => {
-                self.update_upload_url(id, input).await
-            }
-            "account_configuration" => {
-                self.update_account_configuration(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -145,6 +145,12 @@ impl<'a> Codeguru_securityService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
+            "upload_url" => {
+                self.delete_upload_url(id).await
+            }
+            "account_configuration" => {
+                self.delete_account_configuration(id).await
+            }
             "scan" => {
                 self.delete_scan(id).await
             }
@@ -153,12 +159,6 @@ impl<'a> Codeguru_securityService<'a> {
             }
             "metrics_summary" => {
                 self.delete_metrics_summary(id).await
-            }
-            "upload_url" => {
-                self.delete_upload_url(id).await
-            }
-            "account_configuration" => {
-                self.delete_account_configuration(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -171,6 +171,242 @@ impl<'a> Codeguru_securityService<'a> {
     // ========================================================================
     // Resource-specific CRUD implementations
     // ========================================================================
+
+
+    // ------------------------------------------------------------------------
+    // Upload_url resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a upload_url resource
+    async fn plan_upload_url(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new upload_url resource
+    async fn create_upload_url(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let scan_name = input.get_string("scan_name")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.codeguru_security_client
+            //     .create_upload_url()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("scan_name", scan_name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a upload_url resource
+    async fn read_upload_url(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.codeguru_security_client
+            //     .describe_upload_url()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a upload_url resource
+    async fn update_upload_url(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let scan_name = input.get_string("scan_name")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.codeguru_security_client
+            //     .update_upload_url()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("scan_name", scan_name.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a upload_url resource
+    async fn delete_upload_url(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.codeguru_security_client
+            //     .delete_upload_url()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Account_configuration resource operations
+    // ------------------------------------------------------------------------
+
+    /// Plan changes to a account_configuration resource
+    async fn plan_account_configuration(
+        &self,
+        current_state: Option<&ResourceOutput>,
+        desired_input: &ResourceInput,
+    ) -> Result<ResourcePlan> {
+        // If no current state exists, this is a create operation
+        if current_state.is_none() {
+            return Ok(ResourcePlan::create());
+        }
+
+        // TODO: Implement proper diff logic
+        // For now, return NoOp if resource exists
+        Ok(ResourcePlan::no_op())
+    }
+
+    /// Create a new account_configuration resource
+    async fn create_account_configuration(
+        &self,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        // Use the runtime to execute async SDK calls
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let encryption_config = input.get_string("encryption_config")?;
+
+
+            // TODO: Call AWS SDK to create the resource
+            // Example:
+            // let result = self.provider.codeguru_security_client
+            //     .create_account_configuration()
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id("placeholder-id")
+                .with_field("encryption_config", encryption_config.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Read a account_configuration resource
+    async fn read_account_configuration(
+        &self,
+        id: &str,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to read the resource
+            // Example:
+            // let result = self.provider.codeguru_security_client
+            //     .describe_account_configuration()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id))
+        })
+    }
+
+    /// Update a account_configuration resource
+    async fn update_account_configuration(
+        &self,
+        id: &str,
+        input: ResourceInput,
+    ) -> Result<ResourceOutput> {
+        self.provider.runtime().block_on(async {
+            // Extract input fields
+            let encryption_config = input.get_string("encryption_config")?;
+
+
+            // TODO: Call AWS SDK to update the resource
+            // Example:
+            // let result = self.provider.codeguru_security_client
+            //     .update_account_configuration()
+            //     .set_id(id.to_string())
+            //     .set_name(name)
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
+
+            // Return placeholder output
+            Ok(ResourceOutput::new()
+                .with_id(id)
+                .with_field("encryption_config", encryption_config.unwrap_or_default())
+            )
+        })
+    }
+
+    /// Delete a account_configuration resource
+    async fn delete_account_configuration(
+        &self,
+        id: &str,
+    ) -> Result<()> {
+        self.provider.runtime().block_on(async {
+            // TODO: Call AWS SDK to delete the resource
+            // Example:
+            // self.provider.codeguru_security_client
+            //     .delete_account_configuration()
+            //     .set_id(id.to_string())
+            //     .send()
+            //     .await
+            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
+
+            Ok(())
+        })
+    }
 
 
     // ------------------------------------------------------------------------
@@ -201,12 +437,12 @@ impl<'a> Codeguru_securityService<'a> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let scan_type = input.get_optional_string("scan_type")?;
-            let scan_name = input.get_string("scan_name")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let analysis_type = input.get_optional_string("analysis_type")?;
-            let tags = input.get_optional_string("tags")?;
             let resource_id = input.get_string("resource_id")?;
+            let analysis_type = input.get_optional_string("analysis_type")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let tags = input.get_optional_string("tags")?;
+            let scan_name = input.get_string("scan_name")?;
+            let scan_type = input.get_optional_string("scan_type")?;
 
 
             // TODO: Call AWS SDK to create the resource
@@ -221,12 +457,12 @@ impl<'a> Codeguru_securityService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("scan_type", scan_type.unwrap_or_default())
-                .with_field("scan_name", scan_name.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("analysis_type", analysis_type.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("resource_id", resource_id.unwrap_or_default())
+                .with_field("analysis_type", analysis_type.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("scan_name", scan_name.unwrap_or_default())
+                .with_field("scan_type", scan_type.unwrap_or_default())
             )
         })
     }
@@ -260,12 +496,12 @@ impl<'a> Codeguru_securityService<'a> {
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let scan_type = input.get_optional_string("scan_type")?;
-            let scan_name = input.get_string("scan_name")?;
-            let client_token = input.get_optional_string("client_token")?;
-            let analysis_type = input.get_optional_string("analysis_type")?;
-            let tags = input.get_optional_string("tags")?;
             let resource_id = input.get_string("resource_id")?;
+            let analysis_type = input.get_optional_string("analysis_type")?;
+            let client_token = input.get_optional_string("client_token")?;
+            let tags = input.get_optional_string("tags")?;
+            let scan_name = input.get_string("scan_name")?;
+            let scan_type = input.get_optional_string("scan_type")?;
 
 
             // TODO: Call AWS SDK to update the resource
@@ -281,12 +517,12 @@ impl<'a> Codeguru_securityService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("scan_type", scan_type.unwrap_or_default())
-                .with_field("scan_name", scan_name.unwrap_or_default())
-                .with_field("client_token", client_token.unwrap_or_default())
-                .with_field("analysis_type", analysis_type.unwrap_or_default())
-                .with_field("tags", tags.unwrap_or_default())
                 .with_field("resource_id", resource_id.unwrap_or_default())
+                .with_field("analysis_type", analysis_type.unwrap_or_default())
+                .with_field("client_token", client_token.unwrap_or_default())
+                .with_field("tags", tags.unwrap_or_default())
+                .with_field("scan_name", scan_name.unwrap_or_default())
+                .with_field("scan_type", scan_type.unwrap_or_default())
             )
         })
     }
@@ -529,242 +765,6 @@ impl<'a> Codeguru_securityService<'a> {
             // Example:
             // self.provider.codeguru_security_client
             //     .delete_metrics_summary()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Upload_url resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a upload_url resource
-    async fn plan_upload_url(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new upload_url resource
-    async fn create_upload_url(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let scan_name = input.get_string("scan_name")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.codeguru_security_client
-            //     .create_upload_url()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("scan_name", scan_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a upload_url resource
-    async fn read_upload_url(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.codeguru_security_client
-            //     .describe_upload_url()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a upload_url resource
-    async fn update_upload_url(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let scan_name = input.get_string("scan_name")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.codeguru_security_client
-            //     .update_upload_url()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("scan_name", scan_name.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a upload_url resource
-    async fn delete_upload_url(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.codeguru_security_client
-            //     .delete_upload_url()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to delete resource: {}", e)))?;
-
-            Ok(())
-        })
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Account_configuration resource operations
-    // ------------------------------------------------------------------------
-
-    /// Plan changes to a account_configuration resource
-    async fn plan_account_configuration(
-        &self,
-        current_state: Option<&ResourceOutput>,
-        desired_input: &ResourceInput,
-    ) -> Result<ResourcePlan> {
-        // If no current state exists, this is a create operation
-        if current_state.is_none() {
-            return Ok(ResourcePlan::create());
-        }
-
-        // TODO: Implement proper diff logic
-        // For now, return NoOp if resource exists
-        Ok(ResourcePlan::no_op())
-    }
-
-    /// Create a new account_configuration resource
-    async fn create_account_configuration(
-        &self,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        // Use the runtime to execute async SDK calls
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let encryption_config = input.get_string("encryption_config")?;
-
-
-            // TODO: Call AWS SDK to create the resource
-            // Example:
-            // let result = self.provider.codeguru_security_client
-            //     .create_account_configuration()
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to create resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id("placeholder-id")
-                .with_field("encryption_config", encryption_config.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Read a account_configuration resource
-    async fn read_account_configuration(
-        &self,
-        id: &str,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to read the resource
-            // Example:
-            // let result = self.provider.codeguru_security_client
-            //     .describe_account_configuration()
-            //     .set_id(id.to_string())
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to read resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id))
-        })
-    }
-
-    /// Update a account_configuration resource
-    async fn update_account_configuration(
-        &self,
-        id: &str,
-        input: ResourceInput,
-    ) -> Result<ResourceOutput> {
-        self.provider.runtime().block_on(async {
-            // Extract input fields
-            let encryption_config = input.get_string("encryption_config")?;
-
-
-            // TODO: Call AWS SDK to update the resource
-            // Example:
-            // let result = self.provider.codeguru_security_client
-            //     .update_account_configuration()
-            //     .set_id(id.to_string())
-            //     .set_name(name)
-            //     .send()
-            //     .await
-            //     .map_err(|e| hemmer_core::HemmerError::Provider(format!("Failed to update resource: {}", e)))?;
-
-            // Return placeholder output
-            Ok(ResourceOutput::new()
-                .with_id(id)
-                .with_field("encryption_config", encryption_config.unwrap_or_default())
-            )
-        })
-    }
-
-    /// Delete a account_configuration resource
-    async fn delete_account_configuration(
-        &self,
-        id: &str,
-    ) -> Result<()> {
-        self.provider.runtime().block_on(async {
-            // TODO: Call AWS SDK to delete the resource
-            // Example:
-            // self.provider.codeguru_security_client
-            //     .delete_account_configuration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

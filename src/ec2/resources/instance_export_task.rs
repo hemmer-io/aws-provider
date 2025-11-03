@@ -21,7 +21,7 @@ impl<'a> Instance_export_task<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, description: Option<String>, export_to_s3_task: String, target_environment: String, tag_specifications: Option<Vec<String>>, instance_id: String) -> Result<String> {
+    pub async fn create(&self, instance_id: String, tag_specifications: Option<Vec<String>>, target_environment: String, export_to_s3_task: String, description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Route<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, authorization_scopes: Option<Vec<String>>, authorization_type: Option<String>, operation_name: Option<String>, route_key: String, api_id: String, api_key_required: Option<bool>, route_response_selection_expression: Option<String>, request_parameters: Option<HashMap<String, String>>, target: Option<String>, request_models: Option<HashMap<String, String>>, model_selection_expression: Option<String>, authorizer_id: Option<String>) -> Result<String> {
+    pub async fn create(&self, target: Option<String>, api_id: String, request_parameters: Option<HashMap<String, String>>, authorization_scopes: Option<Vec<String>>, authorization_type: Option<String>, operation_name: Option<String>, api_key_required: Option<bool>, model_selection_expression: Option<String>, route_response_selection_expression: Option<String>, request_models: Option<HashMap<String, String>>, authorizer_id: Option<String>, route_key: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Route<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, authorization_scopes: Option<Vec<String>>, authorization_type: Option<String>, operation_name: Option<String>, route_key: Option<String>, api_id: Option<String>, api_key_required: Option<bool>, route_response_selection_expression: Option<String>, request_parameters: Option<HashMap<String, String>>, target: Option<String>, request_models: Option<HashMap<String, String>>, model_selection_expression: Option<String>, authorizer_id: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, target: Option<String>, api_id: Option<String>, request_parameters: Option<HashMap<String, String>>, authorization_scopes: Option<Vec<String>>, authorization_type: Option<String>, operation_name: Option<String>, api_key_required: Option<bool>, model_selection_expression: Option<String>, route_response_selection_expression: Option<String>, request_models: Option<HashMap<String, String>>, authorizer_id: Option<String>, route_key: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

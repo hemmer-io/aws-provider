@@ -21,7 +21,7 @@ impl<'a> Connect_peer<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<Vec<String>>, connect_attachment_id: String, peer_address: String, subnet_arn: Option<String>, client_token: Option<String>, inside_cidr_blocks: Option<Vec<String>>, core_network_address: Option<String>, bgp_options: Option<String>) -> Result<String> {
+    pub async fn create(&self, subnet_arn: Option<String>, inside_cidr_blocks: Option<Vec<String>>, core_network_address: Option<String>, connect_attachment_id: String, tags: Option<Vec<String>>, peer_address: String, client_token: Option<String>, bgp_options: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -24,7 +24,7 @@ impl<'a> Nodegroup_config<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, node_repair_config: Option<String>, taints: Option<String>, cluster_name: Option<String>, labels: Option<String>, nodegroup_name: Option<String>, client_request_token: Option<String>, scaling_config: Option<String>, update_config: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, cluster_name: Option<String>, labels: Option<String>, nodegroup_name: Option<String>, scaling_config: Option<String>, node_repair_config: Option<String>, taints: Option<String>, update_config: Option<String>, client_request_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

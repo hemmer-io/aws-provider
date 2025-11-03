@@ -21,7 +21,7 @@ impl<'a> Job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, queue: Option<String>, job_engine_version: Option<String>, acceleration_settings: Option<String>, priority: Option<i64>, client_request_token: Option<String>, simulate_reserved_queue: Option<String>, role: String, status_update_interval: Option<String>, user_metadata: Option<HashMap<String, String>>, hop_destinations: Option<Vec<String>>, settings: String, tags: Option<HashMap<String, String>>, billing_tags_source: Option<String>, job_template: Option<String>) -> Result<String> {
+    pub async fn create(&self, user_metadata: Option<HashMap<String, String>>, hop_destinations: Option<Vec<String>>, status_update_interval: Option<String>, priority: Option<i64>, job_engine_version: Option<String>, job_template: Option<String>, client_request_token: Option<String>, role: String, queue: Option<String>, simulate_reserved_queue: Option<String>, tags: Option<HashMap<String, String>>, acceleration_settings: Option<String>, billing_tags_source: Option<String>, settings: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

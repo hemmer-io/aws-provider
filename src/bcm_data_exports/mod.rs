@@ -24,14 +24,14 @@ impl<'a> Bcm_data_exportsService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "table" => {
-                self.plan_table(current_state, desired_input).await
+            "export" => {
+                self.plan_export(current_state, desired_input).await
             }
             "execution" => {
                 self.plan_execution(current_state, desired_input).await
             }
-            "export" => {
-                self.plan_export(current_state, desired_input).await
+            "table" => {
+                self.plan_table(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -48,14 +48,14 @@ impl<'a> Bcm_data_exportsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "table" => {
-                self.create_table(input).await
+            "export" => {
+                self.create_export(input).await
             }
             "execution" => {
                 self.create_execution(input).await
             }
-            "export" => {
-                self.create_export(input).await
+            "table" => {
+                self.create_table(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -72,14 +72,14 @@ impl<'a> Bcm_data_exportsService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "table" => {
-                self.read_table(id).await
+            "export" => {
+                self.read_export(id).await
             }
             "execution" => {
                 self.read_execution(id).await
             }
-            "export" => {
-                self.read_export(id).await
+            "table" => {
+                self.read_table(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -97,14 +97,14 @@ impl<'a> Bcm_data_exportsService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "table" => {
-                self.update_table(id, input).await
+            "export" => {
+                self.update_export(id, input).await
             }
             "execution" => {
                 self.update_execution(id, input).await
             }
-            "export" => {
-                self.update_export(id, input).await
+            "table" => {
+                self.update_table(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -121,14 +121,14 @@ impl<'a> Bcm_data_exportsService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "table" => {
-                self.delete_table(id).await
+            "export" => {
+                self.delete_export(id).await
             }
             "execution" => {
                 self.delete_execution(id).await
             }
-            "export" => {
-                self.delete_export(id).await
+            "table" => {
+                self.delete_table(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -144,11 +144,11 @@ impl<'a> Bcm_data_exportsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Table resource operations
+    // Export resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a table resource
-    async fn plan_table(
+    /// Plan changes to a export resource
+    async fn plan_export(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -163,20 +163,22 @@ impl<'a> Bcm_data_exportsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new table resource
-    async fn create_table(
+    /// Create a new export resource
+    async fn create_export(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let export = input.get_string("export")?;
+            let resource_tags = input.get_optional_string("resource_tags")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.bcm_data_exports_client
-            //     .create_table()
+            //     .create_export()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -185,12 +187,14 @@ impl<'a> Bcm_data_exportsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
+                .with_field("export", export.unwrap_or_default())
+                .with_field("resource_tags", resource_tags.unwrap_or_default())
             )
         })
     }
 
-    /// Read a table resource
-    async fn read_table(
+    /// Read a export resource
+    async fn read_export(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -198,7 +202,7 @@ impl<'a> Bcm_data_exportsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.bcm_data_exports_client
-            //     .describe_table()
+            //     .describe_export()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -210,20 +214,22 @@ impl<'a> Bcm_data_exportsService<'a> {
         })
     }
 
-    /// Update a table resource
-    async fn update_table(
+    /// Update a export resource
+    async fn update_export(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
+            let export = input.get_string("export")?;
+            let resource_tags = input.get_optional_string("resource_tags")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.bcm_data_exports_client
-            //     .update_table()
+            //     .update_export()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -233,12 +239,14 @@ impl<'a> Bcm_data_exportsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
+                .with_field("export", export.unwrap_or_default())
+                .with_field("resource_tags", resource_tags.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a table resource
-    async fn delete_table(
+    /// Delete a export resource
+    async fn delete_export(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -246,7 +254,7 @@ impl<'a> Bcm_data_exportsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.bcm_data_exports_client
-            //     .delete_table()
+            //     .delete_export()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -372,11 +380,11 @@ impl<'a> Bcm_data_exportsService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Export resource operations
+    // Table resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a export resource
-    async fn plan_export(
+    /// Plan changes to a table resource
+    async fn plan_table(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -391,22 +399,20 @@ impl<'a> Bcm_data_exportsService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new export resource
-    async fn create_export(
+    /// Create a new table resource
+    async fn create_table(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let resource_tags = input.get_optional_string("resource_tags")?;
-            let export = input.get_string("export")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.bcm_data_exports_client
-            //     .create_export()
+            //     .create_table()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -415,14 +421,12 @@ impl<'a> Bcm_data_exportsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("resource_tags", resource_tags.unwrap_or_default())
-                .with_field("export", export.unwrap_or_default())
             )
         })
     }
 
-    /// Read a export resource
-    async fn read_export(
+    /// Read a table resource
+    async fn read_table(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -430,7 +434,7 @@ impl<'a> Bcm_data_exportsService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.bcm_data_exports_client
-            //     .describe_export()
+            //     .describe_table()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -442,22 +446,20 @@ impl<'a> Bcm_data_exportsService<'a> {
         })
     }
 
-    /// Update a export resource
-    async fn update_export(
+    /// Update a table resource
+    async fn update_table(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let resource_tags = input.get_optional_string("resource_tags")?;
-            let export = input.get_string("export")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.bcm_data_exports_client
-            //     .update_export()
+            //     .update_table()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -467,14 +469,12 @@ impl<'a> Bcm_data_exportsService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("resource_tags", resource_tags.unwrap_or_default())
-                .with_field("export", export.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a export resource
-    async fn delete_export(
+    /// Delete a table resource
+    async fn delete_table(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -482,7 +482,7 @@ impl<'a> Bcm_data_exportsService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.bcm_data_exports_client
-            //     .delete_export()
+            //     .delete_table()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

@@ -21,7 +21,7 @@ impl<'a> App_block_builder<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, enable_default_internet_access: Option<bool>, vpc_config: String, iam_role_arn: Option<String>, description: Option<String>, display_name: Option<String>, access_endpoints: Option<Vec<String>>, tags: Option<HashMap<String, String>>, name: String, instance_type: String, platform: String) -> Result<String> {
+    pub async fn create(&self, access_endpoints: Option<Vec<String>>, display_name: Option<String>, platform: String, enable_default_internet_access: Option<bool>, vpc_config: String, description: Option<String>, tags: Option<HashMap<String, String>>, instance_type: String, name: String, iam_role_arn: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -40,7 +40,7 @@ impl<'a> App_block_builder<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, enable_default_internet_access: Option<bool>, vpc_config: Option<String>, iam_role_arn: Option<String>, description: Option<String>, display_name: Option<String>, access_endpoints: Option<Vec<String>>, tags: Option<HashMap<String, String>>, name: Option<String>, instance_type: Option<String>, platform: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, access_endpoints: Option<Vec<String>>, display_name: Option<String>, platform: Option<String>, enable_default_internet_access: Option<bool>, vpc_config: Option<String>, description: Option<String>, tags: Option<HashMap<String, String>>, instance_type: Option<String>, name: Option<String>, iam_role_arn: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

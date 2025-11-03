@@ -21,7 +21,7 @@ impl<'a> Component<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, change_description: Option<String>, name: String, supported_os_versions: Option<Vec<String>>, client_token: String, uri: Option<String>, tags: Option<HashMap<String, String>>, semantic_version: String, kms_key_id: Option<String>, data: Option<String>, platform: String, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, client_token: String, uri: Option<String>, kms_key_id: Option<String>, name: String, description: Option<String>, data: Option<String>, platform: String, change_description: Option<String>, semantic_version: String, supported_os_versions: Option<Vec<String>>, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

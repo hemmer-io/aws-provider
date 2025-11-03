@@ -38,7 +38,7 @@ impl<'a> Shared_vpc_configuration<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, client_request_token: Option<String>, enable_fsx_route_table_updates_from_participant_accounts: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, enable_fsx_route_table_updates_from_participant_accounts: Option<String>, client_request_token: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

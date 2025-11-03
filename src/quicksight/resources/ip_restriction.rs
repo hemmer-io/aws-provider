@@ -38,7 +38,7 @@ impl<'a> Ip_restriction<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, aws_account_id: Option<String>, ip_restriction_rule_map: Option<HashMap<String, String>>, vpc_id_restriction_rule_map: Option<HashMap<String, String>>, vpc_endpoint_id_restriction_rule_map: Option<HashMap<String, String>>, enabled: Option<bool>) -> Result<()> {
+    pub async fn update(&self, id: &str, vpc_endpoint_id_restriction_rule_map: Option<HashMap<String, String>>, vpc_id_restriction_rule_map: Option<HashMap<String, String>>, ip_restriction_rule_map: Option<HashMap<String, String>>, aws_account_id: Option<String>, enabled: Option<bool>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

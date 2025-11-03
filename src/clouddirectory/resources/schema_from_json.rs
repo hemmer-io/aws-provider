@@ -21,7 +21,7 @@ impl<'a> Schema_from_json<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, schema_arn: String, document: String) -> Result<String> {
+    pub async fn create(&self, document: String, schema_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

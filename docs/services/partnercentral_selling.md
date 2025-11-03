@@ -35,8 +35,8 @@ SellingSystemSettings resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `resource_snapshot_job_role_arn` | String | <p>Specifies the ARN of the IAM Role used for resource snapshot job executions.</p> |
 | `catalog` | String | <p>Specifies the catalog in which the settings are defined. Acceptable values include <code>AWS</code> for production and <code>Sandbox</code> for testing environments.</p> |
+| `resource_snapshot_job_role_arn` | String | <p>Specifies the ARN of the IAM Role used for resource snapshot job executions.</p> |
 
 
 #### Usage Example
@@ -57,8 +57,8 @@ selling_system_settings = provider.partnercentral_selling.Selling_system_setting
 
 # Access selling_system_settings outputs
 selling_system_settings_id = selling_system_settings.id
-selling_system_settings_resource_snapshot_job_role_arn = selling_system_settings.resource_snapshot_job_role_arn
 selling_system_settings_catalog = selling_system_settings.catalog
+selling_system_settings_resource_snapshot_job_role_arn = selling_system_settings.resource_snapshot_job_role_arn
 ```
 
 ---

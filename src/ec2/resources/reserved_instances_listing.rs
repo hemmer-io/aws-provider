@@ -21,7 +21,7 @@ impl<'a> Reserved_instances_listing<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, reserved_instances_id: String, instance_count: i64, client_token: String, price_schedules: Vec<String>) -> Result<String> {
+    pub async fn create(&self, instance_count: i64, price_schedules: Vec<String>, reserved_instances_id: String, client_token: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

@@ -21,7 +21,7 @@ impl<'a> Audit_suppression<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, check_name: String, client_request_token: String, resource_identifier: String, expiration_date: Option<String>, suppress_indefinitely: Option<bool>, description: Option<String>) -> Result<String> {
+    pub async fn create(&self, expiration_date: Option<String>, client_request_token: String, resource_identifier: String, check_name: String, suppress_indefinitely: Option<bool>, description: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Audit_suppression<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, check_name: Option<String>, client_request_token: Option<String>, resource_identifier: Option<String>, expiration_date: Option<String>, suppress_indefinitely: Option<bool>, description: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, expiration_date: Option<String>, client_request_token: Option<String>, resource_identifier: Option<String>, check_name: Option<String>, suppress_indefinitely: Option<bool>, description: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

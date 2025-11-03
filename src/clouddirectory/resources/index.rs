@@ -21,7 +21,7 @@ impl<'a> Index<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, directory_arn: String, is_unique: bool, ordered_indexed_attribute_list: Vec<String>, parent_reference: Option<String>, link_name: Option<String>) -> Result<String> {
+    pub async fn create(&self, ordered_indexed_attribute_list: Vec<String>, is_unique: bool, parent_reference: Option<String>, directory_arn: String, link_name: Option<String>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

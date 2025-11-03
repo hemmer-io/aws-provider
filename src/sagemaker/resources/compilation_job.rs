@@ -21,7 +21,7 @@ impl<'a> Compilation_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, output_config: String, model_package_version_arn: Option<String>, vpc_config: Option<String>, stopping_condition: String, input_config: Option<String>, tags: Option<Vec<String>>, compilation_job_name: String, role_arn: String) -> Result<String> {
+    pub async fn create(&self, vpc_config: Option<String>, tags: Option<Vec<String>>, model_package_version_arn: Option<String>, stopping_condition: String, compilation_job_name: String, role_arn: String, input_config: Option<String>, output_config: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

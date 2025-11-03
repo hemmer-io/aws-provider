@@ -28,9 +28,9 @@ Dashboard resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `widgets` | Vec<String> | ✅ | <p>An array of widget configurations that define the visualizations to be displayed in the dashboard. Each dashboard can contain up to 20 widgets.</p> |
-| `resource_tags` | Vec<String> |  | <p>The tags to apply to the dashboard resource for organization and management.</p> |
 | `name` | String | ✅ | <p>The name of the dashboard. The name must be unique within your account.</p> |
+| `resource_tags` | Vec<String> |  | <p>The tags to apply to the dashboard resource for organization and management.</p> |
+| `widgets` | Vec<String> | ✅ | <p>An array of widget configurations that define the visualizations to be displayed in the dashboard. Each dashboard can contain up to 20 widgets.</p> |
 | `description` | String |  | <p>A description of the dashboard's purpose or contents.</p> |
 
 
@@ -38,13 +38,13 @@ Dashboard resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `widgets` | Vec<String> | <p>An array of widget configurations that make up the dashboard.</p> |
-| `name` | String | <p>The name of the retrieved dashboard.</p> |
-| `created_at` | String | <p>The timestamp when the dashboard was created.</p> |
 | `updated_at` | String | <p>The timestamp when the dashboard was last modified.</p> |
-| `arn` | String | <p>The ARN of the retrieved dashboard.</p> |
 | `description` | String | <p>The description of the retrieved dashboard.</p> |
+| `widgets` | Vec<String> | <p>An array of widget configurations that make up the dashboard.</p> |
+| `arn` | String | <p>The ARN of the retrieved dashboard.</p> |
+| `name` | String | <p>The name of the retrieved dashboard.</p> |
 | `type` | String | <p>Indicates the dashboard type.</p> |
+| `created_at` | String | <p>The timestamp when the dashboard was created.</p> |
 
 
 #### Usage Example
@@ -60,19 +60,19 @@ provider = aws.AwsProvider {
 
 # Create dashboard
 dashboard = provider.bcm_dashboards.Dashboard {
-    widgets = "value"  # <p>An array of widget configurations that define the visualizations to be displayed in the dashboard. Each dashboard can contain up to 20 widgets.</p>
     name = "value"  # <p>The name of the dashboard. The name must be unique within your account.</p>
+    widgets = "value"  # <p>An array of widget configurations that define the visualizations to be displayed in the dashboard. Each dashboard can contain up to 20 widgets.</p>
 }
 
 # Access dashboard outputs
 dashboard_id = dashboard.id
-dashboard_widgets = dashboard.widgets
-dashboard_name = dashboard.name
-dashboard_created_at = dashboard.created_at
 dashboard_updated_at = dashboard.updated_at
-dashboard_arn = dashboard.arn
 dashboard_description = dashboard.description
+dashboard_widgets = dashboard.widgets
+dashboard_arn = dashboard.arn
+dashboard_name = dashboard.name
 dashboard_type = dashboard.type
+dashboard_created_at = dashboard.created_at
 ```
 
 ---
@@ -94,8 +94,8 @@ ResourcePolicy resource
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `policy_document` | String | <p>The JSON policy document that represents the dashboard's resource-based policy.</p> |
 | `resource_arn` | String | <p>The ARN of the dashboard for which the resource-based policy was retrieved.</p> |
+| `policy_document` | String | <p>The JSON policy document that represents the dashboard's resource-based policy.</p> |
 
 
 #### Usage Example
@@ -111,8 +111,8 @@ provider = aws.AwsProvider {
 
 # Access resource_policy outputs
 resource_policy_id = resource_policy.id
-resource_policy_policy_document = resource_policy.policy_document
 resource_policy_resource_arn = resource_policy.resource_arn
+resource_policy_policy_document = resource_policy.policy_document
 ```
 
 ---
@@ -132,16 +132,16 @@ provider = aws.AwsProvider {
 
 # Create multiple dashboard resources
 dashboard_0 = provider.bcm_dashboards.Dashboard {
-    widgets = "value-0"
     name = "value-0"
+    widgets = "value-0"
 }
 dashboard_1 = provider.bcm_dashboards.Dashboard {
-    widgets = "value-1"
     name = "value-1"
+    widgets = "value-1"
 }
 dashboard_2 = provider.bcm_dashboards.Dashboard {
-    widgets = "value-2"
     name = "value-2"
+    widgets = "value-2"
 }
 ```
 
@@ -151,8 +151,8 @@ dashboard_2 = provider.bcm_dashboards.Dashboard {
 # Only create in production
 if environment == "production":
     dashboard = provider.bcm_dashboards.Dashboard {
-        widgets = "production-value"
         name = "production-value"
+        widgets = "production-value"
     }
 ```
 

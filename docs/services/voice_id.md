@@ -12,8 +12,8 @@ The voice_id service provides access to 5 resource types:
 
 - [Fraudster_registration_job](#fraudster_registration_job) [R]
 - [Fraudster](#fraudster) [RD]
-- [Watchlist](#watchlist) [CRUD]
 - [Speaker_enrollment_job](#speaker_enrollment_job) [R]
+- [Watchlist](#watchlist) [CRUD]
 - [Speaker](#speaker) [RD]
 
 ---
@@ -97,57 +97,6 @@ fraudster_fraudster = fraudster.fraudster
 ---
 
 
-### Watchlist
-
-Watchlist resource
-
-**Operations**: ✅ Create ✅ Read ✅ Update ✅ Delete
-
-#### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `client_token` | String |  | <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-            request. If not provided, the Amazon Web Services
-            SDK populates this field. For more information about idempotency, see
-            <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p> |
-| `description` | String |  | <p>A brief description of this watchlist.</p> |
-| `domain_id` | String | ✅ | <p>The identifier of the domain that contains the watchlist.</p> |
-| `name` | String | ✅ | <p>The name of the watchlist.</p> |
-
-
-#### Outputs
-
-| Output | Type | Description |
-|--------|------|-------------|
-| `watchlist` | String | <p>Information about the specified watchlist.</p> |
-
-
-#### Usage Example
-
-```kcl
-# main.k
-import aws
-
-# Initialize provider
-provider = aws.AwsProvider {
-    region = "us-east-1"
-}
-
-# Create watchlist
-watchlist = provider.voice_id.Watchlist {
-    domain_id = "value"  # <p>The identifier of the domain that contains the watchlist.</p>
-    name = "value"  # <p>The name of the watchlist.</p>
-}
-
-# Access watchlist outputs
-watchlist_id = watchlist.id
-watchlist_watchlist = watchlist.watchlist
-```
-
----
-
-
 ### Speaker_enrollment_job
 
 SpeakerEnrollmentJob resource
@@ -181,6 +130,57 @@ provider = aws.AwsProvider {
 # Access speaker_enrollment_job outputs
 speaker_enrollment_job_id = speaker_enrollment_job.id
 speaker_enrollment_job_job = speaker_enrollment_job.job
+```
+
+---
+
+
+### Watchlist
+
+Watchlist resource
+
+**Operations**: ✅ Create ✅ Read ✅ Update ✅ Delete
+
+#### Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `name` | String | ✅ | <p>The name of the watchlist.</p> |
+| `description` | String |  | <p>A brief description of this watchlist.</p> |
+| `client_token` | String |  | <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+            request. If not provided, the Amazon Web Services
+            SDK populates this field. For more information about idempotency, see
+            <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p> |
+| `domain_id` | String | ✅ | <p>The identifier of the domain that contains the watchlist.</p> |
+
+
+#### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| `watchlist` | String | <p>Information about the specified watchlist.</p> |
+
+
+#### Usage Example
+
+```kcl
+# main.k
+import aws
+
+# Initialize provider
+provider = aws.AwsProvider {
+    region = "us-east-1"
+}
+
+# Create watchlist
+watchlist = provider.voice_id.Watchlist {
+    name = "value"  # <p>The name of the watchlist.</p>
+    domain_id = "value"  # <p>The identifier of the domain that contains the watchlist.</p>
+}
+
+# Access watchlist outputs
+watchlist_id = watchlist.id
+watchlist_watchlist = watchlist.watchlist
 ```
 
 ---

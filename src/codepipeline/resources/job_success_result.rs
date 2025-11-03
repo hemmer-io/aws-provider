@@ -21,7 +21,7 @@ impl<'a> Job_success_result<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, job_id: String, continuation_token: Option<String>, execution_details: Option<String>, current_revision: Option<String>, output_variables: Option<HashMap<String, String>>) -> Result<String> {
+    pub async fn create(&self, current_revision: Option<String>, job_id: String, continuation_token: Option<String>, execution_details: Option<String>, output_variables: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

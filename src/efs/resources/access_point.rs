@@ -21,7 +21,7 @@ impl<'a> Access_point<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, client_token: String, file_system_id: String, root_directory: Option<String>, tags: Option<Vec<String>>, posix_user: Option<String>) -> Result<String> {
+    pub async fn create(&self, root_directory: Option<String>, posix_user: Option<String>, tags: Option<Vec<String>>, client_token: String, file_system_id: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

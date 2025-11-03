@@ -21,7 +21,7 @@ impl<'a> Signal_map<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, tags: Option<HashMap<String, String>>, description: Option<String>, discovery_entry_point_arn: String, name: String, request_id: Option<String>, cloud_watch_alarm_template_group_identifiers: Option<Vec<String>>, event_bridge_rule_template_group_identifiers: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, event_bridge_rule_template_group_identifiers: Option<Vec<String>>, name: String, tags: Option<HashMap<String, String>>, description: Option<String>, request_id: Option<String>, cloud_watch_alarm_template_group_identifiers: Option<Vec<String>>, discovery_entry_point_arn: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

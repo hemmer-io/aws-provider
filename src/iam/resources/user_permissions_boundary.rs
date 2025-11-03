@@ -21,7 +21,7 @@ impl<'a> User_permissions_boundary<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, permissions_boundary: String, user_name: String) -> Result<String> {
+    pub async fn create(&self, user_name: String, permissions_boundary: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

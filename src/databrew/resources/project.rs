@@ -21,7 +21,7 @@ impl<'a> Project<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, sample: Option<String>, role_arn: String, tags: Option<HashMap<String, String>>, dataset_name: String, recipe_name: String, name: String) -> Result<String> {
+    pub async fn create(&self, role_arn: String, recipe_name: String, name: String, dataset_name: String, sample: Option<String>, tags: Option<HashMap<String, String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Project<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, sample: Option<String>, role_arn: Option<String>, tags: Option<HashMap<String, String>>, dataset_name: Option<String>, recipe_name: Option<String>, name: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, role_arn: Option<String>, recipe_name: Option<String>, name: Option<String>, dataset_name: Option<String>, sample: Option<String>, tags: Option<HashMap<String, String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

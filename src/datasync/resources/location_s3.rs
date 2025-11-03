@@ -21,7 +21,7 @@ impl<'a> Location_s3<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, s3_config: String, tags: Option<Vec<String>>, subdirectory: Option<String>, s3_bucket_arn: String, agent_arns: Option<Vec<String>>, s3_storage_class: Option<String>) -> Result<String> {
+    pub async fn create(&self, s3_config: String, subdirectory: Option<String>, tags: Option<Vec<String>>, s3_bucket_arn: String, s3_storage_class: Option<String>, agent_arns: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping
@@ -54,7 +54,7 @@ impl<'a> Location_s3<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, s3_config: Option<String>, tags: Option<Vec<String>>, subdirectory: Option<String>, s3_bucket_arn: Option<String>, agent_arns: Option<Vec<String>>, s3_storage_class: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, s3_config: Option<String>, subdirectory: Option<String>, tags: Option<Vec<String>>, s3_bucket_arn: Option<String>, s3_storage_class: Option<String>, agent_arns: Option<Vec<String>>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters

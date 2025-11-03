@@ -27,10 +27,18 @@ Session resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
+| `request_attributes` | String |  | <p>Request-specific information passed between Amazon Lex V2 and the client
+         application.</p>
+         <p>The namespace <code>x-amz-lex:</code> is reserved for special
+         attributes. Don't create any request attributes with the prefix
+            <code>x-amz-lex:</code>.</p> |
 | `bot_id` | String | ✅ | <p>The identifier of the bot that receives the session data.</p> |
+| `session_state` | String | ✅ | <p>Sets the state of the session with the user. You can use this to set
+         the current intent, attributes, context, and dialog action. Use the
+         dialog action to determine the next step that Amazon Lex V2 should use in the
+         conversation with the user.</p> |
 | `locale_id` | String | ✅ | <p>The locale where the session is in use.</p> |
-| `messages` | Vec<String> |  | <p>A list of messages to send to the user. Messages are sent in the
-         order that they are defined in the list.</p> |
+| `session_id` | String | ✅ | <p>The identifier of the session that receives the session data.</p> |
 | `response_content_type` | String |  | <p>The message that Amazon Lex V2 returns in the response can be either text or
          speech depending on the value of this parameter. </p>
          <ul>
@@ -39,25 +47,16 @@ Session resource
                returns text in the response.</p>
             </li>
          </ul> |
+| `messages` | Vec<String> |  | <p>A list of messages to send to the user. Messages are sent in the
+         order that they are defined in the list.</p> |
 | `bot_alias_id` | String | ✅ | <p>The alias identifier of the bot that receives the session
          data.</p> |
-| `session_id` | String | ✅ | <p>The identifier of the session that receives the session data.</p> |
-| `session_state` | String | ✅ | <p>Sets the state of the session with the user. You can use this to set
-         the current intent, attributes, context, and dialog action. Use the
-         dialog action to determine the next step that Amazon Lex V2 should use in the
-         conversation with the user.</p> |
-| `request_attributes` | String |  | <p>Request-specific information passed between Amazon Lex V2 and the client
-         application.</p>
-         <p>The namespace <code>x-amz-lex:</code> is reserved for special
-         attributes. Don't create any request attributes with the prefix
-            <code>x-amz-lex:</code>.</p> |
 
 
 #### Outputs
 
 | Output | Type | Description |
 |--------|------|-------------|
-| `session_id` | String | <p>The identifier of the returned session.</p> |
 | `messages` | Vec<String> | <p>A list of messages that were last sent to the user. The messages are
          ordered based on the order that your returned the messages from your
          Lambda function or the order that messages are defined in the bot.
@@ -72,6 +71,7 @@ Session resource
          bot.</p>
          <p>You can use this to determine the progress of the conversation and
          what the next action might be.</p> |
+| `session_id` | String | <p>The identifier of the returned session.</p> |
 
 
 #### Usage Example
@@ -88,22 +88,22 @@ provider = aws.AwsProvider {
 # Create session
 session = provider.lex_runtime.Session {
     bot_id = "value"  # <p>The identifier of the bot that receives the session data.</p>
-    locale_id = "value"  # <p>The locale where the session is in use.</p>
-    bot_alias_id = "value"  # <p>The alias identifier of the bot that receives the session
-         data.</p>
-    session_id = "value"  # <p>The identifier of the session that receives the session data.</p>
     session_state = "value"  # <p>Sets the state of the session with the user. You can use this to set
          the current intent, attributes, context, and dialog action. Use the
          dialog action to determine the next step that Amazon Lex V2 should use in the
          conversation with the user.</p>
+    locale_id = "value"  # <p>The locale where the session is in use.</p>
+    session_id = "value"  # <p>The identifier of the session that receives the session data.</p>
+    bot_alias_id = "value"  # <p>The alias identifier of the bot that receives the session
+         data.</p>
 }
 
 # Access session outputs
 session_id = session.id
-session_session_id = session.session_id
 session_messages = session.messages
 session_interpretations = session.interpretations
 session_session_state = session.session_state
+session_session_id = session.session_id
 ```
 
 ---
@@ -124,24 +124,24 @@ provider = aws.AwsProvider {
 # Create multiple session resources
 session_0 = provider.lex_runtime.Session {
     bot_id = "value-0"
-    locale_id = "value-0"
-    bot_alias_id = "value-0"
-    session_id = "value-0"
     session_state = "value-0"
+    locale_id = "value-0"
+    session_id = "value-0"
+    bot_alias_id = "value-0"
 }
 session_1 = provider.lex_runtime.Session {
     bot_id = "value-1"
-    locale_id = "value-1"
-    bot_alias_id = "value-1"
-    session_id = "value-1"
     session_state = "value-1"
+    locale_id = "value-1"
+    session_id = "value-1"
+    bot_alias_id = "value-1"
 }
 session_2 = provider.lex_runtime.Session {
     bot_id = "value-2"
-    locale_id = "value-2"
-    bot_alias_id = "value-2"
-    session_id = "value-2"
     session_state = "value-2"
+    locale_id = "value-2"
+    session_id = "value-2"
+    bot_alias_id = "value-2"
 }
 ```
 
@@ -152,10 +152,10 @@ session_2 = provider.lex_runtime.Session {
 if environment == "production":
     session = provider.lex_runtime.Session {
         bot_id = "production-value"
-        locale_id = "production-value"
-        bot_alias_id = "production-value"
-        session_id = "production-value"
         session_state = "production-value"
+        locale_id = "production-value"
+        session_id = "production-value"
+        bot_alias_id = "production-value"
     }
 ```
 

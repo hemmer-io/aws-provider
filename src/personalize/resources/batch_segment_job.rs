@@ -21,7 +21,7 @@ impl<'a> Batch_segment_job<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, role_arn: String, filter_arn: Option<String>, job_name: String, num_results: Option<i64>, job_input: String, job_output: String, solution_version_arn: String, tags: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, filter_arn: Option<String>, solution_version_arn: String, num_results: Option<i64>, job_name: String, job_input: String, role_arn: String, tags: Option<Vec<String>>, job_output: String) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

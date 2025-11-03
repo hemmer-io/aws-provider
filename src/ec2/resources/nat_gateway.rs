@@ -21,7 +21,7 @@ impl<'a> Nat_gateway<'a> {
     /// Note: Parameter types are simplified. SDK may require specific enums/types.
     /// TODO: Convert String parameters to appropriate SDK types as needed.
     #[allow(unused_variables)]
-    pub async fn create(&self, allocation_id: Option<String>, secondary_private_ip_address_count: Option<i64>, tag_specifications: Option<Vec<String>>, client_token: Option<String>, dry_run: Option<bool>, subnet_id: String, secondary_private_ip_addresses: Option<Vec<String>>, connectivity_type: Option<String>, private_ip_address: Option<String>, secondary_allocation_ids: Option<Vec<String>>) -> Result<String> {
+    pub async fn create(&self, connectivity_type: Option<String>, dry_run: Option<bool>, subnet_id: String, secondary_private_ip_address_count: Option<i64>, allocation_id: Option<String>, tag_specifications: Option<Vec<String>>, client_token: Option<String>, private_ip_address: Option<String>, secondary_allocation_ids: Option<Vec<String>>, secondary_private_ip_addresses: Option<Vec<String>>) -> Result<String> {
 
         // Note: This is a generated skeleton. Type conversions may be needed.
         // TODO: Implement actual SDK call with proper type mapping

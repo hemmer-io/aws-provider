@@ -68,6 +68,22 @@ Resource resource
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
+| `role_arn` | String |  | <p>The Amazon Resource Name (ARN) of the Identity and Access Management
+                                    (IAM) role for Cloud Control API to use when performing this resource
+                                    operation. The role specified must have the permissions required for this
+                                    operation. The necessary permissions for each event handler are defined in the
+                                    <code>
+               <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a>
+            </code>
+                                    section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type
+                                    definition schema</a>.</p>
+         <p>If you do not specify a role, Cloud Control API uses a temporary session created using
+                                    your Amazon Web Services user credentials.</p>
+         <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying
+                                    credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p> |
+| `type_version_id` | String |  | <p>For private resource types, the type version to use in this resource
+                                     operation. If you do not specify a resource version, CloudFormation
+                                     uses the default version.</p> |
 | `client_token` | String |  | <p>A unique identifier to ensure the idempotency of the resource request. As a
                                      best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can
                                      accurately distinguish between request retries and new resource requests. You
@@ -98,22 +114,6 @@ Resource resource
          <p>For more information about the properties of a specific resource, refer to the related
       topic for the resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource and property types reference</a> in the <i>CloudFormation Users Guide</i>.</p> |
 | `type_name` | String | ✅ | <p>The name of the resource type.</p> |
-| `type_version_id` | String |  | <p>For private resource types, the type version to use in this resource
-                                     operation. If you do not specify a resource version, CloudFormation
-                                     uses the default version.</p> |
-| `role_arn` | String |  | <p>The Amazon Resource Name (ARN) of the Identity and Access Management
-                                    (IAM) role for Cloud Control API to use when performing this resource
-                                    operation. The role specified must have the permissions required for this
-                                    operation. The necessary permissions for each event handler are defined in the
-                                    <code>
-               <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a>
-            </code>
-                                    section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type
-                                    definition schema</a>.</p>
-         <p>If you do not specify a role, Cloud Control API uses a temporary session created using
-                                    your Amazon Web Services user credentials.</p>
-         <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying
-                                    credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p> |
 
 
 #### Outputs

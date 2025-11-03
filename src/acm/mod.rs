@@ -24,14 +24,14 @@ impl<'a> AcmService<'a> {
         desired_input: &ResourceInput,
     ) -> Result<ResourcePlan> {
         match resource_name {
-            "certificate_options" => {
-                self.plan_certificate_options(current_state, desired_input).await
+            "account_configuration" => {
+                self.plan_account_configuration(current_state, desired_input).await
             }
             "certificate" => {
                 self.plan_certificate(current_state, desired_input).await
             }
-            "account_configuration" => {
-                self.plan_account_configuration(current_state, desired_input).await
+            "certificate_options" => {
+                self.plan_certificate_options(current_state, desired_input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -48,14 +48,14 @@ impl<'a> AcmService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "certificate_options" => {
-                self.create_certificate_options(input).await
+            "account_configuration" => {
+                self.create_account_configuration(input).await
             }
             "certificate" => {
                 self.create_certificate(input).await
             }
-            "account_configuration" => {
-                self.create_account_configuration(input).await
+            "certificate_options" => {
+                self.create_certificate_options(input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -72,14 +72,14 @@ impl<'a> AcmService<'a> {
         id: &str,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "certificate_options" => {
-                self.read_certificate_options(id).await
+            "account_configuration" => {
+                self.read_account_configuration(id).await
             }
             "certificate" => {
                 self.read_certificate(id).await
             }
-            "account_configuration" => {
-                self.read_account_configuration(id).await
+            "certificate_options" => {
+                self.read_certificate_options(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -97,14 +97,14 @@ impl<'a> AcmService<'a> {
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         match resource_name {
-            "certificate_options" => {
-                self.update_certificate_options(id, input).await
+            "account_configuration" => {
+                self.update_account_configuration(id, input).await
             }
             "certificate" => {
                 self.update_certificate(id, input).await
             }
-            "account_configuration" => {
-                self.update_account_configuration(id, input).await
+            "certificate_options" => {
+                self.update_certificate_options(id, input).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -121,14 +121,14 @@ impl<'a> AcmService<'a> {
         id: &str,
     ) -> Result<()> {
         match resource_name {
-            "certificate_options" => {
-                self.delete_certificate_options(id).await
+            "account_configuration" => {
+                self.delete_account_configuration(id).await
             }
             "certificate" => {
                 self.delete_certificate(id).await
             }
-            "account_configuration" => {
-                self.delete_account_configuration(id).await
+            "certificate_options" => {
+                self.delete_certificate_options(id).await
             }
             _ => Err(hemmer_core::HemmerError::Provider(format!(
                 "Unknown resource type: {}.{}",
@@ -144,11 +144,11 @@ impl<'a> AcmService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Certificate_options resource operations
+    // Account_configuration resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a certificate_options resource
-    async fn plan_certificate_options(
+    /// Plan changes to a account_configuration resource
+    async fn plan_account_configuration(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -163,22 +163,22 @@ impl<'a> AcmService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new certificate_options resource
-    async fn create_certificate_options(
+    /// Create a new account_configuration resource
+    async fn create_account_configuration(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let certificate_arn = input.get_string("certificate_arn")?;
-            let options = input.get_string("options")?;
+            let expiry_events = input.get_optional_string("expiry_events")?;
+            let idempotency_token = input.get_string("idempotency_token")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.acm_client
-            //     .create_certificate_options()
+            //     .create_account_configuration()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -187,14 +187,14 @@ impl<'a> AcmService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("certificate_arn", certificate_arn.unwrap_or_default())
-                .with_field("options", options.unwrap_or_default())
+                .with_field("expiry_events", expiry_events.unwrap_or_default())
+                .with_field("idempotency_token", idempotency_token.unwrap_or_default())
             )
         })
     }
 
-    /// Read a certificate_options resource
-    async fn read_certificate_options(
+    /// Read a account_configuration resource
+    async fn read_account_configuration(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -202,7 +202,7 @@ impl<'a> AcmService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.acm_client
-            //     .describe_certificate_options()
+            //     .describe_account_configuration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -214,22 +214,22 @@ impl<'a> AcmService<'a> {
         })
     }
 
-    /// Update a certificate_options resource
-    async fn update_certificate_options(
+    /// Update a account_configuration resource
+    async fn update_account_configuration(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let certificate_arn = input.get_string("certificate_arn")?;
-            let options = input.get_string("options")?;
+            let expiry_events = input.get_optional_string("expiry_events")?;
+            let idempotency_token = input.get_string("idempotency_token")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.acm_client
-            //     .update_certificate_options()
+            //     .update_account_configuration()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -239,14 +239,14 @@ impl<'a> AcmService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("certificate_arn", certificate_arn.unwrap_or_default())
-                .with_field("options", options.unwrap_or_default())
+                .with_field("expiry_events", expiry_events.unwrap_or_default())
+                .with_field("idempotency_token", idempotency_token.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a certificate_options resource
-    async fn delete_certificate_options(
+    /// Delete a account_configuration resource
+    async fn delete_account_configuration(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -254,7 +254,7 @@ impl<'a> AcmService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.acm_client
-            //     .delete_certificate_options()
+            //     .delete_account_configuration()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -380,11 +380,11 @@ impl<'a> AcmService<'a> {
 
 
     // ------------------------------------------------------------------------
-    // Account_configuration resource operations
+    // Certificate_options resource operations
     // ------------------------------------------------------------------------
 
-    /// Plan changes to a account_configuration resource
-    async fn plan_account_configuration(
+    /// Plan changes to a certificate_options resource
+    async fn plan_certificate_options(
         &self,
         current_state: Option<&ResourceOutput>,
         desired_input: &ResourceInput,
@@ -399,22 +399,22 @@ impl<'a> AcmService<'a> {
         Ok(ResourcePlan::no_op())
     }
 
-    /// Create a new account_configuration resource
-    async fn create_account_configuration(
+    /// Create a new certificate_options resource
+    async fn create_certificate_options(
         &self,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         // Use the runtime to execute async SDK calls
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let idempotency_token = input.get_string("idempotency_token")?;
-            let expiry_events = input.get_optional_string("expiry_events")?;
+            let options = input.get_string("options")?;
+            let certificate_arn = input.get_string("certificate_arn")?;
 
 
             // TODO: Call AWS SDK to create the resource
             // Example:
             // let result = self.provider.acm_client
-            //     .create_account_configuration()
+            //     .create_certificate_options()
             //     .set_name(name)
             //     .send()
             //     .await
@@ -423,14 +423,14 @@ impl<'a> AcmService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id("placeholder-id")
-                .with_field("idempotency_token", idempotency_token.unwrap_or_default())
-                .with_field("expiry_events", expiry_events.unwrap_or_default())
+                .with_field("options", options.unwrap_or_default())
+                .with_field("certificate_arn", certificate_arn.unwrap_or_default())
             )
         })
     }
 
-    /// Read a account_configuration resource
-    async fn read_account_configuration(
+    /// Read a certificate_options resource
+    async fn read_certificate_options(
         &self,
         id: &str,
     ) -> Result<ResourceOutput> {
@@ -438,7 +438,7 @@ impl<'a> AcmService<'a> {
             // TODO: Call AWS SDK to read the resource
             // Example:
             // let result = self.provider.acm_client
-            //     .describe_account_configuration()
+            //     .describe_certificate_options()
             //     .set_id(id.to_string())
             //     .send()
             //     .await
@@ -450,22 +450,22 @@ impl<'a> AcmService<'a> {
         })
     }
 
-    /// Update a account_configuration resource
-    async fn update_account_configuration(
+    /// Update a certificate_options resource
+    async fn update_certificate_options(
         &self,
         id: &str,
         input: ResourceInput,
     ) -> Result<ResourceOutput> {
         self.provider.runtime().block_on(async {
             // Extract input fields
-            let idempotency_token = input.get_string("idempotency_token")?;
-            let expiry_events = input.get_optional_string("expiry_events")?;
+            let options = input.get_string("options")?;
+            let certificate_arn = input.get_string("certificate_arn")?;
 
 
             // TODO: Call AWS SDK to update the resource
             // Example:
             // let result = self.provider.acm_client
-            //     .update_account_configuration()
+            //     .update_certificate_options()
             //     .set_id(id.to_string())
             //     .set_name(name)
             //     .send()
@@ -475,14 +475,14 @@ impl<'a> AcmService<'a> {
             // Return placeholder output
             Ok(ResourceOutput::new()
                 .with_id(id)
-                .with_field("idempotency_token", idempotency_token.unwrap_or_default())
-                .with_field("expiry_events", expiry_events.unwrap_or_default())
+                .with_field("options", options.unwrap_or_default())
+                .with_field("certificate_arn", certificate_arn.unwrap_or_default())
             )
         })
     }
 
-    /// Delete a account_configuration resource
-    async fn delete_account_configuration(
+    /// Delete a certificate_options resource
+    async fn delete_certificate_options(
         &self,
         id: &str,
     ) -> Result<()> {
@@ -490,7 +490,7 @@ impl<'a> AcmService<'a> {
             // TODO: Call AWS SDK to delete the resource
             // Example:
             // self.provider.acm_client
-            //     .delete_account_configuration()
+            //     .delete_certificate_options()
             //     .set_id(id.to_string())
             //     .send()
             //     .await

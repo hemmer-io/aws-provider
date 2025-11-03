@@ -38,7 +38,7 @@ impl<'a> App_instance_user_endpoint<'a> {
     ///
     /// TODO: Map `id` and update fields to appropriate SDK parameters
     #[allow(unused_variables)]
-    pub async fn update(&self, id: &str, name: Option<String>, app_instance_user_arn: Option<String>, endpoint_id: Option<String>, allow_messages: Option<String>) -> Result<()> {
+    pub async fn update(&self, id: &str, app_instance_user_arn: Option<String>, endpoint_id: Option<String>, name: Option<String>, allow_messages: Option<String>) -> Result<()> {
 
         // Note: This is a generated skeleton.
         // TODO: Map resource ID and update fields to SDK parameters
